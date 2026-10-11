@@ -262,21 +262,52 @@
         font-weight: 800;
       }
 
-      /* Slim Gradient Progress Bar */
+      /* Slim Gradient Progress Bar with Milestone Glow & Pulse */
       .progress-track {
+        position: relative;
         width: 100%;
-        height: 4px;
-        background: rgba(255, 255, 255, 0.06);
+        height: 5px;
+        background: rgba(255, 255, 255, 0.07);
         border-radius: 9999px;
-        overflow: hidden;
+        overflow: visible;
+        transition: box-shadow 0.4s ease, height 0.3s ease;
+      }
+
+      .progress-track.milestone-pulse {
+        box-shadow: 0 0 18px rgba(56, 189, 248, 0.85), 0 0 32px rgba(129, 140, 248, 0.6);
       }
 
       .progress-fill {
         height: 100%;
         width: 0%;
-        background: linear-gradient(90deg, #38bdf8, #818cf8, #34d399);
+        background: linear-gradient(90deg, #38bdf8 0%, #818cf8 50%, #34d399 100%);
         border-radius: 9999px;
-        transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.3s ease, transform 0.3s ease;
+        position: relative;
+        box-shadow: 0 0 8px rgba(56, 189, 248, 0.35);
+      }
+
+      .progress-fill.pulse-active {
+        animation: progressMilestonePulse 1.25s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+      }
+
+      @keyframes progressMilestonePulse {
+        0% {
+          filter: brightness(1) drop-shadow(0 0 4px #38bdf8);
+          transform: scaleY(1);
+        }
+        30% {
+          filter: brightness(2) drop-shadow(0 0 16px #38bdf8) drop-shadow(0 0 24px #34d399);
+          transform: scaleY(2.2);
+        }
+        60% {
+          filter: brightness(1.7) drop-shadow(0 0 12px #818cf8);
+          transform: scaleY(1.8);
+        }
+        100% {
+          filter: brightness(1) drop-shadow(0 0 6px rgba(56, 189, 248, 0.5));
+          transform: scaleY(1);
+        }
       }
 
       /* Card Stage */
@@ -4465,6 +4496,74 @@
         }
       }
 
+      // Milestone Progress Celebration Tracking (25%, 50%, 75%, 100%)
+      const celebratedMilestones = new Set();
+
+      function checkProgressMilestone(currentIdx, totalCount) {
+        if (totalCount <= 0) return;
+        const currentCount = currentIdx + 1;
+
+        const milestones = [
+          { pct: 25, label: "🎉 25% Completed! Great momentum!" },
+          { pct: 50, label: "⚡ Halfway mark! 50% of the deck mastered!" },
+          { pct: 75, label: "🔥 75% Mastered! Almost at the finish line!" },
+          { pct: 100, label: "🏆 100% Completed! You mastered the entire deck!" }
+        ];
+
+        for (const m of milestones) {
+          const thresholdCount = Math.round((totalCount * m.pct) / 100);
+          if (currentCount === thresholdCount && !celebratedMilestones.has(m.pct)) {
+            celebratedMilestones.add(m.pct);
+            triggerProgressPulse(m.label, m.pct);
+            break;
+          }
+        }
+      }
+
+      function triggerProgressPulse(msg, pct) {
+        const progressTrack = document.querySelector(".progress-track");
+        if (progressFillEl) {
+          progressFillEl.classList.remove("pulse-active");
+          // Trigger reflow to restart animation smoothly
+          void progressFillEl.offsetWidth;
+          progressFillEl.classList.add("pulse-active");
+          setTimeout(() => {
+            progressFillEl.classList.remove("pulse-active");
+          }, 1400);
+        }
+        if (progressTrack) {
+          progressTrack.classList.add("milestone-pulse");
+          setTimeout(() => {
+            progressTrack.classList.remove("milestone-pulse");
+          }, 1400);
+        }
+
+        // Celebratory melodic audio chime feedback
+        playMilestoneChime(pct);
+
+        // Motivational toast notification
+        showToast(msg);
+      }
+
+      function playMilestoneChime(pct) {
+        try {
+          const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+          const notes = pct === 100 ? [523.25, 659.25, 783.99, 1046.5] : [440, 554.37, 659.25];
+          notes.forEach((freq, i) => {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = "triangle";
+            osc.frequency.setValueAtTime(freq, audioCtx.currentTime + i * 0.09);
+            gain.gain.setValueAtTime(0.045, audioCtx.currentTime + i * 0.09);
+            gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + i * 0.09 + 0.38);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start(audioCtx.currentTime + i * 0.09);
+            osc.stop(audioCtx.currentTime + i * 0.09 + 0.4);
+          });
+        } catch (e) {}
+      }
+
       // Render Card at Current Index with verified high-definition photo and selective animation
       function renderCurrentCard() {
         const card = cards[currentIndex];
@@ -4483,6 +4582,7 @@
         // Progress bar (fills smoothly based on session index)
         const progressPct = ((currentIndex + 1) / cards.length) * 100;
         progressFillEl.style.width = `${progressPct}%`;
+        checkProgressMilestone(currentIndex, cards.length);
 
         // Front face data
         frontCardNumEl.textContent = `#${card.num}`;
@@ -4653,6 +4753,7 @@
 
           isShuffled = true;
           currentIndex = 0;
+          celebratedMilestones.clear();
           isFlipped = false;
           cardWrapper.classList.remove("flipped", "slide-out-left");
 
@@ -4697,29 +4798,10 @@
         }, 220);
       }
 
-      // Build Section Chips in Jump Drawer
-      function buildSectionChips() {
-        const categories = [];
-        cards.forEach((c, idx) => {
-          if (!categories.some((item) => item.name === c.category)) {
-            categories.push({ name: c.category, index: idx, num: c.num });
-          }
-        });
-
-        categoryChipsEl.innerHTML = "";
-        categories.forEach((cat) => {
-          const chip = document.createElement("button");
-          chip.className = "category-chip";
-          chip.textContent = `#${cat.num} ${cat.name}`;
-          chip.addEventListener("click", () => {
-            jumpToIndex(cat.index);
-            closeJumpModal();
-          });
-          categoryChipsEl.appendChild(chip);
-        });
+      // Helper alias for modal closing
+      function closeJumpModal() {
+        closeSettingsModal();
       }
-
-      
 
       // Gesture & Touch Event Listeners
       cardWrapper.addEventListener("touchstart", (e) => {
@@ -4944,7 +5026,7 @@
         const targetIdx = cards.findIndex((c) => c.num === targetNum);
         if (targetIdx !== -1) {
           jumpToIndex(targetIdx);
-          closeJumpModal();
+          closeSettingsModal();
         }
       });
 
@@ -4972,8 +5054,9 @@
           e.preventDefault();
           openEditModal();
         } else if (e.key === "Escape") {
-          closeJumpModal();
+          closeSettingsModal();
           closeEditModal();
+          if (typeof closeQuickShortcutModal === "function") closeQuickShortcutModal();
         }
       });
 
