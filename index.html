@@ -7,10 +7,6 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
     />
     <title>Sequential Multilingual Flashcards</title>
-    <meta name="theme-color" content="#070a13" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="mobile-web-app-capable" content="yes" />
     <meta
       name="description"
       content="Mobile-first sequential flashcard reader and sliding deck featuring English, Spanish, Hindi, and pure native Tamil script."
@@ -86,13 +82,21 @@
         flex-direction: column;
         justify-content: space-between;
         width: 100%;
-        max-width: 480px;
+        max-width: 520px;
         height: 100%;
         height: 100dvh;
         margin: 0 auto;
-        padding: env(safe-area-inset-top, 14px) 16px
-          env(safe-area-inset-bottom, 16px) 16px;
+        padding: env(safe-area-inset-top, 16px) 18px
+          env(safe-area-inset-bottom, 18px) 18px;
         z-index: 1;
+        transition: max-width 0.3s ease;
+      }
+
+      @media (min-width: 768px) {
+        #app-container {
+          max-width: 620px;
+          padding: 24px 20px;
+        }
       }
 
       /* Header */
@@ -290,7 +294,7 @@
       .flashcard-wrapper {
         width: 100%;
         height: 100%;
-        max-height: 570px;
+        max-height: 600px;
         position: relative;
         transform-style: preserve-3d;
         cursor: pointer;
@@ -1635,6 +1639,103 @@
         font-size: 0.85rem;
       }
 
+      
+      /* Settings & Download HTML Styling */
+      .settings-sheet {
+        max-height: 82vh;
+      }
+
+      .settings-content-body {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding-top: 6px;
+      }
+
+      .settings-action-card {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 14px 16px;
+        border-radius: 18px;
+        background: rgba(56, 189, 248, 0.05);
+        border: 1px solid rgba(56, 189, 248, 0.22);
+      }
+
+      .settings-card-info {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .settings-card-icon-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        background: rgba(56, 189, 248, 0.12);
+        border: 1px solid rgba(56, 189, 248, 0.28);
+        flex-shrink: 0;
+      }
+
+      .settings-card-title {
+        font-size: 0.95rem;
+        font-weight: 750;
+        color: #f8fafc;
+        margin-bottom: 2px;
+      }
+
+      .settings-card-desc {
+        font-size: 0.76rem;
+        color: #94a3b8;
+        line-height: 1.35;
+      }
+
+      .btn-download-html {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        padding: 11px 16px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+        border: 1px solid rgba(56, 189, 248, 0.4);
+        color: #ffffff;
+        font-size: 0.88rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+      }
+
+      .btn-download-html:hover,
+      .btn-download-html:active {
+        background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 18px rgba(2, 132, 199, 0.5);
+      }
+
+      .settings-card-section {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 14px 16px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .settings-section-label {
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: #94a3b8;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+      }
+
       /* Front Face Shortcut Glance Button */
       .front-shortcut-glance {
         margin-top: 4px;
@@ -1674,157 +1775,6 @@
       @keyframes subtlePulse {
         0%, 100% { transform: scale(1); opacity: 0.9; }
         50% { transform: scale(1.25); opacity: 1; }
-      }
-
-      
-      /* Header Device Access Button & Modal Styles */
-      .header-tool-btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 32px;
-        height: 32px;
-        padding: 0;
-        border-radius: 10px;
-        background: rgba(56, 189, 248, 0.12);
-        border: 1px solid rgba(56, 189, 248, 0.32);
-        color: var(--accent-cyan);
-        cursor: pointer;
-        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-        flex-shrink: 0;
-      }
-
-      .header-tool-btn:active {
-        transform: scale(0.92);
-        background: rgba(56, 189, 248, 0.25);
-      }
-
-      .device-modal-content {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        overflow-y: auto;
-        padding-bottom: 4px;
-      }
-
-      .device-option-card {
-        background: rgba(255, 255, 255, 0.035);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 16px;
-        padding: 12px 14px;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-
-      .device-card-header {
-        display: flex;
-        align-items: flex-start;
-        gap: 10px;
-      }
-
-      .device-icon {
-        font-size: 1.25rem;
-        flex-shrink: 0;
-      }
-
-      .device-card-info {
-        display: flex;
-        flex-direction: column;
-        gap: 2px;
-      }
-
-      .device-card-title {
-        font-size: 0.88rem;
-        font-weight: 700;
-        color: #f8fafc;
-      }
-
-      .device-card-desc {
-        font-size: 0.74rem;
-        color: #94a3b8;
-        line-height: 1.35;
-      }
-
-      .device-action-row {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        margin-top: 4px;
-      }
-
-      .device-url-input {
-        flex: 1;
-        background: #090f1d;
-        border: 1px solid #1e293b;
-        border-radius: 10px;
-        padding: 8px 10px;
-        color: #94a3b8;
-        font-size: 0.74rem;
-        font-family: monospace;
-        outline: none;
-      }
-
-      .btn-copy-url {
-        background: rgba(56, 189, 248, 0.16);
-        border: 1px solid rgba(56, 189, 248, 0.35);
-        color: var(--accent-cyan);
-        border-radius: 10px;
-        padding: 8px 14px;
-        font-size: 0.76rem;
-        font-weight: 700;
-        cursor: pointer;
-        transition: all 0.15s ease;
-        flex-shrink: 0;
-      }
-
-      .btn-copy-url:active {
-        background: rgba(56, 189, 248, 0.35);
-        transform: scale(0.96);
-      }
-
-      .btn-download-html {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(99, 102, 241, 0.2));
-        border: 1px solid rgba(56, 189, 248, 0.4);
-        color: #ffffff;
-        border-radius: 12px;
-        padding: 10px 14px;
-        font-size: 0.82rem;
-        font-weight: 700;
-        cursor: pointer;
-        transition: all 0.18s ease;
-        margin-top: 2px;
-      }
-
-      .btn-download-html:active {
-        transform: scale(0.97);
-        filter: brightness(1.15);
-      }
-
-      .device-steps-list {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        font-size: 0.75rem;
-        color: #cbd5e1;
-        line-height: 1.4;
-        background: rgba(0, 0, 0, 0.2);
-        padding: 8px 10px;
-        border-radius: 10px;
-      }
-
-      .device-step-item strong {
-        color: var(--accent-cyan);
-      }
-
-      .device-step-item em {
-        color: #fde68a;
-        font-style: normal;
       }
 
       /* Floating Toast Notification */
@@ -1894,26 +1844,6 @@
                 <path d="M2 6h1.4c1.3 0 2.5.6 3.3 1.7l2 2.6" />
                 <path d="M14.6 13.7l2.1 2.6c.8 1.1 2 1.7 3.3 1.7H22" />
                 <path d="m18 20 4-4-4-4" />
-              </svg>
-            </button>
-            <button
-              class="header-tool-btn"
-              id="btn-device-modal"
-              title="Use on any device, phone, or download HTML"
-              aria-label="Use on any device"
-            >
-              <svg
-                width="15"
-                height="15"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.3"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
-                <path d="M12 18h.01" />
               </svg>
             </button>
             <div class="counter-badge" id="counter-badge">
@@ -2193,30 +2123,7 @@
                 </div>
               </div>
 
-              <!-- Edit Translations Action Pill -->
-              <div class="edit-pill-wrapper">
-                <button
-                  class="edit-card-pill-btn"
-                  id="back-edit-pill-btn"
-                  title="Edit translations for this card"
-                  aria-label="Edit translations"
-                >
-                  <svg
-                    width="13"
-                    height="13"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M12 20h9" />
-                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
-                  </svg>
-                  <span>Edit Translations</span>
-                </button>
-              </div>
+              
             </div>
 
             <div class="card-hint-footer">
@@ -2293,10 +2200,10 @@
         </button>
 
         <button
-          class="jump-trigger-btn"
-          id="btn-jump-modal"
-          title="Jump to card"
-          aria-label="Jump to card index"
+          class="jump-trigger-btn settings-trigger-btn"
+          id="btn-settings-modal"
+          title="Settings & Offline HTML"
+          aria-label="Settings and Offline HTML"
         >
           <svg
             width="18"
@@ -2304,46 +2211,71 @@
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-width="2"
+            stroke-width="2.2"
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <line x1="8" y1="6" x2="21" y2="6"></line>
-            <line x1="8" y1="12" x2="21" y2="12"></line>
-            <line x1="8" y1="18" x2="21" y2="18"></line>
-            <line x1="3" y1="6" x2="3.01" y2="6"></line>
-            <line x1="3" y1="12" x2="3.01" y2="12"></line>
-            <line x1="3" y1="18" x2="3.01" y2="18"></line>
+            <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+            <circle cx="12" cy="12" r="3"/>
           </svg>
         </button>
       </footer>
     </div>
 
-    <!-- Quick Jump Drawer Modal -->
-    <div class="modal-backdrop" id="jump-modal">
-      <div class="modal-sheet">
+    <!-- Settings & Offline HTML Modal -->
+    <div class="modal-backdrop" id="settings-modal">
+      <div class="modal-sheet settings-sheet">
         <div class="modal-handle"></div>
         <div class="modal-header">
-          <span class="modal-title">Jump to Card</span>
-          <button class="modal-close-btn" id="modal-close-btn">&times;</button>
+          <div class="edit-modal-title-group">
+            <span class="modal-title">Settings & Tools</span>
+            <span class="edit-badge">Offline Ready</span>
+          </div>
+          <button class="modal-close-btn" id="settings-close-btn" aria-label="Close settings">&times;</button>
         </div>
 
-        <div class="range-slider-wrapper">
-          <div class="slider-bubble" id="slider-val-indicator">#800</div>
-          <input
-            type="range"
-            class="jump-slider"
-            id="jump-slider"
-            min="800"
-            max="1000"
-            value="800"
-          />
-        </div>
+        <div class="settings-content-body">
+          <!-- Download Offline HTML Card -->
+          <div class="settings-action-card">
+            <div class="settings-card-info">
+              <div class="settings-card-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="7 10 12 15 17 10"/>
+                  <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+              </div>
+              <div class="settings-card-text">
+                <div class="settings-card-title">Download Offline HTML</div>
+                <div class="settings-card-desc">Save the entire deck as a single offline HTML file. Opens in any browser with zero internet.</div>
+              </div>
+            </div>
+            <button type="button" class="btn-download-html" id="btn-download-html">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              <span>Download HTML File</span>
+            </button>
+          </div>
 
-        <div style="font-size: 0.8rem; color: #94a3b8; font-weight: 600;">
-          Sections:
+          <!-- Quick Jump Slider Card -->
+          <div class="settings-card-section">
+            <div class="settings-section-label">Fast Card Jump (800 – 1000)</div>
+            <div class="range-slider-wrapper">
+              <div class="slider-bubble" id="slider-val-indicator">#800</div>
+              <input
+                type="range"
+                class="jump-slider"
+                id="jump-slider"
+                min="800"
+                max="1000"
+                value="800"
+              />
+            </div>
+          </div>
         </div>
-        <div class="category-chips-list" id="category-chips"></div>
       </div>
     </div>
 
@@ -2454,94 +2386,6 @@
             <button type="submit" class="btn-edit-save" id="btn-quick-shortcut-save">Save Shortcut</button>
           </div>
         </form>
-      </div>
-    </div>
-
-    
-    <!-- Use on Any Device / Offline HTML Modal -->
-    <div class="modal-backdrop" id="device-modal">
-      <div class="modal-sheet">
-        <div class="modal-handle"></div>
-        <div class="modal-header">
-          <div class="edit-modal-title-group">
-            <span class="modal-title">Use on Any Device</span>
-            <span class="edit-badge">Universal</span>
-          </div>
-          <button class="modal-close-btn" id="device-modal-close-btn" aria-label="Close">&times;</button>
-        </div>
-
-        <div class="device-modal-content">
-          <!-- Option 1: Live Web App Link -->
-          <div class="device-option-card">
-            <div class="device-card-header">
-              <span class="device-icon">🌐</span>
-              <div class="device-card-info">
-                <span class="device-card-title">Live Web App Link (Any Phone / PC)</span>
-                <span class="device-card-desc">Open in any browser. All your edits save automatically on that device!</span>
-              </div>
-            </div>
-            <div class="device-action-row">
-              <input type="text" class="device-url-input" id="device-url-display" readonly value="https://ais-dev-kgrpdx7hnunkkpn4rtvjsl-444550834163.asia-east1.run.app" />
-              <button type="button" class="btn-copy-url" id="btn-copy-url">Copy Link</button>
-            </div>
-            <div style="font-size: 0.7rem; color: #7dd3fc; line-height: 1.35; margin-top: 3px;">
-              💡 To make this link permanently public for friends without login, click <strong>"Publish"</strong> in the top-right toolbar.
-            </div>
-          </div>
-
-          <!-- Option 2: Download Standalone HTML -->
-          <div class="device-option-card">
-            <div class="device-card-header">
-              <span class="device-icon">💾</span>
-              <div class="device-card-info">
-                <span class="device-card-title">Download Standalone HTML File</span>
-                <span class="device-card-desc">Single-file deck with all 199 cards & shortcuts. Double-click to open anywhere offline! You can edit cards inside it too.</span>
-              </div>
-            </div>
-            <button type="button" class="btn-download-html" id="btn-download-html">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                <polyline points="7 10 12 15 17 10" />
-                <line x1="12" y1="15" x2="12" y2="3" />
-              </svg>
-              <span>Download HTML File (.html)</span>
-            </button>
-          </div>
-
-          <!-- Option 3: Sync Custom Edits Between Devices -->
-          <div class="device-option-card">
-            <div class="device-card-header">
-              <span class="device-icon">🔄</span>
-              <div class="device-card-info">
-                <span class="device-card-title">Transfer Your Edits to Another Device</span>
-                <span class="device-card-desc">Export your customized words and shortcuts to import onto your phone or laptop</span>
-              </div>
-            </div>
-            <div style="display: flex; gap: 8px; margin-top: 4px;">
-              <button type="button" class="btn-edit-reset" id="btn-export-edits" style="padding: 8px 12px; font-size: 0.76rem;">📥 Export My Edits</button>
-              <button type="button" class="btn-copy-url" id="btn-import-edits" style="padding: 8px 12px; font-size: 0.76rem;">📤 Import Edits</button>
-            </div>
-          </div>
-
-          <!-- Option 4: Install on Phone Guide -->
-          <div class="device-option-card">
-            <div class="device-card-header">
-              <span class="device-icon">📱</span>
-              <div class="device-card-info">
-                <span class="device-card-title">Install as Phone App</span>
-                <span class="device-card-desc">Add directly to your iPhone or Android home screen with zero app store needed</span>
-              </div>
-            </div>
-            <div class="device-steps-list">
-              <div class="device-step-item">
-                <strong>iPhone (Safari):</strong> Tap Share button → select <em>"Add to Home Screen"</em>
-              </div>
-              <div class="device-step-item">
-                <strong>Android (Chrome):</strong> Tap Menu (⋮) → select <em>"Install app"</em> or <em>"Add to Home screen"</em>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
 
@@ -4070,12 +3914,65 @@
       const btnFlip = document.getElementById("btn-flip");
 
       // Jump Modal Elements
-      const btnJumpModal = document.getElementById("btn-jump-modal");
-      const jumpModal = document.getElementById("jump-modal");
-      const modalCloseBtn = document.getElementById("modal-close-btn");
       const jumpSlider = document.getElementById("jump-slider");
       const sliderValIndicator = document.getElementById("slider-val-indicator");
-      const categoryChipsEl = document.getElementById("category-chips");
+
+      // Settings Modal & Offline HTML Download Elements
+      const btnSettingsModal = document.getElementById("btn-settings-modal");
+      const settingsModal = document.getElementById("settings-modal");
+      const settingsCloseBtn = document.getElementById("settings-close-btn");
+      const btnDownloadHtml = document.getElementById("btn-download-html");
+
+      function openSettingsModal() {
+        if (!settingsModal) return;
+        settingsModal.classList.add("open");
+        jumpSlider.value = cards[currentIndex].num;
+        sliderValIndicator.textContent = `#${cards[currentIndex].num} — ${cards[currentIndex].word}`;
+        playHapticTick(500, "sine", 0.04);
+      }
+
+      function closeSettingsModal() {
+        if (!settingsModal) return;
+        settingsModal.classList.remove("open");
+      }
+
+      if (btnSettingsModal) {
+        btnSettingsModal.addEventListener("click", openSettingsModal);
+      }
+      if (settingsCloseBtn) {
+        settingsCloseBtn.addEventListener("click", closeSettingsModal);
+      }
+      if (settingsModal) {
+        settingsModal.addEventListener("click", (e) => {
+          if (e.target === settingsModal) closeSettingsModal();
+        });
+      }
+
+      // Standalone Offline HTML Downloader
+      function downloadOfflineHtml() {
+        try {
+          const docHtml = "<!doctype html>\n" + document.documentElement.outerHTML;
+          const blob = new Blob([docHtml], { type: "text/html;charset=utf-8" });
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement("a");
+          link.href = url;
+          link.download = "Multilingual_Flashcards_800-1000.html";
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          URL.revokeObjectURL(url);
+          showToast("Offline HTML downloaded successfully!");
+          playHapticTick(620, "triangle", 0.06);
+        } catch (err) {
+          console.error("HTML download error:", err);
+          showToast("Download failed, please try again");
+        }
+      }
+
+      if (btnDownloadHtml) {
+        btnDownloadHtml.addEventListener("click", downloadOfflineHtml);
+      }
+
 
             // Memory Shortcut DOM Elements
       const shortcutSectionEl = document.getElementById("card-shortcut-section");
@@ -4335,131 +4232,6 @@
       let editingCardIndex = -1;
 
       
-      
-      // Device Access & Standalone HTML Export Controller
-      const btnDeviceModal = document.getElementById("btn-device-modal");
-      const deviceModal = document.getElementById("device-modal");
-      const deviceModalCloseBtn = document.getElementById("device-modal-close-btn");
-      const btnCopyUrl = document.getElementById("btn-copy-url");
-      const deviceUrlDisplay = document.getElementById("device-url-display");
-      const btnDownloadHtml = document.getElementById("btn-download-html");
-
-      function openDeviceModal() {
-        if (!deviceModal) return;
-        if (deviceUrlDisplay) {
-          deviceUrlDisplay.value = window.location.href.split('?')[0];
-        }
-        deviceModal.classList.add("open");
-        playHapticTick(500, "sine", 0.04);
-      }
-
-      function closeDeviceModal() {
-        if (deviceModal) deviceModal.classList.remove("open");
-      }
-
-      if (btnDeviceModal) {
-        btnDeviceModal.addEventListener("click", openDeviceModal);
-      }
-      if (deviceModalCloseBtn) {
-        deviceModalCloseBtn.addEventListener("click", closeDeviceModal);
-      }
-      if (deviceModal) {
-        deviceModal.addEventListener("click", (e) => {
-          if (e.target === deviceModal) closeDeviceModal();
-        });
-      }
-
-      if (btnCopyUrl) {
-        btnCopyUrl.addEventListener("click", async () => {
-          const url = deviceUrlDisplay ? deviceUrlDisplay.value : window.location.href;
-          try {
-            if (navigator.clipboard) {
-              await navigator.clipboard.writeText(url);
-            } else {
-              deviceUrlDisplay.select();
-              document.execCommand("copy");
-            }
-            showToast("App URL copied to clipboard!");
-            playHapticTick(600, "sine", 0.05);
-          } catch (e) {
-            showToast("Copied: " + url);
-          }
-        });
-      }
-
-      if (btnDownloadHtml) {
-        btnDownloadHtml.addEventListener("click", () => {
-          try {
-            const htmlContent = "<!doctype html>\n" + document.documentElement.outerHTML;
-            const blob = new Blob([htmlContent], { type: "text/html;charset=utf-8" });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = "vocabulary_flashcards_800_1000.html";
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-            showToast("HTML file downloaded! Open in any browser.");
-            playHapticTick(640, "triangle", 0.06);
-          } catch (err) {
-            showToast("Download error: " + err.message);
-          }
-        });
-      }
-
-      // Transfer Edits Between Devices
-      const btnExportEdits = document.getElementById("btn-export-edits");
-      const btnImportEdits = document.getElementById("btn-import-edits");
-
-      if (btnExportEdits) {
-        btnExportEdits.addEventListener("click", () => {
-          try {
-            const raw = localStorage.getItem(STORAGE_KEY_EDITS) || "{}";
-            const blob = new Blob([raw], { type: "application/json" });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = "my_custom_vocab_edits.json";
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-            showToast("Edits exported! Transfer this file to any device.");
-            playHapticTick(620, "sine", 0.05);
-          } catch (e) {
-            showToast("Export error: " + e.message);
-          }
-        });
-      }
-
-      if (btnImportEdits) {
-        btnImportEdits.addEventListener("click", () => {
-          const input = document.createElement("input");
-          input.type = "file";
-          input.accept = ".json,application/json";
-          input.onchange = (e) => {
-            const file = e.target.files[0];
-            if (!file) return;
-            const reader = new FileReader();
-            reader.onload = (re) => {
-              try {
-                const data = JSON.parse(re.target.result);
-                localStorage.setItem(STORAGE_KEY_EDITS, JSON.stringify(data));
-                loadSavedEdits();
-                renderCurrentCard();
-                showToast("Custom edits imported successfully!");
-                playHapticTick(620, "triangle", 0.05);
-              } catch (err) {
-                showToast("Invalid edits file: " + err.message);
-              }
-            };
-            reader.readAsText(file);
-          };
-          input.click();
-        });
-      }
-
       // Quick Shortcut Edit Modal Elements
       const btnQuickEditShortcut = document.getElementById("btn-quick-edit-shortcut");
       const shortcutModal = document.getElementById("shortcut-modal");
@@ -4891,7 +4663,7 @@
             deckBadgeEl.style.background = "rgba(99, 102, 241, 0.16)";
           }
 
-          buildSectionChips();
+          
           renderCurrentCard();
           cardWrapper.classList.add("slide-in-right");
 
@@ -4947,15 +4719,7 @@
         });
       }
 
-      function openJumpModal() {
-        jumpModal.classList.add("open");
-        jumpSlider.value = cards[currentIndex].num;
-        sliderValIndicator.textContent = `#${cards[currentIndex].num} — ${cards[currentIndex].word}`;
-      }
-
-      function closeJumpModal() {
-        jumpModal.classList.remove("open");
-      }
+      
 
       // Gesture & Touch Event Listeners
       cardWrapper.addEventListener("touchstart", (e) => {
@@ -5167,11 +4931,7 @@
       });
 
       // Jump Modal Listeners
-      btnJumpModal.addEventListener("click", openJumpModal);
-      modalCloseBtn.addEventListener("click", closeJumpModal);
-      jumpModal.addEventListener("click", (e) => {
-        if (e.target === jumpModal) closeJumpModal();
-      });
+      
 
       jumpSlider.addEventListener("input", (e) => {
         const targetNum = parseInt(e.target.value, 10);
@@ -5219,7 +4979,7 @@
 
       // Initialize App
       loadSavedEdits();
-      buildSectionChips();
+      
       renderCurrentCard();
     </script>
   </body>
