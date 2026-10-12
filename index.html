@@ -1724,6 +1724,234 @@
 
       
       /* Settings & Download HTML Styling */
+      
+      /* Professional Audio Studio & Music Controls */
+      .settings-sheet {
+        max-height: 88vh;
+        overflow-y: auto;
+      }
+
+      .settings-audio-container {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .audio-card {
+        background: rgba(255, 255, 255, 0.035);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 18px;
+        padding: 14px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        transition: border-color 0.2s ease;
+      }
+
+      .audio-card:hover {
+        border-color: rgba(56, 189, 248, 0.25);
+      }
+
+      .audio-card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .audio-card-title-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .audio-icon-badge {
+        font-size: 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        background: rgba(56, 189, 248, 0.1);
+        border: 1px solid rgba(56, 189, 248, 0.22);
+        flex-shrink: 0;
+      }
+
+      .audio-section-title {
+        font-size: 0.9rem;
+        font-weight: 750;
+        color: #f8fafc;
+        line-height: 1.2;
+      }
+
+      .audio-section-sub {
+        font-size: 0.72rem;
+        color: #94a3b8;
+        line-height: 1.3;
+        margin-top: 2px;
+      }
+
+      .audio-sliders-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .audio-slider-group {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .audio-slider-label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: #cbd5e1;
+      }
+
+      .val-badge {
+        font-family: monospace;
+        font-size: 0.76rem;
+        font-weight: 700;
+        color: var(--accent-cyan);
+        background: rgba(56, 189, 248, 0.12);
+        padding: 2px 7px;
+        border-radius: 6px;
+        border: 1px solid rgba(56, 189, 248, 0.25);
+      }
+
+      .settings-slider {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        height: 6px;
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.1);
+        outline: none;
+        transition: background 0.2s ease;
+      }
+
+      .settings-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #38bdf8;
+        box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+        cursor: pointer;
+        transition: transform 0.15s ease, background-color 0.15s ease;
+      }
+
+      .settings-slider::-webkit-slider-thumb:hover,
+      .settings-slider::-webkit-slider-thumb:active {
+        transform: scale(1.22);
+        background: #7dd3fc;
+      }
+
+      .audio-mode-selector {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 2px;
+      }
+
+      .audio-chip-btn {
+        padding: 5px 12px;
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #94a3b8;
+        font-size: 0.74rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.18s ease;
+      }
+
+      .audio-chip-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: #f1f5f9;
+      }
+
+      .audio-chip-btn.active {
+        background: rgba(56, 189, 248, 0.18);
+        border-color: rgba(56, 189, 248, 0.5);
+        color: #38bdf8;
+        box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
+      }
+
+      .btn-audio-test {
+        padding: 5px 12px;
+        border-radius: 9999px;
+        background: rgba(56, 189, 248, 0.12);
+        border: 1px solid rgba(56, 189, 248, 0.35);
+        color: var(--accent-cyan);
+        font-size: 0.74rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.18s ease;
+      }
+
+      .btn-audio-test:hover,
+      .btn-audio-test:active {
+        background: rgba(56, 189, 248, 0.28);
+        transform: scale(0.96);
+      }
+
+      /* Clean Toggle Switch */
+      .toggle-switch {
+        position: relative;
+        display: inline-block;
+        width: 44px;
+        height: 24px;
+        flex-shrink: 0;
+      }
+
+      .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .toggle-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(255, 255, 255, 0.15);
+        transition: .3s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 9999px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+      }
+
+      .toggle-slider:before {
+        position: absolute;
+        content: "";
+        height: 18px;
+        width: 18px;
+        left: 2px;
+        bottom: 2px;
+        background-color: white;
+        transition: .3s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 50%;
+      }
+
+      input:checked + .toggle-slider {
+        background-color: #0284c7;
+        border-color: #38bdf8;
+      }
+
+      input:checked + .toggle-slider:before {
+        transform: translateX(20px);
+        background-color: #f0f9ff;
+      }
+
       .settings-sheet {
         max-height: 82vh;
       }
@@ -2320,6 +2548,123 @@
         </div>
 
         <div class="settings-content-body">
+
+          <!-- Professional Audio Studio & Music Controls -->
+          <div class="settings-audio-container">
+
+            <!-- 1. Background Study Music / Ambient Focus Drone -->
+            <div class="audio-card">
+              <div class="audio-card-header">
+                <div class="audio-card-title-group">
+                  <span class="audio-icon-badge">🎵</span>
+                  <div>
+                    <div class="audio-section-title">Background Study Music</div>
+                    <div class="audio-section-sub">Ambient procedural focus tones for deep memorization</div>
+                  </div>
+                </div>
+                <label class="toggle-switch" aria-label="Toggle Background Music">
+                  <input type="checkbox" id="toggle-bgm" />
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+
+              <div id="bgm-panel" style="display: none; flex-direction: column; gap: 10px;">
+                <!-- Mode selector -->
+                <div class="audio-mode-selector">
+                  <button type="button" class="audio-chip-btn active" data-bgm="lofi">Lo-Fi Warm Pad</button>
+                  <button type="button" class="audio-chip-btn" data-bgm="alpha">Alpha Wave (10Hz)</button>
+                  <button type="button" class="audio-chip-btn" data-bgm="zen">Zen Ambient</button>
+                </div>
+                <!-- BGM Volume -->
+                <div class="audio-slider-group">
+                  <div class="audio-slider-label">
+                    <span>Music Volume</span>
+                    <span class="val-badge" id="badge-bgm-vol">25%</span>
+                  </div>
+                  <input type="range" class="settings-slider" id="slider-bgm-vol" min="0" max="100" value="25" />
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. Voice & Speech Pronunciation (Volume, Pitch, Speed) -->
+            <div class="audio-card">
+              <div class="audio-card-header">
+                <div class="audio-card-title-group">
+                  <span class="audio-icon-badge">🎙️</span>
+                  <div>
+                    <div class="audio-section-title">Voice & Pronunciation</div>
+                    <div class="audio-section-sub">Volume, pitch & speed for Spanish, Hindi & English</div>
+                  </div>
+                </div>
+                <button type="button" class="btn-audio-test" id="btn-test-voice" title="Test voice speech">
+                  <span>Preview 🔊</span>
+                </button>
+              </div>
+
+              <div class="audio-sliders-grid">
+                <!-- Speech Volume -->
+                <div class="audio-slider-group">
+                  <div class="audio-slider-label">
+                    <span>Speech Volume</span>
+                    <span class="val-badge" id="badge-voice-vol">100%</span>
+                  </div>
+                  <input type="range" class="settings-slider" id="slider-voice-vol" min="0" max="100" value="100" />
+                </div>
+
+                <!-- Speech Pitch -->
+                <div class="audio-slider-group">
+                  <div class="audio-slider-label">
+                    <span>Speech Pitch</span>
+                    <span class="val-badge" id="badge-voice-pitch">1.0×</span>
+                  </div>
+                  <input type="range" class="settings-slider" id="slider-voice-pitch" min="50" max="150" value="100" />
+                </div>
+
+                <!-- Speech Speed (Rate) -->
+                <div class="audio-slider-group">
+                  <div class="audio-slider-label">
+                    <span>Speech Speed (Rate)</span>
+                    <span class="val-badge" id="badge-voice-rate">0.80×</span>
+                  </div>
+                  <input type="range" class="settings-slider" id="slider-voice-rate" min="50" max="130" value="80" />
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. Card Sound Effects (SFX) -->
+            <div class="audio-card">
+              <div class="audio-card-header">
+                <div class="audio-card-title-group">
+                  <span class="audio-icon-badge">🎚️</span>
+                  <div>
+                    <div class="audio-section-title">Card Flip Sound Effects</div>
+                    <div class="audio-section-sub">Physical card whoosh & tactile micro-snap</div>
+                  </div>
+                </div>
+                <button type="button" class="btn-audio-test" id="btn-test-sfx" title="Audition card flip sound">
+                  <span>Audition ⚡</span>
+                </button>
+              </div>
+
+              <div class="audio-sliders-grid">
+                <div class="audio-slider-group">
+                  <div class="audio-slider-label">
+                    <span>SFX Volume</span>
+                    <span class="val-badge" id="badge-sfx-vol">100%</span>
+                  </div>
+                  <input type="range" class="settings-slider" id="slider-sfx-vol" min="0" max="100" value="100" />
+                </div>
+
+                <div class="audio-mode-selector">
+                  <button type="button" class="audio-chip-btn active" data-sfx="snap">Crisp Snap</button>
+                  <button type="button" class="audio-chip-btn" data-sfx="whoosh">Soft Whoosh</button>
+                  <button type="button" class="audio-chip-btn" data-sfx="mute">Silent</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
           <!-- Download Offline HTML Card -->
           <div class="settings-action-card">
             <div class="settings-card-info">
@@ -4181,8 +4526,11 @@
         // Realistic tactile playing-card flip sound (Crisp air whoosh + tactile snap transient)
         playCardFlip(isFlippingBack = false) {
           if (!this.enabled) return;
+          if (audioPrefs && audioPrefs.sfxStyle === "mute") return;
           this.unlock();
           if (!this.ctx) return;
+          const sfxGainScale = (audioPrefs && typeof audioPrefs.sfxVolume === "number") ? audioPrefs.sfxVolume : 1.0;
+          if (sfxGainScale <= 0.01) return;
 
           try {
             const t = this.ctx.currentTime;
@@ -4196,7 +4544,7 @@
             whooshOsc.frequency.setValueAtTime(startFreq, t);
             whooshOsc.frequency.exponentialRampToValueAtTime(endFreq, t + 0.16);
 
-            whooshGain.gain.setValueAtTime(0.50, t);
+            whooshGain.gain.setValueAtTime(0.50 * sfxGainScale, t);
             whooshGain.gain.exponentialRampToValueAtTime(0.001, t + 0.17);
 
             whooshOsc.connect(whooshGain);
@@ -4211,7 +4559,7 @@
             snapOsc.frequency.setValueAtTime(isFlippingBack ? 820 : 1100, t + 0.01);
             snapOsc.frequency.exponentialRampToValueAtTime(260, t + 0.08);
 
-            snapGain.gain.setValueAtTime(0.58, t + 0.01);
+            snapGain.gain.setValueAtTime((audioPrefs.sfxStyle === "whoosh" ? 0.05 : 0.58) * sfxGainScale, t + 0.01);
             snapGain.gain.exponentialRampToValueAtTime(0.001, t + 0.085);
 
             snapOsc.connect(snapGain);
@@ -4240,7 +4588,8 @@
             osc.frequency.setValueAtTime(680, t);
             osc.frequency.exponentialRampToValueAtTime(340, t + 0.04);
 
-            gain.gain.setValueAtTime(0.38, t);
+            const tapScale = (audioPrefs && typeof audioPrefs.sfxVolume === "number") ? audioPrefs.sfxVolume : 1.0;
+            gain.gain.setValueAtTime(0.38 * tapScale, t);
             gain.gain.exponentialRampToValueAtTime(0.001, t + 0.045);
 
             osc.connect(gain);
