@@ -1,6 +1,6 @@
 {
-  "name": "Sequential Multilingual Flashcards",
-  "description": "Mobile-first sequential flashcard reader and sliding deck featuring English, Spanish, Hindi, and pure native Tamil script.",
+  "name": "Stellar",
+  "description": "Production-grade sequential multilingual vocabulary mastery app featuring English, Spanish, Hindi, and authentic native Tamil script.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

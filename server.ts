@@ -22,6 +22,8 @@ async function startServer() {
         ? 'es'
         : String(lang).startsWith('hi')
         ? 'hi'
+        : String(lang).startsWith('ta')
+        ? 'ta'
         : 'en';
       const cleanText = String(text).trim();
 
