@@ -14,6 +14,7 @@ export default defineConfig(() => {
     server: {
       // HMR is disabled in preview environments to prevent websocket errors in iframes.
       hmr: false,
+      ws: false,
       watch: process.env.DISABLE_HMR === 'true' ? null : {},
     },
   };
