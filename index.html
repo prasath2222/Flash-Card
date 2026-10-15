@@ -7365,6 +7365,400 @@
       100% { opacity: 0; transform: translate(-50%, -50%) scale(2.2); }
     }
 
+
+    /* ========================================================================= */
+    /* DUOLINGO-GRADE VIBRANT HIGH-CONTRAST SIDEBAR & BRAND                      */
+    /* ========================================================================= */
+    .app-desktop-sidebar {
+      background: #0b1120 !important;
+      border-right: 1.5px solid rgba(255, 255, 255, 0.09) !important;
+      padding: 26px 16px 20px !important;
+      box-shadow: 4px 0 24px rgba(0, 0, 0, 0.35) !important;
+    }
+
+    .sidebar-brand-lockup {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: flex-start !important;
+      padding-bottom: 22px !important;
+      padding-left: 10px !important;
+      border-bottom: 1.5px solid rgba(255, 255, 255, 0.08) !important;
+      margin-bottom: 14px !important;
+      text-decoration: none !important;
+      cursor: pointer !important;
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    }
+    .sidebar-brand-lockup:hover {
+      transform: scale(1.03) !important;
+    }
+
+    /* Brand label with Duolingo-style signature font */
+    .sidebar-brand-title {
+      font-family: 'Fredoka', 'Nunito', -apple-system, sans-serif !important;
+      font-size: 2.25rem !important;
+      font-weight: 700 !important;
+      letter-spacing: -0.025em !important;
+      color: #a855f7 !important; /* Iconic vibrant Duolingo green */
+      text-shadow: 0 0 18px rgba(168, 85, 247, 0.45) !important;
+      display: inline-block !important;
+      user-select: none !important;
+      line-height: 1 !important;
+    }
+
+    .mobile-brand-title {
+      font-family: 'Fredoka', 'Nunito', -apple-system, sans-serif !important;
+      font-size: 1.55rem !important;
+      font-weight: 700 !important;
+      letter-spacing: -0.02em !important;
+      color: #a855f7 !important;
+      text-shadow: 0 0 16px rgba(168, 85, 247, 0.4) !important;
+      user-select: none !important;
+    }
+
+    /* Sidebar Navigation List */
+    .sidebar-nav-list {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 12px !important;
+      margin-top: 14px !important;
+      width: 100% !important;
+    }
+
+    /* Tactile Duolingo-Style Buttons */
+    .sidebar-nav-btn {
+      display: flex !important;
+      align-items: center !important;
+      gap: 16px !important;
+      padding: 12px 16px !important;
+      border-radius: 16px !important;
+      background: transparent !important;
+      border: 2px solid transparent !important;
+      cursor: pointer !important;
+      transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+      text-align: left !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+      user-select: none !important;
+      position: relative !important;
+    }
+
+    /* Bold Pure White Font for Sidebar Nav */
+    .sidebar-nav-label {
+      font-family: 'Nunito', 'Fredoka', -apple-system, sans-serif !important;
+      font-size: 0.94rem !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.05em !important;
+      text-transform: uppercase !important;
+      color: #ffffff !important; /* Pure Bright White */
+      transition: color 0.16s ease !important;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    /* Nav Icons */
+    .sidebar-nav-icon {
+      font-size: 1.4rem !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 32px !important;
+      height: 32px !important;
+      flex-shrink: 0 !important;
+      transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4)) !important;
+    }
+
+    /* Hover Animation: Smooth Spring Slide + Subtle Glow */
+    .sidebar-nav-btn:hover {
+      background: rgba(255, 255, 255, 0.08) !important;
+      border-color: rgba(255, 255, 255, 0.15) !important;
+      transform: translateX(6px) !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35) !important;
+    }
+    .sidebar-nav-btn:hover .sidebar-nav-icon {
+      transform: scale(1.18) rotate(4deg) !important;
+    }
+    .sidebar-nav-btn:hover .sidebar-nav-label {
+      color: #ffffff !important;
+    }
+
+    /* Active Item (Electric Cobalt/Cyan Pill matching Duolingo Practice mode) */
+    .sidebar-nav-btn.active {
+      background: rgba(56, 189, 248, 0.16) !important;
+      border: 2px solid #38bdf8 !important;
+      box-shadow: 0 0 18px rgba(56, 189, 248, 0.28), inset 0 0 12px rgba(56, 189, 248, 0.08), 0 3px 0 #0284c7 !important;
+      transform: translateY(-1px) !important;
+    }
+    .sidebar-nav-btn.active .sidebar-nav-label {
+      color: #ffffff !important;
+      text-shadow: 0 0 10px rgba(56, 189, 248, 0.5) !important;
+    }
+    .sidebar-nav-btn.active .sidebar-nav-icon {
+      transform: scale(1.12) !important;
+      filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.7)) !important;
+    }
+
+    /* Tactile Press Depth */
+    .sidebar-nav-btn:active {
+      transform: translateX(6px) translateY(2px) scale(0.98) !important;
+      box-shadow: 0 1px 0 #0284c7 !important;
+    }
+
+
+    /* ========================================================================= */
+    /* MASTER PRODUCTION-GRADE RESPONSIVE & MOBILE DRAWER STYLES                 */
+    /* ========================================================================= */
+    :root {
+      --sidebar-width: 216px !important;
+      --brand-violet: #a855f7 !important;
+    }
+
+    /* Stellar Brand Title: Radiant Violet */
+    .sidebar-brand-title,
+    .mobile-brand-title,
+    .drawer-brand-title {
+      font-family: 'Fredoka', 'Nunito', -apple-system, sans-serif !important;
+      font-weight: 700 !important;
+      color: #a855f7 !important;
+      text-shadow: 0 0 18px rgba(168, 85, 247, 0.42) !important;
+      letter-spacing: -0.025em !important;
+      line-height: 1 !important;
+    }
+    .sidebar-brand-title {
+      font-size: 2.1rem !important;
+    }
+    .mobile-brand-title {
+      font-size: 1.55rem !important;
+    }
+    .drawer-brand-title {
+      font-size: 1.85rem !important;
+    }
+
+    /* ------------------------------------------------------------- */
+    /* 1. DESKTOP VIEWPORTS (>= 1024px)                              */
+    /* ------------------------------------------------------------- */
+    @media (min-width: 1024px) {
+      .app-desktop-sidebar {
+        display: flex !important;
+        width: 216px !important;
+        min-width: 216px !important;
+        max-width: 216px !important;
+        padding: 24px 14px 20px !important;
+        position: fixed !important;
+        left: 0 !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        z-index: 50 !important;
+        box-sizing: border-box !important;
+        background: #0b1120 !important;
+        border-right: 1.5px solid rgba(255, 255, 255, 0.09) !important;
+      }
+      .app-main-viewport {
+        margin-left: 216px !important;
+        width: calc(100% - 216px) !important;
+        padding-bottom: 0 !important;
+      }
+      .desktop-top-header {
+        display: flex !important;
+      }
+      .mobile-top-bar {
+        display: none !important;
+      }
+      .mobile-bottom-nav {
+        display: none !important;
+      }
+      .mobile-nav-backdrop,
+      .mobile-nav-drawer {
+        display: none !important;
+      }
+    }
+
+    /* ------------------------------------------------------------- */
+    /* 2. TABLET & MOBILE VIEWPORTS (< 1024px)                       */
+    /* NEVER DISPLAY DESKTOP HEADER OR DESKTOP SIDEBAR!              */
+    /* ------------------------------------------------------------- */
+    @media (max-width: 1023px) {
+      .app-desktop-sidebar {
+        display: none !important; /* Never show desktop sidebar on tablet/mobile! */
+      }
+      .desktop-top-header {
+        display: none !important; /* NEVER stack duplicate desktop header! */
+      }
+      .mobile-top-bar {
+        display: flex !important;
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 45 !important;
+        background: rgba(11, 17, 32, 0.92) !important;
+        backdrop-filter: blur(14px) !important;
+        -webkit-backdrop-filter: blur(14px) !important;
+        border-bottom: 1.5px solid rgba(255, 255, 255, 0.08) !important;
+      }
+      .mobile-bottom-nav {
+        display: grid !important;
+      }
+      .app-main-viewport {
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding-bottom: 78px !important;
+      }
+    }
+
+    /* ------------------------------------------------------------- */
+    /* 3. MOBILE NAVIGATION DRAWER                                   */
+    /* ------------------------------------------------------------- */
+    .mobile-nav-backdrop {
+      position: fixed !important;
+      inset: 0 !important;
+      background: rgba(3, 7, 18, 0.75) !important;
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+      z-index: 9990 !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+      transition: opacity 0.25s ease !important;
+    }
+    .mobile-nav-backdrop.open {
+      opacity: 1 !important;
+      pointer-events: auto !important;
+    }
+
+    .mobile-nav-drawer {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      bottom: 0 !important;
+      width: 280px !important;
+      max-width: 82% !important;
+      background: linear-gradient(180deg, #10182b 0%, #090e1a 100%) !important;
+      border-right: 1.5px solid rgba(255, 255, 255, 0.12) !important;
+      box-shadow: 10px 0 40px rgba(0, 0, 0, 0.8) !important;
+      z-index: 9995 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+      padding: 22px 18px !important;
+      box-sizing: border-box !important;
+      transform: translateX(-100%) !important;
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    .mobile-nav-drawer.open {
+      transform: translateX(0) !important;
+    }
+
+    .mobile-nav-drawer-header {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding-bottom: 18px !important;
+      border-bottom: 1.5px solid rgba(255, 255, 255, 0.08) !important;
+      margin-bottom: 16px !important;
+    }
+    .mobile-nav-close-btn {
+      width: 36px !important;
+      height: 36px !important;
+      border-radius: 10px !important;
+      background: rgba(255, 255, 255, 0.08) !important;
+      border: 1px solid rgba(255, 255, 255, 0.16) !important;
+      color: #cbd5e1 !important;
+      font-size: 1.1rem !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      cursor: pointer !important;
+    }
+
+    .mobile-nav-drawer-list {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 10px !important;
+      flex: 1 !important;
+    }
+
+    .mobile-drawer-btn {
+      display: flex !important;
+      align-items: center !important;
+      gap: 14px !important;
+      padding: 12px 16px !important;
+      border-radius: 14px !important;
+      background: transparent !important;
+      border: 2px solid transparent !important;
+      color: #ffffff !important;
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 800 !important;
+      font-size: 0.94rem !important;
+      letter-spacing: 0.04em !important;
+      text-transform: uppercase !important;
+      cursor: pointer !important;
+      transition: all 0.18s ease !important;
+      text-align: left !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    .mobile-drawer-btn:hover,
+    .mobile-drawer-btn:active {
+      background: rgba(255, 255, 255, 0.08) !important;
+      transform: translateX(4px) !important;
+    }
+    .mobile-drawer-btn.active {
+      background: rgba(168, 85, 247, 0.16) !important;
+      border-color: #a855f7 !important;
+      color: #ffffff !important;
+      box-shadow: 0 0 16px rgba(168, 85, 247, 0.28), 0 3px 0 #7e22ce !important;
+    }
+    .mobile-drawer-icon {
+      font-size: 1.35rem !important;
+      width: 28px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+
+    .mobile-nav-drawer-footer {
+      padding-top: 16px !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 4px !important;
+    }
+
+    /* ------------------------------------------------------------- */
+    /* 4. SETTINGS MODAL 4-TABS BAR FIX (NO TEXT OVERLAP!)           */
+    /* ------------------------------------------------------------- */
+    .settings-tabs-bar {
+      display: flex !important;
+      gap: 8px !important;
+      padding: 12px 20px !important;
+      background: rgba(0, 0, 0, 0.3) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    }
+
+    @media (max-width: 640px) {
+      .settings-tabs-bar {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 8px !important;
+        padding: 12px 14px !important;
+      }
+      .settings-tab-btn {
+        flex: 1 1 100% !important;
+        padding: 10px 8px !important;
+        font-size: 0.78rem !important;
+        text-align: center !important;
+        justify-content: center !important;
+        white-space: nowrap !important;
+      }
+    }
+
+    /* Flashcard Immersion (Clean screen) */
+    body.in-flashcard-mode .app-desktop-sidebar,
+    body.in-flashcard-mode .desktop-top-header,
+    body.in-flashcard-mode .mobile-top-bar,
+    body.in-flashcard-mode .mobile-bottom-nav,
+    body.in-flashcard-mode .mobile-nav-drawer,
+    body.in-flashcard-mode .mobile-nav-backdrop {
+      display: none !important;
+    }
+
 </style>
   </head>
   <body class="home-view-active">
@@ -7377,56 +7771,7 @@
         <div class="sidebar-main-group">
           <!-- Brand Wordmark with Lexi Mascot -->
           <div class="sidebar-brand-lockup" id="sidebar-brand-home" title="Stellar Home">
-            <svg width="40" height="40" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="brand-mascot-svg">
-              <defs>
-                <linearGradient id="owlBodyGrad" x1="32" y1="12" x2="32" y2="58" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#10b981"/>
-                  <stop offset="1" stop-color="#059669"/>
-                </linearGradient>
-                <linearGradient id="owlBellyGrad" x1="32" y1="30" x2="32" y2="52" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#f0fdf4"/>
-                  <stop offset="1" stop-color="#d1fae5"/>
-                </linearGradient>
-                <linearGradient id="capGrad" x1="32" y1="4" x2="32" y2="18" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#1e293b"/>
-                  <stop offset="1" stop-color="#0f172a"/>
-                </linearGradient>
-              </defs>
-              <!-- Ear Feathers -->
-              <path d="M16 18L22 24L14 26L16 18Z" fill="#047857"/>
-              <path d="M48 18L42 24L50 26L48 18Z" fill="#047857"/>
-              <!-- Body -->
-              <rect x="14" y="16" width="36" height="40" rx="18" fill="url(#owlBodyGrad)"/>
-              <!-- Belly -->
-              <ellipse cx="32" cy="42" rx="12" ry="11" fill="url(#owlBellyGrad)"/>
-              <path d="M28 38C29.5 40 34.5 40 36 38" stroke="#10b981" stroke-width="1.8" stroke-linecap="round" fill="none"/>
-              <path d="M26 43C28.5 45 35.5 45 38 43" stroke="#10b981" stroke-width="1.8" stroke-linecap="round" fill="none"/>
-              <!-- Big Friendly Eyes -->
-              <circle cx="24" cy="28" r="8" fill="#ffffff"/>
-              <circle cx="40" cy="28" r="8" fill="#ffffff"/>
-              <circle cx="25" cy="28" r="4.5" fill="#0f172a"/>
-              <circle cx="39" cy="28" r="4.5" fill="#0f172a"/>
-              <circle cx="23.5" cy="26.5" r="1.8" fill="#ffffff"/>
-              <circle cx="37.5" cy="26.5" r="1.8" fill="#ffffff"/>
-              <!-- Beak -->
-              <polygon points="32,32 29,36 35,36" fill="#f59e0b"/>
-              <!-- Spectacles -->
-              <circle cx="24" cy="28" r="8.2" stroke="#f59e0b" stroke-width="1.8" fill="none"/>
-              <circle cx="40" cy="28" r="8.2" stroke="#f59e0b" stroke-width="1.8" fill="none"/>
-              <line x1="32.2" y1="28" x2="31.8" y2="28" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
-              <!-- Academic Cap -->
-              <polygon points="32,6 50,12 32,18 14,12" fill="url(#capGrad)"/>
-              <rect x="24" y="15" width="16" height="4" rx="1" fill="#0f172a"/>
-              <line x1="32" y1="12" x2="44" y2="16" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round"/>
-              <circle cx="44" cy="18" r="1.5" fill="#fbbf24"/>
-              <!-- Feet -->
-              <rect x="22" y="54" width="6" height="3" rx="1.5" fill="#f59e0b"/>
-              <rect x="36" y="54" width="6" height="3" rx="1.5" fill="#f59e0b"/>
-            </svg>
-            <div class="sidebar-brand-text">
-              <span class="sidebar-brand-title">Stellar</span>
-              <span class="sidebar-brand-sub">Vocabulary Mastery</span>
-            </div>
+            <span class="sidebar-brand-title">Stellar</span>
           </div>
 
           <!-- Tactile Navigation Tabs -->
@@ -7450,17 +7795,7 @@
           </nav>
         </div>
 
-        <!-- Sidebar Footer Status & Quick Sound -->
-        <div class="sidebar-footer-card">
-          <div class="sidebar-streak-badge">
-            <span>⚡</span>
-            <span class="sidebar-footer-label">Target: 3,000 Words</span>
-          </div>
-          <div class="sidebar-sound-quick-toggle" id="sidebar-quick-sound" title="Toggle audio sound FX">
-            <span class="sidebar-footer-label">Sound FX</span>
-            <span id="sidebar-sound-indicator" style="color: #34d399; font-weight: 700;">ON 🔊</span>
-          </div>
-        </div>
+        
       </aside>
 
     <!-- ========================================================== -->
@@ -7555,52 +7890,6 @@
               </svg>
             </button>
             <div style="display: flex; align-items: center; gap: 8px;">
-              <svg width="30" height="30" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="brand-mascot-svg">
-  <defs>
-    <linearGradient id="owlBodyGrad" x1="32" y1="12" x2="32" y2="58" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#10b981"/>
-      <stop offset="1" stop-color="#059669"/>
-    </linearGradient>
-    <linearGradient id="owlBellyGrad" x1="32" y1="30" x2="32" y2="52" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#f0fdf4"/>
-      <stop offset="1" stop-color="#d1fae5"/>
-    </linearGradient>
-    <linearGradient id="capGrad" x1="32" y1="4" x2="32" y2="18" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#1e293b"/>
-      <stop offset="1" stop-color="#0f172a"/>
-    </linearGradient>
-  </defs>
-  <!-- Ear Feathers -->
-  <path d="M16 18L22 24L14 26L16 18Z" fill="#047857"/>
-  <path d="M48 18L42 24L50 26L48 18Z" fill="#047857"/>
-  <!-- Body -->
-  <rect x="14" y="16" width="36" height="40" rx="18" fill="url(#owlBodyGrad)"/>
-  <!-- Belly -->
-  <ellipse cx="32" cy="42" rx="12" ry="11" fill="url(#owlBellyGrad)"/>
-  <path d="M28 38C29.5 40 34.5 40 36 38" stroke="#10b981" stroke-width="1.8" stroke-linecap="round" fill="none"/>
-  <path d="M26 43C28.5 45 35.5 45 38 43" stroke="#10b981" stroke-width="1.8" stroke-linecap="round" fill="none"/>
-  <!-- Big Friendly Eyes -->
-  <circle cx="24" cy="28" r="8" fill="#ffffff"/>
-  <circle cx="40" cy="28" r="8" fill="#ffffff"/>
-  <circle cx="25" cy="28" r="4.5" fill="#0f172a"/>
-  <circle cx="39" cy="28" r="4.5" fill="#0f172a"/>
-  <circle cx="23.5" cy="26.5" r="1.8" fill="#ffffff"/>
-  <circle cx="37.5" cy="26.5" r="1.8" fill="#ffffff"/>
-  <!-- Beak -->
-  <polygon points="32,32 29,36 35,36" fill="#f59e0b"/>
-  <!-- Spectacles -->
-  <circle cx="24" cy="28" r="8.2" stroke="#f59e0b" stroke-width="1.8" fill="none"/>
-  <circle cx="40" cy="28" r="8.2" stroke="#f59e0b" stroke-width="1.8" fill="none"/>
-  <line x1="32.2" y1="28" x2="31.8" y2="28" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
-  <!-- Academic Cap -->
-  <polygon points="32,6 50,12 32,18 14,12" fill="url(#capGrad)"/>
-  <rect x="24" y="15" width="16" height="4" rx="1" fill="#0f172a"/>
-  <line x1="32" y1="12" x2="44" y2="16" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round"/>
-  <circle cx="44" cy="18" r="1.5" fill="#fbbf24"/>
-  <!-- Feet -->
-  <rect x="22" y="54" width="6" height="3" rx="1.5" fill="#f59e0b"/>
-  <rect x="36" y="54" width="6" height="3" rx="1.5" fill="#f59e0b"/>
-</svg>
               <span class="mobile-brand-title">Stellar</span>
             </div>
           </div>
@@ -13000,8 +13289,7 @@
         if (btnDesktopOpenSettings) btnDesktopOpenSettings.addEventListener("click", openMenuDrawer);
 
         // MOBILE TOP & BOTTOM NAVIGATION
-        const mobileHamburgerBtn = document.getElementById("mobile-hamburger-btn");
-        if (mobileHamburgerBtn) mobileHamburgerBtn.addEventListener("click", openMenuDrawer);
+        // mobile-hamburger-btn opens mobile navigation drawer below
 
         const mobTabHome = document.getElementById("mob-tab-home");
         if (mobTabHome) mobTabHome.addEventListener("click", () => switchScreen("screen-home"));
@@ -13177,7 +13465,6 @@
           document.getElementById("nav-btn-settings"),
           document.getElementById("sidebar-btn-settings"),
           document.getElementById("mob-tab-settings"),
-          document.getElementById("mobile-hamburger-btn"),
           document.getElementById("btn-top-settings"),
           document.getElementById("btn-desktop-open-settings")
         ];
@@ -13252,10 +13539,7 @@
           if (typeof openMenuDrawer === "function") openMenuDrawer();
         });
 
-        const mobHamburger = document.getElementById("mobile-hamburger-btn");
-        if (mobHamburger) mobHamburger.addEventListener("click", () => {
-          if (typeof openMenuDrawer === "function") openMenuDrawer();
-        });
+        // mobHamburger handled below
 
         // Subsections Study Deck Button -> Enters Flashcard mode
         const btnResumeFromSub = document.getElementById("btn-resume-from-subsections");
@@ -13323,6 +13607,97 @@
           });
         }
       })();
+
+      // =========================================================================
+      // MOBILE NAVIGATION DRAWER (Slide-out menu showing left sidebar items)
+      // =========================================================================
+      const mobileNavDrawer = document.getElementById("mobile-nav-drawer");
+      const mobileNavBackdrop = document.getElementById("mobile-nav-backdrop");
+      const mobileNavCloseBtn = document.getElementById("mobile-nav-close-btn");
+      const mobileHamburgerBtn = document.getElementById("mobile-hamburger-btn");
+
+      function openMobileNavDrawer() {
+        if (mobileNavDrawer) mobileNavDrawer.classList.add("open");
+        if (mobileNavBackdrop) mobileNavBackdrop.classList.add("open");
+        if (typeof playHapticTick === "function") playHapticTick(480, "sine", 0.04);
+      }
+
+      function closeMobileNavDrawer() {
+        if (mobileNavDrawer) mobileNavDrawer.classList.remove("open");
+        if (mobileNavBackdrop) mobileNavBackdrop.classList.remove("open");
+      }
+
+      if (mobileHamburgerBtn) {
+        // Remove old listener and attach openMobileNavDrawer
+        mobileHamburgerBtn.onclick = (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          openMobileNavDrawer();
+        };
+      }
+
+      if (mobileNavCloseBtn) {
+        mobileNavCloseBtn.addEventListener("click", closeMobileNavDrawer);
+      }
+      if (mobileNavBackdrop) {
+        mobileNavBackdrop.addEventListener("click", closeMobileNavDrawer);
+      }
+
+      // Drawer navigation buttons
+      const mobDrawerHome = document.getElementById("mob-drawer-home");
+      if (mobDrawerHome) {
+        mobDrawerHome.addEventListener("click", () => {
+          closeMobileNavDrawer();
+          switchToScreen("screen-home");
+          syncNavigationState("home");
+        });
+      }
+
+      const mobDrawer3k = document.getElementById("mob-drawer-3k");
+      if (mobDrawer3k) {
+        mobDrawer3k.addEventListener("click", () => {
+          closeMobileNavDrawer();
+          switchToScreen("screen-subsections");
+          syncNavigationState("3k");
+        });
+      }
+
+      const mobDrawerSections = document.getElementById("mob-drawer-sections");
+      if (mobDrawerSections) {
+        mobDrawerSections.addEventListener("click", () => {
+          closeMobileNavDrawer();
+          switchToScreen("screen-subsections");
+          syncNavigationState("sections");
+        });
+      }
+
+      const mobDrawerSettings = document.getElementById("mob-drawer-settings");
+      if (mobDrawerSettings) {
+        mobDrawerSettings.addEventListener("click", () => {
+          closeMobileNavDrawer();
+          setTimeout(() => {
+            if (typeof openMenuDrawer === "function") openMenuDrawer();
+          }, 150);
+        });
+      }
+
+      function syncNavigationState(activeTarget) {
+        document.querySelectorAll(".sidebar-nav-btn, .mobile-tab-btn, .mobile-drawer-btn").forEach(btn => btn.classList.remove("active"));
+        if (activeTarget === "home") {
+          const h1 = document.getElementById("nav-btn-home"); if (h1) h1.classList.add("active");
+          const h2 = document.getElementById("mob-tab-home"); if (h2) h2.classList.add("active");
+          const h3 = document.getElementById("mob-drawer-home"); if (h3) h3.classList.add("active");
+        } else if (activeTarget === "3k") {
+          const k1 = document.getElementById("nav-btn-3k"); if (k1) k1.classList.add("active");
+          const k2 = document.getElementById("mob-tab-3k"); if (k2) k2.classList.add("active");
+          const k3 = document.getElementById("mob-drawer-3k"); if (k3) k3.classList.add("active");
+        } else if (activeTarget === "sections") {
+          const s1 = document.getElementById("nav-btn-sections"); if (s1) s1.classList.add("active");
+          const s2 = document.getElementById("mob-tab-sections"); if (s2) s2.classList.add("active");
+          const s3 = document.getElementById("mob-drawer-sections"); if (s3) s3.classList.add("active");
+        }
+      }
+
 </script>
   
     <!-- Global Tactile Toast Notification -->

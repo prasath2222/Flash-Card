@@ -17,2387 +17,2387 @@ export const INITIAL_CARDS: Flashcard[] = [
     "word": "STOVE",
     "emoji": "🔥",
     "category": "Kitchen & Cooking",
-    "imageUrl": "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&auto=format&fit=crop&q=80",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Iron_stove.jpg/960px-Iron_stove.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "estufa",
     "hindi": "choolha",
     "tamil": "அடுப்பு",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Es-tufa → Tough-ah flame on the stove, or Stuff the cooking pot onto the burner!",
+    "shortcutHi": "Choolha → Village desi Chulha cooking hot rotis over crackling clay fire!"
   },
   {
     "num": 801,
     "word": "OVEN",
     "emoji": "🥐",
     "category": "Kitchen & Cooking",
-    "imageUrl": "https://images.unsplash.com/photo-1590794056226-79ef3a8147e1?w=600&auto=format&fit=crop&q=80",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Four_%C3%A0_c%C3%A9ramique_-_Japan_Aur%C3%A9a_-_2011-0403-_P1070446.JPG/960px-Four_%C3%A0_c%C3%A9ramique_-_Japan_Aur%C3%A9a_-_2011-0403-_P1070446.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "horno",
     "hindi": "tandoor oven",
     "tamil": "அடுமனை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Horn-o → Sounds like a blazing hot horn blowing superheated air inside!",
+    "shortcutHi": "Tandoor Oven → Desi Tandoor baking hot butter naan and roasted tandoori paneer!"
   },
   {
     "num": 802,
     "word": "SINK",
     "emoji": "🚰",
     "category": "Kitchen & Cooking",
-    "imageUrl": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&auto=format&fit=crop&q=80",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Luxury_sink.jpg/960px-Luxury_sink.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "fregadero",
     "hindi": "sink",
     "tamil": "கழுவும் தொட்டி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Free-ga-there-o (Fregadero) → Sink-la cold water vandhu kai freeze aagudhu (or Free-ya dishes podra edam)!",
+    "shortcutHi": "Sink → Indian kitchen-la direct-ah 'Sink' nu dhaan solluvanga, zero effort!"
   },
   {
     "num": 803,
     "word": "TAP",
     "emoji": "🚰",
     "category": "Kitchen & Cooking",
-    "imageUrl": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&auto=format&fit=crop&q=80",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Wasserhahn.jpg/960px-Wasserhahn.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "grifo",
     "hindi": "nal",
     "tamil": "குழாய்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Giraffe-o (Grifo) → The tall curved neck of the tap looks exactly like a giraffe bending down to spit water!",
+    "shortcutHi": "Null (Nal) → Turn the tap knob off till water flow drops to zero (null)!"
   },
   {
     "num": 804,
     "word": "SPONGE",
     "emoji": "🧽",
     "category": "Kitchen & Cleaning",
-    "imageUrl": "https://images.unsplash.com/photo-1585338107529-13afc5f02586?w=600&auto=format&fit=crop&q=80",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/%C3%89ponge_type_3_%281%29.jpg/960px-%C3%89ponge_type_3_%281%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "esponja",
     "hindi": "sponge",
     "tamil": "பஞ்சு",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Es-ponja → English word Sponge with an 'Es-' prefix added: Es-ponge-a!",
+    "shortcutHi": "Sponge → Desi spoken word: direct Sponge to wipe kitchen counters!"
   },
   {
     "num": 805,
     "word": "APRON",
     "emoji": "🧑‍🍳",
     "category": "Kitchen & Cooking",
-    "imageUrl": "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=600&auto=format&fit=crop&q=80",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Preparing_the_Cake_%285285262061%29.jpg/960px-Preparing_the_Cake_%285285262061%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "delantal",
     "hindi": "apron",
     "tamil": "சமையல் அங்கி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Delantal → In Spanish 'delante' means front. Worn in the front so curry never stains your shirt!",
+    "shortcutHi": "Apron → MasterChef style cooking Apron tied around the neck!"
   },
   {
     "num": 806,
     "word": "TABLECLOTH",
     "emoji": "🍽️",
     "category": "House & Dining",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Tablecloth_romanian_1full_view.jpg/960px-Tablecloth_romanian_1full_view.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "mantel",
     "hindi": "mezposh",
     "tamil": "மேசை விரிப்பு",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Mantel → Drapes like a royal protective mantle over the dining table to keep it spotless!",
+    "shortcutHi": "Mez-posh → Mez (Table) + Posh (Outfit/Dress) = Designer dress for the dining table!"
   },
   {
     "num": 807,
     "word": "MENU",
     "emoji": "📜",
     "category": "Dining & Food",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Menu_of_Fatto_a_Mano_Pizzeria%2C_North_Laine_%28desserts%29.jpg/960px-Menu_of_Fatto_a_Mano_Pizzeria%2C_North_Laine_%28desserts%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "menú",
     "hindi": "menu",
     "tamil": "உணவுப் பட்டியல்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Menú → Exact match with English Menu, with a stylish accent on the 'ú'!",
+    "shortcutHi": "Menu → Hotel-la first command: 'Bhaiya, pehle Menu card lao'!"
   },
   {
     "num": 808,
     "word": "HOUSE",
     "emoji": "🏠",
     "category": "Architecture & Rooms",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Katsura_Imperial_Villa_in_Spring.jpg/960px-Katsura_Imperial_Villa_in_Spring.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "casa",
     "hindi": "makaan",
     "tamil": "வீடு",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Casa → Iconic phrase 'Mi Casa es su Casa' (My house is your house)!",
+    "shortcutHi": "Makaan → Legendary Bollywood line: 'Roti, Kapda aur Makaan'!"
   },
   {
     "num": 809,
     "word": "HOME",
     "emoji": "🏡",
     "category": "Architecture & Rooms",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/SearsHouse115.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "spanish": "hogar",
     "hindi": "ghar",
     "tamil": "இல்லம்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Hogar → Sounds like Hug-ar. Home is the warm place where family gives you a tight hug!",
+    "shortcutHi": "Ghar → 'Apna Ghar' / 'Home sweet home' where your heart truly rests!"
   },
   {
     "num": 810,
     "word": "ROOM",
     "emoji": "🚪",
     "category": "Architecture & Rooms",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Ateneul_Rom%C3%A2n_-_Sala.jpg/960px-Ateneul_Rom%C3%A2n_-_Sala.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "habitación",
     "hindi": "kamra",
     "tamil": "அறை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Habitación → Sounds like Habitat / where humans reside and live!",
+    "shortcutHi": "Kamra → 'Kamre ka darwaza band karo' / Classic Indian room!"
   },
   {
     "num": 811,
     "word": "BEDROOM",
     "emoji": "🛏️",
     "category": "Architecture & Rooms",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Berlin_Villa_Borsig_Tegel_asv2019-08_img09.jpg/960px-Berlin_Villa_Borsig_Tegel_asv2019-08_img09.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "dormitorio",
     "hindi": "bedroom",
     "tamil": "படுக்கையறை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Dormitorio → English Dormitory / Dorm where tired students sleep!",
+    "shortcutHi": "Bedroom → Direct modern Indian usage: directly Bedroom!"
   },
   {
     "num": 812,
     "word": "BATHROOM",
     "emoji": "🚿",
     "category": "Architecture & Rooms",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Modern_bath_rooms_and_appliances_-_a_few_suggestions_about_plumbing_valuable_to_home_builders_or_those_about_to_remodel_their_present_dwellings._%281903%29_%2814778178805%29.jpg/960px-thumbnail.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "baño",
     "hindi": "bathroom",
     "tamil": "குளியலறை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Baño → Sounds like Bath-o / Where you take a warm bath!",
+    "shortcutHi": "Bathroom → Direct everyday Indian usage: Bathroom!"
   },
   {
     "num": 813,
     "word": "LIVING ROOM",
     "emoji": "🛋️",
     "category": "Architecture & Rooms",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Sittingroom-edit1.jpg/960px-Sittingroom-edit1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "sala de estar",
     "hindi": "living room",
     "tamil": "வரவேற்பறை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Sala → Grand Salon or front sitting hall for guests!",
+    "shortcutHi": "Living Room → Front guest hall / family TV Living Room!"
   },
   {
     "num": 814,
     "word": "DINING ROOM",
     "emoji": "🍽️",
     "category": "Architecture & Rooms",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Heiligengrabe%2C_Kloster_Stift_zum_Heiligengrabe%2C_Abtei%2C_Speiseraum_--_2017_--_7082-8.jpg/960px-Heiligengrabe%2C_Kloster_Stift_zum_Heiligengrabe%2C_Abtei%2C_Speiseraum_--_2017_--_7082-8.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "comedor",
     "hindi": "dining room",
     "tamil": "சாப்பாட்டு அறை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Comedor → 'Comer' means eat. Come-and-eat-dor / Where the family gathers to eat!",
+    "shortcutHi": "Dining Room → Daily spoken term: Dining Room / khane ka kamra!"
   },
   {
     "num": 815,
     "word": "KITCHEN",
     "emoji": "🍳",
     "category": "Architecture & Rooms",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/La_cuisine_%28mus%C3%A9e_dart_nouveau%2C_Riga%29_%287563655820%29.jpg/960px-La_cuisine_%28mus%C3%A9e_dart_nouveau%2C_Riga%29_%287563655820%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "cocina",
     "hindi": "rasoi",
     "tamil": "சமையலறை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Cocina → Cook-sina / Cuisine / Where aromatic food is cooked!",
+    "shortcutHi": "Rasoi → Traditional mother's Rasoi-ghar with fresh garam chai and aromas!"
   },
   {
     "num": 816,
     "word": "HALLWAY",
     "emoji": "🚪",
     "category": "Architecture & Rooms",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Luhrs_Tower_Hallway.jpg/960px-Luhrs_Tower_Hallway.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "pasillo",
     "hindi": "galiyara",
     "tamil": "நடைபாதை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Pasillo → Pass-illo / The long narrow walkway you pass through!",
+    "shortcutHi": "Galiyara → Long house passage / house ki gali (galiyara)!"
   },
   {
     "num": 817,
     "word": "CORRIDOR",
     "emoji": "🚪",
     "category": "Architecture & Rooms",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Luhrs_Tower_Hallway.jpg/960px-Luhrs_Tower_Hallway.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "corredor",
     "hindi": "corridor",
     "tamil": "தாழ்வாரம்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Corredor → Direct English sound match with Corridor!",
+    "shortcutHi": "Corridor → School/office Corridor where everyone walks!"
   },
   {
     "num": 818,
     "word": "CEILING",
     "emoji": "🏠",
     "category": "Architecture & Rooms",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Ravenna%2C_basilica_di_San_Vitale_%28036%29.jpg/960px-Ravenna%2C_basilica_di_San_Vitale_%28036%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "techo",
     "hindi": "chhat",
     "tamil": "உட்கூரை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Techo → Tech overhead / ceiling holding high-tech lamps and fan!",
+    "shortcutHi": "Chhat → Fan rotating smoothly under the Chhat (ceiling)!"
   },
   {
     "num": 819,
     "word": "ROOF",
     "emoji": "🏠",
     "category": "Architecture & Rooms",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Tak_-_Ystad-2022.jpg/960px-Tak_-_Ystad-2022.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "tejado",
     "hindi": "chhat",
     "tamil": "கூரை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Tejado → Tile-ado / Pitched roof covered with red Spanish terracotta tiles!",
+    "shortcutHi": "Chhat → Evening stroll on the open Chhat under starry skies!"
   },
   {
     "num": 820,
     "word": "WALL",
     "emoji": "🧱",
     "category": "Architecture & Rooms",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Noel_2005_P%C3%A9kin_031_muraille_de_chine_Mutianyu.jpg/960px-Noel_2005_P%C3%A9kin_031_muraille_de_chine_Mutianyu.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "pared",
     "hindi": "deewaar",
     "tamil": "சுவர்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Pared → Barred / Parade stops immediately when hitting a solid concrete wall!",
+    "shortcutHi": "Deewaar → Amitabh Bachchan's evergreen movie dialogue: 'Deewaar'!"
   },
   {
     "num": 821,
     "word": "FLOOR",
     "emoji": "🏢",
     "category": "Architecture & Rooms",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Parquet_flooring_in_Mus%C3%A9e_des_arts_d%C3%A9coratifs_de_Strasbourg.jpg/960px-Parquet_flooring_in_Mus%C3%A9e_des_arts_d%C3%A9coratifs_de_Strasbourg.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "suelo / piso",
     "hindi": "farsh / manzil",
     "tamil": "தரை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Suelo / Piso → Soil-o / The ground level right above Mother Earth's soil!",
+    "shortcutHi": "Farsh → Sparkling clean marble Farsh polished till it shines!"
   },
   {
     "num": 822,
     "word": "DOOR",
     "emoji": "🚪",
     "category": "Architecture & Rooms",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/L-door.png/960px-L-door.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "puerta",
     "hindi": "darwaaza",
     "tamil": "கதவு",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Puerta → Portal / The main entry portal into the room or house!",
+    "shortcutHi": "Darwaaza → 'Darwaaza khadkhadao' / Classic entrance doorway!"
   },
   {
     "num": 823,
     "word": "WINDOW",
     "emoji": "🪟",
     "category": "Architecture & Rooms",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Atua_Kosua_shrine4.jpg/960px-Atua_Kosua_shrine4.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "ventana",
     "hindi": "khidki",
     "tamil": "சாளரம்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Ventana → Vent-ana / Cool breezy natural ventilation enters through the window!",
+    "shortcutHi": "Khidki → 'Khidki se bahar dekho' / Peeking into the street from the window!"
   },
   {
     "num": 824,
     "word": "STAIRS",
     "emoji": "🪜",
     "category": "Architecture & Rooms",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/At_Victoria_and_Albert_Museum_2025_018.jpg/960px-At_Victoria_and_Albert_Museum_2025_018.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "escaleras",
     "hindi": "seedhiyan",
     "tamil": "படிக்கட்டுகள்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Escaleras → Escalator-as / Step-by-step staircase leading to upper floors!",
+    "shortcutHi": "Seedhiyan → Walk Seedha (straight) up the stairs without tripping!"
   },
   {
     "num": 825,
     "word": "BASEMENT",
     "emoji": "🏚️",
     "category": "Architecture & Rooms",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Basement-after.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "spanish": "sótano",
     "hindi": "tehkhana",
     "tamil": "பாதாள அறை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Sótano → Sub-terrain / Deep subterranean room below the ground floor!",
+    "shortcutHi": "Tehkhana → Mysterious historical underground Tehkhana!"
   },
   {
     "num": 826,
     "word": "ATTIC",
     "emoji": "🏠",
     "category": "Architecture & Rooms",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Attic_bedroom.jpg/960px-Attic_bedroom.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "ático",
     "hindi": "attari",
     "tamil": "பரண்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Ático → Direct sound match with English Attic (just say with Spanish rhythm)!",
+    "shortcutHi": "Attari → High loft under the roof for vintage trunks: Attari!"
   },
   {
     "num": 827,
     "word": "GARAGE",
     "emoji": "🚗",
     "category": "Architecture & Rooms",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Residential_House_USA.JPG/960px-Residential_House_USA.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "garaje",
     "hindi": "garage",
     "tamil": "காரகம்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Garaje → Exact phonetic match with Garage!",
+    "shortcutHi": "Garage → Park the car and bike inside the Garage!"
   },
   {
     "num": 828,
     "word": "BALCONY",
     "emoji": "🏢",
     "category": "Architecture & Rooms",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Overzicht_van_het_bovenste_deel_van_de_voorgevel_met_dakkapel_%28kajuit%29_en_balkon_-_Groningen_-_20387674_-_RCE.jpg/960px-Overzicht_van_het_bovenste_deel_van_de_voorgevel_met_dakkapel_%28kajuit%29_en_balkon_-_Groningen_-_20387674_-_RCE.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "balcón",
     "hindi": "balcony",
     "tamil": "பால்கனி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Balcón → Direct sound match with Balcony!",
+    "shortcutHi": "Balcony → Morning cup of tea standing in the breezy Balcony!"
   },
   {
     "num": 829,
     "word": "TERRACE",
     "emoji": "🏖️",
     "category": "Architecture & Rooms",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Place_Vosges_Paris_Mai_2006_011.jpg/960px-Place_Vosges_Paris_Mai_2006_011.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "terraza",
     "hindi": "chath",
     "tamil": "மொட்டை மாடி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Terraza → Direct sound match with Terrace (Terra = earth/platform)!",
+    "shortcutHi": "Terrace / Chhat → Sunset kite flying and walking on the Terrace!"
   },
   {
     "num": 830,
     "word": "GARDEN",
     "emoji": "🌳",
     "category": "Architecture & Exterior",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Brooklyn_Botanic_Garden_New_York_May_2015_010.jpg/960px-Brooklyn_Botanic_Garden_New_York_May_2015_010.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "jardín",
     "hindi": "bageecha",
     "tamil": "தோட்டம்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Jardín → English Garden spoken with a soft Spanish 'J' (Har-deen)!",
+    "shortcutHi": "Bageecha → Blooming flowers and green grass in the Bageecha!"
   },
   {
     "num": 831,
     "word": "YARD",
     "emoji": "🏡",
     "category": "Architecture & Exterior",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Typical_suburban_backyard.jpg/960px-Typical_suburban_backyard.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "patio",
     "hindi": "aangan",
     "tamil": "முற்றம்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Patio → Classic open-air Spanish courtyard / Patio!",
+    "shortcutHi": "Aangan → Traditional Indian house courtyard Aangan with a Tulsi plant!"
   },
   {
     "num": 832,
     "word": "FENCE",
     "emoji": "🧱",
     "category": "Architecture & Exterior",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Westtown.jpg/960px-Westtown.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "cerca",
     "hindi": "baadh",
     "tamil": "வேலி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Cerca → Circle-ca / Wooden boundary fencing that circles around the garden!",
+    "shortcutHi": "Baadh → Protective wooden or wire boundary Baadh around farm!"
   },
   {
     "num": 833,
     "word": "GATE",
     "emoji": "🚪",
     "category": "Architecture & Exterior",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Gate_of_the_BCR_Headquarters_Building_%28Bucharest%2C_Romania%29.jpg/960px-Gate_of_the_BCR_Headquarters_Building_%28Bucharest%2C_Romania%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "la puerta",
     "hindi": "phatak",
     "tamil": "வாயில்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Puerta → Portal / Iron entrance gate opening wide for visitors!",
+    "shortcutHi": "Phaatak → Grand iron railway or bungalow Phaatak!"
   },
   {
     "num": 834,
     "word": "PORCH",
     "emoji": "🏡",
     "category": "Architecture & Exterior",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/Chartres_Cathedral_020_south_facade_TTaylor.JPG/960px-Chartres_Cathedral_020_south_facade_TTaylor.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "porche",
     "hindi": "baramda",
     "tamil": "முகப்பு",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Porche → Direct sound match with Porch!",
+    "shortcutHi": "Baramda → Front shaded sit-out Baramda where grandfather reads newspapers!"
   },
   {
     "num": 835,
     "word": "CHIMNEY",
     "emoji": "🏠",
     "category": "Architecture & Exterior",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Chimneysweep.png/960px-Chimneysweep.png",
     "spanish": "chimenea",
     "hindi": "chimney",
     "tamil": "புகைபோக்கி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Chimenea → Direct sound match with Chimney!",
+    "shortcutHi": "Chimney → Rooftop brick smoke pipe: Chimney!"
   },
   {
     "num": 836,
     "word": "TABLE",
     "emoji": "🪑",
     "category": "Furniture & Bedding",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Beautiful_Baroque_gilded_table_from_the_Cinquantenaire_Museum_%28Bruxelles%2C_Belgium%29.jpg/960px-Beautiful_Baroque_gilded_table_from_the_Cinquantenaire_Museum_%28Bruxelles%2C_Belgium%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "mesa",
     "hindi": "mez",
     "tamil": "மேசை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Mesa → Clean the Mess off the study/dining table!",
+    "shortcutHi": "Mez → 'Kitab Mez par rakho' / Sturdy wooden study table!"
   },
   {
     "num": 837,
     "word": "CHAIR",
     "emoji": "🪑",
     "category": "Furniture & Bedding",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Set_of_fourteen_side_chairs_MET_DP110780.jpg/960px-Set_of_fourteen_side_chairs_MET_DP110780.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "silla",
     "hindi": "kursi",
     "tamil": "நாற்காலி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Silla → Sit and Chill-a on the chair!",
+    "shortcutHi": "Kursi → 'Kursi par baithiye' / Classic four-legged wooden chair!"
   },
   {
     "num": 838,
     "word": "ARMCHAIR",
     "emoji": "🛋️",
     "category": "Furniture & Bedding",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/73/Fauteuil_rond2.jpg",
     "spanish": "sillón",
     "hindi": "aaraam kursi",
     "tamil": "சாய்வு நாற்காலி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Sillón → Big Silla / Luxurious plush armchair with armrests!",
+    "shortcutHi": "Aaraam Kursi → Aaraam (Rest) dene wali ultra-comfy rocking armchair!"
   },
   {
     "num": 839,
     "word": "SOFA",
     "emoji": "🛋️",
     "category": "Furniture & Bedding",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/2009-05-16_Main_office_lobby_at_Hampton_Forest_Apartments.jpg/960px-2009-05-16_Main_office_lobby_at_Hampton_Forest_Apartments.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "sofá",
     "hindi": "sofa",
     "tamil": "சோபா",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Sofá → Direct match with Sofa!",
+    "shortcutHi": "Sofa → Living room plush three-seater Sofa!"
   },
   {
     "num": 840,
     "word": "COUCH",
     "emoji": "🛋️",
     "category": "Furniture & Bedding",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/2009-05-16_Main_office_lobby_at_Hampton_Forest_Apartments.jpg/960px-2009-05-16_Main_office_lobby_at_Hampton_Forest_Apartments.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "sofá",
     "hindi": "sofa",
     "tamil": "நீள் சோபா",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Sofá → Direct match with Sofa / Couch!",
+    "shortcutHi": "Sofa → Couch potato relaxing on the Sofa!"
   },
   {
     "num": 841,
     "word": "BED",
     "emoji": "🛏️",
     "category": "Furniture & Bedding",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/2008-04-12_Freilichtmuseum_Detmold_%2811%29.jpg/960px-2008-04-12_Freilichtmuseum_Detmold_%2811%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "cama",
     "hindi": "bistar",
     "tamil": "படுக்கை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Cama → Calm-a down and sleep soundly in bed!",
+    "shortcutHi": "Bistar → 'Bistar lagao' / Cozy bedtime mattress and blanket setup!"
   },
   {
     "num": 842,
     "word": "MATTRESS",
     "emoji": "🛏️",
     "category": "Furniture & Bedding",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Shifman_Mattress_Set.JPG/960px-Shifman_Mattress_Set.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "colchón",
     "hindi": "gadda",
     "tamil": "மெத்தை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Colchón → Giant Cushion that cushions your entire body while sleeping!",
+    "shortcutHi": "Gadda → Super soft fluffy cotton Gadda spread on the cot!"
   },
   {
     "num": 843,
     "word": "PILLOW",
     "emoji": "🛏️",
     "category": "Furniture & Bedding",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Pillows_on_a_hotel_bed.jpg/960px-Pillows_on_a_hotel_bed.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "almohada",
     "hindi": "takiya",
     "tamil": "தலையணை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Almohada → Soft as sweet Almond cream under your head!",
+    "shortcutHi": "Takiya → Rest your tired neck on a plush fluffy Takiya!"
   },
   {
     "num": 844,
     "word": "BLANKET",
     "emoji": "🛏️",
     "category": "Furniture & Bedding",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Lautrec_in_bed_1893.jpg/960px-Lautrec_in_bed_1893.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "manta",
     "hindi": "kambal",
     "tamil": "கம்பளி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Manta → Wrap yourself in a warm woolen Mantle on chilly nights!",
+    "shortcutHi": "Kambal → Snuggle inside a heavy warm woolen Kambal during winter!"
   },
   {
     "num": 845,
     "word": "SHEET",
     "emoji": "🛏️",
     "category": "Furniture & Bedding",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Prze%C5%9Bcierad%C5%82o.jpg/960px-Prze%C5%9Bcierad%C5%82o.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "sábana",
     "hindi": "chaadar",
     "tamil": "படுக்கை விரிப்பு",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Sábana → Smooth cool white cotton bedsheet covering the bed!",
+    "shortcutHi": "Chaadar → Spread a clean fresh floral Chaadar over the mattress!"
   },
   {
     "num": 846,
     "word": "CURTAIN",
     "emoji": "🪟",
     "category": "Furniture & Bedding",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Gordijnen_aan_venster.JPG/960px-Gordijnen_aan_venster.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "cortina",
     "hindi": "parda",
     "tamil": "திரைச்சீலை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Cortina → Sounds just like English Curtain: Cor-teena!",
+    "shortcutHi": "Parda → 'Parda gira do' / Draw the window curtain to block direct sunlight!"
   },
   {
     "num": 847,
     "word": "CARPET",
     "emoji": "🛋️",
     "category": "Furniture & Bedding",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Wollteppich_1.jpg/960px-Wollteppich_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "alfombra",
     "hindi": "kaleen",
     "tamil": "கம்பளம்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Alfombra → Al-foam-bra / Soft spongy foam cushioning under your feet!",
+    "shortcutHi": "Kaaleen → Luxurious Kashmiri floral woven Kaaleen on the floor!"
   },
   {
     "num": 848,
     "word": "RUG",
     "emoji": "🛋️",
     "category": "Furniture & Bedding",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Wollteppich_1.jpg/960px-Wollteppich_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "alfombra pequeña",
     "hindi": "rug",
     "tamil": "சிறு விரிப்பு",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Alfombra → Woven decorative floor rug / soft runner!",
+    "shortcutHi": "Rug / Kaaleen → Small bedside ornamental woven Rug!"
   },
   {
     "num": 849,
     "word": "MIRROR",
     "emoji": "🪞",
     "category": "Furniture & Fixtures",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/52/Mirror.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "spanish": "espejo",
     "hindi": "aaina",
     "tamil": "கண்ணாடி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Espejo → Wear your Specs-ejo and check your face in the mirror!",
+    "shortcutHi": "Aaina → 'Aaina jhoot nahi bolta' / Gaze into the crystal mirror!"
   },
   {
     "num": 850,
     "word": "CLOSET",
     "emoji": "🚪",
     "category": "Furniture & Storage",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Old_Jefferson_Louisiana_2016_-_Coolidge_Street_58.jpg/960px-Old_Jefferson_Louisiana_2016_-_Coolidge_Street_58.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "armario",
     "hindi": "almari",
     "tamil": "ஆடை அலமாரி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Armario → Sounds like Armory / Wardrobe closet where all shirts and outfits are stored!",
+    "shortcutHi": "Almaari → Traditional heavy Godrej steel Almaari full of neatly folded clothes!"
   },
   {
     "num": 851,
     "word": "WARDROBE",
     "emoji": "🚪",
     "category": "Furniture & Storage",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Old_Jefferson_Louisiana_2016_-_Coolidge_Street_58.jpg/960px-Old_Jefferson_Louisiana_2016_-_Coolidge_Street_58.jpg",
     "spanish": "ropero",
     "hindi": "wardrobe",
     "tamil": "ஆடைப் பேழை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Armario → Grand wooden wardrobe with full-length mirror doors!",
+    "shortcutHi": "Wardrobe / Almaari → Bedroom sliding door Wardrobe!"
   },
   {
     "num": 852,
     "word": "CUPBOARD",
     "emoji": "🚪",
     "category": "Furniture & Storage",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Serwantka.JPG/960px-Serwantka.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "alacena",
     "hindi": "almari",
     "tamil": "பீரோ",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Alacena → Kitchen wall cupboard holding spices and dinner plates!",
+    "shortcutHi": "Cupboard / Almaari → Crockery storage cupboard in kitchen!"
   },
   {
     "num": 853,
     "word": "CABINET",
     "emoji": "🚪",
     "category": "Furniture & Storage",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Barberini_Cabinet_MET_DP106703.jpg/960px-Barberini_Cabinet_MET_DP106703.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "gabinete",
     "hindi": "cabinet",
     "tamil": "பெட்டகம்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Gabinete → Direct sound match with Cabinet!",
+    "shortcutHi": "Cabinet → Wooden storage cabinet with shelves!"
   },
   {
     "num": 854,
     "word": "DRAWER",
     "emoji": "🗄️",
     "category": "Furniture & Storage",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Drawer.agr.jpg/960px-Drawer.agr.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "cajón",
     "hindi": "daraaz",
     "tamil": "இழுப்பறை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Cajón → Big sliding Caja (box) that slides smoothly out of the desk!",
+    "shortcutHi": "Daraaz → Pull open the desk Daraaz to grab your pens and documents!"
   },
   {
     "num": 855,
     "word": "SHELF",
     "emoji": "📚",
     "category": "Furniture & Storage",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Atifells_de_cuina_andalusins%2C_Museu_Arqueol%C3%B2gic_Municipal_d%27Alcoi.JPG/960px-Atifells_de_cuina_andalusins%2C_Museu_Arqueol%C3%B2gic_Municipal_d%27Alcoi.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "estante",
     "hindi": "shelf",
     "tamil": "அடுக்கு பலகை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Estante → Stand-te / Sturdy wooden plank where items stand safely!",
+    "shortcutHi": "Shelf → Wall Shelf holding trophies and potted succulents!"
   },
   {
     "num": 856,
     "word": "BOOKCASE",
     "emoji": "📚",
     "category": "Furniture & Storage",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Interior_of_Biblioth%C3%A8que_Mazarine_003.JPG/960px-Interior_of_Biblioth%C3%A8que_Mazarine_003.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "librería",
     "hindi": "kitaabon ki almari",
     "tamil": "புத்தக அலமாரி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Librería → Mini home Library cabinet packed with your favorite novels!",
+    "shortcutHi": "Kitabon ki Almaari → Multi-tier glass-door bookcase packed with books!"
   },
   {
     "num": 857,
     "word": "DESK",
     "emoji": "🖥️",
     "category": "Furniture & Office",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Bureau_table_MET_DP108643.jpg/960px-Bureau_table_MET_DP108643.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "escritorio",
     "hindi": "desk",
     "tamil": "எழுது மேசை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Escritorio → Place where you write Scripts and work on your laptop!",
+    "shortcutHi": "Desk → Study table and computer working Desk!"
   },
   {
     "num": 858,
     "word": "LAMP",
     "emoji": "💡",
     "category": "Lighting & Fixtures",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Wide_array_of_lamps.jpg/960px-Wide_array_of_lamps.jpg",
     "spanish": "lámpara",
     "hindi": "lamp",
     "tamil": "விளக்கு",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Lámpara → Direct sound match with English Lamp!",
+    "shortcutHi": "Lamp → Nightstand reading Lamp casting a cozy warm glow!"
   },
   {
     "num": 859,
     "word": "BULB",
     "emoji": "💡",
     "category": "Lighting & Fixtures",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Gluehlampe_01_KMJ.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "spanish": "bombilla",
     "hindi": "bulb",
     "tamil": "மின் குமிழ்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Bombilla → Tiny pear-shaped glass Bomb-illa glowing with bright filament light!",
+    "shortcutHi": "Bulb → Classic yellow incandescent or LED Bulb!"
   },
   {
     "num": 860,
     "word": "SWITCH",
     "emoji": "🔘",
     "category": "Electrical Fixtures",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Opened_light_switch.JPG/960px-Opened_light_switch.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "interruptor",
     "hindi": "switch",
     "tamil": "மின் விசை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Interruptor → Interrupts electric flow to turn lights ON and OFF!",
+    "shortcutHi": "Switch → Click the wall Switch to turn on the room ceiling fan!"
   },
   {
     "num": 861,
     "word": "PLUG",
     "emoji": "🔌",
     "category": "Electrical & Tools",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/French-power-socket.jpg/960px-French-power-socket.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "enchufe",
     "hindi": "plug",
     "tamil": "மின் செருகி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Enchufe → En-chew-fe / Metal pins bite firmly into wall socket like teeth!",
+    "shortcutHi": "Plug → Insert laptop charger Plug into power point!"
   },
   {
     "num": 862,
     "word": "SOCKET",
     "emoji": "🔌",
     "category": "Electrical & Tools",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/French-power-socket.jpg/960px-French-power-socket.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "toma de corriente",
     "hindi": "socket",
     "tamil": "செருகுதுளை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Enchufe → Wall outlet that accepts electric power plug pins!",
+    "shortcutHi": "Socket → Three-pin wall electrical Socket!"
   },
   {
     "num": 863,
     "word": "WIRE",
     "emoji": "🔌",
     "category": "Electrical & Tools",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Leitungsende_Abisoliert_en.svg/960px-Leitungsende_Abisoliert_en.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "cable",
     "hindi": "taar",
     "tamil": "மின்கம்பி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Cable → Direct sound match with electrical Cable!",
+    "shortcutHi": "Taar → Insulated copper electrical Taar carrying current!"
   },
   {
     "num": 864,
     "word": "CLOCK",
     "emoji": "⏰",
     "category": "Household Hardware",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Pendulum_clock_by_Jacob_Kock%2C_antique_furniture_photography%2C_IMG_0931_edit.jpg/960px-Pendulum_clock_by_Jacob_Kock%2C_antique_furniture_photography%2C_IMG_0931_edit.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "reloj",
     "hindi": "ghadi",
     "tamil": "கடிகாரம்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Reloj → Time to Relax-o when clock hands strike 5 PM! Ticks 're-loj'!",
+    "shortcutHi": "Ghadi → 'Ghadi me kitne baje hain?' / Ticking wall clock!"
   },
   {
     "num": 865,
     "word": "BELL",
     "emoji": "🔔",
     "category": "Household Hardware",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Parts_of_a_Bell.svg/960px-Parts_of_a_Bell.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "campana",
     "hindi": "ghanti",
     "tamil": "அழைப்பு மணி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Campana → Giant ringing bell in cathedral tower / rings like Campanile!",
+    "shortcutHi": "Ghanti → Ding-dong entrance doorbell / temple brass Ghanti!"
   },
   {
     "num": 866,
     "word": "KEY",
     "emoji": "🔑",
     "category": "Household Hardware",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Solex_99_30_padlock_with_keys_%28DSCF2659%29.jpg/960px-Solex_99_30_padlock_with_keys_%28DSCF2659%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "llave",
     "hindi": "chaabi",
     "tamil": "சாவி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Llave (Yave) → Lock the front door before you Leave home!",
+    "shortcutHi": "Chaabi → 'Ghar ki Chaabi jeb me rakho' / Key to safety!"
   },
   {
     "num": 867,
     "word": "PADLOCK",
     "emoji": "🔒",
     "category": "Household Hardware",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/48/Padlock_kl%C3%B3dka_ubt.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "spanish": "candado",
     "hindi": "taala",
     "tamil": "பூட்டு",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Candado → Candid heavy brass lock guarding your main gate!",
+    "shortcutHi": "Taala → Heavy brass Taala locked tight with key!"
   },
   {
     "num": 868,
     "word": "BROOM",
     "emoji": "🧹",
     "category": "Cleaning Tools",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b0/BroomsforSale.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "spanish": "escoba",
     "hindi": "jhaadu",
     "tamil": "விளக்குமாறு",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Escoba → Scoop-a / Sweeps and scoops up all dust off the floor!",
+    "shortcutHi": "Jhaadoo → Morning house cleaning ritual: Jhaadoo-pocha!"
   },
   {
     "num": 869,
     "word": "MOP",
     "emoji": "🧽",
     "category": "Cleaning Tools",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Mop%2C_three_different_mop_handles.jpg/960px-Mop%2C_three_different_mop_handles.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "fregona",
     "hindi": "pocha",
     "tamil": "துடைப்பான்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Fregona → Wets and scrubs the floor spotless clean!",
+    "shortcutHi": "Pocha → Wet floor cleaning Pocha with lemon phenyl!"
   },
   {
     "num": 870,
     "word": "BUCKET",
     "emoji": "🪣",
     "category": "Cleaning Tools",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Gotland-Bottarve_Museumshof_07.jpg/960px-Gotland-Bottarve_Museumshof_07.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "balde",
     "hindi": "baalti",
     "tamil": "வாளி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Cubo → Cube-o / Large cylindrical container filled with water!",
+    "shortcutHi": "Baalti → Bright plastic bathroom Baalti full of fresh water!"
   },
   {
     "num": 871,
     "word": "DUSTPAN",
     "emoji": "🧹",
     "category": "Cleaning Tools",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Stofferenblik.jpg/960px-Stofferenblik.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "recogedor",
     "hindi": "dustpan",
     "tamil": "குப்பை அள்ளி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Recogedor → Recover-dor / Collects and recovers all swept dirt!",
+    "shortcutHi": "Dustpan → Plastic tray to pick up swept dust: Dustpan!"
   },
   {
     "num": 872,
     "word": "TRASH",
     "emoji": "🗑️",
     "category": "Household Waste",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Shredded_solid_waste.jpg/960px-Shredded_solid_waste.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "basura",
     "hindi": "kachra",
     "tamil": "குப்பை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Basura → Bass-ura / Smelly waste food scraps you discard!",
+    "shortcutHi": "Kachra → 'Kachra mat phailao' / Throw waste into dustbin!"
   },
   {
     "num": 873,
     "word": "BIN",
     "emoji": "🗑️",
     "category": "Household Waste",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Waste_container_in_Japan.jpg/960px-Waste_container_in_Japan.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "cubo de basura",
     "hindi": "koodedaan",
     "tamil": "குப்பைத் தொட்டி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Cubo de basura → Waste bucket / dustbin!",
+    "shortcutHi": "Koodedaan → Segregated green/blue waste Koodedaan!"
   },
   {
     "num": 874,
     "word": "CANDLE",
     "emoji": "🕯️",
     "category": "Home & Lighting",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/LA2_Skultuna_kontorsljusstake.jpg/960px-LA2_Skultuna_kontorsljusstake.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "vela",
     "hindi": "mombatti",
     "tamil": "மெழுகுவர்த்தி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Vela → White wax candle giving bright Velicham (Tamil: bright light)!",
+    "shortcutHi": "Mombatti → Mom (Wax) + Batti (Wick/Light) = Wax candle!"
   },
   {
     "num": 875,
     "word": "MATCH",
     "emoji": "🔥",
     "category": "Tools & Fire",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Friction_d%27une_allumette.jpg/960px-Friction_d%27une_allumette.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "fósforo",
     "hindi": "maachis",
     "tamil": "தீக்குச்சி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Fósforo → Red Phosphorus chemical tip strikes instant flame on matchbox!",
+    "shortcutHi": "Maachis → Strike a single wooden Maachis stick to light diya!"
   },
   {
     "num": 876,
     "word": "LIGHTER",
     "emoji": "🔥",
     "category": "Tools & Fire",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/White_lighter_with_flame.JPG/960px-White_lighter_with_flame.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "encendedor",
     "hindi": "lighter",
     "tamil": "தீப்பற்றவைப்பான்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Encendedor → Incendiary pocket tool that sparks instant flame!",
+    "shortcutHi": "Lighter → Kitchen gas stove clicker Lighter!"
   },
   {
     "num": 877,
     "word": "SOAP",
     "emoji": "🧼",
     "category": "Personal Hygiene",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Handmade_soap_cropped_and_simplified.jpg/960px-Handmade_soap_cropped_and_simplified.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "jabón",
     "hindi": "saabun",
     "tamil": "சோப்பு",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Jabón (Habón) → Sounds remarkably like Indian Sabun!",
+    "shortcutHi": "Sabun → 'Haath achhe se Sabun se dho lo' / Lathering bath soap!"
   },
   {
     "num": 878,
     "word": "TOWEL",
     "emoji": "🧖",
     "category": "Personal Hygiene",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Zusammengelegte_Handt%C3%BCcher.jpg/960px-Zusammengelegte_Handt%C3%BCcher.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "toalla",
     "hindi": "tauliya",
     "tamil": "துண்டு",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Toalla → Sounds just like English Towel-la!",
+    "shortcutHi": "Tauliya → Soft dry cotton bath Tauliya after a shower!"
   },
   {
     "num": 879,
     "word": "SHAMPOO",
     "emoji": "🧴",
     "category": "Personal Hygiene",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Hair_wash_with_shampoo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "spanish": "champú",
     "hindi": "shampoo",
     "tamil": "ஷாம்பு",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Champú → Direct match with English Shampoo (which originally came from Hindi champi)!",
+    "shortcutHi": "Shampoo → Foaming hair wash Shampoo!"
   },
   {
     "num": 880,
     "word": "TOOTHBRUSH",
     "emoji": "🪥",
     "category": "Personal Hygiene",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Toothbrush_20050716_004.jpg/960px-Toothbrush_20050716_004.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "cepillo de dientes",
     "hindi": "toothbrush",
     "tamil": "பல் துலக்கி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Cepillo de dientes → Dental brush to clean teeth!",
+    "shortcutHi": "Toothbrush → Morning toothpaste and Toothbrush routine!"
   },
   {
     "num": 881,
     "word": "TOOTHPASTE",
     "emoji": "🪥",
     "category": "Personal Hygiene",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Toothpasteonbrush.jpg/960px-Toothpasteonbrush.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "pasta de dientes",
     "hindi": "toothpaste",
     "tamil": "பல் பசை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Pasta de dientes → Minty paste for white teeth!",
+    "shortcutHi": "Toothpaste → Mint fresh gel Toothpaste!"
   },
   {
     "num": 882,
     "word": "RAZOR",
     "emoji": "🪒",
     "category": "Personal Hygiene",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Quattro_Titanium_Energy.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "spanish": "maquinilla",
     "hindi": "razor",
     "tamil": "சவரக் கத்தி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Maquinilla de afeitar → Mini machine that gives a close clean shave!",
+    "shortcutHi": "Razor → Stainless steel safety Razor for smooth shave!"
   },
   {
     "num": 883,
     "word": "SCISSORS",
     "emoji": "✂️",
     "category": "Tools & Hardware",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Standard_household_scissors.jpg/960px-Standard_household_scissors.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "tijeras",
     "hindi": "kainchi",
     "tamil": "கத்தரிக்கோல்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Tijeras → Sharp blades snip and tear-as cloth smoothly into pieces!",
+    "shortcutHi": "Kainchi → Sharp tailor's snip-snip Kainchi cutting fabric!"
   },
   {
     "num": 884,
     "word": "HAMMER",
     "emoji": "🔨",
     "category": "Tools & Hardware",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/OHM_-_Streithammer.jpg/960px-OHM_-_Streithammer.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "martillo",
     "hindi": "hathoda",
     "tamil": "சுத்தியல்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Martillo → Strikes down with fierce Martial force like a blacksmith!",
+    "shortcutHi": "Hathoda → Heavy iron Haath (hand) tool that drives nails deep!"
   },
   {
     "num": 885,
     "word": "NAIL",
     "emoji": "🔨",
     "category": "Tools & Hardware",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Clou_127.jpg/960px-Clou_127.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "clavo",
     "hindi": "keel",
     "tamil": "ஆணி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Clavo → Digs like a sharp steel Claw into wooden planks!",
+    "shortcutHi": "Keel → Iron Keel hammered firmly into the wall to hang pictures!"
   },
   {
     "num": 886,
     "word": "SCREW",
     "emoji": "🔩",
     "category": "Tools & Hardware",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Screws.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "spanish": "tornillo",
     "hindi": "screw",
     "tamil": "திருகாணி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Tornillo → Spirals round and round like a mini Tornado into wood!",
+    "shortcutHi": "Pench → Threaded metal Pench fastened tightly into place!"
   },
   {
     "num": 887,
     "word": "SCREWDRIVER",
     "emoji": "🪛",
     "category": "Tools & Hardware",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Screw_Driver_display.jpg/960px-Screw_Driver_display.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "destornillador",
     "hindi": "screwdriver",
     "tamil": "திருப்புளி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Destornillador → Tool that turns the spiral tornado screw in and out!",
+    "shortcutHi": "Pechkas → Magnetic tip screwdriver: Pechkas!"
   },
   {
     "num": 888,
     "word": "ROPE",
     "emoji": "🪢",
     "category": "Tools & Hardware",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Cordage_en_chanvre.jpg/960px-Cordage_en_chanvre.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "cuerda",
     "hindi": "rassi",
     "tamil": "கயிறு",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Cuerda → Strong heavy braided Cord that ties cargo securely!",
+    "shortcutHi": "Rassi → Strong jute or nylon braided Rassi!"
   },
   {
     "num": 889,
     "word": "STRING",
     "emoji": "🧵",
     "category": "Tools & Hardware",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Multiple_thread.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "spanish": "hilo",
     "hindi": "dhaaga",
     "tamil": "நூல்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Hilo → He-low / Thin kite thread hanging low!",
+    "shortcutHi": "Dhaaga → Cotton needle thread / kite Dhaaga!"
   },
   {
     "num": 890,
     "word": "GLUE",
     "emoji": "🧴",
     "category": "Tools & Hardware",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/AdhesivesForHouseUse004.jpg/960px-AdhesivesForHouseUse004.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "pegamento",
     "hindi": "gond",
     "tamil": "பசை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Pegamento → Pegs and sticks two paper sheets permanently together!",
+    "shortcutHi": "Gond / Fevicol → Strong adhesive glue: Gond!"
   },
   {
     "num": 891,
     "word": "CLOTHES",
     "emoji": "👕",
     "category": "Clothing & Garments",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Clothes.jpg/960px-Clothes.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "ropa",
     "hindi": "kapde",
     "tamil": "உடைகள்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Ropa → Wardrobe filled with royal Robes and dresses!",
+    "shortcutHi": "Kapde → Freshly ironed cotton Kapde hanging in wardrobe!"
   },
   {
     "num": 892,
     "word": "CLOTHING",
     "emoji": "👗",
     "category": "Clothing & Garments",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Clothes.jpg/960px-Clothes.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "vestimenta",
     "hindi": "kapde",
     "tamil": "ஆடை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Ropa → Apparel and clothing collection!",
+    "shortcutHi": "Kapde → Everyday comfortable casual Kapde!"
   },
   {
     "num": 893,
     "word": "SHIRT",
     "emoji": "👔",
     "category": "Clothing & Garments",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/01/Charvet_shirt.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "spanish": "camisa",
     "hindi": "kameez",
     "tamil": "சட்டை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Camisa → Exact match with traditional Indian Qameez (Kurta-Qameez)!",
+    "shortcutHi": "Qameez / Shirt → Crisp formal collared button-up Qameez / Shirt!"
   },
   {
     "num": 894,
     "word": "PANTS",
     "emoji": "👖",
     "category": "Clothing & Garments",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Trousers-colourisolated.jpg/960px-Trousers-colourisolated.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "pantalones",
     "hindi": "pant",
     "tamil": "கால்சட்டை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Pantalón → Direct phonetic match with English Pants: Pant-alon!",
+    "shortcutHi": "Pant → Tailored formal trousers / everyday Pant!"
   },
   {
     "num": 895,
     "word": "JEANS",
     "emoji": "👖",
     "category": "Clothing & Garments",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Jeans.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "spanish": "vaqueros",
     "hindi": "jeans",
     "tamil": "ஜீன்ஸ்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Vaqueros / Jeans → Rugged denim jeans worn by cowboys ('vaqueros')!",
+    "shortcutHi": "Jeans → Classic rugged blue denim Jeans!"
   },
   {
     "num": 896,
     "word": "SHORTS",
     "emoji": "🩳",
     "category": "Clothing & Garments",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Modern_bermuda_shorts.jpg",
     "spanish": "pantalones cortos",
     "hindi": "shorts",
     "tamil": "அரைக்கால் சட்டை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Pantalones cortos → Literally 'short pants'!",
+    "shortcutHi": "Shorts → Casual summer sports Shorts!"
   },
   {
     "num": 897,
     "word": "BLOUSE",
     "emoji": "👚",
     "category": "Clothing & Garments",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/73/Striped_Bow_Neck_Blouse_and_a_Navy_Blue_Mini_Skirt_%2818966025833%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "spanish": "blusa",
     "hindi": "blouse",
     "tamil": "பெண் சட்டை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Blusa → Direct sound match with English Blouse-a!",
+    "shortcutHi": "Blouse → Traditional embroidered saree Blouse!"
   },
   {
     "num": 898,
     "word": "SKIRT",
     "emoji": "👗",
     "category": "Clothing & Garments",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/83/Skirt.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "spanish": "falda",
     "hindi": "skirt",
     "tamil": "பாவாடை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Falda → Pretty pleated skirt with gentle swinging Folds!",
+    "shortcutHi": "Skirt → School uniform or festive flared Skirt!"
   },
   {
     "num": 899,
     "word": "SUIT",
     "emoji": "👔",
     "category": "Clothing & Formal",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/76/Matt_Smith_on_%22Christopher_And_His_Kind%22_set.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "spanish": "traje",
     "hindi": "suit",
     "tamil": "கோட்டு வழக்கு",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Traje → Formal gentleman's 3-piece Attire for weddings!",
+    "shortcutHi": "Suit → Elegant formal coat and pant Suit!"
   },
   {
     "num": 900,
     "word": "JACKET",
     "emoji": "🧥",
     "category": "Clothing & Outerwear",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Jacket2-1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "spanish": "chaqueta",
     "hindi": "jacket",
     "tamil": "மேலங்கி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Chaqueta → Direct sound match with Jacket-a!",
+    "shortcutHi": "Jacket → Warm zip-up winter Jacket!"
   },
   {
     "num": 901,
     "word": "COAT",
     "emoji": "🧥",
     "category": "Clothing & Outerwear",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8e/FalatJulian.PortretAntoniegoWodzickiego.1900.ws.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "spanish": "abrigo",
     "hindi": "coat",
     "tamil": "குளிரங்கி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Abrigo → Wraps you up cozy to block biting cold winds!",
+    "shortcutHi": "Coat → Heavy winter overcoat / blazer Coat!"
   },
   {
     "num": 902,
     "word": "SWEATER",
     "emoji": "🧶",
     "category": "Clothing & Outerwear",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Selburose-sweater.jpg/960px-Selburose-sweater.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "suéter",
     "hindi": "sweater",
     "tamil": "கம்பளி சட்டை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Suéter → Direct phonetic match with English Sweater!",
+    "shortcutHi": "Sweater → Knitted warm woolen Sweater!"
   },
   {
     "num": 903,
     "word": "VEST",
     "emoji": "🦺",
     "category": "Clothing & Garments",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Waistcoat.jpg/960px-Waistcoat.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "chaleco",
     "hindi": "vest",
     "tamil": "உள்ளாடை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Chaleco → Sleeveless Nehru vest worn over a kurta!",
+    "shortcutHi": "Baniyan / Vest → Inner cotton Baniyan or formal waist vest!"
   },
   {
     "num": 904,
     "word": "UNIFORM",
     "emoji": "🥋",
     "category": "Clothing & Garments",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/The_Royal_Marines_from_1664_to_1896.jpg/960px-The_Royal_Marines_from_1664_to_1896.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "uniforme",
     "hindi": "uniform",
     "tamil": "சீருடை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Uniforme → Direct match with English Uniform!",
+    "shortcutHi": "Vardi / Uniform → Smart school and police Vardi / Uniform!"
   },
   {
     "num": 905,
     "word": "UNDERWEAR",
     "emoji": "🩲",
     "category": "Clothing & Underwear",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Boxer_002.jpg/960px-Boxer_002.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "ropa interior",
     "hindi": "underwear",
     "tamil": "உள்ளாடை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Ropa interior → Literally 'interior clothes' worn inside!",
+    "shortcutHi": "Underwear → Breathable cotton Underwear!"
   },
   {
     "num": 906,
     "word": "SOCK",
     "emoji": "🧦",
     "category": "Footwear & Socks",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/42/HandKnittedWhiteLaceSock.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "spanish": "calcetín",
     "hindi": "moja",
     "tamil": "கால் உறை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Calcetín → Keeps your ankle and heel bones warm inside shoes!",
+    "shortcutHi": "Moza → Pair of warm cotton Moze worn with school shoes!"
   },
   {
     "num": 907,
     "word": "SHOE",
     "emoji": "👟",
     "category": "Footwear",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/Skor_fr%C3%A5n_1700-_till_1960-talet_-_Nordiska_Museet_-_NMA.0056302.jpg/960px-Skor_fr%C3%A5n_1700-_till_1960-talet_-_Nordiska_Museet_-_NMA.0056302.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "zapato",
     "hindi": "joota",
     "tamil": "காலணி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Zapato → Zap your feet into leather shoes and run out!",
+    "shortcutHi": "Joota → 'Joota pehan ke bahar jao' / Polished leather footwear!"
   },
   {
     "num": 908,
     "word": "BOOT",
     "emoji": "🥾",
     "category": "Footwear",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Cliff_Climbers_Combat_boot_Shoes_Blast.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "spanish": "bota",
     "hindi": "boot",
     "tamil": "நீண்ட காலணி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Bota → Direct sound match with English Boot-a!",
+    "shortcutHi": "Boot → Rugged high-ankle leather trekking Boot!"
   },
   {
     "num": 909,
     "word": "SANDAL",
     "emoji": "🩴",
     "category": "Footwear",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Men%27s_size_10_Sandals.jpg/960px-Men%27s_size_10_Sandals.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "sandalia",
     "hindi": "chappal",
     "tamil": "வார் செருப்பு",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Sandalia → Direct sound match with Sandal!",
+    "shortcutHi": "Chappal / Sandal → Comfortable breezy summer Sandal!"
   },
   {
     "num": 910,
     "word": "SLIPPER",
     "emoji": "🩴",
     "category": "Footwear",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Slippers.jpg/960px-Slippers.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "zapatilla",
     "hindi": "chappal",
     "tamil": "வீட்டுச் செருப்பு",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Pantufla → Soft fluffy indoor foam slippers!",
+    "shortcutHi": "Chappal → Daily indoor rubber Hawaii Chappal!"
   },
   {
     "num": 911,
     "word": "HAT",
     "emoji": "👒",
     "category": "Headwear & Accessories",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Chapeaux_en_peau_de_castor.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "spanish": "sombrero",
     "hindi": "topi",
     "tamil": "தொப்பி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Sombrero → Sombra means shade in Spanish. Hat brim provides cool shade from sun!",
+    "shortcutHi": "Topi → Wide-brim sun protection Topi!"
   },
   {
     "num": 912,
     "word": "CAP",
     "emoji": "🧢",
     "category": "Headwear & Accessories",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/58/Basecap_New_York_Yankees.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "spanish": "gorra",
     "hindi": "topi",
     "tamil": "விளிம்புத் தொப்பி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Gorra → Snug baseball cap with curved sun visor!",
+    "shortcutHi": "Cap / Topi → Sporty cricket batting Cap!"
   },
   {
     "num": 913,
     "word": "BELT",
     "emoji": "🥋",
     "category": "Clothing & Accessories",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Germany_Belt-and-Buckle-02.jpg/960px-Germany_Belt-and-Buckle-02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "cinturón",
     "hindi": "belt",
     "tamil": "இடுப்புப் பட்டை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Cinturón → Cinches firmly around your waist to hold pants up!",
+    "shortcutHi": "Belt → Leather buckle Belt fastened around waist!"
   },
   {
     "num": 914,
     "word": "RIBBON",
     "emoji": "🎀",
     "category": "Accessories & Crafts",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Scrummy_ribbons_by_Lainey_Powell.jpg/960px-Scrummy_ribbons_by_Lainey_Powell.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "cinta",
     "hindi": "ribbon",
     "tamil": "நாடா",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Cinta → Decorative colorful silk gift tape / hair ribbon!",
+    "shortcutHi": "Ribbon → Satin gift packaging and hair braid Ribbon!"
   },
   {
     "num": 915,
     "word": "SCARF",
     "emoji": "🧣",
     "category": "Clothing & Accessories",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/90/100%25_Kaschmir_Wolle_vonk_kaschmirprodukte.de.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "spanish": "bufanda",
     "hindi": "scarf",
     "tamil": "கழுத்துத் துணி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Bufanda → Wraps round neck to buff away freezing winter gusts!",
+    "shortcutHi": "Scarf / Mafflar → Woolen neck Scarf during winter chill!"
   },
   {
     "num": 916,
     "word": "GLOVE",
     "emoji": "🧤",
     "category": "Clothing & Accessories",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Centre_de_Documentaci%C3%B3_Museu_T%C3%A8xtil_de_Terrassa-_Reserves-_Teixits-_Guants002.JPG/960px-Centre_de_Documentaci%C3%B3_Museu_T%C3%A8xtil_de_Terrassa-_Reserves-_Teixits-_Guants002.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "guante",
     "hindi": "dastaana",
     "tamil": "கை உறை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Guante → Armor Gauntlet guarding your fingers against snow or heat!",
+    "shortcutHi": "Dastaana → Woolen hand warmers: Dastaane!"
   },
   {
     "num": 917,
     "word": "POCKET",
     "emoji": "👖",
     "category": "Garment Details",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Jeans_pocket_back.jpg/960px-Jeans_pocket_back.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "bolsillo",
     "hindi": "jeb",
     "tamil": "சட்டைப்பை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Bolsillo → Bolsa (mini bag) stitched right inside your jeans!",
+    "shortcutHi": "Jeb → 'Jeb me hath daalo' / Pants wallet pocket!"
   },
   {
     "num": 918,
     "word": "BUTTON",
     "emoji": "🔘",
     "category": "Garment Details",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Reserveknapper_til_Hans%27_uniform.jpg/960px-Reserveknapper_til_Hans%27_uniform.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "botón",
     "hindi": "button",
     "tamil": "பொத்தான்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Botón → Direct sound match with English Button!",
+    "shortcutHi": "Button → Fasten the front shirt Button!"
   },
   {
     "num": 919,
     "word": "ZIPPER",
     "emoji": "🤐",
     "category": "Garment Details",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Coil_plastic_and_metal_zippers.jpg/960px-Coil_plastic_and_metal_zippers.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "cremallera",
     "hindi": "zip",
     "tamil": "பல்பூட்டு",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Cremallera → Smooth gliding teeth fastener zipping up your jacket!",
+    "shortcutHi": "Chain / Zip → Pull up the jacket metal Chain / Zip!"
   },
   {
     "num": 920,
     "word": "SLEEVE",
     "emoji": "👕",
     "category": "Garment Details",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/Mabel_Love_with_a_bicycle.jpg/960px-Mabel_Love_with_a_bicycle.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "manga",
     "hindi": "aasteen",
     "tamil": "சட்டைக்கை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Manga → Arm covering cloth sleeve (roll up your sleeves)!",
+    "shortcutHi": "Aasteen → Roll up the shirt Aasteen to get to work!"
   },
   {
     "num": 921,
     "word": "COLLAR",
     "emoji": "👔",
     "category": "Garment Details",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/William_Shakespeare_by_John_Taylor%2C_edited.jpg/960px-William_Shakespeare_by_John_Taylor%2C_edited.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "cuello",
     "hindi": "collar",
     "tamil": "கழுத்துப்பட்டி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Cuello → Stiff neck collar framing your dress shirt!",
+    "shortcutHi": "Collar → Crisp ironed shirt Collar!"
   },
   {
     "num": 922,
     "word": "BAG",
     "emoji": "👜",
     "category": "Bags & Carriers",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Bolsas-de-asa-plana-interior-bolsapubli.jpg/960px-Bolsas-de-asa-plana-interior-bolsapubli.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "bolsa",
     "hindi": "bag",
     "tamil": "பை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Bolsa → Large reusable shopping / tote carry bag!",
+    "shortcutHi": "Thaila / Bag → Cotton grocery shopping Thaila / Bag!"
   },
   {
     "num": 923,
     "word": "PURSE",
     "emoji": "👛",
     "category": "Bags & Carriers",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Mi%27kmaq_porcupine_quill_purse_%2840412695490%29.jpg/960px-Mi%27kmaq_porcupine_quill_purse_%2840412695490%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "cartera",
     "hindi": "purse",
     "tamil": "பணப்பை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Bolso → Elegant leather shoulder hand purse!",
+    "shortcutHi": "Purse → Lady's elegant zipper hand Purse!"
   },
   {
     "num": 924,
     "word": "WALLET",
     "emoji": "👛",
     "category": "Bags & Carriers",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/WalletMpegMan.jpg/960px-WalletMpegMan.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "billetera",
     "hindi": "wallet",
     "tamil": "மணிபர்ஸ்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Cartera → Filled with credit Cards and currency notes!",
+    "shortcutHi": "Wallet → Leather back-pocket money Wallet!"
   },
   {
     "num": 925,
     "word": "BACKPACK",
     "emoji": "🎒",
     "category": "Bags & Carriers",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Rucksack1.jpg/960px-Rucksack1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "mochila",
     "hindi": "backpack",
     "tamil": "முதுகுப்பை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Mochila → Carries much load comfortably on your back!",
+    "shortcutHi": "Backpack / Basta → Heavy school and college laptop Backpack!"
   },
   {
     "num": 926,
     "word": "SUITCASE",
     "emoji": "🧳",
     "category": "Luggage & Travel",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Suitcase1.jpg/960px-Suitcase1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "maleta",
     "hindi": "suitcase",
     "tamil": "பயணப் பெட்டி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Maleta → Roller luggage packed for international vacation!",
+    "shortcutHi": "Suitcase / Peti → Four-wheel roller airport travel Suitcase!"
   },
   {
     "num": 927,
     "word": "UMBRELLA",
     "emoji": "☂️",
     "category": "Accessories & Weather",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/M0354_000727-005_1.jpg/960px-M0354_000727-005_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "paraguas",
     "hindi": "chhaata",
     "tamil": "குடை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Paraguas → Para (Stop) + Aguas (Water)! Blocks rain showers!",
+    "shortcutHi": "Chhaata → Chhat (roof) over your head during heavy monsoon rain!"
   },
   {
     "num": 928,
     "word": "JEWELRY",
     "emoji": "💍",
     "category": "Accessories & Jewelry",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Pectoral_and_Necklace_of_Sithathoryunet_with_the_Name_of_Senwosret_II_MET_DT531.jpg/960px-Pectoral_and_Necklace_of_Sithathoryunet_with_the_Name_of_Senwosret_II_MET_DT531.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "joyas",
     "hindi": "gehne",
     "tamil": "நகைகள்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Joyas → Precious gold jewels that bring sparkling Joy!",
+    "shortcutHi": "Gehne / Zewar → Traditional Indian wedding gold Gehne!"
   },
   {
     "num": 929,
     "word": "GLASSES",
     "emoji": "👓",
     "category": "Eyewear & Accessories",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/2023_Okulary_korekcyjne.jpg/960px-2023_Okulary_korekcyjne.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "gafas",
     "hindi": "chashma",
     "tamil": "மூக்குக்கண்ணாடி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Gafas → Spectacles to gawk and read crisp text clearly!",
+    "shortcutHi": "Chashma → Reading Chashma for crystal clear 20/20 vision!"
   },
   {
     "num": 930,
     "word": "SUNGLASSES",
     "emoji": "🕶️",
     "category": "Eyewear & Accessories",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/Allef_Vinicius_2016-10-20_%28Unsplash%29_%28cropped%29.jpg/960px-Allef_Vinicius_2016-10-20_%28Unsplash%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "gafas de sol",
     "hindi": "dhoop ka chashma",
     "tamil": "கருப்புக் கண்ணாடி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Gafas de sol → UV protection sunglasses for bright sunny days!",
+    "shortcutHi": "Dhoop ka Chashma → Cool black aviator sunglasses for hot summer days!"
   },
   {
     "num": 931,
     "word": "RING",
     "emoji": "💍",
     "category": "Accessories & Jewelry",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Ring_Ruby.jpg/960px-Ring_Ruby.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "anillo",
     "hindi": "angoothi",
     "tamil": "மோதிரம்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Anillo → Circular Annulus ring slipped onto wedding finger!",
+    "shortcutHi": "Angoothi → Diamond and gold engagement Angoothi!"
   },
   {
     "num": 932,
     "word": "NECKLACE",
     "emoji": "📿",
     "category": "Accessories & Jewelry",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Dasaneh_girls.JPG/960px-Dasaneh_girls.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "collar",
     "hindi": "haar",
     "tamil": "கழுத்து மாலை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Collar → Precious gem necklace draped around the neck!",
+    "shortcutHi": "Haar → Royal bridal gold and pearl Haar!"
   },
   {
     "num": 933,
     "word": "EARRING",
     "emoji": "👂",
     "category": "Accessories & Jewelry",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Positions_of_earrings.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "spanish": "pendiente",
     "hindi": "jhumka",
     "tamil": "காதணி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Pendiente → Sparkling jewel pendant dangling from the earlobe!",
+    "shortcutHi": "Jhumka → Traditional dancing Jhumka shining bright!"
   },
   {
     "num": 934,
     "word": "BRACELET",
     "emoji": "📿",
     "category": "Accessories & Jewelry",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Gold_charm_bracelet.JPG/960px-Gold_charm_bracelet.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "pulsera",
     "hindi": "bracelet",
     "tamil": "கை வளையல்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Pulsera → Worn on the wrist right where your Pulse beats!",
+    "shortcutHi": "Kangan → Golden wedding bangle / wrist Kangan!"
   },
   {
     "num": 935,
     "word": "TRANSPORT",
     "emoji": "🚆",
     "category": "Transit & Vehicles",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Manchester_Transport_Montage.jpg/960px-Manchester_Transport_Montage.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "transporte",
     "hindi": "transport",
     "tamil": "போக்குவரத்து",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Transporte → Direct match with English Transport!",
+    "shortcutHi": "Parivahan → Public bus and metro transit network: Parivahan!"
   },
   {
     "num": 936,
     "word": "VEHICLE",
     "emoji": "🚗",
     "category": "Transit & Vehicles",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/08/Bikes%2C_buses_and_cars_-_geograph.org.uk_-_1516362.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "spanish": "vehículo",
     "hindi": "gaadi",
     "tamil": "வாகனம்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Vehículo → Direct match with English Vehicle!",
+    "shortcutHi": "Gaadi → Any wheeled automobile / motor Gaadi!"
   },
   {
     "num": 937,
     "word": "CAR",
     "emoji": "🚗",
     "category": "Transit & Vehicles",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/1925_Ford_Model_T_touring.jpg/960px-1925_Ford_Model_T_touring.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "auto",
     "hindi": "car",
     "tamil": "மகிழுந்து",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Coche / Auto → Sounds like four-wheel horse Coach / Auto!",
+    "shortcutHi": "Car / Gaadi → 'Car start karo' / Four-wheel family motor car!"
   },
   {
     "num": 938,
     "word": "BICYCLE",
     "emoji": "🚲",
     "category": "Transit & Vehicles",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Left_side_of_Flying_Pigeon.jpg/960px-Left_side_of_Flying_Pigeon.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "bicicleta",
     "hindi": "cycle",
     "tamil": "மிதிவண்டி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Bicicleta → Direct match with English Bicycle!",
+    "shortcutHi": "Cycle → Two-wheeler pedal Cycle for evening rides!"
   },
   {
     "num": 939,
     "word": "SCOOTER",
     "emoji": "🛵",
     "category": "Transit & Vehicles",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Yamaha_Aerox_2011_.jpg/960px-Yamaha_Aerox_2011_.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "motoneta",
     "hindi": "scooter",
     "tamil": "இருசக்கர ஊர்தி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Patinete / Scooter → Two-wheel twist-and-go motor scooter!",
+    "shortcutHi": "Scooter → Classic Bajaj or Activa family Scooter!"
   },
   {
     "num": 940,
     "word": "MOTORCYCLE",
     "emoji": "🏍️",
     "category": "Transit & Vehicles",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/50/Istockphoto-114285168-612x612.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "spanish": "motocicleta",
     "hindi": "motorcycle",
     "tamil": "மோட்டார் சைக்கிள்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Motocicleta → Direct match with English Motorcycle!",
+    "shortcutHi": "Motorcycle / Bike → Geared road-cruiser Bike!"
   },
   {
     "num": 941,
     "word": "BUS",
     "emoji": "🚌",
     "category": "Transit & Vehicles",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/LTZ1328-19-20241030-160332.jpg/960px-LTZ1328-19-20241030-160332.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "autobús",
     "hindi": "bus",
     "tamil": "பேருந்து",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Autobús → Direct match with English Bus!",
+    "shortcutHi": "Bus → City public transit red double-decker Bus!"
   },
   {
     "num": 942,
     "word": "TRAIN",
     "emoji": "🚆",
     "category": "Transit & Vehicles",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/%D0%9F%D0%BE%D0%B5%D0%B7%D0%B4_%D0%BD%D0%B0_%D1%84%D0%BE%D0%BD%D0%B5_%D0%B3%D0%BE%D1%80%D1%8B_%D0%A8%D0%B0%D1%82%D1%80%D0%B8%D1%89%D0%B5._%D0%92%D0%BE%D1%80%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%B0%D1%8F_%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C.jpg/960px-%D0%9F%D0%BE%D0%B5%D0%B7%D0%B4_%D0%BD%D0%B0_%D1%84%D0%BE%D0%BD%D0%B5_%D0%B3%D0%BE%D1%80%D1%8B_%D0%A8%D0%B0%D1%82%D1%80%D0%B8%D1%89%D0%B5._%D0%92%D0%BE%D1%80%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%B0%D1%8F_%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "tren",
     "hindi": "train",
     "tamil": "தொடருந்து",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Tren → Exact match with English Train: Tren!",
+    "shortcutHi": "Railgaadi → Legendary 'Railgaadi chuk chuk chuk chuk'!"
   },
   {
     "num": 943,
     "word": "TRUCK",
     "emoji": "🚚",
     "category": "Transit & Vehicles",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/2001_Ford_F-250_Super_Duty_XL_regular_cab_flatbed%2C_front_left%2C_05-17-2025.jpg/960px-2001_Ford_F-250_Super_Duty_XL_regular_cab_flatbed%2C_front_left%2C_05-17-2025.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "camión",
     "hindi": "truck",
     "tamil": "சரக்குந்து",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Camión → Heavy 18-wheel cargo transport lorry!",
+    "shortcutHi": "Truck / Lorry → National highway cargo hauler Truck!"
   },
   {
     "num": 944,
     "word": "VAN",
     "emoji": "🚐",
     "category": "Transit & Vehicles",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/2018_Ford_Transit_Custom_300_Base_2.0_facelift.jpg/960px-2018_Ford_Transit_Custom_300_Base_2.0_facelift.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "furgoneta",
     "hindi": "van",
     "tamil": "சிற்றுந்து",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Furgoneta → Boxy passenger and goods delivery van!",
+    "shortcutHi": "Van / Omni → School children transport Van!"
   },
   {
     "num": 945,
     "word": "TAXI",
     "emoji": "🚕",
     "category": "Transit & Vehicles",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/TAXI.jpg/960px-TAXI.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "taxi",
     "hindi": "taxi",
     "tamil": "வாடகை மகிழுந்து",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Taxi → Worldwide universal word: Taxi!",
+    "shortcutHi": "Taxi / Cab → Yellow-and-black city meter Taxi!"
   },
   {
     "num": 946,
     "word": "SUBWAY",
     "emoji": "🚇",
     "category": "Transit & Vehicles",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Seoul-metro-2009-20180916-103548.jpg/960px-Seoul-metro-2009-20180916-103548.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "metro",
     "hindi": "metro",
     "tamil": "சுரங்க ரயில்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Metro → Underground rapid transit railway: Metro!",
+    "shortcutHi": "Metro → Air-conditioned fast underground Metro train!"
   },
   {
     "num": 947,
     "word": "AIRPLANE",
     "emoji": "✈️",
     "category": "Aviation & Transit",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/United_Airlines_Boeing_777-200_Meulemans.jpg/960px-United_Airlines_Boeing_777-200_Meulemans.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "avión",
     "hindi": "hawai jahaaz",
     "tamil": "விமானம்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Avión → Aviation / High-speed metal bird soaring in the clouds!",
+    "shortcutHi": "Hawai Jahaaz → Giant silver bird cruising through the Hawa (air)!"
   },
   {
     "num": 948,
     "word": "HELICOPTER",
     "emoji": "🚁",
     "category": "Aviation & Transit",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/VH-SUF_Taking_Off.jpg/960px-VH-SUF_Taking_Off.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "helicóptero",
     "hindi": "helicopter",
     "tamil": "சுழலூர்தி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Helicóptero → Direct match with English Helicopter!",
+    "shortcutHi": "Helicopter → Whirring overhead rotor blade Helicopter!"
   },
   {
     "num": 949,
     "word": "BOAT",
     "emoji": "⛵",
     "category": "Maritime & Transit",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Motorboat_at_Kankaria_lake.JPG/960px-Motorboat_at_Kankaria_lake.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "barco",
     "hindi": "naav",
     "tamil": "படகு",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Barco → Floats like buoyant wooden Bark across river ripples!",
+    "shortcutHi": "Naav → Wooden rowboat gliding smoothly across the lake: Naav!"
   },
   {
     "num": 950,
     "word": "SHIP",
     "emoji": "🚢",
     "category": "Maritime & Transit",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Containerterminal_Altenwerder_%28Hamburg-Altenwerder%29.Iris_Bolten.4.phb.ajb.jpg/960px-Containerterminal_Altenwerder_%28Hamburg-Altenwerder%29.Iris_Bolten.4.phb.ajb.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "barco grande",
     "hindi": "jahaaz",
     "tamil": "கப்பல்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Barco → Massive ocean liner crossing rough sea waves!",
+    "shortcutHi": "Jahaaz → Huge multi-deck ocean cargo Samundari Jahaaz!"
   },
   {
     "num": 951,
     "word": "FERRY",
     "emoji": "⛴️",
     "category": "Maritime & Transit",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/DFDS_Transmanche_Ferry_loading_at_Newhaven_Harbour.jpg/960px-DFDS_Transmanche_Ferry_loading_at_Newhaven_Harbour.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "transbordador",
     "hindi": "ferry",
     "tamil": "படகுத்தளம்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Ferry → Passenger ferry shuttling vehicles across the river bay!",
+    "shortcutHi": "Ferry → Island hopping boat transport: Ferry!"
   },
   {
     "num": 954,
     "word": "WHEEL",
     "emoji": "🛞",
     "category": "Vehicle Parts",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Landesmuseum_W%C3%BCrttemberg_Kelten_011.4.jpg/960px-Landesmuseum_W%C3%BCrttemberg_Kelten_011.4.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "rueda",
     "hindi": "pahiya",
     "tamil": "சக்கரம்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Rueda → Roll-da / Round circular disc that rolls smoothly!",
+    "shortcutHi": "Pahiya → Rotating rubber and alloy car Pahiya!"
   },
   {
     "num": 955,
     "word": "TIRE",
     "emoji": "🛞",
     "category": "Vehicle Parts",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Large_tyre.jpg/960px-Large_tyre.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "neumático",
     "hindi": "tyre",
     "tamil": "டயர்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Neumático → Pneumatic heavy rubber tire pressurized with air!",
+    "shortcutHi": "Tyre → Puncture-resistant tubeless road Tyre!"
   },
   {
     "num": 956,
     "word": "BRAKE",
     "emoji": "🛑",
     "category": "Vehicle & Navigation",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Disc_brake.jpg/960px-Disc_brake.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "freno",
     "hindi": "brake",
     "tamil": "நிறுத்தி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Freno → Stops crazy highway frenzy dead in its tracks!",
+    "shortcutHi": "Brake → Press the foot Brake pedal to bring car to immediate stop!"
   },
   {
     "num": 957,
     "word": "SEAT",
     "emoji": "🪑",
     "category": "Vehicle & Transit",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Tesla_Model_S_rear_child_seats.jpg/960px-Tesla_Model_S_rear_child_seats.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "asiento",
     "hindi": "seat",
     "tamil": "இருக்கை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Asiento → Place to Sit comfortably in the car!",
+    "shortcutHi": "Seat → Cushioned ergonomic passenger Seat!"
   },
   {
     "num": 958,
     "word": "SEATBELT",
     "emoji": "💺",
     "category": "Vehicle Safety",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Female_driver_buckling_seatbelt.jpg/960px-Female_driver_buckling_seatbelt.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "cinturón de seguridad",
     "hindi": "seatbelt",
     "tamil": "இருக்கைப் பட்டை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Cinturón de seguridad → Security belt clicked across your chest!",
+    "shortcutHi": "Seatbelt → 'Seatbelt pehno' for highway road safety!"
   },
   {
     "num": 959,
     "word": "FUEL",
     "emoji": "⛽",
     "category": "Vehicle Fuel",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Heinrich_Zille_Herbst.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "spanish": "combustible",
     "hindi": "fuel",
     "tamil": "எரிபொருள்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Combustible → High-octane Combustion liquid that powers engines!",
+    "shortcutHi": "Eendhan / Fuel → Car engine fuel: Eendhan!"
   },
   {
     "num": 960,
     "word": "PETROL",
     "emoji": "⛽",
     "category": "Vehicle Fuel",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Gasoline_in_mason_jar.jpg/960px-Gasoline_in_mason_jar.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "gasolina",
     "hindi": "petrol",
     "tamil": "பெட்ரோல்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Gasolina → Direct match with Gasoline / Petrol!",
+    "shortcutHi": "Petrol → 'Tanki full karo' at the local Petrol pump!"
   },
   {
     "num": 961,
     "word": "TRAFFIC",
     "emoji": "🚦",
     "category": "Road & Traffic",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Crossing_the_Hudson_River_on_the_George_Washington_Bridge_from_Fort_Lee%2C_New_Jersey_to_Manhattan%2C_New_York_%287237796950%29.jpg/960px-Crossing_the_Hudson_River_on_the_George_Washington_Bridge_from_Fort_Lee%2C_New_Jersey_to_Manhattan%2C_New_York_%287237796950%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "tráfico",
     "hindi": "traffic",
     "tamil": "நெரிசல்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Tráfico → Direct match with English Traffic!",
+    "shortcutHi": "Traffic → Red signal junction bumper-to-bumper Traffic jam!"
   },
   {
     "num": 962,
     "word": "STREET",
     "emoji": "🛣️",
     "category": "Road & Streets",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Typical_Street_In_The_Royal_Borough_Of_Kensington_And_Chelsea_In_London.jpg/960px-Typical_Street_In_The_Royal_Borough_Of_Kensington_And_Chelsea_In_London.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "calle",
     "hindi": "sadak",
     "tamil": "தெரு",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Calle (Kaye) → City street lined with shops and colorful sidewalks!",
+    "shortcutHi": "Gali / Sadak → Busy neighborhood market Gali / Sadak!"
   },
   {
     "num": 963,
     "word": "ROAD",
     "emoji": "🛣️",
     "category": "Road & Streets",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Erlangen_Bundesautobahn_73_Auffahrt_Luftbild-20230422-RM-165734.jpg/960px-Erlangen_Bundesautobahn_73_Auffahrt_Luftbild-20230422-RM-165734.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "carretera",
     "hindi": "sadak",
     "tamil": "சாலை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Carretera → Wide asphalt highway paved for speeding cars!",
+    "shortcutHi": "Sadak → Smooth tarred motor vehicle Sadak!"
   },
   {
     "num": 964,
     "word": "HIGHWAY",
     "emoji": "🛣️",
     "category": "Road & Streets",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Street%2C_Oguz_%28P1090484%29.jpg/960px-Street%2C_Oguz_%28P1090484%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "autopista",
     "hindi": "highway",
     "tamil": "நெடுஞ்சாலை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Autopista → Multi-lane high speed expressway / Autobahn!",
+    "shortcutHi": "Highway → Six-lane toll express Highway!"
   },
   {
     "num": 965,
     "word": "PATH",
     "emoji": "🚶",
     "category": "Road & Streets",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Trail_between_two_fields_%28Slovenia%2C_Selo_pri_Mirni%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "spanish": "camino",
     "hindi": "raasta",
     "tamil": "ஒற்றையடிப் பாதை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Camino → Peaceful walking trail through green trees!",
+    "shortcutHi": "Raasta → 'Sahi Raasta chuno' / Footpath through forest!"
   },
   {
     "num": 966,
     "word": "PAVEMENT",
     "emoji": "🚶",
     "category": "Pedestrian Paths",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Pompei_-_panoramio_%2826%29.jpg/960px-Pompei_-_panoramio_%2826%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "acera",
     "hindi": "footpath",
     "tamil": "நடைபாதை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Acera → Elevated pedestrian sidewalk safe from road traffic!",
+    "shortcutHi": "Footpath → Pedestrian walking path: Footpath!"
   },
   {
     "num": 967,
     "word": "BRIDGE",
     "emoji": "🌉",
     "category": "Infrastructure",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Bridge_Alcantara.JPG/960px-Bridge_Alcantara.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "puente",
     "hindi": "pul",
     "tamil": "பாலம்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Puente → Connects Point A to Point B over deep river waters!",
+    "shortcutHi": "Pul → Cross over the roaring river via the suspension Pul!"
   },
   {
     "num": 968,
     "word": "TUNNEL",
     "emoji": "🚇",
     "category": "Infrastructure",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Signalisation_routi%C3%A8re_entr%C3%A9e_sud_tunnel_du_Galibier.jpg/960px-Signalisation_routi%C3%A8re_entr%C3%A9e_sud_tunnel_du_Galibier.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "túnel",
     "hindi": "tunnel",
     "tamil": "சுரங்கப்பாதை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Túnel → Direct match with English Tunnel!",
+    "shortcutHi": "Surang / Tunnel → Mountain passage railway Surang / Tunnel!"
   },
   {
     "num": 969,
     "word": "CORNER",
     "emoji": "📍",
     "category": "Streets & Locations",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Inner-City_Street_Scene_-_Camden_-_New_Jersey_-_04.jpg/960px-Inner-City_Street_Scene_-_Camden_-_New_Jersey_-_04.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "esquina",
     "hindi": "kona",
     "tamil": "மூலை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Esquina → Sharp 90-degree square corner of intersecting streets!",
+    "shortcutHi": "Kona → 'Sadak ke Kone par milte hain' / Street corner!"
   },
   {
     "num": 970,
     "word": "INTERSECTION",
     "emoji": "🚦",
     "category": "Streets & Locations",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/%D0%9F%D0%BB%D0%BE%D1%89%D0%B0%D0%B4%D1%8C_%D0%A2%D0%B2%D0%B5%D1%80%D1%81%D0%BA%D0%B0%D1%8F_%D0%97%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%B0_%28%D0%B2%D0%B8%D0%B4_%D1%81%D0%B2%D0%B5%D1%80%D1%85%D1%83%29.jpg/960px-%D0%9F%D0%BB%D0%BE%D1%89%D0%B0%D0%B4%D1%8C_%D0%A2%D0%B2%D0%B5%D1%80%D1%81%D0%BA%D0%B0%D1%8F_%D0%97%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%B0_%28%D0%B2%D0%B8%D0%B4_%D1%81%D0%B2%D0%B5%D1%80%D1%85%D1%83%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "intersección",
     "hindi": "chauraaha",
     "tamil": "நாற்சந்தி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Intersección → Direct match with Intersection!",
+    "shortcutHi": "Chauraaha → Chau (four) roads meeting in the middle: Chauraaha!"
   },
   {
     "num": 971,
     "word": "STATION",
     "emoji": "🚉",
     "category": "Transit Hubs",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Milan_CentralStation_016_4294.jpg/960px-Milan_CentralStation_016_4294.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "estación",
     "hindi": "station",
     "tamil": "நிலையம்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Estación → Direct match with Station!",
+    "shortcutHi": "Station → Railway passenger transit hub: Station!"
   },
   {
     "num": 972,
     "word": "AIRPORT",
     "emoji": "🛫",
     "category": "Transit Hubs",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/Airport_infrastructure.png/960px-Airport_infrastructure.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "aeropuerto",
     "hindi": "airport",
     "tamil": "விமான நிலையம்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Aeropuerto → Direct match with Aero-Port / Airport!",
+    "shortcutHi": "Hawai Adda / Airport → International flights departure terminal!"
   },
   {
     "num": 973,
     "word": "PORT",
     "emoji": "⚓",
     "category": "Transit Hubs",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Manhattan.jpg/960px-Manhattan.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "puerto",
     "hindi": "port",
     "tamil": "துறைமுகம்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Puerto → Sea harbor where massive container ships dock!",
+    "shortcutHi": "Bandargaah → Ocean container cargo terminal: Bandargaah!"
   },
   {
     "num": 974,
     "word": "HARBOR",
     "emoji": "⚓",
     "category": "Transit Hubs",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Jebel_Ali_Port_2_Imresolt.jpg/960px-Jebel_Ali_Port_2_Imresolt.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "puerto",
     "hindi": "harbor",
     "tamil": "இயற்கை துறைமுகம்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Puerto → Natural sheltered bay protecting docked ships from storm waves!",
+    "shortcutHi": "Bandargaah → Sheltered sea vessel docking bay!"
   },
   {
     "num": 975,
     "word": "PARKING",
     "emoji": "🅿️",
     "category": "Transit Infrastructure",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Angle_parking_lot_diagram.PNG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "spanish": "estacionamiento",
     "hindi": "parking",
     "tamil": "வாகன நிறுத்துமிடம்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Estacionamiento → Designated area for stationing parked vehicles!",
+    "shortcutHi": "Parking → Basement vehicle Parking lot!"
   },
   {
     "num": 976,
     "word": "JUNCTION",
     "emoji": "🔀",
     "category": "Road & Streets",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/L%C3%BCdinghausen%2C_B235%2C_Abzweig_L835_--_2014_--_7986.jpg/960px-L%C3%BCdinghausen%2C_B235%2C_Abzweig_L835_--_2014_--_7986.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "cruce",
     "hindi": "junction",
     "tamil": "சந்திப்பு",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Cruce → Road crossway where two highway routes cross!",
+    "shortcutHi": "Junction → Busy railway or road crossing Junction!"
   },
   {
     "num": 977,
     "word": "TRACK",
     "emoji": "🛤️",
     "category": "Transit Infrastructure",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Australian_National_Railways_track_with_concrete_sleepers.jpg/960px-Australian_National_Railways_track_with_concrete_sleepers.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "vía",
     "hindi": "track",
     "tamil": "ரயில் பாதை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Vía → Steel railway tracks stretching to the horizon!",
+    "shortcutHi": "Patri → Steel train rail: 'Rail ki Patri'!"
   },
   {
     "num": 978,
     "word": "SIGN",
     "emoji": "🪧",
     "category": "Transit Infrastructure",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Sturminster_Marshall%2C_new_signage_on_the_A350_-_geograph.org.uk_-_1741455.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "spanish": "señal",
     "hindi": "sign board",
     "tamil": "அறிவிப்புப் பலகை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Señal → High-visibility road directional Signal signboard!",
+    "shortcutHi": "Signboard → Highway speed limit & distance Signboard!"
   },
   {
     "num": 979,
     "word": "TICKET",
     "emoji": "🎟️",
     "category": "Travel & Transit",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Ticket_%28unseparated%29_Kurkino-Berchtesgaden.JPG/960px-Ticket_%28unseparated%29_Kurkino-Berchtesgaden.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "billete",
     "hindi": "ticket",
     "tamil": "பயணச்சீட்டு",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Billete → Train and movie travel admission Bill / Ticket!",
+    "shortcutHi": "Ticket → Train and cinema entrance pass: Ticket!"
   },
   {
     "num": 980,
     "word": "PASSPORT",
     "emoji": "🛂",
     "category": "Travel & Transit",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Passports-assorted.jpg/960px-Passports-assorted.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "pasaporte",
     "hindi": "passport",
     "tamil": "கடவுச்சீட்டு",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Pasaporte → Direct match with international Passport!",
+    "shortcutHi": "Passport → Official blue international travel booklet: Passport!"
   },
   {
     "num": 981,
     "word": "CITY",
     "emoji": "🏙️",
     "category": "Urban Settlements",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Tokyo_Shibuya_Scramble_Crossing_2018-10-09.jpg/960px-Tokyo_Shibuya_Scramble_Crossing_2018-10-09.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "ciudad",
     "hindi": "shahar",
     "tamil": "பெருநகரம்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Ciudad → Skyscraper-filled metropolitan City!",
+    "shortcutHi": "Shahar → Bustling bright lights metropolitan Shahar!"
   },
   {
     "num": 982,
     "word": "TOWN",
     "emoji": "🏘️",
     "category": "Urban Settlements",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Clear_sky_afternoon_on_the_Ipswich_Waterfront.jpg/960px-Clear_sky_afternoon_on_the_Ipswich_Waterfront.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "pueblo",
     "hindi": "kasba",
     "tamil": "பேரூராட்சி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Pueblo → Charming historic settlement with tight-knit community!",
+    "shortcutHi": "Kasba → Cozy semi-urban market settlement: Kasba!"
   },
   {
     "num": 983,
     "word": "VILLAGE",
     "emoji": "🏡",
     "category": "Urban Settlements",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Bourton-on-the-Water_2010_PD_09.JPG/960px-Bourton-on-the-Water_2010_PD_09.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "aldea",
     "hindi": "gaaon",
     "tamil": "கிராமம்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Aldea → Peaceful rural village surrounded by green paddy fields!",
+    "shortcutHi": "Gaaon → Quiet fresh-air countryside village: Gaaon!"
   },
   {
     "num": 984,
     "word": "COUNTRY",
     "emoji": "🌍",
     "category": "Geographic Places",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Official_United_Nations_World_Map_-_October_2022.svg/960px-Official_United_Nations_World_Map_-_October_2022.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "país",
     "hindi": "desh",
     "tamil": "நாடு",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "País → Sovereign nation with its own flag and constitution!",
+    "shortcutHi": "Desh → 'Mera pyara Desh' / Nation and homeland!"
   },
   {
     "num": 985,
     "word": "CENTER",
     "emoji": "📍",
     "category": "Community Facilities",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Bardejov%2C_rynek_%28HB1%29.jpg/960px-Bardejov%2C_rynek_%28HB1%29.jpg",
     "spanish": "centro",
     "hindi": "kendra",
     "tamil": "மையம்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Centro → Central hub / downtown Center!",
+    "shortcutHi": "Kendra → City downtown or community gathering Kendra!"
   },
   {
     "num": 986,
     "word": "BUILDING",
     "emoji": "🏢",
     "category": "Public Architecture",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Philae_temple_at_night.jpg/960px-Philae_temple_at_night.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "edificio",
     "hindi": "imaarat",
     "tamil": "கட்டடம்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Edificio → Impressive multi-story architectural Edifice!",
+    "shortcutHi": "Imaarat → Tall towering concrete Imaarat / Building!"
   },
   {
     "num": 987,
     "word": "SCHOOL",
     "emoji": "🏫",
     "category": "Education",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/%D0%A8%D0%BA%D0%BE%D0%BB%D0%B0_%E2%84%962_%D0%B3._%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D1%82%D1%83%D1%80%D1%8C%D0%B8%D0%BD%D1%81%D0%BA%D0%B0.jpg/960px-%D0%A8%D0%BA%D0%BE%D0%BB%D0%B0_%E2%84%962_%D0%B3._%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D1%82%D1%83%D1%80%D1%8C%D0%B8%D0%BD%D1%81%D0%BA%D0%B0.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "escuela",
     "hindi": "school",
     "tamil": "பள்ளி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Escuela → Direct sound match with English School!",
+    "shortcutHi": "School → Morning bell and classroom learning at School!"
   },
   {
     "num": 988,
     "word": "COLLEGE",
     "emoji": "🎓",
     "category": "Education",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Morgan_Hall_of_Williams_College_in_the_fall_%2827_October_2010%29.jpg/960px-Morgan_Hall_of_Williams_College_in_the_fall_%2827_October_2010%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "colegio",
     "hindi": "college",
     "tamil": "கல்லூரி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Colegio → Higher education university campus / College!",
+    "shortcutHi": "College → Graduation degree campus: College!"
   },
   {
     "num": 989,
     "word": "UNIVERSITY",
     "emoji": "🏛️",
     "category": "Education",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Columbia_University%2C_NYC_%28June_2014%29_-_09.JPG/960px-Columbia_University%2C_NYC_%28June_2014%29_-_09.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "universidad",
     "hindi": "university",
     "tamil": "பல்கலைக்கழகம்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Universidad → Direct match with University!",
+    "shortcutHi": "Vishwavidyalaya → Prestigious academic University campus!"
   },
   {
     "num": 990,
     "word": "LIBRARY",
     "emoji": "📚",
     "category": "Public Buildings",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/SanDiegoCityCollegeLearningResource_-_bookshelf.jpg/960px-SanDiegoCityCollegeLearningResource_-_bookshelf.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "biblioteca",
     "hindi": "library",
     "tamil": "நூலகம்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Biblioteca → Home of thousands of bound books and quiet study tables!",
+    "shortcutHi": "Pustakaalaya / Library → Silent reading room full of books: Library!"
   },
   {
     "num": 991,
     "word": "MUSEUM",
     "emoji": "🏛️",
     "category": "Public Buildings",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Museo_Chileno_de_Arte_Precolombino_-_2020_-_10.jpg/960px-Museo_Chileno_de_Arte_Precolombino_-_2020_-_10.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "museo",
     "hindi": "museum",
     "tamil": "அருங்காட்சியகம்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Museo → Direct match with English Museum!",
+    "shortcutHi": "Ajoobaghar / Museum → Historic artifacts and dinosaur fossil Museum!"
   },
   {
     "num": 992,
     "word": "THEATER",
     "emoji": "🎭",
     "category": "Arts & Entertainment",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Palais_Garnier._December_5%2C_2010.jpg/960px-Palais_Garnier._December_5%2C_2010.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "teatro",
     "hindi": "theater",
     "tamil": "நாடக அரங்கம்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Teatro → Live stage performance and dramatic Theater!",
+    "shortcutHi": "Natak Ghar / Theater → Live Broadway and drama stage Theater!"
   },
   {
     "num": 993,
     "word": "CINEMA",
     "emoji": "🎬",
     "category": "Arts & Entertainment",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Ptuj%2C_city_cinema.jpg/960px-Ptuj%2C_city_cinema.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "cine",
     "hindi": "cinema",
     "tamil": "திரையரங்கம்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Cine → Direct match with Cinema / Movie Theater!",
+    "shortcutHi": "Cinema Hall → Giant 70mm movie screen with tub of popcorn: Cinema!"
   },
   {
     "num": 994,
     "word": "STORE",
     "emoji": "🏪",
     "category": "Shops & Commerce",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Comercio_en_la_plaza_del_9_de_abril_de_1947%2C_T%C3%A1nger%2C_Marruecos%2C_2015-12-11%2C_DD_78.JPG/960px-Comercio_en_la_plaza_del_9_de_abril_de_1947%2C_T%C3%A1nger%2C_Marruecos%2C_2015-12-11%2C_DD_78.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "tienda",
     "hindi": "dukaan",
     "tamil": "கடை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Tienda → Market shopping boutique / retail store!",
+    "shortcutHi": "Dukaan → Neighborhood grocery and general store: Dukaan!"
   },
   {
     "num": 995,
     "word": "BAKERY",
     "emoji": "🥖",
     "category": "Shops & Commerce",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Belgium_2013_%2811620905224%29.jpg/960px-Belgium_2013_%2811620905224%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "panadería",
     "hindi": "bakery",
     "tamil": "ரொட்டிக்கடை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Panadería → 'Pan' means bread in Spanish (like Mumbai Pav!). Fresh bread shop!",
+    "shortcutHi": "Bakery → Freshly baked sourdough loaves, cakes and cookies: Bakery!"
   },
   {
     "num": 996,
     "word": "MARKET",
     "emoji": "🛍️",
     "category": "Shops & Commerce",
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/57/The_Moorish_Bazaar.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "spanish": "mercado",
     "hindi": "bazaar",
     "tamil": "சந்தை",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Mercado → Direct match with English Market!",
+    "shortcutHi": "Bazaar → Colorful bustling fruit and vegetable Bazaar!"
   },
   {
     "num": 997,
     "word": "SUPERMARKET",
     "emoji": "🛒",
     "category": "Shops & Commerce",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Stop%26Shop.jpg/960px-Stop%26Shop.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "supermercado",
     "hindi": "supermarket",
     "tamil": "பல்பொருள் அங்காடி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Supermercado → Giant grocery market with shopping carts!",
+    "shortcutHi": "Supermarket → Multi-aisle grocery department store: Supermarket!"
   },
   {
     "num": 998,
     "word": "RESTAURANT",
     "emoji": "🍽️",
     "category": "Dining & Food",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Barbieri_-_ViaSophia25668.jpg/960px-Barbieri_-_ViaSophia25668.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "restaurante",
     "hindi": "restaurant",
     "tamil": "உணவகம்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Restaurante → Direct match with Restaurant!",
+    "shortcutHi": "Restaurant → Fine dining family dinner at favorite Restaurant!"
   },
   {
     "num": 999,
     "word": "CAFE",
     "emoji": "☕",
     "category": "Dining & Food",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Caf%C3%A9_de_Flore.jpg/960px-Caf%C3%A9_de_Flore.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "cafetería",
     "hindi": "cafe",
     "tamil": "காப்பகம்",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Cafetería → Direct match with Cafe / Coffee shop!",
+    "shortcutHi": "Cafe → Cozy coffee shop with hot espresso and croissants: Cafe!"
   },
   {
     "num": 1000,
     "word": "BANK",
     "emoji": "🏦",
     "category": "Financial Institutions",
-    "imageUrl": "",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/London.bankofengland.arp.jpg/960px-London.bankofengland.arp.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "spanish": "banco",
     "hindi": "bank",
     "tamil": "வங்கி",
-    "shortcutEs": "",
-    "shortcutHi": ""
+    "shortcutEs": "Banco → Direct match with English Bank!",
+    "shortcutHi": "Bank → Financial institution with cash vault and ATMs: Bank!"
   }
 ];
