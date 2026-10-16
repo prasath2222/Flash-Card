@@ -6162,42 +6162,46 @@
       /* ==========================================================
          WORLD-CLASS CENTERED SETTINGS MODAL & DIALOG
          ========================================================== */
+      /* ==========================================================
+         DUOLINGO PRODUCTION DESIGN SYSTEM: SETTINGS & AUDIO STUDIO
+         ========================================================== */
       .menu-drawer-backdrop {
         position: fixed !important;
         inset: 0 !important;
-        background: rgba(7, 11, 22, 0.8) !important;
+        background: rgba(10, 16, 20, 0.78) !important;
         backdrop-filter: blur(14px) !important;
         -webkit-backdrop-filter: blur(14px) !important;
-        z-index: 1998 !important;
+        z-index: 2100 !important;
         opacity: 0 !important;
         pointer-events: none !important;
-        transition: opacity 0.25s ease !important;
+        transition: opacity 0.24s cubic-bezier(0.16, 1, 0.3, 1) !important;
       }
       .menu-drawer-backdrop.open {
         opacity: 1 !important;
         pointer-events: auto !important;
       }
 
+      /* Duolingo Modal Container */
       .app-menu-drawer {
         position: fixed !important;
         inset: 0 !important;
         margin: auto !important;
         width: calc(100% - 32px) !important;
-        max-width: 560px !important;
+        max-width: 580px !important;
         height: fit-content !important;
-        max-height: 86vh !important;
-        background: linear-gradient(180deg, #172236 0%, #0c1424 100%) !important;
-        border: 1.5px solid rgba(255, 255, 255, 0.12) !important;
-        border-radius: 26px !important;
-        box-shadow: 0 32px 75px -12px rgba(0, 0, 0, 0.9), 0 0 1px 1px rgba(255, 255, 255, 0.12) !important;
-        z-index: 2000 !important;
+        max-height: 88vh !important;
+        background: #131f24 !important;
+        border: 2px solid #37464f !important;
+        border-radius: 24px !important;
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.85), 0 6px 0 #202b33 !important;
+        z-index: 2101 !important;
         display: flex !important;
         flex-direction: column !important;
         overflow: hidden !important;
         opacity: 0 !important;
         pointer-events: none !important;
         transform: scale(0.95) translateY(14px) !important;
-        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.22s ease !important;
+        transition: transform 0.26s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.22s ease !important;
       }
 
       .app-menu-drawer.open {
@@ -6212,384 +6216,25 @@
           width: 100% !important;
           max-width: 100% !important;
           max-height: 90vh !important;
-          border-radius: 28px 28px 0 0 !important;
-          border-bottom: none !important;
-          border-left: none !important;
-          border-right: none !important;
-          transform: translateY(100%) !important;
-        }
-        .app-menu-drawer.open {
-          transform: translateY(0) !important;
-        }
-      }
-
-      /* Modal Header */
-      .settings-modal-header {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        padding: 20px 24px 16px !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-        background: rgba(255, 255, 255, 0.02) !important;
-      }
-      .settings-header-title-group {
-        display: flex !important;
-        align-items: center !important;
-        gap: 14px !important;
-      }
-      .settings-icon-badge {
-        width: 44px !important;
-        height: 44px !important;
-        border-radius: 14px !important;
-        background: rgba(56, 189, 248, 0.14) !important;
-        border: 1px solid rgba(56, 189, 248, 0.35) !important;
-        box-shadow: 0 4px 14px rgba(56, 189, 248, 0.25) !important;
-        color: #38bdf8 !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-      }
-      .settings-modal-title {
-        font-size: 1.25rem !important;
-        font-weight: 800 !important;
-        color: #ffffff !important;
-        margin: 0 !important;
-        line-height: 1.2 !important;
-        letter-spacing: -0.01em !important;
-      }
-      .settings-modal-sub {
-        font-size: 0.78rem !important;
-        color: #94a3b8 !important;
-        margin: 3px 0 0 !important;
-        font-weight: 500 !important;
-      }
-      .settings-modal-close-btn {
-        width: 38px !important;
-        height: 38px !important;
-        border-radius: 12px !important;
-        background: rgba(255, 255, 255, 0.08) !important;
-        border: 1px solid rgba(255, 255, 255, 0.15) !important;
-        box-shadow: 0 3px 0 rgba(0, 0, 0, 0.4) !important;
-        color: #cbd5e1 !important;
-        font-size: 1.2rem !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        cursor: pointer !important;
-        transition: all 0.15s ease !important;
-      }
-      .settings-modal-close-btn:hover {
-        background: rgba(255, 255, 255, 0.16) !important;
-        color: #ffffff !important;
-      }
-
-      /* Tabs Bar */
-      .settings-tabs-bar {
-        display: flex !important;
-        gap: 8px !important;
-        padding: 12px 24px !important;
-        background: rgba(0, 0, 0, 0.22) !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
-      }
-      .settings-tab-btn {
-        flex: 1 !important;
-        padding: 9px 12px !important;
-        border-radius: 12px !important;
-        background: rgba(255, 255, 255, 0.04) !important;
-        border: 1px solid rgba(255, 255, 255, 0.08) !important;
-        color: #94a3b8 !important;
-        font-size: 0.82rem !important;
-        font-weight: 750 !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 6px !important;
-        cursor: pointer !important;
-        transition: all 0.18s ease !important;
-      }
-      .settings-tab-btn:hover {
-        background: rgba(255, 255, 255, 0.08) !important;
-        color: #f1f5f9 !important;
-      }
-      .settings-tab-btn.active {
-        background: rgba(56, 189, 248, 0.16) !important;
-        border-color: rgba(56, 189, 248, 0.5) !important;
-        color: #38bdf8 !important;
-        box-shadow: 0 2px 8px rgba(56, 189, 248, 0.25) !important;
-      }
-
-      /* Modal Body & Tab Panels */
-      .settings-modal-body {
-        flex: 1 !important;
-        overflow-y: auto !important;
-        padding: 20px 24px 28px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 16px !important;
-      }
-      .settings-tab-panel {
-        display: none !important;
-        flex-direction: column !important;
-        gap: 16px !important;
-      }
-      .settings-tab-panel.active {
-        display: flex !important;
-      }
-
-      /* Settings Card */
-      .settings-card {
-        background: rgba(255, 255, 255, 0.035) !important;
-        border: 1px solid rgba(255, 255, 255, 0.08) !important;
-        border-radius: 20px !important;
-        padding: 16px 18px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 14px !important;
-        transition: border-color 0.2s ease !important;
-      }
-      .settings-card:hover {
-        border-color: rgba(255, 255, 255, 0.14) !important;
-      }
-      .settings-card-header {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        gap: 12px !important;
-      }
-      .settings-card-left {
-        display: flex !important;
-        align-items: center !important;
-        gap: 12px !important;
-      }
-      .settings-card-icon {
-        width: 38px !important;
-        height: 38px !important;
-        border-radius: 12px !important;
-        background: rgba(255, 255, 255, 0.06) !important;
-        border: 1px solid rgba(255, 255, 255, 0.08) !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        font-size: 1.15rem !important;
-      }
-      .settings-card-title {
-        font-size: 0.96rem !important;
-        font-weight: 750 !important;
-        color: #f1f5f9 !important;
-        margin: 0 !important;
-      }
-      .settings-card-sub {
-        font-size: 0.76rem !important;
-        color: #94a3b8 !important;
-        margin: 2px 0 0 !important;
-      }
-
-      /* Chips and Preset Buttons */
-      .settings-choice-group {
-        display: flex !important;
-        gap: 8px !important;
-        width: 100% !important;
-      }
-      .settings-choice-btn {
-        flex: 1 !important;
-        padding: 9px 12px !important;
-        border-radius: 12px !important;
-        background: rgba(255, 255, 255, 0.05) !important;
-        border: 1px solid rgba(255, 255, 255, 0.08) !important;
-        box-shadow: 0 3px 0 rgba(0, 0, 0, 0.3) !important;
-        color: #cbd5e1 !important;
-        font-size: 0.82rem !important;
-        font-weight: 700 !important;
-        cursor: pointer !important;
-        transition: all 0.15s ease !important;
-        text-align: center !important;
-      }
-      .settings-choice-btn:hover {
-        background: rgba(255, 255, 255, 0.1) !important;
-        color: #ffffff !important;
-      }
-      .settings-choice-btn.active {
-        background: rgba(56, 189, 248, 0.22) !important;
-        border-color: rgba(56, 189, 248, 0.6) !important;
-        box-shadow: 0 3px 0 rgba(14, 116, 144, 0.5) !important;
-        color: #38bdf8 !important;
-      }
-
-      /* Sliders */
-      .settings-slider-row {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 6px !important;
-      }
-      .settings-slider-label-row {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        font-size: 0.82rem !important;
-        color: #cbd5e1 !important;
-        font-weight: 650 !important;
-      }
-      .settings-val-badge {
-        font-size: 0.75rem !important;
-        font-weight: 800 !important;
-        padding: 2px 8px !important;
-        border-radius: 6px !important;
-        background: rgba(56, 189, 248, 0.15) !important;
-        color: #38bdf8 !important;
-        border: 1px solid rgba(56, 189, 248, 0.25) !important;
-      }
-      .custom-settings-slider {
-        -webkit-appearance: none !important;
-        width: 100% !important;
-        height: 6px !important;
-        border-radius: 9999px !important;
-        background: rgba(255, 255, 255, 0.1) !important;
-        outline: none !important;
-        cursor: pointer !important;
-      }
-      .custom-settings-slider::-webkit-slider-thumb {
-        -webkit-appearance: none !important;
-        width: 18px !important;
-        height: 18px !important;
-        border-radius: 50% !important;
-        background: #38bdf8 !important;
-        box-shadow: 0 0 10px rgba(56, 189, 248, 0.6) !important;
-        cursor: pointer !important;
-        transition: transform 0.1s ease !important;
-      }
-      .custom-settings-slider::-webkit-slider-thumb:hover {
-        transform: scale(1.15) !important;
-      }
-
-      /* Tactile Action Buttons in Settings */
-      .settings-action-btn {
-        width: 100% !important;
-        padding: 12px 18px !important;
-        border-radius: 14px !important;
-        font-size: 0.88rem !important;
-        font-weight: 750 !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 8px !important;
-        cursor: pointer !important;
-        transition: all 0.18s ease !important;
-      }
-      .settings-action-btn-danger {
-        background: rgba(239, 68, 68, 0.12) !important;
-        border: 1.5px solid rgba(239, 68, 68, 0.35) !important;
-        box-shadow: 0 3px 0 rgba(185, 28, 28, 0.45) !important;
-        color: #f87171 !important;
-      }
-      .settings-action-btn-danger:hover {
-        background: rgba(239, 68, 68, 0.24) !important;
-        border-color: rgba(239, 68, 68, 0.65) !important;
-        transform: translateY(-1px) !important;
-      }
-      .settings-action-btn-danger:active {
-        transform: translateY(2px) !important;
-        box-shadow: 0 1px 0 rgba(185, 28, 28, 0.45) !important;
-      }
-      .settings-action-btn-primary {
-        background: rgba(56, 189, 248, 0.14) !important;
-        border: 1.5px solid rgba(56, 189, 248, 0.35) !important;
-        box-shadow: 0 3px 0 rgba(14, 116, 144, 0.5) !important;
-        color: #38bdf8 !important;
-      }
-      .settings-action-btn-primary:hover {
-        background: rgba(56, 189, 248, 0.24) !important;
-        border-color: rgba(56, 189, 248, 0.65) !important;
-        transform: translateY(-1px) !important;
-      }
-      .settings-action-btn-primary:active {
-        transform: translateY(2px) !important;
-        box-shadow: 0 1px 0 rgba(14, 116, 144, 0.5) !important;
-      }
-      .settings-action-btn-success {
-        background: rgba(16, 185, 129, 0.14) !important;
-        border: 1.5px solid rgba(16, 185, 129, 0.35) !important;
-        box-shadow: 0 3px 0 rgba(5, 150, 105, 0.5) !important;
-        color: #34d399 !important;
-      }
-      .settings-action-btn-success:hover {
-        background: rgba(16, 185, 129, 0.24) !important;
-        border-color: rgba(16, 185, 129, 0.65) !important;
-        transform: translateY(-1px) !important;
-      }
-      .settings-action-btn-success:active {
-        transform: translateY(2px) !important;
-        box-shadow: 0 1px 0 rgba(5, 150, 105, 0.5) !important;
-      }
-
-
-
-      /* ==========================================================
-         PRODUCTION-GRADE CENTERED SETTINGS MODAL & BOTTOM SHEET
-         ========================================================== */
-      .menu-drawer-backdrop {
-        position: fixed !important;
-        inset: 0 !important;
-        background: rgba(3, 7, 18, 0.78) !important;
-        backdrop-filter: blur(16px) !important;
-        -webkit-backdrop-filter: blur(16px) !important;
-        z-index: 2000 !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-        transition: opacity 0.26s cubic-bezier(0.16, 1, 0.3, 1) !important;
-      }
-      .menu-drawer-backdrop.open {
-        opacity: 1 !important;
-        pointer-events: auto !important;
-      }
-      .app-menu-drawer {
-        position: fixed !important;
-        inset: 0 !important;
-        margin: auto !important;
-        width: calc(100% - 32px) !important;
-        max-width: 580px !important;
-        height: fit-content !important;
-        max-height: 86vh !important;
-        background: linear-gradient(180deg, #131d31 0%, #0a101d 100%) !important;
-        border: 1.5px solid rgba(255, 255, 255, 0.12) !important;
-        border-radius: 28px !important;
-        box-shadow: 0 32px 80px -15px rgba(0, 0, 0, 0.95), 0 0 0 1px rgba(255, 255, 255, 0.08) !important;
-        z-index: 2001 !important;
-        display: flex !important;
-        flex-direction: column !important;
-        overflow: hidden !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-        transform: scale(0.94) translateY(18px) !important;
-        transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.24s ease !important;
-      }
-      .app-menu-drawer.open {
-        opacity: 1 !important;
-        pointer-events: auto !important;
-        transform: scale(1) translateY(0) !important;
-      }
-      @media (max-width: 640px) {
-        .app-menu-drawer {
-          inset: auto 0 0 0 !important;
-          width: 100% !important;
-          max-width: 100% !important;
-          max-height: 88vh !important;
-          border-radius: 28px 28px 0 0 !important;
+          border-radius: 26px 26px 0 0 !important;
           border-left: none !important;
           border-right: none !important;
           border-bottom: none !important;
           transform: translateY(100%) !important;
+          box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.8), 0 0 0 1px #37464f !important;
           margin: 0 !important;
         }
         .app-menu-drawer.open {
           transform: translateY(0) !important;
         }
       }
+
       .drawer-sheet-handle {
         display: none;
-        width: 38px;
+        width: 44px;
         height: 5px;
         border-radius: 9999px;
-        background: rgba(255, 255, 255, 0.22);
+        background: #37464f;
         margin: 10px auto 2px;
       }
       @media (max-width: 640px) {
@@ -6597,665 +6242,512 @@
           display: block;
         }
       }
-      /* Clean Modal Header */
+
+      /* Duolingo Modal Header */
       .settings-modal-header {
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
-        padding: 18px 24px 16px !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-        background: rgba(255, 255, 255, 0.02) !important;
+        padding: 18px 22px 16px !important;
+        background: #18272f !important;
+        border-bottom: 2px solid #2b3942 !important;
       }
+
       .settings-header-title-group {
         display: flex !important;
         align-items: center !important;
         gap: 14px !important;
       }
+
       .settings-icon-badge {
         width: 44px !important;
         height: 44px !important;
         border-radius: 14px !important;
-        background: rgba(56, 189, 248, 0.14) !important;
-        border: 1px solid rgba(56, 189, 248, 0.35) !important;
-        box-shadow: 0 4px 14px rgba(56, 189, 248, 0.25) !important;
-        color: #38bdf8 !important;
+        background: #58cc02 !important;
+        border: none !important;
+        box-shadow: 0 4px 0 #46a302, 0 6px 14px rgba(88, 204, 2, 0.3) !important;
+        color: #ffffff !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
+        flex-shrink: 0 !important;
       }
+
       .settings-modal-title {
-        font-size: 1.25rem !important;
+        font-size: 1.3rem !important;
         font-weight: 850 !important;
         color: #ffffff !important;
         margin: 0 !important;
+        line-height: 1.15 !important;
         letter-spacing: -0.015em !important;
       }
+
       .settings-modal-sub {
         font-size: 0.8rem !important;
-        color: #94a3b8 !important;
-        margin: 2px 0 0 !important;
-        font-weight: 500 !important;
+        color: #8496a0 !important;
+        margin: 3px 0 0 !important;
+        font-weight: 600 !important;
       }
+
+      /* Duolingo 3D Close Button */
       .settings-modal-close-btn {
-        width: 38px !important;
-        height: 38px !important;
-        border-radius: 12px !important;
-        background: rgba(255, 255, 255, 0.08) !important;
-        border: 1px solid rgba(255, 255, 255, 0.16) !important;
-        box-shadow: 0 3px 0 rgba(0, 0, 0, 0.4) !important;
-        color: #cbd5e1 !important;
-        font-size: 1.15rem !important;
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 14px !important;
+        background: #202f36 !important;
+        border: 2px solid #37464f !important;
+        box-shadow: 0 4px 0 #28373f !important;
+        color: #8496a0 !important;
+        font-size: 1.1rem !important;
+        font-weight: 800 !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
         cursor: pointer !important;
-        transition: all 0.15s ease !important;
+        transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.12s ease, background-color 0.15s ease !important;
+        flex-shrink: 0 !important;
       }
+
       .settings-modal-close-btn:hover {
-        background: rgba(255, 255, 255, 0.18) !important;
+        background: #283942 !important;
+        border-color: #485c67 !important;
         color: #ffffff !important;
         transform: translateY(-1px) !important;
+        box-shadow: 0 5px 0 #28373f !important;
       }
+
       .settings-modal-close-btn:active {
-        transform: translateY(2px) !important;
-        box-shadow: 0 1px 0 rgba(0,0,0,0.4) !important;
+        transform: translateY(3px) !important;
+        box-shadow: 0 1px 0 #28373f !important;
       }
-      /* Segmented 4-Tab Bar */
+
+      /* Duolingo Segmented 4-Tab Navigation */
       .settings-tabs-bar {
         display: flex !important;
-        gap: 6px !important;
-        padding: 12px 20px !important;
-        background: rgba(0, 0, 0, 0.25) !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+        gap: 8px !important;
+        padding: 10px 18px !important;
+        background: #111a1f !important;
+        border-bottom: 2px solid #28363e !important;
         overflow-x: auto !important;
-        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
       }
+      .settings-tabs-bar::-webkit-scrollbar {
+        display: none !important;
+      }
+
       .settings-tab-btn {
-        flex: 1 !important;
-        min-width: 95px !important;
+        flex: 1 1 0 !important;
+        min-width: 0 !important;
         padding: 10px 8px !important;
-        border-radius: 12px !important;
-        background: rgba(255, 255, 255, 0.04) !important;
-        border: 1px solid rgba(255, 255, 255, 0.08) !important;
-        color: #94a3b8 !important;
+        border-radius: 14px !important;
+        background: #18272f !important;
+        border: 2px solid #37464f !important;
+        box-shadow: 0 3px 0 #28373f !important;
+        color: #8496a0 !important;
         font-size: 0.8rem !important;
-        font-weight: 750 !important;
+        font-weight: 800 !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
         gap: 6px !important;
         cursor: pointer !important;
-        transition: all 0.18s ease !important;
+        transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.12s ease, background 0.15s ease, color 0.15s ease !important;
         white-space: nowrap !important;
+        user-select: none !important;
       }
+
       .settings-tab-btn:hover {
-        background: rgba(255, 255, 255, 0.09) !important;
-        color: #f1f5f9 !important;
+        background: #20313a !important;
+        color: #ffffff !important;
+        border-color: #4a5c66 !important;
+        transform: translateY(-1px) !important;
+        box-shadow: 0 4px 0 #28373f !important;
       }
+
+      .settings-tab-btn:active {
+        transform: translateY(2px) !important;
+        box-shadow: 0 1px 0 #28373f !important;
+      }
+
       .settings-tab-btn.active {
-        background: rgba(56, 189, 248, 0.18) !important;
-        border-color: rgba(56, 189, 248, 0.55) !important;
-        color: #38bdf8 !important;
-        box-shadow: 0 2px 10px rgba(56, 189, 248, 0.3) !important;
+        background: #1cb0f6 !important;
+        border-color: #1cb0f6 !important;
+        box-shadow: 0 3px 0 #1899d6, 0 6px 14px rgba(28, 176, 246, 0.3) !important;
+        color: #ffffff !important;
+        transform: translateY(1px) !important;
       }
+
+      /* Modal Body & Tab Panels */
       .settings-modal-body {
-        flex: 1 !important;
+        flex: 1 1 auto !important;
         overflow-y: auto !important;
-        padding: 20px 24px 28px !important;
+        padding: 18px 20px 24px !important;
         display: flex !important;
         flex-direction: column !important;
         gap: 16px !important;
+        background: #131f24 !important;
+        scrollbar-width: thin !important;
+        scrollbar-color: #37464f transparent !important;
       }
+
+      .settings-modal-body::-webkit-scrollbar {
+        width: 6px !important;
+      }
+      .settings-modal-body::-webkit-scrollbar-thumb {
+        background: #37464f !important;
+        border-radius: 9999px !important;
+      }
+
       .settings-tab-panel {
         display: none !important;
         flex-direction: column !important;
         gap: 16px !important;
+        animation: duoPanelIn 0.22s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
       }
+
       .settings-tab-panel.active {
         display: flex !important;
       }
+
+      @keyframes duoPanelIn {
+        from {
+          opacity: 0;
+          transform: translateY(6px) scale(0.99);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      /* Duolingo Category Section Label */
+      .duo-settings-section-title {
+        font-size: 0.74rem !important;
+        font-weight: 850 !important;
+        letter-spacing: 0.08em !important;
+        text-transform: uppercase !important;
+        color: #778f9b !important;
+        margin: 2px 0 6px 4px !important;
+      }
+
+      /* Duolingo Grouped Card */
       .settings-card {
-        background: rgba(255, 255, 255, 0.035) !important;
-        border: 1px solid rgba(255, 255, 255, 0.09) !important;
+        background: #18272f !important;
+        border: 2px solid #37464f !important;
         border-radius: 20px !important;
+        box-shadow: 0 4px 0 #202f36 !important;
         padding: 18px 20px !important;
         display: flex !important;
         flex-direction: column !important;
         gap: 14px !important;
-        transition: border-color 0.2s ease !important;
+        transition: border-color 0.18s ease, transform 0.15s ease !important;
       }
+
       .settings-card:hover {
-        border-color: rgba(255, 255, 255, 0.15) !important;
+        border-color: #485c67 !important;
       }
+
       .settings-card-header {
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
-        gap: 12px !important;
+        gap: 14px !important;
       }
+
       .settings-card-left {
         display: flex !important;
         align-items: center !important;
-        gap: 12px !important;
+        gap: 14px !important;
       }
+
       .settings-card-icon {
-        font-size: 1.35rem !important;
-        line-height: 1 !important;
+        width: 42px !important;
+        height: 42px !important;
+        border-radius: 12px !important;
+        background: #202f36 !important;
+        border: 2px solid #37464f !important;
+        box-shadow: 0 3px 0 #28373f !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 1.25rem !important;
+        flex-shrink: 0 !important;
       }
+
       .settings-card-title {
-        font-size: 0.96rem !important;
-        font-weight: 800 !important;
+        font-size: 1rem !important;
+        font-weight: 850 !important;
         color: #ffffff !important;
         margin: 0 !important;
         letter-spacing: -0.01em !important;
       }
+
       .settings-card-sub {
-        font-size: 0.77rem !important;
+        font-size: 0.79rem !important;
         color: #94a3b8 !important;
-        margin: 2px 0 0 !important;
+        margin: 3px 0 0 !important;
         font-weight: 500 !important;
+        line-height: 1.35 !important;
       }
+
+      /* ==========================================================
+         DUOLINGO CHUNKY TACTILE TOGGLE SWITCH (Per User Image)
+         ========================================================== */
+      .toggle-switch {
+        position: relative !important;
+        display: inline-block !important;
+        width: 52px !important;
+        height: 30px !important;
+        flex-shrink: 0 !important;
+      }
+
+      .toggle-switch input {
+        opacity: 0 !important;
+        width: 0 !important;
+        height: 0 !important;
+      }
+
+      .toggle-slider {
+        position: absolute !important;
+        cursor: pointer !important;
+        inset: 0 !important;
+        background-color: #37464f !important;
+        border: 2px solid #4a5c66 !important;
+        border-radius: 9999px !important;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25) !important;
+        transition: background-color 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.22s ease, box-shadow 0.22s ease !important;
+      }
+
+      .toggle-slider:before {
+        position: absolute !important;
+        content: "" !important;
+        height: 22px !important;
+        width: 22px !important;
+        left: 2px !important;
+        top: 2px !important;
+        background-color: #ffffff !important;
+        border-radius: 50% !important;
+        box-shadow: 0 3px 0 rgba(0, 0, 0, 0.25) !important;
+        transition: transform 0.24s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+      }
+
+      input:checked + .toggle-slider {
+        background-color: #1cb0f6 !important;
+        border-color: #1899d6 !important;
+        box-shadow: 0 0 14px rgba(28, 176, 246, 0.45) !important;
+      }
+
+      input:checked + .toggle-slider:before {
+        transform: translateX(22px) !important;
+        background-color: #ffffff !important;
+        box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2) !important;
+      }
+
+      /* Duolingo Segmented Choice Buttons */
       .settings-choice-group {
         display: grid !important;
         grid-template-columns: repeat(3, 1fr) !important;
         gap: 8px !important;
+        width: 100% !important;
       }
+
       .settings-choice-btn {
-        padding: 9px 8px !important;
-        border-radius: 12px !important;
-        background: rgba(255, 255, 255, 0.05) !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        color: #cbd5e1 !important;
-        font-size: 0.8rem !important;
-        font-weight: 700 !important;
+        padding: 10px 8px !important;
+        border-radius: 14px !important;
+        background: #202f36 !important;
+        border: 2px solid #37464f !important;
+        box-shadow: 0 3px 0 #28373f !important;
+        color: #94a3b8 !important;
+        font-size: 0.82rem !important;
+        font-weight: 800 !important;
         cursor: pointer !important;
-        transition: all 0.18s ease !important;
+        transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.12s ease, background 0.15s ease, color 0.15s ease, border-color 0.15s ease !important;
         text-align: center !important;
+        user-select: none !important;
       }
+
       .settings-choice-btn:hover {
-        background: rgba(255, 255, 255, 0.1) !important;
+        background: #283b44 !important;
+        border-color: #4a5c66 !important;
         color: #ffffff !important;
+        transform: translateY(-1px) !important;
+        box-shadow: 0 4px 0 #28373f !important;
       }
+
+      .settings-choice-btn:active {
+        transform: translateY(2px) !important;
+        box-shadow: 0 1px 0 #28373f !important;
+      }
+
       .settings-choice-btn.active {
-        background: rgba(56, 189, 248, 0.2) !important;
-        border-color: rgba(56, 189, 248, 0.6) !important;
-        color: #38bdf8 !important;
-        box-shadow: 0 0 12px rgba(56, 189, 248, 0.25) !important;
+        background: #1cb0f6 !important;
+        border-color: #1cb0f6 !important;
+        box-shadow: 0 3px 0 #1899d6, 0 6px 14px rgba(28, 176, 246, 0.3) !important;
+        color: #ffffff !important;
+        transform: translateY(1px) !important;
       }
+
+      /* Duolingo Chunky Sliders & Badges */
       .settings-slider-row {
         display: flex !important;
         flex-direction: column !important;
-        gap: 6px !important;
+        gap: 8px !important;
       }
+
       .settings-slider-label-row {
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
         font-size: 0.82rem !important;
-        color: #cbd5e1 !important;
-        font-weight: 700 !important;
+        font-weight: 750 !important;
+        color: #e2e8f0 !important;
       }
+
       .settings-val-badge {
         font-size: 0.78rem !important;
-        font-weight: 800 !important;
-        color: #38bdf8 !important;
-        background: rgba(56, 189, 248, 0.12) !important;
-        padding: 2px 8px !important;
-        border-radius: 9999px !important;
-        border: 1px solid rgba(56, 189, 248, 0.3) !important;
+        font-weight: 850 !important;
+        color: #1cb0f6 !important;
+        background: #202f36 !important;
+        padding: 3px 10px !important;
+        border-radius: 10px !important;
+        border: 2px solid #37464f !important;
+        box-shadow: 0 2px 0 #28373f !important;
+        font-variant-numeric: tabular-nums !important;
       }
+
       .custom-settings-slider {
         -webkit-appearance: none !important;
         appearance: none !important;
         width: 100% !important;
-        height: 6px !important;
-        background: rgba(255, 255, 255, 0.12) !important;
+        height: 8px !important;
+        background: #28363e !important;
+        border: 1.5px solid #37464f !important;
         border-radius: 9999px !important;
         outline: none !important;
+        cursor: pointer !important;
       }
+
       .custom-settings-slider::-webkit-slider-thumb {
         -webkit-appearance: none !important;
         appearance: none !important;
-        width: 18px !important;
-        height: 18px !important;
+        width: 22px !important;
+        height: 22px !important;
         border-radius: 50% !important;
-        background: #38bdf8 !important;
+        background: #ffffff !important;
+        border: 3px solid #1cb0f6 !important;
+        box-shadow: 0 3px 0 rgba(0, 0, 0, 0.3) !important;
         cursor: pointer !important;
-        box-shadow: 0 0 10px rgba(56, 189, 248, 0.6) !important;
-        border: 2px solid #ffffff !important;
+        transition: transform 0.1s ease !important;
       }
+
+      .custom-settings-slider::-webkit-slider-thumb:hover {
+        transform: scale(1.15) !important;
+      }
+
+      /* Duolingo 3D Action Buttons in Settings */
       .settings-action-btn {
         width: 100% !important;
-        padding: 12px 18px !important;
-        border-radius: 14px !important;
-        font-size: 0.88rem !important;
-        font-weight: 800 !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        gap: 8px !important;
+        gap: 10px !important;
+        padding: 13px 20px !important;
+        border-radius: 16px !important;
+        font-weight: 850 !important;
+        font-size: 0.86rem !important;
+        letter-spacing: 0.04em !important;
+        text-transform: uppercase !important;
         cursor: pointer !important;
-        transition: all 0.18s ease !important;
         user-select: none !important;
+        border: none !important;
+        transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.12s ease, background 0.15s ease !important;
       }
+
       .settings-action-btn-primary {
-        background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(14, 165, 233, 0.28)) !important;
-        border: 1.5px solid rgba(56, 189, 248, 0.5) !important;
-        color: #38bdf8 !important;
-        box-shadow: 0 4px 0 rgba(14, 116, 144, 0.6) !important;
+        background: #1cb0f6 !important;
+        color: #ffffff !important;
+        box-shadow: 0 5px 0 #1899d6, 0 8px 18px rgba(28, 176, 246, 0.35) !important;
       }
+
       .settings-action-btn-primary:hover {
-        background: rgba(56, 189, 248, 0.3) !important;
-        transform: translateY(-1px) !important;
+        background: #2ec0ff !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 7px 0 #1899d6, 0 12px 22px rgba(28, 176, 246, 0.45) !important;
       }
+
+      .settings-action-btn-primary:active {
+        transform: translateY(4px) !important;
+        box-shadow: 0 1px 0 #1899d6 !important;
+      }
+
       .settings-action-btn-danger {
-        background: rgba(239, 68, 68, 0.14) !important;
-        border: 1.5px solid rgba(239, 68, 68, 0.45) !important;
-        color: #f87171 !important;
-        box-shadow: 0 4px 0 rgba(185, 28, 28, 0.6) !important;
+        background: #ff4b4b !important;
+        color: #ffffff !important;
+        box-shadow: 0 5px 0 #d93838, 0 8px 18px rgba(255, 75, 75, 0.35) !important;
       }
+
       .settings-action-btn-danger:hover {
-        background: rgba(239, 68, 68, 0.25) !important;
-        transform: translateY(-1px) !important;
+        background: #ff5e5e !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 7px 0 #d93838, 0 12px 22px rgba(255, 75, 75, 0.45) !important;
       }
+
+      .settings-action-btn-danger:active {
+        transform: translateY(4px) !important;
+        box-shadow: 0 1px 0 #d93838 !important;
+      }
+
       .settings-action-btn-success {
-        background: rgba(16, 185, 129, 0.14) !important;
-        border: 1.5px solid rgba(16, 185, 129, 0.45) !important;
-        color: #34d399 !important;
-        box-shadow: 0 4px 0 rgba(5, 150, 105, 0.6) !important;
+        background: #58cc02 !important;
+        color: #ffffff !important;
+        box-shadow: 0 5px 0 #46a302, 0 8px 18px rgba(88, 204, 2, 0.35) !important;
       }
+
       .settings-action-btn-success:hover {
-        background: rgba(16, 185, 129, 0.25) !important;
+        background: #61df02 !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 7px 0 #46a302, 0 12px 22px rgba(88, 204, 2, 0.45) !important;
+      }
+
+      .settings-action-btn-success:active {
+        transform: translateY(4px) !important;
+        box-shadow: 0 1px 0 #46a302 !important;
+      }
+
+      /* Duolingo Audition / Test Button */
+      .btn-audio-test {
+        padding: 7px 16px !important;
+        border-radius: 12px !important;
+        font-size: 0.8rem !important;
+        font-weight: 850 !important;
+        letter-spacing: 0.04em !important;
+        text-transform: uppercase !important;
+        background: #1cb0f6 !important;
+        border: none !important;
+        color: #ffffff !important;
+        box-shadow: 0 3px 0 #1899d6 !important;
+        cursor: pointer !important;
+        transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.15s ease !important;
+      }
+
+      .btn-audio-test:hover {
+        background: #2ec0ff !important;
         transform: translateY(-1px) !important;
+        box-shadow: 0 4px 0 #1899d6 !important;
       }
 
-
-    /* ========================================================================= */
-    /* PRODUCTION-GRADE LUXURIOUS SETTINGS MODAL & BOTTOM SHEET                  */
-    /* ========================================================================= */
-    .menu-drawer-backdrop {
-      position: fixed !important;
-      inset: 0 !important;
-      background: rgba(3, 7, 18, 0.75) !important;
-      backdrop-filter: blur(14px) !important;
-      -webkit-backdrop-filter: blur(14px) !important;
-      z-index: 9998 !important;
-      opacity: 0 !important;
-      pointer-events: none !important;
-      transition: opacity 0.26s cubic-bezier(0.16, 1, 0.3, 1) !important;
-    }
-    .menu-drawer-backdrop.open {
-      opacity: 1 !important;
-      pointer-events: auto !important;
-    }
-
-    .app-menu-drawer {
-      position: fixed !important;
-      inset: 0 !important;
-      margin: auto !important;
-      width: calc(100% - 32px) !important;
-      max-width: 580px !important;
-      height: fit-content !important;
-      max-height: 86vh !important;
-      background: linear-gradient(180deg, #131d31 0%, #0a101d 100%) !important;
-      border: 1px solid rgba(255, 255, 255, 0.12) !important;
-      border-radius: 24px !important;
-      box-shadow: 0 25px 70px -10px rgba(0, 0, 0, 0.85), 0 0 30px rgba(56, 189, 248, 0.12) !important;
-      z-index: 9999 !important;
-      display: flex !important;
-      flex-direction: column !important;
-      overflow: hidden !important;
-      opacity: 0 !important;
-      pointer-events: none !important;
-      transform: scale(0.96) translateY(14px) !important;
-      transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
-    }
-
-    .app-menu-drawer.open {
-      opacity: 1 !important;
-      pointer-events: auto !important;
-      transform: scale(1) translateY(0) !important;
-    }
-
-    @media (max-width: 640px) {
-      .app-menu-drawer {
-        inset: auto 0 0 0 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        max-height: 88vh !important;
-        border-radius: 26px 26px 0 0 !important;
-        border-left: none !important;
-        border-right: none !important;
-        border-bottom: none !important;
-        transform: translateY(100%) !important;
-        box-shadow: 0 -12px 50px rgba(0, 0, 0, 0.8) !important;
+      .btn-audio-test:active {
+        transform: translateY(2px) !important;
+        box-shadow: 0 1px 0 #1899d6 !important;
       }
-      .app-menu-drawer.open {
-        transform: translateY(0) !important;
+
+      /* Reduce Motion Preference (Duolingo Style) */
+      body.reduce-motion .card-wrapper,
+      body.reduce-motion .card-flipper,
+      body.reduce-motion .card-front,
+      body.reduce-motion .card-back {
+        transition-duration: 0.08s !important;
       }
-    }
-
-    .drawer-sheet-handle {
-      display: none;
-      width: 42px;
-      height: 5px;
-      border-radius: 9999px;
-      background: rgba(255, 255, 255, 0.22);
-      margin: 12px auto 4px;
-    }
-    @media (max-width: 640px) {
-      .drawer-sheet-handle {
-        display: block;
-      }
-    }
-
-    /* Modal Header */
-    .settings-modal-header {
-      display: flex !important;
-      align-items: center !important;
-      justify-content: space-between !important;
-      padding: 18px 24px 14px !important;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-      background: rgba(255, 255, 255, 0.02) !important;
-    }
-    .settings-header-title-group {
-      display: flex !important;
-      align-items: center !important;
-      gap: 14px !important;
-    }
-    .settings-icon-badge {
-      width: 42px !important;
-      height: 42px !important;
-      border-radius: 14px !important;
-      background: rgba(56, 189, 248, 0.14) !important;
-      border: 1px solid rgba(56, 189, 248, 0.35) !important;
-      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.22) !important;
-      color: #38bdf8 !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      flex-shrink: 0 !important;
-    }
-    .settings-modal-title {
-      font-size: 1.2rem !important;
-      font-weight: 800 !important;
-      color: #ffffff !important;
-      margin: 0 !important;
-      line-height: 1.2 !important;
-      letter-spacing: -0.01em !important;
-    }
-    .settings-modal-sub {
-      font-size: 0.78rem !important;
-      color: #94a3b8 !important;
-      margin: 3px 0 0 !important;
-      font-weight: 500 !important;
-    }
-    .settings-modal-close-btn {
-      width: 38px !important;
-      height: 38px !important;
-      border-radius: 12px !important;
-      background: rgba(255, 255, 255, 0.08) !important;
-      border: 1px solid rgba(255, 255, 255, 0.16) !important;
-      box-shadow: 0 3px 0 rgba(0, 0, 0, 0.4) !important;
-      color: #cbd5e1 !important;
-      font-size: 1.15rem !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      cursor: pointer !important;
-      transition: all 0.15s ease !important;
-      flex-shrink: 0 !important;
-    }
-    .settings-modal-close-btn:hover {
-      background: rgba(255, 255, 255, 0.16) !important;
-      color: #ffffff !important;
-      transform: scale(1.05) !important;
-    }
-
-    /* Tabs Bar */
-    .settings-tabs-bar {
-      display: flex !important;
-      gap: 6px !important;
-      padding: 10px 20px !important;
-      background: rgba(0, 0, 0, 0.28) !important;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
-      overflow-x: auto !important;
-      scrollbar-width: none !important;
-    }
-    .settings-tabs-bar::-webkit-scrollbar {
-      display: none !important;
-    }
-    .settings-tab-btn {
-      flex: 1 1 0 !important;
-      min-width: 0 !important;
-      padding: 9px 8px !important;
-      border-radius: 12px !important;
-      background: rgba(255, 255, 255, 0.04) !important;
-      border: 1px solid rgba(255, 255, 255, 0.08) !important;
-      color: #94a3b8 !important;
-      font-size: 0.78rem !important;
-      font-weight: 700 !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      gap: 5px !important;
-      cursor: pointer !important;
-      transition: all 0.16s ease !important;
-      white-space: nowrap !important;
-    }
-    .settings-tab-btn:hover {
-      background: rgba(255, 255, 255, 0.09) !important;
-      color: #f1f5f9 !important;
-    }
-    .settings-tab-btn.active {
-      background: rgba(56, 189, 248, 0.18) !important;
-      border-color: rgba(56, 189, 248, 0.55) !important;
-      color: #38bdf8 !important;
-      box-shadow: 0 2px 10px rgba(56, 189, 248, 0.3) !important;
-    }
-
-    /* Scroll Body */
-    .settings-modal-body {
-      flex: 1 1 auto !important;
-      overflow-y: auto !important;
-      padding: 20px 24px 24px !important;
-      display: flex !important;
-      flex-direction: column !important;
-      gap: 16px !important;
-      scrollbar-width: thin !important;
-      scrollbar-color: rgba(255, 255, 255, 0.2) transparent !important;
-    }
-    .settings-modal-body::-webkit-scrollbar {
-      width: 6px !important;
-    }
-    .settings-modal-body::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.2) !important;
-      border-radius: 10px !important;
-    }
-
-    /* Panels */
-    .settings-tab-panel {
-      display: none !important;
-      flex-direction: column !important;
-      gap: 16px !important;
-      animation: settingsFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
-    }
-    .settings-tab-panel.active {
-      display: flex !important;
-    }
-    @keyframes settingsFadeIn {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Cards */
-    .settings-card {
-      background: rgba(255, 255, 255, 0.03) !important;
-      border: 1px solid rgba(255, 255, 255, 0.08) !important;
-      border-radius: 18px !important;
-      padding: 16px 18px !important;
-      display: flex !important;
-      flex-direction: column !important;
-      gap: 14px !important;
-      transition: border-color 0.15s ease !important;
-    }
-    .settings-card:hover {
-      border-color: rgba(255, 255, 255, 0.15) !important;
-    }
-    .settings-card-header {
-      display: flex !important;
-      align-items: center !important;
-      justify-content: space-between !important;
-      gap: 12px !important;
-    }
-    .settings-card-left {
-      display: flex !important;
-      align-items: center !important;
-      gap: 12px !important;
-    }
-    .settings-card-icon {
-      font-size: 1.35rem !important;
-      line-height: 1 !important;
-    }
-    .settings-card-title {
-      font-size: 0.96rem !important;
-      font-weight: 750 !important;
-      color: #f8fafc !important;
-      margin: 0 !important;
-      letter-spacing: -0.01em !important;
-    }
-    .settings-card-sub {
-      font-size: 0.77rem !important;
-      color: #94a3b8 !important;
-      margin: 3px 0 0 !important;
-      line-height: 1.35 !important;
-    }
-
-    /* Choice Buttons Group */
-    .settings-choice-group {
-      display: flex !important;
-      gap: 8px !important;
-      width: 100% !important;
-    }
-    .settings-choice-btn {
-      flex: 1 1 0 !important;
-      padding: 10px 8px !important;
-      border-radius: 12px !important;
-      background: rgba(255, 255, 255, 0.04) !important;
-      border: 1px solid rgba(255, 255, 255, 0.1) !important;
-      color: #cbd5e1 !important;
-      font-size: 0.82rem !important;
-      font-weight: 700 !important;
-      cursor: pointer !important;
-      transition: all 0.15s ease !important;
-      text-align: center !important;
-      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25) !important;
-    }
-    .settings-choice-btn:hover {
-      background: rgba(255, 255, 255, 0.08) !important;
-      color: #ffffff !important;
-    }
-    .settings-choice-btn.active {
-      background: rgba(56, 189, 248, 0.18) !important;
-      border-color: #38bdf8 !important;
-      color: #38bdf8 !important;
-      box-shadow: 0 0 12px rgba(56, 189, 248, 0.25), 0 2px 0 rgba(0, 0, 0, 0.3) !important;
-    }
-
-    /* Slider Rows */
-    .settings-slider-row {
-      display: flex !important;
-      flex-direction: column !important;
-      gap: 7px !important;
-    }
-    .settings-slider-label-row {
-      display: flex !important;
-      align-items: center !important;
-      justify-content: space-between !important;
-      font-size: 0.8rem !important;
-      font-weight: 600 !important;
-      color: #cbd5e1 !important;
-    }
-    .settings-val-badge {
-      font-size: 0.75rem !important;
-      font-weight: 800 !important;
-      padding: 3px 8px !important;
-      border-radius: 8px !important;
-      background: rgba(56, 189, 248, 0.14) !important;
-      border: 1px solid rgba(56, 189, 248, 0.3) !important;
-      color: #38bdf8 !important;
-      font-variant-numeric: tabular-nums !important;
-    }
-    .custom-settings-slider {
-      -webkit-appearance: none !important;
-      appearance: none !important;
-      width: 100% !important;
-      height: 6px !important;
-      border-radius: 9999px !important;
-      background: rgba(255, 255, 255, 0.1) !important;
-      outline: none !important;
-      cursor: pointer !important;
-    }
-    .custom-settings-slider::-webkit-slider-thumb {
-      -webkit-appearance: none !important;
-      appearance: none !important;
-      width: 18px !important;
-      height: 18px !important;
-      border-radius: 50% !important;
-      background: #38bdf8 !important;
-      box-shadow: 0 0 10px rgba(56, 189, 248, 0.6) !important;
-      cursor: pointer !important;
-      transition: transform 0.1s ease !important;
-    }
-    .custom-settings-slider::-webkit-slider-thumb:hover {
-      transform: scale(1.15) !important;
-    }
-
-    /* Action Buttons */
-    .settings-action-btn {
-      width: 100% !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      gap: 10px !important;
-      padding: 12px 18px !important;
-      border-radius: 14px !important;
-      font-weight: 750 !important;
-      font-size: 0.88rem !important;
-      cursor: pointer !important;
-      transition: all 0.16s ease !important;
-      box-shadow: 0 3px 0 rgba(0, 0, 0, 0.35) !important;
-    }
-    .settings-action-btn-primary {
-      background: rgba(56, 189, 248, 0.18) !important;
-      border: 1.5px solid rgba(56, 189, 248, 0.45) !important;
-      color: #38bdf8 !important;
-    }
-    .settings-action-btn-primary:hover {
-      background: rgba(56, 189, 248, 0.28) !important;
-      border-color: #38bdf8 !important;
-      transform: translateY(-1px) !important;
-    }
-    .settings-action-btn-danger {
-      background: rgba(239, 68, 68, 0.15) !important;
-      border: 1.5px solid rgba(239, 68, 68, 0.4) !important;
-      color: #f87171 !important;
-    }
-    .settings-action-btn-danger:hover {
-      background: rgba(239, 68, 68, 0.25) !important;
-      border-color: #ef4444 !important;
-      transform: translateY(-1px) !important;
-    }
-    .settings-action-btn-success {
-      background: rgba(16, 185, 129, 0.15) !important;
-      border: 1.5px solid rgba(16, 185, 129, 0.4) !important;
-      color: #34d399 !important;
-    }
-    .settings-action-btn-success:hover {
-      background: rgba(16, 185, 129, 0.25) !important;
-      border-color: #10b981 !important;
-      transform: translateY(-1px) !important;
-    }
 
     /* Card Front Action Buttons */
     .icon-tool-btn.front-learned-btn {
@@ -8999,29 +8491,29 @@
     </div>
 
     <!-- ========================================================== -->
-    <!-- PRODUCTION-GRADE CENTERED SETTINGS & AUDIO DIALOG         -->
+    <!-- DUOLINGO PRODUCTION-GRADE SETTINGS & AUDIO DIALOG         -->
     <!-- ========================================================== -->
     <div class="menu-drawer-backdrop" id="menu-drawer-backdrop"></div>
     <aside class="app-menu-drawer" id="app-menu-drawer" aria-label="Settings and Preferences">
       <div class="drawer-sheet-handle"></div>
-      <!-- Modal Header -->
+      <!-- Duolingo Modal Header -->
       <div class="settings-modal-header">
         <div class="settings-header-title-group">
-          <div class="settings-icon-badge">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+          <div class="settings-icon-badge" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="3"/>
               <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
             </svg>
           </div>
           <div>
-            <h2 class="settings-modal-title">Settings & Audio Studio</h2>
-            <p class="settings-modal-sub">Personalize audio, gestures, speech & study deck</p>
+            <h2 class="settings-modal-title">Settings</h2>
+            <p class="settings-modal-sub">Preferences, audio effects & study tools</p>
           </div>
         </div>
         <button type="button" class="settings-modal-close-btn duo-btn-3d" id="drawer-close-btn" aria-label="Close Settings">✕</button>
       </div>
 
-      <!-- Segmented 4-Tab Navigation -->
+      <!-- Duolingo Segmented 4-Tab Navigation -->
       <div class="settings-tabs-bar">
         <button type="button" class="settings-tab-btn active" data-tab-target="tab-audio">
           <span>🔊</span> <span>Sound & FX</span>
@@ -9030,10 +8522,10 @@
           <span>🎙️</span> <span>Speech</span>
         </button>
         <button type="button" class="settings-tab-btn" data-tab-target="tab-gestures">
-          <span>⚡</span> <span>Physics & Swipes</span>
+          <span>⚡</span> <span>Gestures</span>
         </button>
         <button type="button" class="settings-tab-btn" data-tab-target="tab-deck">
-          <span>💾</span> <span>Deck & Data</span>
+          <span>💾</span> <span>Deck Tools</span>
         </button>
       </div>
 
@@ -9042,16 +8534,17 @@
         <!-- ================= TAB 1: AUDIO & SOUND EFFECTS ================= -->
         <div class="settings-tab-panel active" id="tab-audio">
           <!-- Card Flip Audio Effect -->
+          <div class="duo-settings-section-title">Sound Effects</div>
           <div class="settings-card">
             <div class="settings-card-header">
               <div class="settings-card-left">
-                <div class="settings-card-icon">🎚️</div>
+                <div class="settings-card-icon" style="background: #1cb0f6; box-shadow: 0 3px 0 #1899d6; color: #ffffff; border: none;">🎚️</div>
                 <div>
                   <h3 class="settings-card-title">Card Flip Sound Profile</h3>
-                  <p class="settings-card-sub">Tactile micro-snap and physical whoosh on flips</p>
+                  <p class="settings-card-sub">Micro-snap and physical whoosh on flips</p>
                 </div>
               </div>
-              <button type="button" class="duo-btn-3d btn-audio-test" id="btn-test-sfx" title="Audition sound" style="padding: 6px 14px; border-radius: 10px; font-size: 0.82rem; font-weight: 750; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.35); color: #38bdf8;">
+              <button type="button" class="btn-audio-test" id="btn-test-sfx" title="Audition sound">
                 <span>Audition ⚡</span>
               </button>
             </div>
@@ -9063,10 +8556,11 @@
           </div>
 
           <!-- Background Study Music -->
+          <div class="duo-settings-section-title">Study Ambiance</div>
           <div class="settings-card">
             <div class="settings-card-header">
               <div class="settings-card-left">
-                <div class="settings-card-icon">🎵</div>
+                <div class="settings-card-icon" style="background: #a855f7; box-shadow: 0 3px 0 #9333ea; color: #ffffff; border: none;">🎵</div>
                 <div>
                   <h3 class="settings-card-title">Focus Ambient Background</h3>
                   <p class="settings-card-sub">Procedural warm binaural tones for deep concentration</p>
@@ -9079,7 +8573,7 @@
             </div>
 
             <!-- BGM Expandable Panel -->
-            <div id="bgm-panel" style="display: none; flex-direction: column; gap: 12px; margin-top: 4px; padding-top: 12px; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+            <div id="bgm-panel" style="display: none; flex-direction: column; gap: 14px; margin-top: 4px; padding-top: 14px; border-top: 2px solid #28363e;">
               <div class="settings-choice-group">
                 <button type="button" class="settings-choice-btn active" data-bgm="lofi">Lo-Fi Pad</button>
                 <button type="button" class="settings-choice-btn" data-bgm="alpha">Alpha 10Hz</button>
@@ -9094,27 +8588,46 @@
               </div>
             </div>
           </div>
+
+          <!-- Card Flip Micro-Animations (Duolingo Style Preference) -->
+          <div class="duo-settings-section-title">Visual Animations</div>
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <div class="settings-card-left">
+                <div class="settings-card-icon" style="background: #ff9600; box-shadow: 0 3px 0 #d97d00; color: #ffffff; border: none;">✨</div>
+                <div>
+                  <h3 class="settings-card-title">Smooth 3D Animations</h3>
+                  <p class="settings-card-sub">Fluid card flip depth, spring bounce & throw-and-slide motion</p>
+                </div>
+              </div>
+              <label class="toggle-switch" aria-label="Toggle Animations">
+                <input type="checkbox" id="toggle-card-animations" checked />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
         </div>
 
         <!-- ================= TAB 2: SPEECH & PRONUNCIATION ================= -->
         <div class="settings-tab-panel" id="tab-speech">
+          <div class="duo-settings-section-title">Voice Pronunciation</div>
           <div class="settings-card">
             <div class="settings-card-header">
               <div class="settings-card-left">
-                <div class="settings-card-icon">🎙️</div>
+                <div class="settings-card-icon" style="background: #58cc02; box-shadow: 0 3px 0 #46a302; color: #ffffff; border: none;">🎙️</div>
                 <div>
                   <h3 class="settings-card-title">Native Pronunciation Tuning</h3>
                   <p class="settings-card-sub">Accurate English, Tamil, Spanish & Hindi voices</p>
                 </div>
               </div>
-              <button type="button" class="duo-btn-3d btn-audio-test" id="btn-test-voice" title="Test voice speech" style="padding: 6px 14px; border-radius: 10px; font-size: 0.82rem; font-weight: 750; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.35); color: #38bdf8;">
+              <button type="button" class="btn-audio-test" id="btn-test-voice" title="Test voice speech">
                 <span>Preview 🔊</span>
               </button>
             </div>
 
             <!-- Quick Speed Preset Chips -->
-            <div style="display: flex; flex-direction: column; gap: 6px;">
-              <span style="font-size: 0.78rem; color: #94a3b8; font-weight: 600;">Speech Speed Presets</span>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <span style="font-size: 0.8rem; color: #8496a0; font-weight: 750;">Speech Speed Presets</span>
               <div class="settings-choice-group">
                 <button type="button" class="settings-choice-btn" id="btn-rate-slow">0.75× Slower</button>
                 <button type="button" class="settings-choice-btn active" id="btn-rate-normal">1.0× Normal</button>
@@ -9123,7 +8636,7 @@
             </div>
 
             <!-- Fine-Tuning Sliders -->
-            <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 4px;">
+            <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 6px; padding-top: 12px; border-top: 2px solid #28363e;">
               <div class="settings-slider-row">
                 <div class="settings-slider-label-row">
                   <span>Speech Volume</span>
@@ -9153,101 +8666,106 @@
 
         <!-- ================= TAB 3: GESTURE PHYSICS & DOUBLE TAP ================= -->
         <div class="settings-tab-panel" id="tab-gestures">
+          <div class="duo-settings-section-title">Gesture Physics</div>
           <div class="settings-card">
             <div class="settings-card-header">
               <div class="settings-card-left">
-                <div class="settings-card-icon">⚡</div>
+                <div class="settings-card-icon" style="background: #1cb0f6; box-shadow: 0 3px 0 #1899d6; color: #ffffff; border: none;">⚡</div>
                 <div>
                   <h3 class="settings-card-title">Smooth Swipe & Scroll</h3>
                   <p class="settings-card-sub">Fast, natural 1:1 gesture response to move cards sequentially left & right</p>
                 </div>
               </div>
-              <span class="settings-val-badge" style="color: #34d399; background: rgba(16,185,129,0.15); border-color: rgba(16,185,129,0.4);">Smooth & Fast</span>
+              <span class="settings-val-badge" style="color: #58cc02; background: #202f36; border-color: #58cc02;">Smooth & Fast</span>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; font-size: 0.8rem;">
-              <div style="padding: 10px 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
-                <strong style="color: #38bdf8;">Swipe Left:</strong> <span style="color: #94a3b8;">Next card</span>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; font-size: 0.82rem;">
+              <div style="padding: 12px 14px; background: #202f36; border: 2px solid #37464f; border-radius: 14px;">
+                <strong style="color: #1cb0f6; display: block; margin-bottom: 2px;">Swipe Left</strong> <span style="color: #94a3b8;">Next card</span>
               </div>
-              <div style="padding: 10px 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
-                <strong style="color: #38bdf8;">Swipe Right:</strong> <span style="color: #94a3b8;">Previous card</span>
+              <div style="padding: 12px 14px; background: #202f36; border: 2px solid #37464f; border-radius: 14px;">
+                <strong style="color: #1cb0f6; display: block; margin-bottom: 2px;">Swipe Right</strong> <span style="color: #94a3b8;">Previous card</span>
               </div>
-              <div style="padding: 10px 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
-                <strong style="color: #38bdf8;">Fast Scroll:</strong> <span style="color: #94a3b8;">Rapid, fluid card flow</span>
+              <div style="padding: 12px 14px; background: #202f36; border: 2px solid #37464f; border-radius: 14px;">
+                <strong style="color: #1cb0f6; display: block; margin-bottom: 2px;">Fast Scroll</strong> <span style="color: #94a3b8;">Fluid responsive flow</span>
               </div>
-              <div style="padding: 10px 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
-                <strong style="color: #38bdf8;">Clean View:</strong> <span style="color: #94a3b8;">No indicator labels</span>
+              <div style="padding: 12px 14px; background: #202f36; border: 2px solid #37464f; border-radius: 14px;">
+                <strong style="color: #58cc02; display: block; margin-bottom: 2px;">Clean View</strong> <span style="color: #94a3b8;">No indicator labels</span>
               </div>
             </div>
           </div>
 
+          <div class="duo-settings-section-title">Touch Controls</div>
           <div class="settings-card">
             <div class="settings-card-header">
               <div class="settings-card-left">
-                <div class="settings-card-icon">👆👆</div>
+                <div class="settings-card-icon" style="background: #ff9600; box-shadow: 0 3px 0 #d97d00; color: #ffffff; border: none;">👆👆</div>
                 <div>
                   <h3 class="settings-card-title">Double-Tap to Flip</h3>
                   <p class="settings-card-sub">Double-tap anywhere on the card to reveal reverse translations & shortcuts</p>
                 </div>
               </div>
-              <span class="settings-val-badge" style="color: #38bdf8;">Always On</span>
+              <span class="settings-val-badge" style="color: #1cb0f6;">Always On</span>
             </div>
-            <p style="margin: 0; font-size: 0.78rem; color: #94a3b8; line-height: 1.5;">
-              Single tap does not accidentally flip the card, leaving speech icons and shortcuts clickable. A rapid double-tap triggers a glowing pulse ripple and immediate flip.
+            <p style="margin: 0; font-size: 0.8rem; color: #94a3b8; line-height: 1.5;">
+              Single tap keeps speech icons, shortcuts, and action buttons immediately interactive. A quick double-tap flips the card with a micro-haptic tick.
             </p>
           </div>
         </div>
 
         <!-- ================= TAB 4: DECK TOOLS & DATA MANAGEMENT ================= -->
         <div class="settings-tab-panel" id="tab-deck">
+          <div class="duo-settings-section-title">Deck Recovery</div>
           <!-- Restore Deleted Cards -->
           <div class="settings-card">
             <div class="settings-card-header">
               <div class="settings-card-left">
-                <div class="settings-card-icon" style="color: #38bdf8;">↺</div>
+                <div class="settings-card-icon" style="background: #1cb0f6; box-shadow: 0 3px 0 #1899d6; color: #ffffff; border: none;">↺</div>
                 <div>
                   <h3 class="settings-card-title">Restore Deleted Flashcards</h3>
                   <p class="settings-card-sub">Restore all deleted cards back to the full 200 items (800–1000)</p>
                 </div>
               </div>
             </div>
-            <button type="button" class="settings-action-btn settings-action-btn-primary duo-btn-3d" id="btn-settings-reset-deck">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <button type="button" class="settings-action-btn settings-action-btn-primary" id="btn-settings-reset-deck">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
                 <path d="M3 3v5h5"/>
               </svg>
-              <span>Restore All 200 Cards (800–1000)</span>
+              <span>Restore All 200 Cards</span>
             </button>
           </div>
 
+          <div class="duo-settings-section-title">Progress Reset</div>
           <!-- Reset Learned Progress -->
           <div class="settings-card">
             <div class="settings-card-header">
               <div class="settings-card-left">
-                <div class="settings-card-icon" style="color: #f87171;">🗑️</div>
+                <div class="settings-card-icon" style="background: #ff4b4b; box-shadow: 0 3px 0 #d93838; color: #ffffff; border: none;">🗑️</div>
                 <div>
                   <h3 class="settings-card-title">Reset Learned Progress</h3>
                   <p class="settings-card-sub">Clear your marked cards to study fresh from 0 / 200</p>
                 </div>
               </div>
             </div>
-            <button type="button" class="settings-action-btn settings-action-btn-danger duo-btn-3d" id="btn-settings-reset-learned">
+            <button type="button" class="settings-action-btn settings-action-btn-danger" id="btn-settings-reset-learned">
               <span>Reset Learned Cards Progress (0 / 200)</span>
             </button>
           </div>
 
+          <div class="duo-settings-section-title">Offline Export</div>
           <!-- Standalone Offline HTML -->
           <div class="settings-card">
             <div class="settings-card-header">
               <div class="settings-card-left">
-                <div class="settings-card-icon" style="color: #34d399;">📥</div>
+                <div class="settings-card-icon" style="background: #58cc02; box-shadow: 0 3px 0 #46a302; color: #ffffff; border: none;">📥</div>
                 <div>
                   <h3 class="settings-card-title">Standalone Offline Deck</h3>
                   <p class="settings-card-sub">Download self-contained offline study HTML file</p>
                 </div>
               </div>
             </div>
-            <button type="button" class="settings-action-btn settings-action-btn-success duo-btn-3d" id="btn-download-html-menu">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <button type="button" class="settings-action-btn settings-action-btn-success" id="btn-download-html-menu">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                 <polyline points="7 10 12 15 17 10"/>
                 <line x1="12" y1="15" x2="12" y2="3"/>
@@ -13196,6 +12714,23 @@
       if (btnTestSfx) {
         btnTestSfx.addEventListener("click", () => {
           cardAudio.playCardFlip(false);
+        });
+      }
+
+      // Visual Animations Preference Toggle (Duolingo Style Preferences)
+      const toggleAnimations = document.getElementById("toggle-card-animations");
+      let animationsEnabled = localStorage.getItem("flashcard_animations_enabled") !== "false";
+      if (toggleAnimations) {
+        toggleAnimations.checked = animationsEnabled;
+        if (!animationsEnabled) {
+          document.body.classList.add("reduce-motion");
+        }
+        toggleAnimations.addEventListener("change", (e) => {
+          animationsEnabled = e.target.checked;
+          localStorage.setItem("flashcard_animations_enabled", animationsEnabled ? "true" : "false");
+          document.body.classList.toggle("reduce-motion", !animationsEnabled);
+          if (typeof playHapticTick === "function") playHapticTick(animationsEnabled ? 560 : 380, "sine", 0.04);
+          if (typeof showToast === "function") showToast(animationsEnabled ? "✨ Animations enabled" : "⚡ Minimal motion enabled");
         });
       }
 
