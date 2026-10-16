@@ -568,7 +568,7 @@ export default function App() {
       scale: 1,
       rotate: 0,
       transition: {
-        x: { type: 'spring', stiffness: 340, damping: 28 },
+        x: { type: 'spring' as const, stiffness: 340, damping: 28 },
         opacity: { duration: 0.2 },
         scale: { duration: 0.2 },
         rotate: { duration: 0.2 },
@@ -581,7 +581,7 @@ export default function App() {
       scale: 0.94,
       rotate: dir < 0 ? 3 : -3,
       transition: {
-        x: { type: 'spring', stiffness: 340, damping: 28 },
+        x: { type: 'spring' as const, stiffness: 340, damping: 28 },
         opacity: { duration: 0.18 },
         scale: { duration: 0.18 },
         rotate: { duration: 0.18 },

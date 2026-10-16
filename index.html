@@ -5076,30 +5076,46 @@
       .flashcard-top-nav {
         flex-shrink: 0 !important;
         width: 100% !important;
+        max-width: 480px !important;
+        margin: 0 auto !important;
         padding: 4px 0 8px !important;
+        box-sizing: border-box !important;
       }
       .flashcard-top-nav .top-nav-main {
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
-        gap: 8px !important;
+        gap: 6px !important;
         width: 100% !important;
+        padding: 0 4px !important;
+        box-sizing: border-box !important;
       }
       .flashcard-top-nav .breadcrumb-back-btn {
         flex-shrink: 0 !important;
         display: inline-flex !important;
         align-items: center !important;
-        gap: 6px !important;
-        padding: 7px 12px !important;
-        border-radius: 9999px !important;
-        background: rgba(255, 255, 255, 0.06) !important;
-        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        justify-content: center !important;
+        gap: 5px !important;
+        padding: 6px 12px !important;
+        height: 34px !important;
+        border-radius: 12px !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+        border: 1px solid rgba(255, 255, 255, 0.16) !important;
+        box-shadow: 0 3px 0 rgba(0, 0, 0, 0.4) !important;
         color: #f1f5f9 !important;
         font-size: 0.8rem !important;
         font-weight: 700 !important;
         cursor: pointer !important;
-        transition: all 0.18s ease !important;
         white-space: nowrap !important;
+        transition: all 0.15s ease !important;
+        box-sizing: border-box !important;
+      }
+      .flashcard-top-nav .breadcrumb-back-btn:hover {
+        background: rgba(255, 255, 255, 0.14) !important;
+      }
+      .flashcard-top-nav .breadcrumb-back-btn:active {
+        transform: translateY(2px) scale(0.96) !important;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.4) !important;
       }
       .flashcard-top-nav .top-nav-center-group {
         display: flex !important;
@@ -5110,65 +5126,145 @@
         min-width: 0 !important;
       }
       .flashcard-top-nav .top-category-pill {
-        font-size: 0.78rem !important;
-        font-weight: 600 !important;
-        color: #cbd5e1 !important;
-        background: rgba(255, 255, 255, 0.05) !important;
-        border: 1px solid rgba(255, 255, 255, 0.08) !important;
-        padding: 5px 11px !important;
+        font-size: 0.74rem !important;
+        font-weight: 800 !important;
+        color: #34d399 !important;
+        background: rgba(16, 185, 129, 0.12) !important;
+        border: 1px solid rgba(16, 185, 129, 0.3) !important;
+        padding: 4px 8px !important;
+        height: 28px !important;
         border-radius: 9999px !important;
-        max-width: 170px !important;
         white-space: nowrap !important;
-        overflow: hidden !important;
-        text-overflow: ellipsis !important;
-        text-align: center !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 4px !important;
+        flex-shrink: 0 !important;
+        box-sizing: border-box !important;
       }
       .flashcard-top-nav .counter-display {
         flex-shrink: 0 !important;
         display: inline-flex !important;
         align-items: center !important;
+        justify-content: center !important;
         gap: 3px !important;
-        background: rgba(255, 255, 255, 0.05) !important;
-        border: 1px solid rgba(255, 255, 255, 0.08) !important;
-        padding: 5px 10px !important;
+        background: rgba(255, 255, 255, 0.06) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        padding: 4px 8px !important;
+        height: 28px !important;
         border-radius: 9999px !important;
         font-variant-numeric: tabular-nums !important;
         font-size: 0.8rem !important;
-        font-weight: 700 !important;
-        color: #e2e8f0 !important;
+        font-weight: 800 !important;
+        color: #f1f5f9 !important;
+        white-space: nowrap !important;
+        box-sizing: border-box !important;
+      }
+      #flashcard-streak-badge {
+        flex-shrink: 0 !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 4px !important;
+        padding: 4px 8px !important;
+        height: 28px !important;
+        border-radius: 9999px !important;
+        box-sizing: border-box !important;
+        font-size: 0.74rem !important;
         white-space: nowrap !important;
       }
       .flashcard-top-nav .top-nav-actions {
         flex-shrink: 0 !important;
         display: flex !important;
         align-items: center !important;
-        gap: 6px !important;
+        gap: 5px !important;
       }
-      .flashcard-top-nav .btn-top-learned-toggle {
+      .flashcard-top-nav .reset-deck-btn,
+      .flashcard-top-nav .shuffle-btn,
+      .flashcard-top-nav .flashcard-settings-btn,
+      .flashcard-top-nav #btn-flashcard-settings {
+        width: 34px !important;
+        height: 34px !important;
+        min-width: 34px !important;
+        min-height: 34px !important;
+        border-radius: 11px !important;
         display: inline-flex !important;
         align-items: center !important;
-        gap: 5px !important;
-        padding: 6px 11px !important;
-        border-radius: 9999px !important;
-        background: rgba(255, 255, 255, 0.06) !important;
-        border: 1px solid rgba(255, 255, 255, 0.12) !important;
-        color: #cbd5e1 !important;
-        font-size: 0.76rem !important;
-        font-weight: 600 !important;
-        cursor: pointer !important;
-        white-space: nowrap !important;
-      }
-      .flashcard-top-nav .shuffle-btn {
-        width: 32px !important;
-        height: 32px !important;
-        border-radius: 9px !important;
-        display: flex !important;
-        align-items: center !important;
         justify-content: center !important;
-        background: rgba(255, 255, 255, 0.05) !important;
-        border: 1px solid rgba(255, 255, 255, 0.09) !important;
-        color: #94a3b8 !important;
+        padding: 0 !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+        border: 1px solid rgba(255, 255, 255, 0.16) !important;
+        box-shadow: 0 3px 0 rgba(0, 0, 0, 0.4) !important;
+        color: #f1f5f9 !important;
         cursor: pointer !important;
+        transition: all 0.15s ease !important;
+        box-sizing: border-box !important;
+        user-select: none !important;
+      }
+      .flashcard-top-nav .reset-deck-btn {
+        color: #38bdf8 !important;
+        background: rgba(56, 189, 248, 0.12) !important;
+        border-color: rgba(56, 189, 248, 0.3) !important;
+      }
+      .flashcard-top-nav .reset-deck-btn:hover {
+        background: rgba(56, 189, 248, 0.22) !important;
+      }
+      .flashcard-top-nav .shuffle-btn:hover,
+      .flashcard-top-nav .flashcard-settings-btn:hover {
+        background: rgba(255, 255, 255, 0.14) !important;
+      }
+      .flashcard-top-nav .reset-deck-btn:active,
+      .flashcard-top-nav .shuffle-btn:active,
+      .flashcard-top-nav .flashcard-settings-btn:active {
+        transform: translateY(2px) scale(0.96) !important;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.4) !important;
+      }
+
+      @media (max-width: 480px) {
+        .flashcard-top-nav .breadcrumb-back-btn {
+          padding: 0 8px !important;
+          min-width: 32px !important;
+          width: 32px !important;
+          height: 32px !important;
+          border-radius: 10px !important;
+        }
+        .flashcard-top-nav .breadcrumb-back-btn .back-btn-label {
+          display: none !important;
+        }
+        .flashcard-top-nav .top-nav-main {
+          gap: 4px !important;
+          padding: 0 2px !important;
+        }
+        .flashcard-top-nav .top-nav-center-group {
+          gap: 4px !important;
+        }
+        .flashcard-top-nav .top-category-pill {
+          padding: 3px 6px !important;
+          font-size: 0.72rem !important;
+          height: 26px !important;
+        }
+        .flashcard-top-nav .counter-display {
+          padding: 3px 6px !important;
+          font-size: 0.74rem !important;
+          height: 26px !important;
+        }
+        #flashcard-streak-badge {
+          padding: 2px 5px !important;
+          font-size: 0.7rem !important;
+          height: 26px !important;
+        }
+        .flashcard-top-nav .top-nav-actions {
+          gap: 4px !important;
+        }
+        .flashcard-top-nav .reset-deck-btn,
+        .flashcard-top-nav .shuffle-btn,
+        .flashcard-top-nav .flashcard-settings-btn,
+        .flashcard-top-nav #btn-flashcard-settings {
+          width: 31px !important;
+          height: 31px !important;
+          min-width: 31px !important;
+          min-height: 31px !important;
+          border-radius: 9px !important;
+        }
       }
       .shortcut-section {
         background: rgba(15, 23, 42, 0.5) !important;
@@ -5417,7 +5513,8 @@
         touch-action: pan-y !important;
       }
 
-      body.home-view-active {
+      body.home-view-active,
+      body.in-flashcard-mode {
         overflow-y: auto !important;
         height: auto !important;
       }
@@ -6034,33 +6131,13 @@
         transform: translateY(2px) !important;
         box-shadow: 0 1px 0 rgba(14, 116, 144, 0.5) !important;
       }
-      /* Kinetic Swipe Speed Indicator Badge */
-      .swipe-speed-badge {
-        position: absolute;
-        top: 14px;
-        left: 50%;
-        transform: translateX(-50%) translateY(-10px) scale(0.85);
-        background: rgba(15, 23, 42, 0.92);
-        backdrop-filter: blur(8px);
-        border: 1px solid rgba(56, 189, 248, 0.4);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 16px rgba(56, 189, 248, 0.3);
-        color: #38bdf8;
-        padding: 5px 14px;
-        border-radius: 9999px;
-        font-size: 0.82rem;
-        font-weight: 800;
-        letter-spacing: 0.02em;
-        pointer-events: none;
-        z-index: 50;
-        opacity: 0;
-        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
+      /* Kinetic Swipe Speed Indicator Badge - hidden per user request */
+      .swipe-speed-badge,
       .swipe-speed-badge.show {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0) scale(1);
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
       }
       /* Double Tap Pulse Ripple Effect */
       .double-tap-ripple {
@@ -7795,11 +7872,7 @@
         cursor: pointer !important;
       }
       .sidebar-brand-title {
-        font-family: 'Fredoka', 'Nunito', -apple-system, sans-serif !important;
-        font-size: 1.45rem !important;
-        font-weight: 800 !important;
-        color: #a855f7 !important;
-        text-shadow: 0 0 16px rgba(168, 85, 247, 0.5) !important;
+        display: none !important;
       }
 
       .sidebar-nav-list {
@@ -8221,623 +8294,49 @@
       transform: translateY(2px) scale(0.96) !important;
     }
 
-
-    /* ========================================================================= */
-    /* 100% VIEWPORT FIT ARCHITECTURE FOR FLASHCARD MODE (ZERO SCROLLING)       */
-    /* ========================================================================= */
-
-    body.in-flashcard-mode,
-    body.in-flashcard-mode html {
-      height: 100% !important;
-      max-height: 100% !important;
-      overflow: hidden !important;
-    }
-
-    body.in-flashcard-mode #app-container {
-      height: 100vh !important;
-      height: 100dvh !important;
-      max-height: 100vh !important;
-      max-height: 100dvh !important;
-      overflow: hidden !important;
-      display: flex !important;
-      flex-direction: column !important;
-    }
-
-    body.in-flashcard-mode .app-main-viewport {
-      height: 100vh !important;
-      height: 100dvh !important;
-      max-height: 100vh !important;
-      max-height: 100dvh !important;
-      overflow: hidden !important;
-      margin-left: 0 !important;
-      width: 100% !important;
-      padding: 0 !important;
-    }
-
-    body.in-flashcard-mode .mobile-bottom-nav,
-    body.in-flashcard-mode .mobile-top-bar,
-    body.in-flashcard-mode .desktop-top-header,
-    body.in-flashcard-mode .app-desktop-sidebar {
+    /* Never display Back buttons on Dashboard/Home */
+    body.home-view-active #desktop-back-btn,
+    body.home-view-active #mobile-back-btn,
+    body:not(.subsections-active) #desktop-back-btn,
+    #screen-home.active-screen ~ * #desktop-back-btn,
+    #screen-home.active-screen ~ * #mobile-back-btn {
       display: none !important;
     }
 
-    #screen-flashcard.active-screen {
+    /* Subsections screen: show back button, strictly hide hamburger button */
+    body.subsections-active #mobile-hamburger-btn,
+    body.subsections-active .mobile-hamburger-btn {
+      display: none !important;
+    }
+    body.subsections-active #mobile-back-btn,
+    body.subsections-active .mobile-back-btn {
       display: flex !important;
-      flex-direction: column !important;
-      justify-content: space-between !important;
-      height: 100vh !important;
-      height: 100dvh !important;
-      max-height: 100vh !important;
-      max-height: 100dvh !important;
-      width: 100% !important;
-      max-width: 620px !important;
-      margin: 0 auto !important;
-      padding: 8px 14px 10px !important;
-      box-sizing: border-box !important;
-      overflow: hidden !important;
     }
 
-    /* Flashcard Top Nav: Clean, Compact, Never Overlapping */
-    .flashcard-top-nav {
-      flex-shrink: 0 !important;
-      width: 100% !important;
-      margin-bottom: 4px !important;
+    /* Home screen: show hamburger button, strictly hide back button */
+    body.home-view-active #mobile-hamburger-btn,
+    body.home-view-active .mobile-hamburger-btn {
+      display: flex !important;
     }
-    .top-nav-main {
+    body.home-view-active #mobile-back-btn,
+    body.home-view-active .mobile-back-btn {
+      display: none !important;
+    }
+
+    /* Mobile header title sizing & truncation */
+    .mobile-left-cluster {
       display: flex !important;
       align-items: center !important;
-      justify-content: space-between !important;
-      gap: 8px !important;
-      padding: 6px 0 !important;
-      width: 100% !important;
+      gap: 10px !important;
+      min-width: 0 !important;
+      flex: 1 1 auto !important;
     }
-    .top-nav-center-group {
-      display: flex !important;
-      align-items: center !important;
-      gap: 6px !important;
-      flex-wrap: nowrap !important;
-      overflow: hidden !important;
-    }
-    .top-category-pill {
+    .mobile-left-cluster .mobile-brand-title {
       white-space: nowrap !important;
-      font-size: 0.78rem !important;
-      padding: 4px 10px !important;
-    }
-    .counter-display {
-      white-space: nowrap !important;
-      font-size: 0.88rem !important;
-    }
-    .top-nav-actions {
-      display: flex !important;
-      align-items: center !important;
-      gap: 6px !important;
-      flex-shrink: 0 !important;
-    }
-
-    /* Card Stage: Auto-flexes within remaining height */
-    .card-stage {
-      flex: 1 1 auto !important;
-      min-height: 0 !important; /* Prevents overflow in flex container! */
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      width: 100% !important;
-      padding: 4px 0 !important;
       overflow: hidden !important;
-    }
-
-    .flashcard-wrapper {
-      width: 100% !important;
-      max-width: 440px !important;
-      height: 100% !important;
-      max-height: min(480px, 62vh) !important;
-      min-height: 260px !important;
-      position: relative !important;
-      cursor: pointer !important;
-      user-select: none !important;
-      -webkit-user-select: none !important;
-    }
-
-    .card-face {
-      position: absolute !important;
-      inset: 0 !important;
-      width: 100% !important;
-      height: 100% !important;
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: space-between !important;
-      padding: 10px 14px !important;
-      border-radius: 20px !important;
-      box-sizing: border-box !important;
-      overflow: hidden !important;
-    }
-
-    .front-content {
-      flex: 1 1 auto !important;
-      min-height: 0 !important;
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: center !important;
-      justify-content: center !important;
-      gap: 8px !important;
-      width: 100% !important;
-      overflow: hidden !important;
-    }
-
-    .visual-box {
-      flex: 1 1 auto !important;
-      min-height: 90px !important;
-      max-height: min(230px, 32vh) !important;
-      width: 100% !important;
-      max-width: 340px !important;
-      border-radius: 14px !important;
-      overflow: hidden !important;
-      background: #080c14 !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-    }
-
-    .visual-img {
-      width: 100% !important;
-      height: 100% !important;
-      object-fit: cover !important;
-    }
-
-    .target-word-container {
-      flex-shrink: 0 !important;
-      text-align: center !important;
-      padding: 2px 0 !important;
-    }
-
-    .target-word-title {
-      font-size: clamp(1.4rem, 5vw, 2.1rem) !important;
-      margin: 0 !important;
-      line-height: 1.15 !important;
-    }
-
-    /* Bottom Navigation Controls: Always pinned cleanly at bottom of viewport */
-    .nav-controls {
-      flex-shrink: 0 !important;
-      width: 100% !important;
-      max-width: 440px !important;
-      margin: 4px auto 0 !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      gap: 16px !important;
-      padding: 6px 0 env(safe-area-inset-bottom, 4px) !important;
-    }
-
-    /* Tablet Sidebar Fix (Image 4): Hide text label on 72px rail so it never cuts off */
-    @media (min-width: 768px) and (max-width: 1099px) {
-      .sidebar-brand-title {
-        display: none !important;
-      }
-      .brand-mascot-pill {
-        margin: 0 auto !important;
-      }
-      .sidebar-brand-lockup {
-        justify-content: center !important;
-        padding-left: 0 !important;
-      }
-    }
-
-    /* Mobile Single Header Fix (Image 5): Single Line Title, No Dual Buttons */
-    @media (max-width: 767px) {
-      .mobile-brand-title {
-        white-space: nowrap !important;
-        overflow: hidden !important;
-        text-overflow: ellipsis !important;
-        max-width: 160px !important;
-      }
-      #desktop-back-btn {
-        display: none !important;
-      }
-    }
-
-    /* Never show desktop-back-btn on home */
-    #desktop-back-btn {
-      display: none !important;
-    }
-    body.subsections-active #desktop-back-btn {
-      display: inline-flex !important;
-    }
-
-
-    /* ========================================================================= */
-    /* ZERO-SCROLL GUARANTEE: FIXED VIEWPORT SCREEN ARCHITECTURE                */
-    /* ========================================================================= */
-
-    body.in-flashcard-mode {
-      overflow: hidden !important;
-      position: fixed !important;
-      width: 100% !important;
-      height: 100% !important;
-    }
-
-    body.in-flashcard-mode .mobile-bottom-nav,
-    body.in-flashcard-mode .mobile-top-bar,
-    body.in-flashcard-mode .app-desktop-sidebar,
-    body.in-flashcard-mode .desktop-top-header {
-      display: none !important;
-      visibility: hidden !important;
-    }
-
-    #screen-flashcard.active-screen {
-      position: fixed !important;
-      top: 0 !important;
-      left: 0 !important;
-      right: 0 !important;
-      bottom: 0 !important;
-      width: 100vw !important;
-      height: 100vh !important;
-      height: 100dvh !important;
-      max-height: 100dvh !important;
-      background: #060b13 !important;
-      z-index: 600 !important;
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: space-between !important;
-      padding: 6px 12px 8px !important;
-      box-sizing: border-box !important;
-      overflow: hidden !important;
-    }
-
-    /* Flashcard Top Nav: Strictly single line, compact, no overlap */
-    #screen-flashcard .flashcard-top-nav {
-      flex: 0 0 auto !important;
-      width: 100% !important;
-      max-width: 480px !important;
-      margin: 0 auto !important;
-      height: 46px !important;
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: center !important;
-    }
-
-    #screen-flashcard .top-nav-main {
-      display: flex !important;
-      align-items: center !important;
-      justify-content: space-between !important;
-      width: 100% !important;
-      gap: 6px !important;
-      padding: 0 !important;
-    }
-
-    #screen-flashcard .breadcrumb-back-btn {
-      padding: 6px 12px !important;
-      font-size: 0.82rem !important;
-      flex-shrink: 0 !important;
-    }
-
-    #screen-flashcard .top-nav-actions {
-      display: flex !important;
-      align-items: center !important;
-      gap: 6px !important;
-      flex-shrink: 0 !important;
-    }
-
-    #screen-flashcard .top-nav-actions button {
-      width: 36px !important;
-      height: 36px !important;
-      padding: 0 !important;
-    }
-
-    /* Card Stage: Flexes to fit exactly between top nav and bottom controls */
-    #screen-flashcard .card-stage {
-      flex: 1 1 auto !important;
-      min-height: 0 !important;
-      max-height: calc(100dvh - 108px) !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      width: 100% !important;
-      max-width: 480px !important;
-      margin: 0 auto !important;
-      padding: 4px 0 !important;
-      overflow: hidden !important;
-    }
-
-    #screen-flashcard .flashcard-wrapper {
-      width: 100% !important;
-      max-width: 420px !important;
-      height: 100% !important;
-      max-height: min(420px, 58vh) !important;
-      min-height: 200px !important;
-      position: relative !important;
-      margin: auto !important;
-    }
-
-    #screen-flashcard .card-face {
-      position: absolute !important;
-      inset: 0 !important;
-      width: 100% !important;
-      height: 100% !important;
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: space-between !important;
-      padding: 8px 12px !important;
-      box-sizing: border-box !important;
-      border-radius: 18px !important;
-      overflow: hidden !important;
-    }
-
-    #screen-flashcard .card-header-bar {
-      flex: 0 0 auto !important;
-      height: 32px !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: space-between !important;
-      padding: 0 !important;
-    }
-
-    #screen-flashcard .front-content {
-      flex: 1 1 auto !important;
-      min-height: 0 !important;
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: center !important;
-      justify-content: space-around !important;
-      gap: 4px !important;
-      overflow: hidden !important;
-      width: 100% !important;
-    }
-
-    #screen-flashcard .visual-box {
-      flex: 1 1 auto !important;
-      min-height: 70px !important;
-      max-height: min(190px, 28vh) !important;
-      width: 100% !important;
-      max-width: 310px !important;
-      border-radius: 12px !important;
-      overflow: hidden !important;
-    }
-
-    #screen-flashcard .visual-img {
-      width: 100% !important;
-      height: 100% !important;
-      object-fit: cover !important;
-    }
-
-    #screen-flashcard .target-word-container {
-      flex: 0 0 auto !important;
-      text-align: center !important;
-      padding: 2px 0 !important;
-    }
-
-    #screen-flashcard .target-word-title {
-      font-size: clamp(1.3rem, 4vw, 1.85rem) !important;
-      line-height: 1.15 !important;
-      margin: 0 !important;
-    }
-
-    /* Bottom Controls: Always pinned cleanly at bottom with ZERO scroll */
-    #screen-flashcard .nav-controls {
-      flex: 0 0 auto !important;
-      width: 100% !important;
-      max-width: 480px !important;
-      height: 48px !important;
-      margin: 0 auto !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      gap: 14px !important;
-      padding: 0 0 env(safe-area-inset-bottom, 2px) !important;
-    }
-
-    #screen-flashcard .nav-btn-flip-cobalt {
-      padding: 8px 28px !important;
-      height: 42px !important;
-      font-size: 0.92rem !important;
-      flex-shrink: 0 !important;
-    }
-
-    #screen-flashcard .nav-chevron-btn {
-      width: 42px !important;
-      height: 42px !important;
-      flex-shrink: 0 !important;
-    }
-
-
-    /* ========================================================================= */
-    /* BULLETPROOF 100% SINGLE-SCREEN GRID FOR FLASHCARDS (ZERO SCROLL EVER)     */
-    /* ========================================================================= */
-
-    html.in-flashcard-mode,
-    body.in-flashcard-mode {
-      overflow: hidden !important;
-      height: 100% !important;
-      max-height: 100% !important;
-      position: fixed !important;
-      width: 100% !important;
-      inset: 0 !important;
-    }
-
-    body.in-flashcard-mode #app-container,
-    body.in-flashcard-mode .app-main-viewport {
-      overflow: hidden !important;
-      height: 100% !important;
-      max-height: 100% !important;
-      min-height: 0 !important;
-      padding: 0 !important;
-      margin: 0 !important;
-    }
-
-    #screen-flashcard.active-screen {
-      position: fixed !important;
-      top: 0 !important;
-      left: 0 !important;
-      right: 0 !important;
-      bottom: 0 !important;
-      width: 100vw !important;
-      height: 100vh !important;
-      height: 100dvh !important;
-      max-height: 100dvh !important;
-      z-index: 99999 !important;
-      background: #060b13 !important;
-      display: grid !important;
-      grid-template-rows: 46px 1fr 52px !important;
-      grid-template-columns: 100% !important;
-      padding: 4px 12px 8px !important;
-      box-sizing: border-box !important;
-      overflow: hidden !important;
-    }
-
-    /* Row 1: Top Navigation (Pinned Top) */
-    #screen-flashcard .flashcard-top-nav {
-      grid-row: 1 !important;
-      height: 46px !important;
-      min-height: 46px !important;
-      max-height: 46px !important;
-      width: 100% !important;
-      max-width: 460px !important;
-      margin: 0 auto !important;
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: center !important;
-      overflow: hidden !important;
-    }
-
-    #screen-flashcard .top-nav-main {
-      display: flex !important;
-      align-items: center !important;
-      justify-content: space-between !important;
-      width: 100% !important;
-      gap: 6px !important;
-      padding: 0 !important;
-    }
-
-    /* Row 2: Card Stage (Exact 1fr Height, Zero Overflow) */
-    #screen-flashcard .card-stage {
-      grid-row: 2 !important;
-      height: 100% !important;
-      min-height: 0 !important;
-      max-height: 100% !important;
-      width: 100% !important;
-      max-width: 460px !important;
-      margin: 0 auto !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      overflow: hidden !important;
-      padding: 2px 0 !important;
-    }
-
-    #screen-flashcard .flashcard-wrapper {
-      width: 100% !important;
-      max-width: 420px !important;
-      height: 100% !important;
-      max-height: 100% !important;
-      min-height: 0 !important;
-      position: relative !important;
-      margin: auto !important;
-      display: flex !important;
-      cursor: pointer !important;
-    }
-
-    #screen-flashcard .card-face {
-      position: absolute !important;
-      inset: 0 !important;
-      width: 100% !important;
-      height: 100% !important;
-      max-height: 100% !important;
-      min-height: 0 !important;
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: space-between !important;
-      padding: 8px 14px !important;
-      box-sizing: border-box !important;
-      border-radius: 20px !important;
-      overflow: hidden !important;
-    }
-
-    #screen-flashcard .card-header-bar {
-      flex: 0 0 auto !important;
-      height: 32px !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: space-between !important;
-      padding: 0 !important;
-    }
-
-    #screen-flashcard .front-content {
-      flex: 1 1 auto !important;
-      min-height: 0 !important;
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: center !important;
-      justify-content: center !important;
-      gap: 6px !important;
-      width: 100% !important;
-      overflow: hidden !important;
-    }
-
-    #screen-flashcard .visual-box {
-      flex: 1 1 auto !important;
-      min-height: 60px !important;
-      max-height: min(200px, 30vh) !important;
-      width: 100% !important;
-      max-width: 320px !important;
-      margin: 0 auto !important;
-      border-radius: 14px !important;
-      overflow: hidden !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-    }
-
-    #screen-flashcard .visual-img {
-      width: 100% !important;
-      height: 100% !important;
-      object-fit: cover !important;
-    }
-
-    #screen-flashcard .target-word-container {
-      flex: 0 0 auto !important;
-      padding: 2px 0 !important;
-      text-align: center !important;
-    }
-
-    #screen-flashcard .target-word-title {
-      font-size: clamp(1.3rem, 4vw, 1.85rem) !important;
-      margin: 0 !important;
-      line-height: 1.15 !important;
-    }
-
-    /* Row 3: Bottom Navigation Controls (Pinned Bottom) */
-    #screen-flashcard .nav-controls {
-      grid-row: 3 !important;
-      height: 52px !important;
-      min-height: 52px !important;
-      max-height: 52px !important;
-      width: 100% !important;
-      max-width: 460px !important;
-      margin: 0 auto !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      gap: 16px !important;
-      padding: 0 0 env(safe-area-inset-bottom, 2px) !important;
-      overflow: hidden !important;
-    }
-
-    #screen-flashcard .nav-btn-flip-cobalt {
-      height: 44px !important;
-      padding: 0 32px !important;
-      font-size: 0.95rem !important;
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      gap: 8px !important;
-    }
-
-    #screen-flashcard .nav-chevron-btn {
-      width: 44px !important;
-      height: 44px !important;
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
+      text-overflow: ellipsis !important;
+      font-size: 1.35rem !important;
+      line-height: 1 !important;
     }
 
 </style>
@@ -9233,35 +8732,43 @@
         <div class="app-screen" id="screen-flashcard">
         <!-- Modern Clean Flashcard Header -->
         <header class="flashcard-top-nav">
-          <div class="top-nav-main" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px;">
+          <div class="top-nav-main">
             <!-- Back to Subsections -->
-            <button class="breadcrumb-back-btn duo-btn-3d" id="btn-breadcrumb-back" title="Back to Subsections" aria-label="Back to Subsections" style="padding: 8px 16px; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.16); box-shadow: 0 3px 0 rgba(0,0,0,0.4); color: #f1f5f9; font-size: 0.88rem;">
+            <button class="breadcrumb-back-btn duo-btn-3d" id="btn-breadcrumb-back" title="Back to Subsections" aria-label="Back to Subsections">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="15 18 9 12 15 6"/>
               </svg>
-              <span>Back</span>
+              <span class="back-btn-label">Back</span>
             </button>
-            <!-- Active Deck & Counter: Learned count out of 200 (NO Kitchen & Cooking) -->
-            <div class="top-nav-center-group" style="display: flex; align-items: center; justify-content: center; gap: 6px; flex: 1 1 auto; overflow: hidden;">
-              <div class="stat-badge-duo stat-badge-learned" id="flashcard-learned-badge" title="Cards learned in this session" style="padding: 4px 10px; background: rgba(16, 185, 129, 0.15); border: 1.5px solid rgba(16, 185, 129, 0.4); border-radius: 9999px; color: #34d399; font-weight: 800; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 5px; white-space: nowrap;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"/>
+            <!-- Active Deck & Counter: Learned count out of 3k -->
+            <div class="top-nav-center-group">
+              <!-- Flashcard Streak Badge -->
+              <div class="stat-badge-duo stat-badge-streak" id="flashcard-streak-badge" title="Daily Session Streak">
+                <span class="streak-flame-icon">🔥</span>
+                <span><strong id="flashcard-streak-count">1</strong></span>
+              </div>
+              <span class="top-category-pill" id="current-category" title="Learned cards out of 3,000 words">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;">
+                  <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
-                <span><strong id="flashcard-learned-count" style="color: #ffffff;">0</strong> / <span id="flashcard-deck-total">200</span></span>
-                <span id="card-counter-current" style="display: none;"></span>
-                <span id="card-counter-total" style="display: none;"></span>
+                <span style="color: #34d399; font-weight: 800;"><strong id="flashcard-learned-3k-val">0</strong>/3k</span>
+              </span>
+              <div class="counter-display">
+                <span class="current-num" id="card-counter-current">800</span>
+                <span class="counter-divider">/</span>
+                <span class="total-num" id="card-counter-total">1000</span>
               </div>
             </div>
-            <!-- Top Actions: Reset Option & Shuffle (Delete and Learned moved to card front side!) -->
-            <div class="top-nav-actions" style="display: flex; align-items: center; gap: 8px;">
+            <!-- Top Actions: Reset Option, Shuffle, Settings -->
+            <div class="top-nav-actions">
               <button type="button" class="reset-deck-btn duo-btn-3d" id="btn-reset-deck" title="Reset deck & restore all deleted cards" aria-label="Reset deck">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
                   <path d="M3 3v5h5"/>
                 </svg>
               </button>
-              <button class="shuffle-btn duo-btn-3d" id="btn-shuffle" title="Shuffle cards" aria-label="Shuffle cards" style="width: 38px; height: 38px; border-radius: 12px; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.16); box-shadow: 0 3px 0 rgba(0,0,0,0.4); color: #f1f5f9;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <button class="shuffle-btn duo-btn-3d" id="btn-shuffle" title="Shuffle cards" aria-label="Shuffle cards">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.6-8.6c.8-1.1 2-1.7 3.3-1.7H22"/>
                   <path d="m18 2 4 4-4 4"/>
                   <path d="M2 6h1.4c1.3 0 2.5.6 3.3 1.7l2 2.6"/>
@@ -9269,8 +8776,8 @@
                   <path d="m18 20 4-4-4-4"/>
                 </svg>
               </button>
-              <button type="button" class="duo-btn-3d" id="btn-flashcard-settings" title="Settings & Audio Studio" aria-label="Settings" style="width: 38px; height: 38px; border-radius: 12px; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.16); box-shadow: 0 3px 0 rgba(0,0,0,0.4); color: #f1f5f9; cursor: pointer;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <button type="button" class="duo-btn-3d flashcard-settings-btn" id="btn-flashcard-settings" title="Settings & Audio Studio" aria-label="Settings">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="12" cy="12" r="3"/>
                   <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
                 </svg>
@@ -9285,7 +8792,7 @@
 
         <!-- 3D Card Stage with Full Viewport Visibility -->
         <main class="card-stage" style="position: relative;">
-          <div class="swipe-speed-badge" id="swipe-speed-badge">⚡ <span>Fast Swipe</span></div>
+          <div class="swipe-speed-badge" id="swipe-speed-badge" style="display: none !important;" aria-hidden="true"></div>
           <div
             class="flashcard-wrapper"
             id="flashcard-wrapper"
@@ -9651,24 +9158,24 @@
               <div class="settings-card-left">
                 <div class="settings-card-icon">⚡</div>
                 <div>
-                  <h3 class="settings-card-title">Kinetic Touch Swipes</h3>
-                  <p class="settings-card-sub">Advances cards proportionally based on finger swipe force & velocity</p>
+                  <h3 class="settings-card-title">Smooth Swipe & Scroll</h3>
+                  <p class="settings-card-sub">Fast, natural 1:1 gesture response to move cards sequentially left & right</p>
                 </div>
               </div>
-              <span class="settings-val-badge" style="color: #34d399; background: rgba(16,185,129,0.15); border-color: rgba(16,185,129,0.4);">Active 🚀</span>
+              <span class="settings-val-badge" style="color: #34d399; background: rgba(16,185,129,0.15); border-color: rgba(16,185,129,0.4);">Smooth & Fast</span>
             </div>
             <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; font-size: 0.8rem;">
               <div style="padding: 10px 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
-                <strong style="color: #38bdf8;">Gentle Drag:</strong> <span style="color: #94a3b8;">Moves 1 card smoothly</span>
+                <strong style="color: #38bdf8;">Swipe Left:</strong> <span style="color: #94a3b8;">Next card</span>
               </div>
               <div style="padding: 10px 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
-                <strong style="color: #38bdf8;">Medium Flick:</strong> <span style="color: #94a3b8;">Advances 2 cards</span>
+                <strong style="color: #38bdf8;">Swipe Right:</strong> <span style="color: #94a3b8;">Previous card</span>
               </div>
               <div style="padding: 10px 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
-                <strong style="color: #38bdf8;">Fast Swipe:</strong> <span style="color: #94a3b8;">Advances 3 cards</span>
+                <strong style="color: #38bdf8;">Fast Scroll:</strong> <span style="color: #94a3b8;">Rapid, fluid card flow</span>
               </div>
               <div style="padding: 10px 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
-                <strong style="color: #38bdf8;">Power Throw:</strong> <span style="color: #94a3b8;">Advances 4 cards</span>
+                <strong style="color: #38bdf8;">Clean View:</strong> <span style="color: #94a3b8;">No indicator labels</span>
               </div>
             </div>
           </div>
@@ -11481,6 +10988,14 @@
         if (tier800ProgressBar) tier800ProgressBar.style.width = `${tierPct}%`;
 
         // Update Flashcard top status
+        const flashcardLearned3kVal = document.getElementById("flashcard-learned-3k-val");
+        if (flashcardLearned3kVal) flashcardLearned3kVal.textContent = totalLearned.toLocaleString();
+
+        const currentCatEl = document.getElementById("current-category");
+        if (currentCatEl) {
+          currentCatEl.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="color:#34d399;font-weight:800;"><strong id="flashcard-learned-3k-val">${totalLearned.toLocaleString()}</strong> / 3k</span>`;
+        }
+
         const flashcard3kStatusText = document.getElementById("flashcard-3k-status-text");
         if (flashcard3kStatusText) flashcard3kStatusText.textContent = `${totalLearned} / 3,000`;
       }
@@ -12514,15 +12029,17 @@
 
         // Header and Counter (Learned count out of section total replaces Kitchen & Cooking)
         if (currentCategoryEl) {
-          const sectionLearned = getSectionLearnedCount();
-          currentCategoryEl.innerHTML = `<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#38bdf8;"></span><span>Tier 1: 800–1000</span>`;
+          const totalLearned = (typeof learnedCardsSet !== "undefined" && learnedCardsSet) ? learnedCardsSet.size : 0;
+          currentCategoryEl.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="color:#34d399;font-weight:800;"><strong id="flashcard-learned-3k-val">${totalLearned.toLocaleString()}</strong> / 3k</span>`;
+          currentCategoryEl.style.background = "rgba(16, 185, 129, 0.12)";
+          currentCategoryEl.style.borderColor = "rgba(16, 185, 129, 0.3)";
         }
         if (isShuffled) {
-          if (counterCurrentEl) counterCurrentEl.textContent = currentIndex + 1;
-          if (counterTotalEl) counterTotalEl.textContent = cards.length;
+          counterCurrentEl.textContent = currentIndex + 1;
+          counterTotalEl.textContent = cards.length;
         } else {
-          if (counterCurrentEl) counterCurrentEl.textContent = card.displayNum || (800 + currentIndex);
-          if (counterTotalEl) counterTotalEl.textContent = cards.length > 0 ? (cards[cards.length - 1].displayNum || (800 + cards.length - 1)) : 1000;
+          counterCurrentEl.textContent = card.displayNum || (800 + currentIndex);
+          counterTotalEl.textContent = cards.length > 0 ? (cards[cards.length - 1].displayNum || (800 + cards.length - 1)) : 1000;
         }
 
         // Progress bar (fills smoothly based on session index)
@@ -12815,17 +12332,10 @@
         );
       }
 
-      // Visual Speed Feedback Badge for Swipes
-      let speedBadgeTimer = null;
+      // Visual Speed Feedback Badge - Disabled per user request (no top indication labels)
       function showSpeedIndicator(text) {
-        const badge = document.getElementById("swipe-speed-badge");
-        if (!badge) return;
-        badge.innerHTML = `⚡ <span>${text}</span>`;
-        badge.classList.add("show");
-        clearTimeout(speedBadgeTimer);
-        speedBadgeTimer = setTimeout(() => {
-          badge.classList.remove("show");
-        }, 750);
+        // No-op: user requested no top indication label when moving
+        return;
       }
 
       // Visual Ripple Cue for Double Tap
@@ -12844,7 +12354,7 @@
       }
 
       // =========================================================================
-      // DYNAMIC SWIPE & PHYSICAL TOUCH FORCE KINETICS
+      // NATURAL SMOOTH SWIPE & SCROLL (1 CARD SEQUENTIAL, NO +2/+3, NO LABELS)
       // =========================================================================
       isSwiping = false;
       isDragging = false;
@@ -12859,69 +12369,49 @@
       isCardAnimating = false;
 
       function executeKineticSwipe(diffX, velocityX) {
-        if (isCardAnimating) return;
         const distance = Math.abs(diffX);
         const speed = Math.abs(velocityX) || 0;
-        // Physical touch kinetic force = displacement + speed momentum factor
-        const kineticForce = distance + (speed * 280);
 
         const goingNext = diffX < 0;
         const atBoundary = (goingNext && currentIndex >= cards.length - 1) || (!goingNext && currentIndex <= 0);
 
         if (atBoundary) {
-          // Elastic rubber-band spring snapback
-          cardWrapper.style.transition = "transform 0.22s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
+          // Elastic spring snapback when hitting deck ends
+          cardWrapper.style.transition = "transform 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
           cardWrapper.style.transform = isFlipped ? "rotateY(180deg)" : "rotateY(0deg)";
           if (typeof playHapticTick === "function") playHapticTick(280, "sine", 0.03);
           return;
         }
 
-        // Dynamic multi-card progression based on swipe force & speed
-        // Reflects user intent dynamically instead of just moving one card!
-        let steps = 1;
-        if (kineticForce >= 580 || speed >= 2.0) {
-          steps = 4; // High power flick: advances 4 cards!
-        } else if (kineticForce >= 380 || speed >= 1.25) {
-          steps = 3; // Fast swipe: advances 3 cards!
-        } else if (kineticForce >= 180 || speed >= 0.6) {
-          steps = 2; // Medium flick: advances 2 cards!
-        } else {
-          steps = 1; // Gentle swipe: advances 1 card!
-        }
-
-        // Clamp steps to remaining deck size
-        if (goingNext) {
-          steps = Math.min(steps, (cards.length - 1) - currentIndex);
-        } else {
-          steps = Math.min(steps, currentIndex);
-        }
-        steps = Math.max(1, steps);
+        // STRICTLY 1 CARD PROGRESSION: Never jumps +2 or +3 cards!
+        // Moves card by card sequentially like a natural scroll carousel.
+        const steps = 1;
 
         // Proportional animation speed:
-        // Higher touch speed = faster, snappier throw!
-        const durationMs = Math.max(85, Math.min(230, Math.round(200 / Math.max(0.65, speed))));
+        // Faster finger swipe = faster, snappier throw for instant rapid scrolling!
+        const durationMs = Math.max(75, Math.min(160, Math.round(140 / Math.max(0.65, speed))));
         isCardAnimating = true;
 
         // 1. Kinetic throw off-screen in swipe direction
-        const throwX = (goingNext ? -1 : 1) * (window.innerWidth + 120);
-        const throwRot = (goingNext ? -1 : 1) * 16;
+        const throwX = (goingNext ? -1 : 1) * (window.innerWidth + 80);
+        const throwRot = (goingNext ? -1 : 1) * 8;
         cardWrapper.style.transition = `transform ${durationMs}ms cubic-bezier(0.2, 0.9, 0.3, 1)`;
         cardWrapper.style.transform = `translateX(${throwX}px) rotateZ(${throwRot}deg) ${isFlipped ? "rotateY(180deg)" : ""}`;
 
-        // 2. Advance index and slide in target card smoothly from opposite side
+        // 2. Advance index by 1 and slide in target card smoothly from opposite side
         setTimeout(() => {
           if (goingNext) {
-            currentIndex += steps;
+            currentIndex++;
           } else {
-            currentIndex -= steps;
+            currentIndex--;
           }
           isFlipped = false;
           cardWrapper.classList.remove("flipped");
           renderCurrentCard();
 
           // Position incoming card on opposite side
-          const enterX = (goingNext ? 1 : -1) * 65;
-          const enterRot = (goingNext ? 1 : -1) * 3.5;
+          const enterX = (goingNext ? 1 : -1) * 45;
+          const enterRot = (goingNext ? 1 : -1) * 2;
           cardWrapper.style.transition = "none";
           cardWrapper.style.transform = `translateX(${enterX}px) rotateZ(${enterRot}deg)`;
 
@@ -12929,7 +12419,7 @@
           void cardWrapper.offsetHeight;
 
           // Animate smoothly to center
-          const inDuration = Math.max(105, Math.round(durationMs * 0.88));
+          const inDuration = Math.max(80, Math.round(durationMs * 0.85));
           cardWrapper.style.transition = `transform ${inDuration}ms cubic-bezier(0.16, 1, 0.3, 1)`;
           cardWrapper.style.transform = "rotateY(0deg) translateX(0) rotateZ(0)";
 
@@ -12938,12 +12428,9 @@
           }, inDuration + 10);
 
           if (typeof playHapticTick === "function") {
-            playHapticTick(460 + Math.min(200, steps * 40), "sine", 0.04);
+            playHapticTick(480, "sine", 0.03);
           }
-
-          if (steps > 1) {
-            showSpeedIndicator(goingNext ? `Fast Swipe: +${steps} Cards` : `Fast Swipe: -${steps} Cards`);
-          }
+          // Zero top labels or indication popups shown!
         }, Math.round(durationMs * 0.65));
       }
 
@@ -12953,8 +12440,16 @@
       let lastTapCoords = { x: 0, y: 0 };
 
       cardWrapper.addEventListener("touchstart", (e) => {
-        if (isCardInteractiveBtn(e.target) || isCardAnimating) return;
+        if (isCardInteractiveBtn(e.target)) return;
         if (typeof cardAudio !== "undefined" && cardAudio.unlock) cardAudio.unlock();
+
+        // If card was settling from a previous swipe, settle immediately so fast-swiping on mobile never drops touches!
+        if (isCardAnimating) {
+          cardWrapper.style.transition = "none";
+          cardWrapper.style.transform = isFlipped ? "rotateY(180deg)" : "rotateY(0deg)";
+          isCardAnimating = false;
+        }
+
         const touch = e.touches[0];
         touchStartX = touch.clientX;
         touchStartY = touch.clientY;
@@ -12967,15 +12462,15 @@
       }, { passive: true });
 
       cardWrapper.addEventListener("touchmove", (e) => {
-        if (!isDragging || isCardInteractiveBtn(e.target) || isCardAnimating) return;
+        if (!isDragging || isCardInteractiveBtn(e.target)) return;
         const touch = e.touches[0];
         const diffX = touch.clientX - touchStartX;
         const diffY = touch.clientY - touchStartY;
         const absX = Math.abs(diffX);
         const absY = Math.abs(diffY);
 
-        // Detect horizontal swipe intent (responsive threshold of 10px)
-        if (absX > absY * 1.15 && absX > 10) {
+        // Detect horizontal swipe intent (responsive threshold of 8px)
+        if (absX > absY * 1.05 && absX > 8) {
           isSwiping = true;
           velocitySamples.push({ x: touch.clientX, y: touch.clientY, time: performance.now() });
           if (velocitySamples.length > 6) velocitySamples.shift();
@@ -12985,11 +12480,11 @@
           let effectiveX = diffX;
           if ((isAtStart && diffX > 0) || (isAtEnd && diffX < 0)) {
             // Elastic boundary resistance
-            effectiveX = diffX * 0.28;
+            effectiveX = diffX * 0.25;
           }
 
-          // Subtle physical card tilt during swipe
-          const rotateAngle = (effectiveX * 0.045).toFixed(2);
+          // Subtle physical card tilt during swipe (very natural scroll feel)
+          const rotateAngle = (effectiveX * 0.035).toFixed(2);
           const flipTransform = isFlipped ? "rotateY(180deg)" : "";
 
           // Put translateX and rotateZ FIRST so screen direction is always preserved!
@@ -13006,18 +12501,20 @@
         const dist = Math.hypot(diffX, diffY);
         const touchDuration = Date.now() - touchPressStartTime;
 
-        if (isSwiping && Math.abs(diffX) > 28) {
-          // Calculate true physical touch swipe velocity (px/ms)
-          let vX = 0;
-          if (velocitySamples.length >= 2) {
-            const first = velocitySamples[0];
-            const last = velocitySamples[velocitySamples.length - 1];
-            const dt = Math.max(1, last.time - first.time);
-            vX = (last.x - first.x) / dt;
-          } else {
-            const dt = Math.max(1, performance.now() - touchStartTime);
-            vX = diffX / dt;
-          }
+        // Calculate true physical touch swipe velocity (px/ms)
+        let vX = 0;
+        if (velocitySamples.length >= 2) {
+          const first = velocitySamples[0];
+          const last = velocitySamples[velocitySamples.length - 1];
+          const dt = Math.max(1, last.time - first.time);
+          vX = (last.x - first.x) / dt;
+        } else {
+          const dt = Math.max(1, performance.now() - touchStartTime);
+          vX = diffX / dt;
+        }
+
+        // Responsive swipe detection: distance > 22px or velocity > 0.22 px/ms triggers 1 card slide!
+        if (isSwiping && (Math.abs(diffX) > 22 || Math.abs(vX) > 0.22)) {
           executeKineticSwipe(diffX, vX);
         } else if (dist < 45 && touchDuration < 320) {
           // Stationary clean tap: 100% RELIABLE DOUBLE TAP FLIP
@@ -13039,7 +12536,7 @@
           }
         } else {
           // Smooth spring return to center if not enough kinetic swipe
-          cardWrapper.style.transition = "transform 0.22s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
+          cardWrapper.style.transition = "transform 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
           cardWrapper.style.transform = isFlipped ? "rotateY(180deg)" : "rotateY(0deg)";
         }
         isSwiping = false;
@@ -13053,7 +12550,12 @@
       let mouseSamples = [];
 
       cardWrapper.addEventListener("mousedown", (e) => {
-        if (isCardInteractiveBtn(e.target) || isCardAnimating || e.button !== 0) return;
+        if (isCardInteractiveBtn(e.target) || e.button !== 0) return;
+        if (isCardAnimating) {
+          cardWrapper.style.transition = "none";
+          cardWrapper.style.transform = isFlipped ? "rotateY(180deg)" : "rotateY(0deg)";
+          isCardAnimating = false;
+        }
         isMouseDown = true;
         mouseStartX = e.clientX;
         mouseStartY = e.clientY;
@@ -13066,7 +12568,7 @@
         if (!isMouseDown || isCardAnimating) return;
         const diffX = e.clientX - mouseStartX;
         const diffY = e.clientY - mouseStartY;
-        if (Math.abs(diffX) > 8) {
+        if (Math.abs(diffX) > 6) {
           mouseSamples.push({ x: e.clientX, y: e.clientY, time: performance.now() });
           if (mouseSamples.length > 5) mouseSamples.shift();
 
@@ -13074,9 +12576,9 @@
           const isAtEnd = currentIndex >= cards.length - 1;
           let effectiveX = diffX;
           if ((isAtStart && diffX > 0) || (isAtEnd && diffX < 0)) {
-            effectiveX = diffX * 0.32;
+            effectiveX = diffX * 0.25;
           }
-          const rotateAngle = (effectiveX * 0.045).toFixed(2);
+          const rotateAngle = (effectiveX * 0.035).toFixed(2);
           const flipBase = isFlipped ? "rotateY(180deg)" : "rotateY(0deg)";
           cardWrapper.style.transform = `translateX(${effectiveX}px) rotateZ(${rotateAngle}deg) ${flipBase}`;
         }
@@ -13089,17 +12591,18 @@
         const diffY = e.clientY - mouseStartY;
         const dist = Math.hypot(diffX, diffY);
 
-        if (Math.abs(diffX) > 28) {
-          let vX = 0;
-          if (mouseSamples.length >= 2) {
-            const first = mouseSamples[0];
-            const last = mouseSamples[mouseSamples.length - 1];
-            const dt = Math.max(1, last.time - first.time);
-            vX = (last.x - first.x) / dt;
-          } else {
-            const dt = Math.max(1, performance.now() - mouseStartTime);
-            vX = diffX / dt;
-          }
+        let vX = 0;
+        if (mouseSamples.length >= 2) {
+          const first = mouseSamples[0];
+          const last = mouseSamples[mouseSamples.length - 1];
+          const dt = Math.max(1, last.time - first.time);
+          vX = (last.x - first.x) / dt;
+        } else {
+          const dt = Math.max(1, performance.now() - mouseStartTime);
+          vX = diffX / dt;
+        }
+
+        if (Math.abs(diffX) > 22 || Math.abs(vX) > 0.22) {
           executeKineticSwipe(diffX, vX);
         } else if (dist < 10) {
           // Stationary click: let dblclick handle flipping
@@ -13108,6 +12611,27 @@
           cardWrapper.style.transform = isFlipped ? "rotateY(180deg)" : "rotateY(0deg)";
         }
       });
+
+      // Natural horizontal wheel & trackpad scroll support
+      let cardWheelAccumX = 0;
+      let cardWheelTimer = null;
+      const cardStageContainer = document.querySelector(".card-stage");
+      if (cardStageContainer) {
+        cardStageContainer.addEventListener("wheel", (e) => {
+          if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 15) {
+            e.preventDefault();
+            cardWheelAccumX += e.deltaX;
+            clearTimeout(cardWheelTimer);
+            cardWheelTimer = setTimeout(() => {
+              if (Math.abs(cardWheelAccumX) > 25) {
+                const goingNext = cardWheelAccumX > 0;
+                executeKineticSwipe(goingNext ? -60 : 60, goingNext ? -1.0 : 1.0);
+              }
+              cardWheelAccumX = 0;
+            }, 35);
+          }
+        }, { passive: false });
+      }
 
       // Desktop native double-click
       cardWrapper.addEventListener("dblclick", (e) => {
@@ -13241,8 +12765,10 @@
         updateCardLearnedUI(num);
         updateSectionLearnedCounter();
         if (currentCategoryEl) {
-          const sectionLearned = getSectionLearnedCount();
-          currentCategoryEl.innerHTML = `<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#38bdf8;"></span><span>Tier 1: 800–1000</span>`;
+          const totalLearned = (typeof learnedCardsSet !== "undefined" && learnedCardsSet) ? learnedCardsSet.size : 0;
+          currentCategoryEl.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="color:#34d399;font-weight:800;"><strong id="flashcard-learned-3k-val">${totalLearned.toLocaleString()}</strong> / 3k</span>`;
+          currentCategoryEl.style.background = "rgba(16, 185, 129, 0.12)";
+          currentCategoryEl.style.borderColor = "rgba(16, 185, 129, 0.3)";
         }
       }
 
@@ -13680,10 +13206,8 @@
          ========================================================== */
       function switchScreen(screenId) {
         if (screenId === "screen-flashcard") {
-          document.documentElement.classList.add("in-flashcard-mode");
           document.body.classList.add("in-flashcard-mode");
         } else {
-          document.documentElement.classList.remove("in-flashcard-mode");
           document.body.classList.remove("in-flashcard-mode");
         }
         document.querySelectorAll(".app-screen").forEach((s) => s.classList.remove("active-screen"));
@@ -13692,8 +13216,13 @@
           target.classList.add("active-screen");
           if (screenId === "screen-home") {
             document.body.classList.add("home-view-active");
+            document.body.classList.remove("subsections-active");
+          } else if (screenId === "screen-subsections") {
+            document.body.classList.remove("home-view-active");
+            document.body.classList.add("subsections-active");
           } else {
             document.body.classList.remove("home-view-active");
+            document.body.classList.remove("subsections-active");
           }
         }
 
@@ -13702,20 +13231,35 @@
         document.querySelectorAll(".mobile-tab-btn").forEach(btn => btn.classList.remove("active"));
 
         const breadcrumbEl = document.getElementById("desktop-breadcrumb-text");
+        const desktopBackBtn = document.getElementById("desktop-back-btn");
+        const mobileBackBtn = document.getElementById("mobile-back-btn");
+        const mobileHamBtn = document.getElementById("mobile-hamburger-btn");
+        const mobileTitle = document.getElementById("mobile-header-title");
 
         if (screenId === "screen-home") {
+          if (desktopBackBtn) desktopBackBtn.style.setProperty("display", "none", "important");
+          if (mobileBackBtn) mobileBackBtn.style.setProperty("display", "none", "important");
+          if (mobileHamBtn) mobileHamBtn.style.setProperty("display", "flex", "important");
+          if (mobileTitle) mobileTitle.textContent = "stellar";
           const btn = document.getElementById("nav-btn-home");
           if (btn) btn.classList.add("active");
           const mob = document.getElementById("mob-tab-home");
           if (mob) mob.classList.add("active");
           if (breadcrumbEl) breadcrumbEl.textContent = "Dashboard · Choose Your Learning Path";
         } else if (screenId === "screen-subsections") {
+          if (desktopBackBtn) desktopBackBtn.style.setProperty("display", "inline-flex", "important");
+          if (mobileBackBtn) mobileBackBtn.style.setProperty("display", "flex", "important");
+          if (mobileHamBtn) mobileHamBtn.style.setProperty("display", "none", "important");
+          if (mobileTitle) mobileTitle.textContent = "3k Vocabulary";
           const btn = document.getElementById("nav-btn-subsections");
           if (btn) btn.classList.add("active");
           const mob = document.getElementById("mob-tab-3k");
           if (mob) mob.classList.add("active");
           if (breadcrumbEl) breadcrumbEl.textContent = "3k Vocabulary · Select Subsection Tier";
         } else if (screenId === "screen-flashcard") {
+          if (desktopBackBtn) desktopBackBtn.style.setProperty("display", "none", "important");
+          if (mobileBackBtn) mobileBackBtn.style.setProperty("display", "none", "important");
+          if (mobileHamBtn) mobileHamBtn.style.setProperty("display", "none", "important");
           const btn = document.getElementById("nav-btn-3k");
           if (btn) btn.classList.add("active");
           const mob = document.getElementById("mob-tab-3k");
@@ -14793,7 +14337,7 @@
       if (mobDrawerHome) {
         mobDrawerHome.addEventListener("click", () => {
           closeMobileNavDrawer();
-          switchToScreen("screen-home");
+          switchScreen("screen-home");
           syncNavigationState("home");
         });
       }
@@ -14802,7 +14346,7 @@
       if (mobDrawer3k) {
         mobDrawer3k.addEventListener("click", () => {
           closeMobileNavDrawer();
-          switchToScreen("screen-subsections");
+          switchScreen("screen-subsections");
           syncNavigationState("3k");
         });
       }
@@ -14811,7 +14355,7 @@
       if (mobDrawerSections) {
         mobDrawerSections.addEventListener("click", () => {
           closeMobileNavDrawer();
-          switchToScreen("screen-subsections");
+          switchScreen("screen-subsections");
           syncNavigationState("sections");
         });
       }
@@ -15100,15 +14644,19 @@
 
         function handleScreenHeaderUpdate(screenId) {
           if (screenId === "screen-subsections") {
-            if (desktopBackBtn) desktopBackBtn.style.display = "inline-flex";
-            if (mobileBackBtn) mobileBackBtn.style.display = "flex";
-            if (mobileHamBtn) mobileHamBtn.style.display = "none";
+            document.body.classList.remove("home-view-active");
+            document.body.classList.add("subsections-active");
+            if (desktopBackBtn) desktopBackBtn.style.setProperty("display", "inline-flex", "important");
+            if (mobileBackBtn) mobileBackBtn.style.setProperty("display", "flex", "important");
+            if (mobileHamBtn) mobileHamBtn.style.setProperty("display", "none", "important");
             if (mobileTitle) mobileTitle.textContent = "3k Vocabulary";
             if (breadcrumbEl) breadcrumbEl.textContent = "3k Vocabulary";
           } else {
-            if (desktopBackBtn) desktopBackBtn.style.display = "none";
-            if (mobileBackBtn) mobileBackBtn.style.display = "none";
-            if (mobileHamBtn) mobileHamBtn.style.display = "flex";
+            document.body.classList.add("home-view-active");
+            document.body.classList.remove("subsections-active");
+            if (desktopBackBtn) desktopBackBtn.style.setProperty("display", "none", "important");
+            if (mobileBackBtn) mobileBackBtn.style.setProperty("display", "none", "important");
+            if (mobileHamBtn) mobileHamBtn.style.setProperty("display", "flex", "important");
             if (mobileTitle) mobileTitle.textContent = "stellar";
             if (breadcrumbEl && screenId === "screen-home") {
               breadcrumbEl.textContent = "Dashboard · Choose Your Learning Path";
@@ -15138,190 +14686,6 @@
 
         // Initialize header state
         handleScreenHeaderUpdate("screen-home");
-      })();
-
-
-      // =========================================================================
-      // STRICT DOUBLE-TAP TO FLIP ONLY (Single tap ignored; debounce locked)
-      // =========================================================================
-      (function() {
-        const cardWrapper = document.getElementById("flashcard-wrapper");
-        if (!cardWrapper) return;
-
-        let lastTouchTime = 0;
-        let lastTouchX = 0;
-        let lastTouchY = 0;
-        let isFlipLock = false;
-
-        function triggerSafeFlip() {
-          if (isFlipLock) return;
-          isFlipLock = true;
-          if (typeof flipCard === "function") {
-            flipCard();
-          }
-          setTimeout(() => {
-            isFlipLock = false;
-          }, 450); // Lock prevents erratic multi-flipping
-        }
-
-        // Expose for external buttons
-        window.triggerSafeFlip = triggerSafeFlip;
-
-        // Touch double-tap listener
-        cardWrapper.addEventListener("touchend", function(e) {
-          const target = e.target;
-          if (target && target.closest("button, .icon-tool-btn, #front-speak-btn, #front-learned-btn, #front-delete-btn, #back-speak-btn")) {
-            return; // Don't flip when clicking action buttons on card!
-          }
-
-          const touch = e.changedTouches[0];
-          if (!touch) return;
-
-          const now = Date.now();
-          const timeDelta = now - lastTouchTime;
-          const dist = Math.hypot(touch.clientX - lastTouchX, touch.clientY - lastTouchY);
-
-          // STRICT DOUBLE TAP CRITERIA: 70ms < timeDelta < 350ms, finger within 45px
-          if (timeDelta > 70 && timeDelta < 350 && dist < 45) {
-            lastTouchTime = 0;
-            triggerSafeFlip();
-            if (typeof playHapticTick === "function") playHapticTick(600, "sine", 0.04);
-          } else {
-            lastTouchTime = now;
-            lastTouchX = touch.clientX;
-            lastTouchY = touch.clientY;
-          }
-        }, { passive: true });
-
-        // Desktop double-click listener
-        cardWrapper.addEventListener("dblclick", function(e) {
-          if (e.target && e.target.closest("button, .icon-tool-btn")) return;
-          triggerSafeFlip();
-        });
-
-        // Wire bottom Flip button to single-tap flip safely
-        const btnFlip = document.getElementById("btn-flip");
-        if (btnFlip) {
-          btnFlip.onclick = function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            triggerSafeFlip();
-          };
-        }
-      })();
-
-
-      // =========================================================================
-      // MASTER SINGLE HEADER DISCIPLINE (NO BACK BUTTON ON HOME, NO DUAL BUTTONS)
-      // =========================================================================
-      (function() {
-        const desktopBack = document.getElementById("desktop-back-btn");
-        const mobileBack = document.getElementById("mobile-back-btn");
-        const mobileHam = document.getElementById("mobile-hamburger-btn");
-        const mobileTitle = document.getElementById("mobile-header-title");
-        const breadcrumb = document.getElementById("desktop-breadcrumb-text");
-
-        function syncHeaders(screenId) {
-          if (screenId === "screen-home") {
-            document.body.classList.remove("subsections-active");
-            if (desktopBack) {
-              desktopBack.style.setProperty("display", "none", "important");
-            }
-            if (mobileBack) {
-              mobileBack.style.setProperty("display", "none", "important");
-            }
-            if (mobileHam) {
-              mobileHam.style.setProperty("display", "flex", "important");
-            }
-            if (mobileTitle) {
-              mobileTitle.textContent = "stellar";
-            }
-            if (breadcrumb) {
-              breadcrumb.textContent = "Dashboard · Choose Your Learning Path";
-            }
-          } else if (screenId === "screen-subsections") {
-            document.body.classList.add("subsections-active");
-            if (desktopBack) {
-              desktopBack.style.setProperty("display", "inline-flex", "important");
-            }
-            if (mobileBack) {
-              mobileBack.style.setProperty("display", "flex", "important");
-            }
-            if (mobileHam) {
-              mobileHam.style.setProperty("display", "none", "important");
-            }
-            if (mobileTitle) {
-              mobileTitle.textContent = "3k Vocabulary";
-            }
-            if (breadcrumb) {
-              breadcrumb.textContent = "3k Vocabulary";
-            }
-          } else if (screenId === "screen-flashcard") {
-            document.body.classList.remove("subsections-active");
-            if (desktopBack) desktopBack.style.setProperty("display", "none", "important");
-            if (mobileBack) mobileBack.style.setProperty("display", "none", "important");
-          }
-        }
-
-        // Attach listeners
-        if (desktopBack) {
-          desktopBack.onclick = () => {
-            if (typeof switchScreen === "function") switchScreen("screen-home");
-          };
-        }
-        if (mobileBack) {
-          mobileBack.onclick = () => {
-            if (typeof switchScreen === "function") switchScreen("screen-home");
-          };
-        }
-
-        // Wrap switchScreen to enforce single header rules
-        const prevSwitch = window.switchScreen;
-        window.switchScreen = function(id) {
-          if (typeof prevSwitch === "function") prevSwitch(id);
-          syncHeaders(id);
-        };
-
-        // Enforce on start
-        syncHeaders("screen-home");
-      })();
-
-
-      // =========================================================================
-      // SYNCHRONIZE TOP FLASHCARD LEARNED TICK BADGE (NO TIER TEXT)
-      // =========================================================================
-      (function() {
-        function syncTopFlashcardBadge() {
-          const learnedCountEl = document.getElementById("flashcard-learned-count");
-          const totalEl = document.getElementById("flashcard-deck-total");
-          if (!learnedCountEl) return;
-
-          let count = 0;
-          if (typeof getSectionLearnedCount === "function") {
-            count = getSectionLearnedCount();
-          } else if (typeof learnedCardsSet !== "undefined" && learnedCardsSet) {
-            count = learnedCardsSet.size;
-          }
-          learnedCountEl.textContent = count;
-          if (totalEl && typeof cards !== "undefined" && cards.length) {
-            totalEl.textContent = cards.length;
-          }
-        }
-
-        // Attach hook to saveLearnedCards and renderCurrentCard
-        const prevSave = window.saveLearnedCards;
-        window.saveLearnedCards = function() {
-          if (typeof prevSave === "function") prevSave();
-          syncTopFlashcardBadge();
-        };
-
-        const prevRender = window.renderCurrentCard;
-        window.renderCurrentCard = function() {
-          if (typeof prevRender === "function") prevRender();
-          syncTopFlashcardBadge();
-        };
-
-        syncTopFlashcardBadge();
       })();
 
 </script>
