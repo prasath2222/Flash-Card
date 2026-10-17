@@ -9306,7 +9306,7 @@
         "809": "https://upload.wikimedia.org/wikipedia/commons/c/c6/SearsHouse115.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
         "810": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Ateneul_Rom%C3%A2n_-_Sala.jpg/960px-Ateneul_Rom%C3%A2n_-_Sala.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
         "811": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Berlin_Villa_Borsig_Tegel_asv2019-08_img09.jpg/960px-Berlin_Villa_Borsig_Tegel_asv2019-08_img09.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-        "812": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Modern_bath_rooms_and_appliances_-_a_few_suggestions_about_plumbing_valuable_to_home_builders_or_those_about_to_remodel_their_present_dwellings._%281903%29_%2814778178805%29.jpg/960px-thumbnail.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "812": "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=960&auto=format&fit=crop&q=80",
         "813": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Sittingroom-edit1.jpg/960px-Sittingroom-edit1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
         "814": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Heiligengrabe%2C_Kloster_Stift_zum_Heiligengrabe%2C_Abtei%2C_Speiseraum_--_2017_--_7082-8.jpg/960px-Heiligengrabe%2C_Kloster_Stift_zum_Heiligengrabe%2C_Abtei%2C_Speiseraum_--_2017_--_7082-8.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
         "815": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/La_cuisine_%28mus%C3%A9e_dart_nouveau%2C_Riga%29_%287563655820%29.jpg/960px-La_cuisine_%28mus%C3%A9e_dart_nouveau%2C_Riga%29_%287563655820%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -11916,6 +11916,10 @@
         } catch (e) {}
       }
 
+      // Active card token and reel timer for strict image and reel synchronization
+      let activeCardImageToken = 0;
+      let reelBgCardTimer = null;
+
       // Render Card at Current Index with verified high-definition photo and selective animation
       function renderCurrentCard(skipReelSync = false) {
         const currentCardObj = cards[currentIndex];
@@ -11958,16 +11962,60 @@
         const primaryImgUrl = (typeof cardAccurateImages !== "undefined" && cardAccurateImages[lookupId]) 
           ? cardAccurateImages[lookupId] 
           : `/api/image?num=${lookupId}`;
-        const animInfo = cardAnims[lookupId] || null;
+        const animInfo = (typeof cardAnims !== "undefined" && cardAnims[lookupId]) ? cardAnims[lookupId] : null;
+
+        // Concurrency Guard: Drop stale async image responses so images never swap or change out of order
+        const renderToken = ++activeCardImageToken;
+        const expectedIndex = currentIndex;
 
         // Reset skeleton & loading states
-        if (visualSkeletonEl) {
-          visualSkeletonEl.style.display = "block";
-          visualSkeletonEl.style.opacity = "1";
+        if (frontVisualImgEl.getAttribute("data-card-id") === String(card.num) && frontVisualImgEl.classList.contains("loaded")) {
+          if (visualSkeletonEl) visualSkeletonEl.style.display = "none";
+          frontVisualImgEl.style.display = "block";
+          if (frontVisualFallbackEl) frontVisualFallbackEl.style.display = "none";
+        } else {
+          frontVisualImgEl.setAttribute("data-card-id", String(card.num));
+          frontVisualImgEl.classList.remove("loaded");
+          if (visualSkeletonEl) {
+            visualSkeletonEl.style.display = "block";
+            visualSkeletonEl.style.opacity = "1";
+          }
+          frontVisualImgEl.style.display = "block";
+          if (frontVisualFallbackEl) frontVisualFallbackEl.style.display = "none";
+
+          // Preload target image with strict token matching
+          const tempImg = new Image();
+          tempImg.onload = () => {
+            if (renderToken !== activeCardImageToken || currentIndex !== expectedIndex) {
+              // Stale response from past card - discard immediately!
+              return;
+            }
+            frontVisualImgEl.src = primaryImgUrl;
+            frontVisualImgEl.classList.add("loaded");
+            if (visualSkeletonEl) {
+              visualSkeletonEl.style.opacity = "0";
+              setTimeout(() => {
+                if (renderToken === activeCardImageToken && visualSkeletonEl) {
+                  visualSkeletonEl.style.display = "none";
+                }
+              }, 180);
+            }
+          };
+          tempImg.onerror = () => {
+            if (renderToken !== activeCardImageToken || currentIndex !== expectedIndex) {
+              return;
+            }
+            if (!tempImg.dataset.retried) {
+              tempImg.dataset.retried = "true";
+              tempImg.src = `/api/image?num=${lookupId}`;
+              return;
+            }
+            if (visualSkeletonEl) visualSkeletonEl.style.display = "none";
+            frontVisualImgEl.style.display = "none";
+            if (frontVisualFallbackEl) frontVisualFallbackEl.style.display = "flex";
+          };
+          tempImg.src = primaryImgUrl;
         }
-        frontVisualImgEl.classList.remove("loaded");
-        frontVisualImgEl.style.display = "block";
-        frontVisualFallbackEl.style.display = "none";
 
         // Selective Animation Handling (with safe null-guards)
         if (animInfo && visualAnimLayerEl) {
@@ -11985,30 +12033,6 @@
             visualAnimLayerEl.style.display = "none";
           }
         }
-
-        // Smooth Image Preload & Fade-In
-        const tempImg = new Image();
-        tempImg.onload = () => {
-          frontVisualImgEl.src = primaryImgUrl;
-          frontVisualImgEl.classList.add("loaded");
-          if (visualSkeletonEl) {
-            visualSkeletonEl.style.opacity = "0";
-            setTimeout(() => {
-              visualSkeletonEl.style.display = "none";
-            }, 320);
-          }
-        };
-        tempImg.onerror = () => {
-          if (!tempImg.dataset.retried) {
-            tempImg.dataset.retried = "true";
-            tempImg.src = `/api/image?num=${card.num}`;
-            return;
-          }
-          if (visualSkeletonEl) visualSkeletonEl.style.display = "none";
-          frontVisualImgEl.style.display = "none";
-          frontVisualFallbackEl.style.display = "flex";
-        };
-        tempImg.src = primaryImgUrl;
 
         // Back face data (pure words only, zero sentences)
         backCardNumEl.textContent = `#${card.num}`;
@@ -12030,12 +12054,10 @@
         if (shortcutEsWordEl) shortcutEsWordEl.textContent = card.trans.es;
         if (shortcutHiWordEl) shortcutHiWordEl.textContent = card.trans.hi;
 
-
         // Navigation button states
         btnPrev.disabled = currentIndex === 0;
         btnNext.disabled = currentIndex === cards.length - 1;
 
-        // Jump slider sync
         // Jump slider sync
         if (typeof jumpSlider !== "undefined" && jumpSlider) { jumpSlider.value = card.num; }
         if (typeof sliderValIndicator !== "undefined" && sliderValIndicator) { sliderValIndicator.textContent = `#${card.num} — ${card.word}`; }
@@ -12052,12 +12074,18 @@
         }
       }
 
-
-      // Flip card mechanic
+      // Flip card mechanic with strict debounce (guarantees exactly 1 flip per double tap)
+      let lastFlipTimestamp = 0;
       function flipCard() {
-        if (isAnimating) return;
+        if (isAnimating || isCardAnimating) return;
+        const now = Date.now();
+        if (now - lastFlipTimestamp < 260) return;
+        lastFlipTimestamp = now;
+
         isFlipped = !isFlipped;
-        cardAudio.playCardFlip(!isFlipped);
+        if (typeof cardAudio !== "undefined" && cardAudio.playCardFlip) {
+          cardAudio.playCardFlip(!isFlipped);
+        }
         if (isFlipped) {
           cardWrapper.classList.add("flipped");
         } else {
@@ -12274,7 +12302,7 @@
           cardDiv.innerHTML = `
             <div class="mini-card-top-tag">#${c.num}</div>
             <div class="mini-card-thumb-box">
-              <img class="mini-card-thumb" src="${imgUrl}" alt="${c.word}" loading="lazy" />
+              <img class="mini-card-thumb" src="${imgUrl}" alt="${c.word}" loading="lazy" onerror="if(!this.dataset.retried){this.dataset.retried='1';this.src='/api/image?num=${lookupId}';}" />
             </div>
             <div class="mini-card-word-title">${c.word}</div>
           `;
@@ -12377,9 +12405,15 @@
                 mc.classList.toggle("active", parseInt(mc.dataset.index, 10) === closestIdx);
               });
               currentIndex = closestIdx;
-              // Dynamically update the background card as requested!
-              renderCurrentCard(true);
               if (typeof playHapticTick === "function") playHapticTick(440, "sine", 0.015);
+
+              // Update background card smoothly without network thrashing
+              clearTimeout(reelBgCardTimer);
+              reelBgCardTimer = setTimeout(() => {
+                if (isDeckReelOpen) {
+                  renderCurrentCard(true);
+                }
+              }, 40);
             }
           });
         }, { passive: true });
@@ -12412,6 +12446,7 @@
       touchStartTime = 0;
       velocitySamples = [];
       suppressSyntheticClickUntil = 0;
+      let suppressDblClickUntil = 0;
       isCardAnimating = false;
 
       function executeKineticSwipe(diffX, velocityX) {
@@ -12563,16 +12598,17 @@
         if (isSwiping && (Math.abs(diffX) > 22 || Math.abs(vX) > 0.22)) {
           executeKineticSwipe(diffX, vX);
         } else if (dist < 18 && touchDuration < 380) {
-          // Stationary tap: DOUBLE TAP FLIPS (1st double tap flips to back, again double tap flips to front)
+          // Stationary tap: DOUBLE TAP FLIPS (1st double tap flips 1 time to back, again double tap flips 1 time to front)
           if (!isCardInteractiveBtn(e.target)) {
             const now = Date.now();
             const timeSinceLastTap = now - lastTapTimestamp;
             const tapDist = Math.hypot(touch.clientX - lastTapCoords.x, touch.clientY - lastTapCoords.y);
 
             if (timeSinceLastTap < 420 && tapDist < 75) {
-              // Confirmed Double Tap! Flip back & forth
+              // Confirmed Double Tap! Exactly 1 flip per double tap
               lastTapTimestamp = 0;
-              suppressSyntheticClickUntil = Date.now() + 500;
+              suppressSyntheticClickUntil = Date.now() + 550;
+              suppressDblClickUntil = Date.now() + 650;
               flipCard();
               if (typeof playHapticTick === "function") playHapticTick(620, "triangle", 0.04);
             } else {
@@ -12669,29 +12705,19 @@
 
         if (Math.abs(diffX) > 22 || Math.abs(vX) > 0.22) {
           executeKineticSwipe(diffX, vX);
-        } else if (dist < 8) {
-          // Double click check on desktop mouseup
-          if (!isCardInteractiveBtn(e.target)) {
-            const now = Date.now();
-            const timeSinceLast = now - lastMouseClickTime;
-            const clickDist = Math.hypot(e.clientX - lastMouseCoords.x, e.clientY - lastMouseCoords.y);
-            if (timeSinceLast < 400 && clickDist < 20) {
-              lastMouseClickTime = 0;
-              suppressSyntheticClickUntil = Date.now() + 450;
-              flipCard();
-            } else {
-              lastMouseClickTime = now;
-              lastMouseCoords = { x: e.clientX, y: e.clientY };
-            }
-          }
         } else {
           cardWrapper.style.transition = "transform 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
           cardWrapper.style.transform = isFlipped ? "rotateY(180deg)" : "rotateY(0deg)";
         }
       });
 
-      // Desktop native double-click
+      // Desktop native double-click (guarantees exactly 1 flip, ignores mobile synthetic dblclicks)
       cardWrapper.addEventListener("dblclick", (e) => {
+        if (Date.now() < suppressDblClickUntil) {
+          e.preventDefault();
+          e.stopPropagation();
+          return;
+        }
         if (isCardInteractiveBtn(e.target)) return;
         flipCard();
       });
