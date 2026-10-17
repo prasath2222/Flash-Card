@@ -1,0 +1,94 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Stores user study progress, streak, learned cards, and deleted cards for cross-device sync",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "email": {
+          "type": "string",
+          "maxLength": 256
+        },
+        "displayName": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "lastActiveCardNum": {
+          "type": "number"
+        },
+        "streakCount": {
+          "type": "number"
+        },
+        "lastStudyDate": {
+          "type": "string",
+          "maxLength": 64
+        },
+        "learnedCardNums": {
+          "type": "array",
+          "description": "List of learned card numbers"
+        },
+        "deletedCardNums": {
+          "type": "array",
+          "description": "List of deleted card numbers"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "userId",
+        "updatedAt"
+      ]
+    },
+    "CustomShortcut": {
+      "title": "CustomShortcut",
+      "description": "Custom mnemonic shortcuts per flashcard created by the user",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "cardNum": {
+          "type": "number"
+        },
+        "es": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "hi": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "userId",
+        "cardNum",
+        "updatedAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profile with study progress and preferences for cross-device synchronization"
+    },
+    "/users/{userId}/customShortcuts/{cardNum}": {
+      "schema": "CustomShortcut",
+      "description": "User-defined custom translations and mnemonic shortcuts per card"
+    }
+  }
+}

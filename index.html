@@ -8202,7 +8202,26 @@
       font-weight: 900;
     }
 
+    .cloud-sync-btn {
+      position: relative;
+    }
+    .cloud-sync-btn.connected {
+      color: #38bdf8 !important;
+      border-color: rgba(56, 189, 248, 0.45) !important;
+      background: rgba(56, 189, 248, 0.12) !important;
+    }
+    .cloud-sync-dot {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 6px #10b981;
+    }
 </style>
+    <script type="module" src="/src/firebase-sync.ts"></script>
   </head>
   <body class="home-view-active">
     <div id="app-container">
@@ -8639,6 +8658,12 @@
                   <path d="m18 20 4-4-4-4"/>
                 </svg>
               </button>
+              <button type="button" class="duo-btn-3d cloud-sync-btn" id="btn-top-cloud-sync" title="Sync progress across devices with Google account" aria-label="Cloud Sync">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
+                </svg>
+                <span class="cloud-sync-dot" id="cloud-sync-status-dot" style="display:none;"></span>
+              </button>
               <button type="button" class="duo-btn-3d flashcard-settings-btn" id="btn-flashcard-settings" title="Settings & Audio Studio" aria-label="Settings">
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="12" cy="12" r="3"/>
@@ -8908,6 +8933,9 @@
         <button type="button" class="settings-tab-btn" data-tab-target="tab-deck">
           <span>💾</span> <span>Deck Tools</span>
         </button>
+        <button type="button" class="settings-tab-btn" data-tab-target="tab-cloud" id="tab-btn-cloud-sync">
+          <span>☁️</span> <span>Cloud Sync</span>
+        </button>
       </div>
 
       <!-- Settings Scroll Body -->
@@ -9153,6 +9181,56 @@
               </svg>
               <span>Download Standalone Offline HTML</span>
             </button>
+          </div>
+        </div>
+
+        <!-- ================= TAB 5: CLOUD SYNC & CROSS-DEVICE ================= -->
+        <div class="settings-tab-panel" id="tab-cloud">
+          <div class="duo-settings-section-title">Google Cloud Synchronization</div>
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <div class="settings-card-left">
+                <div class="settings-card-icon" id="cloud-user-avatar-icon" style="background: #38bdf8; box-shadow: 0 3px 0 #0284c7; color: #ffffff; border: none;">☁️</div>
+                <div>
+                  <h3 class="settings-card-title" id="cloud-sync-user-title">Local Device Only</h3>
+                  <p class="settings-card-sub" id="cloud-sync-user-sub">Sign in with Google to reflect all changes, learned cards, and custom notes in real-time across your phone, tablet, and PC.</p>
+                </div>
+              </div>
+            </div>
+            <div style="padding-top: 14px; display: flex; flex-direction: column; gap: 10px;">
+              <button type="button" class="settings-action-btn settings-action-btn-primary" id="btn-cloud-signin" style="background: #1cb0f6; border-color: #1899d6;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                  <polyline points="10 17 15 12 10 7"/>
+                  <line x1="15" y1="12" x2="3" y2="12"/>
+                </svg>
+                <span id="btn-cloud-signin-label">Sign In with Google</span>
+              </button>
+
+              <button type="button" class="settings-action-btn settings-action-btn-secondary" id="btn-cloud-manual-sync">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+                </svg>
+                <span>Sync to Cloud Now</span>
+              </button>
+
+              <button type="button" class="settings-action-btn settings-action-btn-danger" id="btn-cloud-signout" style="display: none;">
+                <span>Sign Out of Google</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="duo-settings-section-title">Real-Time Cloud Architecture</div>
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <div class="settings-card-left">
+                <div class="settings-card-icon" style="background: #10b981; box-shadow: 0 3px 0 #059669; color: #ffffff; border: none;">⚡</div>
+                <div>
+                  <h3 class="settings-card-title">Live Firestore WebSockets</h3>
+                  <p class="settings-card-sub">Automatic 2-way sync: Mobile, tablet & desktop stay mirrored instantaneously with zero lag.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -10833,6 +10911,11 @@
       function saveLearnedCards() {
         try {
           localStorage.setItem(LEARNED_STORAGE_KEY, JSON.stringify([...learnedCardsSet]));
+          if (window.firebaseSync && window.firebaseSync.pushStudyStateToCloud) {
+            window.firebaseSync.pushStudyStateToCloud({
+              learnedCardNums: [...learnedCardsSet]
+            });
+          }
         } catch (e) {
           console.error("Could not save learned cards:", e);
         }
@@ -11146,6 +11229,13 @@
           const edits = raw ? JSON.parse(raw) : {};
           edits[cardNum] = data;
           localStorage.setItem(STORAGE_KEY_EDITS, JSON.stringify(edits));
+          if (window.firebaseSync && window.firebaseSync.pushCustomShortcutToCloud) {
+            window.firebaseSync.pushCustomShortcutToCloud(
+              cardNum,
+              data.shortcutEs || data.es || "",
+              data.shortcutHi || data.hi || ""
+            );
+          }
         } catch (e) {
           console.warn("Could not persist edits:", e);
         }
@@ -12770,6 +12860,9 @@
         }
         try {
           localStorage.setItem(DELETED_CARDS_STORAGE_KEY, JSON.stringify(deletedCardNums));
+          if (window.firebaseSync && window.firebaseSync.pushStudyStateToCloud) {
+            window.firebaseSync.pushStudyStateToCloud({ deletedCardNums: deletedCardNums });
+          }
         } catch(e) {}
 
         // Automatically renumbers all remaining cards sequentially starting from 800!
@@ -12808,6 +12901,9 @@
               deletedCardNums = deletedCardNums.filter(n => n !== rawNum);
               try {
                 localStorage.setItem(DELETED_CARDS_STORAGE_KEY, JSON.stringify(deletedCardNums));
+                if (window.firebaseSync && window.firebaseSync.pushStudyStateToCloud) {
+                  window.firebaseSync.pushStudyStateToCloud({ deletedCardNums: deletedCardNums });
+                }
               } catch(e) {}
               reindexAndBuildCards();
               const restoredIdx = cards.findIndex(c => (c.originalNum || c.num) === rawNum);
@@ -12832,6 +12928,9 @@
         deletedCardNums = [];
         try {
           localStorage.removeItem(DELETED_CARDS_STORAGE_KEY);
+          if (window.firebaseSync && window.firebaseSync.pushStudyStateToCloud) {
+            window.firebaseSync.pushStudyStateToCloud({ deletedCardNums: [] });
+          }
         } catch (e) {}
         reindexAndBuildCards();
         currentIndex = 0;
@@ -13952,6 +14051,185 @@
         btnDownloadHtmlMenu.addEventListener("click", downloadOfflineHtml);
       }
 
+      /* ==========================================================
+         FIREBASE REAL-TIME CLOUD SYNCHRONIZATION CONTROLLER
+         Reflects all progress, learned cards, deletions and shortcuts
+         instantaneously across mobile, tablet, and desktop devices!
+         ========================================================== */
+      const btnTopCloudSync = document.getElementById("btn-top-cloud-sync");
+      const tabBtnCloudSync = document.getElementById("tab-btn-cloud-sync");
+      const cloudSyncDot = document.getElementById("cloud-sync-status-dot");
+      const btnCloudSignin = document.getElementById("btn-cloud-signin");
+      const btnCloudSignout = document.getElementById("btn-cloud-signout");
+      const btnCloudManualSync = document.getElementById("btn-cloud-manual-sync");
+      const cloudUserTitle = document.getElementById("cloud-sync-user-title");
+      const cloudUserSub = document.getElementById("cloud-sync-user-sub");
+      const cloudAvatarIcon = document.getElementById("cloud-user-avatar-icon");
+
+      // Open cloud sync panel from top header button
+      if (btnTopCloudSync) {
+        btnTopCloudSync.addEventListener("click", () => {
+          openMenuDrawer();
+          if (tabBtnCloudSync) {
+            tabBtnCloudSync.click();
+          }
+        });
+      }
+
+      // Handle Google Sign In
+      if (btnCloudSignin) {
+        btnCloudSignin.addEventListener("click", async () => {
+          if (!window.firebaseSync) {
+            showToast("Cloud sync initializing, please retry in a moment");
+            return;
+          }
+          try {
+            btnCloudSignin.disabled = true;
+            btnCloudSignin.style.opacity = "0.7";
+            const user = await window.firebaseSync.loginWithGoogle();
+            showToast(`Signed in as ${user.displayName || user.email}! Syncing across devices ☁️`);
+            playHapticTick(620, "triangle", 0.06);
+          } catch (err) {
+            console.error("Google sign-in error:", err);
+            showToast("Sign in was cancelled or failed");
+          } finally {
+            btnCloudSignin.disabled = false;
+            btnCloudSignin.style.opacity = "1";
+          }
+        });
+      }
+
+      // Handle Sign Out
+      if (btnCloudSignout) {
+        btnCloudSignout.addEventListener("click", async () => {
+          if (!window.firebaseSync) return;
+          try {
+            await window.firebaseSync.logoutUser();
+            showToast("Signed out. Operating in local mode.");
+            playHapticTick(380, "sine", 0.04);
+          } catch(err) {
+            console.error("Sign-out error:", err);
+          }
+        });
+      }
+
+      // Manual Sync button
+      if (btnCloudManualSync) {
+        btnCloudManualSync.addEventListener("click", () => {
+          if (!window.firebaseSync || !window.firebaseSync.getCurrentUser()) {
+            showToast("Please sign in with Google to sync to cloud");
+            if (btnCloudSignin) btnCloudSignin.click();
+            return;
+          }
+          window.firebaseSync.pushStudyStateToCloud({
+            learnedCardNums: [...learnedCardsSet],
+            deletedCardNums: deletedCardNums,
+            lastActiveCardNum: (cards[currentIndex]?.originalNum || cards[currentIndex]?.num || 800)
+          });
+          showToast("Syncing your cards to cloud... ☁️");
+          playHapticTick(580, "sine", 0.04);
+        });
+      }
+
+      // Wire up Firebase Auth State Listener
+      function setupFirebaseAuthListeners() {
+        if (!window.firebaseSync) {
+          setTimeout(setupFirebaseAuthListeners, 150);
+          return;
+        }
+
+        window.firebaseSync.onAuthChange((user) => {
+          if (user) {
+            if (cloudUserTitle) cloudUserTitle.textContent = user.displayName || user.email || "Active User";
+            if (cloudUserSub) cloudUserSub.textContent = `Connected: ${user.email} · Real-time Firestore sync active`;
+            if (cloudAvatarIcon) cloudAvatarIcon.textContent = "✅";
+            if (btnCloudSignin) btnCloudSignin.style.display = "none";
+            if (btnCloudSignout) btnCloudSignout.style.display = "flex";
+            if (btnTopCloudSync) btnTopCloudSync.classList.add("connected");
+            if (cloudSyncDot) cloudSyncDot.style.display = "block";
+          } else {
+            if (cloudUserTitle) cloudUserTitle.textContent = "Local Device Only";
+            if (cloudUserSub) cloudUserSub.textContent = "Sign in with Google to reflect all changes, learned cards, and custom notes in real-time across your phone, tablet, and PC.";
+            if (cloudAvatarIcon) cloudAvatarIcon.textContent = "☁️";
+            if (btnCloudSignin) btnCloudSignin.style.display = "flex";
+            if (btnCloudSignout) btnCloudSignout.style.display = "none";
+            if (btnTopCloudSync) btnTopCloudSync.classList.remove("connected");
+            if (cloudSyncDot) cloudSyncDot.style.display = "none";
+          }
+        });
+
+        // Listen for Remote Firestore State Updates from other devices
+        window.firebaseSync.onRemoteStateChange((cloudData) => {
+          if (!cloudData) return;
+          let needsReindex = false;
+
+          // Remote Learned Cards Update
+          if (Array.isArray(cloudData.learnedCardNums)) {
+            const incomingSet = new Set(cloudData.learnedCardNums);
+            learnedCardsSet = incomingSet;
+            try {
+              localStorage.setItem(LEARNED_STORAGE_KEY, JSON.stringify([...learnedCardsSet]));
+            } catch(e) {}
+            updateSectionLearnedCounter();
+            updateGlobalLearnedDisplays();
+            const currentCard = cards[currentIndex];
+            if (currentCard) {
+              updateCardLearnedUI(currentCard.originalNum || currentCard.num);
+            }
+          }
+
+          // Remote Deleted Cards Update
+          if (Array.isArray(cloudData.deletedCardNums)) {
+            const oldDeleted = JSON.stringify(deletedCardNums.slice().sort());
+            const newDeleted = JSON.stringify(cloudData.deletedCardNums.slice().sort());
+            if (oldDeleted !== newDeleted) {
+              deletedCardNums = cloudData.deletedCardNums;
+              try {
+                localStorage.setItem(DELETED_CARDS_STORAGE_KEY, JSON.stringify(deletedCardNums));
+              } catch(e) {}
+              needsReindex = true;
+            }
+          }
+
+          // Remote Streak Update
+          if (typeof cloudData.streakCount === "number" && cloudData.streakCount > 0) {
+            const streakCountEl = document.getElementById("flashcard-streak-count");
+            if (streakCountEl) streakCountEl.textContent = cloudData.streakCount;
+          }
+
+          if (needsReindex) {
+            reindexAndBuildCards();
+            renderCurrentCard();
+          }
+
+          if (typeof showToast === "function") {
+            showToast("Reflected latest changes from cloud ☁️");
+          }
+        });
+
+        // Listen for Remote Custom Shortcuts from other devices
+        window.firebaseSync.onRemoteShortcutsChange((shortcuts) => {
+          if (!shortcuts) return;
+          try {
+            const raw = localStorage.getItem(STORAGE_KEY_EDITS);
+            const edits = raw ? JSON.parse(raw) : {};
+            let hasChanges = false;
+            for (const [cNum, s] of Object.entries(shortcuts)) {
+              if (!edits[cNum]) edits[cNum] = {};
+              if (edits[cNum].shortcutEs !== s.es || edits[cNum].shortcutHi !== s.hi) {
+                edits[cNum].shortcutEs = s.es;
+                edits[cNum].shortcutHi = s.hi;
+                hasChanges = true;
+              }
+            }
+            if (hasChanges) {
+              localStorage.setItem(STORAGE_KEY_EDITS, JSON.stringify(edits));
+              renderCurrentCard();
+            }
+          } catch(e) {}
+        });
+      }
+      setupFirebaseAuthListeners();
 
       // Initialize App
       loadSavedEdits();
