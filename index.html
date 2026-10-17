@@ -7829,21 +7829,25 @@
       font-size: 1.35rem !important;
       line-height: 1 !important;
     }
+
     /* ==========================================================
        BULLETPROOF ZERO-SCROLL 100DVH VIEWPORT FIT FOR ALL DEVICES
        Guarantees header, card, and bottom Flip button are 100% visible
-       with zero page scrolling on any phone, tablet, or desktop!
+       with ZERO page scrolling on ANY phone, tablet, or desktop!
        ========================================================== */
-    html:has(body.in-flashcard-mode),
+    html.in-flashcard-mode,
     body.in-flashcard-mode {
-      overflow: hidden !important;
-      height: 100% !important;
-      height: 100dvh !important;
-      max-height: 100dvh !important;
       position: fixed !important;
       inset: 0 !important;
       width: 100% !important;
-      touch-action: none !important;
+      height: 100% !important;
+      height: 100dvh !important;
+      max-height: 100dvh !important;
+      overflow: hidden !important;
+      overscroll-behavior: none !important;
+      touch-action: pan-x pinch-zoom !important;
+      margin: 0 !important;
+      padding: 0 !important;
     }
 
     body.in-flashcard-mode #app-container {
@@ -7881,13 +7885,22 @@
       overflow: hidden !important;
       display: flex !important;
       flex-direction: column !important;
-      justify-content: flex-start !important;
-      padding: env(safe-area-inset-top, 6px) 14px env(safe-area-inset-bottom, 8px) 14px !important;
-      gap: 6px !important;
+      justify-content: space-between !important;
+      padding: env(safe-area-inset-top, 6px) 12px env(safe-area-inset-bottom, 8px) 12px !important;
       box-sizing: border-box !important;
       margin: 0 auto !important;
       width: 100% !important;
-      max-width: 520px !important;
+      max-width: 480px !important;
+      gap: 4px !important;
+    }
+
+    body.in-flashcard-mode .app-desktop-sidebar,
+    body.in-flashcard-mode .desktop-top-header,
+    body.in-flashcard-mode .mobile-top-bar,
+    body.in-flashcard-mode .mobile-bottom-nav,
+    body.in-flashcard-mode .mobile-nav-drawer,
+    body.in-flashcard-mode .mobile-nav-backdrop {
+      display: none !important;
     }
 
     body.in-flashcard-mode #screen-flashcard .flashcard-top-nav {
@@ -7902,7 +7915,7 @@
       min-height: 0 !important;
       max-height: 100% !important;
       width: 100% !important;
-      max-width: 480px !important;
+      max-width: 440px !important;
       margin: 0 auto !important;
       display: flex !important;
       flex-direction: column !important;
@@ -7910,12 +7923,12 @@
       justify-content: center !important;
       position: relative !important;
       padding: 2px 0 !important;
-      overflow: visible !important;
+      overflow: hidden !important;
     }
 
     body.in-flashcard-mode #screen-flashcard .flashcard-wrapper {
       width: 100% !important;
-      max-width: 440px !important;
+      max-width: 420px !important;
       height: 100% !important;
       max-height: 100% !important;
       min-height: 0 !important;
@@ -7932,7 +7945,7 @@
       width: 100% !important;
       height: 100% !important;
       border-radius: 20px !important;
-      padding: 10px 14px 10px !important;
+      padding: 8px 12px !important;
       box-sizing: border-box !important;
       display: flex !important;
       flex-direction: column !important;
@@ -7951,8 +7964,8 @@
       display: flex !important;
       flex-direction: column !important;
       align-items: center !important;
-      justify-content: center !important;
-      gap: 6px !important;
+      justify-content: space-evenly !important;
+      gap: 4px !important;
       padding: 2px 0 !important;
       overflow: hidden !important;
     }
@@ -7960,9 +7973,9 @@
     body.in-flashcard-mode #screen-flashcard .card-face .visual-box {
       flex: 1 1 auto !important;
       width: 100% !important;
-      max-width: 330px !important;
+      max-width: 320px !important;
       min-height: 50px !important;
-      max-height: calc(100% - 40px) !important;
+      max-height: calc(100% - 36px) !important;
       border-radius: 16px !important;
       position: relative !important;
       overflow: hidden !important;
@@ -7973,6 +7986,8 @@
     }
 
     body.in-flashcard-mode #screen-flashcard .card-face .visual-box .visual-img {
+      max-width: 100% !important;
+      max-height: 100% !important;
       width: 100% !important;
       height: 100% !important;
       object-fit: contain !important;
@@ -7981,11 +7996,11 @@
 
     body.in-flashcard-mode #screen-flashcard .card-face .target-word-container {
       flex: 0 0 auto !important;
-      padding: 2px 0 !important;
+      padding: 0 !important;
     }
 
     body.in-flashcard-mode #screen-flashcard .card-face .target-word {
-      font-size: clamp(1.3rem, 4.2vh, 2.1rem) !important;
+      font-size: clamp(1.2rem, 3.8vh, 1.85rem) !important;
       font-weight: 800 !important;
       line-height: 1.15 !important;
       letter-spacing: -0.01em !important;
@@ -7998,20 +8013,20 @@
       overflow-y: auto !important;
       display: flex !important;
       flex-direction: column !important;
-      gap: 8px !important;
+      gap: 6px !important;
       padding: 4px 0 !important;
     }
 
     body.in-flashcard-mode #screen-flashcard .nav-controls {
       flex: 0 0 auto !important;
       width: 100% !important;
-      max-width: 480px !important;
+      max-width: 440px !important;
       margin: 0 auto !important;
       padding: 4px 0 env(safe-area-inset-bottom, 8px) !important;
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
-      gap: 16px !important;
+      gap: 14px !important;
       z-index: 10 !important;
     }
 
@@ -8029,141 +8044,162 @@
     }
 
     /* ==========================================================
-       LONG-TOUCH POP-UP OVERLAY CAROUSEL STYLES
-       When user touches and holds: card elevates into a floating
-       mini card, revealing left/right overlay cards, with free
-       momentum gliding!
+       MODERN MINI-FLASHCARD REEL OVERLAY (LONG-PRESS ACTIVATED)
+       Shows small flashcards line-by-line horizontally left to right.
+       Center card active, moves completely freely with touch/drag/scroll.
+       Releasing finger does NOT select; tap card to select & exit,
+       or tap outside to cancel & revert!
        ========================================================== */
-    .card-stage.is-popped-mode .flashcard-wrapper {
-      transform: scale(0.85) translateY(-8px) !important;
-      box-shadow: 0 28px 65px -10px rgba(0, 0, 0, 0.9), 0 0 0 2.5px #38bdf8, 0 0 25px rgba(56, 189, 248, 0.45) !important;
-      border-radius: 20px !important;
-      z-index: 25 !important;
-      cursor: grab !important;
-    }
-
-    .card-stage.is-popped-mode .flashcard-wrapper:active {
-      cursor: grabbing !important;
-    }
-
-    .card-overlay-peek {
+    .deck-reel-overlay {
       position: absolute;
-      top: 50%;
-      width: 78%;
-      max-width: 340px;
-      height: 78%;
-      max-height: 420px;
-      transform: translateY(-50%) scale(0.72);
+      inset: 0;
+      z-index: 60;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.22s ease, transform 0.22s cubic-bezier(0.2, 0.9, 0.3, 1);
-      z-index: 15;
-      border-radius: 18px;
-      background: #111726;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7);
-      padding: 10px 14px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-sizing: border-box;
-      filter: brightness(0.65) blur(0.5px);
+      transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
-
-    .card-overlay-peek-prev {
-      left: -55%;
-    }
-
-    .card-overlay-peek-next {
-      right: -55%;
-    }
-
-    .card-stage.is-popped-mode .card-overlay-peek {
-      opacity: 0.65;
+    .deck-reel-overlay.active {
+      opacity: 1;
       pointer-events: auto;
     }
-
-    .card-stage.is-popped-mode .card-overlay-peek-prev {
-      transform: translateY(-50%) scale(0.75) translateX(0);
+    .deck-reel-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(6, 11, 20, 0.78);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      cursor: pointer;
     }
-
-    .card-stage.is-popped-mode .card-overlay-peek-next {
-      transform: translateY(-50%) scale(0.75) translateX(0);
-    }
-
-    .peek-inner {
+    .deck-reel-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
       display: flex;
       flex-direction: column;
-      height: 100%;
+      align-items: center;
+      justify-content: center;
+      pointer-events: auto;
+    }
+    .deck-reel-close-btn {
+      position: absolute;
+      top: -36px;
+      right: 12px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #cbd5e1;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+      z-index: 5;
+    }
+    .deck-reel-close-btn:hover {
+      background: rgba(255, 255, 255, 0.24);
+      color: #fff;
+    }
+    .deck-reel-scroller {
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      touch-action: pan-x;
+      padding: 16px 0;
+      cursor: grab;
+    }
+    .deck-reel-scroller:active {
+      cursor: grabbing;
+    }
+    .deck-reel-scroller::-webkit-scrollbar {
+      display: none;
+    }
+    .deck-reel-track {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 0 calc(50% - 68px);
+      width: max-content;
+    }
+    .reel-mini-card {
+      width: 136px;
+      height: 190px;
+      flex: 0 0 136px;
+      background: #151f2e;
+      border: 2px solid #2a3b4f;
+      border-radius: 18px;
+      padding: 8px 10px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      width: 100%;
+      cursor: pointer;
+      transform: scale(0.9);
+      opacity: 0.7;
+      transition: transform 0.16s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+      user-select: none;
+      -webkit-user-select: none;
     }
-
-    .peek-card-num {
-      align-self: flex-start;
+    .reel-mini-card.active {
+      transform: scale(1.06);
+      opacity: 1;
+      border-color: #1cb0f6;
+      background: #1a273b;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7), 0 0 0 1px #1cb0f6, 0 0 20px rgba(28, 176, 246, 0.35);
+    }
+    .mini-card-top-tag {
       font-size: 0.72rem;
-      font-weight: 700;
+      font-weight: 800;
       color: #94a3b8;
       background: rgba(255, 255, 255, 0.08);
       padding: 2px 8px;
       border-radius: 8px;
+      align-self: flex-start;
     }
-
-    .peek-visual-box {
-      flex: 1 1 auto;
+    .reel-mini-card.active .mini-card-top-tag {
+      color: #1cb0f6;
+      background: rgba(28, 176, 246, 0.15);
+    }
+    .mini-card-thumb-box {
       width: 100%;
-      max-height: 140px;
+      height: 100px;
       border-radius: 12px;
       overflow: hidden;
+      background: #080c14;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #080c14;
     }
-
-    .peek-img {
+    .mini-card-thumb {
       width: 100%;
       height: 100%;
       object-fit: contain;
     }
-
-    .peek-word {
-      font-size: 1.1rem;
+    .mini-card-word-title {
+      font-size: 0.88rem;
       font-weight: 800;
-      color: #cbd5e1;
+      color: #e2e8f0;
       text-transform: uppercase;
       letter-spacing: 0.02em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+      text-align: center;
     }
-
-    /* Floating pop indicator badge */
-    .popped-mode-badge {
-      position: absolute;
-      top: -10px;
-      left: 50%;
-      transform: translateX(-50%) scale(0.9);
-      background: rgba(14, 165, 233, 0.95);
-      backdrop-filter: blur(8px);
+    .reel-mini-card.active .mini-card-word-title {
       color: #ffffff;
-      font-size: 0.7rem;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      padding: 3px 12px;
-      border-radius: 9999px;
-      box-shadow: 0 4px 14px rgba(14, 165, 233, 0.5);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      opacity: 0;
-      transition: opacity 0.2s ease, transform 0.2s ease;
-      pointer-events: none;
-      z-index: 30;
-    }
-
-    .card-stage.is-popped-mode .popped-mode-badge {
-      opacity: 1;
-      transform: translateX(-50%) scale(1);
+      font-weight: 900;
     }
 
 </style>
@@ -8619,34 +8655,17 @@
 
         <!-- 3D Card Stage with Full Viewport Visibility -->
         <main class="card-stage" id="card-stage-container" style="position: relative;">
-          <!-- Popped Mode Floating Badge -->
-          <div class="popped-mode-badge" id="popped-mode-badge">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 8L22 12L18 16"/>
-              <path d="M6 8L2 12L6 16"/>
-            </svg>
-            <span>Free Scrub Mode</span>
-          </div>
-
-          <!-- Left / Previous Overlay Peek Card -->
-          <div class="card-overlay-peek card-overlay-peek-prev" id="overlay-peek-prev" aria-hidden="true">
-            <div class="peek-inner">
-              <div class="peek-card-num" id="peek-prev-num">#802</div>
-              <div class="peek-visual-box"><img id="peek-prev-img" class="peek-img" alt="" src=""/></div>
-              <div class="peek-word" id="peek-prev-word">PREV</div>
+          <!-- Modern Mini-Flashcard Reel Overlay (Long-Press Activated) -->
+          <div class="deck-reel-overlay" id="deck-reel-overlay" aria-hidden="true" style="display: none;">
+            <div class="deck-reel-backdrop" id="deck-reel-backdrop"></div>
+            <div class="deck-reel-content">
+              <button type="button" class="deck-reel-close-btn" id="deck-reel-close-btn" aria-label="Cancel">✕</button>
+              <div class="deck-reel-scroller" id="deck-reel-scroller">
+                <div class="deck-reel-track" id="deck-reel-track"></div>
+              </div>
             </div>
           </div>
 
-          <!-- Right / Next Overlay Peek Card -->
-          <div class="card-overlay-peek card-overlay-peek-next" id="overlay-peek-next" aria-hidden="true">
-            <div class="peek-inner">
-              <div class="peek-card-num" id="peek-next-num">#804</div>
-              <div class="peek-visual-box"><img id="peek-next-img" class="peek-img" alt="" src=""/></div>
-              <div class="peek-word" id="peek-next-word">NEXT</div>
-            </div>
-          </div>
-
-          <div class="swipe-speed-badge" id="swipe-speed-badge" style="display: none !important;" aria-hidden="true"></div>
           <div
             class="flashcard-wrapper"
             id="flashcard-wrapper"
@@ -9026,7 +9045,7 @@
           </div>
         </div>
 
-        <!-- ================= TAB 3: GESTURE PHYSICS & DOUBLE TAP ================= -->
+        <!-- ================= TAB 3: GESTURE PHYSICS & CONTROLS ================= -->
         <div class="settings-tab-panel" id="tab-gestures">
           <div class="duo-settings-section-title">Gesture Physics</div>
           <div class="settings-card">
@@ -9048,10 +9067,10 @@
                 <strong style="color: #1cb0f6; display: block; margin-bottom: 2px;">Swipe Right</strong> <span style="color: #94a3b8;">Previous card</span>
               </div>
               <div style="padding: 12px 14px; background: #202f36; border: 2px solid #37464f; border-radius: 14px;">
-                <strong style="color: #1cb0f6; display: block; margin-bottom: 2px;">Fast Scroll</strong> <span style="color: #94a3b8;">Fluid responsive flow</span>
+                <strong style="color: #1cb0f6; display: block; margin-bottom: 2px;">Double Tap</strong> <span style="color: #94a3b8;">Flip front & back</span>
               </div>
               <div style="padding: 12px 14px; background: #202f36; border: 2px solid #37464f; border-radius: 14px;">
-                <strong style="color: #58cc02; display: block; margin-bottom: 2px;">Clean View</strong> <span style="color: #94a3b8;">No indicator labels</span>
+                <strong style="color: #58cc02; display: block; margin-bottom: 2px;">Long Press</strong> <span style="color: #94a3b8;">Free mini-deck reel</span>
               </div>
             </div>
           </div>
@@ -9060,16 +9079,16 @@
           <div class="settings-card">
             <div class="settings-card-header">
               <div class="settings-card-left">
-                <div class="settings-card-icon" style="background: #ff9600; box-shadow: 0 3px 0 #d97d00; color: #ffffff; border: none;">👆👆</div>
+                <div class="settings-card-icon" style="background: #1cb0f6; box-shadow: 0 3px 0 #1899d6; color: #ffffff; border: none;">👆👆</div>
                 <div>
                   <h3 class="settings-card-title">Double-Tap to Flip</h3>
-                  <p class="settings-card-sub">Double-tap anywhere on the card to reveal reverse translations & shortcuts</p>
+                  <p class="settings-card-sub">Double-tap to show back, and double-tap again to show front</p>
                 </div>
               </div>
-              <span class="settings-val-badge" style="color: #1cb0f6;">Always On</span>
+              <span class="settings-val-badge" style="color: #1cb0f6;">Double Tap</span>
             </div>
             <p style="margin: 0; font-size: 0.8rem; color: #94a3b8; line-height: 1.5;">
-              Single tap keeps speech icons, shortcuts, and action buttons immediately interactive. A quick double-tap flips the card with a micro-haptic tick.
+              Double-tap anywhere on the flashcard to flip once to show the back, and double-tap again to show the front. Single tap keeps audio icons and tool buttons immediately responsive without flipping.
             </p>
           </div>
         </div>
@@ -11898,7 +11917,7 @@
       }
 
       // Render Card at Current Index with verified high-definition photo and selective animation
-      function renderCurrentCard() {
+      function renderCurrentCard(skipReelSync = false) {
         const currentCardObj = cards[currentIndex];
         if (currentCardObj) {
           setLastCardNumber(currentCardObj.num);
@@ -12017,56 +12036,22 @@
         btnNext.disabled = currentIndex === cards.length - 1;
 
         // Jump slider sync
+        // Jump slider sync
         if (typeof jumpSlider !== "undefined" && jumpSlider) { jumpSlider.value = card.num; }
         if (typeof sliderValIndicator !== "undefined" && sliderValIndicator) { sliderValIndicator.textContent = `#${card.num} — ${card.word}`; }
 
-        // Sync Pop-up Overlay Peek Cards
-        updatePeekCards();
-      }
-
-      // Sync adjacent cards for the Pop-up Overlay Peek carousel
-      function updatePeekCards() {
-        const peekPrev = document.getElementById("overlay-peek-prev");
-        const peekNext = document.getElementById("overlay-peek-next");
-        if (!peekPrev || !peekNext || typeof cards === "undefined" || !cards.length) return;
-
-        const prevCard = cards[currentIndex - 1];
-        const nextCard = cards[currentIndex + 1];
-
-        if (prevCard) {
-          peekPrev.style.display = "flex";
-          const pNum = document.getElementById("peek-prev-num");
-          const pWord = document.getElementById("peek-prev-word");
-          const pImg = document.getElementById("peek-prev-img");
-          if (pNum) pNum.textContent = `#${prevCard.num}`;
-          if (pWord) pWord.textContent = prevCard.word;
-          if (pImg) {
-            const pLookup = prevCard.originalNum || prevCard.num;
-            pImg.src = (typeof cardAccurateImages !== "undefined" && cardAccurateImages[pLookup]) 
-              ? cardAccurateImages[pLookup] 
-              : `/api/image?num=${pLookup}`;
+        // Sync Mini-Card Reel if open
+        if (typeof isDeckReelOpen !== "undefined" && isDeckReelOpen && !skipReelSync) {
+          const track = document.getElementById("deck-reel-track");
+          if (track) {
+            const miniCards = track.querySelectorAll(".reel-mini-card");
+            miniCards.forEach((mc) => {
+              mc.classList.toggle("active", parseInt(mc.dataset.index, 10) === currentIndex);
+            });
           }
-        } else {
-          peekPrev.style.display = "none";
-        }
-
-        if (nextCard) {
-          peekNext.style.display = "flex";
-          const nNum = document.getElementById("peek-next-num");
-          const nWord = document.getElementById("peek-next-word");
-          const nImg = document.getElementById("peek-next-img");
-          if (nNum) nNum.textContent = `#${nextCard.num}`;
-          if (nWord) nWord.textContent = nextCard.word;
-          if (nImg) {
-            const nLookup = nextCard.originalNum || nextCard.num;
-            nImg.src = (typeof cardAccurateImages !== "undefined" && cardAccurateImages[nLookup]) 
-              ? cardAccurateImages[nLookup] 
-              : `/api/image?num=${nLookup}`;
-          }
-        } else {
-          peekNext.style.display = "none";
         }
       }
+
 
       // Flip card mechanic
       function flipCard() {
@@ -12241,47 +12226,184 @@
 
       // Touch handling on Card
       // ==========================================================
-      // ENHANCED KINETIC FORCE-SWIPE & BULLETPROOF DOUBLE-TAP
+      // PRODUCTION GESTURE, TOUCH & MINI-CARD REEL OVERLAY SYSTEM
       // ==========================================================
-      touchStartX = 0;
-      touchStartY = 0;
-      let touchStartTime = 0;
-      lastTapTime = 0;
-      lastTapX = 0;
-      lastTapY = 0;
-      let lastClickTime = 0;
-      isHorizontalSwipe = false;
-
       function isCardInteractiveBtn(target) {
         if (!target) return false;
         return Boolean(
-          target.closest("button, .speak-btn, #front-speak-btn, #front-learned-btn, #front-delete-btn, .front-learned-btn, .front-delete-btn, .btn-audio-test, input, textarea, a, .duo-btn-3d, .reset-deck-btn, #btn-reset-deck")
+          target.closest("button, .speak-btn, #front-speak-btn, #front-learned-btn, #front-delete-btn, .front-learned-btn, .front-delete-btn, .btn-audio-test, input, textarea, a, .duo-btn-3d, .reset-deck-btn, #btn-reset-deck, #card-tamil-tile, #card-es-tile, #card-hi-tile, .trans-tile, .tamil-hero-card")
         );
       }
 
-      // Visual Speed Feedback Badge - Disabled per user request (no top indication labels)
-      function showSpeedIndicator(text) {
-        // No-op: user requested no top indication label when moving
-        return;
+      // =========================================================================
+      // INTERACTIVE MINI-FLASHCARD REEL OVERLAY (LONG-PRESS ACTIVATED)
+      // =========================================================================
+      let isDeckReelOpen = false;
+      let originalIndexBeforeReel = 0;
+      let reelScrollRaf = null;
+      let isReelDragging = false;
+      let reelStartX = 0;
+      let reelScrollLeft = 0;
+      const deckReelOverlay = document.getElementById("deck-reel-overlay");
+      const deckReelScroller = document.getElementById("deck-reel-scroller");
+      const deckReelTrack = document.getElementById("deck-reel-track");
+      const deckReelBackdrop = document.getElementById("deck-reel-backdrop");
+      const deckReelCloseBtn = document.getElementById("deck-reel-close-btn");
+
+      function openDeckReel() {
+        if (isDeckReelOpen || isCardAnimating || !cards || !cards.length) return;
+        isDeckReelOpen = true;
+        originalIndexBeforeReel = currentIndex;
+
+        if (!deckReelTrack || !deckReelOverlay || !deckReelScroller) return;
+
+        // Build mini cards line-by-line horizontally from left to right
+        deckReelTrack.innerHTML = "";
+        const fragment = document.createDocumentFragment();
+
+        cards.forEach((c, idx) => {
+          const cardDiv = document.createElement("div");
+          cardDiv.className = `reel-mini-card ${idx === currentIndex ? "active" : ""}`;
+          cardDiv.dataset.index = idx;
+
+          const lookupId = c.originalNum || c.num;
+          const imgUrl = (typeof cardAccurateImages !== "undefined" && cardAccurateImages[lookupId])
+            ? cardAccurateImages[lookupId]
+            : `/api/image?num=${lookupId}`;
+
+          cardDiv.innerHTML = `
+            <div class="mini-card-top-tag">#${c.num}</div>
+            <div class="mini-card-thumb-box">
+              <img class="mini-card-thumb" src="${imgUrl}" alt="${c.word}" loading="lazy" />
+            </div>
+            <div class="mini-card-word-title">${c.word}</div>
+          `;
+
+          // Tap to select this card and exit
+          cardDiv.addEventListener("click", (e) => {
+            e.stopPropagation();
+            closeDeckReel(idx);
+          });
+
+          fragment.appendChild(cardDiv);
+        });
+
+        deckReelTrack.appendChild(fragment);
+
+        deckReelOverlay.style.display = "flex";
+        void deckReelOverlay.offsetWidth;
+        deckReelOverlay.classList.add("active");
+
+        // Center the active card in the scroller
+        requestAnimationFrame(() => {
+          scrollToReelIndex(currentIndex, false);
+        });
+
+        if (typeof playHapticTick === "function") playHapticTick(580, "triangle", 0.05);
+        if (navigator.vibrate) try { navigator.vibrate(25); } catch(e){}
       }
 
-      // Visual Ripple Cue for Double Tap
-      function showDoubleTapCue(clientX, clientY) {
-        const stage = document.querySelector(".card-stage");
-        if (!stage) return;
-        const ripple = document.createElement("div");
-        ripple.className = "double-tap-ripple";
-        const rect = stage.getBoundingClientRect();
-        const posX = clientX ? (clientX - rect.left) : (rect.width / 2);
-        const posY = clientY ? (clientY - rect.top) : (rect.height / 2);
-        ripple.style.left = posX + "px";
-        ripple.style.top = posY + "px";
-        stage.appendChild(ripple);
-        setTimeout(() => ripple.remove(), 450);
+      function scrollToReelIndex(targetIdx, smooth = true) {
+        if (!deckReelTrack || !deckReelScroller) return;
+        const targetEl = deckReelTrack.querySelector(`.reel-mini-card[data-index="${targetIdx}"]`);
+        if (targetEl) {
+          const scrollerWidth = deckReelScroller.clientWidth;
+          const cardOffsetLeft = targetEl.offsetLeft;
+          const cardWidth = targetEl.offsetWidth;
+          const scrollPos = cardOffsetLeft - (scrollerWidth / 2) + (cardWidth / 2);
+          deckReelScroller.scrollTo({
+            left: Math.max(0, scrollPos),
+            behavior: smooth ? "smooth" : "auto"
+          });
+        }
+      }
+
+      function closeDeckReel(selectedIdx) {
+        if (!isDeckReelOpen) return;
+        isDeckReelOpen = false;
+
+        if (selectedIdx !== null && selectedIdx !== undefined && !isNaN(selectedIdx)) {
+          currentIndex = Math.max(0, Math.min(cards.length - 1, selectedIdx));
+          renderCurrentCard();
+          if (typeof playHapticTick === "function") playHapticTick(520, "sine", 0.04);
+        } else {
+          // Revert back to original index
+          currentIndex = originalIndexBeforeReel;
+          renderCurrentCard();
+          if (typeof playHapticTick === "function") playHapticTick(380, "sine", 0.03);
+        }
+
+        if (deckReelOverlay) {
+          deckReelOverlay.classList.remove("active");
+          setTimeout(() => {
+            if (!isDeckReelOpen) {
+              deckReelOverlay.style.display = "none";
+              if (deckReelTrack) deckReelTrack.innerHTML = "";
+            }
+          }, 220);
+        }
+      }
+
+      // Tap backdrop or close button cancels and reverts
+      if (deckReelBackdrop) {
+        deckReelBackdrop.addEventListener("click", () => closeDeckReel(null));
+      }
+      if (deckReelCloseBtn) {
+        deckReelCloseBtn.addEventListener("click", () => closeDeckReel(null));
+      }
+
+      // Free scroll handler: tracks center card in real time and updates background card
+      if (deckReelScroller) {
+        deckReelScroller.addEventListener("scroll", () => {
+          if (!isDeckReelOpen) return;
+          if (reelScrollRaf) cancelAnimationFrame(reelScrollRaf);
+          reelScrollRaf = requestAnimationFrame(() => {
+            const scrollerCenter = deckReelScroller.scrollLeft + (deckReelScroller.clientWidth / 2);
+            const miniCards = deckReelTrack.querySelectorAll(".reel-mini-card");
+            let closestIdx = -1;
+            let closestDist = Infinity;
+
+            miniCards.forEach((mc) => {
+              const cardCenter = mc.offsetLeft + (mc.offsetWidth / 2);
+              const dist = Math.abs(cardCenter - scrollerCenter);
+              if (dist < closestDist) {
+                closestDist = dist;
+                closestIdx = parseInt(mc.dataset.index, 10);
+              }
+            });
+
+            if (closestIdx !== -1 && closestIdx !== currentIndex) {
+              miniCards.forEach(mc => {
+                mc.classList.toggle("active", parseInt(mc.dataset.index, 10) === closestIdx);
+              });
+              currentIndex = closestIdx;
+              // Dynamically update the background card as requested!
+              renderCurrentCard(true);
+              if (typeof playHapticTick === "function") playHapticTick(440, "sine", 0.015);
+            }
+          });
+        }, { passive: true });
+
+        // Enable mouse click & drag for desktop users on the reel scroller
+        deckReelScroller.addEventListener("mousedown", (e) => {
+          isReelDragging = true;
+          reelStartX = e.pageX - deckReelScroller.offsetLeft;
+          reelScrollLeft = deckReelScroller.scrollLeft;
+        });
+        window.addEventListener("mousemove", (e) => {
+          if (!isReelDragging || !isDeckReelOpen) return;
+          e.preventDefault();
+          const x = e.pageX - deckReelScroller.offsetLeft;
+          const walk = (x - reelStartX) * 1.5;
+          deckReelScroller.scrollLeft = reelScrollLeft - walk;
+        });
+        window.addEventListener("mouseup", () => {
+          isReelDragging = false;
+        });
       }
 
       // =========================================================================
-      // NATURAL SMOOTH SWIPE & SCROLL (1 CARD SEQUENTIAL, NO +2/+3, NO LABELS)
+      // NATURAL SMOOTH SWIPE & SCROLL (1 CARD SEQUENTIAL, NO LABELS)
       // =========================================================================
       isSwiping = false;
       isDragging = false;
@@ -12289,9 +12411,6 @@
       touchStartY = 0;
       touchStartTime = 0;
       velocitySamples = [];
-      lastTapTime = 0;
-      lastTapX = 0;
-      lastTapY = 0;
       suppressSyntheticClickUntil = 0;
       isCardAnimating = false;
 
@@ -12303,29 +12422,20 @@
         const atBoundary = (goingNext && currentIndex >= cards.length - 1) || (!goingNext && currentIndex <= 0);
 
         if (atBoundary) {
-          // Elastic spring snapback when hitting deck ends
           cardWrapper.style.transition = "transform 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
           cardWrapper.style.transform = isFlipped ? "rotateY(180deg)" : "rotateY(0deg)";
           if (typeof playHapticTick === "function") playHapticTick(280, "sine", 0.03);
           return;
         }
 
-        // STRICTLY 1 CARD PROGRESSION: Never jumps +2 or +3 cards!
-        // Moves card by card sequentially like a natural scroll carousel.
-        const steps = 1;
-
-        // Proportional animation speed:
-        // Faster finger swipe = faster, snappier throw for instant rapid scrolling!
         const durationMs = Math.max(75, Math.min(160, Math.round(140 / Math.max(0.65, speed))));
         isCardAnimating = true;
 
-        // 1. Kinetic throw off-screen in swipe direction
         const throwX = (goingNext ? -1 : 1) * (window.innerWidth + 80);
         const throwRot = (goingNext ? -1 : 1) * 8;
         cardWrapper.style.transition = `transform ${durationMs}ms cubic-bezier(0.2, 0.9, 0.3, 1)`;
         cardWrapper.style.transform = `translateX(${throwX}px) rotateZ(${throwRot}deg) ${isFlipped ? "rotateY(180deg)" : ""}`;
 
-        // 2. Advance index by 1 and slide in target card smoothly from opposite side
         setTimeout(() => {
           if (goingNext) {
             currentIndex++;
@@ -12336,16 +12446,13 @@
           cardWrapper.classList.remove("flipped");
           renderCurrentCard();
 
-          // Position incoming card on opposite side
           const enterX = (goingNext ? 1 : -1) * 45;
           const enterRot = (goingNext ? 1 : -1) * 2;
           cardWrapper.style.transition = "none";
           cardWrapper.style.transform = `translateX(${enterX}px) rotateZ(${enterRot}deg)`;
 
-          // Force browser reflow
           void cardWrapper.offsetHeight;
 
-          // Animate smoothly to center
           const inDuration = Math.max(80, Math.round(durationMs * 0.85));
           cardWrapper.style.transition = `transform ${inDuration}ms cubic-bezier(0.16, 1, 0.3, 1)`;
           cardWrapper.style.transform = "rotateY(0deg) translateX(0) rotateZ(0)";
@@ -12357,55 +12464,22 @@
           if (typeof playHapticTick === "function") {
             playHapticTick(480, "sine", 0.03);
           }
-          // Zero top labels or indication popups shown!
         }, Math.round(durationMs * 0.65));
       }
 
-      // --- ULTRA-RESPONSIVE PHYSICAL TOUCH & LONG-TOUCH POP-UP OVERLAY SYSTEM ---
+      // --- ULTRA-RESPONSIVE PHYSICAL TOUCH & DOUBLE-TAP FLIP SYSTEM ---
       let touchPressStartTime = 0;
+      let longPressTimer = null;
+      let touchHasMoved = false;
       let lastTapTimestamp = 0;
       let lastTapCoords = { x: 0, y: 0 };
-      let isPoppedMode = false;
-      let longPressTimer = null;
-      const cardStageEl = document.getElementById("card-stage-container") || document.querySelector(".card-stage");
-
-      function enterPoppedMode() {
-        if (isPoppedMode || isCardAnimating) return;
-        isPoppedMode = true;
-        if (cardStageEl) cardStageEl.classList.add("is-popped-mode");
-        if (typeof updatePeekCards === "function") updatePeekCards();
-        if (typeof playHapticTick === "function") playHapticTick(580, "triangle", 0.06);
-        if (navigator.vibrate) try { navigator.vibrate(28); } catch(e){}
-      }
-
-      function exitPoppedMode() {
-        if (!isPoppedMode) return;
-        isPoppedMode = false;
-        if (cardStageEl) cardStageEl.classList.remove("is-popped-mode");
-        
-        // Reset transforms
-        const peekPrev = document.getElementById("overlay-peek-prev");
-        const peekNext = document.getElementById("overlay-peek-next");
-        if (peekPrev) {
-          peekPrev.style.transition = "transform 0.22s ease, opacity 0.22s ease";
-          peekPrev.style.transform = "";
-        }
-        if (peekNext) {
-          peekNext.style.transition = "transform 0.22s ease, opacity 0.22s ease";
-          peekNext.style.transform = "";
-        }
-
-        cardWrapper.style.transition = "transform 0.24s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
-        cardWrapper.style.transform = isFlipped ? "rotateY(180deg)" : "rotateY(0deg)";
-        if (typeof playHapticTick === "function") playHapticTick(440, "sine", 0.03);
-      }
 
       cardWrapper.addEventListener("touchstart", (e) => {
+        if (isDeckReelOpen) return;
         if (isCardInteractiveBtn(e.target)) return;
         if (typeof cardAudio !== "undefined" && cardAudio.unlock) cardAudio.unlock();
         clearTimeout(longPressTimer);
 
-        // If card was settling from a previous swipe, settle immediately so rapid interaction never drops touches
         if (isCardAnimating) {
           cardWrapper.style.transition = "none";
           cardWrapper.style.transform = isFlipped ? "rotateY(180deg)" : "rotateY(0deg)";
@@ -12419,19 +12493,21 @@
         touchPressStartTime = Date.now();
         isSwiping = false;
         isDragging = true;
+        touchHasMoved = false;
         velocitySamples = [{ x: touch.clientX, y: touch.clientY, time: performance.now() }];
         cardWrapper.style.transition = "none";
 
-        // Long press detection: 240ms stationary hold elevates into pop-up overlay mode
+        // Long Press: 380ms hold activates the horizontal mini-card deck reel overlay!
         longPressTimer = setTimeout(() => {
-          if (isDragging && !isSwiping) {
-            enterPoppedMode();
+          if (isDragging && !isSwiping && !touchHasMoved) {
+            isDragging = false;
+            openDeckReel();
           }
-        }, 240);
+        }, 380);
       }, { passive: true });
 
       cardWrapper.addEventListener("touchmove", (e) => {
-        if (!isDragging || isCardInteractiveBtn(e.target)) return;
+        if (!isDragging || isDeckReelOpen || isCardInteractiveBtn(e.target)) return;
         const touch = e.touches[0];
         const diffX = touch.clientX - touchStartX;
         const diffY = touch.clientY - touchStartY;
@@ -12441,58 +12517,20 @@
         velocitySamples.push({ x: touch.clientX, y: touch.clientY, time: performance.now() });
         if (velocitySamples.length > 6) velocitySamples.shift();
 
-        // If finger moved > 8px before timer fired, cancel long press
         if (absX > 8 || absY > 8) {
+          touchHasMoved = true;
           clearTimeout(longPressTimer);
         }
 
-        // --- POPPED OVERLAY CAROUSEL FREE SCRUBBING ---
-        if (isPoppedMode) {
-          const peekPrev = document.getElementById("overlay-peek-prev");
-          const peekNext = document.getElementById("overlay-peek-next");
-          
-          cardWrapper.style.transition = "none";
-          cardWrapper.style.transform = `scale(0.85) translateY(-8px) translateX(${diffX * 0.95}px) rotateZ(${(diffX * 0.025).toFixed(2)}deg)`;
-          if (peekPrev) {
-            peekPrev.style.transition = "none";
-            peekPrev.style.transform = `translateY(-50%) scale(0.75) translateX(${diffX * 0.7}px)`;
-          }
-          if (peekNext) {
-            peekNext.style.transition = "none";
-            peekNext.style.transform = `translateY(-50%) scale(0.75) translateX(${diffX * 0.7}px)`;
-          }
-
-          // Crossing 95px threshold immediately shifts card with crisp audio-haptic feedback
-          const scrubThreshold = 95;
-          if (diffX > scrubThreshold && currentIndex > 0) {
-            currentIndex--;
-            touchStartX += scrubThreshold;
-            renderCurrentCard();
-            if (typeof updatePeekCards === "function") updatePeekCards();
-            if (typeof playHapticTick === "function") playHapticTick(480, "sine", 0.03);
-          } else if (diffX < -scrubThreshold && currentIndex < cards.length - 1) {
-            currentIndex++;
-            touchStartX -= scrubThreshold;
-            renderCurrentCard();
-            if (typeof updatePeekCards === "function") updatePeekCards();
-            if (typeof playHapticTick === "function") playHapticTick(480, "sine", 0.03);
-          }
-          return;
-        }
-
-        // --- STANDARD 1:1 REAL-TIME DIRECT TOUCH TRACKING ---
-        // Moves slowly if finger moves slowly; moves fast if swiped fast!
+        // 1:1 real-time drag tracking
         if (absX > absY * 1.02 && absX > 6) {
           isSwiping = true;
           const isAtStart = currentIndex <= 0;
           const isAtEnd = currentIndex >= cards.length - 1;
           let effectiveX = diffX;
           if ((isAtStart && diffX > 0) || (isAtEnd && diffX < 0)) {
-            // Elastic boundary resistance when at deck ends
             effectiveX = diffX * 0.25;
           }
-
-          // Real-time physical 1:1 displacement with organic tilt angle
           const rotateAngle = (effectiveX * 0.035).toFixed(2);
           const flipTransform = isFlipped ? "rotateY(180deg)" : "";
           cardWrapper.style.transform = `translateX(${effectiveX}px) rotateZ(${rotateAngle}deg) ${flipTransform}`;
@@ -12501,15 +12539,16 @@
 
       cardWrapper.addEventListener("touchend", (e) => {
         clearTimeout(longPressTimer);
+        if (isDeckReelOpen) return;
         if (!isDragging) return;
         isDragging = false;
+
         const touch = e.changedTouches[0];
         const diffX = touch.clientX - touchStartX;
         const diffY = touch.clientY - touchStartY;
         const dist = Math.hypot(diffX, diffY);
         const touchDuration = Date.now() - touchPressStartTime;
 
-        // Calculate true physical touch swipe velocity (px/ms)
         let vX = 0;
         if (velocitySamples.length >= 2) {
           const first = velocitySamples[0];
@@ -12521,60 +12560,45 @@
           vX = diffX / dt;
         }
 
-        // If in popped mode, apply kinetic release momentum
-        if (isPoppedMode) {
-          if (Math.abs(vX) > 0.4) {
-            const extraSteps = Math.min(2, Math.max(1, Math.round(Math.abs(vX) * 1.2)));
-            if (vX < 0 && currentIndex < cards.length - 1) {
-              currentIndex = Math.min(cards.length - 1, currentIndex + extraSteps);
-              renderCurrentCard();
-            } else if (vX > 0 && currentIndex > 0) {
-              currentIndex = Math.max(0, currentIndex - extraSteps);
-              renderCurrentCard();
-            }
-          }
-          exitPoppedMode();
-          return;
-        }
-
-        // Standard responsive swipe: distance > 22px or velocity > 0.22 px/ms triggers smooth kinetic progression
         if (isSwiping && (Math.abs(diffX) > 22 || Math.abs(vX) > 0.22)) {
           executeKineticSwipe(diffX, vX);
-        } else if (dist < 45 && touchDuration < 320) {
-          // Stationary clean tap: 100% RELIABLE DOUBLE TAP FLIP
+        } else if (dist < 18 && touchDuration < 380) {
+          // Stationary tap: DOUBLE TAP FLIPS (1st double tap flips to back, again double tap flips to front)
           if (!isCardInteractiveBtn(e.target)) {
             const now = Date.now();
+            const timeSinceLastTap = now - lastTapTimestamp;
             const tapDist = Math.hypot(touch.clientX - lastTapCoords.x, touch.clientY - lastTapCoords.y);
 
-            if (now - lastTapTimestamp < 420 && tapDist < 80) {
-              // Confirmed Double Tap!
+            if (timeSinceLastTap < 420 && tapDist < 75) {
+              // Confirmed Double Tap! Flip back & forth
               lastTapTimestamp = 0;
-              suppressSyntheticClickUntil = Date.now() + 650;
+              suppressSyntheticClickUntil = Date.now() + 500;
               flipCard();
-              showDoubleTapCue(touch.clientX, touch.clientY);
-              if (typeof playHapticTick === "function") playHapticTick(650, "triangle", 0.05);
+              if (typeof playHapticTick === "function") playHapticTick(620, "triangle", 0.04);
             } else {
               lastTapTimestamp = now;
               lastTapCoords = { x: touch.clientX, y: touch.clientY };
             }
           }
         } else {
-          // Smooth spring return to center if not enough kinetic swipe
           cardWrapper.style.transition = "transform 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
           cardWrapper.style.transform = isFlipped ? "rotateY(180deg)" : "rotateY(0deg)";
         }
         isSwiping = false;
       });
 
-      // --- DESKTOP MOUSE DRAG & DOUBLE CLICK WITH POP-UP OVERLAY SUPPORT ---
+      // --- DESKTOP MOUSE DRAG & DOUBLE-CLICK FLIP ---
       let isMouseDown = false;
       let mouseStartX = 0;
       let mouseStartY = 0;
       let mouseStartTime = 0;
       let mouseSamples = [];
+      let mouseHasMoved = false;
+      let lastMouseClickTime = 0;
+      let lastMouseCoords = { x: 0, y: 0 };
 
       cardWrapper.addEventListener("mousedown", (e) => {
-        if (isCardInteractiveBtn(e.target) || e.button !== 0) return;
+        if (isDeckReelOpen || isCardInteractiveBtn(e.target) || e.button !== 0) return;
         clearTimeout(longPressTimer);
         if (isCardAnimating) {
           cardWrapper.style.transition = "none";
@@ -12582,22 +12606,24 @@
           isCardAnimating = false;
         }
         isMouseDown = true;
+        mouseHasMoved = false;
         mouseStartX = e.clientX;
         mouseStartY = e.clientY;
         mouseStartTime = performance.now();
         mouseSamples = [{ x: e.clientX, y: e.clientY, time: performance.now() }];
         cardWrapper.style.transition = "none";
 
-        // Long press for desktop mouse hold
+        // Desktop mouse hold for 400ms also opens the deck reel
         longPressTimer = setTimeout(() => {
-          if (isMouseDown) {
-            enterPoppedMode();
+          if (isMouseDown && !mouseHasMoved) {
+            isMouseDown = false;
+            openDeckReel();
           }
-        }, 260);
+        }, 400);
       });
 
       window.addEventListener("mousemove", (e) => {
-        if (!isMouseDown || isCardAnimating) return;
+        if (!isMouseDown || isDeckReelOpen || isCardAnimating) return;
         const diffX = e.clientX - mouseStartX;
         const diffY = e.clientY - mouseStartY;
 
@@ -12605,31 +12631,8 @@
         if (mouseSamples.length > 6) mouseSamples.shift();
 
         if (Math.abs(diffX) > 8 || Math.abs(diffY) > 8) {
+          mouseHasMoved = true;
           clearTimeout(longPressTimer);
-        }
-
-        if (isPoppedMode) {
-          const peekPrev = document.getElementById("overlay-peek-prev");
-          const peekNext = document.getElementById("overlay-peek-next");
-          cardWrapper.style.transform = `scale(0.85) translateY(-8px) translateX(${diffX * 0.95}px) rotateZ(${(diffX * 0.025).toFixed(2)}deg)`;
-          if (peekPrev) peekPrev.style.transform = `translateY(-50%) scale(0.75) translateX(${diffX * 0.7}px)`;
-          if (peekNext) peekNext.style.transform = `translateY(-50%) scale(0.75) translateX(${diffX * 0.7}px)`;
-
-          const scrubThreshold = 95;
-          if (diffX > scrubThreshold && currentIndex > 0) {
-            currentIndex--;
-            mouseStartX += scrubThreshold;
-            renderCurrentCard();
-            if (typeof updatePeekCards === "function") updatePeekCards();
-            if (typeof playHapticTick === "function") playHapticTick(480, "sine", 0.03);
-          } else if (diffX < -scrubThreshold && currentIndex < cards.length - 1) {
-            currentIndex++;
-            mouseStartX -= scrubThreshold;
-            renderCurrentCard();
-            if (typeof updatePeekCards === "function") updatePeekCards();
-            if (typeof playHapticTick === "function") playHapticTick(480, "sine", 0.03);
-          }
-          return;
         }
 
         if (Math.abs(diffX) > 5) {
@@ -12647,7 +12650,7 @@
 
       window.addEventListener("mouseup", (e) => {
         clearTimeout(longPressTimer);
-        if (!isMouseDown) return;
+        if (!isMouseDown || isDeckReelOpen) return;
         isMouseDown = false;
         const diffX = e.clientX - mouseStartX;
         const diffY = e.clientY - mouseStartY;
@@ -12664,29 +12667,33 @@
           vX = diffX / dt;
         }
 
-        if (isPoppedMode) {
-          if (Math.abs(vX) > 0.4) {
-            const extraSteps = Math.min(2, Math.max(1, Math.round(Math.abs(vX) * 1.2)));
-            if (vX < 0 && currentIndex < cards.length - 1) {
-              currentIndex = Math.min(cards.length - 1, currentIndex + extraSteps);
-              renderCurrentCard();
-            } else if (vX > 0 && currentIndex > 0) {
-              currentIndex = Math.max(0, currentIndex - extraSteps);
-              renderCurrentCard();
-            }
-          }
-          exitPoppedMode();
-          return;
-        }
-
         if (Math.abs(diffX) > 22 || Math.abs(vX) > 0.22) {
           executeKineticSwipe(diffX, vX);
-        } else if (dist < 10) {
-          // Stationary click: let dblclick handle flipping
+        } else if (dist < 8) {
+          // Double click check on desktop mouseup
+          if (!isCardInteractiveBtn(e.target)) {
+            const now = Date.now();
+            const timeSinceLast = now - lastMouseClickTime;
+            const clickDist = Math.hypot(e.clientX - lastMouseCoords.x, e.clientY - lastMouseCoords.y);
+            if (timeSinceLast < 400 && clickDist < 20) {
+              lastMouseClickTime = 0;
+              suppressSyntheticClickUntil = Date.now() + 450;
+              flipCard();
+            } else {
+              lastMouseClickTime = now;
+              lastMouseCoords = { x: e.clientX, y: e.clientY };
+            }
+          }
         } else {
           cardWrapper.style.transition = "transform 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
           cardWrapper.style.transform = isFlipped ? "rotateY(180deg)" : "rotateY(0deg)";
         }
+      });
+
+      // Desktop native double-click
+      cardWrapper.addEventListener("dblclick", (e) => {
+        if (isCardInteractiveBtn(e.target)) return;
+        flipCard();
       });
 
       // Natural horizontal wheel & trackpad scroll support
@@ -12695,6 +12702,7 @@
       const cardStageContainer = document.querySelector(".card-stage");
       if (cardStageContainer) {
         cardStageContainer.addEventListener("wheel", (e) => {
+          if (isDeckReelOpen) return;
           if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 15) {
             e.preventDefault();
             cardWheelAccumX += e.deltaX;
@@ -12710,13 +12718,6 @@
         }, { passive: false });
       }
 
-      // Desktop native double-click
-      cardWrapper.addEventListener("dblclick", (e) => {
-        if (isCardInteractiveBtn(e.target)) return;
-        flipCard();
-        showDoubleTapCue(e.clientX, e.clientY);
-      });
-
       // Suppress synthetic click interference from mobile touch
       cardWrapper.addEventListener("click", (e) => {
         if (Date.now() < suppressSyntheticClickUntil) {
@@ -12724,7 +12725,6 @@
           e.stopPropagation();
           return;
         }
-        // Single click does NOT flip card! Only double-tap or Flip button flips!
       });
 
       // =========================================================================
@@ -13301,11 +13301,13 @@
       function switchScreen(screenId) {
         if (screenId === "screen-flashcard") {
           document.body.classList.add("in-flashcard-mode");
+          if (document.documentElement) document.documentElement.classList.add("in-flashcard-mode");
           window.scrollTo(0, 0);
           if (document.documentElement) document.documentElement.scrollTop = 0;
           if (document.body) document.body.scrollTop = 0;
         } else {
           document.body.classList.remove("in-flashcard-mode");
+          if (document.documentElement) document.documentElement.classList.remove("in-flashcard-mode");
         }
         document.querySelectorAll(".app-screen").forEach((s) => s.classList.remove("active-screen"));
         const target = document.getElementById(screenId);
