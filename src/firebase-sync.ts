@@ -5,6 +5,9 @@ import {
   signInWithPopup,
   signInWithRedirect,
   getRedirectResult,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signInAnonymously,
   signOut,
   onAuthStateChanged,
   type User
@@ -155,6 +158,45 @@ export async function loginWithGoogle(): Promise<User> {
   }
 }
 
+// 100% Mobile-Safe Email / PIN Authentication (Never blocked by popup blockers or iframe restrictions)
+export async function loginWithEmailOrPin(emailOrUser: string, passOrPin: string): Promise<User> {
+  const cleanInput = (emailOrUser || '').trim().toLowerCase();
+  const validEmail = cleanInput.includes('@')
+    ? cleanInput
+    : `${cleanInput.replace(/[^a-z0-9]/g, '') || 'learner'}@stellarsync.app`;
+  
+  const rawPass = (passOrPin || '').trim();
+  const cleanPass = rawPass.length >= 6 ? rawPass : `${rawPass}123456`.slice(0, 10);
+
+  try {
+    const res = await signInWithEmailAndPassword(auth, validEmail, cleanPass);
+    return res.user;
+  } catch (err: any) {
+    if (
+      err &&
+      (err.code === 'auth/user-not-found' ||
+        err.code === 'auth/invalid-credential' ||
+        err.code === 'auth/wrong-password')
+    ) {
+      try {
+        // Automatically create account if it does not exist
+        const newRes = await createUserWithEmailAndPassword(auth, validEmail, cleanPass);
+        return newRes.user;
+      } catch (createErr: any) {
+        // If email already in use, re-throw original
+        throw createErr;
+      }
+    }
+    throw err;
+  }
+}
+
+// Instant Anonymous / Guest Cloud Authentication
+export async function loginAsGuest(): Promise<User> {
+  const res = await signInAnonymously(auth);
+  return res.user;
+}
+
 export async function logoutUser(): Promise<void> {
   if (unsubscribeProfile) { unsubscribeProfile(); unsubscribeProfile = null; }
   if (unsubscribeShortcuts) { unsubscribeShortcuts(); unsubscribeShortcuts = null; }
@@ -162,7 +204,13 @@ export async function logoutUser(): Promise<void> {
   await signOut(auth);
 }
 
-// Push local changes to Firestore
+// Push local changes to Firestore with strict schema whitelist matching firestore.rules
+const ALLOWED_PROFILE_KEYS = [
+  'userId', 'email', 'displayName', 'lastActiveCardNum',
+  'activeDeckId', 'streakCount', 'lastStudyDate', 'learnedCardNums',
+  'deletedCardNums', 'updatedAt', 'createdAt'
+];
+
 export async function pushStudyStateToCloud(partial: Partial<RemoteStudyState>) {
   if (isApplyingRemoteChange) return; // Prevent echo loops
   const user = auth.currentUser;
@@ -170,14 +218,23 @@ export async function pushStudyStateToCloud(partial: Partial<RemoteStudyState>) 
 
   const docPath = `users/${user.uid}`;
   try {
-    const payload: Record<string, unknown> = {
+    const rawPayload: Record<string, unknown> = {
       userId: user.uid,
       email: user.email || '',
-      displayName: user.displayName || 'Learner',
+      displayName: user.displayName || (user.isAnonymous ? 'Guest Learner' : 'Learner'),
       updatedAt: new Date().toISOString(),
       ...partial
     };
-    await setDoc(doc(db, 'users', user.uid), payload, { merge: true });
+
+    // Filter strictly to allowed keys to prevent firestore rule rejection
+    const cleanPayload: Record<string, unknown> = {};
+    for (const key of ALLOWED_PROFILE_KEYS) {
+      if (rawPayload[key] !== undefined) {
+        cleanPayload[key] = rawPayload[key];
+      }
+    }
+
+    await setDoc(doc(db, 'users', user.uid), cleanPayload, { merge: true });
   } catch (err) {
     handleFirestoreError(err, OperationType.WRITE, docPath);
   }
@@ -286,6 +343,8 @@ declare global {
     firebaseSync?: {
       auth: typeof auth;
       loginWithGoogle: typeof loginWithGoogle;
+      loginWithEmailOrPin: typeof loginWithEmailOrPin;
+      loginAsGuest: typeof loginAsGuest;
       logoutUser: typeof logoutUser;
       pushStudyStateToCloud: typeof pushStudyStateToCloud;
       pushCustomShortcutToCloud: typeof pushCustomShortcutToCloud;
@@ -313,7 +372,7 @@ onAuthStateChanged(auth, (user) => {
   if (unsubscribeDecks) { unsubscribeDecks(); unsubscribeDecks = null; }
 
   if (user) {
-    console.log('[Firebase] User authenticated:', user.email);
+    console.log('[Firebase] User authenticated:', user.email || user.uid);
 
     // Listen to profile changes in real-time
     const userDocPath = `users/${user.uid}`;
@@ -409,6 +468,8 @@ onAuthStateChanged(auth, (user) => {
 window.firebaseSync = {
   auth,
   loginWithGoogle,
+  loginWithEmailOrPin,
+  loginAsGuest,
   logoutUser,
   pushStudyStateToCloud,
   pushCustomShortcutToCloud,

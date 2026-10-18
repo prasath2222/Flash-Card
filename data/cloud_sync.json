@@ -10,5 +10,28 @@
       "activeDeckId": "deck-800-1000",
       "updatedAt": "2026-10-18T13:00:56.337Z"
     }
+  },
+  "STELLAR-9527": {
+    "updatedAt": "2026-10-18T13:04:08.872Z",
+    "payload": {
+      "learnedCardNums": [],
+      "deletedCardNums": [],
+      "activeDeckId": "deck-800-1000",
+      "lastActiveCardNum": 800,
+      "streakCount": 1,
+      "customDecks": {},
+      "updatedAt": "2026-10-18T13:04:08.872Z"
+    }
+  },
+  "TEST-MOBILE": {
+    "updatedAt": "2026-10-18T13:19:37.292Z",
+    "payload": {
+      "learnedCardNums": [
+        801,
+        802
+      ],
+      "lastActiveCardNum": 802,
+      "updatedAt": "2026-10-18T13:19:37.292Z"
+    }
   }
 }

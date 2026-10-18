@@ -8,7 +8,9 @@
       "es": "yo",
       "hi": "main"
     },
-    "tamil": "நான்"
+    "tamil": "நான்",
+    "imageUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 2,
@@ -19,7 +21,9 @@
       "es": "YOU",
       "hi": "YOU"
     },
-    "tamil": "YOU"
+    "tamil": "YOU",
+    "imageUrl": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 3,
@@ -30,7 +34,9 @@
       "es": "él",
       "hi": "woh"
     },
-    "tamil": "அவன் (அவர்)"
+    "tamil": "அவன் (அவர்)",
+    "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 4,
@@ -41,7 +47,9 @@
       "es": "ella",
       "hi": "woh"
     },
-    "tamil": "அவள்"
+    "tamil": "அவள்",
+    "imageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 5,
@@ -52,7 +60,9 @@
       "es": "IT",
       "hi": "IT"
     },
-    "tamil": "IT"
+    "tamil": "IT",
+    "imageUrl": "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 6,
@@ -63,7 +73,9 @@
       "es": "nosotros (nosotras)",
       "hi": "hum"
     },
-    "tamil": "நாங்கள் (நாம்)"
+    "tamil": "நாங்கள் (நாம்)",
+    "imageUrl": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 7,
@@ -74,7 +86,9 @@
       "es": "ellos (ellas)",
       "hi": "woh log"
     },
-    "tamil": "அவர்கள் (அவங்க)"
+    "tamil": "அவர்கள் (அவங்க)",
+    "imageUrl": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 8,
@@ -85,7 +99,9 @@
       "es": "me",
       "hi": "mujhe"
     },
-    "tamil": "என்னை (எனக்கு)"
+    "tamil": "என்னை (எனக்கு)",
+    "imageUrl": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 9,
@@ -96,7 +112,9 @@
       "es": "lo",
       "hi": "use (usko)"
     },
-    "tamil": "அவனை (அவரை)"
+    "tamil": "அவனை (அவரை)",
+    "imageUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 10,
@@ -107,7 +125,9 @@
       "es": "HER",
       "hi": "HER"
     },
-    "tamil": "HER"
+    "tamil": "HER",
+    "imageUrl": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 11,
@@ -118,7 +138,9 @@
       "es": "nos",
       "hi": "humein"
     },
-    "tamil": "எங்களை (நமக்கு"
+    "tamil": "எங்களை (நமக்கு",
+    "imageUrl": "https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 12,
@@ -129,7 +151,9 @@
       "es": "los (las)",
       "hi": "unko"
     },
-    "tamil": "அவர்களை (அவங்களை)"
+    "tamil": "அவர்களை (அவங்களை)",
+    "imageUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 13,
@@ -140,7 +164,9 @@
       "es": "yo mismo (yo misma)",
       "hi": "main khud"
     },
-    "tamil": "நானே (நான் தான்)"
+    "tamil": "நானே (நான் தான்)",
+    "imageUrl": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 14,
@@ -151,7 +177,9 @@
       "es": "tú mismo",
       "hi": "tum khud"
     },
-    "tamil": "நீயே (நீயாகவே)"
+    "tamil": "நீயே (நீயாகவே)",
+    "imageUrl": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 15,
@@ -162,7 +190,9 @@
       "es": "él mismo",
       "hi": "woh khud"
     },
-    "tamil": "அவனாகவே (அவரே)"
+    "tamil": "அவனாகவே (அவரே)",
+    "imageUrl": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 16,
@@ -173,7 +203,9 @@
       "es": "ella misma",
       "hi": "woh khud"
     },
-    "tamil": "அவளாகவே"
+    "tamil": "அவளாகவே",
+    "imageUrl": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 17,
@@ -184,7 +216,9 @@
       "es": "por sí solo (sola)",
       "hi": "apne aap"
     },
-    "tamil": "அதுவாகவே (தானாகவே)"
+    "tamil": "அதுவாகவே (தானாகவே)",
+    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 18,
@@ -195,7 +229,9 @@
       "es": "nosotros mismos",
       "hi": "hum khud"
     },
-    "tamil": "நாங்களாகவே (நாமே)"
+    "tamil": "நாங்களாகவே (நாமே)",
+    "imageUrl": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 19,
@@ -206,7 +242,9 @@
       "es": "ustedes mismos",
       "hi": "aap log khud"
     },
-    "tamil": "நீங்களாகவே"
+    "tamil": "நீங்களாகவே",
+    "imageUrl": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 20,
@@ -217,7 +255,9 @@
       "es": "ellos mismos",
       "hi": "woh khud"
     },
-    "tamil": "அவர்களாகவே (அவங்களாகவே)"
+    "tamil": "அவர்களாகவே (அவங்களாகவே)",
+    "imageUrl": "https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 21,
@@ -228,7 +268,9 @@
       "es": "mi",
       "hi": "mera (meri"
     },
-    "tamil": "mere)"
+    "tamil": "mere)",
+    "imageUrl": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 22,
@@ -239,7 +281,9 @@
       "es": "️ YOUR",
       "hi": "️ YOUR"
     },
-    "tamil": "️ YOUR"
+    "tamil": "️ YOUR",
+    "imageUrl": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 23,
@@ -250,7 +294,9 @@
       "es": "su (sus)",
       "hi": "uska (uski"
     },
-    "tamil": "uske)"
+    "tamil": "uske)",
+    "imageUrl": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 24,
@@ -261,7 +307,9 @@
       "es": "nuestro (nuestra",
       "hi": "nuestros"
     },
-    "tamil": "nuestras)"
+    "tamil": "nuestras)",
+    "imageUrl": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 25,
@@ -272,7 +320,9 @@
       "es": "su (sus) his",
       "hi": "unka (unki"
     },
-    "tamil": "unke)"
+    "tamil": "unke)",
+    "imageUrl": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 26,
@@ -283,7 +333,9 @@
       "es": "su",
       "hi": "uska (iska)"
     },
-    "tamil": "அதனுடைய (அதன்)"
+    "tamil": "அதனுடைய (அதன்)",
+    "imageUrl": "https://images.unsplash.com/photo-1546527868-ccb7ee7dfa6a?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1546527868-ccb7ee7dfa6a?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 27,
@@ -294,7 +346,9 @@
       "es": "mío (mía",
       "hi": "míos"
     },
-    "tamil": "mías)"
+    "tamil": "mías)",
+    "imageUrl": "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 28,
@@ -305,7 +359,9 @@
       "es": "tuyo (tuya",
       "hi": "tuyos"
     },
-    "tamil": "tuyas)"
+    "tamil": "tuyas)",
+    "imageUrl": "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 29,
@@ -316,7 +372,9 @@
       "es": "suyo (suya)",
       "hi": "de ella (uska)"
     },
-    "tamil": "அவளுடையது"
+    "tamil": "அவளுடையது",
+    "imageUrl": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 31,
@@ -327,7 +385,9 @@
       "es": "suyo (suya)",
       "hi": "de ellos (unka)"
     },
-    "tamil": "அவர்களுடையது"
+    "tamil": "அவர்களுடையது",
+    "imageUrl": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 32,
@@ -338,7 +398,9 @@
       "es": "de quién",
       "hi": "kiska (kiski"
     },
-    "tamil": "kiske)"
+    "tamil": "kiske)",
+    "imageUrl": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 33,
@@ -349,7 +411,9 @@
       "es": "este (esta",
       "hi": "esto)"
     },
-    "tamil": "yeh"
+    "tamil": "yeh",
+    "imageUrl": "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 34,
@@ -360,7 +424,9 @@
       "es": "ese (esa",
       "hi": "eso)"
     },
-    "tamil": "woh"
+    "tamil": "woh",
+    "imageUrl": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 35,
@@ -371,7 +437,9 @@
       "es": "estos (estas)",
       "hi": "yeh"
     },
-    "tamil": "இவை (இந்த)"
+    "tamil": "இவை (இந்த)",
+    "imageUrl": "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 36,
@@ -382,7 +450,9 @@
       "es": "esos (esas)",
       "hi": "woh"
     },
-    "tamil": "அவை (அந்த)"
+    "tamil": "அவை (அந்த)",
+    "imageUrl": "https://images.unsplash.com/photo-1448375240586-882707db888b?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1448375240586-882707db888b?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 37,
@@ -393,7 +463,9 @@
       "es": "alguien",
       "hi": "koi"
     },
-    "tamil": "யாரோ"
+    "tamil": "யாரோ",
+    "imageUrl": "https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 39,
@@ -404,7 +476,9 @@
       "es": "algo",
       "hi": "kuch"
     },
-    "tamil": "ஏதோ"
+    "tamil": "ஏதோ",
+    "imageUrl": "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 40,
@@ -415,7 +489,9 @@
       "es": "algún lugar",
       "hi": "kahin"
     },
-    "tamil": "எங்காவது"
+    "tamil": "எங்காவது",
+    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 44,
@@ -426,7 +502,9 @@
       "es": "en cualquier lugar",
       "hi": "kahin bhi"
     },
-    "tamil": "எங்கு வேண்டுமானாலும்"
+    "tamil": "எங்கு வேண்டுமானாலும்",
+    "imageUrl": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 45,
@@ -437,7 +515,9 @@
       "es": "todos (todo el mundo)",
       "hi": "sab  log"
     },
-    "tamil": "எல்லோரும்"
+    "tamil": "எல்லோரும்",
+    "imageUrl": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 47,
@@ -448,7 +528,9 @@
       "es": "todo",
       "hi": "sab kuch"
     },
-    "tamil": "எல்லாம்"
+    "tamil": "எல்லாம்",
+    "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 48,
@@ -459,7 +541,9 @@
       "es": "en todas partes",
       "hi": "har jagah"
     },
-    "tamil": "எல்லா இடங்களிலும்"
+    "tamil": "எல்லா இடங்களிலும்",
+    "imageUrl": "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 49,
@@ -470,7 +554,9 @@
       "es": "nadie",
       "hi": "koi nahi"
     },
-    "tamil": "யாரும் இல்லை"
+    "tamil": "யாரும் இல்லை",
+    "imageUrl": "https://images.unsplash.com/photo-1509114397022-ed747cca3f65?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1509114397022-ed747cca3f65?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 51,
@@ -481,7 +567,9 @@
       "es": "nada",
       "hi": "kuch nahi"
     },
-    "tamil": "எதுவும் இல்லை"
+    "tamil": "எதுவும் இல்லை",
+    "imageUrl": "https://images.unsplash.com/photo-1516541196182-6bdb0516ed27?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1516541196182-6bdb0516ed27?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 52,
@@ -492,7 +580,9 @@
       "es": "en ninguna parte",
       "hi": "kahin nahi"
     },
-    "tamil": "எங்கும் இல்லை"
+    "tamil": "எங்கும் இல்லை",
+    "imageUrl": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 53,
@@ -503,7 +593,9 @@
       "es": "un (una)",
       "hi": "ek"
     },
-    "tamil": "ஒரு"
+    "tamil": "ஒரு",
+    "imageUrl": "https://images.unsplash.com/photo-1574786198875-49f5d09fda2d?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1574786198875-49f5d09fda2d?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 55,
@@ -514,7 +606,9 @@
       "es": "el (la",
       "hi": "los"
     },
-    "tamil": "las)"
+    "tamil": "las)",
+    "imageUrl": "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 56,
@@ -525,7 +619,9 @@
       "es": "todo (todos)",
       "hi": "sab"
     },
-    "tamil": "எல்லா (அனைத்தும்)"
+    "tamil": "எல்லா (அனைத்தும்)",
+    "imageUrl": "https://images.unsplash.com/photo-1508873696983-2df57036476b?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1508873696983-2df57036476b?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 57,
@@ -536,7 +632,9 @@
       "es": "cada",
       "hi": "har"
     },
-    "tamil": "ஒவ்வொரு"
+    "tamil": "ஒவ்வொரு",
+    "imageUrl": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 58,
@@ -547,7 +645,9 @@
       "es": "cada",
       "hi": "har ek"
     },
-    "tamil": "ஒவ்வொருவரும் (ஒவ்வொன்றும்)"
+    "tamil": "ஒவ்வொருவரும் (ஒவ்வொன்றும்)",
+    "imageUrl": "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 59,
@@ -558,7 +658,9 @@
       "es": "ambos (los dos)",
       "hi": "dono"
     },
-    "tamil": "இருவரும் (இரண்டுமே)"
+    "tamil": "இருவரும் (இரண்டுமே)",
+    "imageUrl": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 60,
@@ -569,7 +671,9 @@
       "es": "EITHER",
       "hi": "EITHER"
     },
-    "tamil": "EITHER"
+    "tamil": "EITHER",
+    "imageUrl": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 61,
@@ -580,7 +684,9 @@
       "es": "ninguno (ninguna)",
       "hi": "dono mein se koi nahi"
     },
-    "tamil": "இரண்டில் எதுவும் இல்லை"
+    "tamil": "இரண்டில் எதுவும் இல்லை",
+    "imageUrl": "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 62,
@@ -591,7 +697,9 @@
       "es": "un poco de (algunos)",
       "hi": "thoda (kuch)"
     },
-    "tamil": "கொஞ்சம் (சில)"
+    "tamil": "கொஞ்சம் (சில)",
+    "imageUrl": "https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 64,
@@ -602,7 +710,9 @@
       "es": "ninguno (ninguna)",
       "hi": "ek bhi nahi"
     },
-    "tamil": "ஒன்றுகூட இல்லை"
+    "tamil": "ஒன்றுகூட இல்லை",
+    "imageUrl": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 65,
@@ -613,7 +723,9 @@
       "es": "sí mismo",
       "hi": "khud"
     },
-    "tamil": "சுயம் (தானே)"
+    "tamil": "சுயம் (தானே)",
+    "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 66,
@@ -624,7 +736,9 @@
       "es": "otro (otra)",
       "hi": "doosra (doosri)"
     },
-    "tamil": "மற்றொரு (மற்றவை)"
+    "tamil": "மற்றொரு (மற்றவை)",
+    "imageUrl": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 67,
@@ -635,7 +749,9 @@
       "es": "otro (otra)",
       "hi": "ek aur"
     },
-    "tamil": "இன்னொரு"
+    "tamil": "இன்னொரு",
+    "imageUrl": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 68,
@@ -646,7 +762,9 @@
       "es": "así (tal)",
       "hi": "aisa (aisi)"
     },
-    "tamil": "அப்படிப்பட்ட (அத்தகைய)"
+    "tamil": "அப்படிப்பட்ட (அத்தகைய)",
+    "imageUrl": "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 69,
@@ -657,7 +775,9 @@
       "es": "mismo (misma)",
       "hi": "vahi (same)"
     },
-    "tamil": "அதே"
+    "tamil": "அதே",
+    "imageUrl": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 70,
@@ -668,7 +788,9 @@
       "es": "diferente",
       "hi": "alag"
     },
-    "tamil": "வேறுபட்ட (வேறு)"
+    "tamil": "வேறுபட்ட (வேறு)",
+    "imageUrl": "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 71,
@@ -679,7 +801,9 @@
       "es": "varios (varias)",
       "hi": "kai"
     },
-    "tamil": "பல"
+    "tamil": "பல",
+    "imageUrl": "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 72,
@@ -690,7 +814,9 @@
       "es": "muchos (muchas)",
       "hi": "bahut saare"
     },
-    "tamil": "பல (நிறைய)"
+    "tamil": "பல (நிறைய)",
+    "imageUrl": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 73,
@@ -701,7 +827,9 @@
       "es": "mucho",
       "hi": "zyada"
     },
-    "tamil": "அதிகம் (நிறைய)"
+    "tamil": "அதிகம் (நிறைய)",
+    "imageUrl": "https://images.unsplash.com/photo-1548839140-29a749e1bc4e?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1548839140-29a749e1bc4e?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 74,
@@ -712,7 +840,9 @@
       "es": "pocos (pocas)",
       "hi": "thode"
     },
-    "tamil": "சில (கொஞ்சம்)"
+    "tamil": "சில (கொஞ்சம்)",
+    "imageUrl": "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 75,
@@ -723,7 +853,9 @@
       "es": "LITTLE",
       "hi": "LITTLE"
     },
-    "tamil": "LITTLE"
+    "tamil": "LITTLE",
+    "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 76,
@@ -734,7 +866,9 @@
       "es": "qué",
       "hi": "kya"
     },
-    "tamil": "என்ன"
+    "tamil": "என்ன",
+    "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 77,
@@ -745,7 +879,9 @@
       "es": "dónde",
       "hi": "kahan"
     },
-    "tamil": "எங்கே"
+    "tamil": "எங்கே",
+    "imageUrl": "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 78,
@@ -756,7 +892,9 @@
       "es": "cuándo",
       "hi": "kab"
     },
-    "tamil": "எப்போது"
+    "tamil": "எப்போது",
+    "imageUrl": "https://images.unsplash.com/photo-1508962914676-134849a727f0?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1508962914676-134849a727f0?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 79,
@@ -767,7 +905,9 @@
       "es": "por qué",
       "hi": "kyun"
     },
-    "tamil": "ஏன்"
+    "tamil": "ஏன்",
+    "imageUrl": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 80,
@@ -778,7 +918,9 @@
       "es": "quién",
       "hi": "kaun"
     },
-    "tamil": "யார்"
+    "tamil": "யார்",
+    "imageUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 81,
@@ -789,7 +931,9 @@
       "es": "a quién",
       "hi": "con quién"
     },
-    "tamil": "kisse"
+    "tamil": "kisse",
+    "imageUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 82,
@@ -800,7 +944,9 @@
       "es": "qué",
       "hi": "cuál"
     },
-    "tamil": "kaun sa (kaun si)"
+    "tamil": "kaun sa (kaun si)",
+    "imageUrl": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 83,
@@ -811,7 +957,9 @@
       "es": "cómo",
       "hi": "kaise"
     },
-    "tamil": "எப்படி"
+    "tamil": "எப்படி",
+    "imageUrl": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 84,
@@ -822,7 +970,9 @@
       "es": "cuánto",
       "hi": "kitna"
     },
-    "tamil": "எவ்வளவு"
+    "tamil": "எவ்வளவு",
+    "imageUrl": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 85,
@@ -833,7 +983,9 @@
       "es": "cuántos",
       "hi": "kitne"
     },
-    "tamil": "எத்தனை"
+    "tamil": "எத்தனை",
+    "imageUrl": "https://images.unsplash.com/photo-1495344517868-8ebaf0a2044a?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1495344517868-8ebaf0a2044a?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 86,
@@ -844,7 +996,9 @@
       "es": "cuánto tiempo",
       "hi": "kitni der"
     },
-    "tamil": "எவ்வளவு நேரம்"
+    "tamil": "எவ்வளவு நேரம்",
+    "imageUrl": "https://images.unsplash.com/photo-1508962914676-134849a727f0?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1508962914676-134849a727f0?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 87,
@@ -855,7 +1009,9 @@
       "es": "qué tan lejos",
       "hi": "kitni door"
     },
-    "tamil": "எவ்வளவு தூரம்"
+    "tamil": "எவ்வளவு தூரம்",
+    "imageUrl": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 88,
@@ -866,7 +1022,9 @@
       "es": "cada cuánto",
       "hi": "kitni baar"
     },
-    "tamil": "எத்தனை முறை"
+    "tamil": "எத்தனை முறை",
+    "imageUrl": "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 89,
@@ -877,7 +1035,9 @@
       "es": "qué tipo de",
       "hi": "kaisa (kaisi)"
     },
-    "tamil": "என்ன வகையான"
+    "tamil": "என்ன வகையான",
+    "imageUrl": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 90,
@@ -888,7 +1048,9 @@
       "es": "cuál",
       "hi": "kaun sa (kaun si)"
     },
-    "tamil": "எது"
+    "tamil": "எது",
+    "imageUrl": "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 91,
@@ -899,7 +1061,9 @@
       "es": "BE",
       "hi": "BE"
     },
-    "tamil": "BE"
+    "tamil": "BE",
+    "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 92,
@@ -910,7 +1074,9 @@
       "es": "tener",
       "hi": "paas hona"
     },
-    "tamil": "வைத்திரு (இருக்கிறது)"
+    "tamil": "வைத்திரு (இருக்கிறது)",
+    "imageUrl": "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 93,
@@ -921,7 +1087,9 @@
       "es": "hacer",
       "hi": "karna"
     },
-    "tamil": "செய் (செய்வது)"
+    "tamil": "செய் (செய்வது)",
+    "imageUrl": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 94,
@@ -932,7 +1100,9 @@
       "es": "CAN",
       "hi": "CAN"
     },
-    "tamil": "CAN"
+    "tamil": "CAN",
+    "imageUrl": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 95,
@@ -943,7 +1113,9 @@
       "es": "COULD",
       "hi": "COULD"
     },
-    "tamil": "COULD"
+    "tamil": "COULD",
+    "imageUrl": "https://images.unsplash.com/photo-1519834785169-98be25ec3f84?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1519834785169-98be25ec3f84?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 96,
@@ -954,7 +1126,9 @@
       "es": "WILL",
       "hi": "WILL"
     },
-    "tamil": "WILL"
+    "tamil": "WILL",
+    "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 97,
@@ -965,7 +1139,9 @@
       "es": "WOULD",
       "hi": "WOULD"
     },
-    "tamil": "WOULD"
+    "tamil": "WOULD",
+    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 98,
@@ -976,7 +1152,9 @@
       "es": "—",
       "hi": "kya ... ?"
     },
-    "tamil": "நாம் ... ?"
+    "tamil": "நாம் ... ?",
+    "imageUrl": "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 99,
@@ -987,7 +1165,9 @@
       "es": "debería (deberías)",
       "hi": "chahiye"
     },
-    "tamil": "வேண்டும்"
+    "tamil": "வேண்டும்",
+    "imageUrl": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&auto=format&fit=crop&q=80"
   },
   {
     "num": 100,
@@ -998,6 +1178,8 @@
       "es": "tener que",
       "hi": "karna zaroori hai"
     },
-    "tamil": "கட்டாயம் (வேண்டும்)"
+    "tamil": "கட்டாயம் (வேண்டும்)",
+    "imageUrl": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=80"
   }
 ]

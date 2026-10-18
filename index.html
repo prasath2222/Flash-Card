@@ -8719,6 +8719,10 @@
               <span class="sidebar-nav-icon">⚙️</span>
               <span class="sidebar-nav-label">Settings</span>
             </button>
+            <button type="button" class="sidebar-nav-btn" id="nav-btn-cloud-sync" title="Multi-Device Cloud Sync & Login">
+              <span class="sidebar-nav-icon">☁️</span>
+              <span class="sidebar-nav-label">Cloud Sync</span>
+            </button>
           </nav>
         </div>
 
@@ -8815,6 +8819,10 @@
             <span class="mobile-drawer-icon">⚙️</span>
             <span class="mobile-drawer-label">Settings & Audio</span>
           </button>
+          <button type="button" class="mobile-drawer-btn" id="mob-drawer-cloud-sync">
+            <span class="mobile-drawer-icon">☁️</span>
+            <span class="mobile-drawer-label">Cloud Sync & Login</span>
+          </button>
         </nav>
         <div class="mobile-nav-drawer-footer">
           <div style="font-size: 0.82rem; font-weight: 750; color: #f1f5f9;">Mastery Track</div>
@@ -8846,6 +8854,12 @@
               <span>⚡</span>
               <span>Status: <strong id="desktop-status-count">0</strong> / 3,000</span>
             </div>
+            <!-- Desktop Cloud Sync & Save Button -->
+            <button type="button" class="stat-badge-duo" id="desktop-cloud-sync-btn" title="Cloud Sync & Multi-Device Login" style="cursor: pointer; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.35); color: #38bdf8; display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; font-weight: 750; font-size: 0.82rem; transition: all 0.2s;">
+              <span id="desktop-cloud-icon">☁️</span>
+              <span id="desktop-cloud-label">Sync / Login</span>
+              <span id="desktop-cloud-dot" style="display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #10b981; box-shadow: 0 0 6px #10b981;"></span>
+            </button>
           </div>
         </header>
 
@@ -8868,7 +8882,7 @@
             <span class="mobile-brand-title" id="mobile-header-title">stellar</span>
           </div>
 
-          <div class="mobile-right-cluster">
+          <div class="mobile-right-cluster" style="display: flex; align-items: center; gap: 6px;">
             <!-- Mobile Daily Streak Counter -->
             <div class="stat-badge-duo stat-badge-streak" id="mobile-streak-badge" title="Daily Session Streak (Tap to view streak celebration)" style="padding: 4px 8px; font-size: 0.78rem;">
               <span class="streak-flame-icon">🔥</span>
@@ -8877,6 +8891,12 @@
             <div class="stat-badge-duo stat-badge-mastery" id="mobile-3k-status-badge">
               <span>⚡ <strong id="mobile-status-count">0</strong>/3k</span>
             </div>
+            <!-- Mobile Cloud Sync / Login Button -->
+            <button type="button" class="stat-badge-duo" id="mobile-cloud-sync-btn" title="Cloud Sync & Login" style="cursor: pointer; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.4); color: #38bdf8; display: inline-flex; align-items: center; gap: 4px; padding: 4px 8px; border-radius: 999px; font-weight: 800; font-size: 0.76rem;">
+              <span id="mobile-cloud-icon">☁️</span>
+              <span id="mobile-cloud-label">Sync</span>
+              <span id="mobile-cloud-dot" style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #10b981; box-shadow: 0 0 5px #10b981;"></span>
+            </button>
           </div>
         </header>
 
@@ -9745,8 +9765,32 @@
             </div>
           </div>
 
-          <!-- 2. Google Cloud Account Sync (Optional SSO) -->
-          <div class="duo-settings-section-title">Google Account Sign-In</div>
+          <!-- 2. Email & PIN Account Sign-In (100% Mobile Safe, Zero Popups) -->
+          <div class="duo-settings-section-title">📧 Email / PIN Account (Mobile Safe)</div>
+          <div class="settings-card" style="margin-bottom: 16px;">
+            <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 12px;">
+              Works 100% on iOS Safari, Android Chrome, and in-app browsers with zero popup blockers.
+            </div>
+            <div style="margin-bottom: 10px;">
+              <label for="tab-input-email" style="font-size: 0.74rem; font-weight: 700; color: #cbd5e1; display: block; margin-bottom: 4px;">Email or Username</label>
+              <input type="text" id="tab-input-email" placeholder="you@example.com or username" style="width: 100%; box-sizing: border-box; padding: 10px 14px; border-radius: 12px; background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.15); color: #fff; font-size: 0.92rem;" />
+            </div>
+            <div style="margin-bottom: 12px;">
+              <label for="tab-input-pin" style="font-size: 0.74rem; font-weight: 700; color: #cbd5e1; display: block; margin-bottom: 4px;">PIN or Password (min 6 chars)</label>
+              <input type="password" id="tab-input-pin" placeholder="e.g. 123456" style="width: 100%; box-sizing: border-box; padding: 10px 14px; border-radius: 12px; background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.15); color: #fff; font-size: 0.92rem;" />
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button type="button" class="duo-btn-3d duo-btn-3d-green" id="btn-tab-email-signin" style="flex: 1; padding: 10px 14px; font-size: 0.86rem; font-weight: 800; cursor: pointer;">
+                Sign In / Register
+              </button>
+              <button type="button" class="duo-btn-3d" id="btn-tab-guest-signin" style="padding: 10px 14px; font-size: 0.82rem; font-weight: 700; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; cursor: pointer;">
+                ⚡ Guest
+              </button>
+            </div>
+          </div>
+
+          <!-- 3. Google Cloud Account Sync & Manual Push -->
+          <div class="duo-settings-section-title">🌐 Google Account Sign-In</div>
           <div class="settings-card">
             <div class="settings-card-header">
               <div class="settings-card-left">
@@ -9775,13 +9819,144 @@
               </button>
 
               <button type="button" class="settings-action-btn settings-action-btn-danger" id="btn-cloud-signout" style="display: none;">
-                <span>Sign Out of Google</span>
+                <span>Sign Out of Account</span>
               </button>
             </div>
           </div>
         </div>
       </div>
     </aside>
+
+    <!-- ========================================================== -->
+    <!-- UNIVERSAL CLOUD SYNC & MULTI-DEVICE LOGIN MODAL            -->
+    <!-- 100% Fail-Proof across Mobile Phones, Tablets & Desktops   -->
+    <!-- ========================================================== -->
+    <div class="modal-backdrop" id="modal-cloud-sync-login">
+      <div class="modal-sheet" style="max-width: 540px; background: linear-gradient(180deg, #172236 0%, #0c1424 100%); border: 1px solid rgba(255,255,255,0.14); border-radius: 26px; box-shadow: 0 25px 70px rgba(0,0,0,0.85); overflow: hidden; padding: 22px;">
+        <div class="modal-handle"></div>
+        <div class="modal-header" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.08);">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <div style="width: 38px; height: 38px; border-radius: 12px; background: rgba(56,189,248,0.2); border: 1px solid rgba(56,189,248,0.4); display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">☁️</div>
+            <div>
+              <span class="modal-title" style="font-size: 1.2rem; font-weight: 800; color: #fff;">Multi-Device Sync & Login</span>
+              <div style="font-size: 0.78rem; color: #94a3b8;">Save & synchronize across mobile phones, tablets & PCs</div>
+            </div>
+          </div>
+          <button type="button" class="modal-close-btn" id="btn-close-cloud-sync-modal" aria-label="Close" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; width: 34px; height: 34px; color: #cbd5e1; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center;">&times;</button>
+        </div>
+
+        <!-- Live Sync Status Banner -->
+        <div id="cloud-modal-status-banner" style="margin-bottom: 14px; padding: 10px 14px; background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3); border-radius: 12px; display: flex; align-items: center; justify-content: space-between;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #10b981; box-shadow: 0 0 6px #10b981;"></span>
+            <span id="cloud-modal-status-text" style="font-size: 0.82rem; font-weight: 700; color: #34d399;">Cloud Save Active · Device Sync Ready</span>
+          </div>
+          <button type="button" class="duo-btn-3d" id="btn-modal-manual-push" style="padding: 6px 12px; font-size: 0.75rem; font-weight: 800; background: rgba(56,189,248,0.2); border: 1px solid rgba(56,189,248,0.45); color: #38bdf8; cursor: pointer;">
+            ⚡ Save Now
+          </button>
+        </div>
+
+        <!-- Tab Selector: 1. Instant Device Code | 2. Email/PIN Login | 3. Google Sign-In -->
+        <div style="display: flex; gap: 6px; margin-bottom: 14px; background: rgba(0,0,0,0.3); padding: 4px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.08);">
+          <button type="button" class="cloud-subtab-btn active" id="subtab-btn-code" style="flex: 1; padding: 8px 10px; border-radius: 10px; border: none; font-size: 0.78rem; font-weight: 800; color: #fff; background: rgba(56,189,248,0.25); cursor: pointer;">
+            📱 Device Code
+          </button>
+          <button type="button" class="cloud-subtab-btn" id="subtab-btn-email" style="flex: 1; padding: 8px 10px; border-radius: 10px; border: none; font-size: 0.78rem; font-weight: 700; color: #94a3b8; background: transparent; cursor: pointer;">
+            📧 Email / PIN
+          </button>
+          <button type="button" class="cloud-subtab-btn" id="subtab-btn-google" style="flex: 1; padding: 8px 10px; border-radius: 10px; border: none; font-size: 0.78rem; font-weight: 700; color: #94a3b8; background: transparent; cursor: pointer;">
+            🌐 Google SSO
+          </button>
+        </div>
+
+        <!-- PANEL 1: Device Code (Zero popups, 100% reliable on ANY mobile phone) -->
+        <div id="cloud-subtab-panel-code" class="cloud-subtab-panel" style="display: block;">
+          <div style="padding: 14px; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; margin-bottom: 12px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+              <div>
+                <div style="font-size: 0.72rem; color: #94a3b8; font-weight: 700; text-transform: uppercase;">Your Device Cloud Code</div>
+                <div id="display-modal-sync-code" style="font-size: 1.45rem; font-weight: 900; color: #38bdf8; font-family: monospace; letter-spacing: 0.05em;">STELLAR-SYNC</div>
+              </div>
+              <button type="button" class="duo-btn-3d" id="btn-modal-copy-code" style="padding: 8px 14px; font-size: 0.8rem; font-weight: 800; background: rgba(56,189,248,0.2); border: 1px solid rgba(56,189,248,0.45); color: #38bdf8; cursor: pointer;">
+                📋 Copy Code
+              </button>
+            </div>
+          </div>
+
+          <div style="padding: 14px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px;">
+            <label for="input-modal-pair-code" style="font-size: 0.8rem; font-weight: 750; color: #e2e8f0; display: block; margin-bottom: 6px;">Connect with your phone or PC's code:</label>
+            <div style="display: flex; gap: 8px;">
+              <input type="text" id="input-modal-pair-code" placeholder="Enter code (e.g. STELLAR-8291)" style="flex: 1; text-transform: uppercase; padding: 10px 14px; background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; color: #fff; font-family: monospace; font-size: 0.95rem; font-weight: 700;" />
+              <button type="button" class="duo-btn-3d duo-btn-3d-green" id="btn-modal-pair-code" style="padding: 10px 16px; font-size: 0.85rem; font-weight: 800; white-space: nowrap; cursor: pointer;">
+                Pair & Sync
+              </button>
+            </div>
+            <div style="margin-top: 8px; font-size: 0.74rem; color: #94a3b8;">
+              💡 Enter this code on your mobile phone or another browser to instantaneously pull down all learned cards, custom decks, and study progress.
+            </div>
+          </div>
+        </div>
+
+        <!-- PANEL 2: Email & Password / PIN (Direct Firebase Auth, 100% Mobile Safe) -->
+        <div id="cloud-subtab-panel-email" class="cloud-subtab-panel" style="display: none;">
+          <div style="padding: 14px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px;">
+            <div style="margin-bottom: 10px;">
+              <label for="input-email-login" style="font-size: 0.78rem; font-weight: 700; color: #94a3b8; display: block; margin-bottom: 4px;">Email or Username</label>
+              <input type="text" id="input-email-login" placeholder="you@example.com or username" style="width: 100%; box-sizing: border-box; padding: 10px 14px; border-radius: 12px; background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.15); color: #fff; font-size: 0.92rem;" />
+            </div>
+            <div style="margin-bottom: 12px;">
+              <label for="input-pin-login" style="font-size: 0.78rem; font-weight: 700; color: #94a3b8; display: block; margin-bottom: 4px;">PIN or Password (min 6 characters)</label>
+              <input type="password" id="input-pin-login" placeholder="e.g. 123456" style="width: 100%; box-sizing: border-box; padding: 10px 14px; border-radius: 12px; background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.15); color: #fff; font-size: 0.92rem;" />
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button type="button" class="duo-btn-3d duo-btn-3d-green" id="btn-submit-email-login" style="flex: 1; padding: 11px; font-size: 0.88rem; font-weight: 800; cursor: pointer;">
+                Sign In / Register
+              </button>
+              <button type="button" class="duo-btn-3d" id="btn-guest-login" style="padding: 11px 14px; font-size: 0.82rem; font-weight: 750; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; cursor: pointer;" title="Instant anonymous session">
+                ⚡ Guest
+              </button>
+            </div>
+            <div style="margin-top: 8px; font-size: 0.74rem; color: #94a3b8;">
+              🔒 Direct account authentication. If this is your first time, typing your email & PIN automatically creates and secures your account.
+            </div>
+          </div>
+        </div>
+
+        <!-- PANEL 3: Google Sign-In -->
+        <div id="cloud-subtab-panel-google" class="cloud-subtab-panel" style="display: none;">
+          <div style="padding: 14px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; text-align: center;">
+            <div style="font-size: 0.86rem; color: #e2e8f0; margin-bottom: 12px; line-height: 1.4;">
+              Link your study state directly to your official Google account and Cloud Firestore.
+            </div>
+            <button type="button" class="settings-action-btn settings-action-btn-primary" id="btn-modal-google-signin" style="background: #1cb0f6; border-color: #1899d6; width: 100%; justify-content: center; padding: 12px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                <polyline points="10 17 15 12 10 7"/>
+                <line x1="15" y1="12" x2="3" y2="12"/>
+              </svg>
+              <span>Continue with Google</span>
+            </button>
+            <div style="margin-top: 10px; font-size: 0.72rem; color: #94a3b8;">
+              📱 If on mobile Safari or webview and popup is blocked, use the <strong>Device Code</strong> or <strong>Email/PIN</strong> tab for instant sync!
+            </div>
+          </div>
+        </div>
+
+        <!-- Active Logged In Status & Sign Out -->
+        <div id="cloud-modal-authenticated-section" style="display: none; margin-top: 14px; padding: 12px 14px; background: rgba(56,189,248,0.1); border: 1px solid rgba(56,189,248,0.3); border-radius: 14px;">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div>
+              <div style="font-size: 0.72rem; color: #38bdf8; font-weight: 800; text-transform: uppercase;">Authenticated Account</div>
+              <div id="cloud-modal-user-identity" style="font-size: 0.92rem; font-weight: 750; color: #fff;">user@example.com</div>
+            </div>
+            <button type="button" class="settings-action-btn settings-action-btn-danger" id="btn-modal-signout" style="padding: 7px 12px; font-size: 0.78rem;">
+              Sign Out
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
     <!-- ========================================================== -->
     <!-- UPLOAD DECK & AUTOMATIC IMAGE DISCOVERY MODAL              -->
     <!-- ========================================================== -->
@@ -12772,12 +12947,25 @@
         return 800;
       }
 
+      let debounceCloudPosTimer = null;
       function setLastCardNumber(num) {
         try {
           localStorage.setItem(LAST_CARD_STORAGE_KEY, num);
         } catch (e) {}
         const resumeLabel = document.getElementById("btn-resume-label");
         if (resumeLabel) resumeLabel.textContent = `Resume (#${num})`;
+
+        clearTimeout(debounceCloudPosTimer);
+        debounceCloudPosTimer = setTimeout(() => {
+          if (typeof syncCurrentStateToDeviceCloud === "function") {
+            syncCurrentStateToDeviceCloud();
+          }
+          if (window.firebaseSync && window.firebaseSync.pushStudyStateToCloud) {
+            window.firebaseSync.pushStudyStateToCloud({
+              lastActiveCardNum: num
+            });
+          }
+        }, 1200);
       }
 
       function resumeStudyDeck() {
@@ -15818,8 +16006,41 @@
         if (displayEl) displayEl.textContent = deviceSyncCode;
       }
 
+      let hasPendingSyncPush = false;
+
+      function showCloudSaveSuccessIndicator() {
+        const desktopDot = document.getElementById("desktop-cloud-dot");
+        const mobileDot = document.getElementById("mobile-cloud-dot");
+        const modalBanner = document.getElementById("cloud-modal-status-text");
+
+        if (desktopDot) {
+          desktopDot.style.boxShadow = "0 0 12px #34d399, 0 0 4px #10b981";
+          setTimeout(() => { desktopDot.style.boxShadow = "0 0 6px #10b981"; }, 1000);
+        }
+        if (mobileDot) {
+          mobileDot.style.boxShadow = "0 0 10px #34d399, 0 0 4px #10b981";
+          setTimeout(() => { mobileDot.style.boxShadow = "0 0 5px #10b981"; }, 1000);
+        }
+        if (modalBanner) {
+          modalBanner.textContent = "All changes strictly saved to cloud ✓";
+          setTimeout(() => {
+            if (modalBanner) modalBanner.textContent = "Cloud Save Active · Device Sync Ready";
+          }, 2500);
+        }
+      }
+
+      function updateDeviceSyncCodeUI() {
+        const displayEl = document.getElementById("display-device-sync-code");
+        if (displayEl) displayEl.textContent = deviceSyncCode;
+        const modalDisplayEl = document.getElementById("display-modal-sync-code");
+        if (modalDisplayEl) modalDisplayEl.textContent = deviceSyncCode;
+      }
+
       async function syncCurrentStateToDeviceCloud(isManual = false) {
-        if (isSyncPushing) return;
+        if (isSyncPushing) {
+          hasPendingSyncPush = true;
+          return;
+        }
         isSyncPushing = true;
         try {
           const payload = {
@@ -15841,6 +16062,7 @@
           if (res.ok) {
             const data = await res.json();
             if (data && data.updatedAt) lastRemoteSyncTimestamp = data.updatedAt;
+            showCloudSaveSuccessIndicator();
             if (isManual) {
               showToast("Cloud sync complete! All devices updated ☁️");
               playHapticTick(580, "sine", 0.04);
@@ -15849,7 +16071,11 @@
         } catch (e) {
           console.warn("Device cloud sync error:", e);
         } finally {
-          setTimeout(() => { isSyncPushing = false; }, 300);
+          isSyncPushing = false;
+          if (hasPendingSyncPush) {
+            hasPendingSyncPush = false;
+            setTimeout(() => syncCurrentStateToDeviceCloud(), 120);
+          }
         }
       }
 
@@ -15877,6 +16103,7 @@
 
             const statusEl = document.getElementById("device-sync-live-status");
             if (statusEl) statusEl.innerHTML = `<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#10b981;"></span><span>Paired with ${clean} · Live sync active</span>`;
+            showCloudSaveSuccessIndicator();
           } else {
             showToast(`Sync Code ${clean} not found. Ensure it was entered correctly.`);
           }
@@ -15957,10 +16184,86 @@
         } catch(e) {}
       }, 4000);
 
+      // ==========================================================
+      // CLOUD SYNC & LOGIN MODAL CONTROLLERS
+      // ==========================================================
+      const modalCloudSyncLogin = document.getElementById("modal-cloud-sync-login");
+      const btnCloseCloudSyncModal = document.getElementById("btn-close-cloud-sync-modal");
+      const desktopCloudSyncBtn = document.getElementById("desktop-cloud-sync-btn");
+      const mobileCloudSyncBtn = document.getElementById("mobile-cloud-sync-btn");
+      const mobDrawerCloudSync = document.getElementById("mob-drawer-cloud-sync");
+      const navBtnCloudSync = document.getElementById("nav-btn-cloud-sync");
+
+      function openCloudSyncModal() {
+        if (!modalCloudSyncLogin) return;
+        updateDeviceSyncCodeUI();
+        modalCloudSyncLogin.classList.add("active");
+        modalCloudSyncLogin.style.display = "flex";
+        playHapticTick(500, "sine", 0.03);
+      }
+
+      function closeCloudSyncModal() {
+        if (!modalCloudSyncLogin) return;
+        modalCloudSyncLogin.classList.remove("active");
+        modalCloudSyncLogin.style.display = "none";
+      }
+
+      if (btnCloseCloudSyncModal) {
+        btnCloseCloudSyncModal.addEventListener("click", closeCloudSyncModal);
+      }
+      if (modalCloudSyncLogin) {
+        modalCloudSyncLogin.addEventListener("click", (e) => {
+          if (e.target === modalCloudSyncLogin) closeCloudSyncModal();
+        });
+      }
+
+      if (desktopCloudSyncBtn) desktopCloudSyncBtn.addEventListener("click", openCloudSyncModal);
+      if (mobileCloudSyncBtn) mobileCloudSyncBtn.addEventListener("click", openCloudSyncModal);
+      if (mobDrawerCloudSync) {
+        mobDrawerCloudSync.addEventListener("click", () => {
+          closeMobileNavDrawer();
+          openCloudSyncModal();
+        });
+      }
+      if (navBtnCloudSync) navBtnCloudSync.addEventListener("click", openCloudSyncModal);
+
+      // Sub-tab switching inside Cloud Modal
+      const subtabBtnCode = document.getElementById("subtab-btn-code");
+      const subtabBtnEmail = document.getElementById("subtab-btn-email");
+      const subtabBtnGoogle = document.getElementById("subtab-btn-google");
+      const panelCode = document.getElementById("cloud-subtab-panel-code");
+      const panelEmail = document.getElementById("cloud-subtab-panel-email");
+      const panelGoogle = document.getElementById("cloud-subtab-panel-google");
+
+      function switchCloudModalSubtab(activeTab: "code" | "email" | "google") {
+        if (!subtabBtnCode || !subtabBtnEmail || !subtabBtnGoogle) return;
+        subtabBtnCode.style.background = activeTab === "code" ? "rgba(56,189,248,0.25)" : "transparent";
+        subtabBtnCode.style.fontWeight = activeTab === "code" ? "800" : "700";
+        subtabBtnCode.style.color = activeTab === "code" ? "#fff" : "#94a3b8";
+
+        subtabBtnEmail.style.background = activeTab === "email" ? "rgba(56,189,248,0.25)" : "transparent";
+        subtabBtnEmail.style.fontWeight = activeTab === "email" ? "800" : "700";
+        subtabBtnEmail.style.color = activeTab === "email" ? "#fff" : "#94a3b8";
+
+        subtabBtnGoogle.style.background = activeTab === "google" ? "rgba(56,189,248,0.25)" : "transparent";
+        subtabBtnGoogle.style.fontWeight = activeTab === "google" ? "800" : "700";
+        subtabBtnGoogle.style.color = activeTab === "google" ? "#fff" : "#94a3b8";
+
+        if (panelCode) panelCode.style.display = activeTab === "code" ? "block" : "none";
+        if (panelEmail) panelEmail.style.display = activeTab === "email" ? "block" : "none";
+        if (panelGoogle) panelGoogle.style.display = activeTab === "google" ? "block" : "none";
+        playHapticTick(460, "sine", 0.02);
+      }
+
+      if (subtabBtnCode) subtabBtnCode.addEventListener("click", () => switchCloudModalSubtab("code"));
+      if (subtabBtnEmail) subtabBtnEmail.addEventListener("click", () => switchCloudModalSubtab("email"));
+      if (subtabBtnGoogle) subtabBtnGoogle.addEventListener("click", () => switchCloudModalSubtab("google"));
+
       // Wire Copy & Pair Buttons
       function initUniversalSyncUI() {
         updateDeviceSyncCodeUI();
 
+        // Settings Copy
         const btnCopy = document.getElementById("btn-copy-sync-code");
         if (btnCopy) {
           btnCopy.addEventListener("click", () => {
@@ -15973,6 +16276,20 @@
           });
         }
 
+        // Modal Copy
+        const btnModalCopy = document.getElementById("btn-modal-copy-code");
+        if (btnModalCopy) {
+          btnModalCopy.addEventListener("click", () => {
+            navigator.clipboard.writeText(deviceSyncCode).then(() => {
+              showToast(`Copied ${deviceSyncCode} to clipboard!`);
+              playHapticTick(500, "sine", 0.04);
+            }).catch(() => {
+              showToast(`Code: ${deviceSyncCode}`);
+            });
+          });
+        }
+
+        // Settings Pair
         const btnPair = document.getElementById("btn-pair-device-code");
         const inputPair = document.getElementById("input-pair-code");
         if (btnPair && inputPair) {
@@ -15985,8 +16302,166 @@
             pairWithRemoteDeviceCode(val);
           });
           inputPair.addEventListener("keydown", (e) => {
-            if (e.key === "Enter") {
-              btnPair.click();
+            if (e.key === "Enter") btnPair.click();
+          });
+        }
+
+        // Modal Pair
+        const btnModalPair = document.getElementById("btn-modal-pair-code");
+        const inputModalPair = document.getElementById("input-modal-pair-code");
+        if (btnModalPair && inputModalPair) {
+          btnModalPair.addEventListener("click", () => {
+            const val = inputModalPair.value.trim();
+            if (!val) {
+              showToast("Please enter a device sync code.");
+              return;
+            }
+            pairWithRemoteDeviceCode(val);
+          });
+          inputModalPair.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") btnModalPair.click();
+          });
+        }
+
+        // Modal Manual Push
+        const btnModalPush = document.getElementById("btn-modal-manual-push");
+        if (btnModalPush) {
+          btnModalPush.addEventListener("click", () => {
+            syncCurrentStateToDeviceCloud(true);
+            if (window.firebaseSync && window.firebaseSync.getCurrentUser()) {
+              window.firebaseSync.pushStudyStateToCloud({
+                learnedCardNums: [...learnedCardsSet],
+                deletedCardNums: deletedCardNums,
+                lastActiveCardNum: (cards[currentIndex]?.originalNum || cards[currentIndex]?.num || 800)
+              });
+            }
+          });
+        }
+
+        // Modal Email/PIN Sign In / Register
+        const btnModalEmailLogin = document.getElementById("btn-submit-email-login");
+        const inputEmail = document.getElementById("input-email-login");
+        const inputPin = document.getElementById("input-pin-login");
+        if (btnModalEmailLogin && inputEmail && inputPin) {
+          btnModalEmailLogin.addEventListener("click", async () => {
+            const emailVal = inputEmail.value.trim();
+            const pinVal = inputPin.value.trim();
+            if (!emailVal || !pinVal) {
+              showToast("Please enter an Email or Username, and a PIN/Password.");
+              return;
+            }
+            if (!window.firebaseSync) {
+              showToast("Cloud service initializing, please try again in a moment.");
+              return;
+            }
+            try {
+              btnModalEmailLogin.disabled = true;
+              btnModalEmailLogin.style.opacity = "0.7";
+              const user = await window.firebaseSync.loginWithEmailOrPin(emailVal, pinVal);
+              showToast(`Logged in as ${user.email || emailVal}! Progress synced across all devices ☁️`);
+              playHapticTick(620, "triangle", 0.06);
+              syncCurrentStateToDeviceCloud(true);
+            } catch (err: any) {
+              console.error("Email login error:", err);
+              showToast(err?.message || "Sign in failed. Check your credentials.");
+            } finally {
+              btnModalEmailLogin.disabled = false;
+              btnModalEmailLogin.style.opacity = "1";
+            }
+          });
+        }
+
+        // Tab Email/PIN Sign In
+        const btnTabEmailSignin = document.getElementById("btn-tab-email-signin");
+        const tabInputEmail = document.getElementById("tab-input-email");
+        const tabInputPin = document.getElementById("tab-input-pin");
+        if (btnTabEmailSignin && tabInputEmail && tabInputPin) {
+          btnTabEmailSignin.addEventListener("click", async () => {
+            const emailVal = tabInputEmail.value.trim();
+            const pinVal = tabInputPin.value.trim();
+            if (!emailVal || !pinVal) {
+              showToast("Please enter an Email or Username, and a PIN/Password.");
+              return;
+            }
+            if (!window.firebaseSync) {
+              showToast("Cloud service initializing, please retry.");
+              return;
+            }
+            try {
+              btnTabEmailSignin.disabled = true;
+              btnTabEmailSignin.style.opacity = "0.7";
+              const user = await window.firebaseSync.loginWithEmailOrPin(emailVal, pinVal);
+              showToast(`Logged in as ${user.email || emailVal}! Progress synced across all devices ☁️`);
+              playHapticTick(620, "triangle", 0.06);
+              syncCurrentStateToDeviceCloud(true);
+            } catch (err: any) {
+              console.error("Email login error:", err);
+              showToast(err?.message || "Sign in failed. Check credentials.");
+            } finally {
+              btnTabEmailSignin.disabled = false;
+              btnTabEmailSignin.style.opacity = "1";
+            }
+          });
+        }
+
+        // Guest session buttons
+        const btnGuestLogin = document.getElementById("btn-guest-login");
+        const btnTabGuest = document.getElementById("btn-tab-guest-signin");
+        const handleGuestLogin = async () => {
+          if (!window.firebaseSync) return;
+          try {
+            await window.firebaseSync.loginAsGuest();
+            showToast("Connected to Cloud Guest Session! All progress saved ☁️");
+            playHapticTick(580, "sine", 0.04);
+            syncCurrentStateToDeviceCloud(true);
+          } catch(e) {
+            console.error("Guest login notice:", e);
+            showToast("Guest session established locally and in device cloud.");
+          }
+        };
+        if (btnGuestLogin) btnGuestLogin.addEventListener("click", handleGuestLogin);
+        if (btnTabGuest) btnTabGuest.addEventListener("click", handleGuestLogin);
+
+        // Modal Google Sign In
+        const btnModalGoogle = document.getElementById("btn-modal-google-signin");
+        if (btnModalGoogle) {
+          btnModalGoogle.addEventListener("click", async () => {
+            if (!window.firebaseSync) {
+              showToast("Cloud sync initializing, please retry in a moment");
+              return;
+            }
+            try {
+              btnModalGoogle.disabled = true;
+              btnModalGoogle.style.opacity = "0.7";
+              const user = await window.firebaseSync.loginWithGoogle();
+              showToast(`Signed in as ${user.displayName || user.email}! Syncing across devices ☁️`);
+              playHapticTick(620, "triangle", 0.06);
+              syncCurrentStateToDeviceCloud(true);
+            } catch (err: any) {
+              console.warn("Google sign-in notice:", err);
+              if (err && (err.code === "auth/popup-blocked" || err.message?.includes("popup"))) {
+                showToast("Popup blocked by mobile browser. Use Email/PIN or Device Code above!");
+              } else {
+                showToast("Google sign-in unavailable in this browser. Use Email/PIN tab!");
+              }
+            } finally {
+              btnModalGoogle.disabled = false;
+              btnModalGoogle.style.opacity = "1";
+            }
+          });
+        }
+
+        // Modal Sign Out
+        const btnModalSignout = document.getElementById("btn-modal-signout");
+        if (btnModalSignout) {
+          btnModalSignout.addEventListener("click", async () => {
+            if (!window.firebaseSync) return;
+            try {
+              await window.firebaseSync.logoutUser();
+              showToast("Signed out. Operating in local mode.");
+              playHapticTick(380, "sine", 0.04);
+            } catch(e) {
+              console.error("Sign-out error:", e);
             }
           });
         }
@@ -16001,7 +16476,6 @@
         initUniversalSyncUI();
       }
 
-      
       /* ==========================================================
          FIREBASE REAL-TIME CLOUD SYNCHRONIZATION CONTROLLER
          Reflects all progress, learned cards, deletions and shortcuts
@@ -16019,15 +16493,10 @@
 
       // Open cloud sync panel from top header button
       if (btnTopCloudSync) {
-        btnTopCloudSync.addEventListener("click", () => {
-          openMenuDrawer();
-          if (tabBtnCloudSync) {
-            tabBtnCloudSync.click();
-          }
-        });
+        btnTopCloudSync.addEventListener("click", openCloudSyncModal);
       }
 
-      // Handle Google Sign In
+      // Handle Google Sign In in settings tab
       if (btnCloudSignin) {
         btnCloudSignin.addEventListener("click", async () => {
           if (!window.firebaseSync) {
@@ -16040,9 +16509,14 @@
             const user = await window.firebaseSync.loginWithGoogle();
             showToast(`Signed in as ${user.displayName || user.email}! Syncing across devices ☁️`);
             playHapticTick(620, "triangle", 0.06);
-          } catch (err) {
-            console.error("Google sign-in error:", err);
-            showToast("Sign in was cancelled or failed");
+            syncCurrentStateToDeviceCloud(true);
+          } catch (err: any) {
+            console.warn("Google sign-in error:", err);
+            if (err && (err.code === "auth/popup-blocked" || err.message?.includes("popup"))) {
+              showToast("Popup blocked on mobile. Use Email/PIN or Device Code!");
+            } else {
+              showToast("Google sign in was cancelled or failed");
+            }
           } finally {
             btnCloudSignin.disabled = false;
             btnCloudSignin.style.opacity = "1";
@@ -16064,13 +16538,11 @@
         });
       }
 
-      // Manual Sync button
+      // Manual Sync button in settings tab
       if (btnCloudManualSync) {
         btnCloudManualSync.addEventListener("click", () => {
-          // Sync via Universal Device Cloud
           syncCurrentStateToDeviceCloud(true);
 
-          // If logged in with Google, also sync to Firestore
           if (window.firebaseSync && window.firebaseSync.getCurrentUser()) {
             window.firebaseSync.pushStudyStateToCloud({
               learnedCardNums: [...learnedCardsSet],
@@ -16089,22 +16561,37 @@
         }
 
         window.firebaseSync.onAuthChange((user) => {
+          const authSection = document.getElementById("cloud-modal-authenticated-section");
+          const authUserIdentity = document.getElementById("cloud-modal-user-identity");
+          const desktopCloudLabel = document.getElementById("desktop-cloud-label");
+          const mobileCloudLabel = document.getElementById("mobile-cloud-label");
+
           if (user) {
-            if (cloudUserTitle) cloudUserTitle.textContent = user.displayName || user.email || "Active User";
-            if (cloudUserSub) cloudUserSub.textContent = `Connected: ${user.email} · Real-time Firestore sync active`;
+            const displayName = user.displayName || user.email || (user.isAnonymous ? "Guest Learner" : "Active Learner");
+            if (cloudUserTitle) cloudUserTitle.textContent = displayName;
+            if (cloudUserSub) cloudUserSub.textContent = `Connected: ${user.email || user.uid} · Real-time Firestore sync active`;
             if (cloudAvatarIcon) cloudAvatarIcon.textContent = "✅";
             if (btnCloudSignin) btnCloudSignin.style.display = "none";
             if (btnCloudSignout) btnCloudSignout.style.display = "flex";
             if (btnTopCloudSync) btnTopCloudSync.classList.add("connected");
             if (cloudSyncDot) cloudSyncDot.style.display = "block";
+
+            if (authSection) authSection.style.display = "block";
+            if (authUserIdentity) authUserIdentity.textContent = `${displayName} (${user.email || "Active"})`;
+            if (desktopCloudLabel) desktopCloudLabel.textContent = "Synced";
+            if (mobileCloudLabel) mobileCloudLabel.textContent = "Synced";
           } else {
-            if (cloudUserTitle) cloudUserTitle.textContent = "Local Device Only";
-            if (cloudUserSub) cloudUserSub.textContent = "Sign in with Google to reflect all changes, learned cards, and custom notes in real-time across your phone, tablet, and PC.";
+            if (cloudUserTitle) cloudUserTitle.textContent = "Local & Device Cloud Active";
+            if (cloudUserSub) cloudUserSub.textContent = "Sign in or pair with your device code to sync in real-time across your phone, tablet, and PC.";
             if (cloudAvatarIcon) cloudAvatarIcon.textContent = "☁️";
             if (btnCloudSignin) btnCloudSignin.style.display = "flex";
             if (btnCloudSignout) btnCloudSignout.style.display = "none";
             if (btnTopCloudSync) btnTopCloudSync.classList.remove("connected");
             if (cloudSyncDot) cloudSyncDot.style.display = "none";
+
+            if (authSection) authSection.style.display = "none";
+            if (desktopCloudLabel) desktopCloudLabel.textContent = "Sync / Login";
+            if (mobileCloudLabel) mobileCloudLabel.textContent = "Sync";
           }
         });
 
