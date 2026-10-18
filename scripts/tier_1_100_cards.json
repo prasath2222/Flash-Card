@@ -1,0 +1,1003 @@
+[
+  {
+    "num": 1,
+    "word": "I",
+    "emoji": "👤",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "yo",
+      "hi": "main"
+    },
+    "tamil": "நான்"
+  },
+  {
+    "num": 2,
+    "word": "YOU",
+    "emoji": "📌",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "YOU",
+      "hi": "YOU"
+    },
+    "tamil": "YOU"
+  },
+  {
+    "num": 3,
+    "word": "HE",
+    "emoji": "👨",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "él",
+      "hi": "woh"
+    },
+    "tamil": "அவன் (அவர்)"
+  },
+  {
+    "num": 4,
+    "word": "SHE",
+    "emoji": "👩",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "ella",
+      "hi": "woh"
+    },
+    "tamil": "அவள்"
+  },
+  {
+    "num": 5,
+    "word": "IT",
+    "emoji": "📦",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "IT",
+      "hi": "IT"
+    },
+    "tamil": "IT"
+  },
+  {
+    "num": 6,
+    "word": "WE",
+    "emoji": "👥",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "nosotros (nosotras)",
+      "hi": "hum"
+    },
+    "tamil": "நாங்கள் (நாம்)"
+  },
+  {
+    "num": 7,
+    "word": "THEY",
+    "emoji": "👥",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "ellos (ellas)",
+      "hi": "woh log"
+    },
+    "tamil": "அவர்கள் (அவங்க)"
+  },
+  {
+    "num": 8,
+    "word": "ME",
+    "emoji": "🙋",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "me",
+      "hi": "mujhe"
+    },
+    "tamil": "என்னை (எனக்கு)"
+  },
+  {
+    "num": 9,
+    "word": "HIM",
+    "emoji": "👨",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "lo",
+      "hi": "use (usko)"
+    },
+    "tamil": "அவனை (அவரை)"
+  },
+  {
+    "num": 10,
+    "word": "HER",
+    "emoji": "📌",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "HER",
+      "hi": "HER"
+    },
+    "tamil": "HER"
+  },
+  {
+    "num": 11,
+    "word": "US",
+    "emoji": "👥",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "nos",
+      "hi": "humein"
+    },
+    "tamil": "எங்களை (நமக்கு"
+  },
+  {
+    "num": 12,
+    "word": "THEM",
+    "emoji": "👥",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "los (las)",
+      "hi": "unko"
+    },
+    "tamil": "அவர்களை (அவங்களை)"
+  },
+  {
+    "num": 13,
+    "word": "MYSELF",
+    "emoji": "🪞",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "yo mismo (yo misma)",
+      "hi": "main khud"
+    },
+    "tamil": "நானே (நான் தான்)"
+  },
+  {
+    "num": 14,
+    "word": "YOURSELF",
+    "emoji": "🪞",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "tú mismo",
+      "hi": "tum khud"
+    },
+    "tamil": "நீயே (நீயாகவே)"
+  },
+  {
+    "num": 15,
+    "word": "HIMSELF",
+    "emoji": "🪞",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "él mismo",
+      "hi": "woh khud"
+    },
+    "tamil": "அவனாகவே (அவரே)"
+  },
+  {
+    "num": 16,
+    "word": "HERSELF",
+    "emoji": "🪞",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "ella misma",
+      "hi": "woh khud"
+    },
+    "tamil": "அவளாகவே"
+  },
+  {
+    "num": 17,
+    "word": "ITSELF",
+    "emoji": "🪞",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "por sí solo (sola)",
+      "hi": "apne aap"
+    },
+    "tamil": "அதுவாகவே (தானாகவே)"
+  },
+  {
+    "num": 18,
+    "word": "OURSELVES",
+    "emoji": "🪞",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "nosotros mismos",
+      "hi": "hum khud"
+    },
+    "tamil": "நாங்களாகவே (நாமே)"
+  },
+  {
+    "num": 19,
+    "word": "YOURSELVES",
+    "emoji": "🪞",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "ustedes mismos",
+      "hi": "aap log khud"
+    },
+    "tamil": "நீங்களாகவே"
+  },
+  {
+    "num": 20,
+    "word": "THEMSELVES",
+    "emoji": "🪞",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "ellos mismos",
+      "hi": "woh khud"
+    },
+    "tamil": "அவர்களாகவே (அவங்களாகவே)"
+  },
+  {
+    "num": 21,
+    "word": "MY",
+    "emoji": "🏷",
+    "category": "Category 2: Possessives & Demonstratives",
+    "trans": {
+      "es": "mi",
+      "hi": "mera (meri"
+    },
+    "tamil": "mere)"
+  },
+  {
+    "num": 22,
+    "word": "YOUR",
+    "emoji": "🏷",
+    "category": "Category 2: Possessives & Demonstratives",
+    "trans": {
+      "es": "️ YOUR",
+      "hi": "️ YOUR"
+    },
+    "tamil": "️ YOUR"
+  },
+  {
+    "num": 23,
+    "word": "HIS",
+    "emoji": "🏷",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "su (sus)",
+      "hi": "uska (uski"
+    },
+    "tamil": "uske)"
+  },
+  {
+    "num": 24,
+    "word": "OUR",
+    "emoji": "🏷",
+    "category": "Category 2: Possessives & Demonstratives",
+    "trans": {
+      "es": "nuestro (nuestra",
+      "hi": "nuestros"
+    },
+    "tamil": "nuestras)"
+  },
+  {
+    "num": 25,
+    "word": "THEIR",
+    "emoji": "🏷",
+    "category": "Category 2: Possessives & Demonstratives",
+    "trans": {
+      "es": "su (sus) his",
+      "hi": "unka (unki"
+    },
+    "tamil": "unke)"
+  },
+  {
+    "num": 26,
+    "word": "ITS",
+    "emoji": "🏷",
+    "category": "Category 2: Possessives & Demonstratives",
+    "trans": {
+      "es": "su",
+      "hi": "uska (iska)"
+    },
+    "tamil": "அதனுடைய (அதன்)"
+  },
+  {
+    "num": 27,
+    "word": "MINE",
+    "emoji": "🎯",
+    "category": "Category 2: Possessives & Demonstratives",
+    "trans": {
+      "es": "mío (mía",
+      "hi": "míos"
+    },
+    "tamil": "mías)"
+  },
+  {
+    "num": 28,
+    "word": "YOURS",
+    "emoji": "🎯",
+    "category": "Category 2: Possessives & Demonstratives",
+    "trans": {
+      "es": "tuyo (tuya",
+      "hi": "tuyos"
+    },
+    "tamil": "tuyas)"
+  },
+  {
+    "num": 29,
+    "word": "HERS",
+    "emoji": "🎯",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "suyo (suya)",
+      "hi": "de ella (uska)"
+    },
+    "tamil": "அவளுடையது"
+  },
+  {
+    "num": 31,
+    "word": "THEIRS",
+    "emoji": "🎯",
+    "category": "Category 2: Possessives & Demonstratives",
+    "trans": {
+      "es": "suyo (suya)",
+      "hi": "de ellos (unka)"
+    },
+    "tamil": "அவர்களுடையது"
+  },
+  {
+    "num": 32,
+    "word": "WHOSE",
+    "emoji": "❓",
+    "category": "Category 2: Possessives & Demonstratives",
+    "trans": {
+      "es": "de quién",
+      "hi": "kiska (kiski"
+    },
+    "tamil": "kiske)"
+  },
+  {
+    "num": 33,
+    "word": "THIS",
+    "emoji": "👉",
+    "category": "Category 2: Possessives & Demonstratives",
+    "trans": {
+      "es": "este (esta",
+      "hi": "esto)"
+    },
+    "tamil": "yeh"
+  },
+  {
+    "num": 34,
+    "word": "THAT",
+    "emoji": "👉",
+    "category": "Category 2: Possessives & Demonstratives",
+    "trans": {
+      "es": "ese (esa",
+      "hi": "eso)"
+    },
+    "tamil": "woh"
+  },
+  {
+    "num": 35,
+    "word": "THESE",
+    "emoji": "👉",
+    "category": "Category 2: Possessives & Demonstratives",
+    "trans": {
+      "es": "estos (estas)",
+      "hi": "yeh"
+    },
+    "tamil": "இவை (இந்த)"
+  },
+  {
+    "num": 36,
+    "word": "THOSE",
+    "emoji": "👉",
+    "category": "Category 2: Possessives & Demonstratives",
+    "trans": {
+      "es": "esos (esas)",
+      "hi": "woh"
+    },
+    "tamil": "அவை (அந்த)"
+  },
+  {
+    "num": 37,
+    "word": "SOMEONE/SOMEBODY",
+    "emoji": "👤",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "alguien",
+      "hi": "koi"
+    },
+    "tamil": "யாரோ"
+  },
+  {
+    "num": 39,
+    "word": "SOMETHING",
+    "emoji": "💡",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "algo",
+      "hi": "kuch"
+    },
+    "tamil": "ஏதோ"
+  },
+  {
+    "num": 40,
+    "word": "SOMEWHERE",
+    "emoji": "📍",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "algún lugar",
+      "hi": "kahin"
+    },
+    "tamil": "எங்காவது"
+  },
+  {
+    "num": 44,
+    "word": "ANYWHERE",
+    "emoji": "📍",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "en cualquier lugar",
+      "hi": "kahin bhi"
+    },
+    "tamil": "எங்கு வேண்டுமானாலும்"
+  },
+  {
+    "num": 45,
+    "word": "EVERYONE",
+    "emoji": "👥",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "todos (todo el mundo)",
+      "hi": "sab  log"
+    },
+    "tamil": "எல்லோரும்"
+  },
+  {
+    "num": 47,
+    "word": "EVERYTHING",
+    "emoji": "🌐",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "todo",
+      "hi": "sab kuch"
+    },
+    "tamil": "எல்லாம்"
+  },
+  {
+    "num": 48,
+    "word": "EVERYWHERE",
+    "emoji": "🌍",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "en todas partes",
+      "hi": "har jagah"
+    },
+    "tamil": "எல்லா இடங்களிலும்"
+  },
+  {
+    "num": 49,
+    "word": "NO ONE/NOBODY",
+    "emoji": "🚫",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "nadie",
+      "hi": "koi nahi"
+    },
+    "tamil": "யாரும் இல்லை"
+  },
+  {
+    "num": 51,
+    "word": "NOTHING",
+    "emoji": "🚫",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "nada",
+      "hi": "kuch nahi"
+    },
+    "tamil": "எதுவும் இல்லை"
+  },
+  {
+    "num": 52,
+    "word": "NOWHERE",
+    "emoji": "🚫",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "en ninguna parte",
+      "hi": "kahin nahi"
+    },
+    "tamil": "எங்கும் இல்லை"
+  },
+  {
+    "num": 53,
+    "word": "A /AN",
+    "emoji": "🔤",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "un (una)",
+      "hi": "ek"
+    },
+    "tamil": "ஒரு"
+  },
+  {
+    "num": 55,
+    "word": "THE",
+    "emoji": "🔤",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "el (la",
+      "hi": "los"
+    },
+    "tamil": "las)"
+  },
+  {
+    "num": 56,
+    "word": "ALL",
+    "emoji": "🔢",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "todo (todos)",
+      "hi": "sab"
+    },
+    "tamil": "எல்லா (அனைத்தும்)"
+  },
+  {
+    "num": 57,
+    "word": "EVERY",
+    "emoji": "🔢",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "cada",
+      "hi": "har"
+    },
+    "tamil": "ஒவ்வொரு"
+  },
+  {
+    "num": 58,
+    "word": "EACH",
+    "emoji": "🔢",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "cada",
+      "hi": "har ek"
+    },
+    "tamil": "ஒவ்வொருவரும் (ஒவ்வொன்றும்)"
+  },
+  {
+    "num": 59,
+    "word": "BOTH",
+    "emoji": "👥",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "ambos (los dos)",
+      "hi": "dono"
+    },
+    "tamil": "இருவரும் (இரண்டுமே)"
+  },
+  {
+    "num": 60,
+    "word": "EITHER",
+    "emoji": "🔀",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "EITHER",
+      "hi": "EITHER"
+    },
+    "tamil": "EITHER"
+  },
+  {
+    "num": 61,
+    "word": "NEITHER",
+    "emoji": "🚫",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "ninguno (ninguna)",
+      "hi": "dono mein se koi nahi"
+    },
+    "tamil": "இரண்டில் எதுவும் இல்லை"
+  },
+  {
+    "num": 62,
+    "word": "SOME",
+    "emoji": "🍰",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "un poco de (algunos)",
+      "hi": "thoda (kuch)"
+    },
+    "tamil": "கொஞ்சம் (சில)"
+  },
+  {
+    "num": 64,
+    "word": "NONE",
+    "emoji": "🚫",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "ninguno (ninguna)",
+      "hi": "ek bhi nahi"
+    },
+    "tamil": "ஒன்றுகூட இல்லை"
+  },
+  {
+    "num": 65,
+    "word": "SELF",
+    "emoji": "🪞",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "sí mismo",
+      "hi": "khud"
+    },
+    "tamil": "சுயம் (தானே)"
+  },
+  {
+    "num": 66,
+    "word": "OTHER",
+    "emoji": "🔄",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "otro (otra)",
+      "hi": "doosra (doosri)"
+    },
+    "tamil": "மற்றொரு (மற்றவை)"
+  },
+  {
+    "num": 67,
+    "word": "ANOTHER",
+    "emoji": "➕",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "otro (otra)",
+      "hi": "ek aur"
+    },
+    "tamil": "இன்னொரு"
+  },
+  {
+    "num": 68,
+    "word": "SUCH",
+    "emoji": "🌟",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "así (tal)",
+      "hi": "aisa (aisi)"
+    },
+    "tamil": "அப்படிப்பட்ட (அத்தகைய)"
+  },
+  {
+    "num": 69,
+    "word": "SAME",
+    "emoji": "🔁",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "mismo (misma)",
+      "hi": "vahi (same)"
+    },
+    "tamil": "அதே"
+  },
+  {
+    "num": 70,
+    "word": "DIFFERENT",
+    "emoji": "🔀",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "diferente",
+      "hi": "alag"
+    },
+    "tamil": "வேறுபட்ட (வேறு)"
+  },
+  {
+    "num": 71,
+    "word": "SEVERAL",
+    "emoji": "🔢",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "varios (varias)",
+      "hi": "kai"
+    },
+    "tamil": "பல"
+  },
+  {
+    "num": 72,
+    "word": "MANY",
+    "emoji": "🔢",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "muchos (muchas)",
+      "hi": "bahut saare"
+    },
+    "tamil": "பல (நிறைய)"
+  },
+  {
+    "num": 73,
+    "word": "MUCH",
+    "emoji": "💧",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "mucho",
+      "hi": "zyada"
+    },
+    "tamil": "அதிகம் (நிறைய)"
+  },
+  {
+    "num": 74,
+    "word": "FEW",
+    "emoji": "🤏",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "pocos (pocas)",
+      "hi": "thode"
+    },
+    "tamil": "சில (கொஞ்சம்)"
+  },
+  {
+    "num": 75,
+    "word": "LITTLE",
+    "emoji": "📌",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "LITTLE",
+      "hi": "LITTLE"
+    },
+    "tamil": "LITTLE"
+  },
+  {
+    "num": 76,
+    "word": "WHAT",
+    "emoji": "❓",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "qué",
+      "hi": "kya"
+    },
+    "tamil": "என்ன"
+  },
+  {
+    "num": 77,
+    "word": "WHERE",
+    "emoji": "📍",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "dónde",
+      "hi": "kahan"
+    },
+    "tamil": "எங்கே"
+  },
+  {
+    "num": 78,
+    "word": "⏰ WHEN",
+    "emoji": "📌",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "cuándo",
+      "hi": "kab"
+    },
+    "tamil": "எப்போது"
+  },
+  {
+    "num": 79,
+    "word": "WHY",
+    "emoji": "❓",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "por qué",
+      "hi": "kyun"
+    },
+    "tamil": "ஏன்"
+  },
+  {
+    "num": 80,
+    "word": "WHO",
+    "emoji": "👤",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "quién",
+      "hi": "kaun"
+    },
+    "tamil": "யார்"
+  },
+  {
+    "num": 81,
+    "word": "WHOM",
+    "emoji": "👤",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "a quién",
+      "hi": "con quién"
+    },
+    "tamil": "kisse"
+  },
+  {
+    "num": 82,
+    "word": "WHICH",
+    "emoji": "🔀",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "qué",
+      "hi": "cuál"
+    },
+    "tamil": "kaun sa (kaun si)"
+  },
+  {
+    "num": 83,
+    "word": "HOW",
+    "emoji": "❓",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "cómo",
+      "hi": "kaise"
+    },
+    "tamil": "எப்படி"
+  },
+  {
+    "num": 84,
+    "word": "HOW MUCH",
+    "emoji": "💰",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "cuánto",
+      "hi": "kitna"
+    },
+    "tamil": "எவ்வளவு"
+  },
+  {
+    "num": 85,
+    "word": "HOW MANY",
+    "emoji": "🔢",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "cuántos",
+      "hi": "kitne"
+    },
+    "tamil": "எத்தனை"
+  },
+  {
+    "num": 86,
+    "word": "⏳ HOW LONG",
+    "emoji": "📌",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "cuánto tiempo",
+      "hi": "kitni der"
+    },
+    "tamil": "எவ்வளவு நேரம்"
+  },
+  {
+    "num": 87,
+    "word": "HOW FAR",
+    "emoji": "📏",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "qué tan lejos",
+      "hi": "kitni door"
+    },
+    "tamil": "எவ்வளவு தூரம்"
+  },
+  {
+    "num": 88,
+    "word": "HOW OFTEN",
+    "emoji": "🔁",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "cada cuánto",
+      "hi": "kitni baar"
+    },
+    "tamil": "எத்தனை முறை"
+  },
+  {
+    "num": 89,
+    "word": "WHAT KIND",
+    "emoji": "🏷",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "qué tipo de",
+      "hi": "kaisa (kaisi)"
+    },
+    "tamil": "என்ன வகையான"
+  },
+  {
+    "num": 90,
+    "word": "WHICH ONE",
+    "emoji": "🎯",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "cuál",
+      "hi": "kaun sa (kaun si)"
+    },
+    "tamil": "எது"
+  },
+  {
+    "num": 91,
+    "word": "BE",
+    "emoji": "📌",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "BE",
+      "hi": "BE"
+    },
+    "tamil": "BE"
+  },
+  {
+    "num": 92,
+    "word": "HAVE",
+    "emoji": "🤲",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "tener",
+      "hi": "paas hona"
+    },
+    "tamil": "வைத்திரு (இருக்கிறது)"
+  },
+  {
+    "num": 93,
+    "word": "DO",
+    "emoji": "🛠",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "hacer",
+      "hi": "karna"
+    },
+    "tamil": "செய் (செய்வது)"
+  },
+  {
+    "num": 94,
+    "word": "CAN",
+    "emoji": "📌",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "CAN",
+      "hi": "CAN"
+    },
+    "tamil": "CAN"
+  },
+  {
+    "num": 95,
+    "word": "COULD",
+    "emoji": "📌",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "COULD",
+      "hi": "COULD"
+    },
+    "tamil": "COULD"
+  },
+  {
+    "num": 96,
+    "word": "WILL",
+    "emoji": "📌",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "WILL",
+      "hi": "WILL"
+    },
+    "tamil": "WILL"
+  },
+  {
+    "num": 97,
+    "word": "WOULD",
+    "emoji": "📌",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "WOULD",
+      "hi": "WOULD"
+    },
+    "tamil": "WOULD"
+  },
+  {
+    "num": 98,
+    "word": "SHALL",
+    "emoji": "📜",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "—",
+      "hi": "kya ... ?"
+    },
+    "tamil": "நாம் ... ?"
+  },
+  {
+    "num": 99,
+    "word": "SHOULD",
+    "emoji": "💡",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "debería (deberías)",
+      "hi": "chahiye"
+    },
+    "tamil": "வேண்டும்"
+  },
+  {
+    "num": 100,
+    "word": "MUST",
+    "emoji": "⚠",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "tener que",
+      "hi": "karna zaroori hai"
+    },
+    "tamil": "கட்டாயம் (வேண்டும்)"
+  }
+]

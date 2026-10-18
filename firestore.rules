@@ -43,7 +43,7 @@ service cloud.firestore {
         && incoming().keys().hasAll(['userId', 'updatedAt'])
         && incoming().keys().hasOnly([
           'userId', 'email', 'displayName', 'lastActiveCardNum', 
-          'streakCount', 'lastStudyDate', 'learnedCardNums', 
+          'activeDeckId', 'streakCount', 'lastStudyDate', 'learnedCardNums', 
           'deletedCardNums', 'updatedAt', 'createdAt'
         ]);
 
@@ -52,7 +52,7 @@ service cloud.firestore {
         && incoming().keys().hasAll(['userId', 'updatedAt'])
         && incoming().keys().hasOnly([
           'userId', 'email', 'displayName', 'lastActiveCardNum', 
-          'streakCount', 'lastStudyDate', 'learnedCardNums', 
+          'activeDeckId', 'streakCount', 'lastStudyDate', 'learnedCardNums', 
           'deletedCardNums', 'updatedAt', 'createdAt'
         ]);
 
@@ -66,6 +66,18 @@ service cloud.firestore {
           && incoming().userId == request.auth.uid
           && incoming().keys().hasAll(['userId', 'cardNum', 'updatedAt'])
           && incoming().keys().hasOnly(['userId', 'cardNum', 'es', 'hi', 'updatedAt']);
+
+        allow delete: if isOwner(userId);
+      }
+
+      // User Custom Uploaded Decks
+      match /decks/{deckId} {
+        allow get, list: if isOwner(userId);
+
+        allow create, update: if isOwner(userId)
+          && incoming().userId == request.auth.uid
+          && incoming().keys().hasAll(['userId', 'deckId', 'title', 'updatedAt'])
+          && incoming().keys().hasOnly(['userId', 'deckId', 'title', 'description', 'cardCount', 'cards', 'updatedAt', 'createdAt']);
 
         allow delete: if isOwner(userId);
       }

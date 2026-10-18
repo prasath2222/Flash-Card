@@ -23,20 +23,470 @@
           e.preventDefault();
         }
       }, true);
+
+      /* ==========================================================
+         AUTOMATIC DECK UPLOADER & IMAGE RESOLUTION CONTROLLER
+         ========================================================== */
+      function updateSubsectionsUI() {
+        const pill1 = document.getElementById("pill-tier-1");
+        const cardTier1 = document.getElementById("sub-tier-1-100");
+        const cardTier800 = document.getElementById("sub-tier-800-1000");
+
+        if (cardTier1) {
+          const isTier1 = currentDeckId === "deck-1-100";
+          if (pill1) pill1.style.display = isTier1 ? "inline-block" : "none";
+          cardTier1.style.borderColor = isTier1 ? "#10b981" : "rgba(16, 185, 129, 0.45)";
+          cardTier1.style.boxShadow = isTier1 ? "0 12px 35px rgba(16, 185, 129, 0.35), 0 5px 0 #059669" : "0 10px 28px rgba(16, 185, 129, 0.15), 0 5px 0 #059669";
+        }
+
+        if (cardTier800) {
+          const isTier800 = currentDeckId === "deck-800-1000";
+          cardTier800.style.borderColor = isTier800 ? "#38bdf8" : "rgba(56, 189, 248, 0.45)";
+          cardTier800.style.boxShadow = isTier800 ? "0 12px 35px rgba(2, 132, 199, 0.35), 0 5px 0 #0369a1" : "0 10px 30px rgba(2, 132, 199, 0.18), 0 5px 0 #0369a1";
+        }
+
+        // Update Tier 1 Learned Count
+        let tier1Learned = 0;
+        tier1DeckCards.forEach(c => {
+          if (learnedCardsSet && (learnedCardsSet.has(c.num) || learnedCardsSet.has(String(c.num)))) tier1Learned++;
+        });
+        const tier1Stat = document.getElementById("tier-1-stat-line");
+        if (tier1Stat) tier1Stat.textContent = `${tier1Learned} / ${tier1DeckCards.length} Learned`;
+        const tier1Bar = document.getElementById("tier-1-progress-bar");
+        if (tier1Bar) tier1Bar.style.width = `${Math.round((tier1Learned / tier1DeckCards.length) * 100)}%`;
+
+        // Update Active Deck Header Pill
+        const navDeckLabel = document.getElementById("nav-active-deck-label");
+        if (navDeckLabel) navDeckLabel.textContent = `Deck: ${getActiveDeckInfo().title}`;
+      }
+
+      function renderCustomDecksList() {
+        const grid = document.getElementById("custom-decks-grid");
+        const countBadge = document.getElementById("custom-decks-count-badge");
+        if (!grid) return;
+
+        const keys = Object.keys(customDecksCatalog);
+        if (countBadge) countBadge.textContent = `${keys.length} Deck${keys.length === 1 ? '' : 's'}`;
+
+        if (keys.length === 0) {
+          grid.innerHTML = `<div style="text-align: center; padding: 20px; background: rgba(255,255,255,0.03); border: 1px dashed rgba(255,255,255,0.12); border-radius: 16px; color: #94a3b8; font-size: 0.86rem;">
+            No custom decks uploaded yet. Tap <strong>Upload / Import Deck</strong> above to add your own curriculum!
+          </div>`;
+          return;
+        }
+
+        grid.innerHTML = "";
+        keys.forEach(k => {
+          const deck = customDecksCatalog[k];
+          const isCurrent = currentDeckId === deck.deckId;
+          const cardDiv = document.createElement("div");
+          cardDiv.className = "custom-deck-item";
+          cardDiv.style.cssText = `background: rgba(255,255,255,0.05); border: 2px solid ${isCurrent ? '#38bdf8' : 'rgba(255,255,255,0.12)'}; border-radius: 18px; padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; transition: all 0.2s;`;
+
+          cardDiv.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="font-size: 1.6rem; width: 44px; height: 44px; border-radius: 12px; background: rgba(56,189,248,0.15); display: flex; align-items: center; justify-content: center;">📑</span>
+              <div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <h4 style="font-size: 1.05rem; font-weight: 800; color: #fff; margin: 0;">${deck.title}</h4>
+                  ${isCurrent ? '<span style="font-size: 0.65rem; font-weight: 800; background: #38bdf8; color: #0f172a; padding: 2px 7px; border-radius: 999px;">ACTIVE</span>' : ''}
+                </div>
+                <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 2px;">${deck.cardCount || (deck.cards ? deck.cards.length : 0)} Flashcards · Synced across devices</div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <button type="button" class="duo-btn-3d duo-btn-3d-green btn-study-custom-deck" data-deck-id="${deck.deckId}" style="padding: 9px 18px; font-size: 0.85rem; font-weight: 700;">
+                ${isCurrent ? 'Study Now' : 'Switch & Study'}
+              </button>
+              <button type="button" class="duo-btn-3d btn-delete-custom-deck" data-deck-id="${deck.deckId}" style="padding: 9px 12px; font-size: 0.85rem; color: #f87171; background: rgba(248,113,113,0.12); border-color: rgba(248,113,113,0.3);" title="Delete deck">
+                🗑️
+              </button>
+            </div>
+          `;
+          grid.appendChild(cardDiv);
+        });
+
+        // Wire study & delete buttons
+        grid.querySelectorAll(".btn-study-custom-deck").forEach(btn => {
+          btn.addEventListener("click", () => {
+            const id = btn.getAttribute("data-deck-id");
+            if (id) switchDeck(id);
+          });
+        });
+
+        grid.querySelectorAll(".btn-delete-custom-deck").forEach(btn => {
+          btn.addEventListener("click", () => {
+            const id = btn.getAttribute("data-deck-id");
+            if (!id) return;
+            if (confirm(`Delete this deck?`)) {
+              delete customDecksCatalog[id];
+              try {
+                localStorage.setItem("custom_decks_catalog_v1", JSON.stringify(customDecksCatalog));
+              } catch(e){}
+              if (window.firebaseSync && window.firebaseSync.deleteCustomDeckFromCloud) {
+                window.firebaseSync.deleteCustomDeckFromCloud(id);
+              }
+              if (currentDeckId === id) {
+                switchDeck("deck-800-1000");
+              } else {
+                renderCustomDecksList();
+              }
+            }
+          });
+        });
+      }
+
+      // Universal Intelligent Parser for Raw Curriculum, JSON, CSV & Text
+      function parseCurriculumText(rawText) {
+        if (!rawText || typeof rawText !== "string") return [];
+        const trimmed = rawText.trim();
+
+        // 1. JSON Array
+        if (trimmed.startsWith("[") && trimmed.endsWith("]")) {
+          try {
+            const arr = JSON.parse(trimmed);
+            if (Array.isArray(arr) && arr.length > 0) {
+              return arr.map((item, idx) => ({
+                num: item.num || (idx + 1),
+                word: String(item.word || item.term || item.english || `Term ${idx + 1}`).replace(/^[️s]+/, '').trim(),
+                emoji: item.emoji || "📌",
+                category: item.category || "Uploaded Deck",
+                trans: {
+                  es: (item.trans && item.trans.es) || item.es || item.spanish || String(item.word || ""),
+                  hi: (item.trans && item.trans.hi) || item.hi || item.hindi || String(item.word || "")
+                },
+                tamil: item.tamil || item.ta || String(item.word || "")
+              }));
+            }
+          } catch(e) {}
+        }
+
+        const lines = rawText.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+
+        // 2. CSV / TSV
+        if (lines.length > 1 && (lines[0].includes(",") || lines[0].includes("\t"))) {
+          const delimiter = lines[0].includes("\t") ? "\t" : ",";
+          const header = lines[0].toLowerCase().split(delimiter).map(h => h.trim().replace(/^["']|["']$/g, ""));
+          const wordIdx = header.findIndex(h => h.includes("word") || h.includes("english") || h.includes("term") || h.includes("en"));
+          const esIdx = header.findIndex(h => h.includes("spanish") || h.includes("es"));
+          const hiIdx = header.findIndex(h => h.includes("hindi") || h.includes("hi"));
+          const taIdx = header.findIndex(h => h.includes("tamil") || h.includes("ta"));
+
+          if (wordIdx !== -1) {
+            const parsed = [];
+            for (let i = 1; i < lines.length; i++) {
+              const row = lines[i].split(delimiter).map(c => c.trim().replace(/^["']|["']$/g, ""));
+              const word = row[wordIdx];
+              if (!word) continue;
+              parsed.push({
+                num: i,
+                word: word.replace(/^[️s]+/, '').trim(),
+                emoji: "📌",
+                category: "Uploaded CSV",
+                trans: {
+                  es: esIdx !== -1 && row[esIdx] ? row[esIdx] : word,
+                  hi: hiIdx !== -1 && row[hiIdx] ? row[hiIdx] : word
+                },
+                tamil: taIdx !== -1 && row[taIdx] ? row[taIdx] : word
+              });
+            }
+            if (parsed.length > 0) return parsed;
+          }
+        }
+
+        // 3. Raw Curriculum Format (e.g., raw_curriculum.txt: "1. 👤 I = yo / main / நான்")
+        const parsedCards = [];
+        let curCategory = "Custom Deck";
+        let autoId = 1;
+
+        for (let i = 0; i < lines.length; i++) {
+          const line = lines[i];
+          if (line.startsWith("Category ") || line.startsWith("# ")) {
+            curCategory = line.replace(/^[#\s]+/, "").trim();
+            continue;
+          }
+
+          const numMatch = line.match(/^([0-9]+)\.\s*(.*)/);
+          if (numMatch) {
+            const num = parseInt(numMatch[1], 10);
+            const rest = numMatch[2].trim();
+
+            let emoji = "📌";
+            let cleanHeader = rest;
+            const emojiMatch = rest.match(/^([�-�][�-�]|[☀-➿]|�[�-�]|�[�-�]|�[�-�]|⏩-⏬|👤|👨|👩|📦|👥|🙋|🏷️|🎯|🪞)s*(.*)/);
+            if (emojiMatch) {
+              emoji = emojiMatch[1];
+              cleanHeader = emojiMatch[2];
+            }
+
+            let word = cleanHeader;
+            let es = "";
+            let hi = "";
+            let ta = "";
+
+            if (cleanHeader.includes("=")) {
+              const parts = cleanHeader.split("=");
+              word = parts[0].trim();
+              const transParts = parts[1].split("/");
+              es = (transParts[0] || "").trim();
+              hi = (transParts[1] || "").trim();
+              ta = (transParts[2] || "").trim();
+            }
+
+            word = word.replace(/^[0-9]+\.\s*/, "").replace(/^[\uFE0F\s]+/, "").trim();
+            if (!word) word = `Word ${num || autoId}`;
+
+            parsedCards.push({
+              num: num || autoId++,
+              word: word,
+              emoji: emoji,
+              category: curCategory.replace(/\([0-9–-]+\)/, "").trim(),
+              trans: { es: es || word, hi: hi || word },
+              tamil: ta || word
+            });
+          } else if (line.length > 1 && !line.startsWith("EN:") && !line.startsWith("ES:") && !line.startsWith("HI:") && !line.startsWith("TA:")) {
+            parsedCards.push({
+              num: autoId++,
+              word: line.replace(/^[\uFE0F\s]+/, '').trim(),
+              emoji: "📌",
+              category: curCategory,
+              trans: { es: line.trim(), hi: line.trim() },
+              tamil: line.trim()
+            });
+          }
+        }
+
+        return parsedCards;
+      }
+
+      // Automatic Latest Real-World Photo Discovery via Server & Wikipedia
+      async function autoFindMissingImages(cardList, progressCb) {
+        const batchSize = 6;
+        let done = 0;
+        for (let i = 0; i < cardList.length; i += batchSize) {
+          const chunk = cardList.slice(i, i + batchSize);
+          await Promise.all(chunk.map(async (c) => {
+            const lookupId = c.originalNum || c.num;
+            if (typeof cardAccurateImages !== "undefined" && cardAccurateImages[lookupId]) {
+              done++;
+              if (progressCb) progressCb(done, cardList.length);
+              return;
+            }
+            try {
+              const res = await fetch(`/api/find-image?query=${encodeURIComponent(c.word)}&num=${lookupId}`);
+              if (res.ok) {
+                const data = await res.json();
+                if (data && data.imageUrl) {
+                  if (typeof cardAccurateImages !== "undefined") {
+                    cardAccurateImages[lookupId] = data.imageUrl;
+                  }
+                  c.imageUrl = data.imageUrl;
+                }
+              }
+            } catch(e) {}
+            done++;
+            if (progressCb) progressCb(done, cardList.length);
+          }));
+        }
+      }
+
+      // Wire Up Uploader Modal & Events
+      function initDeckUploaderSystem() {
+        const modal = document.getElementById("modal-upload-deck");
+        const btnTopUpload = document.getElementById("btn-top-upload-deck");
+        const btnSubUpload = document.getElementById("btn-subsections-upload");
+        const btnClose = document.getElementById("btn-close-upload-deck");
+        const btnCancel = document.getElementById("btn-cancel-upload-deck");
+        const btnPreset1 = document.getElementById("btn-preset-tier-1");
+        const btnPreset800 = document.getElementById("btn-preset-tier-800");
+        const btnStudyTier1 = document.getElementById("btn-study-tier-1");
+        const cardTier1 = document.getElementById("sub-tier-1-100");
+        const cardTier800 = document.getElementById("sub-tier-800-1000");
+
+        const dropzone = document.getElementById("deck-dropzone");
+        const fileInput = document.getElementById("deck-file-input");
+        const pasteInput = document.getElementById("deck-paste-input");
+        const titleInput = document.getElementById("deck-title-input");
+        const btnLoadDeck = document.getElementById("btn-parse-and-load-deck");
+        const statusBox = document.getElementById("upload-status-box");
+        const statusText = document.getElementById("upload-status-text");
+        const progressFill = document.getElementById("upload-progress-fill");
+
+        function openModal() {
+          if (modal) {
+            modal.classList.add("open");
+            if (statusBox) statusBox.style.display = "none";
+          }
+        }
+        function closeModal() {
+          if (modal) modal.classList.remove("open");
+        }
+
+        if (btnTopUpload) btnTopUpload.addEventListener("click", openModal);
+        if (btnSubUpload) btnSubUpload.addEventListener("click", openModal);
+        if (btnClose) btnClose.addEventListener("click", closeModal);
+        if (btnCancel) btnCancel.addEventListener("click", closeModal);
+
+        // Preset 1: Cards 1 - 100
+        if (btnPreset1) {
+          btnPreset1.addEventListener("click", () => {
+            closeModal();
+            switchDeck("deck-1-100");
+          });
+        }
+        if (btnStudyTier1) {
+          btnStudyTier1.addEventListener("click", (e) => {
+            e.stopPropagation();
+            switchDeck("deck-1-100");
+          });
+        }
+        if (cardTier1) {
+          cardTier1.addEventListener("click", (e) => {
+            if (e.target.closest("button")) return;
+            switchDeck("deck-1-100");
+          });
+        }
+
+        // Preset 9: Cards 800 - 1000
+        if (btnPreset800) {
+          btnPreset800.addEventListener("click", () => {
+            closeModal();
+            switchDeck("deck-800-1000");
+          });
+        }
+        if (cardTier800) {
+          cardTier800.addEventListener("click", (e) => {
+            if (e.target.closest("button")) return;
+            switchDeck("deck-800-1000");
+          });
+        }
+
+        // File dropzone click
+        if (dropzone && fileInput) {
+          dropzone.addEventListener("click", () => fileInput.click());
+
+          dropzone.addEventListener("dragover", (e) => {
+            e.preventDefault();
+            dropzone.style.borderColor = "#38bdf8";
+            dropzone.style.background = "rgba(56, 189, 248, 0.15)";
+          });
+
+          dropzone.addEventListener("dragleave", () => {
+            dropzone.style.borderColor = "rgba(56, 189, 248, 0.4)";
+            dropzone.style.background = "rgba(2, 132, 199, 0.06)";
+          });
+
+          dropzone.addEventListener("drop", (e) => {
+            e.preventDefault();
+            dropzone.style.borderColor = "rgba(56, 189, 248, 0.4)";
+            dropzone.style.background = "rgba(2, 132, 199, 0.06)";
+            if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+              handleFile(e.dataTransfer.files[0]);
+            }
+          });
+
+          fileInput.addEventListener("change", () => {
+            if (fileInput.files && fileInput.files.length > 0) {
+              handleFile(fileInput.files[0]);
+            }
+          });
+        }
+
+        function handleFile(file) {
+          if (!file) return;
+          if (titleInput && !titleInput.value) {
+            titleInput.value = file.name.replace(/\.[^/.]+$/, "");
+          }
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            if (pasteInput) pasteInput.value = e.target.result;
+            showToast(`File loaded: ${file.name}`);
+          };
+          reader.readAsText(file);
+        }
+
+        // Parse and Load Deck button
+        if (btnLoadDeck) {
+          btnLoadDeck.addEventListener("click", async () => {
+            const rawText = pasteInput ? pasteInput.value.trim() : "";
+            if (!rawText) {
+              showToast("Please choose a file or paste curriculum text first.");
+              return;
+            }
+
+            if (statusBox) statusBox.style.display = "block";
+            if (statusText) statusText.textContent = "Parsing curriculum flashcards...";
+            if (progressFill) progressFill.style.width = "20%";
+
+            const parsedCards = parseCurriculumText(rawText);
+            if (!parsedCards || parsedCards.length === 0) {
+              if (statusText) statusText.textContent = "Could not parse any cards. Check formatting.";
+              return;
+            }
+
+            const deckTitle = (titleInput && titleInput.value.trim()) || `Uploaded Deck (${parsedCards.length} cards)`;
+
+            const autoFindChk = document.getElementById("chk-auto-find-images");
+            const shouldFindImages = autoFindChk ? autoFindChk.checked : true;
+
+            if (shouldFindImages) {
+              if (statusText) statusText.textContent = `Auto-finding verified authentic photos for ${parsedCards.length} cards...`;
+              await autoFindMissingImages(parsedCards, (done, total) => {
+                const pct = Math.round((done / total) * 100);
+                if (progressFill) progressFill.style.width = `${Math.max(20, pct)}%`;
+                if (statusText) statusText.textContent = `Finding verified photos... ${done} / ${total} loaded (${pct}%)`;
+              });
+            }
+
+            if (progressFill) progressFill.style.width = "100%";
+            if (statusText) statusText.textContent = "Done! Activating deck...";
+
+            setTimeout(() => {
+              const deckId = `deck-custom-${Date.now()}`;
+              switchDeck(deckId, parsedCards, deckTitle);
+              closeModal();
+            }, 300);
+          });
+        }
+
+        // Initialize display state
+        updateSubsectionsUI();
+        renderCustomDecksList();
+
+        // Listen for Firestore remote decks
+        if (window.firebaseSync && window.firebaseSync.onRemoteDecksChange) {
+          window.firebaseSync.onRemoteDecksChange((remoteDecks) => {
+            if (remoteDecks) {
+              Object.assign(customDecksCatalog, remoteDecks);
+              try {
+                localStorage.setItem("custom_decks_catalog_v1", JSON.stringify(customDecksCatalog));
+              } catch(e){}
+              renderCustomDecksList();
+            }
+          });
+        }
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initDeckUploaderSystem);
+      } else {
+        initDeckUploaderSystem();
+      }
+
     </script>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
     />
-    <title>Stellar – 3K Vocabulary Mastery</title>
+    <title>Stellar</title>
     <meta
       name="description"
-      content="Mobile-first sequential flashcard reader and sliding deck featuring English, Spanish, Hindi, and pure native Tamil script."
+      content="Production-grade sequential multilingual vocabulary mastery app featuring English, Spanish, Hindi, and authentic native Tamil script."
     />
-    <meta property="og:title" content="Sequential Multilingual Flashcards" />
+    <meta property="og:title" content="Stellar" />
     <meta
       property="og:description"
-      content="Mobile-first sequential flashcard reader and sliding deck featuring English, Spanish, Hindi, and pure native Tamil script."
+      content="Production-grade sequential multilingual vocabulary mastery app featuring English, Spanish, Hindi, and authentic native Tamil script."
     />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -8566,6 +9016,55 @@
         <!-- SCREEN 2: DECK SUB-SECTIONS VIEW            -->
         <!-- ========================================== -->
         <div class="app-screen" id="screen-subsections">
+          <!-- Subsections Header & Quick Switch -->
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
+            <div>
+              <h2 style="font-size: 1.5rem; font-weight: 800; color: #fff; margin: 0 0 4px;">Vocabulary Tiers & Decks</h2>
+              <div style="font-size: 0.85rem; color: #94a3b8;">Select a curriculum tier or upload your own file with automatic authentic photo matching</div>
+            </div>
+            <button type="button" class="duo-btn-3d duo-btn-3d-green" id="btn-subsections-upload" style="padding: 11px 20px; font-size: 0.88rem; font-weight: 800; display: flex; align-items: center; gap: 8px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="17 8 12 3 7 8"/>
+                <line x1="12" y1="3" x2="12" y2="15"/>
+              </svg>
+              <span>Upload / Import Deck</span>
+            </button>
+          </div>
+
+          <!-- TIER 1: Cards 1 – 100 (Foundations, Pronouns & Everyday Essentials) -->
+          <div class="tier-card-option" id="sub-tier-1-100" role="button" tabindex="0" style="margin-bottom: 18px; background: linear-gradient(135deg, rgba(16, 185, 129, 0.22), rgba(2, 132, 199, 0.12)); border: 2px solid rgba(16, 185, 129, 0.45); box-shadow: 0 10px 28px rgba(16, 185, 129, 0.15), 0 5px 0 #059669; border-radius: 24px; padding: 24px 28px; cursor: pointer; transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+              <div style="display: flex; align-items: center; gap: 16px;">
+                <span style="display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 18px; background: rgba(255, 255, 255, 0.12); font-size: 1.8rem; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);">👤</span>
+                <div>
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 0.74rem; font-weight: 800; letter-spacing: 0.08em; color: #34d399; text-transform: uppercase;">Tier 1 · Foundations</span>
+                    <span class="active-tier-pill" id="pill-tier-1" style="display: none; font-size: 0.68rem; font-weight: 800; background: #10b981; color: #fff; padding: 2px 8px; border-radius: 999px;">ACTIVE DECK</span>
+                  </div>
+                  <h3 style="font-size: 1.35rem; font-weight: 800; color: #ffffff; margin: 3px 0 5px;">Cards 1 – 100 (Core Pronouns & Modals)</h3>
+                  <div style="font-size: 0.86rem; color: #cbd5e1;">I, YOU, HE, SHE, WE, THEY, THIS, THAT, WILL, SHOULD, MUST · 100 Words</div>
+                </div>
+              </div>
+              <button type="button" class="duo-btn-3d duo-btn-3d-green" id="btn-study-tier-1" style="padding: 13px 26px; font-size: 0.95rem;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                <span>Study Tier 1</span>
+              </button>
+            </div>
+            <div style="margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.1); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+              <div style="font-size: 0.82rem; color: #94a3b8;">
+                Master core pronouns, reflexives, demonstratives and modal auxiliary verbs with real-world imagery.
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span id="tier-1-stat-line" style="font-size: 0.85rem; font-weight: 700; color: #34d399;">0 / 100 Learned</span>
+                <div style="width: 120px; height: 8px; background: rgba(255, 255, 255, 0.1); border-radius: 9999px; overflow: hidden;">
+                  <div id="tier-1-progress-bar" style="width: 0%; height: 100%; background: #34d399; border-radius: 9999px;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
           
 
           <!-- ONLY ONE TIER: Cards 800 – 1000 Featured Card (No other down shits!) -->
@@ -8600,6 +9099,17 @@
           </div>
 
           <!-- Centered Duolingo-style 3D Add Section Button (Both Main & Subsection have it centered!) -->
+          <!-- Custom Uploaded Decks Dynamic Section -->
+          <div id="custom-decks-section" style="margin-top: 24px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+              <h3 style="font-size: 1.15rem; font-weight: 800; color: #fff; margin: 0;">My Custom Uploaded Decks</h3>
+              <span id="custom-decks-count-badge" style="font-size: 0.78rem; font-weight: 700; color: #38bdf8; background: rgba(56, 189, 248, 0.15); padding: 3px 10px; border-radius: 999px;">0 Decks</span>
+            </div>
+            <div id="custom-decks-grid" style="display: flex; flex-direction: column; gap: 12px;">
+              <!-- Populated dynamically via JS -->
+            </div>
+          </div>
+
           <div class="duo-add-section-wrapper" style="margin-top: 36px;">
             <button type="button" class="duo-btn-add-section" id="btn-subsections-add-section" title="Add a custom section">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
@@ -8643,6 +9153,15 @@
             </div>
             <!-- Top Actions: Reset Option, Shuffle, Settings -->
             <div class="top-nav-actions">
+              <!-- Deck Switcher & Automatic Uploader Button -->
+              <button type="button" class="duo-btn-3d deck-upload-nav-btn" id="btn-top-upload-deck" title="Switch Vocabulary Deck or Upload File (1–100, 800–1000)" aria-label="Deck Switcher" style="background: rgba(56, 189, 248, 0.16); border: 1px solid rgba(56, 189, 248, 0.4); color: #38bdf8; display: flex; align-items: center; gap: 5px; padding: 7px 12px; font-weight: 800; border-radius: 12px;">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="17 8 12 3 7 8"/>
+                  <line x1="12" y1="3" x2="12" y2="15"/>
+                </svg>
+                <span id="nav-active-deck-label" style="font-size: 0.76rem; letter-spacing: 0.02em;">Deck: 800–1k</span>
+              </button>
               <button type="button" class="reset-deck-btn duo-btn-3d" id="btn-reset-deck" title="Reset deck & restore all deleted cards" aria-label="Reset deck">
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
@@ -9186,14 +9705,55 @@
 
         <!-- ================= TAB 5: CLOUD SYNC & CROSS-DEVICE ================= -->
         <div class="settings-tab-panel" id="tab-cloud">
-          <div class="duo-settings-section-title">Google Cloud Synchronization</div>
+          <!-- 1. Universal Cross-Device Pairing (Zero Login / Zero Popups Needed) -->
+          <div class="duo-settings-section-title">📱 Instant Multi-Device Sync (Phones, Tablets & PCs)</div>
+          <div class="settings-card" style="border: 2px solid rgba(56, 189, 248, 0.4); background: linear-gradient(135deg, rgba(2, 132, 199, 0.16), rgba(16, 185, 129, 0.08)); margin-bottom: 18px;">
+            <div class="settings-card-header">
+              <div class="settings-card-left">
+                <div class="settings-card-icon" style="background: #0284c7; box-shadow: 0 3px 0 #0369a1; color: #ffffff; border: none;">🔗</div>
+                <div>
+                  <h3 class="settings-card-title">Universal Device Cloud Code</h3>
+                  <p class="settings-card-sub">Guaranteed to save on ANY mobile phone, tablet or browser with zero popup blockers or login errors.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Current Device Code Box -->
+            <div style="margin-top: 14px; padding: 14px; background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+              <div>
+                <div style="font-size: 0.72rem; color: #94a3b8; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">This Device's Cloud Code</div>
+                <div id="display-device-sync-code" style="font-size: 1.4rem; font-weight: 900; color: #38bdf8; font-family: monospace; letter-spacing: 0.05em;">STELLAR-SYNC</div>
+              </div>
+              <button type="button" class="duo-btn-3d" id="btn-copy-sync-code" style="padding: 9px 16px; font-size: 0.82rem; font-weight: 800; background: rgba(56, 189, 248, 0.2); border: 1px solid rgba(56, 189, 248, 0.45); color: #38bdf8; cursor: pointer;">
+                📋 Copy Code
+              </button>
+            </div>
+
+            <!-- Pair Another Device Box -->
+            <div style="margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.08);">
+              <label for="input-pair-code" style="font-size: 0.82rem; font-weight: 700; color: #f1f5f9; display: block; margin-bottom: 6px;">Connect with your other device's code:</label>
+              <div style="display: flex; gap: 8px;">
+                <input type="text" id="input-pair-code" placeholder="Enter code (e.g. STELLAR-8291)" style="flex: 1; text-transform: uppercase; padding: 11px 14px; background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; color: #fff; font-family: monospace; font-size: 0.95rem; font-weight: 700;" />
+                <button type="button" class="duo-btn-3d duo-btn-3d-green" id="btn-pair-device-code" style="padding: 11px 18px; font-size: 0.88rem; font-weight: 800; white-space: nowrap; cursor: pointer;">
+                  Pair & Sync
+                </button>
+              </div>
+              <div id="device-sync-live-status" style="margin-top: 8px; font-size: 0.78rem; color: #34d399; display: flex; align-items: center; gap: 6px;">
+                <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #10b981;"></span>
+                <span>Active 2-way cloud sync enabled</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Google Cloud Account Sync (Optional SSO) -->
+          <div class="duo-settings-section-title">Google Account Sign-In</div>
           <div class="settings-card">
             <div class="settings-card-header">
               <div class="settings-card-left">
                 <div class="settings-card-icon" id="cloud-user-avatar-icon" style="background: #38bdf8; box-shadow: 0 3px 0 #0284c7; color: #ffffff; border: none;">☁️</div>
                 <div>
-                  <h3 class="settings-card-title" id="cloud-sync-user-title">Local Device Only</h3>
-                  <p class="settings-card-sub" id="cloud-sync-user-sub">Sign in with Google to reflect all changes, learned cards, and custom notes in real-time across your phone, tablet, and PC.</p>
+                  <h3 class="settings-card-title" id="cloud-sync-user-title">Google Cloud Account</h3>
+                  <p class="settings-card-sub" id="cloud-sync-user-sub">Sign in with Google to link your profile to your Google email and Firestore.</p>
                 </div>
               </div>
             </div>
@@ -9219,22 +9779,86 @@
               </button>
             </div>
           </div>
-
-          <div class="duo-settings-section-title">Real-Time Cloud Architecture</div>
-          <div class="settings-card">
-            <div class="settings-card-header">
-              <div class="settings-card-left">
-                <div class="settings-card-icon" style="background: #10b981; box-shadow: 0 3px 0 #059669; color: #ffffff; border: none;">⚡</div>
-                <div>
-                  <h3 class="settings-card-title">Live Firestore WebSockets</h3>
-                  <p class="settings-card-sub">Automatic 2-way sync: Mobile, tablet & desktop stay mirrored instantaneously with zero lag.</p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </aside>
+    <!-- ========================================================== -->
+    <!-- UPLOAD DECK & AUTOMATIC IMAGE DISCOVERY MODAL              -->
+    <!-- ========================================================== -->
+    <div class="modal-backdrop" id="modal-upload-deck">
+      <div class="modal-sheet" style="max-width: 560px; background: linear-gradient(180deg, #172236 0%, #0c1424 100%); border: 1px solid rgba(255,255,255,0.14); border-radius: 26px; box-shadow: 0 25px 70px rgba(0,0,0,0.85); overflow: hidden; padding: 24px;">
+        <div class="modal-handle"></div>
+        <div class="modal-header" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+          <div class="edit-modal-title-group" style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 1.5rem;">⚡</span>
+            <div>
+              <span class="modal-title" style="font-size: 1.25rem; font-weight: 800; color: #fff;">Deck & File Uploader</span>
+              <div style="font-size: 0.8rem; color: #94a3b8;">Automatic parser & latest verified photo finder</div>
+            </div>
+          </div>
+          <button type="button" class="modal-close-btn" id="btn-close-upload-deck" aria-label="Close" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; width: 34px; height: 34px; color: #cbd5e1; cursor: pointer; font-size: 1.1rem; display: flex; align-items: center; justify-content: center;">&times;</button>
+        </div>
+
+        <!-- Quick Preset Tiers -->
+        <div style="margin-bottom: 16px; padding: 14px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px;">
+          <div style="font-size: 0.76rem; font-weight: 800; color: #38bdf8; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px;">Select Built-in Vocabulary Tier</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <button type="button" class="duo-btn-3d" id="btn-preset-tier-1" style="padding: 12px; font-size: 0.85rem; font-weight: 700; background: rgba(16, 185, 129, 0.16); border: 1px solid rgba(16, 185, 129, 0.45); color: #34d399; border-radius: 14px; cursor: pointer; text-align: left;">
+              <span style="font-size: 1.05rem; font-weight: 800; display: block; margin-bottom: 2px;">👤 Tier 1: Cards 1 – 100</span>
+              <span style="font-size: 0.74rem; color: #cbd5e1; font-weight: 500;">Foundations & Core Pronouns</span>
+            </button>
+            <button type="button" class="duo-btn-3d" id="btn-preset-tier-800" style="padding: 12px; font-size: 0.85rem; font-weight: 700; background: rgba(56, 189, 248, 0.16); border: 1px solid rgba(56, 189, 248, 0.45); color: #38bdf8; border-radius: 14px; cursor: pointer; text-align: left;">
+              <span style="font-size: 1.05rem; font-weight: 800; display: block; margin-bottom: 2px;">🔥 Tier 9: Cards 800 – 1000</span>
+              <span style="font-size: 0.74rem; color: #cbd5e1; font-weight: 500;">Kitchen, Living & Transit (200)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Drag and drop zone -->
+        <div id="deck-dropzone" style="border: 2px dashed rgba(56, 189, 248, 0.4); border-radius: 16px; padding: 22px 16px; text-align: center; background: rgba(2, 132, 199, 0.06); cursor: pointer; transition: all 0.2s;">
+          <div style="font-size: 2rem; margin-bottom: 6px;">📂</div>
+          <div style="font-size: 0.95rem; font-weight: 800; color: #ffffff;">Choose or drag & drop a file</div>
+          <div style="font-size: 0.78rem; color: #94a3b8; margin-top: 3px;">Supports .txt, .json, .csv, .tsv (curriculum format)</div>
+          <input type="file" id="deck-file-input" accept=".txt,.json,.csv,.tsv" style="display: none;" />
+        </div>
+
+        <!-- Optional Deck Name -->
+        <div style="margin-top: 14px;">
+          <label for="deck-title-input" style="font-size: 0.8rem; font-weight: 700; color: #cbd5e1; display: block; margin-bottom: 6px;">Deck Name / Title (Optional):</label>
+          <input type="text" id="deck-title-input" placeholder="e.g. My Conversational Vocabulary" style="width: 100%; box-sizing: border-box; background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 10px 12px; color: #fff; font-size: 0.88rem;" />
+        </div>
+
+        <!-- Paste Direct Text -->
+        <div style="margin-top: 12px;">
+          <label for="deck-paste-input" style="font-size: 0.8rem; font-weight: 700; color: #cbd5e1; display: block; margin-bottom: 6px;">Or Paste Raw Curriculum / Word Text Directly:</label>
+          <textarea id="deck-paste-input" rows="4" style="width: 100%; box-sizing: border-box; background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 10px; color: #fff; font-size: 0.82rem; font-family: monospace; resize: vertical;" placeholder="1. 👤 I = yo / main / நான்&#10;2. YOU = tú / tum / நீ&#10;3. 👨 HE = él / woh / அவன்..."></textarea>
+        </div>
+
+        <!-- Image Auto Discovery Option -->
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 14px; padding: 12px 14px; background: rgba(255,255,255,0.04); border-radius: 14px; border: 1px solid rgba(255,255,255,0.08);">
+          <div>
+            <div style="font-size: 0.84rem; font-weight: 700; color: #f1f5f9;">✨ Auto-Find Latest Authentic Photos</div>
+            <div style="font-size: 0.74rem; color: #94a3b8;">Automatically fetches verified Wikipedia & Wikimedia real-world photography</div>
+          </div>
+          <input type="checkbox" id="chk-auto-find-images" checked style="width: 20px; height: 20px; cursor: pointer; accent-color: #38bdf8;" />
+        </div>
+
+        <!-- Progress & Status Indicator -->
+        <div id="upload-status-box" style="display: none; margin-top: 14px; padding: 12px; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 12px;">
+          <div id="upload-status-text" style="font-size: 0.84rem; font-weight: 700; color: #38bdf8;">Parsing curriculum...</div>
+          <div style="margin-top: 8px; width: 100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 999px; overflow: hidden;">
+            <div id="upload-progress-fill" style="width: 0%; height: 100%; background: #38bdf8; transition: width 0.2s;"></div>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div style="display: flex; gap: 10px; margin-top: 16px;">
+          <button type="button" class="duo-btn-3d" id="btn-cancel-upload-deck" style="flex: 1; padding: 12px; border-radius: 12px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; font-weight: 700; cursor: pointer;">Cancel</button>
+          <button type="button" class="duo-btn-3d duo-btn-3d-green" id="btn-parse-and-load-deck" style="flex: 2; padding: 12px; border-radius: 12px; font-weight: 800; cursor: pointer;">Load & Sync Deck</button>
+        </div>
+      </div>
+    </div>
+
     <!-- ========================================================== -->
     <!-- ADD SECTION MODAL                                          -->
     <!-- ========================================================== -->
@@ -10825,6 +11449,1051 @@
         { num: 1000, word: "BANK", emoji: "🏦", category: "Financial Institutions", gifUrl: "", trans: { es: "banco", hi: "bank" }, tamil: "வங்கி" }
       ];
 
+            /* ==========================================================
+         TIER 1 (CARDS 1 – 100) EMBEDDED CURRICULUM
+         ========================================================== */
+      const tier1DeckCards = [
+  {
+    "num": 1,
+    "word": "I",
+    "emoji": "👤",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "yo",
+      "hi": "main"
+    },
+    "tamil": "நான்"
+  },
+  {
+    "num": 2,
+    "word": "YOU",
+    "emoji": "📌",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "YOU",
+      "hi": "YOU"
+    },
+    "tamil": "YOU"
+  },
+  {
+    "num": 3,
+    "word": "HE",
+    "emoji": "👨",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "él",
+      "hi": "woh"
+    },
+    "tamil": "அவன் (அவர்)"
+  },
+  {
+    "num": 4,
+    "word": "SHE",
+    "emoji": "👩",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "ella",
+      "hi": "woh"
+    },
+    "tamil": "அவள்"
+  },
+  {
+    "num": 5,
+    "word": "IT",
+    "emoji": "📦",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "IT",
+      "hi": "IT"
+    },
+    "tamil": "IT"
+  },
+  {
+    "num": 6,
+    "word": "WE",
+    "emoji": "👥",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "nosotros (nosotras)",
+      "hi": "hum"
+    },
+    "tamil": "நாங்கள் (நாம்)"
+  },
+  {
+    "num": 7,
+    "word": "THEY",
+    "emoji": "👥",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "ellos (ellas)",
+      "hi": "woh log"
+    },
+    "tamil": "அவர்கள் (அவங்க)"
+  },
+  {
+    "num": 8,
+    "word": "ME",
+    "emoji": "🙋",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "me",
+      "hi": "mujhe"
+    },
+    "tamil": "என்னை (எனக்கு)"
+  },
+  {
+    "num": 9,
+    "word": "HIM",
+    "emoji": "👨",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "lo",
+      "hi": "use (usko)"
+    },
+    "tamil": "அவனை (அவரை)"
+  },
+  {
+    "num": 10,
+    "word": "HER",
+    "emoji": "📌",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "HER",
+      "hi": "HER"
+    },
+    "tamil": "HER"
+  },
+  {
+    "num": 11,
+    "word": "US",
+    "emoji": "👥",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "nos",
+      "hi": "humein"
+    },
+    "tamil": "எங்களை (நமக்கு"
+  },
+  {
+    "num": 12,
+    "word": "THEM",
+    "emoji": "👥",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "los (las)",
+      "hi": "unko"
+    },
+    "tamil": "அவர்களை (அவங்களை)"
+  },
+  {
+    "num": 13,
+    "word": "MYSELF",
+    "emoji": "🪞",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "yo mismo (yo misma)",
+      "hi": "main khud"
+    },
+    "tamil": "நானே (நான் தான்)"
+  },
+  {
+    "num": 14,
+    "word": "YOURSELF",
+    "emoji": "🪞",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "tú mismo",
+      "hi": "tum khud"
+    },
+    "tamil": "நீயே (நீயாகவே)"
+  },
+  {
+    "num": 15,
+    "word": "HIMSELF",
+    "emoji": "🪞",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "él mismo",
+      "hi": "woh khud"
+    },
+    "tamil": "அவனாகவே (அவரே)"
+  },
+  {
+    "num": 16,
+    "word": "HERSELF",
+    "emoji": "🪞",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "ella misma",
+      "hi": "woh khud"
+    },
+    "tamil": "அவளாகவே"
+  },
+  {
+    "num": 17,
+    "word": "ITSELF",
+    "emoji": "🪞",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "por sí solo (sola)",
+      "hi": "apne aap"
+    },
+    "tamil": "அதுவாகவே (தானாகவே)"
+  },
+  {
+    "num": 18,
+    "word": "OURSELVES",
+    "emoji": "🪞",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "nosotros mismos",
+      "hi": "hum khud"
+    },
+    "tamil": "நாங்களாகவே (நாமே)"
+  },
+  {
+    "num": 19,
+    "word": "YOURSELVES",
+    "emoji": "🪞",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "ustedes mismos",
+      "hi": "aap log khud"
+    },
+    "tamil": "நீங்களாகவே"
+  },
+  {
+    "num": 20,
+    "word": "THEMSELVES",
+    "emoji": "🪞",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "ellos mismos",
+      "hi": "woh khud"
+    },
+    "tamil": "அவர்களாகவே (அவங்களாகவே)"
+  },
+  {
+    "num": 21,
+    "word": "MY",
+    "emoji": "🏷",
+    "category": "Category 2: Possessives & Demonstratives",
+    "trans": {
+      "es": "mi",
+      "hi": "mera (meri"
+    },
+    "tamil": "mere)"
+  },
+  {
+    "num": 22,
+    "word": "YOUR",
+    "emoji": "🏷",
+    "category": "Category 2: Possessives & Demonstratives",
+    "trans": {
+      "es": "️ YOUR",
+      "hi": "️ YOUR"
+    },
+    "tamil": "️ YOUR"
+  },
+  {
+    "num": 23,
+    "word": "HIS",
+    "emoji": "🏷",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "su (sus)",
+      "hi": "uska (uski"
+    },
+    "tamil": "uske)"
+  },
+  {
+    "num": 24,
+    "word": "OUR",
+    "emoji": "🏷",
+    "category": "Category 2: Possessives & Demonstratives",
+    "trans": {
+      "es": "nuestro (nuestra",
+      "hi": "nuestros"
+    },
+    "tamil": "nuestras)"
+  },
+  {
+    "num": 25,
+    "word": "THEIR",
+    "emoji": "🏷",
+    "category": "Category 2: Possessives & Demonstratives",
+    "trans": {
+      "es": "su (sus) his",
+      "hi": "unka (unki"
+    },
+    "tamil": "unke)"
+  },
+  {
+    "num": 26,
+    "word": "ITS",
+    "emoji": "🏷",
+    "category": "Category 2: Possessives & Demonstratives",
+    "trans": {
+      "es": "su",
+      "hi": "uska (iska)"
+    },
+    "tamil": "அதனுடைய (அதன்)"
+  },
+  {
+    "num": 27,
+    "word": "MINE",
+    "emoji": "🎯",
+    "category": "Category 2: Possessives & Demonstratives",
+    "trans": {
+      "es": "mío (mía",
+      "hi": "míos"
+    },
+    "tamil": "mías)"
+  },
+  {
+    "num": 28,
+    "word": "YOURS",
+    "emoji": "🎯",
+    "category": "Category 2: Possessives & Demonstratives",
+    "trans": {
+      "es": "tuyo (tuya",
+      "hi": "tuyos"
+    },
+    "tamil": "tuyas)"
+  },
+  {
+    "num": 29,
+    "word": "HERS",
+    "emoji": "🎯",
+    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "trans": {
+      "es": "suyo (suya)",
+      "hi": "de ella (uska)"
+    },
+    "tamil": "அவளுடையது"
+  },
+  {
+    "num": 31,
+    "word": "THEIRS",
+    "emoji": "🎯",
+    "category": "Category 2: Possessives & Demonstratives",
+    "trans": {
+      "es": "suyo (suya)",
+      "hi": "de ellos (unka)"
+    },
+    "tamil": "அவர்களுடையது"
+  },
+  {
+    "num": 32,
+    "word": "WHOSE",
+    "emoji": "❓",
+    "category": "Category 2: Possessives & Demonstratives",
+    "trans": {
+      "es": "de quién",
+      "hi": "kiska (kiski"
+    },
+    "tamil": "kiske)"
+  },
+  {
+    "num": 33,
+    "word": "THIS",
+    "emoji": "👉",
+    "category": "Category 2: Possessives & Demonstratives",
+    "trans": {
+      "es": "este (esta",
+      "hi": "esto)"
+    },
+    "tamil": "yeh"
+  },
+  {
+    "num": 34,
+    "word": "THAT",
+    "emoji": "👉",
+    "category": "Category 2: Possessives & Demonstratives",
+    "trans": {
+      "es": "ese (esa",
+      "hi": "eso)"
+    },
+    "tamil": "woh"
+  },
+  {
+    "num": 35,
+    "word": "THESE",
+    "emoji": "👉",
+    "category": "Category 2: Possessives & Demonstratives",
+    "trans": {
+      "es": "estos (estas)",
+      "hi": "yeh"
+    },
+    "tamil": "இவை (இந்த)"
+  },
+  {
+    "num": 36,
+    "word": "THOSE",
+    "emoji": "👉",
+    "category": "Category 2: Possessives & Demonstratives",
+    "trans": {
+      "es": "esos (esas)",
+      "hi": "woh"
+    },
+    "tamil": "அவை (அந்த)"
+  },
+  {
+    "num": 37,
+    "word": "SOMEONE/SOMEBODY",
+    "emoji": "👤",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "alguien",
+      "hi": "koi"
+    },
+    "tamil": "யாரோ"
+  },
+  {
+    "num": 39,
+    "word": "SOMETHING",
+    "emoji": "💡",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "algo",
+      "hi": "kuch"
+    },
+    "tamil": "ஏதோ"
+  },
+  {
+    "num": 40,
+    "word": "SOMEWHERE",
+    "emoji": "📍",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "algún lugar",
+      "hi": "kahin"
+    },
+    "tamil": "எங்காவது"
+  },
+  {
+    "num": 44,
+    "word": "ANYWHERE",
+    "emoji": "📍",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "en cualquier lugar",
+      "hi": "kahin bhi"
+    },
+    "tamil": "எங்கு வேண்டுமானாலும்"
+  },
+  {
+    "num": 45,
+    "word": "EVERYONE",
+    "emoji": "👥",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "todos (todo el mundo)",
+      "hi": "sab  log"
+    },
+    "tamil": "எல்லோரும்"
+  },
+  {
+    "num": 47,
+    "word": "EVERYTHING",
+    "emoji": "🌐",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "todo",
+      "hi": "sab kuch"
+    },
+    "tamil": "எல்லாம்"
+  },
+  {
+    "num": 48,
+    "word": "EVERYWHERE",
+    "emoji": "🌍",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "en todas partes",
+      "hi": "har jagah"
+    },
+    "tamil": "எல்லா இடங்களிலும்"
+  },
+  {
+    "num": 49,
+    "word": "NO ONE/NOBODY",
+    "emoji": "🚫",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "nadie",
+      "hi": "koi nahi"
+    },
+    "tamil": "யாரும் இல்லை"
+  },
+  {
+    "num": 51,
+    "word": "NOTHING",
+    "emoji": "🚫",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "nada",
+      "hi": "kuch nahi"
+    },
+    "tamil": "எதுவும் இல்லை"
+  },
+  {
+    "num": 52,
+    "word": "NOWHERE",
+    "emoji": "🚫",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "en ninguna parte",
+      "hi": "kahin nahi"
+    },
+    "tamil": "எங்கும் இல்லை"
+  },
+  {
+    "num": 53,
+    "word": "A /AN",
+    "emoji": "🔤",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "un (una)",
+      "hi": "ek"
+    },
+    "tamil": "ஒரு"
+  },
+  {
+    "num": 55,
+    "word": "THE",
+    "emoji": "🔤",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "el (la",
+      "hi": "los"
+    },
+    "tamil": "las)"
+  },
+  {
+    "num": 56,
+    "word": "ALL",
+    "emoji": "🔢",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "todo (todos)",
+      "hi": "sab"
+    },
+    "tamil": "எல்லா (அனைத்தும்)"
+  },
+  {
+    "num": 57,
+    "word": "EVERY",
+    "emoji": "🔢",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "cada",
+      "hi": "har"
+    },
+    "tamil": "ஒவ்வொரு"
+  },
+  {
+    "num": 58,
+    "word": "EACH",
+    "emoji": "🔢",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "cada",
+      "hi": "har ek"
+    },
+    "tamil": "ஒவ்வொருவரும் (ஒவ்வொன்றும்)"
+  },
+  {
+    "num": 59,
+    "word": "BOTH",
+    "emoji": "👥",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "ambos (los dos)",
+      "hi": "dono"
+    },
+    "tamil": "இருவரும் (இரண்டுமே)"
+  },
+  {
+    "num": 60,
+    "word": "EITHER",
+    "emoji": "🔀",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "EITHER",
+      "hi": "EITHER"
+    },
+    "tamil": "EITHER"
+  },
+  {
+    "num": 61,
+    "word": "NEITHER",
+    "emoji": "🚫",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "ninguno (ninguna)",
+      "hi": "dono mein se koi nahi"
+    },
+    "tamil": "இரண்டில் எதுவும் இல்லை"
+  },
+  {
+    "num": 62,
+    "word": "SOME",
+    "emoji": "🍰",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "un poco de (algunos)",
+      "hi": "thoda (kuch)"
+    },
+    "tamil": "கொஞ்சம் (சில)"
+  },
+  {
+    "num": 64,
+    "word": "NONE",
+    "emoji": "🚫",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "ninguno (ninguna)",
+      "hi": "ek bhi nahi"
+    },
+    "tamil": "ஒன்றுகூட இல்லை"
+  },
+  {
+    "num": 65,
+    "word": "SELF",
+    "emoji": "🪞",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "sí mismo",
+      "hi": "khud"
+    },
+    "tamil": "சுயம் (தானே)"
+  },
+  {
+    "num": 66,
+    "word": "OTHER",
+    "emoji": "🔄",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "otro (otra)",
+      "hi": "doosra (doosri)"
+    },
+    "tamil": "மற்றொரு (மற்றவை)"
+  },
+  {
+    "num": 67,
+    "word": "ANOTHER",
+    "emoji": "➕",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "otro (otra)",
+      "hi": "ek aur"
+    },
+    "tamil": "இன்னொரு"
+  },
+  {
+    "num": 68,
+    "word": "SUCH",
+    "emoji": "🌟",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "así (tal)",
+      "hi": "aisa (aisi)"
+    },
+    "tamil": "அப்படிப்பட்ட (அத்தகைய)"
+  },
+  {
+    "num": 69,
+    "word": "SAME",
+    "emoji": "🔁",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "mismo (misma)",
+      "hi": "vahi (same)"
+    },
+    "tamil": "அதே"
+  },
+  {
+    "num": 70,
+    "word": "DIFFERENT",
+    "emoji": "🔀",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "diferente",
+      "hi": "alag"
+    },
+    "tamil": "வேறுபட்ட (வேறு)"
+  },
+  {
+    "num": 71,
+    "word": "SEVERAL",
+    "emoji": "🔢",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "varios (varias)",
+      "hi": "kai"
+    },
+    "tamil": "பல"
+  },
+  {
+    "num": 72,
+    "word": "MANY",
+    "emoji": "🔢",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "muchos (muchas)",
+      "hi": "bahut saare"
+    },
+    "tamil": "பல (நிறைய)"
+  },
+  {
+    "num": 73,
+    "word": "MUCH",
+    "emoji": "💧",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "mucho",
+      "hi": "zyada"
+    },
+    "tamil": "அதிகம் (நிறைய)"
+  },
+  {
+    "num": 74,
+    "word": "FEW",
+    "emoji": "🤏",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "pocos (pocas)",
+      "hi": "thode"
+    },
+    "tamil": "சில (கொஞ்சம்)"
+  },
+  {
+    "num": 75,
+    "word": "LITTLE",
+    "emoji": "📌",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "LITTLE",
+      "hi": "LITTLE"
+    },
+    "tamil": "LITTLE"
+  },
+  {
+    "num": 76,
+    "word": "WHAT",
+    "emoji": "❓",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "qué",
+      "hi": "kya"
+    },
+    "tamil": "என்ன"
+  },
+  {
+    "num": 77,
+    "word": "WHERE",
+    "emoji": "📍",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "dónde",
+      "hi": "kahan"
+    },
+    "tamil": "எங்கே"
+  },
+  {
+    "num": 78,
+    "word": "⏰ WHEN",
+    "emoji": "📌",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "cuándo",
+      "hi": "kab"
+    },
+    "tamil": "எப்போது"
+  },
+  {
+    "num": 79,
+    "word": "WHY",
+    "emoji": "❓",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "por qué",
+      "hi": "kyun"
+    },
+    "tamil": "ஏன்"
+  },
+  {
+    "num": 80,
+    "word": "WHO",
+    "emoji": "👤",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "quién",
+      "hi": "kaun"
+    },
+    "tamil": "யார்"
+  },
+  {
+    "num": 81,
+    "word": "WHOM",
+    "emoji": "👤",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "a quién",
+      "hi": "con quién"
+    },
+    "tamil": "kisse"
+  },
+  {
+    "num": 82,
+    "word": "WHICH",
+    "emoji": "🔀",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "qué",
+      "hi": "cuál"
+    },
+    "tamil": "kaun sa (kaun si)"
+  },
+  {
+    "num": 83,
+    "word": "HOW",
+    "emoji": "❓",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "cómo",
+      "hi": "kaise"
+    },
+    "tamil": "எப்படி"
+  },
+  {
+    "num": 84,
+    "word": "HOW MUCH",
+    "emoji": "💰",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "cuánto",
+      "hi": "kitna"
+    },
+    "tamil": "எவ்வளவு"
+  },
+  {
+    "num": 85,
+    "word": "HOW MANY",
+    "emoji": "🔢",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "cuántos",
+      "hi": "kitne"
+    },
+    "tamil": "எத்தனை"
+  },
+  {
+    "num": 86,
+    "word": "⏳ HOW LONG",
+    "emoji": "📌",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "cuánto tiempo",
+      "hi": "kitni der"
+    },
+    "tamil": "எவ்வளவு நேரம்"
+  },
+  {
+    "num": 87,
+    "word": "HOW FAR",
+    "emoji": "📏",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "qué tan lejos",
+      "hi": "kitni door"
+    },
+    "tamil": "எவ்வளவு தூரம்"
+  },
+  {
+    "num": 88,
+    "word": "HOW OFTEN",
+    "emoji": "🔁",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "cada cuánto",
+      "hi": "kitni baar"
+    },
+    "tamil": "எத்தனை முறை"
+  },
+  {
+    "num": 89,
+    "word": "WHAT KIND",
+    "emoji": "🏷",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "qué tipo de",
+      "hi": "kaisa (kaisi)"
+    },
+    "tamil": "என்ன வகையான"
+  },
+  {
+    "num": 90,
+    "word": "WHICH ONE",
+    "emoji": "🎯",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "cuál",
+      "hi": "kaun sa (kaun si)"
+    },
+    "tamil": "எது"
+  },
+  {
+    "num": 91,
+    "word": "BE",
+    "emoji": "📌",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "BE",
+      "hi": "BE"
+    },
+    "tamil": "BE"
+  },
+  {
+    "num": 92,
+    "word": "HAVE",
+    "emoji": "🤲",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "tener",
+      "hi": "paas hona"
+    },
+    "tamil": "வைத்திரு (இருக்கிறது)"
+  },
+  {
+    "num": 93,
+    "word": "DO",
+    "emoji": "🛠",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "hacer",
+      "hi": "karna"
+    },
+    "tamil": "செய் (செய்வது)"
+  },
+  {
+    "num": 94,
+    "word": "CAN",
+    "emoji": "📌",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "CAN",
+      "hi": "CAN"
+    },
+    "tamil": "CAN"
+  },
+  {
+    "num": 95,
+    "word": "COULD",
+    "emoji": "📌",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "COULD",
+      "hi": "COULD"
+    },
+    "tamil": "COULD"
+  },
+  {
+    "num": 96,
+    "word": "WILL",
+    "emoji": "📌",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "WILL",
+      "hi": "WILL"
+    },
+    "tamil": "WILL"
+  },
+  {
+    "num": 97,
+    "word": "WOULD",
+    "emoji": "📌",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "WOULD",
+      "hi": "WOULD"
+    },
+    "tamil": "WOULD"
+  },
+  {
+    "num": 98,
+    "word": "SHALL",
+    "emoji": "📜",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "—",
+      "hi": "kya ... ?"
+    },
+    "tamil": "நாம் ... ?"
+  },
+  {
+    "num": 99,
+    "word": "SHOULD",
+    "emoji": "💡",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "debería (deberías)",
+      "hi": "chahiye"
+    },
+    "tamil": "வேண்டும்"
+  },
+  {
+    "num": 100,
+    "word": "MUST",
+    "emoji": "⚠",
+    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "trans": {
+      "es": "tener que",
+      "hi": "karna zaroori hai"
+    },
+    "tamil": "கட்டாயம் (வேண்டும்)"
+  }
+];
+      const tier800DeckCards = initialDeckCards;
+
+      /* ==========================================================
+         CUSTOM DECKS CATALOG & MULTI-TIER MANAGEMENT SYSTEM
+         ========================================================== */
+      let customDecksCatalog = {};
+      try {
+        customDecksCatalog = JSON.parse(localStorage.getItem("custom_decks_catalog_v1") || "{}");
+        if (typeof customDecksCatalog !== "object" || customDecksCatalog === null) customDecksCatalog = {};
+      } catch(e) { customDecksCatalog = {}; }
+
+      let currentDeckId = localStorage.getItem("active_deck_id_v1") || "deck-800-1000";
+
+      function getActiveDeckInfo() {
+        if (currentDeckId === "deck-1-100") {
+          return {
+            id: "deck-1-100",
+            title: "Cards 1 – 100",
+            startNum: 1,
+            cards: tier1DeckCards
+          };
+        }
+        if (customDecksCatalog[currentDeckId]) {
+          const cd = customDecksCatalog[currentDeckId];
+          return {
+            id: cd.deckId,
+            title: cd.title || "Custom Deck",
+            startNum: (cd.cards && cd.cards[0] && cd.cards[0].num) || 1,
+            cards: cd.cards || []
+          };
+        }
+        return {
+          id: "deck-800-1000",
+          title: "Cards 800 – 1000",
+          startNum: 800,
+          cards: tier800DeckCards
+        };
+      }
+
       /* ==========================================================
          AUTOMATIC SEQUENTIAL REINDEXING & PERSISTENT DELETION SYSTEM
          ========================================================== */
@@ -10839,16 +12508,87 @@
 
       let cards = [];
       function reindexAndBuildCards() {
-        cards = initialDeckCards
-          .filter(c => !deletedCardNums.includes(c.num))
+        const deckInfo = getActiveDeckInfo();
+        const baseCards = deckInfo.cards || [];
+        const startNum = deckInfo.startNum || 1;
+
+        cards = baseCards
+          .filter(c => !deletedCardNums.includes(c.num) && !deletedCardNums.includes(c.originalNum))
           .map((c, idx) => ({
             ...c,
-            originalNum: c.num,
-            num: 800 + idx, // Dynamically renumbered sequentially starting from 800
-            displayNum: 800 + idx
+            originalNum: c.originalNum || c.num,
+            num: startNum + idx,
+            displayNum: startNum + idx
           }));
+
+        // Sync Nav Button Badge
+        const navDeckLabel = document.getElementById("nav-active-deck-label");
+        if (navDeckLabel) {
+          navDeckLabel.textContent = `Deck: ${deckInfo.title}`;
+        }
+
+        // Update Subsections UI Active States
+        if (typeof updateSubsectionsUI === "function") {
+          updateSubsectionsUI();
+        }
       }
       reindexAndBuildCards();
+
+      function switchDeck(deckId, customCards = null, customTitle = "") {
+        if (customCards && deckId) {
+          customDecksCatalog[deckId] = {
+            deckId: deckId,
+            title: customTitle || "Custom Deck",
+            cardCount: customCards.length,
+            cards: customCards,
+            updatedAt: new Date().toISOString()
+          };
+          try {
+            localStorage.setItem("custom_decks_catalog_v1", JSON.stringify(customDecksCatalog));
+          } catch(e){}
+
+          // Cloud Sync Custom Deck to Firestore
+          if (window.firebaseSync && window.firebaseSync.pushCustomDeckToCloud) {
+            window.firebaseSync.pushCustomDeckToCloud(customDecksCatalog[deckId]);
+          }
+        }
+
+        currentDeckId = deckId;
+        try {
+          localStorage.setItem("active_deck_id_v1", deckId);
+        } catch(e){}
+
+        reindexAndBuildCards();
+        currentIndex = 0;
+        isFlipped = false;
+        const cardStageWrapper = document.getElementById("card-stage-wrapper");
+        if (cardStageWrapper) cardStageWrapper.classList.remove("flipped");
+
+        if (cards.length > 0) {
+          if (counterCurrentEl) counterCurrentEl.textContent = cards[0].displayNum || cards[0].num;
+          if (counterTotalEl) counterTotalEl.textContent = cards[cards.length - 1].displayNum || cards[cards.length - 1].num;
+        }
+
+        renderCurrentCard(false);
+        updateSectionLearnedCounter();
+        if (typeof updateSubsectionsUI === "function") updateSubsectionsUI();
+        if (typeof renderCustomDecksList === "function") renderCustomDecksList();
+
+        // Push Active Deck preference to Firestore
+        if (window.firebaseSync && window.firebaseSync.pushStudyStateToCloud) {
+          window.firebaseSync.pushStudyStateToCloud({
+            activeDeckId: deckId,
+            lastActiveCardNum: cards[0] ? (cards[0].originalNum || cards[0].num) : 1
+          });
+        }
+        if (typeof syncCurrentStateToDeviceCloud === "function") {
+          syncCurrentStateToDeviceCloud();
+        }
+
+        const info = getActiveDeckInfo();
+        showToast(`Active Deck: ${info.title} (${cards.length} cards)`);
+        switchScreen("screen-flashcard");
+      }
 
       function getSectionLearnedCount() {
         if (!cards || cards.length === 0) return 0;
@@ -10915,6 +12655,9 @@
             window.firebaseSync.pushStudyStateToCloud({
               learnedCardNums: [...learnedCardsSet]
             });
+          }
+          if (typeof syncCurrentStateToDeviceCloud === "function") {
+            syncCurrentStateToDeviceCloud();
           }
         } catch (e) {
           console.error("Could not save learned cards:", e);
@@ -12049,9 +13792,9 @@
         // Visual Presentation: 100% Real-World Verified Photo + Selective Animation
         // Strictly use exact, verified, authentic concept image
         const lookupId = card.originalNum || card.num;
-        const primaryImgUrl = (typeof cardAccurateImages !== "undefined" && cardAccurateImages[lookupId]) 
+        const primaryImgUrl = card.imageUrl || ((typeof cardAccurateImages !== "undefined" && cardAccurateImages[lookupId]) 
           ? cardAccurateImages[lookupId] 
-          : `/api/image?num=${lookupId}`;
+          : `/api/image?num=${lookupId}&q=${encodeURIComponent(card.word)}`);
         const animInfo = (typeof cardAnims !== "undefined" && cardAnims[lookupId]) ? cardAnims[lookupId] : null;
 
         // Concurrency Guard: Drop stale async image responses so images never swap or change out of order
@@ -12097,7 +13840,7 @@
             }
             if (!tempImg.dataset.retried) {
               tempImg.dataset.retried = "true";
-              tempImg.src = `/api/image?num=${lookupId}`;
+              tempImg.src = `/api/image?num=${lookupId}&q=${encodeURIComponent(card.word)}`;
               return;
             }
             if (visualSkeletonEl) visualSkeletonEl.style.display = "none";
@@ -12863,6 +14606,9 @@
           if (window.firebaseSync && window.firebaseSync.pushStudyStateToCloud) {
             window.firebaseSync.pushStudyStateToCloud({ deletedCardNums: deletedCardNums });
           }
+          if (typeof syncCurrentStateToDeviceCloud === "function") {
+            syncCurrentStateToDeviceCloud();
+          }
         } catch(e) {}
 
         // Automatically renumbers all remaining cards sequentially starting from 800!
@@ -12903,6 +14649,9 @@
                 localStorage.setItem(DELETED_CARDS_STORAGE_KEY, JSON.stringify(deletedCardNums));
                 if (window.firebaseSync && window.firebaseSync.pushStudyStateToCloud) {
                   window.firebaseSync.pushStudyStateToCloud({ deletedCardNums: deletedCardNums });
+                }
+                if (typeof syncCurrentStateToDeviceCloud === "function") {
+                  syncCurrentStateToDeviceCloud();
                 }
               } catch(e) {}
               reindexAndBuildCards();
@@ -14052,6 +15801,208 @@
       }
 
       /* ==========================================================
+         UNIVERSAL CROSS-DEVICE SYNC & DEVICE CODE CONTROLLER
+         Works on 100% of phones, tablets & desktops with ZERO popup blockers
+         ========================================================== */
+      let deviceSyncCode = localStorage.getItem("device_sync_code_v1");
+      if (!deviceSyncCode) {
+        deviceSyncCode = "STELLAR-" + Math.floor(1000 + Math.random() * 9000);
+        localStorage.setItem("device_sync_code_v1", deviceSyncCode);
+      }
+
+      let lastRemoteSyncTimestamp = "";
+      let isSyncPushing = false;
+
+      function updateDeviceSyncCodeUI() {
+        const displayEl = document.getElementById("display-device-sync-code");
+        if (displayEl) displayEl.textContent = deviceSyncCode;
+      }
+
+      async function syncCurrentStateToDeviceCloud(isManual = false) {
+        if (isSyncPushing) return;
+        isSyncPushing = true;
+        try {
+          const payload = {
+            learnedCardNums: [...learnedCardsSet],
+            deletedCardNums: deletedCardNums,
+            activeDeckId: currentDeckId,
+            lastActiveCardNum: (cards[currentIndex]?.originalNum || cards[currentIndex]?.num || 800),
+            streakCount: parseInt(document.getElementById("flashcard-streak-count")?.textContent || "1", 10),
+            customDecks: customDecksCatalog,
+            updatedAt: new Date().toISOString()
+          };
+
+          const res = await fetch("/api/sync/save", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ syncCode: deviceSyncCode, payload })
+          });
+
+          if (res.ok) {
+            const data = await res.json();
+            if (data && data.updatedAt) lastRemoteSyncTimestamp = data.updatedAt;
+            if (isManual) {
+              showToast("Cloud sync complete! All devices updated ☁️");
+              playHapticTick(580, "sine", 0.04);
+            }
+          }
+        } catch (e) {
+          console.warn("Device cloud sync error:", e);
+        } finally {
+          setTimeout(() => { isSyncPushing = false; }, 300);
+        }
+      }
+
+      async function pairWithRemoteDeviceCode(remoteCode) {
+        const clean = String(remoteCode || "").trim().toUpperCase();
+        if (!clean) return;
+
+        try {
+          const res = await fetch(`/api/sync/load?code=${encodeURIComponent(clean)}`);
+          if (!res.ok) {
+            showToast("Sync server unavailable. Please try again.");
+            return;
+          }
+          const data = await res.json();
+          if (data && data.success && data.payload) {
+            deviceSyncCode = clean;
+            localStorage.setItem("device_sync_code_v1", clean);
+            updateDeviceSyncCodeUI();
+
+            applyRemoteSyncPayload(data.payload);
+            lastRemoteSyncTimestamp = data.updatedAt || new Date().toISOString();
+
+            showToast(`Connected to device ${clean}! Progress synchronized 🎉`);
+            playHapticTick(660, "triangle", 0.08);
+
+            const statusEl = document.getElementById("device-sync-live-status");
+            if (statusEl) statusEl.innerHTML = `<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#10b981;"></span><span>Paired with ${clean} · Live sync active</span>`;
+          } else {
+            showToast(`Sync Code ${clean} not found. Ensure it was entered correctly.`);
+          }
+        } catch(e) {
+          showToast("Failed to connect to device code.");
+        }
+      }
+
+      function applyRemoteSyncPayload(payload) {
+        if (!payload) return;
+        let needsRebuild = false;
+
+        // Learned cards
+        if (Array.isArray(payload.learnedCardNums)) {
+          learnedCardsSet = new Set(payload.learnedCardNums);
+          try {
+            localStorage.setItem(LEARNED_STORAGE_KEY, JSON.stringify([...learnedCardsSet]));
+          } catch(e){}
+          updateSectionLearnedCounter();
+          updateGlobalLearnedDisplays();
+          const cur = cards[currentIndex];
+          if (cur) updateCardLearnedUI(cur.originalNum || cur.num);
+        }
+
+        // Deleted cards
+        if (Array.isArray(payload.deletedCardNums)) {
+          const oldD = JSON.stringify(deletedCardNums.slice().sort());
+          const newD = JSON.stringify(payload.deletedCardNums.slice().sort());
+          if (oldD !== newD) {
+            deletedCardNums = payload.deletedCardNums;
+            try {
+              localStorage.setItem(DELETED_CARDS_STORAGE_KEY, JSON.stringify(deletedCardNums));
+            } catch(e){}
+            needsRebuild = true;
+          }
+        }
+
+        // Streak
+        if (typeof payload.streakCount === "number" && payload.streakCount > 0) {
+          const streakEl = document.getElementById("flashcard-streak-count");
+          if (streakEl) streakEl.textContent = payload.streakCount;
+        }
+
+        // Custom decks
+        if (payload.customDecks && typeof payload.customDecks === "object") {
+          Object.assign(customDecksCatalog, payload.customDecks);
+          try {
+            localStorage.setItem("custom_decks_catalog_v1", JSON.stringify(customDecksCatalog));
+          } catch(e){}
+          if (typeof renderCustomDecksList === "function") renderCustomDecksList();
+        }
+
+        // Active Deck
+        if (payload.activeDeckId && payload.activeDeckId !== currentDeckId) {
+          currentDeckId = payload.activeDeckId;
+          try { localStorage.setItem("active_deck_id_v1", currentDeckId); } catch(e){}
+          needsRebuild = true;
+        }
+
+        if (needsRebuild) {
+          reindexAndBuildCards();
+          renderCurrentCard();
+        }
+      }
+
+      // Background poll for updates from paired devices every 4 seconds
+      setInterval(async () => {
+        if (!deviceSyncCode || isSyncPushing) return;
+        try {
+          const res = await fetch(`/api/sync/poll?code=${encodeURIComponent(deviceSyncCode)}&since=${encodeURIComponent(lastRemoteSyncTimestamp)}`);
+          if (res.ok) {
+            const data = await res.json();
+            if (data && data.hasUpdates && data.payload) {
+              lastRemoteSyncTimestamp = data.updatedAt;
+              applyRemoteSyncPayload(data.payload);
+            }
+          }
+        } catch(e) {}
+      }, 4000);
+
+      // Wire Copy & Pair Buttons
+      function initUniversalSyncUI() {
+        updateDeviceSyncCodeUI();
+
+        const btnCopy = document.getElementById("btn-copy-sync-code");
+        if (btnCopy) {
+          btnCopy.addEventListener("click", () => {
+            navigator.clipboard.writeText(deviceSyncCode).then(() => {
+              showToast(`Copied ${deviceSyncCode} to clipboard!`);
+              playHapticTick(500, "sine", 0.04);
+            }).catch(() => {
+              showToast(`Code: ${deviceSyncCode}`);
+            });
+          });
+        }
+
+        const btnPair = document.getElementById("btn-pair-device-code");
+        const inputPair = document.getElementById("input-pair-code");
+        if (btnPair && inputPair) {
+          btnPair.addEventListener("click", () => {
+            const val = inputPair.value.trim();
+            if (!val) {
+              showToast("Please enter a device sync code.");
+              return;
+            }
+            pairWithRemoteDeviceCode(val);
+          });
+          inputPair.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+              btnPair.click();
+            }
+          });
+        }
+
+        // Trigger initial push so device is registered on cloud
+        syncCurrentStateToDeviceCloud();
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initUniversalSyncUI);
+      } else {
+        initUniversalSyncUI();
+      }
+
+      
+      /* ==========================================================
          FIREBASE REAL-TIME CLOUD SYNCHRONIZATION CONTROLLER
          Reflects all progress, learned cards, deletions and shortcuts
          instantaneously across mobile, tablet, and desktop devices!
@@ -14116,18 +16067,17 @@
       // Manual Sync button
       if (btnCloudManualSync) {
         btnCloudManualSync.addEventListener("click", () => {
-          if (!window.firebaseSync || !window.firebaseSync.getCurrentUser()) {
-            showToast("Please sign in with Google to sync to cloud");
-            if (btnCloudSignin) btnCloudSignin.click();
-            return;
+          // Sync via Universal Device Cloud
+          syncCurrentStateToDeviceCloud(true);
+
+          // If logged in with Google, also sync to Firestore
+          if (window.firebaseSync && window.firebaseSync.getCurrentUser()) {
+            window.firebaseSync.pushStudyStateToCloud({
+              learnedCardNums: [...learnedCardsSet],
+              deletedCardNums: deletedCardNums,
+              lastActiveCardNum: (cards[currentIndex]?.originalNum || cards[currentIndex]?.num || 800)
+            });
           }
-          window.firebaseSync.pushStudyStateToCloud({
-            learnedCardNums: [...learnedCardsSet],
-            deletedCardNums: deletedCardNums,
-            lastActiveCardNum: (cards[currentIndex]?.originalNum || cards[currentIndex]?.num || 800)
-          });
-          showToast("Syncing your cards to cloud... ☁️");
-          playHapticTick(580, "sine", 0.04);
         });
       }
 

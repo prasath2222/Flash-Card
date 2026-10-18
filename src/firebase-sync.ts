@@ -3,6 +3,8 @@ import {
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
+  signInWithRedirect,
+  getRedirectResult,
   signOut,
   onAuthStateChanged,
   type User
@@ -12,6 +14,7 @@ import {
   doc,
   getDocFromServer,
   setDoc,
+  deleteDoc,
   onSnapshot,
   collection
 } from 'firebase/firestore';
@@ -34,6 +37,17 @@ export async function testConnection() {
   }
 }
 testConnection();
+
+// Auto-check redirect result for mobile browsers returning from Google OAuth
+getRedirectResult(auth)
+  .then((result) => {
+    if (result && result.user) {
+      console.log('[Firebase] Mobile redirect login succeeded for:', result.user.email);
+    }
+  })
+  .catch((error) => {
+    console.warn('[Firebase] Mobile redirect check notice:', error);
+  });
 
 // Standard Error Handling for Firestore
 export enum OperationType {
@@ -89,6 +103,7 @@ export interface RemoteStudyState {
   email?: string;
   displayName?: string;
   lastActiveCardNum?: number;
+  activeDeckId?: string;
   streakCount?: number;
   lastStudyDate?: string;
   learnedCardNums?: number[];
@@ -97,20 +112,53 @@ export interface RemoteStudyState {
   createdAt?: string;
 }
 
+export interface CustomDeck {
+  deckId: string;
+  title: string;
+  description?: string;
+  cardCount: number;
+  cards: any[];
+  updatedAt: string;
+  createdAt?: string;
+}
+
 // Global Sync Handlers
 let unsubscribeProfile: (() => void) | null = null;
 let unsubscribeShortcuts: (() => void) | null = null;
+let unsubscribeDecks: (() => void) | null = null;
 let isApplyingRemoteChange = false;
 
+// Mobile-resilient Google Sign-In with automatic redirect fallback
 export async function loginWithGoogle(): Promise<User> {
   const provider = new GoogleAuthProvider();
-  const res = await signInWithPopup(auth, provider);
-  return res.user;
+  provider.setCustomParameters({ prompt: 'select_account' });
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+  try {
+    const res = await signInWithPopup(auth, provider);
+    return res.user;
+  } catch (err: any) {
+    console.warn('[Firebase] signInWithPopup encountered error:', err);
+    if (
+      err &&
+      (err.code === 'auth/popup-blocked' ||
+        err.code === 'auth/cancelled-popup-request' ||
+        isMobile)
+    ) {
+      try {
+        await signInWithRedirect(auth, provider);
+      } catch (redirErr) {
+        console.error('[Firebase] signInWithRedirect also failed:', redirErr);
+      }
+    }
+    throw err;
+  }
 }
 
 export async function logoutUser(): Promise<void> {
   if (unsubscribeProfile) { unsubscribeProfile(); unsubscribeProfile = null; }
   if (unsubscribeShortcuts) { unsubscribeShortcuts(); unsubscribeShortcuts = null; }
+  if (unsubscribeDecks) { unsubscribeDecks(); unsubscribeDecks = null; }
   await signOut(auth);
 }
 
@@ -155,6 +203,83 @@ export async function pushCustomShortcutToCloud(cardNum: number, es: string, hi:
   }
 }
 
+// Push custom deck to Firestore
+export async function pushCustomDeckToCloud(deck: Omit<CustomDeck, 'updatedAt'>) {
+  if (isApplyingRemoteChange) return;
+  const user = auth.currentUser;
+  if (!user) return;
+
+  const docPath = `users/${user.uid}/decks/${deck.deckId}`;
+  try {
+    await setDoc(doc(db, 'users', user.uid, 'decks', deck.deckId), {
+      userId: user.uid,
+      deckId: deck.deckId,
+      title: deck.title,
+      description: deck.description || '',
+      cardCount: deck.cardCount || (deck.cards ? deck.cards.length : 0),
+      cards: deck.cards || [],
+      updatedAt: new Date().toISOString(),
+      createdAt: deck.createdAt || new Date().toISOString()
+    }, { merge: true });
+  } catch (err) {
+    handleFirestoreError(err, OperationType.WRITE, docPath);
+  }
+}
+
+// Delete custom deck from Firestore
+export async function deleteCustomDeckFromCloud(deckId: string) {
+  if (isApplyingRemoteChange) return;
+  const user = auth.currentUser;
+  if (!user) return;
+
+  const docPath = `users/${user.uid}/decks/${deckId}`;
+  try {
+    await deleteDoc(doc(db, 'users', user.uid, 'decks', deckId));
+  } catch (err) {
+    handleFirestoreError(err, OperationType.DELETE, docPath);
+  }
+}
+
+// ==========================================================
+// UNIVERSAL CROSS-DEVICE SYNC CODE API (Zero popup blockers)
+// ==========================================================
+export async function saveToDeviceCloud(syncCode: string, payload: any): Promise<boolean> {
+  try {
+    const res = await fetch('/api/sync/save', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ syncCode, payload })
+    });
+    return res.ok;
+  } catch (e) {
+    console.warn('[Sync] Device cloud save failed:', e);
+    return false;
+  }
+}
+
+export async function loadFromDeviceCloud(syncCode: string): Promise<any> {
+  try {
+    const res = await fetch(`/api/sync/load?code=${encodeURIComponent(syncCode)}`);
+    if (!res.ok) return null;
+    const data = await res.json();
+    return data && data.success ? data.payload : null;
+  } catch (e) {
+    console.warn('[Sync] Device cloud load failed:', e);
+    return null;
+  }
+}
+
+export async function pollDeviceCloud(syncCode: string, since: string): Promise<any> {
+  try {
+    const res = await fetch(`/api/sync/poll?code=${encodeURIComponent(syncCode)}&since=${encodeURIComponent(since)}`);
+    if (!res.ok) return null;
+    const data = await res.json();
+    return data && data.hasUpdates ? data.payload : null;
+  } catch (e) {
+    return null;
+  }
+}
+
 // Wire up window listeners for app integration
 declare global {
   interface Window {
@@ -164,20 +289,28 @@ declare global {
       logoutUser: typeof logoutUser;
       pushStudyStateToCloud: typeof pushStudyStateToCloud;
       pushCustomShortcutToCloud: typeof pushCustomShortcutToCloud;
+      pushCustomDeckToCloud: typeof pushCustomDeckToCloud;
+      deleteCustomDeckFromCloud: typeof deleteCustomDeckFromCloud;
+      saveToDeviceCloud: typeof saveToDeviceCloud;
+      loadFromDeviceCloud: typeof loadFromDeviceCloud;
+      pollDeviceCloud: typeof pollDeviceCloud;
       getCurrentUser: () => User | null;
       onAuthChange: (cb: (user: User | null) => void) => void;
       onRemoteStateChange: (cb: (data: RemoteStudyState) => void) => void;
       onRemoteShortcutsChange: (cb: (shortcuts: Record<number, { es: string; hi: string }>) => void) => void;
+      onRemoteDecksChange: (cb: (decks: Record<string, CustomDeck>) => void) => void;
     };
   }
 }
 
 let remoteStateListeners: ((data: RemoteStudyState) => void)[] = [];
 let remoteShortcutListeners: ((shortcuts: Record<number, { es: string; hi: string }>) => void)[] = [];
+let remoteDeckListeners: ((decks: Record<string, CustomDeck>) => void)[] = [];
 
 onAuthStateChanged(auth, (user) => {
   if (unsubscribeProfile) { unsubscribeProfile(); unsubscribeProfile = null; }
   if (unsubscribeShortcuts) { unsubscribeShortcuts(); unsubscribeShortcuts = null; }
+  if (unsubscribeDecks) { unsubscribeDecks(); unsubscribeDecks = null; }
 
   if (user) {
     console.log('[Firebase] User authenticated:', user.email);
@@ -188,14 +321,15 @@ onAuthStateChanged(auth, (user) => {
       doc(db, 'users', user.uid),
       (snapshot) => {
         if (!snapshot.exists()) {
-          // Initialize first-time cloud document with current local data
-          const localLearned = JSON.parse(localStorage.getItem('flashcards_learned_nums') || '[]');
-          const localDeleted = JSON.parse(localStorage.getItem('flashcards_deleted_nums') || '[]');
-          const lastNum = Number(localStorage.getItem('last_studied_card_num') || 800);
+          const localLearned = JSON.parse(localStorage.getItem('vocab_learned_cards_v3') || '[]');
+          const localDeleted = JSON.parse(localStorage.getItem('vocab_deleted_cards_v3') || '[]');
+          const lastNum = Number(localStorage.getItem('vocab_last_card_v3') || 800);
           const streak = Number(localStorage.getItem('study_streak_count') || 1);
+          const activeDeck = localStorage.getItem('active_deck_id_v1') || 'deck-800-1000';
 
           pushStudyStateToCloud({
             lastActiveCardNum: lastNum,
+            activeDeckId: activeDeck,
             streakCount: streak,
             learnedCardNums: localLearned,
             deletedCardNums: localDeleted,
@@ -241,6 +375,31 @@ onAuthStateChanged(auth, (user) => {
         handleFirestoreError(error, OperationType.GET, shortcutsCollectionPath);
       }
     );
+
+    // Listen to custom uploaded decks in real-time
+    const decksCollectionPath = `users/${user.uid}/decks`;
+    unsubscribeDecks = onSnapshot(
+      collection(db, 'users', user.uid, 'decks'),
+      (snapshot) => {
+        const decks: Record<string, CustomDeck> = {};
+        snapshot.forEach(docSnap => {
+          const d = docSnap.data() as CustomDeck;
+          if (d.deckId) {
+            decks[d.deckId] = d;
+          }
+        });
+
+        isApplyingRemoteChange = true;
+        try {
+          remoteDeckListeners.forEach(cb => cb(decks));
+        } finally {
+          setTimeout(() => { isApplyingRemoteChange = false; }, 200);
+        }
+      },
+      (error) => {
+        handleFirestoreError(error, OperationType.GET, decksCollectionPath);
+      }
+    );
   } else {
     console.log('[Firebase] Signed out.');
   }
@@ -253,6 +412,11 @@ window.firebaseSync = {
   logoutUser,
   pushStudyStateToCloud,
   pushCustomShortcutToCloud,
+  pushCustomDeckToCloud,
+  deleteCustomDeckFromCloud,
+  saveToDeviceCloud,
+  loadFromDeviceCloud,
+  pollDeviceCloud,
   getCurrentUser: () => auth.currentUser,
   onAuthChange: (cb) => {
     onAuthStateChanged(auth, cb);
@@ -262,5 +426,8 @@ window.firebaseSync = {
   },
   onRemoteShortcutsChange: (cb) => {
     remoteShortcutListeners.push(cb);
+  },
+  onRemoteDecksChange: (cb) => {
+    remoteDeckListeners.push(cb);
   }
 };

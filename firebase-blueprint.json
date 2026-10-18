@@ -2,7 +2,7 @@
   "entities": {
     "UserProfile": {
       "title": "UserProfile",
-      "description": "Stores user study progress, streak, learned cards, and deleted cards for cross-device sync",
+      "description": "Stores user study progress, streak, learned cards, active deck and deleted cards for cross-device sync",
       "type": "object",
       "properties": {
         "userId": {
@@ -19,6 +19,10 @@
         },
         "lastActiveCardNum": {
           "type": "number"
+        },
+        "activeDeckId": {
+          "type": "string",
+          "maxLength": 128
         },
         "streakCount": {
           "type": "number"
@@ -79,6 +83,50 @@
         "cardNum",
         "updatedAt"
       ]
+    },
+    "CustomDeck": {
+      "title": "CustomDeck",
+      "description": "Custom uploaded decks and curriculum for trilingual study",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "deckId": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 256
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "cardCount": {
+          "type": "number"
+        },
+        "cards": {
+          "type": "array",
+          "description": "List of parsed flashcards in this deck"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "userId",
+        "deckId",
+        "title",
+        "updatedAt"
+      ]
     }
   },
   "firestore": {
@@ -89,6 +137,10 @@
     "/users/{userId}/customShortcuts/{cardNum}": {
       "schema": "CustomShortcut",
       "description": "User-defined custom translations and mnemonic shortcuts per card"
+    },
+    "/users/{userId}/decks/{deckId}": {
+      "schema": "CustomDeck",
+      "description": "User uploaded custom flashcard decks synced across devices"
     }
   }
 }
