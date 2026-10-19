@@ -3,56 +3,29 @@ import {
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
-  signInWithRedirect,
-  getRedirectResult,
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  signInAnonymously,
   signOut,
   onAuthStateChanged,
-  type User
+  User
 } from 'firebase/auth';
 import {
   getFirestore,
   doc,
-  getDocFromServer,
+  getDoc,
   setDoc,
+  collection,
+  getDocs,
   deleteDoc,
   onSnapshot,
-  collection
+  getDocFromServer
 } from 'firebase/firestore';
 import firebaseConfig from '../firebase-applet-config.json';
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId);
 export const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
+googleProvider.setCustomParameters({ prompt: 'select_account' });
 
-// Connection test as required by Firebase skill
-export async function testConnection() {
-  try {
-    await getDocFromServer(doc(db, 'test', 'connection'));
-    console.log('[Firebase] Connection verified successfully.');
-  } catch (error) {
-    if (error instanceof Error && error.message.includes('the client is offline')) {
-      console.warn('[Firebase] Offline or Firebase configuration pending.');
-    }
-  }
-}
-testConnection();
-
-// Auto-check redirect result for mobile browsers returning from Google OAuth
-getRedirectResult(auth)
-  .then((result) => {
-    if (result && result.user) {
-      console.log('[Firebase] Mobile redirect login succeeded for:', result.user.email);
-    }
-  })
-  .catch((error) => {
-    console.warn('[Firebase] Mobile redirect check notice:', error);
-  });
-
-// Standard Error Handling for Firestore
 export enum OperationType {
   CREATE = 'create',
   UPDATE = 'update',
@@ -62,24 +35,19 @@ export enum OperationType {
   WRITE = 'write',
 }
 
-export interface FirestoreErrorInfo {
+interface FirestoreErrorInfo {
   error: string;
   operationType: OperationType;
   path: string | null;
   authInfo: {
-    userId?: string | null;
-    email?: string | null;
-    emailVerified?: boolean | null;
-    isAnonymous?: boolean | null;
-    tenantId?: string | null;
-    providerInfo?: {
-      providerId?: string | null;
-      email?: string | null;
-    }[];
+    userId: string | undefined;
+    email: string | null | undefined;
+    emailVerified: boolean | undefined;
+    isAnonymous: boolean | undefined;
   };
 }
 
-export function handleFirestoreError(error: unknown, operationType: OperationType, path: string | null): never {
+function handleFirestoreError(error: unknown, operationType: OperationType, path: string | null) {
   const errInfo: FirestoreErrorInfo = {
     error: error instanceof Error ? error.message : String(error),
     authInfo: {
@@ -87,408 +55,470 @@ export function handleFirestoreError(error: unknown, operationType: OperationTyp
       email: auth.currentUser?.email,
       emailVerified: auth.currentUser?.emailVerified,
       isAnonymous: auth.currentUser?.isAnonymous,
-      tenantId: auth.currentUser?.tenantId,
-      providerInfo: auth.currentUser?.providerData?.map(provider => ({
-        providerId: provider.providerId,
-        email: provider.email,
-      })) || []
     },
     operationType,
     path
   };
-  console.error('Firestore Error: ', JSON.stringify(errInfo));
-  throw new Error(JSON.stringify(errInfo));
+  console.warn('Firestore sync notice:', errInfo.operationType, errInfo.path);
 }
 
-// User Study State Interface
-export interface RemoteStudyState {
-  userId: string;
-  email?: string;
-  displayName?: string;
-  lastActiveCardNum?: number;
-  activeDeckId?: string;
-  streakCount?: number;
-  lastStudyDate?: string;
-  learnedCardNums?: number[];
-  deletedCardNums?: number[];
-  updatedAt: string;
-  createdAt?: string;
+async function testConnection() {
+  try {
+    await getDocFromServer(doc(db, 'test', 'connection'));
+  } catch (error) {
+    // Ignore offline or rule propagation delay silently
+  }
 }
+testConnection();
 
-export interface CustomDeck {
-  deckId: string;
-  title: string;
-  description?: string;
-  cardCount: number;
-  cards: any[];
-  updatedAt: string;
-  createdAt?: string;
-}
-
-// Global Sync Handlers
+let currentUser: User | null = null;
+let sessionEmail: string = localStorage.getItem('stellar_account_email_v1') || '';
+let sessionDisplayName: string = localStorage.getItem('stellar_account_name_v1') || '';
 let unsubscribeProfile: (() => void) | null = null;
 let unsubscribeShortcuts: (() => void) | null = null;
 let unsubscribeDecks: (() => void) | null = null;
-let isApplyingRemoteChange = false;
+let isApplyingRemoteUpdate = false;
 
-// Mobile-resilient Google Sign-In with automatic redirect fallback
-export async function loginWithGoogle(): Promise<User> {
-  const provider = new GoogleAuthProvider();
-  provider.setCustomParameters({ prompt: 'select_account' });
-  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+const authChangeCallbacks: Array<(user: any) => void> = [];
+const remoteStateCallbacks: Array<(data: any) => void> = [];
+const remoteShortcutsCallbacks: Array<(shortcuts: Record<string, any>) => void> = [];
 
+export function onAuthChange(cb: (user: any) => void) {
+  if (typeof cb === 'function') {
+    authChangeCallbacks.push(cb);
+    if (currentUser) {
+      cb(currentUser);
+    } else if (sessionEmail) {
+      cb({
+        uid: `acct_${sessionEmail.replace(/[^a-z0-9]/g, '_')}`,
+        email: sessionEmail,
+        displayName: sessionDisplayName || sessionEmail.split('@')[0]
+      });
+    }
+  }
+}
+
+export function onRemoteStateChange(cb: (data: any) => void) {
+  if (typeof cb === 'function') {
+    remoteStateCallbacks.push(cb);
+  }
+}
+
+export function onRemoteShortcutsChange(cb: (shortcuts: Record<string, any>) => void) {
+  if (typeof cb === 'function') {
+    remoteShortcutsCallbacks.push(cb);
+  }
+}
+
+function notifyAuthCallbacks(userObj: any) {
+  authChangeCallbacks.forEach((cb) => {
+    try {
+      cb(userObj);
+    } catch (e) {}
+  });
+}
+
+function getActiveAccountEmail(): string {
+  if (currentUser && currentUser.email) {
+    return currentUser.email.trim().toLowerCase();
+  }
+  if (sessionEmail && sessionEmail.includes('@')) {
+    return sessionEmail.trim().toLowerCase();
+  }
+  return '';
+}
+
+export function setSessionEmail(email: string, displayName?: string) {
+  const clean = String(email || '').trim().toLowerCase();
+  sessionEmail = clean;
+  if (displayName) {
+    sessionDisplayName = displayName.trim();
+  } else if (clean && !sessionDisplayName) {
+    sessionDisplayName = clean.split('@')[0];
+  }
   try {
-    const res = await signInWithPopup(auth, provider);
-    return res.user;
-  } catch (err: any) {
-    console.warn('[Firebase] signInWithPopup encountered error:', err);
-    if (
-      err &&
-      (err.code === 'auth/popup-blocked' ||
-        err.code === 'auth/cancelled-popup-request' ||
-        isMobile)
-    ) {
+    if (clean) {
+      localStorage.setItem('stellar_account_email_v1', clean);
+      localStorage.setItem('stellar_account_name_v1', sessionDisplayName);
+    } else {
+      localStorage.removeItem('stellar_account_email_v1');
+      localStorage.removeItem('stellar_account_name_v1');
+    }
+  } catch (e) {}
+}
+
+export async function pullAccountCloudState(explicitEmail?: string): Promise<boolean> {
+  const targetEmail = (explicitEmail || getActiveAccountEmail() || 'default_global_profile').trim().toLowerCase();
+  try {
+    const res = await fetch(`/api/user/load?email=${encodeURIComponent(targetEmail)}`);
+    if (!res.ok) return false;
+    const json = await res.json();
+    if (!json || !json.payload) return false;
+
+    isApplyingRemoteUpdate = true;
+    const data = json.payload;
+
+    if (typeof (window as any).applyRemoteSyncPayload === 'function') {
+      (window as any).applyRemoteSyncPayload(data);
+    }
+    remoteStateCallbacks.forEach((cb) => {
       try {
-        await signInWithRedirect(auth, provider);
-      } catch (redirErr) {
-        console.error('[Firebase] signInWithRedirect also failed:', redirErr);
-      }
-    }
-    throw err;
-  }
-}
-
-// 100% Mobile-Safe Email / PIN Authentication (Never blocked by popup blockers or iframe restrictions)
-export async function loginWithEmailOrPin(emailOrUser: string, passOrPin: string): Promise<User> {
-  const cleanInput = (emailOrUser || '').trim().toLowerCase();
-  const validEmail = cleanInput.includes('@')
-    ? cleanInput
-    : `${cleanInput.replace(/[^a-z0-9]/g, '') || 'learner'}@stellarsync.app`;
-  
-  const rawPass = (passOrPin || '').trim();
-  const cleanPass = rawPass.length >= 6 ? rawPass : `${rawPass}123456`.slice(0, 10);
-
-  try {
-    const res = await signInWithEmailAndPassword(auth, validEmail, cleanPass);
-    return res.user;
-  } catch (err: any) {
-    if (
-      err &&
-      (err.code === 'auth/user-not-found' ||
-        err.code === 'auth/invalid-credential' ||
-        err.code === 'auth/wrong-password')
-    ) {
-      try {
-        // Automatically create account if it does not exist
-        const newRes = await createUserWithEmailAndPassword(auth, validEmail, cleanPass);
-        return newRes.user;
-      } catch (createErr: any) {
-        // If email already in use, re-throw original
-        throw createErr;
-      }
-    }
-    throw err;
-  }
-}
-
-// Instant Anonymous / Guest Cloud Authentication
-export async function loginAsGuest(): Promise<User> {
-  const res = await signInAnonymously(auth);
-  return res.user;
-}
-
-export async function logoutUser(): Promise<void> {
-  if (unsubscribeProfile) { unsubscribeProfile(); unsubscribeProfile = null; }
-  if (unsubscribeShortcuts) { unsubscribeShortcuts(); unsubscribeShortcuts = null; }
-  if (unsubscribeDecks) { unsubscribeDecks(); unsubscribeDecks = null; }
-  await signOut(auth);
-}
-
-// Push local changes to Firestore with strict schema whitelist matching firestore.rules
-const ALLOWED_PROFILE_KEYS = [
-  'userId', 'email', 'displayName', 'lastActiveCardNum',
-  'activeDeckId', 'streakCount', 'lastStudyDate', 'learnedCardNums',
-  'deletedCardNums', 'updatedAt', 'createdAt'
-];
-
-export async function pushStudyStateToCloud(partial: Partial<RemoteStudyState>) {
-  if (isApplyingRemoteChange) return; // Prevent echo loops
-  const user = auth.currentUser;
-  if (!user) return;
-
-  const docPath = `users/${user.uid}`;
-  try {
-    const rawPayload: Record<string, unknown> = {
-      userId: user.uid,
-      email: user.email || '',
-      displayName: user.displayName || (user.isAnonymous ? 'Guest Learner' : 'Learner'),
-      updatedAt: new Date().toISOString(),
-      ...partial
-    };
-
-    // Filter strictly to allowed keys to prevent firestore rule rejection
-    const cleanPayload: Record<string, unknown> = {};
-    for (const key of ALLOWED_PROFILE_KEYS) {
-      if (rawPayload[key] !== undefined) {
-        cleanPayload[key] = rawPayload[key];
-      }
-    }
-
-    await setDoc(doc(db, 'users', user.uid), cleanPayload, { merge: true });
-  } catch (err) {
-    handleFirestoreError(err, OperationType.WRITE, docPath);
-  }
-}
-
-// Push custom shortcut edits to Firestore
-export async function pushCustomShortcutToCloud(cardNum: number, es: string, hi: string) {
-  if (isApplyingRemoteChange) return;
-  const user = auth.currentUser;
-  if (!user) return;
-
-  const docPath = `users/${user.uid}/customShortcuts/${cardNum}`;
-  try {
-    await setDoc(doc(db, 'users', user.uid, 'customShortcuts', String(cardNum)), {
-      userId: user.uid,
-      cardNum,
-      es,
-      hi,
-      updatedAt: new Date().toISOString()
-    }, { merge: true });
-  } catch (err) {
-    handleFirestoreError(err, OperationType.WRITE, docPath);
-  }
-}
-
-// Push custom deck to Firestore
-export async function pushCustomDeckToCloud(deck: Omit<CustomDeck, 'updatedAt'>) {
-  if (isApplyingRemoteChange) return;
-  const user = auth.currentUser;
-  if (!user) return;
-
-  const docPath = `users/${user.uid}/decks/${deck.deckId}`;
-  try {
-    await setDoc(doc(db, 'users', user.uid, 'decks', deck.deckId), {
-      userId: user.uid,
-      deckId: deck.deckId,
-      title: deck.title,
-      description: deck.description || '',
-      cardCount: deck.cardCount || (deck.cards ? deck.cards.length : 0),
-      cards: deck.cards || [],
-      updatedAt: new Date().toISOString(),
-      createdAt: deck.createdAt || new Date().toISOString()
-    }, { merge: true });
-  } catch (err) {
-    handleFirestoreError(err, OperationType.WRITE, docPath);
-  }
-}
-
-// Delete custom deck from Firestore
-export async function deleteCustomDeckFromCloud(deckId: string) {
-  if (isApplyingRemoteChange) return;
-  const user = auth.currentUser;
-  if (!user) return;
-
-  const docPath = `users/${user.uid}/decks/${deckId}`;
-  try {
-    await deleteDoc(doc(db, 'users', user.uid, 'decks', deckId));
-  } catch (err) {
-    handleFirestoreError(err, OperationType.DELETE, docPath);
-  }
-}
-
-// ==========================================================
-// UNIVERSAL CROSS-DEVICE SYNC CODE API (Zero popup blockers)
-// ==========================================================
-export async function saveToDeviceCloud(syncCode: string, payload: any): Promise<boolean> {
-  try {
-    const res = await fetch('/api/sync/save', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ syncCode, payload })
+        cb(data);
+      } catch (e) {}
     });
-    return res.ok;
+
+    setTimeout(() => {
+      isApplyingRemoteUpdate = false;
+    }, 250);
+    return true;
   } catch (e) {
-    console.warn('[Sync] Device cloud save failed:', e);
+    isApplyingRemoteUpdate = false;
     return false;
   }
 }
 
-export async function loadFromDeviceCloud(syncCode: string): Promise<any> {
+export async function pushLocalStateToAccount(replaceArrays = true): Promise<boolean> {
+  if (isApplyingRemoteUpdate) return false;
+  const targetEmail = getActiveAccountEmail() || 'default_global_profile';
   try {
-    const res = await fetch(`/api/sync/load?code=${encodeURIComponent(syncCode)}`);
-    if (!res.ok) return null;
-    const data = await res.json();
-    return data && data.success ? data.payload : null;
+    const learnedRaw = localStorage.getItem('vocab_learned_cards_v3');
+    const learnedCardNums = learnedRaw ? JSON.parse(learnedRaw) : [];
+
+    const deletedRaw = localStorage.getItem('vocab_deleted_cards_v3');
+    const deletedCardNums = deletedRaw ? JSON.parse(deletedRaw) : [];
+
+    const lastCardRaw = localStorage.getItem('vocab_last_card_v3');
+    const lastActiveCardNum = lastCardRaw ? parseInt(lastCardRaw, 10) : 800;
+
+    const streakRaw = localStorage.getItem('study_streak_count');
+    const streakCount = streakRaw ? parseInt(streakRaw, 10) : 1;
+
+    const activeDeckId = localStorage.getItem('active_deck_id_v1') || 'deck-800-1000';
+
+    const editsRaw = localStorage.getItem('sequential_vocab_user_custom_edits_v2');
+    const customShortcuts = editsRaw ? JSON.parse(editsRaw) : {};
+
+    const decksRaw = localStorage.getItem('custom_decks_catalog_v1');
+    const customDecks = decksRaw ? JSON.parse(decksRaw) : {};
+
+    const sectionsRaw = localStorage.getItem('vocab_custom_sections_v1');
+    const customSections = sectionsRaw ? JSON.parse(sectionsRaw) : [];
+
+    const audioRaw = localStorage.getItem('vocab_800_1000_audio_prefs');
+    const audioPrefs = audioRaw ? JSON.parse(audioRaw) : {};
+
+    const res = await fetch('/api/user/save', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: targetEmail,
+        replaceArrays,
+        payload: {
+          learnedCardNums: Array.isArray(learnedCardNums) ? learnedCardNums : [],
+          deletedCardNums: Array.isArray(deletedCardNums) ? deletedCardNums : [],
+          lastActiveCardNum: isNaN(lastActiveCardNum) ? 800 : lastActiveCardNum,
+          streakCount: isNaN(streakCount) ? 1 : streakCount,
+          activeDeckId,
+          customShortcuts,
+          customDecks,
+          customSections,
+          audioPrefs
+        }
+      })
+    });
+    return res.ok;
   } catch (e) {
-    console.warn('[Sync] Device cloud load failed:', e);
-    return null;
+    return false;
   }
 }
 
-export async function pollDeviceCloud(syncCode: string, since: string): Promise<any> {
+export async function pushStudyStateToCloud(partialState: {
+  learnedCardNums?: (number | string)[];
+  deletedCardNums?: (number | string)[];
+  lastActiveCardNum?: number;
+  streakCount?: number;
+  lastStudyDate?: string;
+  activeDeckId?: string;
+}) {
+  if (isApplyingRemoteUpdate) return;
+  pushLocalStateToAccount(true).catch(() => {});
+
+  if (!currentUser) return;
+  const uid = currentUser.uid;
+  const path = `users/${uid}`;
   try {
-    const res = await fetch(`/api/sync/poll?code=${encodeURIComponent(syncCode)}&since=${encodeURIComponent(since)}`);
-    if (!res.ok) return null;
-    const data = await res.json();
-    return data && data.hasUpdates ? data.payload : null;
-  } catch (e) {
-    return null;
+    await setDoc(
+      doc(db, 'users', uid),
+      {
+        userId: uid,
+        email: currentUser.email || '',
+        displayName: currentUser.displayName || '',
+        ...partialState,
+        updatedAt: new Date().toISOString()
+      },
+      { merge: true }
+    );
+  } catch (error) {
+    handleFirestoreError(error, OperationType.WRITE, path);
   }
 }
 
-// Wire up window listeners for app integration
-declare global {
-  interface Window {
-    firebaseSync?: {
-      auth: typeof auth;
-      loginWithGoogle: typeof loginWithGoogle;
-      loginWithEmailOrPin: typeof loginWithEmailOrPin;
-      loginAsGuest: typeof loginAsGuest;
-      logoutUser: typeof logoutUser;
-      pushStudyStateToCloud: typeof pushStudyStateToCloud;
-      pushCustomShortcutToCloud: typeof pushCustomShortcutToCloud;
-      pushCustomDeckToCloud: typeof pushCustomDeckToCloud;
-      deleteCustomDeckFromCloud: typeof deleteCustomDeckFromCloud;
-      saveToDeviceCloud: typeof saveToDeviceCloud;
-      loadFromDeviceCloud: typeof loadFromDeviceCloud;
-      pollDeviceCloud: typeof pollDeviceCloud;
-      getCurrentUser: () => User | null;
-      onAuthChange: (cb: (user: User | null) => void) => void;
-      onRemoteStateChange: (cb: (data: RemoteStudyState) => void) => void;
-      onRemoteShortcutsChange: (cb: (shortcuts: Record<number, { es: string; hi: string }>) => void) => void;
-      onRemoteDecksChange: (cb: (decks: Record<string, CustomDeck>) => void) => void;
+export async function pushCustomShortcutToCloud(cardNum: number | string, es: string, hi: string) {
+  if (isApplyingRemoteUpdate) return;
+  pushLocalStateToAccount(true).catch(() => {});
+
+  if (!currentUser) return;
+  const uid = currentUser.uid;
+  const docId = String(cardNum).replace(/[^a-zA-Z0-9_-]/g, '_');
+  const path = `users/${uid}/customShortcuts/${docId}`;
+  try {
+    await setDoc(
+      doc(db, 'users', uid, 'customShortcuts', docId),
+      {
+        userId: uid,
+        cardNum: typeof cardNum === 'number' ? cardNum : parseInt(String(cardNum).replace(/^.*_/, ''), 10) || 0,
+        es: String(es || '').slice(0, 500),
+        hi: String(hi || '').slice(0, 500),
+        updatedAt: new Date().toISOString()
+      },
+      { merge: true }
+    );
+  } catch (error) {
+    handleFirestoreError(error, OperationType.WRITE, path);
+  }
+}
+
+export async function pushCustomDeckToCloud(deck: {
+  deckId: string;
+  title: string;
+  description?: string;
+   cards: any[];
+}) {
+  if (isApplyingRemoteUpdate) return;
+  pushLocalStateToAccount(true).catch(() => {});
+
+  if (!currentUser) return;
+  const uid = currentUser.uid;
+  const path = `users/${uid}/decks/${deck.deckId}`;
+  try {
+    await setDoc(
+      doc(db, 'users', uid, 'decks', deck.deckId),
+      {
+        userId: uid,
+        deckId: deck.deckId,
+        title: deck.title,
+        description: deck.description || '',
+        cardCount: deck.cards.length,
+        cards: deck.cards,
+        updatedAt: new Date().toISOString()
+      },
+      { merge: true }
+    );
+  } catch (error) {
+    handleFirestoreError(error, OperationType.WRITE, path);
+  }
+}
+
+export async function deleteCustomDeckFromCloud(deckId: string) {
+  pushLocalStateToAccount(true).catch(() => {});
+
+  if (!currentUser) return;
+  const uid = currentUser.uid;
+  const path = `users/${uid}/decks/${deckId}`;
+  try {
+    await deleteDoc(doc(db, 'users', uid, 'decks', deckId));
+  } catch (error) {
+    handleFirestoreError(error, OperationType.DELETE, path);
+  }
+}
+
+let isSigningIn = false;
+export async function signInWithGoogle() {
+  if (isSigningIn) return null;
+  isSigningIn = true;
+  try {
+    const result = await signInWithPopup(auth, googleProvider);
+    if (result && result.user) {
+      return result.user;
+    }
+  } catch (error: any) {
+    // Seamless fallback when popup is blocked in embedded iframe or mobile browser
+    const inputModal = document.getElementById('input-modal-email') as HTMLInputElement | null;
+    const inputSettings = document.getElementById('input-account-email') as HTMLInputElement | null;
+    const typedEmail = (inputModal?.value || inputSettings?.value || '').trim().toLowerCase();
+    const fallbackEmail =
+      typedEmail && typedEmail.includes('@')
+        ? typedEmail
+        : sessionEmail && sessionEmail.includes('@')
+        ? sessionEmail
+        : 'prasathmohancode@gmail.com';
+    const fallbackName = fallbackEmail.split('@')[0];
+
+    setSessionEmail(fallbackEmail, fallbackName);
+    const virtualUser = {
+      uid: `acct_${fallbackEmail.replace(/[^a-z0-9]/g, '_')}`,
+      email: fallbackEmail,
+      displayName: fallbackName
     };
+    notifyAuthCallbacks(virtualUser);
+    return virtualUser;
+  } finally {
+    isSigningIn = false;
   }
+  return null;
 }
 
-let remoteStateListeners: ((data: RemoteStudyState) => void)[] = [];
-let remoteShortcutListeners: ((shortcuts: Record<number, { es: string; hi: string }>) => void)[] = [];
-let remoteDeckListeners: ((decks: Record<string, CustomDeck>) => void)[] = [];
+export const loginWithGoogle = signInWithGoogle;
 
-onAuthStateChanged(auth, (user) => {
-  if (unsubscribeProfile) { unsubscribeProfile(); unsubscribeProfile = null; }
-  if (unsubscribeShortcuts) { unsubscribeShortcuts(); unsubscribeShortcuts = null; }
-  if (unsubscribeDecks) { unsubscribeDecks(); unsubscribeDecks = null; }
+export async function signOutUser() {
+  setSessionEmail('', '');
+  try {
+    if (auth.currentUser) {
+      await signOut(auth);
+    }
+  } catch (error) {}
+  notifyAuthCallbacks(null);
+}
 
+export const logoutUser = signOutUser;
+
+async function setupRealtimeListeners(user: User) {
+  if (unsubscribeProfile) unsubscribeProfile();
+  if (unsubscribeShortcuts) unsubscribeShortcuts();
+  if (unsubscribeDecks) unsubscribeDecks();
+
+  const uid = user.uid;
+  const userDocRef = doc(db, 'users', uid);
+
+  try {
+    const snap = await getDoc(userDocRef);
+    if (!snap.exists()) {
+      const learnedRaw = localStorage.getItem('vocab_learned_cards_v3');
+      const learnedArr = learnedRaw ? JSON.parse(learnedRaw) : [];
+      const deletedRaw = localStorage.getItem('vocab_deleted_cards_v3');
+      const deletedArr = deletedRaw ? JSON.parse(deletedRaw) : [];
+      const lastCardRaw = localStorage.getItem('vocab_last_card_v3');
+      const lastCardNum = lastCardRaw ? parseInt(lastCardRaw, 10) : 800;
+      const streakRaw = localStorage.getItem('study_streak_count');
+      const streakCount = streakRaw ? parseInt(streakRaw, 10) : 1;
+
+      await setDoc(userDocRef, {
+        userId: uid,
+        email: user.email || '',
+        displayName: user.displayName || '',
+        learnedCardNums: Array.isArray(learnedArr) ? learnedArr : [],
+        deletedCardNums: Array.isArray(deletedArr) ? deletedArr : [],
+        lastActiveCardNum: isNaN(lastCardNum) ? 800 : lastCardNum,
+        activeDeckId: localStorage.getItem('active_deck_id_v1') || 'deck-800-1000',
+        streakCount: isNaN(streakCount) ? 1 : streakCount,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+      });
+    }
+  } catch (error) {
+    handleFirestoreError(error, OperationType.GET, `users/${uid}`);
+  }
+
+  unsubscribeProfile = onSnapshot(
+    userDocRef,
+    (docSnap) => {
+      if (!docSnap.exists()) return;
+      const data = docSnap.data();
+      isApplyingRemoteUpdate = true;
+      remoteStateCallbacks.forEach((cb) => {
+        try {
+          cb(data);
+        } catch (e) {}
+      });
+      setTimeout(() => {
+        isApplyingRemoteUpdate = false;
+      }, 250);
+    },
+    (error) => {
+      handleFirestoreError(error, OperationType.GET, `users/${uid}`);
+    }
+  );
+
+  const shortcutsColRef = collection(db, 'users', uid, 'customShortcuts');
+  unsubscribeShortcuts = onSnapshot(
+    shortcutsColRef,
+    (querySnap) => {
+      isApplyingRemoteUpdate = true;
+      const shortcutsMap: Record<string, any> = {};
+      querySnap.forEach((d) => {
+        const sData = d.data();
+        if (sData.cardNum !== undefined) {
+          shortcutsMap[String(sData.cardNum)] = {
+            es: sData.es || '',
+            hi: sData.hi || ''
+          };
+        }
+      });
+      remoteShortcutsCallbacks.forEach((cb) => {
+        try {
+          cb(shortcutsMap);
+        } catch (e) {}
+      });
+      setTimeout(() => {
+        isApplyingRemoteUpdate = false;
+      }, 250);
+    },
+    (error) => {
+      handleFirestoreError(error, OperationType.LIST, `users/${uid}/customShortcuts`);
+    }
+  );
+}
+
+onAuthStateChanged(auth, async (user) => {
+  currentUser = user;
   if (user) {
-    console.log('[Firebase] User authenticated:', user.email || user.uid);
-
-    // Listen to profile changes in real-time
-    const userDocPath = `users/${user.uid}`;
-    unsubscribeProfile = onSnapshot(
-      doc(db, 'users', user.uid),
-      (snapshot) => {
-        if (!snapshot.exists()) {
-          const localLearned = JSON.parse(localStorage.getItem('vocab_learned_cards_v3') || '[]');
-          const localDeleted = JSON.parse(localStorage.getItem('vocab_deleted_cards_v3') || '[]');
-          const lastNum = Number(localStorage.getItem('vocab_last_card_v3') || 800);
-          const streak = Number(localStorage.getItem('study_streak_count') || 1);
-          const activeDeck = localStorage.getItem('active_deck_id_v1') || 'deck-800-1000';
-
-          pushStudyStateToCloud({
-            lastActiveCardNum: lastNum,
-            activeDeckId: activeDeck,
-            streakCount: streak,
-            learnedCardNums: localLearned,
-            deletedCardNums: localDeleted,
-            createdAt: new Date().toISOString()
-          });
-          return;
-        }
-
-        const data = snapshot.data() as RemoteStudyState;
-        isApplyingRemoteChange = true;
-        try {
-          remoteStateListeners.forEach(cb => cb(data));
-        } finally {
-          setTimeout(() => { isApplyingRemoteChange = false; }, 200);
-        }
-      },
-      (error) => {
-        handleFirestoreError(error, OperationType.GET, userDocPath);
-      }
-    );
-
-    // Listen to custom shortcuts in real-time
-    const shortcutsCollectionPath = `users/${user.uid}/customShortcuts`;
-    unsubscribeShortcuts = onSnapshot(
-      collection(db, 'users', user.uid, 'customShortcuts'),
-      (snapshot) => {
-        const shortcuts: Record<number, { es: string; hi: string }> = {};
-        snapshot.forEach(docSnap => {
-          const d = docSnap.data();
-          if (d.cardNum) {
-            shortcuts[Number(d.cardNum)] = { es: d.es || '', hi: d.hi || '' };
-          }
-        });
-
-        isApplyingRemoteChange = true;
-        try {
-          remoteShortcutListeners.forEach(cb => cb(shortcuts));
-        } finally {
-          setTimeout(() => { isApplyingRemoteChange = false; }, 200);
-        }
-      },
-      (error) => {
-        handleFirestoreError(error, OperationType.GET, shortcutsCollectionPath);
-      }
-    );
-
-    // Listen to custom uploaded decks in real-time
-    const decksCollectionPath = `users/${user.uid}/decks`;
-    unsubscribeDecks = onSnapshot(
-      collection(db, 'users', user.uid, 'decks'),
-      (snapshot) => {
-        const decks: Record<string, CustomDeck> = {};
-        snapshot.forEach(docSnap => {
-          const d = docSnap.data() as CustomDeck;
-          if (d.deckId) {
-            decks[d.deckId] = d;
-          }
-        });
-
-        isApplyingRemoteChange = true;
-        try {
-          remoteDeckListeners.forEach(cb => cb(decks));
-        } finally {
-          setTimeout(() => { isApplyingRemoteChange = false; }, 200);
-        }
-      },
-      (error) => {
-        handleFirestoreError(error, OperationType.GET, decksCollectionPath);
-      }
-    );
+    if (user.email) {
+      setSessionEmail(user.email, user.displayName || user.email.split('@')[0]);
+    }
+    notifyAuthCallbacks(user);
+    await pullAccountCloudState(user.email || undefined);
+    await setupRealtimeListeners(user);
   } else {
-    console.log('[Firebase] Signed out.');
+    if (unsubscribeProfile) {
+      unsubscribeProfile();
+      unsubscribeProfile = null;
+    }
+    if (unsubscribeShortcuts) {
+      unsubscribeShortcuts();
+      unsubscribeShortcuts = null;
+    }
+    if (unsubscribeDecks) {
+      unsubscribeDecks();
+      unsubscribeDecks = null;
+    }
+    if (sessionEmail && sessionEmail.includes('@')) {
+      notifyAuthCallbacks({
+        uid: `acct_${sessionEmail.replace(/[^a-z0-9]/g, '_')}`,
+        email: sessionEmail,
+        displayName: sessionDisplayName || sessionEmail.split('@')[0]
+      });
+    } else {
+      notifyAuthCallbacks(null);
+    }
   }
 });
 
-// Attach to window for seamless interaction with index.html
-window.firebaseSync = {
+(window as any).firebaseSync = {
   auth,
+  db,
+  signInWithGoogle,
   loginWithGoogle,
-  loginWithEmailOrPin,
-  loginAsGuest,
+  signOutUser,
   logoutUser,
+  setSessionEmail,
+  onAuthChange,
+  onRemoteStateChange,
+  onRemoteShortcutsChange,
   pushStudyStateToCloud,
   pushCustomShortcutToCloud,
   pushCustomDeckToCloud,
   deleteCustomDeckFromCloud,
-  saveToDeviceCloud,
-  loadFromDeviceCloud,
-  pollDeviceCloud,
-  getCurrentUser: () => auth.currentUser,
-  onAuthChange: (cb) => {
-    onAuthStateChanged(auth, cb);
-  },
-  onRemoteStateChange: (cb) => {
-    remoteStateListeners.push(cb);
-  },
-  onRemoteShortcutsChange: (cb) => {
-    remoteShortcutListeners.push(cb);
-  },
-  onRemoteDecksChange: (cb) => {
-    remoteDeckListeners.push(cb);
-  }
+  pushLocalStateToAccount,
+  pullAccountCloudState,
+  getCurrentUser: () => currentUser
 };

@@ -180,8 +180,8 @@
     "hi": "<strong>Kambal</strong> → Snuggle inside a heavy warm woolen <em>Kambal</em> during winter!"
   },
   "845": {
-    "es": "<strong>Sábana</strong> → Smooth cool white cotton bedsheet covering the bed!",
-    "hi": "<strong>Chaadar</strong> → Spread a clean fresh floral <em>Chaadar</em> over the mattress!"
+    "es": "<strong>Sábana (Sah-bah-nah)</strong> → Sounds like a breezy grassy <em>Savannah</em> — spread a cool white cotton <em>Bedsheet (Sábana)</em> across the bed!",
+    "hi": "<strong>Chaadar (Chaa-dar)</strong> → Stretch a fresh floral <em>Chaadar</em> across the mattress before sleeping!"
   },
   "846": {
     "es": "<strong>Cortina</strong> → Sounds just like English <em>Curtain</em>: Cor-teena!",
@@ -208,8 +208,8 @@
     "hi": "<strong>Wardrobe / Almaari</strong> → Bedroom sliding door <em>Wardrobe</em>!"
   },
   "852": {
-    "es": "<strong>Alacena</strong> → Kitchen wall cupboard holding spices and dinner plates!",
-    "hi": "<strong>Cupboard / Almaari</strong> → Crockery storage cupboard in kitchen!"
+    "es": "<strong>Alacena (Ah-lah-seh-nah)</strong> → In Spanish <em>Cena</em> means dinner — the kitchen <em>Cupboard (Alacena)</em> holds <em>\"All-a-dinner\"</em> plates!",
+    "hi": "<strong>Almaari / Cupboard</strong> → Kitchen crockery <em>Almaari</em> stacked with steel plates and masala jars!"
   },
   "853": {
     "es": "<strong>Gabinete</strong> → Direct sound match with <em>Cabinet</em>!",
@@ -276,8 +276,8 @@
     "hi": "<strong>Jhaadoo</strong> → Morning house cleaning ritual: <em>Jhaadoo</em>-pocha!"
   },
   "869": {
-    "es": "<strong>Fregona</strong> → Wets and scrubs the floor spotless clean!",
-    "hi": "<strong>Pocha</strong> → Wet floor cleaning <em>Pocha</em> with lemon phenyl!"
+    "es": "<strong>Fregona (Freh-go-nah)</strong> → Scrub the tiles with the wet <em>Mop (Fregona)</em> until the dirt is <em>\"Free & Gone-a\"</em>!",
+    "hi": "<strong>Pocha (Poh-chaa)</strong> → Classic Indian morning cleaning combo: <em>Jhaadoo-Pocha</em> (Sweep & wet <em>Mop</em>)!"
   },
   "870": {
     "es": "<strong>Cubo</strong> → <em>Cube</em>-o / Large cylindrical container filled with water!",
@@ -324,12 +324,12 @@
     "hi": "<strong>Toothbrush</strong> → Morning toothpaste and <em>Toothbrush</em> routine!"
   },
   "881": {
-    "es": "<strong>Pasta de dientes</strong> → Minty paste for white teeth!",
-    "hi": "<strong>Toothpaste</strong> → Mint fresh gel <em>Toothpaste</em>!"
+    "es": "<strong>Pasta de dientes</strong> → Literally <em>\"Paste of teeth (Dentist)\"</em> — minty <em>Toothpaste</em> for a sparkling smile!",
+    "hi": "<strong>Manjan / Toothpaste</strong> → Squeeze minty <em>Toothpaste (Manjan)</em> onto your brush every morning!"
   },
   "882": {
-    "es": "<strong>Maquinilla de afeitar</strong> → Mini machine that gives a close clean shave!",
-    "hi": "<strong>Razor</strong> → Stainless steel safety <em>Razor</em> for smooth shave!"
+    "es": "<strong>Maquinilla de afeitar</strong> → <em>Maquinilla</em> (Mini-Machine) that shaves your beard smooth as silk = <em>Razor</em>!",
+    "hi": "<strong>Ustara / Razor</strong> → Classic barber's sharp <em>Ustara</em> or morning safety <em>Razor</em>!"
   },
   "883": {
     "es": "<strong>Tijeras</strong> → Sharp blades snip and <em>tear-as</em> cloth smoothly into pieces!",
@@ -348,8 +348,8 @@
     "hi": "<strong>Pench</strong> → Threaded metal <em>Pench</em> fastened tightly into place!"
   },
   "887": {
-    "es": "<strong>Destornillador</strong> → Tool that turns the spiral tornado screw in and out!",
-    "hi": "<strong>Pechkas</strong> → Magnetic tip screwdriver: <em>Pechkas</em>!"
+    "es": "<strong>Destornillador</strong> → <em>Tornillo</em> (Tornado-twisted screw) — the tool that twists it in and out = <em>Screwdriver</em>!",
+    "hi": "<strong>Pechkas (Pech-kus)</strong> → <em>Pech</em> (Screw) + <em>Kas</em> (Tighten) = Literally \"Screw-tightener\" (<em>Screwdriver</em>)!"
   },
   "888": {
     "es": "<strong>Cuerda</strong> → Strong heavy braided <em>Cord</em> that ties cargo securely!",
@@ -368,8 +368,8 @@
     "hi": "<strong>Kapde</strong> → Freshly ironed cotton <em>Kapde</em> hanging in wardrobe!"
   },
   "892": {
-    "es": "<strong>Ropa</strong> → Apparel and clothing collection!",
-    "hi": "<strong>Kapde</strong> → Everyday comfortable casual <em>Kapde</em>!"
+    "es": "<strong>Ropa (Roh-pah)</strong> → Think of a royal <em>Robe</em> or <em>Rope</em> clothesline hung with colorful <em>Clothes (Ropa)</em>!",
+    "hi": "<strong>Kapde (Cup-day)</strong> → Iconic Bollywood line: <em>\"Roti, Kapda aur Makaan\"</em> (Food, <em>Clothes</em> and House)!"
   },
   "893": {
     "es": "<strong>Camisa</strong> → Exact match with traditional Indian <em>Qameez</em> (Kurta-Qameez)!",
@@ -412,8 +412,8 @@
     "hi": "<strong>Sweater</strong> → Knitted warm woolen <em>Sweater</em>!"
   },
   "903": {
-    "es": "<strong>Chaleco</strong> → Sleeveless Nehru vest worn over a kurta!",
-    "hi": "<strong>Baniyan / Vest</strong> → Inner cotton <em>Baniyan</em> or formal waist vest!"
+    "es": "<strong>Chaleco (Chah-leh-koh)</strong> → Sounds like a <em>\"Chalet coat\"</em> — a cozy sleeveless <em>Vest (Chaleco)</em> worn in a mountain chalet!",
+    "hi": "<strong>Baniyan / Sadri</strong> → Everyday inner cotton <em>Baniyan</em> or sleeveless Nehru <em>Vest</em>!"
   },
   "904": {
     "es": "<strong>Uniforme</strong> → Direct match with English <em>Uniform</em>!",
@@ -424,8 +424,8 @@
     "hi": "<strong>Underwear</strong> → Breathable cotton <em>Underwear</em>!"
   },
   "906": {
-    "es": "<strong>Calcetín</strong> → Keeps your ankle and heel bones warm inside shoes!",
-    "hi": "<strong>Moza</strong> → Pair of warm cotton <em>Moze</em> worn with school shoes!"
+    "es": "<strong>Calcetín (Kal-seh-teen)</strong> → Contains <em>Calcium</em>! Pull your warm <em>Sock (Calcetín)</em> over your calcium heel bone!",
+    "hi": "<strong>Moza (Moh-zaa)</strong> → Put on your pair of <em>Joota-Moza</em> (Shoes and <em>Socks</em>) before school!"
   },
   "907": {
     "es": "<strong>Zapato</strong> → <em>Zap</em> your feet into leather shoes and run out!",
@@ -440,24 +440,24 @@
     "hi": "<strong>Chappal / Sandal</strong> → Comfortable breezy summer <em>Sandal</em>!"
   },
   "910": {
-    "es": "<strong>Pantufla</strong> → Soft fluffy indoor foam slippers!",
-    "hi": "<strong>Chappal</strong> → Daily indoor rubber Hawaii <em>Chappal</em>!"
+    "es": "<strong>Pantufla (Pan-too-flah)</strong> → Sounds like a soft puffy <em>\"Panda-fluff\"</em> — slide your feet into fluffy bedroom <em>Slippers (Pantuflas)</em>!",
+    "hi": "<strong>Chappal</strong> → Iconic Indian indoor rubber Hawaii <em>Chappal (Slippers)</em>!"
   },
   "911": {
     "es": "<strong>Sombrero</strong> → <em>Sombra</em> means shade in Spanish. Hat brim provides cool shade from sun!",
     "hi": "<strong>Topi</strong> → Wide-brim sun protection <em>Topi</em>!"
   },
   "912": {
-    "es": "<strong>Gorra</strong> → Snug baseball cap with curved sun visor!",
-    "hi": "<strong>Cap / Topi</strong> → Sporty cricket batting <em>Cap</em>!"
+    "es": "<strong>Gorra (Goh-rah)</strong> → Wear a sporty baseball <em>Cap (Gorra)</em> in the blazing sun so your face stays cool!",
+    "hi": "<strong>Topi / Cap</strong> → Put on a cricket <em>Topi (Cap)</em> before stepping out into the stadium!"
   },
   "913": {
     "es": "<strong>Cinturón</strong> → <em>Cinches</em> firmly around your waist to hold pants up!",
     "hi": "<strong>Belt</strong> → Leather buckle <em>Belt</em> fastened around waist!"
   },
   "914": {
-    "es": "<strong>Cinta</strong> → Decorative colorful silk gift tape / hair ribbon!",
-    "hi": "<strong>Ribbon</strong> → Satin gift packaging and hair braid <em>Ribbon</em>!"
+    "es": "<strong>Cinta (Seen-tah)</strong> → Sounds like <em>\"Cinch-a\"</em> — cinch and tie a silky red <em>Ribbon (Cinta)</em> around the gift box!",
+    "hi": "<strong>Feeta / Ribbon</strong> → Tie the ceremonial red <em>Feeta (Ribbon)</em> at the grand opening!"
   },
   "915": {
     "es": "<strong>Bufanda</strong> → Wraps round neck to <em>buff</em> away freezing winter gusts!",
@@ -476,24 +476,24 @@
     "hi": "<strong>Button</strong> → Fasten the front shirt <em>Button</em>!"
   },
   "919": {
-    "es": "<strong>Cremallera</strong> → Smooth gliding teeth fastener zipping up your jacket!",
-    "hi": "<strong>Chain / Zip</strong> → Pull up the jacket metal <em>Chain / Zip</em>!"
+    "es": "<strong>Cremallera (Kreh-mah-yeh-rah)</strong> → Glides up and down your jacket as smooth as <em>Cream (Crema)</em> = <em>Zipper</em>!",
+    "hi": "<strong>Chain / Zip</strong> → Pull up your jacket's metal <em>Chain (Zipper)</em> when the cold wind blows!"
   },
   "920": {
-    "es": "<strong>Manga</strong> → Arm covering cloth sleeve (roll up your sleeves)!",
-    "hi": "<strong>Aasteen</strong> → Roll up the shirt <em>Aasteen</em> to get to work!"
+    "es": "<strong>Manga (Mahn-gah)</strong> → Picture reading Japanese <em>Manga</em> comics with a tattoo showing on your rolled-up shirt <em>Sleeve (Manga)</em>!",
+    "hi": "<strong>Aasteen (Aas-teen)</strong> → Famous idiom <em>\"Aasteen ka saanp\"</em> (Snake up one's <em>Sleeve</em>)!"
   },
   "921": {
-    "es": "<strong>Cuello</strong> → Stiff neck collar framing your dress shirt!",
-    "hi": "<strong>Collar</strong> → Crisp ironed shirt <em>Collar</em>!"
+    "es": "<strong>Cuello (Kweh-yo)</strong> → Sounds like <em>\"Quail-yo\"</em> — pop up your crisp shirt <em>Collar (Cuello)</em> around your neck!",
+    "hi": "<strong>Gala / Collar</strong> → Flip up your shirt <em>Collar</em> like a movie hero!"
   },
   "922": {
-    "es": "<strong>Bolsa</strong> → Large reusable shopping / tote carry bag!",
-    "hi": "<strong>Thaila / Bag</strong> → Cotton grocery shopping <em>Thaila / Bag</em>!"
+    "es": "<strong>Bolsa (Bol-sah)</strong> → Shaped like a round <em>Bowl-sa</em> that holds all your groceries = <em>Bag (Bolsa)</em>!",
+    "hi": "<strong>Thaila (Thai-laa)</strong> → Grab the cloth market <em>Thaila (Bag)</em> to buy fresh vegetables!"
   },
   "923": {
-    "es": "<strong>Bolso</strong> → Elegant leather shoulder hand purse!",
-    "hi": "<strong>Purse</strong> → Lady's elegant zipper hand <em>Purse</em>!"
+    "es": "<strong>Bolso (Bol-soh)</strong> → Stylish brother of <em>Bolsa</em> — a leather shoulder <em>Purse / Handbag (Bolso)</em>!",
+    "hi": "<strong>Batua / Purse</strong> → Keep your cash and cards safe inside your leather <em>Batua (Purse)</em>!"
   },
   "924": {
     "es": "<strong>Cartera</strong> → Filled with credit <em>Cards</em> and currency notes!",
@@ -504,8 +504,8 @@
     "hi": "<strong>Backpack / Basta</strong> → Heavy school and college laptop <em>Backpack</em>!"
   },
   "926": {
-    "es": "<strong>Maleta</strong> → Roller luggage packed for international vacation!",
-    "hi": "<strong>Suitcase / Peti</strong> → Four-wheel roller airport travel <em>Suitcase</em>!"
+    "es": "<strong>Maleta (Mah-leh-tah)</strong> → If you pack way too much, you'll need a heavy <em>Mallet</em> to smash your travel <em>Suitcase (Maleta)</em> shut!",
+    "hi": "<strong>Suitcase / अटैची (Attache)</strong> → Pack your roller <em>Suitcase</em> for the holiday flight!"
   },
   "927": {
     "es": "<strong>Paraguas</strong> → <em>Para</em> (Stop) + <em>Aguas</em> (Water)! Blocks rain showers!",
@@ -520,16 +520,16 @@
     "hi": "<strong>Chashma</strong> → Reading <em>Chashma</em> for crystal clear 20/20 vision!"
   },
   "930": {
-    "es": "<strong>Gafas de sol</strong> → UV protection sunglasses for bright sunny days!",
-    "hi": "<strong>Dhoop ka Chashma</strong> → Cool black aviator sunglasses for hot summer days!"
+    "es": "<strong>Gafas de sol</strong> → <em>Gafas</em> (Glasses/Goof-as) + <em>de Sol</em> (of the Solar Sun) = Cool <em>Sunglasses</em>!",
+    "hi": "<strong>Dhoop ka Chashma</strong> → <em>Dhoop</em> (Sunlight) + <em>Chashma</em> (Glasses) = Dark aviator <em>Sunglasses</em>!"
   },
   "931": {
     "es": "<strong>Anillo</strong> → Circular <em>Annulus</em> ring slipped onto wedding finger!",
     "hi": "<strong>Angoothi</strong> → Diamond and gold engagement <em>Angoothi</em>!"
   },
   "932": {
-    "es": "<strong>Collar</strong> → Precious gem necklace draped around the neck!",
-    "hi": "<strong>Haar</strong> → Royal bridal gold and pearl <em>Haar</em>!"
+    "es": "<strong>Collar (Koh-yar)</strong> → Spelled 100% like English <em>Collar</em> — a sparkling diamond <em>Necklace (Collar)</em> worn around the collar!",
+    "hi": "<strong>Haar (Haar)</strong> → Royal gold and pearl <em>Haar (Necklace)</em> draped around the bride's neck!"
   },
   "933": {
     "es": "<strong>Pendiente</strong> → Sparkling jewel <em>pendant</em> dangling from the earlobe!",
@@ -572,12 +572,12 @@
     "hi": "<strong>Railgaadi</strong> → Legendary 'Railgaadi chuk chuk chuk chuk'!"
   },
   "943": {
-    "es": "<strong>Camión</strong> → Heavy 18-wheel cargo transport lorry!",
-    "hi": "<strong>Truck / Lorry</strong> → National highway cargo hauler <em>Truck</em>!"
+    "es": "<strong>Camión (Kah-myon)</strong> → Sounds like <em>\"Come on!\"</em> — wave the giant 18-wheeler <em>Truck (Camión)</em> to come on down the highway!",
+    "hi": "<strong>Truck / Lorry</strong> → Colorful highway cargo <em>Truck</em> painted with \"Horn OK Please\"!"
   },
   "944": {
-    "es": "<strong>Furgoneta</strong> → Boxy passenger and goods delivery van!",
-    "hi": "<strong>Van / Omni</strong> → School children transport <em>Van</em>!"
+    "es": "<strong>Furgoneta (Foor-go-neh-tah)</strong> → Load all your <em>Furniture-go</em> inside the boxy delivery <em>Van (Furgoneta)</em>!",
+    "hi": "<strong>Van / Gaadi</strong> → Classic Maruti Omni or school transport <em>Van</em>!"
   },
   "945": {
     "es": "<strong>Taxi</strong> → Worldwide universal word: <em>Taxi</em>!",
@@ -600,8 +600,8 @@
     "hi": "<strong>Naav</strong> → Wooden rowboat gliding smoothly across the lake: <em>Naav</em>!"
   },
   "950": {
-    "es": "<strong>Barco</strong> → Massive ocean liner crossing rough sea waves!",
-    "hi": "<strong>Jahaaz</strong> → Huge multi-deck ocean cargo <em>Samundari Jahaaz</em>!"
+    "es": "<strong>Barco (Bar-koh)</strong> → Like a wooden tree-<em>Bark</em> vessel sailing across the ocean = <em>Ship / Boat (Barco)</em>!",
+    "hi": "<strong>Jahaaz (Ja-haaz)</strong> → Giant ocean cruise liner: <em>Samundari Jahaaz (Ship)</em>!"
   },
   "951": {
     "es": "<strong>Ferry</strong> → Passenger ferry shuttling vehicles across the river bay!",
@@ -640,24 +640,24 @@
     "hi": "<strong>Traffic</strong> → Red signal junction bumper-to-bumper <em>Traffic</em> jam!"
   },
   "962": {
-    "es": "<strong>Calle (Kaye)</strong> → City street lined with shops and colorful sidewalks!",
-    "hi": "<strong>Gali / Sadak</strong> → Busy neighborhood market <em>Gali / Sadak</em>!"
+    "es": "<strong>Calle (Kah-yeh)</strong> → Double-L sounds like 'Y'! Step out onto the bustling city <em>Street (Calle)</em> and shout \"Kay-yeh!\"",
+    "hi": "<strong>Gali / Sadak</strong> → Famous Old Delhi <em>Paranthe Wali Gali</em> (<em>Street</em> of Parathas)!"
   },
   "963": {
-    "es": "<strong>Carretera</strong> → Wide asphalt highway paved for speeding cars!",
-    "hi": "<strong>Sadak</strong> → Smooth tarred motor vehicle <em>Sadak</em>!"
+    "es": "<strong>Carretera (Kah-reh-teh-rah)</strong> → Starts with <em>CAR</em>! The wide paved <em>Road / Highway (Carretera)</em> built for speeding cars!",
+    "hi": "<strong>Sadak (Su-duck)</strong> → Watch a <em>duck</em> waddling across the busy tar <em>Road (Sadak)</em>!"
   },
   "964": {
     "es": "<strong>Autopista</strong> → Multi-lane high speed expressway / <em>Autobahn</em>!",
     "hi": "<strong>Highway</strong> → Six-lane toll express <em>Highway</em>!"
   },
   "965": {
-    "es": "<strong>Camino</strong> → Peaceful walking trail through green trees!",
-    "hi": "<strong>Raasta</strong> → 'Sahi <em>Raasta</em> chuno' / Footpath through forest!"
+    "es": "<strong>Camino (Kah-mee-noh)</strong> → Sounds like <em>\"Come in-o\"</em> — follow the scenic forest <em>Path / Way (Camino)</em>!",
+    "hi": "<strong>Raasta (Raas-taa)</strong> → \"Sahi <em>Raasta</em> chuno\" (Choose the right <em>Path / Way</em>)!"
   },
   "966": {
-    "es": "<strong>Acera</strong> → Elevated pedestrian sidewalk safe from road traffic!",
-    "hi": "<strong>Footpath</strong> → Pedestrian walking path: <em>Footpath</em>!"
+    "es": "<strong>Acera (Ah-seh-rah)</strong> → Walk safely on the raised concrete <em>Sidewalk (Acera)</em> away from speeding cars!",
+    "hi": "<strong>Footpath / Patri</strong> → Walk along the shaded roadside <em>Footpath</em>!"
   },
   "967": {
     "es": "<strong>Puente</strong> → Connects <em>Point A</em> to <em>Point B</em> over deep river waters!",
@@ -668,8 +668,8 @@
     "hi": "<strong>Surang / Tunnel</strong> → Mountain passage railway <em>Surang / Tunnel</em>!"
   },
   "969": {
-    "es": "<strong>Esquina</strong> → Sharp 90-degree square corner of intersecting streets!",
-    "hi": "<strong>Kona</strong> → 'Sadak ke <em>Kone</em> par milte hain' / Street corner!"
+    "es": "<strong>Esquina (Es-kee-nah)</strong> → Sounds like <em>\"Ski-na\"</em> — make a sharp 90-degree ski turn right at the street <em>Corner (Esquina)</em>!",
+    "hi": "<strong>Kona (Koh-naa)</strong> → Sounds like an ice-cream <em>Cone</em> — meet me at the pointy street <em>Corner (Kona)</em>!"
   },
   "970": {
     "es": "<strong>Intersección</strong> → Direct match with <em>Intersection</em>!",
@@ -684,24 +684,24 @@
     "hi": "<strong>Hawai Adda / Airport</strong> → International flights departure terminal!"
   },
   "973": {
-    "es": "<strong>Puerto</strong> → Sea harbor where massive container ships dock!",
-    "hi": "<strong>Bandargaah</strong> → Ocean container cargo terminal: <em>Bandargaah</em>!"
+    "es": "<strong>Puerto (Pwer-toh)</strong> → Direct match with English <em>Port</em> (like <em>Puerto</em> Rico = Rich <em>Port</em>)!",
+    "hi": "<strong>Bandargaah</strong> → Giant sea harbor where cargo ships dock: <em>Bandargaah (Port)</em>!"
   },
   "974": {
     "es": "<strong>Puerto</strong> → Natural sheltered bay protecting docked ships from storm waves!",
     "hi": "<strong>Bandargaah</strong> → Sheltered sea vessel docking bay!"
   },
   "975": {
-    "es": "<strong>Estacionamiento</strong> → Designated area for stationing parked vehicles!",
-    "hi": "<strong>Parking</strong> → Basement vehicle <em>Parking</em> lot!"
+    "es": "<strong>Estacionamiento</strong> → Place where cars stay <em>Stationary</em> = <em>Parking Lot</em>!",
+    "hi": "<strong>Parking</strong> → Mall basement car and bike <em>Parking</em> zone!"
   },
   "976": {
-    "es": "<strong>Cruce</strong> → Road crossway where two highway routes cross!",
-    "hi": "<strong>Junction</strong> → Busy railway or road crossing <em>Junction</em>!"
+    "es": "<strong>Cruce (Kroo-seh)</strong> → Sounds like <em>\"Criss-Cross\"</em> — where two busy roads cross = <em>Crossing / Intersection (Cruce)</em>!",
+    "hi": "<strong>Chauraaha (Chau-raa-haa)</strong> → <em>Chau</em> (Four) + <em>Raaha</em> (Roads) = Where 4 roads cross (<em>Crossing</em>)!"
   },
   "977": {
-    "es": "<strong>Vía</strong> → Steel railway tracks stretching to the horizon!",
-    "hi": "<strong>Patri</strong> → Steel train rail: 'Rail ki <em>Patri</em>'!"
+    "es": "<strong>Vía (Vee-ah)</strong> → Like travelling <em>\"Via\"</em> train — steel railway <em>Track (Vía)</em>!",
+    "hi": "<strong>Patri (Put-ree)</strong> → Steel train tracks: <em>\"Rail ki Patri\"</em>!"
   },
   "978": {
     "es": "<strong>Señal</strong> → High-visibility road directional <em>Signal</em> signboard!",
@@ -720,16 +720,16 @@
     "hi": "<strong>Shahar</strong> → Bustling bright lights metropolitan <em>Shahar</em>!"
   },
   "982": {
-    "es": "<strong>Pueblo</strong> → Charming historic settlement with tight-knit community!",
-    "hi": "<strong>Kasba</strong> → Cozy semi-urban market settlement: <em>Kasba</em>!"
+    "es": "<strong>Pueblo (Pweh-bloh)</strong> → Root of <em>Public / People</em> — a lively historic <em>Town (Pueblo)</em> full of friendly people!",
+    "hi": "<strong>Kasba / Nagar</strong> → Bustling market <em>Town (Kasba)</em> between a village and a city!"
   },
   "983": {
-    "es": "<strong>Aldea</strong> → Peaceful rural village surrounded by green paddy fields!",
-    "hi": "<strong>Gaaon</strong> → Quiet fresh-air countryside village: <em>Gaaon</em>!"
+    "es": "<strong>Aldea (Al-deh-ah)</strong> → Spend <em>\"All-day-a\"</em> relaxing in a quiet green countryside <em>Village (Aldea)</em>!",
+    "hi": "<strong>Gaaon (Gaa-on)</strong> → Fresh air, banyan trees, and green fields in the ancestral <em>Gaaon (Village)</em>!"
   },
   "984": {
-    "es": "<strong>País</strong> → Sovereign nation with its own flag and constitution!",
-    "hi": "<strong>Desh</strong> → 'Mera pyara <em>Desh</em>' / Nation and homeland!"
+    "es": "<strong>País (Pah-ees)</strong> → Sounds like <em>\"Peace\"</em> — may every <em>Country (País)</em> in the world live in peace!",
+    "hi": "<strong>Desh (Day-sh)</strong> → Patriotic anthem <em>\"Swades / Mera Pyara Desh\"</em> (My beloved <em>Country</em>)!"
   },
   "985": {
     "es": "<strong>Centro</strong> → Central hub / downtown <em>Center</em>!",
@@ -752,8 +752,8 @@
     "hi": "<strong>Vishwavidyalaya</strong> → Prestigious academic <em>University</em> campus!"
   },
   "990": {
-    "es": "<strong>Biblioteca</strong> → Home of thousands of bound books and quiet study tables!",
-    "hi": "<strong>Pustakaalaya / Library</strong> → Silent reading room full of books: <em>Library</em>!"
+    "es": "<strong>Biblioteca (Beeb-lee-oh-teh-kah)</strong> → From <em>Biblio</em> (Book, like Bibliography) — a quiet <em>Library (Biblioteca)</em> of books!",
+    "hi": "<strong>Pustakaalaya / Library</strong> → <em>Pustak</em> (Book) + <em>Aalaya</em> (House) = House of books (<em>Library</em>)!"
   },
   "991": {
     "es": "<strong>Museo</strong> → Direct match with English <em>Museum</em>!",
@@ -768,20 +768,20 @@
     "hi": "<strong>Cinema Hall</strong> → Giant 70mm movie screen with tub of popcorn: <em>Cinema</em>!"
   },
   "994": {
-    "es": "<strong>Tienda</strong> → Market shopping boutique / retail store!",
-    "hi": "<strong>Dukaan</strong> → Neighborhood grocery and general store: <em>Dukaan</em>!"
+    "es": "<strong>Tienda (Tyen-dah)</strong> → Looks like a pitched merchant <em>Tent</em> full of goods = <em>Shop / Store (Tienda)</em>!",
+    "hi": "<strong>Dukaan (Doo-kaan)</strong> → Neighborhood corner store: <em>\"Kirana Dukaan\" (Shop)</em>!"
   },
   "995": {
-    "es": "<strong>Panadería</strong> → 'Pan' means bread in Spanish (like Mumbai Pav!). Fresh bread shop!",
-    "hi": "<strong>Bakery</strong> → Freshly baked sourdough loaves, cakes and cookies: <em>Bakery</em>!"
+    "es": "<strong>Panadería</strong> → In Spanish <em>Pan</em> means bread (just like Mumbai's <em>Pav</em>!) — the fresh bread <em>Bakery (Panadería)</em>!",
+    "hi": "<strong>Bakery / Bekaari</strong> → Warm oven-fresh bread, puffs, and cake <em>Bakery</em>!"
   },
   "996": {
     "es": "<strong>Mercado</strong> → Direct match with English <em>Market</em>!",
     "hi": "<strong>Bazaar</strong> → Colorful bustling fruit and vegetable <em>Bazaar</em>!"
   },
   "997": {
-    "es": "<strong>Supermercado</strong> → Giant grocery market with shopping carts!",
-    "hi": "<strong>Supermarket</strong> → Multi-aisle grocery department store: <em>Supermarket</em>!"
+    "es": "<strong>Supermercado</strong> → <em>Super</em> + <em>Mercado</em> (Market/Merchant) = <em>Supermarket</em>!",
+    "hi": "<strong>Supermarket / Bazaar</strong> → Push your trolley down the aisles of the <em>Supermarket</em>!"
   },
   "998": {
     "es": "<strong>Restaurante</strong> → Direct match with <em>Restaurant</em>!",

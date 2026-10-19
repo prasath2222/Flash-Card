@@ -1,5 +1,7 @@
 [
   {
+    "id": "t1_1",
+    "originalNum": 1,
     "num": 1,
     "word": "I",
     "emoji": "👤",
@@ -9,23 +11,33 @@
       "hi": "main"
     },
     "tamil": "நான்",
+    "hiDevanagari": "मैं",
+    "shortcutEs": "<strong>Yo!</strong> → Point to your chest like a rapper shouting <em>\"YO, it's ME (I)!\"</em>",
+    "shortcutHi": "<strong>Main (May)</strong> → Sounds like <em>\"May / Me\"</em> — iconic SRK movie <em>\"Main Hoon Na\"</em> (I am here)!",
     "imageUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_2",
+    "originalNum": 2,
     "num": 2,
     "word": "YOU",
-    "emoji": "📌",
-    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "emoji": "👤",
+    "category": "Category 1: Pronouns & Foundations",
     "trans": {
-      "es": "YOU",
-      "hi": "YOU"
+      "es": "tú / usted",
+      "hi": "tum / aap"
     },
-    "tamil": "YOU",
+    "tamil": "நீ / நீங்கள்",
+    "hiDevanagari": "तुम",
+    "shortcutEs": "<strong>Tú (Too)</strong> → Sounds like <em>\"Two\"</em> — it takes two when I point at <em>YOU</em>! (Formal: <em>Usted</em> = You-stead).",
+    "shortcutHi": "<strong>Tum / Aap</strong> → Famous hit song <em>\"Tum Hi Ho\"</em> (YOU are the one) & <em>Aap</em> (respectful: put them <em>Up</em> on a pedestal)!",
     "imageUrl": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_3",
+    "originalNum": 3,
     "num": 3,
     "word": "HE",
     "emoji": "👨",
@@ -35,10 +47,15 @@
       "hi": "woh"
     },
     "tamil": "அவன் (அவர்)",
+    "hiDevanagari": "वह",
+    "shortcutEs": "<strong>Él (El)</strong> → Think of Superman's Kryptonian name <em>Kal-El</em> — <em>HE</em> is the hero!",
+    "shortcutHi": "<strong>Woh (Whoa!)</strong> → Point at that guy across the street and say <em>\"Whoa (Woh), look at HIM / HE!\"</em>",
     "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_4",
+    "originalNum": 4,
     "num": 4,
     "word": "SHE",
     "emoji": "👩",
@@ -48,23 +65,33 @@
       "hi": "woh"
     },
     "tamil": "அவள்",
+    "hiDevanagari": "वह",
+    "shortcutEs": "<strong>Ella (Eh-yah)</strong> → Think of <em>Cinder-ELLA</em> or Rihanna's song <em>\"Umbr-ELLA, ella, eh\"</em> — <em>SHE</em> is the queen!",
+    "shortcutHi": "<strong>Woh (Whoa!)</strong> → Same easy word for He & She! Point and sing <em>\"Woh Ladki Hai Kahan\"</em> (Where is SHE)!",
     "imageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_5",
+    "originalNum": 5,
     "num": 5,
     "word": "IT",
     "emoji": "📦",
-    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "category": "Category 1: Pronouns & Foundations",
     "trans": {
-      "es": "IT",
-      "hi": "IT"
+      "es": "lo / la",
+      "hi": "yeh / ise"
     },
-    "tamil": "IT",
+    "tamil": "அது (இதை)",
+    "hiDevanagari": "यह",
+    "shortcutEs": "<strong>Lo / La</strong> → Hum <em>\"Lo-La\"</em> while pointing at an object to grab <em>IT</em>!",
+    "shortcutHi": "<strong>Yeh / Ise (Easy)</strong> → <em>Yeh</em> (Yay, this thing!) or <em>Ise</em> (sounds like <em>Easy</em> — pass IT to me, easy)!",
     "imageUrl": "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_6",
+    "originalNum": 6,
     "num": 6,
     "word": "WE",
     "emoji": "👥",
@@ -74,10 +101,15 @@
       "hi": "hum"
     },
     "tamil": "நாங்கள் (நாம்)",
+    "hiDevanagari": "हम",
+    "shortcutEs": "<strong>Nos-otros</strong> → <em>Nos</em> (Us) + <em>Otros</em> (Others) = All of us united together as <em>WE</em>!",
+    "shortcutHi": "<strong>Hum (Hummm)</strong> → Like a group humming in harmony — <em>\"Hum Saath-Saath Hain\"</em> (WE are together)!",
     "imageUrl": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_7",
+    "originalNum": 7,
     "num": 7,
     "word": "THEY",
     "emoji": "👥",
@@ -87,10 +119,15 @@
       "hi": "woh log"
     },
     "tamil": "அவர்கள் (அவங்க)",
+    "hiDevanagari": "वे लोग",
+    "shortcutEs": "<strong>Ellos / Ellas (Eh-yos)</strong> → Wave across the room and shout <em>\"Hey-yos!\"</em> to that group over there (<em>THEY</em>)!",
+    "shortcutHi": "<strong>Woh Log</strong> → <em>Woh</em> (Those) + <em>Log</em> (Folks/People) = <em>Those people (THEY)</em>!",
     "imageUrl": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_8",
+    "originalNum": 8,
     "num": 8,
     "word": "ME",
     "emoji": "🙋",
@@ -100,10 +137,15 @@
       "hi": "mujhe"
     },
     "tamil": "என்னை (எனக்கு)",
+    "hiDevanagari": "मुझे",
+    "shortcutEs": "<strong>Me (Meh)</strong> → Spelled 100% identically to English <em>ME</em> — zero effort, just pronounce it <em>\"Meh\"</em>!",
+    "shortcutHi": "<strong>Mujhe (Moo-jhay)</strong> → Starts with <em>M</em> like <em>Me</em> — classic song <em>\"Mujhe Neend Na Aaye\"</em> (Sleep doesn't come to ME)!",
     "imageUrl": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_9",
+    "originalNum": 9,
     "num": 9,
     "word": "HIM",
     "emoji": "👨",
@@ -113,23 +155,33 @@
       "hi": "use (usko)"
     },
     "tamil": "அவனை (அவரை)",
+    "hiDevanagari": "उसे",
+    "shortcutEs": "<strong>Lo (Low)</strong> → Point down <em>low</em> at that guy: \"I saw <em>HIM (Lo)</em>!\"",
+    "shortcutHi": "<strong>Use / Usko (Oo-say)</strong> → Sounds like <em>\"Ooh, say to HIM!\"</em> — tell <em>Usko</em> (HIM) right now!",
     "imageUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_10",
+    "originalNum": 10,
     "num": 10,
     "word": "HER",
-    "emoji": "📌",
-    "category": "Category 1: Subject, Object & Reflexive Pronouns",
+    "emoji": "👩",
+    "category": "Category 1: Pronouns & Foundations",
     "trans": {
-      "es": "HER",
-      "hi": "HER"
+      "es": "la / su",
+      "hi": "use / uski"
     },
-    "tamil": "HER",
+    "tamil": "அவளை / அவளுடைய",
+    "hiDevanagari": "उसे",
+    "shortcutEs": "<strong>La / Su (Sue)</strong> → Sing a sweet <em>\"La-la-la\"</em> to <em>HER</em>, or picture a girl named <em>Sue (Su)</em>!",
+    "shortcutHi": "<strong>Use / Uski (Oo-ski)</strong> → Picture <em>HER</em> riding a jet-<em>ski</em> on the water — <em>Uski</em> smile!",
     "imageUrl": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_11",
+    "originalNum": 11,
     "num": 11,
     "word": "US",
     "emoji": "👥",
@@ -138,11 +190,16 @@
       "es": "nos",
       "hi": "humein"
     },
-    "tamil": "எங்களை (நமக்கு",
+    "tamil": "எங்களை (நமக்கு / எங்களுக்கு)",
+    "hiDevanagari": "हमें",
+    "shortcutEs": "<strong>Nos (Nose)</strong> → Sounds like <em>Nose</em> — all of <em>US</em> sticking our noses into the surprise box!",
+    "shortcutHi": "<strong>Humein (Hoo-main)</strong> → Built directly from <em>Hum</em> (We) → give the trophy to <em>US (Humein)</em>!",
     "imageUrl": "https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_12",
+    "originalNum": 12,
     "num": 12,
     "word": "THEM",
     "emoji": "👥",
@@ -152,10 +209,15 @@
       "hi": "unko"
     },
     "tamil": "அவர்களை (அவங்களை)",
+    "hiDevanagari": "उनको",
+    "shortcutEs": "<strong>Los / Las</strong> → Like <em>Los</em> Angeles — point at the crowd and say \"I see <em>THEM (Los/Las)</em>!\"",
+    "shortcutHi": "<strong>Unko (Oon-ko)</strong> → Sounds like <em>\"Uncle\"</em> — invite all of <em>THEM (Unko)</em> to Uncle's party!",
     "imageUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_13",
+    "originalNum": 13,
     "num": 13,
     "word": "MYSELF",
     "emoji": "🪞",
@@ -165,10 +227,15 @@
       "hi": "main khud"
     },
     "tamil": "நானே (நான் தான்)",
+    "hiDevanagari": "मैं खुद",
+    "shortcutEs": "<strong>Yo Mismo</strong> → <em>Yo</em> (I) + <em>Mismo</em> (sounds like <em>Me-s-mo</em>) = I did it <em>MYSELF</em>!",
+    "shortcutHi": "<strong>Main Khud (Good)</strong> → <em>Main</em> (I) + <em>Khud</em> (rhymes with <em>Good</em>) = I cooked it <em>MYSELF</em> and it tastes good!",
     "imageUrl": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_14",
+    "originalNum": 14,
     "num": 14,
     "word": "YOURSELF",
     "emoji": "🪞",
@@ -178,10 +245,15 @@
       "hi": "tum khud"
     },
     "tamil": "நீயே (நீயாகவே)",
+    "hiDevanagari": "तुम खुद",
+    "shortcutEs": "<strong>Tú Mismo</strong> → <em>Tú</em> (You) + <em>Mismo</em> (Self) = See for <em>YOURSELF (Tú mismo)</em>!",
+    "shortcutHi": "<strong>Tum Khud</strong> → <em>Tum</em> (You) + <em>Khud</em> (Good/Self) = Try driving it <em>YOURSELF</em>!",
     "imageUrl": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_15",
+    "originalNum": 15,
     "num": 15,
     "word": "HIMSELF",
     "emoji": "🪞",
@@ -191,10 +263,15 @@
       "hi": "woh khud"
     },
     "tamil": "அவனாகவே (அவரே)",
+    "hiDevanagari": "वह खुद",
+    "shortcutEs": "<strong>Él Mismo</strong> → <em>Él</em> (He, Kal-El) + <em>Mismo</em> (Self) = Superman <em>HIMSELF</em> landed here!",
+    "shortcutHi": "<strong>Woh Khud</strong> → <em>Woh</em> (He) + <em>Khud</em> (Self) = The boss came and fixed it <em>HIMSELF</em>!",
     "imageUrl": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_16",
+    "originalNum": 16,
     "num": 16,
     "word": "HERSELF",
     "emoji": "🪞",
@@ -204,10 +281,15 @@
       "hi": "woh khud"
     },
     "tamil": "அவளாகவே",
+    "hiDevanagari": "वह खुद",
+    "shortcutEs": "<strong>Ella Misma</strong> → <em>Ella</em> (She, Cinderella) + <em>Misma</em> (Self) = The queen <em>HERSELF</em> designed it!",
+    "shortcutHi": "<strong>Woh Khud</strong> → Same effortless combo as Himself: <em>Woh</em> (She) + <em>Khud</em> (Self) = <em>HERSELF</em>!",
     "imageUrl": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_17",
+    "originalNum": 17,
     "num": 17,
     "word": "ITSELF",
     "emoji": "🪞",
@@ -217,10 +299,15 @@
       "hi": "apne aap"
     },
     "tamil": "அதுவாகவே (தானாகவே)",
+    "hiDevanagari": "अपने आप",
+    "shortcutEs": "<strong>Por Sí Solo</strong> → Spot the word <em>Solo</em> (alone)! The robot door opened all by <em>ITSELF (solo)</em>!",
+    "shortcutHi": "<strong>Apne Aap (Up-nay App)</strong> → Like a smartphone <em>App</em> updating automatically by <em>ITSELF (Apne Aap)</em>!",
     "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_18",
+    "originalNum": 18,
     "num": 18,
     "word": "OURSELVES",
     "emoji": "🪞",
@@ -230,10 +317,15 @@
       "hi": "hum khud"
     },
     "tamil": "நாங்களாகவே (நாமே)",
+    "hiDevanagari": "हम खुद",
+    "shortcutEs": "<strong>Nosotros Mismos</strong> → <em>Nosotros</em> (We) + <em>Mismos</em> (Selves) = We built this camp <em>OURSELVES</em>!",
+    "shortcutHi": "<strong>Hum Khud</strong> → <em>Hum</em> (We) + <em>Khud</em> (Self) = Simple LEGO block: We + Self = <em>OURSELVES</em>!",
     "imageUrl": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_19",
+    "originalNum": 19,
     "num": 19,
     "word": "YOURSELVES",
     "emoji": "🪞",
@@ -243,10 +335,15 @@
       "hi": "aap log khud"
     },
     "tamil": "நீங்களாகவே",
+    "hiDevanagari": "आप लोग खुद",
+    "shortcutEs": "<strong>Ustedes Mismos</strong> → <em>Ustedes</em> (You all) + <em>Mismos</em> = Help <em>YOURSELVES</em> to the buffet!",
+    "shortcutHi": "<strong>Aap Log Khud</strong> → <em>Aap Log</em> (You folks) + <em>Khud</em> (Self) = You guys check it out <em>YOURSELVES</em>!",
     "imageUrl": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_20",
+    "originalNum": 20,
     "num": 20,
     "word": "THEMSELVES",
     "emoji": "🪞",
@@ -256,114 +353,159 @@
       "hi": "woh khud"
     },
     "tamil": "அவர்களாகவே (அவங்களாகவே)",
+    "hiDevanagari": "वे लोग खुद",
+    "shortcutEs": "<strong>Ellos Mismos</strong> → <em>Ellos</em> (They) + <em>Mismos</em> (Selves) = They solved the puzzle <em>THEMSELVES</em>!",
+    "shortcutHi": "<strong>Woh Log Khud</strong> → <em>Woh Log</em> (They) + <em>Khud</em> (Self) = They organized the whole match <em>THEMSELVES</em>!",
     "imageUrl": "https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_21",
+    "originalNum": 21,
     "num": 21,
     "word": "MY",
-    "emoji": "🏷",
+    "emoji": "🏷️",
     "category": "Category 2: Possessives & Demonstratives",
     "trans": {
       "es": "mi",
-      "hi": "mera (meri"
+      "hi": "mera (meri / mere)"
     },
-    "tamil": "mere)",
+    "tamil": "என்னுடைய (என்)",
+    "hiDevanagari": "मेरा",
+    "shortcutEs": "<strong>Mi (Mee)</strong> → Sounds exactly like English <em>\"Me\"</em> — \"<em>Mi</em> casa\" = <em>MY</em> house!",
+    "shortcutHi": "<strong>Mera / Meri</strong> → Iconic Raj Kapoor classic: <em>\"Mera Naam Joker\"</em> (<em>MY</em> name is Joker)!",
     "imageUrl": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_22",
+    "originalNum": 22,
     "num": 22,
     "word": "YOUR",
-    "emoji": "🏷",
+    "emoji": "🏷️",
     "category": "Category 2: Possessives & Demonstratives",
     "trans": {
-      "es": "️ YOUR",
-      "hi": "️ YOUR"
+      "es": "tu / su",
+      "hi": "tumhara / aapka"
     },
-    "tamil": "️ YOUR",
+    "tamil": "உன்னுடைய (உங்கள்)",
+    "hiDevanagari": "तुम्हारा",
+    "shortcutEs": "<strong>Tu / Su</strong> → Famous phrase <em>\"Mi casa es TU casa\"</em> (My house is <em>YOUR</em> house)!",
+    "shortcutHi": "<strong>Tumhara / Aapka</strong> → Built straight from <em>Tum</em> (You) → <em>Tumhara</em> (YOUR) & <em>Aap</em> → <em>Aapka</em>!",
     "imageUrl": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_23",
+    "originalNum": 23,
     "num": 23,
     "word": "HIS",
-    "emoji": "🏷",
+    "emoji": "🏷️",
     "category": "Category 1: Subject, Object & Reflexive Pronouns",
     "trans": {
       "es": "su (sus)",
-      "hi": "uska (uski"
+      "hi": "uska (uski / uske)"
     },
-    "tamil": "uske)",
+    "tamil": "அவனுடைய (அவன்)",
+    "hiDevanagari": "उसका",
+    "shortcutEs": "<strong>Su (Soo)</strong> → Imagine a guy getting <em>sued (Su)</em> because someone scratched <em>HIS</em> Ferrari!",
+    "shortcutHi": "<strong>Uska (Oos-ka)</strong> → Sounds like <em>\"Whose car?\"</em> → That red sports car is <em>HIS (Uska)</em>!",
     "imageUrl": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_24",
+    "originalNum": 24,
     "num": 24,
     "word": "OUR",
-    "emoji": "🏷",
+    "emoji": "🏷️",
     "category": "Category 2: Possessives & Demonstratives",
     "trans": {
-      "es": "nuestro (nuestra",
-      "hi": "nuestros"
+      "es": "nuestro (nuestra / nuestros / nuestras)",
+      "hi": "hamara (hamari / hamare)"
     },
-    "tamil": "nuestras)",
+    "tamil": "நம்முடைய (எங்களுடைய)",
+    "hiDevanagari": "हमारा",
+    "shortcutEs": "<strong>Nuestro (Noo-es-tro)</strong> → Sounds like <em>\"New Astro\"</em> — this rocket is <em>OUR</em> new spaceship!",
+    "shortcutHi": "<strong>Hamara (Hum-aara)</strong> → From <em>Hum</em> (We) — legendary Indian ad slogan: <em>\"Hamara Bajaj\"</em> (<em>OUR</em> Bajaj)!",
     "imageUrl": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_25",
+    "originalNum": 25,
     "num": 25,
     "word": "THEIR",
-    "emoji": "🏷",
+    "emoji": "🏷️",
     "category": "Category 2: Possessives & Demonstratives",
     "trans": {
-      "es": "su (sus) his",
-      "hi": "unka (unki"
+      "es": "su (sus)",
+      "hi": "unka (unki)"
     },
-    "tamil": "unke)",
+    "tamil": "அவர்களுடைய",
+    "hiDevanagari": "उनका",
+    "shortcutEs": "<strong>Su / Sus</strong> → Spanish uses <em>Su</em> for His, Her, AND <em>THEIR</em> — one tiny word covers all three!",
+    "shortcutHi": "<strong>Unka (Oon-ka)</strong> → Sounds like <em>\"Uncle\"</em> — that big bungalow is <em>THEIR (Unka)</em> house!",
     "imageUrl": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_26",
+    "originalNum": 26,
     "num": 26,
     "word": "ITS",
-    "emoji": "🏷",
+    "emoji": "🏷️",
     "category": "Category 2: Possessives & Demonstratives",
     "trans": {
       "es": "su",
       "hi": "uska (iska)"
     },
     "tamil": "அதனுடைய (அதன்)",
+    "hiDevanagari": "इसका",
+    "shortcutEs": "<strong>Su</strong> → The ultimate Swiss-Army word in Spanish: His, Her, Their, and <em>ITS</em> are all <em>Su</em>!",
+    "shortcutHi": "<strong>Iska (Iss-ka)</strong> → Sounds like <em>\"Is car\"</em> — look at this car and <em>ITS (Iska)</em> turbo engine!",
     "imageUrl": "https://images.unsplash.com/photo-1546527868-ccb7ee7dfa6a?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1546527868-ccb7ee7dfa6a?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_27",
+    "originalNum": 27,
     "num": 27,
     "word": "MINE",
     "emoji": "🎯",
     "category": "Category 2: Possessives & Demonstratives",
     "trans": {
-      "es": "mío (mía",
-      "hi": "míos"
+      "es": "mío (mía / míos / mías)",
+      "hi": "mera (meri / mere)"
     },
-    "tamil": "mías)",
+    "tamil": "என்னுடையது",
+    "hiDevanagari": "मेरा",
+    "shortcutEs": "<strong>Mío (Mee-oh)</strong> → Shout like an Italian chef: <em>\"Mamma Mia, that last slice of pizza is MINE (Mío)!\"</em>",
+    "shortcutHi": "<strong>Mera</strong> → Works for both <em>My</em> and <em>MINE</em>! Guard your plate: <em>\"Yeh Mera hai!\"</em> (This is MINE)!",
     "imageUrl": "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_28",
+    "originalNum": 28,
     "num": 28,
     "word": "YOURS",
     "emoji": "🎯",
     "category": "Category 2: Possessives & Demonstratives",
     "trans": {
-      "es": "tuyo (tuya",
-      "hi": "tuyos"
+      "es": "tuyo (tuya / tuyos / tuyas)",
+      "hi": "tumhara (aapka)"
     },
-    "tamil": "tuyas)",
+    "tamil": "உன்னுடையது (உங்களுடையது)",
+    "hiDevanagari": "तुम्हारा",
+    "shortcutEs": "<strong>Tuyo (Too-yo)</strong> → Sounds like <em>\"To You\"</em> — this trophy goes <em>To You</em>, so it is <em>YOURS (Tuyo)</em>!",
+    "shortcutHi": "<strong>Tumhara / Aapka</strong> → Same word as <em>Your</em> — \"Yeh gift <em>Tumhara</em> hai\" (This gift is YOURS)!",
     "imageUrl": "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_29",
+    "originalNum": 29,
     "num": 29,
     "word": "HERS",
     "emoji": "🎯",
@@ -373,10 +515,33 @@
       "hi": "de ella (uska)"
     },
     "tamil": "அவளுடையது",
+    "hiDevanagari": "उसका",
+    "shortcutEs": "<strong>Suyo / Suya (Soo-ya)</strong> → Sounds like <em>\"Sue ya!\"</em> — don't touch that diamond bag, it's <em>HERS (Suya)</em> or she'll sue ya!",
+    "shortcutHi": "<strong>Uski / Uska</strong> → Remember her riding a jet-<em>ski</em> — that crown is <em>HERS (Uski)</em>!",
     "imageUrl": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_30",
+    "originalNum": 30,
+    "num": 30,
+    "word": "OURS",
+    "emoji": "🎯",
+    "category": "Category 2: Possessives & Demonstratives",
+    "trans": {
+      "es": "nuestro (nuestra)",
+      "hi": "hamara (hamari)"
+    },
+    "tamil": "நம்முடையது (எங்களுடையது)",
+    "hiDevanagari": "हमारा",
+    "shortcutEs": "<strong>Nuestro</strong> → Exact same word as <em>Our</em>! \"El triunfo es <em>nuestro</em>\" (The victory is <em>OURS</em>)!",
+    "shortcutHi": "<strong>Hamara</strong> → Exact same as <em>Our</em>! Cheer loudly: <em>\"Yeh Cup Hamara Hai!\"</em> (This cup is OURS)!",
+    "imageUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": "t1_31",
+    "originalNum": 31,
     "num": 31,
     "word": "THEIRS",
     "emoji": "🎯",
@@ -386,49 +551,69 @@
       "hi": "de ellos (unka)"
     },
     "tamil": "அவர்களுடையது",
+    "hiDevanagari": "उनका",
+    "shortcutEs": "<strong>Suyo (de ellos)</strong> → Combine <em>Su</em> + <em>Yo</em> = <em>Suyo</em> (His, Hers, or <em>THEIRS</em>)!",
+    "shortcutHi": "<strong>Unka</strong> → Same as <em>Their</em>! \"Yeh villa <em>Unka</em> hai\" (This villa is THEIRS)!",
     "imageUrl": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_32",
+    "originalNum": 32,
     "num": 32,
     "word": "WHOSE",
     "emoji": "❓",
     "category": "Category 2: Possessives & Demonstratives",
     "trans": {
       "es": "de quién",
-      "hi": "kiska (kiski"
+      "hi": "kiska (kiski / kiske)"
     },
-    "tamil": "kiske)",
+    "tamil": "யாருடையது (யாரோட)",
+    "hiDevanagari": "किसका",
+    "shortcutEs": "<strong>¿De quién? (Day Keen)</strong> → <em>De</em> (Of) + <em>Quién</em> (Who) = \"Of whom / <em>WHOSE</em> wallet is this?\"",
+    "shortcutHi": "<strong>Kiska (Kiss-ka)</strong> → Sounds like <em>\"Kiss car?\"</em> — <em>WHOSE (Kiska)</em> car are you kissing?!",
     "imageUrl": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_33",
+    "originalNum": 33,
     "num": 33,
     "word": "THIS",
     "emoji": "👉",
     "category": "Category 2: Possessives & Demonstratives",
     "trans": {
-      "es": "este (esta",
-      "hi": "esto)"
+      "es": "este (esta / esto)",
+      "hi": "yeh"
     },
-    "tamil": "yeh",
+    "tamil": "இது (இந்த)",
+    "hiDevanagari": "यह",
+    "shortcutEs": "<strong>Este / Esta (Es-tay)</strong> → Think of an <em>Estate</em> right here under your feet: \"Look at <em>THIS (Este)</em>!\"",
+    "shortcutHi": "<strong>Yeh (Yay!)</strong> → Hold up the phone in your hand and cheer <em>\"YAY (Yeh), THIS works!\"</em>",
     "imageUrl": "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_34",
+    "originalNum": 34,
     "num": 34,
     "word": "THAT",
     "emoji": "👉",
     "category": "Category 2: Possessives & Demonstratives",
     "trans": {
-      "es": "ese (esa",
-      "hi": "eso)"
+      "es": "ese (esa / eso)",
+      "hi": "woh"
     },
-    "tamil": "woh",
+    "tamil": "அது (அந்த)",
+    "hiDevanagari": "वह",
+    "shortcutEs": "<strong>Ese / Esa (Eh-say)</strong> → Drop the 't' from <em>Este</em> (This) to point across the street at <em>THAT (Ese)</em>!",
+    "shortcutHi": "<strong>Woh (Whoa!)</strong> → Point at the sky and gasp <em>\"Whoa (Woh), what is THAT UFO?!\"</em>",
     "imageUrl": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_35",
+    "originalNum": 35,
     "num": 35,
     "word": "THESE",
     "emoji": "👉",
@@ -438,10 +623,15 @@
       "hi": "yeh"
     },
     "tamil": "இவை (இந்த)",
+    "hiDevanagari": "ये",
+    "shortcutEs": "<strong>Estos / Estas</strong> → Just add plural <em>-s</em> to <em>Este</em> (This) to hold all of <em>THESE (Estos)</em>!",
+    "shortcutHi": "<strong>Yeh (Ye)</strong> → Spoken Hindi uses the exact same <em>Yeh</em> for both <em>This</em> and <em>THESE</em>!",
     "imageUrl": "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_36",
+    "originalNum": 36,
     "num": 36,
     "word": "THOSE",
     "emoji": "👉",
@@ -451,10 +641,15 @@
       "hi": "woh"
     },
     "tamil": "அவை (அந்த)",
+    "hiDevanagari": "वे",
+    "shortcutEs": "<strong>Esos / Esas</strong> → Just add plural <em>-s</em> to <em>Ese</em> (That) to point at <em>THOSE (Esos)</em> mountains!",
+    "shortcutHi": "<strong>Woh (Ve)</strong> → Spoken Hindi uses <em>Woh</em> for He, She, That, AND <em>THOSE</em> — 4-in-1!",
     "imageUrl": "https://images.unsplash.com/photo-1448375240586-882707db888b?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1448375240586-882707db888b?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_37",
+    "originalNum": 37,
     "num": 37,
     "word": "SOMEONE/SOMEBODY",
     "emoji": "👤",
@@ -464,10 +659,33 @@
       "hi": "koi"
     },
     "tamil": "யாரோ",
+    "hiDevanagari": "कोई",
+    "shortcutEs": "<strong>Alguien (Al-gyen)</strong> → Looks and sounds like <em>\"Alien\"</em> — <em>SOMEONE</em> (an alien!) is knocking at the door!",
+    "shortcutHi": "<strong>Koi (Coy)</strong> → Like a colorful <em>Koi</em> fish or alien movie <em>\"Koi Mil Gaya\"</em> (I found SOMEONE)!",
     "imageUrl": "https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_38",
+    "originalNum": 38,
+    "num": 38,
+    "word": "ANY",
+    "emoji": "❓",
+    "category": "Category 3: Indefinite Pronouns & Quantifiers",
+    "trans": {
+      "es": "algún (alguna)",
+      "hi": "koi (kuch)"
+    },
+    "tamil": "ஏதாவது",
+    "hiDevanagari": "कोई",
+    "shortcutEs": "<strong>Algún / Alguna (Al-goon)</strong> → Sounds like <em>\"All goon\"</em> — do you have <em>ANY</em> idea where the goons hid?",
+    "shortcutHi": "<strong>Koi / Kuch</strong> → <em>Koi</em> (any person: \"Koi shak?\" = Any doubt?) or <em>Kuch</em> (any amount)!",
+    "imageUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": "t1_39",
+    "originalNum": 39,
     "num": 39,
     "word": "SOMETHING",
     "emoji": "💡",
@@ -477,10 +695,15 @@
       "hi": "kuch"
     },
     "tamil": "ஏதோ",
+    "hiDevanagari": "कुछ",
+    "shortcutEs": "<strong>Algo (Al-go)</strong> → Short for <em>Algorithm</em> — the search algorithm discovered <em>SOMETHING (Algo)</em>!",
+    "shortcutHi": "<strong>Kuch (Kooch)</strong> → Blockbuster title <em>\"Kuch Kuch Hota Hai\"</em> = <em>SOMETHING</em> is happening!",
     "imageUrl": "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_40",
+    "originalNum": 40,
     "num": 40,
     "word": "SOMEWHERE",
     "emoji": "📍",
@@ -490,10 +713,69 @@
       "hi": "kahin"
     },
     "tamil": "எங்காவது",
+    "hiDevanagari": "कहीं",
+    "shortcutEs": "<strong>Algún Lugar</strong> → <em>Algún</em> (Some) + <em>Lugar</em> (Location/Place, like <em>Lunar</em>) = <em>SOMEWHERE</em>!",
+    "shortcutHi": "<strong>Kahin (Ka-heen)</strong> → From <em>Kahan</em> (Where) softened with nasal '-n' → <em>Kahin</em> (<em>SOMEWHERE</em> peaceful)!",
     "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_41",
+    "originalNum": 41,
+    "num": 41,
+    "word": "ANYONE",
+    "emoji": "👤",
+    "category": "Category 3: Indefinite Pronouns & Quantifiers",
+    "trans": {
+      "es": "cualquiera (alguien)",
+      "hi": "koi bhi"
+    },
+    "tamil": "யாராவது (யார் வேண்டுமானாலும்)",
+    "hiDevanagari": "कोई भी",
+    "shortcutEs": "<strong>Cualquiera (Kwal-kyeh-rah)</strong> → <em>Cual</em> (Which) + <em>Quiera</em> (Wants) = Whichever person / <em>ANYONE</em> can win!",
+    "shortcutHi": "<strong>Koi Bhi (Coy Bee)</strong> → <em>Koi</em> (Someone) + <em>Bhi</em> (Even, sounds like <em>Bee</em>) = <em>ANYONE</em> can join!",
+    "imageUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": "t1_42",
+    "originalNum": 42,
+    "num": 42,
+    "word": "ANYTHING",
+    "emoji": "💡",
+    "category": "Category 3: Indefinite Pronouns & Quantifiers",
+    "trans": {
+      "es": "cualquier cosa (nada)",
+      "hi": "kuch bhi"
+    },
+    "tamil": "எதுவும் (எது வேண்டுமானாலும்)",
+    "hiDevanagari": "कुछ भी",
+    "shortcutEs": "<strong>Cualquier Cosa</strong> → <em>Cualquier</em> (Any) + <em>Cosa</em> (Thing, like <em>Cosa Nostra</em>) = <em>ANYTHING</em>!",
+    "shortcutHi": "<strong>Kuch Bhi (Kooch Bee)</strong> → <em>Kuch</em> (Something) + <em>Bhi</em> (Even) = Viral desi meme reaction: <em>\"Kuch Bhi!\"</em> (Say ANYTHING)!",
+    "imageUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": "t1_43",
+    "originalNum": 43,
+    "num": 43,
+    "word": "SOMEBODY",
+    "emoji": "👤",
+    "category": "Category 3: Indefinite Pronouns & Quantifiers",
+    "trans": {
+      "es": "alguien",
+      "hi": "koi vyakti"
+    },
+    "tamil": "யாரோ ஒருவர்",
+    "hiDevanagari": "कोई व्यक्ति",
+    "shortcutEs": "<strong>Alguien (Alien)</strong> → Exact same word as <em>Someone</em>! Picture an <em>Alien</em> arriving as <em>SOMEBODY</em> special!",
+    "shortcutHi": "<strong>Koi / Koi Vyakti</strong> → <em>Koi</em> (Someone) + <em>Vyakti</em> (Person, same as Tamil <em>Vyakti</em>) = <em>SOMEBODY</em>!",
+    "imageUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": "t1_44",
+    "originalNum": 44,
     "num": 44,
     "word": "ANYWHERE",
     "emoji": "📍",
@@ -503,10 +785,15 @@
       "hi": "kahin bhi"
     },
     "tamil": "எங்கு வேண்டுமானாலும்",
+    "hiDevanagari": "कहीं भी",
+    "shortcutEs": "<strong>En Cualquier Lugar</strong> → <em>Cualquier</em> (Any) + <em>Lugar</em> (Location) = Sit <em>ANYWHERE</em> you like!",
+    "shortcutHi": "<strong>Kahin Bhi</strong> → <em>Kahin</em> (Somewhere) + <em>Bhi</em> (Even) = Deliver the parcel <em>ANYWHERE (Kahin Bhi)</em>!",
     "imageUrl": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_45",
+    "originalNum": 45,
     "num": 45,
     "word": "EVERYONE",
     "emoji": "👥",
@@ -516,10 +803,33 @@
       "hi": "sab  log"
     },
     "tamil": "எல்லோரும்",
+    "hiDevanagari": "सब लोग",
+    "shortcutEs": "<strong>Todos / Todo el mundo</strong> → <em>Todo el mundo</em> literally means \"All the world\" = <em>EVERYONE</em>!",
+    "shortcutHi": "<strong>Sab Log (Sub Log)</strong> → <em>Sab</em> (All) + <em>Log</em> (People) = Every single person / <em>EVERYONE</em>!",
     "imageUrl": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_46",
+    "originalNum": 46,
+    "num": 46,
+    "word": "EVERYBODY",
+    "emoji": "👥",
+    "category": "Category 3: Indefinite Pronouns & Quantifiers",
+    "trans": {
+      "es": "todos (todo el mundo)",
+      "hi": "har koi (sab log)"
+    },
+    "tamil": "அனைவரும் (எல்லோரும்)",
+    "hiDevanagari": "हर कोई",
+    "shortcutEs": "<strong>Todos (Toe-dos)</strong> → Wiggle all ten <em>toes (Todos)</em> on the dance floor — <em>EVERYBODY</em> dance now!",
+    "shortcutHi": "<strong>Har Koi (Her Coy)</strong> → <em>Har</em> (Every) + <em>Koi</em> (Someone) = <em>EVERYBODY</em> knows this song!",
+    "imageUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": "t1_47",
+    "originalNum": 47,
     "num": 47,
     "word": "EVERYTHING",
     "emoji": "🌐",
@@ -529,10 +839,15 @@
       "hi": "sab kuch"
     },
     "tamil": "எல்லாம்",
+    "hiDevanagari": "सब कुछ",
+    "shortcutEs": "<strong>Todo (Toe-doh)</strong> → Like your daily <em>\"To-Do\"</em> list — check off <em>EVERYTHING (Todo)</em> on the list!",
+    "shortcutHi": "<strong>Sab Kuch</strong> → <em>Sab</em> (All) + <em>Kuch</em> (Something) = <em>EVERYTHING</em> is ready!",
     "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_48",
+    "originalNum": 48,
     "num": 48,
     "word": "EVERYWHERE",
     "emoji": "🌍",
@@ -542,10 +857,15 @@
       "hi": "har jagah"
     },
     "tamil": "எல்லா இடங்களிலும்",
+    "hiDevanagari": "हर जगह",
+    "shortcutEs": "<strong>En Todas Partes</strong> → Literally <em>\"In all parts\"</em> (<em>Partes</em> = Parts) = Wi-Fi is <em>EVERYWHERE</em>!",
+    "shortcutHi": "<strong>Har Jagah (Her Jug-ah)</strong> → <em>Har</em> (Every) + <em>Jagah</em> (Place) = Street food is <em>EVERYWHERE (Har Jagah)</em>!",
     "imageUrl": "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_49",
+    "originalNum": 49,
     "num": 49,
     "word": "NO ONE/NOBODY",
     "emoji": "🚫",
@@ -555,10 +875,33 @@
       "hi": "koi nahi"
     },
     "tamil": "யாரும் இல்லை",
+    "hiDevanagari": "कोई नहीं",
+    "shortcutEs": "<strong>Nadie (Nah-dyeh)</strong> → Starts with <em>\"Nah-\"</em> (No) + <em>die</em> — in an empty ghost town, <em>NO ONE (Nadie)</em> is there!",
+    "shortcutHi": "<strong>Koi Nahi</strong> → <em>Koi</em> (Someone) + <em>Nahi</em> (No/Not) = Literally <em>NO ONE</em>!",
     "imageUrl": "https://images.unsplash.com/photo-1509114397022-ed747cca3f65?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1509114397022-ed747cca3f65?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_50",
+    "originalNum": 50,
+    "num": 50,
+    "word": "NOBODY",
+    "emoji": "🚫",
+    "category": "Category 3: Indefinite Pronouns & Quantifiers",
+    "trans": {
+      "es": "nadie",
+      "hi": "koi bhi nahi"
+    },
+    "tamil": "யாருமில்லை",
+    "hiDevanagari": "कोई भी नहीं",
+    "shortcutEs": "<strong>Nadie</strong> → Same crisp word for both <em>No One</em> and <em>NOBODY</em> — \"Nah-dyeh\"!",
+    "shortcutHi": "<strong>Koi Bhi Nahi</strong> → <em>Koi Bhi</em> (Anyone) + <em>Nahi</em> (Not) = Not even a single soul, <em>NOBODY</em>!",
+    "imageUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": "t1_51",
+    "originalNum": 51,
     "num": 51,
     "word": "NOTHING",
     "emoji": "🚫",
@@ -568,10 +911,15 @@
       "hi": "kuch nahi"
     },
     "tamil": "எதுவும் இல்லை",
+    "hiDevanagari": "कुछ नहीं",
+    "shortcutEs": "<strong>Nada (Nah-dah)</strong> → Famous movie slang <em>\"Zilch, zero, NADA!\"</em> = <em>NOTHING</em>!",
+    "shortcutHi": "<strong>Kuch Nahi</strong> → <em>Kuch</em> (Something) + <em>Nahi</em> (No) = \"What happened?\" → <em>\"Kuch Nahi!\"</em> (NOTHING)!",
     "imageUrl": "https://images.unsplash.com/photo-1516541196182-6bdb0516ed27?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1516541196182-6bdb0516ed27?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_52",
+    "originalNum": 52,
     "num": 52,
     "word": "NOWHERE",
     "emoji": "🚫",
@@ -581,36 +929,69 @@
       "hi": "kahin nahi"
     },
     "tamil": "எங்கும் இல்லை",
+    "hiDevanagari": "कहीं नहीं",
+    "shortcutEs": "<strong>En Ninguna Parte</strong> → <em>Ninguna</em> (None/No) + <em>Parte</em> (Part/Place) = In no place, <em>NOWHERE</em>!",
+    "shortcutHi": "<strong>Kahin Nahi</strong> → <em>Kahin</em> (Somewhere) + <em>Nahi</em> (No) = Going <em>NOWHERE (Kahin Nahi)</em> today!",
     "imageUrl": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_53",
+    "originalNum": 53,
     "num": 53,
-    "word": "A /AN",
+    "word": "A / AN",
     "emoji": "🔤",
-    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "category": "Category 3: Indefinite Pronouns & Quantifiers",
     "trans": {
       "es": "un (una)",
       "hi": "ek"
     },
     "tamil": "ஒரு",
+    "hiDevanagari": "एक",
+    "shortcutEs": "<strong>Un / Una (Oon / Oona)</strong> → Think of the card game <em>UNO</em> — shout \"UNO!\" when holding <em>A / ONE (Un/Una)</em> card!",
+    "shortcutHi": "<strong>Ek (Ache)</strong> → Rhymes with <em>Cake</em> — give me just <em>A / ONE (Ek)</em> piece of cake (\"Ek Ladki Ko Dekha\")!",
     "imageUrl": "https://images.unsplash.com/photo-1574786198875-49f5d09fda2d?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1574786198875-49f5d09fda2d?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_54",
+    "originalNum": 54,
+    "num": 54,
+    "word": "AN",
+    "emoji": "🔤",
+    "category": "Category 3: Indefinite Pronouns & Quantifiers",
+    "trans": {
+      "es": "un (una)",
+      "hi": "ek"
+    },
+    "tamil": "ஓர் (ஒரு)",
+    "hiDevanagari": "एक",
+    "shortcutEs": "<strong>Un / Una</strong> → Spanish never changes for vowels like English \"A/An\" — it's always <em>Un</em> (masculine) or <em>Una</em> (feminine)!",
+    "shortcutHi": "<strong>Ek</strong> → Whether \"A car\" or \"<em>AN</em> umbrella\", Hindi always uses the same crisp <em>Ek</em>!",
+    "imageUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": "t1_55",
+    "originalNum": 55,
     "num": 55,
     "word": "THE",
     "emoji": "🔤",
-    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "category": "Category 3: Indefinite Pronouns & Quantifiers",
     "trans": {
-      "es": "el (la",
-      "hi": "los"
+      "es": "el (la / los / las)",
+      "hi": "yeh (woh)"
     },
-    "tamil": "las)",
+    "tamil": "அந்த (இந்த)",
+    "hiDevanagari": "यह",
+    "shortcutEs": "<strong>El / La</strong> → Think of <em>El</em> Niño (THE Boy) and <em>La</em> Liga (THE League) — the world's most famous <em>THE</em>!",
+    "shortcutHi": "<strong>Yeh / Woh</strong> → Hindi doesn't need a separate word for \"The\"; use <em>Yeh</em> (this) or <em>Woh</em> (that) to point out a specific thing!",
     "imageUrl": "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_56",
+    "originalNum": 56,
     "num": 56,
     "word": "ALL",
     "emoji": "🔢",
@@ -620,10 +1001,15 @@
       "hi": "sab"
     },
     "tamil": "எல்லா (அனைத்தும்)",
+    "hiDevanagari": "सब",
+    "shortcutEs": "<strong>Todo / Todos</strong> → Finish your entire <em>To-Do</em> list — <em>ALL (Todos)</em> of it!",
+    "shortcutHi": "<strong>Sab (Sub)</strong> → Eat the whole footlong <em>Subway (Sab)</em> sandwich — <em>ALL</em> of it (\"Sab Theek Hai\")!",
     "imageUrl": "https://images.unsplash.com/photo-1508873696983-2df57036476b?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1508873696983-2df57036476b?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_57",
+    "originalNum": 57,
     "num": 57,
     "word": "EVERY",
     "emoji": "🔢",
@@ -633,10 +1019,15 @@
       "hi": "har"
     },
     "tamil": "ஒவ்வொரு",
+    "hiDevanagari": "हर",
+    "shortcutEs": "<strong>Cada (Kah-dah)</strong> → Think of <em>Abra-CADA-bra</em> — the magician pulls a dove out of <em>EVERY (Cada)</em> hat!",
+    "shortcutHi": "<strong>Har (Her)</strong> → Sounds like English <em>\"Her\"</em> — <em>\"Har Ghar Tiranga\"</em> (In <em>EVERY</em> home)!",
     "imageUrl": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_58",
+    "originalNum": 58,
     "num": 58,
     "word": "EACH",
     "emoji": "🔢",
@@ -646,10 +1037,15 @@
       "hi": "har ek"
     },
     "tamil": "ஒவ்வொருவரும் (ஒவ்வொன்றும்)",
+    "hiDevanagari": "हर एक",
+    "shortcutEs": "<strong>Cada (Cada uno)</strong> → Same word as <em>Every</em>! \"<em>Cada uno</em>\" = <em>EACH</em> one (Uno)!",
+    "shortcutHi": "<strong>Har Ek</strong> → <em>Har</em> (Every) + <em>Ek</em> (One) = Literally \"Every single one\" = <em>EACH</em>!",
     "imageUrl": "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_59",
+    "originalNum": 59,
     "num": 59,
     "word": "BOTH",
     "emoji": "👥",
@@ -659,23 +1055,33 @@
       "hi": "dono"
     },
     "tamil": "இருவரும் (இரண்டுமே)",
+    "hiDevanagari": "दोनों",
+    "shortcutEs": "<strong>Ambos (Am-bos)</strong> → Root of English <em>Ambidextrous</em> (writing with <em>BOTH</em> hands)!",
+    "shortcutHi": "<strong>Dono (Dough-no)</strong> → Built from Hindi number <em>Do</em> (Two, like <em>Domino</em>) → <em>Dono</em> means <em>BOTH</em>!",
     "imageUrl": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_60",
+    "originalNum": 60,
     "num": 60,
     "word": "EITHER",
     "emoji": "🔀",
-    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "category": "Category 3: Indefinite Pronouns & Quantifiers",
     "trans": {
-      "es": "EITHER",
-      "hi": "EITHER"
+      "es": "cualquiera de los dos",
+      "hi": "dono mein se koi ek"
     },
-    "tamil": "EITHER",
+    "tamil": "இரண்டில் ஏதாவது ஒன்று",
+    "hiDevanagari": "दोनों में से कोई एक",
+    "shortcutEs": "<strong>Cualquiera de los dos</strong> → <em>Cualquiera</em> (Any one) + <em>de los dos</em> (of the two, <em>Dos</em>=2) = <em>EITHER</em>!",
+    "shortcutHi": "<strong>Dono mein se koi ek</strong> → <em>Dono</em> (Both) + <em>koi ek</em> (any one) = Pick <em>EITHER</em> one of the two!",
     "imageUrl": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_61",
+    "originalNum": 61,
     "num": 61,
     "word": "NEITHER",
     "emoji": "🚫",
@@ -685,10 +1091,15 @@
       "hi": "dono mein se koi nahi"
     },
     "tamil": "இரண்டில் எதுவும் இல்லை",
+    "hiDevanagari": "दोनों में से कोई नहीं",
+    "shortcutEs": "<strong>Ninguno (Neen-goo-no)</strong> → Sounds like <em>\"Ninja Uno\"</em> — <em>NEITHER</em> guard could see the invisible ninja!",
+    "shortcutHi": "<strong>Dono mein se koi nahi</strong> → <em>Dono</em> (Both) + <em>koi nahi</em> (none) = <em>NEITHER</em> of the two!",
     "imageUrl": "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_62",
+    "originalNum": 62,
     "num": 62,
     "word": "SOME",
     "emoji": "🍰",
@@ -698,10 +1109,33 @@
       "hi": "thoda (kuch)"
     },
     "tamil": "கொஞ்சம் (சில)",
+    "hiDevanagari": "थोड़ा",
+    "shortcutEs": "<strong>Un poco de / Algunos</strong> → Like music term <em>Poco a poco</em> (little by little) — pour me <em>SOME (un poco de)</em> juice!",
+    "shortcutHi": "<strong>Thoda / Kuch (Thoh-da)</strong> → Rhymes with <em>\"Soda\"</em> — pour me <em>SOME (Thoda)</em> chilled lime soda!",
     "imageUrl": "https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_63",
+    "originalNum": 63,
+    "num": 63,
+    "word": "ENOUGH",
+    "emoji": "✅",
+    "category": "Category 3: Indefinite Pronouns & Quantifiers",
+    "trans": {
+      "es": "suficiente (bastante)",
+      "hi": "kaafi"
+    },
+    "tamil": "போதும் (போதுமான)",
+    "hiDevanagari": "काफ़ी",
+    "shortcutEs": "<strong>Suficiente / Bastante</strong> → Sounds just like English <em>Sufficient</em>! (Or shout <em>\"¡Basta!\"</em> = That's <em>ENOUGH</em>!)",
+    "shortcutHi": "<strong>Kaafi (Coffee)</strong> → Sounds 100% like <em>\"Coffee\"</em> — one big mug of <em>Coffee (Kaafi)</em> is <em>ENOUGH</em> to stay awake!",
+    "imageUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80",
+    "gifUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": "t1_64",
+    "originalNum": 64,
     "num": 64,
     "word": "NONE",
     "emoji": "🚫",
@@ -711,10 +1145,15 @@
       "hi": "ek bhi nahi"
     },
     "tamil": "ஒன்றுகூட இல்லை",
+    "hiDevanagari": "एक भी नहीं",
+    "shortcutEs": "<strong>Ninguno</strong> → Negative <em>Ning-</em> + <em>Uno</em> (One) = Not even one left, <em>NONE</em>!",
+    "shortcutHi": "<strong>Ek Bhi Nahi</strong> → <em>Ek</em> (One) + <em>Bhi</em> (Even) + <em>Nahi</em> (No) = Not even one, <em>NONE</em>!",
     "imageUrl": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_65",
+    "originalNum": 65,
     "num": 65,
     "word": "SELF",
     "emoji": "🪞",
@@ -724,10 +1163,15 @@
       "hi": "khud"
     },
     "tamil": "சுயம் (தானே)",
+    "hiDevanagari": "खुद",
+    "shortcutEs": "<strong>Sí Mismo</strong> → <em>Sí</em> + <em>Mismo</em> (Same) = Know your own true <em>SELF</em>!",
+    "shortcutHi": "<strong>Khud (Good)</strong> → Rhymes with <em>Good</em> — always believe in your <em>SELF (Khud)</em>!",
     "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_66",
+    "originalNum": 66,
     "num": 66,
     "word": "OTHER",
     "emoji": "🔄",
@@ -737,10 +1181,15 @@
       "hi": "doosra (doosri)"
     },
     "tamil": "மற்றொரு (மற்றவை)",
+    "hiDevanagari": "दूसरा",
+    "shortcutEs": "<strong>Otro / Otra (Oh-tro)</strong> → Sounds like a snappy remix of English <em>OTHER (Otro)</em>!",
+    "shortcutHi": "<strong>Doosra (Doos-rah)</strong> → Famous cricket spin delivery <em>\"The Doosra\"</em> (the ball that spins the <em>OTHER</em> way)!",
     "imageUrl": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_67",
+    "originalNum": 67,
     "num": 67,
     "word": "ANOTHER",
     "emoji": "➕",
@@ -750,10 +1199,15 @@
       "hi": "ek aur"
     },
     "tamil": "இன்னொரு",
+    "hiDevanagari": "एक और",
+    "shortcutEs": "<strong>Otro / Otra</strong> → Pro tip: never say \"un otro\" in Spanish — just <em>Otro</em> means both <em>Other</em> and <em>ANOTHER</em>!",
+    "shortcutHi": "<strong>Ek Aur (Ache Or)</strong> → <em>Ek</em> (One) + <em>Aur</em> (More) = \"One more\" = Bring <em>ANOTHER</em> plate of pani puri!",
     "imageUrl": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_68",
+    "originalNum": 68,
     "num": 68,
     "word": "SUCH",
     "emoji": "🌟",
@@ -763,10 +1217,15 @@
       "hi": "aisa (aisi)"
     },
     "tamil": "அப்படிப்பட்ட (அத்தகைய)",
+    "hiDevanagari": "ऐसा",
+    "shortcutEs": "<strong>Así / Tal (Ah-see)</strong> → Sounds like <em>\"I see!\"</em> — \"I see <em>SUCH (Así)</em> a brilliant idea!\"",
+    "shortcutHi": "<strong>Aisa / Aisi (I-saw)</strong> → Sounds like <em>\"I saw\"</em> — <em>I saw SUCH (Aisa)</em> a massive palace in Jaipur!",
     "imageUrl": "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_69",
+    "originalNum": 69,
     "num": 69,
     "word": "SAME",
     "emoji": "🔁",
@@ -776,10 +1235,15 @@
       "hi": "vahi (same)"
     },
     "tamil": "அதே",
+    "hiDevanagari": "वही",
+    "shortcutEs": "<strong>Mismo (Mees-mo)</strong> → Picture <em>\"Miss Mo\"</em> wearing the exact <em>SAME (Mismo)</em> outfit twice!",
+    "shortcutHi": "<strong>Vahi (Wa-hee)</strong> → \"<em>Vahi</em> jagah, <em>vahi</em> time\" = The exact <em>SAME</em> place, the <em>SAME</em> time!",
     "imageUrl": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_70",
+    "originalNum": 70,
     "num": 70,
     "word": "DIFFERENT",
     "emoji": "🔀",
@@ -789,10 +1253,15 @@
       "hi": "alag"
     },
     "tamil": "வேறுபட்ட (வேறு)",
+    "hiDevanagari": "अलग",
+    "shortcutEs": "<strong>Diferente</strong> → 99% identical to English <em>DIFFERENT</em> — just add an <em>'e'</em> at the end!",
+    "shortcutHi": "<strong>Alag (Uh-lug)</strong> → Spot your bright yellow airport <em>luggage (Alag)</em> because it looks <em>DIFFERENT</em> from all others!",
     "imageUrl": "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_71",
+    "originalNum": 71,
     "num": 71,
     "word": "SEVERAL",
     "emoji": "🔢",
@@ -802,10 +1271,15 @@
       "hi": "kai"
     },
     "tamil": "பல",
+    "hiDevanagari": "कई",
+    "shortcutEs": "<strong>Varios / Varias</strong> → Direct match with English <em>Various</em> — having <em>SEVERAL (Varios)</em> choices!",
+    "shortcutHi": "<strong>Kai (Ka-ee)</strong> → In Tamil <em>Kai</em> means hand — count <em>SEVERAL (Kai)</em> fingers on your hand!",
     "imageUrl": "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_72",
+    "originalNum": 72,
     "num": 72,
     "word": "MANY",
     "emoji": "🔢",
@@ -815,10 +1289,15 @@
       "hi": "bahut saare"
     },
     "tamil": "பல (நிறைய)",
+    "hiDevanagari": "बहुत सारे",
+    "shortcutEs": "<strong>Muchos / Muchas</strong> → World-famous phrase <em>\"Muchas Gracias\"</em> (<em>MANY</em> thanks)!",
+    "shortcutHi": "<strong>Bahut Saare</strong> → <em>Bahut</em> (A lot) + <em>Saare</em> (sounds like <em>Saree</em>) = A boutique packed with <em>MANY</em> silk sarees!",
     "imageUrl": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_73",
+    "originalNum": 73,
     "num": 73,
     "word": "MUCH",
     "emoji": "💧",
@@ -828,10 +1307,15 @@
       "hi": "zyada"
     },
     "tamil": "அதிகம் (நிறைய)",
+    "hiDevanagari": "ज़्यादा",
+    "shortcutEs": "<strong>Mucho (Moo-cho)</strong> → Looks and sounds right like English <em>MUCH (Mucho)</em>!",
+    "shortcutHi": "<strong>Zyada (Zyaa-da)</strong> → Sounds like <em>\"Jada\"</em> — \"Pyaar thoda nahi, <em>Zyada</em> (too <em>MUCH</em>)!\"",
     "imageUrl": "https://images.unsplash.com/photo-1548839140-29a749e1bc4e?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1548839140-29a749e1bc4e?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_74",
+    "originalNum": 74,
     "num": 74,
     "word": "FEW",
     "emoji": "🤏",
@@ -841,23 +1325,33 @@
       "hi": "thode"
     },
     "tamil": "சில (கொஞ்சம்)",
+    "hiDevanagari": "थोड़े",
+    "shortcutEs": "<strong>Pocos / Pocas (Poh-kos)</strong> → Think of <em>Poké</em>mon — only a <em>FEW (Pocos)</em> rare Pokémon exist!",
+    "shortcutHi": "<strong>Thode (Thoh-day)</strong> → Plural of <em>Thoda</em> (Some) — just a <em>FEW (Thode)</em> minutes left!",
     "imageUrl": "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_75",
+    "originalNum": 75,
     "num": 75,
     "word": "LITTLE",
-    "emoji": "📌",
-    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "emoji": "🤏",
+    "category": "Category 3: Indefinite Pronouns & Quantifiers",
     "trans": {
-      "es": "LITTLE",
-      "hi": "LITTLE"
+      "es": "pequeño / poco",
+      "hi": "chhota / thoda"
     },
-    "tamil": "LITTLE",
+    "tamil": "சிறிய / கொஞ்சம்",
+    "hiDevanagari": "छोटा",
+    "shortcutEs": "<strong>Pequeño / Poco</strong> → <em>Pequeño</em> (small size, like a tiny <em>Pekingese</em> pup) & <em>Poco</em> (a little bit)!",
+    "shortcutHi": "<strong>Chhota / Thoda</strong> → Beloved cartoon hero <em>\"Chhota Bheem\"</em> (<em>LITTLE</em> Bheem) for size, <em>Thoda</em> for amount!",
     "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_76",
+    "originalNum": 76,
     "num": 76,
     "word": "WHAT",
     "emoji": "❓",
@@ -867,10 +1361,15 @@
       "hi": "kya"
     },
     "tamil": "என்ன",
+    "hiDevanagari": "क्या",
+    "shortcutEs": "<strong>¿Qué? (Kay)</strong> → Famous Spanish greeting <em>\"¿Qué pasa?\"</em> (<em>WHAT</em> is happening?)!",
+    "shortcutHi": "<strong>Kya (Kyah)</strong> → Every dramatic soap-opera gasp: <em>\"Kya?!\"</em> (<em>WHAT?!</em>) — \"Kya Hua?\"!",
     "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_77",
+    "originalNum": 77,
     "num": 77,
     "word": "WHERE",
     "emoji": "📍",
@@ -880,23 +1379,33 @@
       "hi": "kahan"
     },
     "tamil": "எங்கே",
+    "hiDevanagari": "कहाँ",
+    "shortcutEs": "<strong>¿Dónde? (Don-day)</strong> → Think of <em>\"Don Day\"</em> — <em>WHERE (Dónde)</em> is the Mafia Don hiding today?!",
+    "shortcutHi": "<strong>Kahan (Ka-haan)</strong> → Think of superstar Shah Rukh <em>Khan (Kahan)</em> — <em>WHERE</em> is SRK's bungalow?!",
     "imageUrl": "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_78",
+    "originalNum": 78,
     "num": 78,
-    "word": "⏰ WHEN",
-    "emoji": "📌",
+    "word": "WHEN",
+    "emoji": "⏰",
     "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
     "trans": {
       "es": "cuándo",
       "hi": "kab"
     },
     "tamil": "எப்போது",
+    "hiDevanagari": "कब",
+    "shortcutEs": "<strong>¿Cuándo? (Kwan-doh)</strong> → Sounds like <em>Taekwondo</em> — <em>WHEN (Cuándo)</em> does your Taekwondo tournament start?!",
+    "shortcutHi": "<strong>Kab (Cub / Cab)</strong> → Sounds like taxi <em>Cab</em> — <em>WHEN (Kab)</em> will our Uber cab reach here?!",
     "imageUrl": "https://images.unsplash.com/photo-1508962914676-134849a727f0?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1508962914676-134849a727f0?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_79",
+    "originalNum": 79,
     "num": 79,
     "word": "WHY",
     "emoji": "❓",
@@ -906,10 +1415,15 @@
       "hi": "kyun"
     },
     "tamil": "ஏன்",
+    "hiDevanagari": "क्यों",
+    "shortcutEs": "<strong>¿Por qué? (Por-kay)</strong> → Sounds like <em>\"Pork, eh?\"</em> — <em>WHY (Por qué)</em> did the chef cook pork for a vegan party?!",
+    "shortcutHi": "<strong>Kyun (Kyoon)</strong> → Sounds like English <em>\"Queue\"</em> — <em>WHY (Kyun)</em> are we standing in this long queue?!",
     "imageUrl": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_80",
+    "originalNum": 80,
     "num": 80,
     "word": "WHO",
     "emoji": "👤",
@@ -919,36 +1433,51 @@
       "hi": "kaun"
     },
     "tamil": "யார்",
+    "hiDevanagari": "कौन",
+    "shortcutEs": "<strong>¿Quién? (Kyen)</strong> → Sounds like Barbie's boyfriend <em>Ken</em> — <em>WHO (Quién)</em> is driving the pink convertible? Ken!",
+    "shortcutHi": "<strong>Kaun (Con)</strong> → Amitabh Bachchan's iconic quiz show: <em>\"Kaun Banega Crorepati\"</em> (<em>WHO</em> will be a millionaire)!",
     "imageUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_81",
+    "originalNum": 81,
     "num": 81,
     "word": "WHOM",
     "emoji": "👤",
-    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "category": "Category 4: Question Words",
     "trans": {
       "es": "a quién",
-      "hi": "con quién"
+      "hi": "kisse (kisko)"
     },
-    "tamil": "kisse",
+    "tamil": "யாரை (யாருடன்)",
+    "hiDevanagari": "किससे",
+    "shortcutEs": "<strong>¿A quién?</strong> → Simply place <em>\"A\"</em> (To) in front of <em>Quién</em> (Who/Ken) = To <em>WHOM (A quién)</em>!",
+    "shortcutHi": "<strong>Kisse / Kisko (Kiss-ko)</strong> → Sounds like <em>\"Kiss-ko\"</em> — to <em>WHOM (Kisko)</em> did she blow a flying kiss?!",
     "imageUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_82",
+    "originalNum": 82,
     "num": 82,
     "word": "WHICH",
     "emoji": "🔀",
-    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "category": "Category 4: Question Words",
     "trans": {
-      "es": "qué",
-      "hi": "cuál"
+      "es": "cuál (qué)",
+      "hi": "kaun sa (kaun si)"
     },
-    "tamil": "kaun sa (kaun si)",
+    "tamil": "எது (எந்த)",
+    "hiDevanagari": "कौन सा",
+    "shortcutEs": "<strong>¿Cuál? (Kwal)</strong> → Sounds like <em>Quality</em> — <em>WHICH (Cuál)</em> laptop has the best quality?!",
+    "shortcutHi": "<strong>Kaun Sa / Kaun Si</strong> → <em>Kaun</em> (Who) + <em>Sa</em> = <em>WHICH</em> one (\"Kaun sa flavour chahiye?\")!",
     "imageUrl": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_83",
+    "originalNum": 83,
     "num": 83,
     "word": "HOW",
     "emoji": "❓",
@@ -958,10 +1487,15 @@
       "hi": "kaise"
     },
     "tamil": "எப்படி",
+    "hiDevanagari": "कैसे",
+    "shortcutEs": "<strong>¿Cómo? (Koh-moh)</strong> → Everyone knows <em>\"¿Cómo estás?\"</em> (<em>HOW</em> are you?)!",
+    "shortcutHi": "<strong>Kaise (Kay-say)</strong> → Everyday friendly greeting <em>\"Kaise ho?\"</em> (<em>HOW</em> are you?)!",
     "imageUrl": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_84",
+    "originalNum": 84,
     "num": 84,
     "word": "HOW MUCH",
     "emoji": "💰",
@@ -971,10 +1505,15 @@
       "hi": "kitna"
     },
     "tamil": "எவ்வளவு",
+    "hiDevanagari": "कितना",
+    "shortcutEs": "<strong>¿Cuánto? (Kwan-toh)</strong> → Think of <em>Quantity</em> — <em>\"¿Cuánto cuesta?\"</em> (<em>HOW MUCH</em> does it cost?)!",
+    "shortcutHi": "<strong>Kitna (Kit-nah)</strong> → Sounds like a cute <em>Kitten</em> — <em>HOW MUCH (Kitna)</em> milk did the kitten drink?!",
     "imageUrl": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_85",
+    "originalNum": 85,
     "num": 85,
     "word": "HOW MANY",
     "emoji": "🔢",
@@ -984,23 +1523,33 @@
       "hi": "kitne"
     },
     "tamil": "எத்தனை",
+    "hiDevanagari": "कितने",
+    "shortcutEs": "<strong>¿Cuántos?</strong> → Add plural <em>-s</em> to <em>Cuánto</em> (Quantity) to count <em>HOW MANY (Cuántos)</em> coins you have!",
+    "shortcutHi": "<strong>Kitne (Kit-nay)</strong> → Legendary Sholay villain Gabbar Singh line: <em>\"Kitne Aadmi The?\"</em> (<em>HOW MANY</em> men were there?)!",
     "imageUrl": "https://images.unsplash.com/photo-1495344517868-8ebaf0a2044a?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1495344517868-8ebaf0a2044a?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_86",
+    "originalNum": 86,
     "num": 86,
-    "word": "⏳ HOW LONG",
-    "emoji": "📌",
+    "word": "HOW LONG",
+    "emoji": "⏳",
     "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
     "trans": {
       "es": "cuánto tiempo",
       "hi": "kitni der"
     },
     "tamil": "எவ்வளவு நேரம்",
+    "hiDevanagari": "कितनी देर",
+    "shortcutEs": "<strong>¿Cuánto Tiempo?</strong> → <em>Cuánto</em> (How much) + <em>Tiempo</em> (Time/Tempo) = <em>HOW LONG</em> in time!",
+    "shortcutHi": "<strong>Kitni Der (Dare)</strong> → <em>Kitni</em> (How much) + <em>Der</em> (Delay/Time) = <em>HOW LONG</em> will the movie last?!",
     "imageUrl": "https://images.unsplash.com/photo-1508962914676-134849a727f0?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1508962914676-134849a727f0?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_87",
+    "originalNum": 87,
     "num": 87,
     "word": "HOW FAR",
     "emoji": "📏",
@@ -1010,10 +1559,15 @@
       "hi": "kitni door"
     },
     "tamil": "எவ்வளவு தூரம்",
+    "hiDevanagari": "कितनी दूर",
+    "shortcutEs": "<strong>¿Qué tan lejos?</strong> → <em>Lejos</em> (pronounced <em>Lay-hos</em>, like laying a long garden <em>hose</em> far across the yard) = <em>HOW FAR</em>!",
+    "shortcutHi": "<strong>Kitni Door</strong> → <em>Kitni</em> (How much) + <em>Door</em> (Far — walk to that distant <em>door</em>) = <em>HOW FAR</em>!",
     "imageUrl": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_88",
+    "originalNum": 88,
     "num": 88,
     "word": "HOW OFTEN",
     "emoji": "🔁",
@@ -1023,23 +1577,33 @@
       "hi": "kitni baar"
     },
     "tamil": "எத்தனை முறை",
+    "hiDevanagari": "कितनी बार",
+    "shortcutEs": "<strong>¿Cada cuánto?</strong> → <em>Cada</em> (Every) + <em>Cuánto</em> (How much) = Every how much time / <em>HOW OFTEN</em>!",
+    "shortcutHi": "<strong>Kitni Baar (Bar)</strong> → <em>Kitni</em> (How many) + <em>Baar</em> (Times — visiting the juice <em>bar</em>) = <em>HOW OFTEN</em>!",
     "imageUrl": "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_89",
+    "originalNum": 89,
     "num": 89,
     "word": "WHAT KIND",
-    "emoji": "🏷",
+    "emoji": "🏷️",
     "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
     "trans": {
       "es": "qué tipo de",
       "hi": "kaisa (kaisi)"
     },
     "tamil": "என்ன வகையான",
+    "hiDevanagari": "कैसा",
+    "shortcutEs": "<strong>¿Qué tipo de?</strong> → <em>Qué</em> (What) + <em>Tipo</em> (Type) + <em>de</em> (of) = Literally \"What type of / <em>WHAT KIND</em>\"!",
+    "shortcutHi": "<strong>Kaisa / Kaisi</strong> → From <em>Kaise</em> (How) — \"Yeh <em>kaisa</em> सवाल hai?\" (<em>WHAT KIND</em> of question is this?)!",
     "imageUrl": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_90",
+    "originalNum": 90,
     "num": 90,
     "word": "WHICH ONE",
     "emoji": "🎯",
@@ -1049,23 +1613,33 @@
       "hi": "kaun sa (kaun si)"
     },
     "tamil": "எது",
+    "hiDevanagari": "कौन सा",
+    "shortcutEs": "<strong>¿Cuál? (Kwal)</strong> → Point at the dessert tray and ask <em>\"¿Cuál?\"</em> — <em>WHICH ONE</em> is mine?!",
+    "shortcutHi": "<strong>Kaun Sa (Con-sah)</strong> → Point at two shirts and ask <em>\"Kaun sa?\"</em> — <em>WHICH ONE</em> looks cooler?!",
     "imageUrl": "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_91",
+    "originalNum": 91,
     "num": 91,
     "word": "BE",
-    "emoji": "📌",
-    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "emoji": "✨",
+    "category": "Category 5: Auxiliary & Modal Verbs",
     "trans": {
-      "es": "BE",
-      "hi": "BE"
+      "es": "ser / estar",
+      "hi": "hona"
     },
-    "tamil": "BE",
+    "tamil": "இரு (ஆக)",
+    "hiDevanagari": "होना",
+    "shortcutEs": "<strong>Ser / Estar</strong> → <em>Ser</em> (permanent identity, like knight <em>Sir</em>) & <em>Estar</em> (current state/location, like a glowing <em>Star</em>) = To <em>BE</em>!",
+    "shortcutHi": "<strong>Hona (Hoh-nah)</strong> → Classic movie <em>\"Kal Ho Naa Ho\"</em> (Whether tomorrow <em>BE / Hona</em> or not)!",
     "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_92",
+    "originalNum": 92,
     "num": 92,
     "word": "HAVE",
     "emoji": "🤲",
@@ -1075,88 +1649,123 @@
       "hi": "paas hona"
     },
     "tamil": "வைத்திரு (இருக்கிறது)",
+    "hiDevanagari": "पास होना",
+    "shortcutEs": "<strong>Tener (Teh-ner)</strong> → Sounds like a <em>Tenner ($10 bill)</em> — I <em>HAVE (Tener)</em> a ten-dollar bill in my pocket!",
+    "shortcutHi": "<strong>Paas Hona</strong> → <em>Paas</em> (With me, like holding a VIP <em>Pass</em>) = To <em>HAVE</em> (famous line: <em>\"Mere Paas Maa Hai\"</em>)!",
     "imageUrl": "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_93",
+    "originalNum": 93,
     "num": 93,
     "word": "DO",
-    "emoji": "🛠",
+    "emoji": "🛠️",
     "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
     "trans": {
       "es": "hacer",
       "hi": "karna"
     },
     "tamil": "செய் (செய்வது)",
+    "hiDevanagari": "करना",
+    "shortcutEs": "<strong>Hacer (Ah-ser)</strong> → Silent 'H'! Sounds like <em>\"A Sir\"</em> — \"Yes Sir, I will <em>DO (Hacer)</em> the mission right now!\"",
+    "shortcutHi": "<strong>Karna (Kar-nah)</strong> → Think of warrior <em>Karna</em> who always takes action — to <em>DO (Karna)</em>!",
     "imageUrl": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_94",
+    "originalNum": 94,
     "num": 94,
     "word": "CAN",
-    "emoji": "📌",
-    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "emoji": "💪",
+    "category": "Category 5: Auxiliary & Modal Verbs",
     "trans": {
-      "es": "CAN",
-      "hi": "CAN"
+      "es": "poder / lata",
+      "hi": "sakna / dibba"
     },
-    "tamil": "CAN",
+    "tamil": "முடியும் / டப்பா",
+    "hiDevanagari": "सकना",
+    "shortcutEs": "<strong>Poder (Poh-der)</strong> → Sounds like <em>Power</em>! You have the power, so you <em>CAN (Poder)</em> do it! (Metal tin can = <em>Lata</em>).",
+    "shortcutHi": "<strong>Sakna (Suck-nah)</strong> → Add <em>Sakta/Sakti</em> after any verb (\"Main jeet <em>sakta</em> hoon\" = I <em>CAN</em> win)! (Tin/Box = <em>Dibba</em>).",
     "imageUrl": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_95",
+    "originalNum": 95,
     "num": 95,
     "word": "COULD",
-    "emoji": "📌",
-    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "emoji": "🔓",
+    "category": "Category 5: Auxiliary & Modal Verbs",
     "trans": {
-      "es": "COULD",
-      "hi": "COULD"
+      "es": "podía / podrías",
+      "hi": "sakta tha / sakte hain"
     },
-    "tamil": "COULD",
+    "tamil": "முடிந்தது / முடியுமா?",
+    "hiDevanagari": "सकता था",
+    "shortcutEs": "<strong>Podía / Podrías</strong> → Built directly from <em>Poder</em> (Can/Power) → polite <em>Podrías</em> (\"<em>COULD</em> you open the door?\").",
+    "shortcutHi": "<strong>Sakta Tha / Sakte Hain</strong> → <em>Sakna</em> (Can) + <em>Tha</em> (Past = <em>COULD</em>) or polite request <em>\"Kya aap madad kar sakte hain?\"</em>!",
     "imageUrl": "https://images.unsplash.com/photo-1519834785169-98be25ec3f84?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1519834785169-98be25ec3f84?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_96",
+    "originalNum": 96,
     "num": 96,
     "word": "WILL",
-    "emoji": "📌",
-    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "emoji": "🚀",
+    "category": "Category 5: Auxiliary & Modal Verbs",
     "trans": {
-      "es": "WILL",
-      "hi": "WILL"
+      "es": "futuro (-ré) / testamento",
+      "hi": "ga (gi / ge) / vasiyat"
     },
-    "tamil": "WILL",
+    "tamil": "எதிர்காலம் / உயில்",
+    "hiDevanagari": "गा",
+    "shortcutEs": "<strong>-ré (Future ending)</strong> → Attach <em>-ré</em> (like a bright sun <em>Ray</em> beaming into the future) to any verb: <em>Ir-é</em> = I <em>WILL</em> go!",
+    "shortcutHi": "<strong>-ga / -gi / -ge</strong> → Gully Boy anthem <em>\"Apna Time Aayega\"</em> — that <em>-ga</em> at the end means it <em>WILL</em> come!",
     "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_97",
+    "originalNum": 97,
     "num": 97,
     "word": "WOULD",
-    "emoji": "📌",
-    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "emoji": "💭",
+    "category": "Category 5: Auxiliary & Modal Verbs",
     "trans": {
-      "es": "WOULD",
-      "hi": "WOULD"
+      "es": "me gustaría (-ría)",
+      "hi": "chahiye / karta"
     },
-    "tamil": "WOULD",
+    "tamil": "வேண்டும் / செய்வேன்",
+    "hiDevanagari": "चाहिए",
+    "shortcutEs": "<strong>-ría / Me gustaría</strong> → Attach <em>-ría</em> to any verb! <em>\"Me gustaría\"</em> = I <em>WOULD</em> like (ordering at a pizzeria)!",
+    "shortcutHi": "<strong>Karta / Hota (-ta)</strong> → Verb ending in <em>-ta/-ti</em> (\"Agar main raja <em>hota</em>...\" = If I were king, I <em>WOULD</em>...)!",
     "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_98",
+    "originalNum": 98,
     "num": 98,
     "word": "SHALL",
-    "emoji": "📜",
-    "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
+    "emoji": "🤝",
+    "category": "Category 5: Auxiliary & Modal Verbs",
     "trans": {
-      "es": "—",
-      "hi": "kya ... ?"
+      "es": "¿vamos a ...?",
+      "hi": "kya hum ... ?"
     },
-    "tamil": "நாம் ... ?",
+    "tamil": "நாம் செய்யலாமா?",
+    "hiDevanagari": "क्या हम",
+    "shortcutEs": "<strong>¿Vamos a...? (Vah-mos)</strong> → Stadium cheer <em>\"¡Vamos!\"</em> (Let's go!) — <em>\"¿Vamos a bailar?\"</em> (<em>SHALL</em> we dance?)!",
+    "shortcutHi": "<strong>Kya Hum Chalein?</strong> → <em>Kya</em> (?) + <em>Hum</em> (We) + <em>Chalein</em> (Go) = <em>\"SHALL we go?\"</em>",
     "imageUrl": "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_99",
+    "originalNum": 99,
     "num": 99,
     "word": "SHOULD",
     "emoji": "💡",
@@ -1166,19 +1775,27 @@
       "hi": "chahiye"
     },
     "tamil": "வேண்டும்",
+    "hiDevanagari": "चाहिए",
+    "shortcutEs": "<strong>Debería (Deh-beh-ree-ah)</strong> → From <em>Deber</em> (Debt/Duty) — it's your duty, so you <em>SHOULD (Deberías)</em> do it!",
+    "shortcutHi": "<strong>Chahiye (Cha-hee-yay)</strong> → Sounds like cheering <em>\"Chai-yay!\"</em> — you <em>SHOULD (Chahiye)</em> drink hot chai right now!",
     "imageUrl": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&auto=format&fit=crop&q=80"
   },
   {
+    "id": "t1_100",
+    "originalNum": 100,
     "num": 100,
     "word": "MUST",
-    "emoji": "⚠",
+    "emoji": "⚠️",
     "category": "Category 3: Indefinite Pronouns, Negatives & Quantifiers",
     "trans": {
       "es": "tener que",
       "hi": "karna zaroori hai"
     },
     "tamil": "கட்டாயம் (வேண்டும்)",
+    "hiDevanagari": "करना ज़रूरी है",
+    "shortcutEs": "<strong>Tener Que (Teh-ner Kay)</strong> → <em>Tener</em> ($10 Tenner) + <em>Que</em> (Key) — to unlock the gate you <em>MUST</em> pay a $10 <em>Tenner</em> for the <em>Key (Que)</em>!",
+    "shortcutHi": "<strong>Zaroor / Karna Padega</strong> → Sounds like a lion's <em>\"Roar (Zaroor)\"</em> — when a lion roars, you <em>MUST</em> run (100% compulsory)!",
     "imageUrl": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=80",
     "gifUrl": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=80"
   }
