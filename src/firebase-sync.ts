@@ -2,7 +2,7 @@ import { initializeApp } from 'firebase/app';
 import {
   getAuth,
   GoogleAuthProvider,
-  signInWithPopup,
+  signInWithCredential,
   signOut,
   onAuthStateChanged,
   User
@@ -21,8 +21,10 @@ import firebaseConfig from '../firebase-applet-config.json';
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId);
 export const auth = getAuth(app);
-const googleProvider = new GoogleAuthProvider();
-googleProvider.setCustomParameters({ prompt: 'select_account' });
+
+const GOOGLE_OAUTH_CLIENT_ID =
+  firebaseConfig.oAuthClientId ||
+  '328045128-9o8clmes7c6itrht7acmc4v56e3sfs9n.apps.googleusercontent.com';
 
 export enum OperationType {
   CREATE = 'create',
@@ -69,25 +71,51 @@ async function testConnection() {
 }
 testConnection();
 
-// Purge all legacy localStorage keys that could hold old hardcoded emails
+// Purge all legacy or unverified localStorage keys
 try {
   localStorage.removeItem('active_cloud_user_email');
   localStorage.removeItem('stellar_account_email_v1');
   localStorage.removeItem('stellar_account_name_v1');
   localStorage.removeItem('vocab_google_session_v2');
+  localStorage.removeItem('vocab_auth_session_v3');
 } catch (e) {}
 
-const PROD_AUTH_STORAGE_KEY = 'vocab_auth_session_v3';
+const VERIFIED_AUTH_STORAGE_KEY = 'vocab_verified_google_session_v4';
 
 let currentUser: User | null = null;
-let sessionEmail = '';
-let sessionDisplayName = '';
+let verifiedSession: {
+  uid: string;
+  googleSub: string;
+  email: string;
+  displayName: string;
+  photoURL?: string;
+  idToken?: string;
+  accessToken?: string;
+  verified: boolean;
+} | null = null;
 
 try {
-  const saved = JSON.parse(localStorage.getItem(PROD_AUTH_STORAGE_KEY) || 'null');
-  if (saved && typeof saved.email === 'string' && saved.email.includes('@')) {
-    sessionEmail = saved.email.trim().toLowerCase();
-    sessionDisplayName = saved.displayName || sessionEmail.split('@')[0];
+  const saved = JSON.parse(localStorage.getItem(VERIFIED_AUTH_STORAGE_KEY) || 'null');
+  if (
+    saved &&
+    saved.verified === true &&
+    typeof saved.email === 'string' &&
+    saved.email.includes('@') &&
+    typeof saved.googleSub === 'string' &&
+    saved.googleSub.length > 3
+  ) {
+    verifiedSession = {
+      uid: saved.uid || `google_${saved.googleSub}`,
+      googleSub: saved.googleSub,
+      email: saved.email.trim().toLowerCase(),
+      displayName: saved.displayName || saved.email.split('@')[0],
+      photoURL: saved.photoURL || '',
+      idToken: saved.idToken || '',
+      accessToken: saved.accessToken || '',
+      verified: true
+    };
+  } else {
+    localStorage.removeItem(VERIFIED_AUTH_STORAGE_KEY);
   }
 } catch (e) {}
 
@@ -105,14 +133,10 @@ function emailToDocId(email: string): string {
 export function onAuthChange(cb: (user: any) => void) {
   if (typeof cb === 'function') {
     authChangeCallbacks.push(cb);
-    if (currentUser && currentUser.email) {
+    if (verifiedSession && verifiedSession.verified) {
+      cb(verifiedSession);
+    } else if (currentUser && currentUser.email) {
       cb(currentUser);
-    } else if (sessionEmail && sessionEmail.includes('@')) {
-      cb({
-        uid: emailToDocId(sessionEmail),
-        email: sessionEmail,
-        displayName: sessionDisplayName || sessionEmail.split('@')[0]
-      });
     } else {
       cb(null);
     }
@@ -140,11 +164,11 @@ function notifyAuthCallbacks(userObj: any) {
 }
 
 export function getActiveAccountEmail(): string {
+  if (verifiedSession && verifiedSession.verified && verifiedSession.email) {
+    return verifiedSession.email.trim().toLowerCase();
+  }
   if (currentUser && currentUser.email) {
     return currentUser.email.trim().toLowerCase();
-  }
-  if (sessionEmail && sessionEmail.includes('@')) {
-    return sessionEmail.trim().toLowerCase();
   }
   return '';
 }
@@ -184,33 +208,47 @@ function attachStudyStateListener(email: string) {
   );
 }
 
-export function setSessionEmail(email: string, displayName?: string) {
-  const clean = String(email || '').trim().toLowerCase();
-  if (clean && clean.includes('@')) {
-    sessionEmail = clean;
-    sessionDisplayName = (displayName || clean.split('@')[0]).trim();
+export async function applyVerifiedGoogleUser(userObj: any) {
+  if (!userObj || !userObj.email || !userObj.verified) return null;
+  const cleanEmail = String(userObj.email).trim().toLowerCase();
+  const googleSub = String(userObj.googleSub || userObj.uid || '').replace(/^google_/, '');
+  if (!cleanEmail.includes('@') || !googleSub) return null;
+
+  verifiedSession = {
+    uid: `google_${googleSub}`,
+    googleSub,
+    email: cleanEmail,
+    displayName: String(userObj.displayName || cleanEmail.split('@')[0]).trim(),
+    photoURL: String(userObj.photoURL || ''),
+    idToken: String(userObj.idToken || ''),
+    accessToken: String(userObj.accessToken || ''),
+    verified: true
+  };
+
+  try {
+    localStorage.setItem(VERIFIED_AUTH_STORAGE_KEY, JSON.stringify(verifiedSession));
+  } catch (e) {}
+
+  attachStudyStateListener(cleanEmail);
+  notifyAuthCallbacks(verifiedSession);
+
+  // Also sign in to Firebase Auth using the verified Google credential (pure HTTPS REST, no popup/iframe)
+  if (verifiedSession.idToken || verifiedSession.accessToken) {
     try {
-      localStorage.setItem(
-        PROD_AUTH_STORAGE_KEY,
-        JSON.stringify({
-          uid: emailToDocId(clean),
-          email: clean,
-          displayName: sessionDisplayName
-        })
+      const cred = GoogleAuthProvider.credential(
+        verifiedSession.idToken || null,
+        verifiedSession.accessToken || undefined
       );
-    } catch (e) {}
-    attachStudyStateListener(clean);
-  } else {
-    sessionEmail = '';
-    sessionDisplayName = '';
-    if (unsubscribeStudyState) {
-      unsubscribeStudyState();
-      unsubscribeStudyState = null;
+      const fbResult = await signInWithCredential(auth, cred);
+      if (fbResult && fbResult.user) {
+        currentUser = fbResult.user;
+      }
+    } catch (e) {
+      // Token may have expired on page reload; verifiedSession remains active
     }
-    try {
-      localStorage.removeItem(PROD_AUTH_STORAGE_KEY);
-    } catch (e) {}
   }
+
+  return verifiedSession;
 }
 
 export async function saveAccountStateToFirestore(email: string, payload: any): Promise<boolean> {
@@ -353,48 +391,136 @@ export async function deleteCustomDeckFromCloud(deckId: string) {
   }
 }
 
-let isSigningIn = false;
-export async function signInWithGoogle() {
-  if (isSigningIn) return null;
-  isSigningIn = true;
-  try {
-    const result = await signInWithPopup(auth, googleProvider);
-    if (result && result.user && result.user.email) {
-      const cleanEmail = result.user.email.trim().toLowerCase();
-      const displayName = result.user.displayName || cleanEmail.split('@')[0];
-      setSessionEmail(cleanEmail, displayName);
-      notifyAuthCallbacks(result.user);
-      return result.user;
-    }
-  } catch (error: any) {
-    // Never fall back to any hardcoded email!
-    // Only use an email if the user explicitly typed one into the sign-in input field.
-    const inputModal = document.getElementById('input-modal-email') as HTMLInputElement | null;
-    const inputSettings = document.getElementById('input-account-email') as HTMLInputElement | null;
-    const typedEmail = (inputModal?.value || inputSettings?.value || '').trim().toLowerCase();
-    if (typedEmail && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(typedEmail)) {
-      const displayName = typedEmail.split('@')[0];
-      setSessionEmail(typedEmail, displayName);
-      const virtualUser = {
-        uid: emailToDocId(typedEmail),
-        email: typedEmail,
-        displayName
-      };
-      notifyAuthCallbacks(virtualUser);
-      return virtualUser;
-    }
-    throw error;
-  } finally {
-    isSigningIn = false;
+export function buildGoogleOAuthUrl(stateId: string): string {
+  const nonceId = 'nc_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
+  const origin = window.location.hostname.endsWith('.run.app')
+    ? window.location.origin
+    : 'https://ais-pre-kgrpdx7hnunkkpn4rtvjsl-444550834163.asia-east1.run.app';
+  const redirectUri = origin + '/__/auth/handler';
+
+  return (
+    'https://accounts.google.com/o/oauth2/v2/auth' +
+    '?client_id=' + encodeURIComponent(GOOGLE_OAUTH_CLIENT_ID) +
+    '&redirect_uri=' + encodeURIComponent(redirectUri) +
+    '&response_type=' + encodeURIComponent('token id_token') +
+    '&scope=' + encodeURIComponent('openid email profile') +
+    '&prompt=select_account' +
+    '&state=' + encodeURIComponent(stateId) +
+    '&nonce=' + encodeURIComponent(nonceId)
+  );
+}
+
+let activeOAuthPollTimer: any = null;
+
+export function signInWithGoogle(): Promise<any> {
+  // Construct state & URL 100% synchronously so mobile browsers never block or close the popup
+  const stateId = 'st_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
+  const oauthUrl = buildGoogleOAuthUrl(stateId);
+
+  // Open Google OAuth 2.0 directly and synchronously on user gesture
+  const popup = window.open(
+    oauthUrl,
+    'google_oauth_signin',
+    'width=500,height=660,menubar=no,toolbar=no,location=yes,status=no'
+  );
+
+  // If running top-level on mobile and popup was blocked by the browser, navigate directly
+  if (!popup && window.self === window.top) {
+    window.location.assign(oauthUrl);
+    return new Promise(() => {});
   }
-  return null;
+
+  return new Promise((resolve, reject) => {
+    let settled = false;
+    const startTime = Date.now();
+
+    const cleanup = () => {
+      if (activeOAuthPollTimer) {
+        clearInterval(activeOAuthPollTimer);
+        activeOAuthPollTimer = null;
+      }
+      window.removeEventListener('message', onMessage);
+      if (bc) {
+        try { bc.close(); } catch (e) {}
+      }
+    };
+
+    const finishSuccess = async (userObj: any) => {
+      if (settled) return;
+      settled = true;
+      cleanup();
+      const applied = await applyVerifiedGoogleUser(userObj);
+      resolve(applied || userObj);
+    };
+
+    const finishError = (errStr: string) => {
+      if (settled) return;
+      settled = true;
+      cleanup();
+      reject(new Error(errStr));
+    };
+
+    const onMessage = (event: MessageEvent) => {
+      const data = event.data;
+      if (!data || typeof data !== 'object') return;
+      if (data.type === 'GOOGLE_OAUTH_SUCCESS' && data.user && data.user.verified) {
+        finishSuccess(data.user);
+      } else if (data.type === 'GOOGLE_OAUTH_ERROR' && data.state === stateId) {
+        finishError(data.error || 'Google Sign-In cancelled');
+      }
+    };
+    window.addEventListener('message', onMessage);
+
+    let bc: BroadcastChannel | null = null;
+    try {
+      if (typeof BroadcastChannel !== 'undefined') {
+        bc = new BroadcastChannel('vocab_google_auth_channel');
+        bc.onmessage = (ev) => {
+          const data = ev.data;
+          if (data && data.type === 'GOOGLE_OAUTH_SUCCESS' && data.user && data.user.verified) {
+            finishSuccess(data.user);
+          }
+        };
+      }
+    } catch (e) {}
+
+    if (activeOAuthPollTimer) clearInterval(activeOAuthPollTimer);
+    activeOAuthPollTimer = setInterval(async () => {
+      if (settled) return;
+      if (Date.now() - startTime > 180000) {
+        finishError('Google Sign-In timed out');
+        return;
+      }
+      try {
+        const res = await fetch(`/api/auth/poll-oauth?state=${encodeURIComponent(stateId)}`);
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.status === 'completed' && data.user && data.user.verified) {
+            finishSuccess(data.user);
+          } else if (data && data.status === 'error') {
+            finishError(data.error || 'Google Sign-In cancelled');
+          }
+        }
+      } catch (e) {}
+    }, 900);
+  });
 }
 
 export const loginWithGoogle = signInWithGoogle;
 
 export async function signOutUser() {
-  setSessionEmail('', '');
+  verifiedSession = null;
   currentUser = null;
+  if (unsubscribeStudyState) {
+    unsubscribeStudyState();
+    unsubscribeStudyState = null;
+  }
+  try {
+    localStorage.removeItem(VERIFIED_AUTH_STORAGE_KEY);
+    localStorage.removeItem('vocab_auth_session_v3');
+    localStorage.removeItem('vocab_google_session_v2');
+    localStorage.removeItem('active_cloud_user_email');
+  } catch (e) {}
   try {
     if (auth.currentUser) {
       await signOut(auth);
@@ -405,20 +531,42 @@ export async function signOutUser() {
 
 export const logoutUser = signOutUser;
 
+// Initialize listener if a verified session exists from previous login
+if (verifiedSession && verifiedSession.verified && verifiedSession.email) {
+  attachStudyStateListener(verifiedSession.email);
+  if (verifiedSession.idToken || verifiedSession.accessToken) {
+    try {
+      const cred = GoogleAuthProvider.credential(
+        verifiedSession.idToken || null,
+        verifiedSession.accessToken || undefined
+      );
+      signInWithCredential(auth, cred).catch(() => {});
+    } catch (e) {}
+  }
+}
+
 onAuthStateChanged(auth, async (user) => {
   currentUser = user;
   if (user && user.email) {
     const cleanEmail = user.email.trim().toLowerCase();
     const displayName = user.displayName || cleanEmail.split('@')[0];
-    setSessionEmail(cleanEmail, displayName);
-    notifyAuthCallbacks(user);
-  } else if (sessionEmail && sessionEmail.includes('@')) {
-    attachStudyStateListener(sessionEmail);
-    notifyAuthCallbacks({
-      uid: emailToDocId(sessionEmail),
-      email: sessionEmail,
-      displayName: sessionDisplayName || sessionEmail.split('@')[0]
-    });
+    if (!verifiedSession || verifiedSession.email !== cleanEmail) {
+      verifiedSession = {
+        uid: user.uid,
+        googleSub: user.uid,
+        email: cleanEmail,
+        displayName,
+        photoURL: user.photoURL || '',
+        verified: true
+      };
+      try {
+        localStorage.setItem(VERIFIED_AUTH_STORAGE_KEY, JSON.stringify(verifiedSession));
+      } catch (e) {}
+      attachStudyStateListener(cleanEmail);
+    }
+    notifyAuthCallbacks(verifiedSession);
+  } else if (verifiedSession && verifiedSession.verified) {
+    notifyAuthCallbacks(verifiedSession);
   } else {
     notifyAuthCallbacks(null);
   }
@@ -429,9 +577,10 @@ onAuthStateChanged(auth, async (user) => {
   db,
   signInWithGoogle,
   loginWithGoogle,
+  applyVerifiedGoogleUser,
+  buildGoogleOAuthUrl,
   signOutUser,
   logoutUser,
-  setSessionEmail,
   getActiveAccountEmail,
   saveAccountStateToFirestore,
   loadAccountStateFromFirestore,
@@ -442,5 +591,5 @@ onAuthStateChanged(auth, async (user) => {
   pushCustomShortcutToCloud,
   pushCustomDeckToCloud,
   deleteCustomDeckFromCloud,
-  getCurrentUser: () => currentUser
+  getCurrentUser: () => verifiedSession || currentUser
 };

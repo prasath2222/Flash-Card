@@ -4,10 +4,12 @@ import path from "path";
 import { fileURLToPath } from "url";
 import fs from "fs";
 import { initializeApp, getApps } from "firebase/app";
-import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+import { getFirestore, doc, getDoc, setDoc, deleteDoc } from "firebase/firestore";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+const GOOGLE_OAUTH_CLIENT_ID = "328045128-9o8clmes7c6itrht7acmc4v56e3sfs9n.apps.googleusercontent.com";
 
 // Initialize Firestore connection for cross-container & worldwide persistence
 let firestoreDb: ReturnType<typeof getFirestore> | null = null;
@@ -21,6 +23,9 @@ try {
 } catch (err) {
   console.warn("Firestore initialization notice in server.ts:", err);
 }
+
+// In-memory store for OAuth state handoff (also backed by Firestore for multi-instance support)
+const pendingOAuthStates = new Map<string, { status: "completed" | "error"; user?: any; error?: string; createdAt: number }>();
 
 async function startServer() {
   const app = express();
@@ -163,6 +168,323 @@ async function startServer() {
     } catch (e) {
       res.json({ ok: false, imageUrl: `/api/image?q=${encodeURIComponent(String(req.query.q || ""))}` });
     }
+  });
+
+  // =========================================================================
+  // REAL PRODUCTION GOOGLE OAUTH 2.0 HANDLER & CRYPTOGRAPHIC TOKEN VERIFIER
+  // Supports all mobile browsers (iOS Safari, Android Chrome) & desktop
+  // =========================================================================
+  const oauthCallbackHtml = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign in with Google</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0b1120;
+      color: #f8fafc;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .card {
+      width: 100%;
+      max-width: 380px;
+      background: #172236;
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 22px;
+      padding: 28px 24px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    }
+    .spinner {
+      width: 42px;
+      height: 42px;
+      border: 4px solid rgba(56, 189, 248, 0.2);
+      border-top-color: #38bdf8;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .title { font-size: 1.15rem; font-weight: 800; margin-bottom: 8px; }
+    .sub { font-size: 0.88rem; color: #94a3b8; line-height: 1.45; }
+    .btn {
+      display: none;
+      margin-top: 18px;
+      width: 100%;
+      padding: 13px 18px;
+      background: #10b981;
+      color: #052e16;
+      font-weight: 800;
+      font-size: 0.95rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="spinner" id="spinner"></div>
+    <div class="title" id="status-title">Completing Google Sign-In...</div>
+    <div class="sub" id="status-sub">Verifying your Google account credentials securely.</div>
+    <button class="btn" id="return-btn" onclick="finishAndClose()">Return to App</button>
+  </div>
+  <script>
+    let verifiedUser = null;
+    function finishAndClose() {
+      try { window.close(); } catch (e) {}
+      setTimeout(() => {
+        window.location.replace("/");
+      }, 150);
+    }
+
+    (async function() {
+      const hashStr = window.location.hash ? window.location.hash.substring(1) : "";
+      const searchStr = window.location.search ? window.location.search.substring(1) : "";
+      const hashParams = new URLSearchParams(hashStr);
+      const queryParams = new URLSearchParams(searchStr);
+
+      const idToken = hashParams.get("id_token") || queryParams.get("id_token") || "";
+      const accessToken = hashParams.get("access_token") || queryParams.get("access_token") || "";
+      const state = hashParams.get("state") || queryParams.get("state") || "";
+      const error = hashParams.get("error") || queryParams.get("error") || "";
+
+      const spinner = document.getElementById("spinner");
+      const titleEl = document.getElementById("status-title");
+      const subEl = document.getElementById("status-sub");
+      const btnEl = document.getElementById("return-btn");
+
+      if (error || (!idToken && !accessToken)) {
+        if (state) {
+          fetch("/api/auth/verify-google", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ state, error: error || "cancelled" })
+          }).catch(() => {});
+        }
+        try {
+          if (window.opener) {
+            window.opener.postMessage({ type: "GOOGLE_OAUTH_ERROR", state, error: error || "cancelled" }, "*");
+          }
+        } catch (e) {}
+        spinner.style.display = "none";
+        titleEl.textContent = "Google Sign-In Cancelled";
+        subEl.textContent = "You can close this window and try again anytime.";
+        btnEl.style.display = "block";
+        setTimeout(() => { try { window.close(); } catch (e) {} }, 600);
+        return;
+      }
+
+      try {
+        const res = await fetch("/api/auth/verify-google", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ state, idToken, accessToken })
+        });
+        const data = await res.json();
+        if (!res.ok || !data.ok || !data.user) {
+          throw new Error(data.error || "Google token verification failed");
+        }
+
+        verifiedUser = data.user;
+
+        // 1. Save verified Google session to same-origin localStorage
+        try {
+          localStorage.setItem("vocab_verified_google_session_v4", JSON.stringify(verifiedUser));
+        } catch (e) {}
+
+        // 2. Broadcast to same-origin tabs/iframes via BroadcastChannel
+        try {
+          if (typeof BroadcastChannel !== "undefined") {
+            const bc = new BroadcastChannel("vocab_google_auth_channel");
+            bc.postMessage({ type: "GOOGLE_OAUTH_SUCCESS", state, user: verifiedUser });
+            setTimeout(() => bc.close(), 500);
+          }
+        } catch (e) {}
+
+        // 3. Post message to opener window
+        try {
+          if (window.opener) {
+            window.opener.postMessage({ type: "GOOGLE_OAUTH_SUCCESS", state, user: verifiedUser }, "*");
+          }
+        } catch (e) {}
+
+        spinner.style.display = "none";
+        titleEl.textContent = "Signed in as " + verifiedUser.email;
+        subEl.textContent = "Your Google account is connected. Returning to the app...";
+        btnEl.textContent = "Continue as " + (verifiedUser.displayName || verifiedUser.email);
+        btnEl.style.display = "block";
+
+        try { window.close(); } catch (e) {}
+        setTimeout(() => {
+          try { window.close(); } catch (e) {}
+          if (!window.opener) {
+            window.location.replace("/");
+          }
+        }, 400);
+      } catch (err) {
+        spinner.style.display = "none";
+        titleEl.textContent = "Sign-In Verification Failed";
+        subEl.textContent = String(err && err.message ? err.message : "Could not verify Google credentials.");
+        btnEl.style.display = "block";
+      }
+    })();
+  </script>
+</body>
+</html>`;
+
+  app.get(["/__/auth/handler", "/__/auth/handler/", "/auth/callback", "/auth/callback/"], (req, res) => {
+    res.setHeader("Content-Type", "text/html; charset=utf-8");
+    res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate");
+    res.status(200).send(oauthCallbackHtml);
+  });
+
+  app.post("/api/auth/verify-google", async (req, res) => {
+    try {
+      const { state, idToken, accessToken, error } = req.body || {};
+      const cleanState = String(state || "").trim();
+
+      if (error) {
+        if (cleanState) {
+          pendingOAuthStates.set(cleanState, { status: "error", error: String(error), createdAt: Date.now() });
+        }
+        return res.json({ ok: false, error: String(error) });
+      }
+
+      if (!idToken && !accessToken) {
+        return res.status(400).json({ ok: false, error: "Missing Google OAuth token" });
+      }
+
+      let email = "";
+      let emailVerified = false;
+      let displayName = "";
+      let photoURL = "";
+      let googleSub = "";
+
+      // Verify id_token with Google's official tokeninfo endpoint
+      if (idToken) {
+        const tokenRes = await fetch(
+          `https://oauth2.googleapis.com/tokeninfo?id_token=${encodeURIComponent(String(idToken))}`
+        );
+        if (tokenRes.ok) {
+          const tokenInfo: any = await tokenRes.json();
+          if (tokenInfo.aud === GOOGLE_OAUTH_CLIENT_ID && tokenInfo.email) {
+            email = String(tokenInfo.email).trim().toLowerCase();
+            emailVerified = tokenInfo.email_verified === "true" || tokenInfo.email_verified === true;
+            displayName = String(tokenInfo.name || tokenInfo.given_name || email.split("@")[0]).trim();
+            photoURL = String(tokenInfo.picture || "").trim();
+            googleSub = String(tokenInfo.sub || "").trim();
+          }
+        }
+      }
+
+      // Also verify / enrich via Google's userinfo endpoint if accessToken is provided
+      if (accessToken && (!email || !displayName || !photoURL)) {
+        const userRes = await fetch("https://www.googleapis.com/oauth2/v3/userinfo", {
+          headers: { Authorization: `Bearer ${String(accessToken)}` }
+        });
+        if (userRes.ok) {
+          const userInfo: any = await userRes.json();
+          if (userInfo.email) {
+            email = email || String(userInfo.email).trim().toLowerCase();
+            emailVerified = emailVerified || Boolean(userInfo.email_verified);
+            displayName = displayName || String(userInfo.name || userInfo.given_name || email.split("@")[0]).trim();
+            photoURL = photoURL || String(userInfo.picture || "").trim();
+            googleSub = googleSub || String(userInfo.sub || "").trim();
+          }
+        }
+      }
+
+      if (!email || !email.includes("@") || !emailVerified || !googleSub) {
+        return res.status(401).json({
+          ok: false,
+          error: "Invalid or unverified Google account credentials."
+        });
+      }
+
+      const verifiedUser = {
+        uid: `google_${googleSub}`,
+        googleSub,
+        email,
+        displayName: displayName || email.split("@")[0],
+        photoURL,
+        idToken: idToken || "",
+        accessToken: accessToken || "",
+        verified: true,
+        authenticatedAt: new Date().toISOString()
+      };
+
+      if (cleanState) {
+        pendingOAuthStates.set(cleanState, {
+          status: "completed",
+          user: verifiedUser,
+          createdAt: Date.now()
+        });
+
+        // Also store in Firestore so multi-instance Cloud Run containers share the OAuth handoff
+        if (firestoreDb) {
+          try {
+            await setDoc(doc(firestoreDb, "study_state", `oauth_${cleanState.replace(/[^a-zA-Z0-9_-]/g, "_")}`), {
+              status: "completed",
+              user: verifiedUser,
+              createdAt: Date.now()
+            });
+          } catch (e) {}
+        }
+      }
+
+      return res.json({ ok: true, user: verifiedUser });
+    } catch (err: any) {
+      return res.status(500).json({ ok: false, error: err?.message || "Verification error" });
+    }
+  });
+
+  app.get("/api/auth/poll-oauth", async (req, res) => {
+    const cleanState = String(req.query.state || "").trim();
+    if (!cleanState) {
+      return res.json({ ok: true, status: "pending" });
+    }
+
+    const memEntry = pendingOAuthStates.get(cleanState);
+    if (memEntry) {
+      return res.json({
+        ok: true,
+        status: memEntry.status,
+        user: memEntry.user || null,
+        error: memEntry.error || null
+      });
+    }
+
+    if (firestoreDb) {
+      try {
+        const docId = `oauth_${cleanState.replace(/[^a-zA-Z0-9_-]/g, "_")}`;
+        const snap = await getDoc(doc(firestoreDb, "study_state", docId));
+        if (snap.exists()) {
+          const data: any = snap.data();
+          if (data && data.status) {
+            pendingOAuthStates.set(cleanState, data);
+            // Clean up one-time OAuth handoff doc
+            deleteDoc(doc(firestoreDb, "study_state", docId)).catch(() => {});
+            return res.json({
+              ok: true,
+              status: data.status,
+              user: data.user || null,
+              error: data.error || null
+            });
+          }
+        }
+      } catch (e) {}
+    }
+
+    return res.json({ ok: true, status: "pending" });
   });
 
   // =========================================================================
@@ -432,7 +754,6 @@ async function startServer() {
     };
   }
 
-  // Endpoints used by index.html (/api/user/save, /api/user/load, /api/user/poll)
   app.post("/api/user/save", async (req, res) => {
     const result = await saveProfileData(req.body?.email, req.body);
     res.json({ ok: true, success: true, ...result });
@@ -467,7 +788,6 @@ async function startServer() {
     });
   });
 
-  // Endpoints used by firebase-sync.ts & legacy callers
   app.get("/api/account-sync", async (req, res) => {
     const result = await loadProfileData(req.query.email);
     res.json({ ok: true, success: true, ...result });

@@ -9807,10 +9807,10 @@
           <div class="settings-card" style="border: 2px solid rgba(56, 189, 248, 0.4); background: linear-gradient(135deg, rgba(2, 132, 199, 0.16), rgba(16, 185, 129, 0.08)); margin-bottom: 18px;">
             <div class="settings-card-header">
               <div class="settings-card-left">
-                <div class="settings-card-icon" id="cloud-user-avatar-icon" style="background: linear-gradient(135deg, #0284c7, #10b981); box-shadow: 0 3px 0 #0369a1; color: #ffffff; border: none; font-size: 1.25rem;">☁️</div>
+                <div class="settings-card-icon" id="cloud-user-avatar-icon" style="background: linear-gradient(135deg, #0284c7, #10b981); box-shadow: 0 3px 0 #0369a1; color: #ffffff; border: none; font-size: 1.25rem; overflow: hidden;">☁️</div>
                 <div>
                   <h3 class="settings-card-title" id="cloud-sync-user-title">Not Signed In</h3>
-                  <p class="settings-card-sub" id="cloud-sync-user-sub">Sign in with any Google account to save and access your progress from any device in the world.</p>
+                  <p class="settings-card-sub" id="cloud-sync-user-sub">Sign in with Google to save and access your progress from any device anywhere in the world.</p>
                 </div>
               </div>
             </div>
@@ -9819,16 +9819,16 @@
             <div style="margin-top: 14px; padding: 12px 14px; background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
               <div style="display: flex; align-items: center; gap: 8px;">
                 <span id="cloud-tab-status-dot" style="display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: #94a3b8;"></span>
-                <span id="cloud-account-live-status-text" style="font-size: 0.85rem; font-weight: 800; color: #cbd5e1;">Not Signed In · Sign in to sync across devices</span>
+                <span id="cloud-account-live-status-text" style="font-size: 0.85rem; font-weight: 800; color: #cbd5e1;">Not Signed In · Sign in with Google to sync</span>
               </div>
               <button type="button" class="duo-btn-3d" id="btn-cloud-manual-sync" style="display: none; padding: 8px 16px; font-size: 0.82rem; font-weight: 800; background: rgba(56, 189, 248, 0.2); border: 1px solid rgba(56, 189, 248, 0.45); color: #38bdf8; cursor: pointer;">
                 ⚡ Sync Now
               </button>
             </div>
 
-            <!-- Google Sign-In Button -->
+            <!-- Official Google OAuth 2.0 Sign-In & Sign-Out Buttons -->
             <div style="margin-top: 14px;">
-              <button type="button" class="settings-action-btn settings-action-btn-primary" id="btn-cloud-signin" style="background: #ffffff; border-color: #e2e8f0; color: #0f172a; box-shadow: 0 4px 0 #cbd5e1; width: 100%; justify-content: center; gap: 10px; font-weight: 800;">
+              <button type="button" class="settings-action-btn settings-action-btn-primary" id="btn-cloud-signin" style="background: #ffffff; border-color: #e2e8f0; color: #0f172a; box-shadow: 0 4px 0 #cbd5e1; width: 100%; justify-content: center; gap: 10px; font-weight: 800; padding: 13px;">
                 <svg width="18" height="18" viewBox="0 0 24 24">
                   <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
                   <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.11-6.72-4.96H1.29v3.14C3.26 21.3 7.31 24 12 24z"/>
@@ -9837,20 +9837,9 @@
                 </svg>
                 <span id="btn-cloud-signin-label">Sign in with Google</span>
               </button>
-              <button type="button" class="settings-action-btn settings-action-btn-danger" id="btn-cloud-signout" style="display: none; width: 100%; justify-content: center; margin-top: 10px;">
-                <span>Sign Out of Google Account</span>
+              <button type="button" class="settings-action-btn settings-action-btn-danger" id="btn-cloud-signout" style="display: none; width: 100%; justify-content: center; margin-top: 10px; padding: 12px;">
+                <span>Sign Out</span>
               </button>
-            </div>
-
-            <!-- Cross-Device Google Email Connect (for mobile browsers where popups are restricted) -->
-            <div style="margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.08);">
-              <label id="label-account-email" for="input-account-email" style="font-size: 0.78rem; font-weight: 750; color: #94a3b8; display: block; margin-bottom: 6px;">Or sign in directly with any Google Email:</label>
-              <div style="display: flex; gap: 8px;">
-                <input type="email" id="input-account-email" value="" autocomplete="email" placeholder="name@gmail.com" style="flex: 1; padding: 11px 14px; background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; color: #fff; font-size: 0.92rem; font-weight: 700;" />
-                <button type="button" class="duo-btn-3d duo-btn-3d-green" id="btn-switch-account-email" style="padding: 11px 18px; font-size: 0.88rem; font-weight: 800; white-space: nowrap; cursor: pointer;">
-                  Sign In
-                </button>
-              </div>
             </div>
           </div>
         </div>
@@ -9861,13 +9850,13 @@
     <!-- GOOGLE SIGN-IN & CROSS-DEVICE CLOUD SYNC MODAL             -->
     <!-- ========================================================== -->
     <div class="modal-backdrop" id="modal-cloud-sync-login">
-      <div class="modal-sheet" style="max-width: 500px; background: linear-gradient(180deg, #172236 0%, #0c1424 100%); border: 1px solid rgba(255,255,255,0.14); border-radius: 26px; box-shadow: 0 25px 70px rgba(0,0,0,0.85); overflow: hidden; padding: 24px;">
+      <div class="modal-sheet" style="max-width: 480px; background: linear-gradient(180deg, #172236 0%, #0c1424 100%); border: 1px solid rgba(255,255,255,0.14); border-radius: 26px; box-shadow: 0 25px 70px rgba(0,0,0,0.85); overflow: hidden; padding: 24px;">
         <div class="modal-handle"></div>
         <div class="modal-header" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.08);">
           <div style="display: flex; align-items: center; gap: 10px;">
-            <div style="width: 38px; height: 38px; border-radius: 12px; background: linear-gradient(135deg, #0284c7, #10b981); display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">☁️</div>
+            <div id="cloud-modal-avatar" style="width: 38px; height: 38px; border-radius: 12px; background: linear-gradient(135deg, #0284c7, #10b981); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; overflow: hidden;">☁️</div>
             <div>
-              <span class="modal-title" style="font-size: 1.2rem; font-weight: 800; color: #fff;">Google Sign-In & Cloud Sync</span>
+              <span class="modal-title" style="font-size: 1.2rem; font-weight: 800; color: #fff;">Sign in with Google</span>
               <div style="font-size: 0.78rem; color: #94a3b8;">Save & access your progress from any device worldwide</div>
             </div>
           </div>
@@ -9878,23 +9867,23 @@
         <div style="padding: 16px; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; margin-bottom: 16px;">
           <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
             <div>
-              <div id="cloud-modal-status-header" style="font-size: 0.72rem; color: #38bdf8; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;">Account Status</div>
+              <div id="cloud-modal-status-header" style="font-size: 0.72rem; color: #38bdf8; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;">Google Account Status</div>
               <div id="cloud-modal-account-email" style="font-size: 1.1rem; font-weight: 850; color: #ffffff; word-break: break-all;">Not Signed In</div>
               <div id="cloud-modal-status-text" style="font-size: 0.76rem; color: #94a3b8; font-weight: 750; margin-top: 4px; display: flex; align-items: center; gap: 6px;">
                 <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #94a3b8;"></span>
-                <span>Sign in with any Google account to save & sync across devices</span>
+                <span>Sign in with your Google account to save & sync across devices</span>
               </div>
             </div>
             <button type="button" class="duo-btn-3d" id="btn-modal-manual-push" style="display: none; padding: 8px 14px; font-size: 0.8rem; font-weight: 800; background: rgba(56,189,248,0.2); border: 1px solid rgba(56,189,248,0.45); color: #38bdf8; cursor: pointer;">
-              ⚡ Save Now
+              ⚡ Sync Now
             </button>
           </div>
         </div>
 
-        <!-- Official 1-Tap Google Sign In -->
-        <div style="margin-bottom: 16px;">
-          <button type="button" class="settings-action-btn settings-action-btn-primary" id="btn-modal-google-signin" style="background: #ffffff; border-color: #e2e8f0; color: #0f172a; box-shadow: 0 4px 0 #cbd5e1; width: 100%; justify-content: center; gap: 10px; padding: 13px; font-weight: 800; font-size: 0.96rem;">
-            <svg width="19" height="19" viewBox="0 0 24 24">
+        <!-- Official 1-Tap Google OAuth 2.0 Sign In -->
+        <div style="margin-bottom: 12px;">
+          <button type="button" class="settings-action-btn settings-action-btn-primary" id="btn-modal-google-signin" style="background: #ffffff; border-color: #e2e8f0; color: #0f172a; box-shadow: 0 4px 0 #cbd5e1; width: 100%; justify-content: center; gap: 10px; padding: 14px; font-weight: 800; font-size: 0.98rem; cursor: pointer;">
+            <svg width="20" height="20" viewBox="0 0 24 24">
               <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
               <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.11-6.72-4.96H1.29v3.14C3.26 21.3 7.31 24 12 24z"/>
               <path fill="#FBBC05" d="M5.28 14.24c-.24-.72-.38-1.49-.38-2.24s.14-1.52.38-2.24V6.62H1.29C.47 8.24 0 10.06 0 12s.47 3.76 1.29 5.38l3.99-3.14z"/>
@@ -9904,24 +9893,22 @@
           </button>
         </div>
 
-        <!-- Direct Google Email Sign-In / Account Switcher -->
-        <div style="padding: 14px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; margin-bottom: 14px;">
-          <label id="label-modal-email" for="input-modal-email" style="font-size: 0.79rem; font-weight: 750; color: #cbd5e1; display: block; margin-bottom: 6px;">Or sign in with any Google Email (All Devices & Browsers):</label>
-          <div style="display: flex; gap: 8px;">
-            <input type="email" id="input-modal-email" value="" autocomplete="email" placeholder="name@gmail.com" style="flex: 1; padding: 10px 14px; background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; color: #fff; font-size: 0.92rem; font-weight: 700;" />
-            <button type="button" class="duo-btn-3d duo-btn-3d-green" id="btn-modal-switch-email" style="padding: 10px 16px; font-size: 0.86rem; font-weight: 800; white-space: nowrap; cursor: pointer;">
-              Sign In
-            </button>
-          </div>
-          <div style="margin-top: 8px; font-size: 0.74rem; color: #94a3b8;">
-            🔒 Each Google account has its own private cloud storage. Sign in from any phone, tablet, or computer anywhere in the world to access your saved progress.
-          </div>
+        <!-- Mobile / Blocked-Popup Direct Link Helper (shown automatically while OAuth is waiting) -->
+        <div id="oauth-waiting-helper" style="display: none; margin-bottom: 14px; padding: 12px 14px; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 14px; text-align: center;">
+          <div style="font-size: 0.82rem; font-weight: 700; color: #e2e8f0; margin-bottom: 8px;">Complete sign-in in the Google window, or tap below if your browser blocked the popup:</div>
+          <a id="oauth-direct-link" href="#" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 18px; background: #38bdf8; color: #0f172a; font-weight: 800; font-size: 0.86rem; border-radius: 10px; text-decoration: none;">
+            Open Google Sign-In Page &rarr;
+          </a>
         </div>
 
         <!-- Sign Out Button -->
-        <button type="button" class="settings-action-btn settings-action-btn-danger" id="btn-modal-signout" style="display: none; width: 100%; justify-content: center; padding: 10px;">
-          <span>Sign Out of Account</span>
+        <button type="button" class="settings-action-btn settings-action-btn-danger" id="btn-modal-signout" style="display: none; width: 100%; justify-content: center; padding: 12px; margin-bottom: 10px;">
+          <span>Sign Out</span>
         </button>
+
+        <div style="font-size: 0.75rem; color: #94a3b8; text-align: center; line-height: 1.45; margin-top: 6px;">
+          🔒 Authenticated via official Google OAuth 2.0. Your learned cards, deleted cards, shortcuts, and custom decks sync automatically across all your devices.
+        </div>
       </div>
     </div>
     <!-- ========================================================== -->
@@ -20901,34 +20888,48 @@ const tier800DeckCards = initialDeckCards;
       }
 
       /* ==========================================================
-         PRODUCTION GOOGLE ACCOUNT LOGIN & REAL-TIME SYNC
-         Zero hardcoded emails! Private per-account cloud storage;
-         sign in with any Google account on any device worldwide.
+         PRODUCTION GOOGLE OAUTH 2.0 LOGIN & REAL-TIME SYNC
+         Strictly verified Google OAuth 2.0 accounts only.
+         Works across all mobile phones, tablets, and desktop browsers.
          ========================================================== */
-      // Purge all legacy keys so no old hardcoded email can ever persist
+      // Purge all legacy or unverified localStorage keys
       try {
         localStorage.removeItem("active_cloud_user_email");
         localStorage.removeItem("stellar_account_email_v1");
         localStorage.removeItem("stellar_account_name_v1");
         localStorage.removeItem("vocab_google_session_v2");
+        localStorage.removeItem("vocab_auth_session_v3");
       } catch (e) {}
 
-      const PROD_AUTH_STORAGE_KEY = "vocab_auth_session_v3";
+      const VERIFIED_AUTH_STORAGE_KEY = "vocab_verified_google_session_v4";
+      const GOOGLE_OAUTH_CLIENT_ID = "328045128-9o8clmes7c6itrht7acmc4v56e3sfs9n.apps.googleusercontent.com";
+
       let currentAccountEmail = "";
       let currentAccountName = "";
+      let currentAccountPhoto = "";
 
       try {
-        const savedSession = JSON.parse(localStorage.getItem(PROD_AUTH_STORAGE_KEY) || "null");
-        if (savedSession && typeof savedSession.email === "string" && savedSession.email.includes("@")) {
+        const savedSession = JSON.parse(localStorage.getItem(VERIFIED_AUTH_STORAGE_KEY) || "null");
+        if (
+          savedSession &&
+          savedSession.verified === true &&
+          typeof savedSession.email === "string" &&
+          savedSession.email.includes("@") &&
+          typeof savedSession.googleSub === "string" &&
+          savedSession.googleSub.length > 3
+        ) {
           currentAccountEmail = savedSession.email.trim().toLowerCase();
           currentAccountName = savedSession.displayName || currentAccountEmail.split("@")[0];
+          currentAccountPhoto = savedSession.photoURL || "";
+        } else {
+          localStorage.removeItem(VERIFIED_AUTH_STORAGE_KEY);
         }
       } catch (e) {}
 
-      // One-time clean boot migration: clear any leftover local state from before v3 auth
+      // One-time clean boot migration for v4 verified auth
       try {
-        if (!localStorage.getItem("vocab_clean_boot_v3")) {
-          localStorage.setItem("vocab_clean_boot_v3", "1");
+        if (!localStorage.getItem("vocab_clean_boot_v4")) {
+          localStorage.setItem("vocab_clean_boot_v4", "1");
           if (!currentAccountEmail) {
             localStorage.removeItem(LEARNED_STORAGE_KEY);
             localStorage.removeItem(DELETED_CARDS_STORAGE_KEY);
@@ -20999,55 +21000,21 @@ const tier800DeckCards = initialDeckCards;
         const cloudUserSub = document.getElementById("cloud-sync-user-sub");
         if (cloudUserSub) {
           cloudUserSub.textContent = isSignedIn
-            ? `Signed in as ${currentAccountEmail} · All changes save automatically to your Google account across all devices.`
-            : "Sign in with any Google account to save and access your progress from any device in the world.";
+            ? `Signed in with Google as ${currentAccountEmail} · Changes save automatically across all devices.`
+            : "Sign in with Google to save and access your progress from any device anywhere in the world.";
         }
 
         const modalEmailEl = document.getElementById("cloud-modal-account-email");
         if (modalEmailEl) modalEmailEl.textContent = displayTitle;
 
-        const labelAccountEmail = document.getElementById("label-account-email");
-        if (labelAccountEmail) {
-          labelAccountEmail.textContent = isSignedIn
-            ? "Switch to a different Google Account:"
-            : "Or sign in directly with any Google Email:";
-        }
-
-        const labelModalEmail = document.getElementById("label-modal-email");
-        if (labelModalEmail) {
-          labelModalEmail.textContent = isSignedIn
-            ? "Switch to a different Google Account (All Devices):"
-            : "Or sign in with any Google Email (All Devices & Browsers):";
-        }
-
-        const inputAccount = document.getElementById("input-account-email");
-        if (inputAccount) {
-          inputAccount.placeholder = isSignedIn ? "Enter another Google email to switch..." : "name@gmail.com";
-        }
-
-        const inputModal = document.getElementById("input-modal-email");
-        if (inputModal) {
-          inputModal.placeholder = isSignedIn ? "Enter another Google email to switch..." : "name@gmail.com";
-        }
-
-        const btnSwitchAccountEmail = document.getElementById("btn-switch-account-email");
-        if (btnSwitchAccountEmail) {
-          btnSwitchAccountEmail.textContent = isSignedIn ? "Switch Account" : "Sign In";
-        }
-
-        const btnModalSwitchEmail = document.getElementById("btn-modal-switch-email");
-        if (btnModalSwitchEmail) {
-          btnModalSwitchEmail.textContent = isSignedIn ? "Switch Account" : "Sign In";
-        }
-
         const desktopCloudLabel = document.getElementById("desktop-cloud-label");
         if (desktopCloudLabel) {
-          desktopCloudLabel.textContent = isSignedIn ? `${shortName} ✓` : "Sign In";
+          desktopCloudLabel.textContent = isSignedIn ? `${shortName} ✓` : "Sign in with Google";
         }
 
         const mobileCloudLabel = document.getElementById("mobile-cloud-label");
         if (mobileCloudLabel) {
-          mobileCloudLabel.textContent = isSignedIn ? "Synced ✓" : "Sign In";
+          mobileCloudLabel.textContent = isSignedIn ? `${shortName.slice(0, 10)} ✓` : "Sign In";
         }
 
         const desktopDot = document.getElementById("desktop-cloud-dot");
@@ -21072,24 +21039,24 @@ const tier800DeckCards = initialDeckCards;
         if (tabBanner) {
           tabBanner.textContent = isSignedIn
             ? `Synced (${currentAccountEmail}) ✓`
-            : "Not Signed In · Sign in to save across devices";
+            : "Not Signed In · Sign in with Google to sync";
           tabBanner.style.color = isSignedIn ? "#34d399" : "#cbd5e1";
         }
 
         const modalBanner = document.getElementById("cloud-modal-status-text");
         if (modalBanner) {
           modalBanner.innerHTML = isSignedIn
-            ? `<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#10b981;box-shadow:0 0 6px #10b981;"></span><span style="color:#34d399;">Auto-saving all changes to ${currentAccountEmail} ✓</span>`
-            : `<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#94a3b8;"></span><span style="color:#94a3b8;">Sign in with any Google account to save & sync across devices</span>`;
+            ? `<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#10b981;box-shadow:0 0 6px #10b981;"></span><span style="color:#34d399;">Verified Google Account · Auto-saving to ${currentAccountEmail} ✓</span>`
+            : `<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#94a3b8;"></span><span style="color:#94a3b8;">Sign in with your Google account to save & sync across devices</span>`;
         }
 
         const btnSigninLabel = document.getElementById("btn-cloud-signin-label");
         if (btnSigninLabel) {
-          btnSigninLabel.textContent = isSignedIn ? "Switch Google Account" : "Sign in with Google";
+          btnSigninLabel.textContent = isSignedIn ? "Sign in with Google (Different Account)" : "Sign in with Google";
         }
         const btnModalGoogleLabel = document.getElementById("btn-modal-google-label");
         if (btnModalGoogleLabel) {
-          btnModalGoogleLabel.textContent = isSignedIn ? "Switch Google Account" : "Sign in with Google";
+          btnModalGoogleLabel.textContent = isSignedIn ? "Sign in with Google (Different Account)" : "Sign in with Google";
         }
 
         const btnCloudSignout = document.getElementById("btn-cloud-signout");
@@ -21105,7 +21072,21 @@ const tier800DeckCards = initialDeckCards;
         if (btnCloudManualSync) btnCloudManualSync.style.display = isSignedIn ? "inline-flex" : "none";
 
         const cloudAvatarIcon = document.getElementById("cloud-user-avatar-icon");
-        if (cloudAvatarIcon) cloudAvatarIcon.textContent = isSignedIn ? "✅" : "☁️";
+        if (cloudAvatarIcon) {
+          if (isSignedIn && currentAccountPhoto) {
+            cloudAvatarIcon.innerHTML = `<img src="${currentAccountPhoto}" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;" referrerpolicy="no-referrer" />`;
+          } else {
+            cloudAvatarIcon.textContent = isSignedIn ? "✅" : "☁️";
+          }
+        }
+        const modalAvatar = document.getElementById("cloud-modal-avatar");
+        if (modalAvatar) {
+          if (isSignedIn && currentAccountPhoto) {
+            modalAvatar.innerHTML = `<img src="${currentAccountPhoto}" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;" referrerpolicy="no-referrer" />`;
+          } else {
+            modalAvatar.textContent = isSignedIn ? "✅" : "☁️";
+          }
+        }
       }
 
       function showCloudSaveSuccessIndicator() {
@@ -21136,7 +21117,7 @@ const tier800DeckCards = initialDeckCards;
         const targetEmail = String(explicitEmail || currentAccountEmail || "").trim().toLowerCase();
         if (!targetEmail || !targetEmail.includes("@")) {
           if (isManual) {
-            showToast("Please sign in with a Google account first to save to cloud.");
+            showToast("Please sign in with Google first to save to cloud.");
           }
           return;
         }
@@ -21196,9 +21177,18 @@ const tier800DeckCards = initialDeckCards;
         }
       }
 
-      async function loadAccountCloudState(email, isUserSwitch = false, displayName = "") {
-        const cleanEmail = String(email || "").trim().toLowerCase();
-        if (!cleanEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
+      async function loadVerifiedGoogleAccountState(verifiedUserObj, isUserSwitch = false) {
+        if (!verifiedUserObj || !verifiedUserObj.email || !verifiedUserObj.verified) {
+          updateAccountDisplays();
+          return;
+        }
+
+        const cleanEmail = String(verifiedUserObj.email).trim().toLowerCase();
+        const displayName = String(verifiedUserObj.displayName || cleanEmail.split("@")[0]).trim();
+        const photoURL = String(verifiedUserObj.photoURL || "");
+        const googleSub = String(verifiedUserObj.googleSub || verifiedUserObj.uid || "").replace(/^google_/, "");
+
+        if (!cleanEmail || !cleanEmail.includes("@") || !googleSub) {
           updateAccountDisplays();
           return;
         }
@@ -21206,36 +21196,37 @@ const tier800DeckCards = initialDeckCards;
         const previousEmail = currentAccountEmail;
         const isSwitchingFromDifferentAccount = Boolean(previousEmail && previousEmail !== cleanEmail);
 
-        // If switching directly from Account A to Account B, save Account A first and wipe local board
         if (isSwitchingFromDifferentAccount) {
           await syncCurrentStateToDeviceCloud(false, previousEmail);
           resetLocalBoardToCleanDefaults();
         }
 
         currentAccountEmail = cleanEmail;
-        currentAccountName = (displayName || cleanEmail.split("@")[0]).trim();
+        currentAccountName = displayName;
+        currentAccountPhoto = photoURL;
 
         try {
-          localStorage.setItem(PROD_AUTH_STORAGE_KEY, JSON.stringify({
-            uid: `acct_${cleanEmail.replace(/[^a-z0-9]/g, "_")}`,
+          localStorage.setItem(VERIFIED_AUTH_STORAGE_KEY, JSON.stringify({
+            uid: `google_${googleSub}`,
+            googleSub,
             email: cleanEmail,
-            displayName: currentAccountName
+            displayName: currentAccountName,
+            photoURL: currentAccountPhoto,
+            idToken: verifiedUserObj.idToken || "",
+            accessToken: verifiedUserObj.accessToken || "",
+            verified: true
           }));
-          if (window.firebaseSync && window.firebaseSync.setSessionEmail) {
-            window.firebaseSync.setSessionEmail(cleanEmail, currentAccountName);
+          if (window.firebaseSync && window.firebaseSync.applyVerifiedGoogleUser) {
+            window.firebaseSync.applyVerifiedGoogleUser(verifiedUserObj).catch(() => {});
           }
         } catch (e) {}
 
-        // Clear the input fields so user sees their signed-in status cleanly and can type another email anytime
-        const inputAccount = document.getElementById("input-account-email");
-        if (inputAccount) inputAccount.value = "";
-        const inputModal = document.getElementById("input-modal-email");
-        if (inputModal) inputModal.value = "";
+        const waitingHelper = document.getElementById("oauth-waiting-helper");
+        if (waitingHelper) waitingHelper.style.display = "none";
 
         updateAccountDisplays();
 
         try {
-          // Query both Server API and client-side Firestore to guarantee latest worldwide state
           let apiResult = null;
           let fsResult = null;
 
@@ -21283,7 +21274,6 @@ const tier800DeckCards = initialDeckCards;
               playHapticTick(620, "triangle", 0.06);
             }
           } else {
-            // Brand new Google account with no previous cloud record: save current state as initial profile
             await syncCurrentStateToDeviceCloud(false, cleanEmail);
             if (isUserSwitch) {
               showToast(`Signed in as ${cleanEmail}! Cloud sync active ☁️`);
@@ -21393,7 +21383,7 @@ const tier800DeckCards = initialDeckCards;
       }
       window.applyRemoteSyncPayload = applyRemoteSyncPayload;
 
-      // Live background polling every 3.5 seconds ONLY when signed in to an account
+      // Live background polling every 3.5 seconds ONLY when signed in to a verified Google account
       setInterval(async () => {
         if (isSyncPushing || !currentAccountEmail || !currentAccountEmail.includes("@")) return;
         try {
@@ -21408,12 +21398,6 @@ const tier800DeckCards = initialDeckCards;
           }
         } catch (e) {}
       }, 3500);
-
-      window.addEventListener("focus", () => {
-        if (currentAccountEmail && currentAccountEmail.includes("@")) {
-          loadAccountCloudState(currentAccountEmail, false, currentAccountName);
-        }
-      });
 
       // Modal & UI Wire-up
       const modalCloudSyncLogin = document.getElementById("modal-cloud-sync-login");
@@ -21454,50 +21438,6 @@ const tier800DeckCards = initialDeckCards;
       }
       if (navBtnCloudSync) navBtnCloudSync.addEventListener("click", openCloudSyncModal);
 
-      // Direct Google Email Sign-In / Account Switcher
-      const btnSwitchAccountEmail = document.getElementById("btn-switch-account-email");
-      const inputAccountEmail = document.getElementById("input-account-email");
-      if (btnSwitchAccountEmail && inputAccountEmail) {
-        const submitSettingsEmail = async () => {
-          const val = inputAccountEmail.value.trim().toLowerCase();
-          if (!val || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
-            showToast("Please enter a valid Google email address (e.g. name@gmail.com)");
-            inputAccountEmail.focus();
-            return;
-          }
-          await loadAccountCloudState(val, true);
-        };
-        btnSwitchAccountEmail.addEventListener("click", submitSettingsEmail);
-        inputAccountEmail.addEventListener("keydown", (e) => {
-          if (e.key === "Enter") {
-            e.preventDefault();
-            submitSettingsEmail();
-          }
-        });
-      }
-
-      const btnModalSwitchEmail = document.getElementById("btn-modal-switch-email");
-      const inputModalEmail = document.getElementById("input-modal-email");
-      if (btnModalSwitchEmail && inputModalEmail) {
-        const submitModalEmail = async () => {
-          const val = inputModalEmail.value.trim().toLowerCase();
-          if (!val || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
-            showToast("Please enter a valid Google email address (e.g. name@gmail.com)");
-            inputModalEmail.focus();
-            return;
-          }
-          await loadAccountCloudState(val, true);
-          closeCloudSyncModal();
-        };
-        btnModalSwitchEmail.addEventListener("click", submitModalEmail);
-        inputModalEmail.addEventListener("keydown", (e) => {
-          if (e.key === "Enter") {
-            e.preventDefault();
-            submitModalEmail();
-          }
-        });
-      }
-
       // Manual Sync / Push
       const btnCloudManualSync = document.getElementById("btn-cloud-manual-sync");
       if (btnCloudManualSync) {
@@ -21508,59 +21448,147 @@ const tier800DeckCards = initialDeckCards;
         btnModalManualPush.addEventListener("click", () => syncCurrentStateToDeviceCloud(true));
       }
 
-      // Official Google Sign-In Flow (Popup + Seamless Email Input Support)
-      const handleGoogleSignInFlow = async () => {
-        const btnModalGoogle = document.getElementById("btn-modal-google-signin");
-        const btnCloudSignin = document.getElementById("btn-cloud-signin");
+      // =========================================================================
+      // SYNCHRONOUS PRODUCTION GOOGLE OAUTH 2.0 SIGN-IN FLOW (MOBILE + DESKTOP)
+      // Zero async calls before window.open -> never blocked or prematurely closed
+      // =========================================================================
+      let activeOAuthStateId = "";
+      let activeOAuthPollInterval = null;
 
-        // If user already typed an email into the input field and clicked Sign In with Google, use that email
-        const typedEmail = (inputModalEmail?.value || inputAccountEmail?.value || "").trim().toLowerCase();
-        if (typedEmail && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(typedEmail)) {
-          await loadAccountCloudState(typedEmail, true);
+      function buildDirectGoogleOAuthUrl(stateId) {
+        const nonceId = "nc_" + Date.now() + "_" + Math.random().toString(36).slice(2, 10);
+        const origin = window.location.hostname.endsWith(".run.app")
+          ? window.location.origin
+          : "https://ais-pre-kgrpdx7hnunkkpn4rtvjsl-444550834163.asia-east1.run.app";
+        const redirectUri = origin + "/__/auth/handler";
+        return (
+          "https://accounts.google.com/o/oauth2/v2/auth" +
+          "?client_id=" + encodeURIComponent(GOOGLE_OAUTH_CLIENT_ID) +
+          "&redirect_uri=" + encodeURIComponent(redirectUri) +
+          "&response_type=" + encodeURIComponent("token id_token") +
+          "&scope=" + encodeURIComponent("openid email profile") +
+          "&prompt=select_account" +
+          "&state=" + encodeURIComponent(stateId) +
+          "&nonce=" + encodeURIComponent(nonceId)
+        );
+      }
+
+      async function checkPendingOAuthStateNow() {
+        if (!activeOAuthStateId) return;
+        try {
+          const res = await fetch(`/api/auth/poll-oauth?state=${encodeURIComponent(activeOAuthStateId)}`);
+          if (!res.ok) return;
+          const data = await res.json();
+          if (data && data.status === "completed" && data.user && data.user.verified) {
+            const stateCleared = activeOAuthStateId;
+            activeOAuthStateId = "";
+            if (activeOAuthPollInterval) {
+              clearInterval(activeOAuthPollInterval);
+              activeOAuthPollInterval = null;
+            }
+            await loadVerifiedGoogleAccountState(data.user, true);
+            closeCloudSyncModal();
+          } else if (data && data.status === "error") {
+            activeOAuthStateId = "";
+            if (activeOAuthPollInterval) {
+              clearInterval(activeOAuthPollInterval);
+              activeOAuthPollInterval = null;
+            }
+            const waitingHelper = document.getElementById("oauth-waiting-helper");
+            if (waitingHelper) waitingHelper.style.display = "none";
+          }
+        } catch (e) {}
+      }
+
+      // Listen for postMessage and BroadcastChannel from /__/auth/handler
+      window.addEventListener("message", async (event) => {
+        const data = event.data;
+        if (!data || typeof data !== "object") return;
+        if (data.type === "GOOGLE_OAUTH_SUCCESS" && data.user && data.user.verified) {
+          activeOAuthStateId = "";
+          if (activeOAuthPollInterval) {
+            clearInterval(activeOAuthPollInterval);
+            activeOAuthPollInterval = null;
+          }
+          await loadVerifiedGoogleAccountState(data.user, true);
           closeCloudSyncModal();
+        }
+      });
+
+      try {
+        if (typeof BroadcastChannel !== "undefined") {
+          const authBc = new BroadcastChannel("vocab_google_auth_channel");
+          authBc.onmessage = async (ev) => {
+            const data = ev.data;
+            if (data && data.type === "GOOGLE_OAUTH_SUCCESS" && data.user && data.user.verified) {
+              activeOAuthStateId = "";
+              if (activeOAuthPollInterval) {
+                clearInterval(activeOAuthPollInterval);
+                activeOAuthPollInterval = null;
+              }
+              await loadVerifiedGoogleAccountState(data.user, true);
+              closeCloudSyncModal();
+            }
+          };
+        }
+      } catch (e) {}
+
+      window.addEventListener("focus", () => {
+        if (activeOAuthStateId) {
+          checkPendingOAuthStateNow();
+        } else if (currentAccountEmail && currentAccountEmail.includes("@")) {
+          try {
+            const saved = JSON.parse(localStorage.getItem(VERIFIED_AUTH_STORAGE_KEY) || "null");
+            if (saved && saved.verified && saved.email) {
+              loadVerifiedGoogleAccountState(saved, false);
+            }
+          } catch (e) {}
+        }
+      });
+
+      document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === "visible" && activeOAuthStateId) {
+          checkPendingOAuthStateNow();
+        }
+      });
+
+      const handleGoogleSignInFlow = (e) => {
+        if (e && e.preventDefault) e.preventDefault();
+
+        // 1. Construct OAuth URL 100% synchronously inside the tap event handler
+        const stateId = "st_" + Date.now() + "_" + Math.random().toString(36).slice(2, 10);
+        activeOAuthStateId = stateId;
+        const oauthUrl = buildDirectGoogleOAuthUrl(stateId);
+
+        // Update fallback link inside modal in case mobile webview blocks window.open
+        const waitingHelper = document.getElementById("oauth-waiting-helper");
+        const directLink = document.getElementById("oauth-direct-link");
+        if (directLink) directLink.href = oauthUrl;
+        if (waitingHelper) waitingHelper.style.display = "block";
+
+        // 2. Open Google OAuth 2.0 synchronously (no Firebase cross-origin iframe check to close it!)
+        const popup = window.open(
+          oauthUrl,
+          "google_oauth_signin",
+          "width=500,height=660,menubar=no,toolbar=no,location=yes,status=no"
+        );
+
+        if (!popup && window.self === window.top) {
+          window.location.assign(oauthUrl);
           return;
         }
 
-        try {
-          if (btnModalGoogle) { btnModalGoogle.disabled = true; btnModalGoogle.style.opacity = "0.7"; }
-          if (btnCloudSignin) { btnCloudSignin.disabled = true; btnCloudSignin.style.opacity = "0.7"; }
-
-          if (window.firebaseSync && window.firebaseSync.loginWithGoogle) {
-            const user = await window.firebaseSync.loginWithGoogle();
-            if (user && user.email) {
-              const name = user.displayName || user.email.split("@")[0];
-              await loadAccountCloudState(user.email, true, name);
-              closeCloudSyncModal();
-              return;
-            }
-          } else {
-            openCloudSyncModal();
-            if (inputModalEmail) {
-              inputModalEmail.focus();
-              showToast("Enter your Google email below to sign in and sync.");
-            }
+        // 3. Start polling /api/auth/poll-oauth?state=... for mobile & cross-origin COOP handoff
+        if (activeOAuthPollInterval) clearInterval(activeOAuthPollInterval);
+        const startedAt = Date.now();
+        activeOAuthPollInterval = setInterval(() => {
+          if (!activeOAuthStateId || Date.now() - startedAt > 180000) {
+            clearInterval(activeOAuthPollInterval);
+            activeOAuthPollInterval = null;
+            return;
           }
-        } catch (err) {
-          const code = String(err?.code || "");
-          if (code === "auth/popup-closed-by-user" || code === "auth/cancelled-popup-request") {
-            showToast("Google sign-in popup closed. You can also sign in using the email box below.");
-          } else {
-            openCloudSyncModal();
-            if (inputModalEmail) {
-              inputModalEmail.focus();
-              inputModalEmail.style.borderColor = "#38bdf8";
-              inputModalEmail.style.boxShadow = "0 0 0 3px rgba(56, 189, 248, 0.25)";
-              setTimeout(() => {
-                inputModalEmail.style.borderColor = "rgba(255,255,255,0.15)";
-                inputModalEmail.style.boxShadow = "none";
-              }, 2600);
-            }
-            showToast("Browser blocked the popup — enter your Google email in the box below to sign in!");
-          }
-        } finally {
-          if (btnModalGoogle) { btnModalGoogle.disabled = false; btnModalGoogle.style.opacity = "1"; }
-          if (btnCloudSignin) { btnCloudSignin.disabled = false; btnCloudSignin.style.opacity = "1"; }
-        }
+          checkPendingOAuthStateNow();
+        }, 850);
       };
 
       const btnModalGoogleSignin = document.getElementById("btn-modal-google-signin");
@@ -21578,10 +21606,17 @@ const tier800DeckCards = initialDeckCards;
 
         currentAccountEmail = "";
         currentAccountName = "";
+        currentAccountPhoto = "";
         lastAccountCloudTimestamp = "";
+        activeOAuthStateId = "";
+        if (activeOAuthPollInterval) {
+          clearInterval(activeOAuthPollInterval);
+          activeOAuthPollInterval = null;
+        }
 
         try {
-          localStorage.removeItem(PROD_AUTH_STORAGE_KEY);
+          localStorage.removeItem(VERIFIED_AUTH_STORAGE_KEY);
+          localStorage.removeItem("vocab_auth_session_v3");
           localStorage.removeItem("active_cloud_user_email");
           localStorage.removeItem("stellar_account_email_v1");
           localStorage.removeItem("stellar_account_name_v1");
@@ -21592,14 +21627,14 @@ const tier800DeckCards = initialDeckCards;
           try { await window.firebaseSync.logoutUser(); } catch (e) {}
         }
 
+        const waitingHelper = document.getElementById("oauth-waiting-helper");
+        if (waitingHelper) waitingHelper.style.display = "none";
+
         // Reset local board to clean website defaults so previous user's progress is not shown after sign-out
         resetLocalBoardToCleanDefaults();
 
-        if (inputAccountEmail) inputAccountEmail.value = "";
-        if (inputModalEmail) inputModalEmail.value = "";
-
         updateAccountDisplays();
-        showToast("Signed out. Sign in with any Google account to load or save progress.");
+        showToast("Signed out of Google account.");
         playHapticTick(380, "sine", 0.04);
       };
 
@@ -21610,9 +21645,12 @@ const tier800DeckCards = initialDeckCards;
 
       async function initUniversalSyncUI() {
         updateAccountDisplays();
-        if (currentAccountEmail && currentAccountEmail.includes("@")) {
-          await loadAccountCloudState(currentAccountEmail, false, currentAccountName);
-        }
+        try {
+          const saved = JSON.parse(localStorage.getItem(VERIFIED_AUTH_STORAGE_KEY) || "null");
+          if (saved && saved.verified === true && saved.email && saved.googleSub) {
+            await loadVerifiedGoogleAccountState(saved, false);
+          }
+        } catch (e) {}
       }
 
       if (document.readyState === "loading") {
@@ -21632,13 +21670,13 @@ const tier800DeckCards = initialDeckCards;
         }
 
         window.firebaseSync.onAuthChange((user) => {
-          if (user && user.email) {
+          if (user && user.email && user.verified) {
             const cleanEmail = String(user.email).trim().toLowerCase();
-            const displayName = user.displayName || cleanEmail.split("@")[0];
             if (currentAccountEmail !== cleanEmail) {
-              loadAccountCloudState(cleanEmail, false, displayName);
+              loadVerifiedGoogleAccountState(user, false);
             } else {
-              currentAccountName = displayName;
+              currentAccountName = user.displayName || cleanEmail.split("@")[0];
+              currentAccountPhoto = user.photoURL || currentAccountPhoto;
               updateAccountDisplays();
             }
           } else if (!currentAccountEmail) {
