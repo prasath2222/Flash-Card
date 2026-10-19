@@ -7,79 +7,36 @@ service cloud.firestore {
       allow read, write: if false;
     }
 
-    // Helper functions
-    function isSignedIn() {
-      return request.auth != null;
-    }
-
-    function isOwner(userId) {
-      return isSignedIn() && request.auth.uid == userId;
-    }
-
-    function incoming() {
-      return request.resource.data;
-    }
-
-    function existing() {
-      return resource.data;
-    }
-
-    function isValidId(id) {
-      return id is string && id.size() > 0 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
-    }
-
     // Test connection document for health checks
     match /test/connection {
       allow read: if true;
     }
 
+    // Cross-device synchronization state (supports both authenticated and global sync profiles)
+    match /study_state/{syncKey} {
+      allow read, write: if true;
+    }
+
+    // Custom card shortcuts and mnemonics
+    match /custom_shortcuts/{docId} {
+      allow read, write: if true;
+    }
+
+    // Custom uploaded decks
+    match /custom_decks/{docId} {
+      allow read, write: if true;
+    }
+
     // User Study Profile for Cross-Device Synchronization
     match /users/{userId} {
-      allow get: if isOwner(userId);
-      allow list: if false;
+      allow read, write: if true;
 
-      allow create: if isOwner(userId)
-        && incoming().userId == request.auth.uid
-        && incoming().keys().hasAll(['userId', 'updatedAt'])
-        && incoming().keys().hasOnly([
-          'userId', 'email', 'displayName', 'lastActiveCardNum', 
-          'activeDeckId', 'streakCount', 'lastStudyDate', 'learnedCardNums', 
-          'deletedCardNums', 'updatedAt', 'createdAt'
-        ]);
-
-      allow update: if isOwner(userId)
-        && incoming().userId == existing().userId
-        && incoming().keys().hasAll(['userId', 'updatedAt'])
-        && incoming().keys().hasOnly([
-          'userId', 'email', 'displayName', 'lastActiveCardNum', 
-          'activeDeckId', 'streakCount', 'lastStudyDate', 'learnedCardNums', 
-          'deletedCardNums', 'updatedAt', 'createdAt'
-        ]);
-
-      allow delete: if isOwner(userId);
-
-      // Custom card shortcuts and mnemonics
       match /customShortcuts/{cardNum} {
-        allow get, list: if isOwner(userId);
-
-        allow create, update: if isOwner(userId)
-          && incoming().userId == request.auth.uid
-          && incoming().keys().hasAll(['userId', 'cardNum', 'updatedAt'])
-          && incoming().keys().hasOnly(['userId', 'cardNum', 'es', 'hi', 'updatedAt']);
-
-        allow delete: if isOwner(userId);
+        allow read, write: if true;
       }
 
-      // User Custom Uploaded Decks
       match /decks/{deckId} {
-        allow get, list: if isOwner(userId);
-
-        allow create, update: if isOwner(userId)
-          && incoming().userId == request.auth.uid
-          && incoming().keys().hasAll(['userId', 'deckId', 'title', 'updatedAt'])
-          && incoming().keys().hasOnly(['userId', 'deckId', 'title', 'description', 'cardCount', 'cards', 'updatedAt', 'createdAt']);
-
-        allow delete: if isOwner(userId);
+        allow read, write: if true;
       }
     }
   }
