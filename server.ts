@@ -3,9 +3,24 @@ import { createServer as createViteServer } from "vite";
 import path from "path";
 import { fileURLToPath } from "url";
 import fs from "fs";
+import { initializeApp, getApps } from "firebase/app";
+import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+// Initialize Firestore connection for cross-container & worldwide persistence
+let firestoreDb: ReturnType<typeof getFirestore> | null = null;
+try {
+  const cfgPath = path.join(__dirname, "firebase-applet-config.json");
+  if (fs.existsSync(cfgPath)) {
+    const firebaseConfig = JSON.parse(fs.readFileSync(cfgPath, "utf8"));
+    const fbApp = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
+    firestoreDb = getFirestore(fbApp, firebaseConfig.firestoreDatabaseId);
+  }
+} catch (err) {
+  console.warn("Firestore initialization notice in server.ts:", err);
+}
 
 async function startServer() {
   const app = express();
@@ -151,8 +166,8 @@ async function startServer() {
   });
 
   // =========================================================================
-  // PRODUCTION CROSS-DEVICE SYNC & UNIVERSAL PERSISTENCE API
-  // Automatically reflects all saves across all devices & browsers
+  // PRODUCTION PER-ACCOUNT CLOUD SYNC API (ISOLATED PER GOOGLE ACCOUNT)
+  // Backed by Google Cloud Firestore + Local Disk Cache
   // =========================================================================
   const dataDir = path.join(__dirname, "data");
   const profilesFilePath = path.join(dataDir, "user_profiles.json");
@@ -164,9 +179,13 @@ async function startServer() {
       .replace(/[^a-z0-9@._+-]/g, "")
       .slice(0, 120);
     if (!clean || !clean.includes("@")) {
-      return "default_global_profile";
+      return "";
     }
     return clean;
+  }
+
+  function emailToFirestoreDocId(email: string): string {
+    return `acct_${email.replace(/[^a-z0-9]/g, "_")}`.slice(0, 120);
   }
 
   function normalizeProfilePayload(rawEntry: any): any {
@@ -237,82 +256,22 @@ async function startServer() {
     }
   }
 
-  // Ensure default_global_profile is initialized and synced with existing user profiles on startup
-  function ensureUnifiedGlobalProfile() {
-    const profiles = readUserProfiles();
-    let latestTime = 0;
-    let bestPayload: any = null;
-
-    const mergedLearned = new Set<any>();
-    const mergedDeleted = new Set<any>();
-    const mergedShortcuts: Record<string, any> = {};
-    const mergedDecks: Record<string, any> = {};
-    let mergedSections: any[] = [];
-    let mergedAudioPrefs: Record<string, any> = {};
-    let activeDeckId = "deck-800-1000";
-    let lastActiveCardNum = 800;
-    let streakCount = 1;
-
-    for (const [key, val] of Object.entries(profiles)) {
-      const norm = normalizeProfilePayload(val);
-      if (!norm) continue;
-      (norm.learnedCardNums || []).forEach((n: any) => mergedLearned.add(n));
-      (norm.deletedCardNums || []).forEach((n: any) => mergedDeleted.add(n));
-      Object.assign(mergedShortcuts, norm.customShortcuts || {});
-      Object.assign(mergedDecks, norm.customDecks || {});
-      if (Array.isArray(norm.customSections) && norm.customSections.length > mergedSections.length) {
-        mergedSections = norm.customSections;
-      }
-      Object.assign(mergedAudioPrefs, norm.audioPrefs || {});
-      const t = Date.parse(norm.updatedAt || "") || 0;
-      if (t >= latestTime) {
-        latestTime = t;
-        bestPayload = norm;
-      }
-    }
-
-    if (bestPayload) {
-      activeDeckId = bestPayload.activeDeckId || activeDeckId;
-      lastActiveCardNum = bestPayload.lastActiveCardNum || lastActiveCardNum;
-      streakCount = Math.max(streakCount, bestPayload.streakCount || 1);
-    }
-
-    const updatedAt = latestTime > 0 ? new Date(latestTime).toISOString() : new Date().toISOString();
-    const unifiedPayload = {
-      learnedCardNums: Array.from(mergedLearned),
-      learnedCards: Array.from(mergedLearned),
-      deletedCardNums: Array.from(mergedDeleted),
-      deletedCards: Array.from(mergedDeleted),
-      activeDeckId,
-      lastActiveCardNum,
-      lastCard: lastActiveCardNum,
-      streakCount,
-      streak: streakCount,
-      customShortcuts: mergedShortcuts,
-      customDecks: mergedDecks,
-      customSections: mergedSections,
-      audioPrefs: mergedAudioPrefs,
-      updatedAt
-    };
-
-    profiles["default_global_profile"] = {
-      updatedAt,
-      payload: unifiedPayload
-    };
-    writeUserProfiles(profiles);
-  }
-
-  ensureUnifiedGlobalProfile();
-
-  function saveProfileData(rawEmail: unknown, incomingBody: any): { email: string; updatedAt: string; payload: any } {
+  async function saveProfileData(
+    rawEmail: unknown,
+    incomingBody: any
+  ): Promise<{ email: string; exists: boolean; updatedAt: string; payload: any }> {
     const email = sanitizeEmailKey(rawEmail);
-    const profiles = readUserProfiles();
-    const existingNorm =
-      normalizeProfilePayload(profiles[email]) ||
-      normalizeProfilePayload(profiles["default_global_profile"]) ||
-      normalizeProfilePayload({});
+    if (!email) {
+      return { email: "", exists: false, updatedAt: "", payload: null };
+    }
 
-    const incoming = incomingBody?.payload && typeof incomingBody.payload === "object" ? incomingBody.payload : incomingBody || {};
+    const profiles = readUserProfiles();
+    const existingNorm = normalizeProfilePayload(profiles[email]) || normalizeProfilePayload({});
+
+    const incoming =
+      incomingBody?.payload && typeof incomingBody.payload === "object"
+        ? incomingBody.payload
+        : incomingBody || {};
     const replaceArrays = incomingBody?.replaceArrays !== false;
 
     const inLearned = Array.isArray(incoming.learnedCardNums)
@@ -350,7 +309,9 @@ async function startServer() {
 
     const customDecks =
       incoming.customDecks && typeof incoming.customDecks === "object"
-        ? { ...(existingNorm.customDecks || {}), ...incoming.customDecks }
+        ? replaceArrays
+          ? incoming.customDecks
+          : { ...(existingNorm.customDecks || {}), ...incoming.customDecks }
         : existingNorm.customDecks || {};
 
     const customSections = Array.isArray(incoming.customSections)
@@ -372,6 +333,7 @@ async function startServer() {
     const updatedAt = new Date().toISOString();
 
     const savedPayload = {
+      email,
       learnedCardNums,
       learnedCards: learnedCardNums,
       deletedCardNums,
@@ -392,56 +354,107 @@ async function startServer() {
       updatedAt,
       payload: savedPayload
     };
-
-    // Always mirror to default_global_profile so opening the app on any device reflects changes immediately
-    profiles["default_global_profile"] = {
-      updatedAt,
-      payload: savedPayload
-    };
-
     writeUserProfiles(profiles);
-    return { email, updatedAt, payload: savedPayload };
+
+    // Also persist to Google Cloud Firestore under isolated account document
+    if (firestoreDb) {
+      try {
+        const docId = emailToFirestoreDocId(email);
+        await setDoc(doc(firestoreDb, "study_state", docId), {
+          email,
+          updatedAt,
+          payload: savedPayload
+        });
+      } catch (err) {
+        console.warn("Firestore save notice:", err);
+      }
+    }
+
+    return { email, exists: true, updatedAt, payload: savedPayload };
   }
 
-  function loadProfileData(rawEmail: unknown): { email: string; updatedAt: string; payload: any } {
+  async function loadProfileData(
+    rawEmail: unknown
+  ): Promise<{ email: string; exists: boolean; updatedAt: string; payload: any }> {
     const email = sanitizeEmailKey(rawEmail);
-    const profiles = readUserProfiles();
-    const userNorm = normalizeProfilePayload(profiles[email]);
-    const globalNorm = normalizeProfilePayload(profiles["default_global_profile"]);
+    if (!email) {
+      return { email: "", exists: false, updatedAt: "", payload: null };
+    }
 
-    let chosen = userNorm || globalNorm;
-    if (userNorm && globalNorm) {
-      const userTime = Date.parse(userNorm.updatedAt || "") || 0;
-      const globalTime = Date.parse(globalNorm.updatedAt || "") || 0;
-      chosen = globalTime > userTime ? globalNorm : userNorm;
+    const profiles = readUserProfiles();
+    let localNorm = profiles[email] ? normalizeProfilePayload(profiles[email]) : null;
+    let firestoreNorm: any = null;
+
+    if (firestoreDb) {
+      try {
+        const docId = emailToFirestoreDocId(email);
+        const snap = await getDoc(doc(firestoreDb, "study_state", docId));
+        if (snap.exists()) {
+          firestoreNorm = normalizeProfilePayload(snap.data());
+        }
+      } catch (err) {
+        console.warn("Firestore load notice:", err);
+      }
+    }
+
+    let chosen: any = null;
+    if (localNorm && firestoreNorm) {
+      const localTime = Date.parse(localNorm.updatedAt || "") || 0;
+      const remoteTime = Date.parse(firestoreNorm.updatedAt || "") || 0;
+      chosen = remoteTime >= localTime ? firestoreNorm : localNorm;
+    } else {
+      chosen = firestoreNorm || localNorm;
     }
 
     if (!chosen) {
-      const now = new Date().toISOString();
-      chosen = normalizeProfilePayload({ updatedAt: now });
+      return {
+        email,
+        exists: false,
+        updatedAt: "",
+        payload: null
+      };
+    }
+
+    // Keep local cache in sync with latest Firestore state
+    if (!localNorm || chosen === firestoreNorm) {
+      profiles[email] = {
+        updatedAt: chosen.updatedAt,
+        payload: chosen
+      };
+      writeUserProfiles(profiles);
     }
 
     return {
       email,
+      exists: true,
       updatedAt: chosen.updatedAt || new Date().toISOString(),
       payload: chosen
     };
   }
 
   // Endpoints used by index.html (/api/user/save, /api/user/load, /api/user/poll)
-  app.post("/api/user/save", (req, res) => {
-    const result = saveProfileData(req.body?.email, req.body);
+  app.post("/api/user/save", async (req, res) => {
+    const result = await saveProfileData(req.body?.email, req.body);
     res.json({ ok: true, success: true, ...result });
   });
 
-  app.get("/api/user/load", (req, res) => {
-    const result = loadProfileData(req.query.email);
+  app.get("/api/user/load", async (req, res) => {
+    const result = await loadProfileData(req.query.email);
     res.json({ ok: true, success: true, ...result });
   });
 
-  app.get("/api/user/poll", (req, res) => {
+  app.get("/api/user/poll", async (req, res) => {
     const since = String(req.query.since || "").trim();
-    const result = loadProfileData(req.query.email);
+    const result = await loadProfileData(req.query.email);
+    if (!result.exists || !result.payload) {
+      return res.json({
+        ok: true,
+        success: true,
+        hasUpdates: false,
+        updatedAt: "",
+        payload: null
+      });
+    }
     const sinceMs = Date.parse(since) || 0;
     const updatedMs = Date.parse(result.updatedAt) || 0;
     const hasUpdates = Boolean(!since || updatedMs > sinceMs);
@@ -454,25 +467,25 @@ async function startServer() {
     });
   });
 
-  // Endpoints used by firebase-sync.ts & legacy callers (/api/account-sync, /api/sync-pull, /api/sync-push)
-  app.get("/api/account-sync", (req, res) => {
-    const result = loadProfileData(req.query.email);
+  // Endpoints used by firebase-sync.ts & legacy callers
+  app.get("/api/account-sync", async (req, res) => {
+    const result = await loadProfileData(req.query.email);
     res.json({ ok: true, success: true, ...result });
   });
 
-  app.post("/api/account-sync", (req, res) => {
-    const result = saveProfileData(req.body?.email, req.body);
+  app.post("/api/account-sync", async (req, res) => {
+    const result = await saveProfileData(req.body?.email, req.body);
     res.json({ ok: true, success: true, ...result });
   });
 
-  app.get("/api/sync-pull", (req, res) => {
-    const result = loadProfileData(req.query.syncId || req.query.email);
-    res.json({ ok: true, syncId: result.email, payload: result.payload });
+  app.get("/api/sync-pull", async (req, res) => {
+    const result = await loadProfileData(req.query.syncId || req.query.email);
+    res.json({ ok: true, syncId: result.email, exists: result.exists, payload: result.payload });
   });
 
-  app.post("/api/sync-push", (req, res) => {
-    const result = saveProfileData(req.body?.syncId || req.body?.email, req.body);
-    res.json({ ok: true, syncId: result.email, payload: result.payload });
+  app.post("/api/sync-push", async (req, res) => {
+    const result = await saveProfileData(req.body?.syncId || req.body?.email, req.body);
+    res.json({ ok: true, syncId: result.email, exists: result.exists, payload: result.payload });
   });
 
   // Vite middleware for development
