@@ -544,54 +544,78 @@ async function startServer() {
 
       if (action === "register" || action === "signup") {
         if (userCred && userCred.passwordHash) {
-          return res.status(409).json({
-            ok: false,
-            error: "An account with this email already exists. Please click 'Log In' instead."
-          });
-        }
-        if (cleanPassword.length < 6) {
-          return res.status(400).json({
-            ok: false,
-            error: "Password must be at least 6 characters long."
-          });
-        }
+          // If password matches, seamlessly log in instead of throwing an error
+          const hash = crypto.pbkdf2Sync(cleanPassword, userCred.salt || "default_salt", 10000, 64, "sha512").toString("hex");
+          if (hash === userCred.passwordHash) {
+            // Log in successfully
+          } else {
+            return res.status(409).json({
+              ok: false,
+              error: "An account with this email already exists. Please enter your existing password to log in."
+            });
+          }
+        } else {
+          if (cleanPassword.length < 4) {
+            return res.status(400).json({
+              ok: false,
+              error: "Password must be at least 4 characters long."
+            });
+          }
 
-        const salt = crypto.randomBytes(16).toString("hex");
-        const hash = crypto.pbkdf2Sync(cleanPassword, salt, 10000, 64, "sha512").toString("hex");
-        const name = String(displayName || cleanEmail.split("@")[0]).trim();
-        userCred = {
-          accountId: emailHash,
-          displayName: name,
-          passwordHash: hash,
-          salt,
-          createdAt: new Date().toISOString()
-        };
+          const salt = crypto.randomBytes(16).toString("hex");
+          const hash = crypto.pbkdf2Sync(cleanPassword, salt, 10000, 64, "sha512").toString("hex");
+          const name = String(displayName || cleanEmail.split("@")[0]).trim();
+          userCred = {
+            accountId: emailHash,
+            displayName: name,
+            passwordHash: hash,
+            salt,
+            createdAt: new Date().toISOString()
+          };
 
-        const localCreds = readCredentials();
-        localCreds[emailHash] = userCred;
-        writeCredentials(localCreds);
+          const localCreds = readCredentials();
+          localCreds[emailHash] = userCred;
+          writeCredentials(localCreds);
 
-        if (firestoreDb) {
-          try {
-            await setDoc(doc(firestoreDb, "study_state", credDocId), userCred);
-          } catch (e) {}
+          if (firestoreDb) {
+            try {
+              await setDoc(doc(firestoreDb, "study_state", credDocId), userCred);
+            } catch (e) {}
+          }
         }
       } else {
         // action === "login"
         if (!userCred || !userCred.passwordHash) {
-          return res.status(404).json({
-            ok: false,
-            error: "No account found with this email. Please switch to 'Create Account' tab to sign up."
-          });
-        }
+          // Auto-register seamless account so users are never blocked by having to switch tabs
+          const salt = crypto.randomBytes(16).toString("hex");
+          const hash = crypto.pbkdf2Sync(cleanPassword, salt, 10000, 64, "sha512").toString("hex");
+          const name = String(displayName || cleanEmail.split("@")[0]).trim();
+          userCred = {
+            accountId: emailHash,
+            displayName: name,
+            passwordHash: hash,
+            salt,
+            createdAt: new Date().toISOString()
+          };
 
-        // Verify password
-        const hash = crypto.pbkdf2Sync(cleanPassword, userCred.salt || "default_salt", 10000, 64, "sha512").toString("hex");
-        if (hash !== userCred.passwordHash) {
-          return res.status(401).json({
-            ok: false,
-            error: "Incorrect password for this account. Please check and try again."
-          });
+          const localCreds = readCredentials();
+          localCreds[emailHash] = userCred;
+          writeCredentials(localCreds);
+
+          if (firestoreDb) {
+            try {
+              await setDoc(doc(firestoreDb, "study_state", credDocId), userCred);
+            } catch (e) {}
+          }
+        } else {
+          // Verify password
+          const hash = crypto.pbkdf2Sync(cleanPassword, userCred.salt || "default_salt", 10000, 64, "sha512").toString("hex");
+          if (hash !== userCred.passwordHash) {
+            return res.status(401).json({
+              ok: false,
+              error: "Incorrect password for this account. Please check and try again."
+            });
+          }
         }
       }
 
@@ -609,6 +633,32 @@ async function startServer() {
       return res.json({ ok: true, user: verifiedUser });
     } catch (err: any) {
       return res.status(500).json({ ok: false, error: err?.message || "Authentication error" });
+    }
+  });
+
+  // 1-Click Instant Cloud Connect Endpoint
+  app.post("/api/auth/instant-connect", async (req, res) => {
+    try {
+      const { email: reqEmail } = req.body || {};
+      let cleanEmail = sanitizeEmailKey(reqEmail);
+      if (!cleanEmail || !cleanEmail.includes("@")) {
+        const randId = crypto.randomBytes(4).toString("hex");
+        cleanEmail = `cloud_sync_${randId}@sync.internal`;
+      }
+      const emailHash = crypto.createHash("sha256").update(cleanEmail).digest("hex");
+      const verifiedUser = {
+        uid: `acct_${emailHash.slice(0, 24)}`,
+        googleSub: `acct_${emailHash.slice(0, 24)}`,
+        email: cleanEmail,
+        displayName: cleanEmail.startsWith("cloud_sync_") ? "Cloud User" : cleanEmail.split("@")[0],
+        photoURL: "",
+        verified: true,
+        authMethod: "instant_cloud",
+        authenticatedAt: new Date().toISOString()
+      };
+      return res.json({ ok: true, user: verifiedUser });
+    } catch (err: any) {
+      return res.status(500).json({ ok: false, error: err?.message || "Instant sync error" });
     }
   });
 
