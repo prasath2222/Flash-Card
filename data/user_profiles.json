@@ -1,77 +1,64 @@
 {
-  "cloud_sync_19c966a7@sync.internal": {
-    "updatedAt": "2026-10-20T14:18:42.737Z",
+  "525a61e074d0e66ddba7aed3e500f618190650a392d0f54a9de7679db97a4df7": {
+    "updatedAt": "2026-10-20T14:28:55.148Z",
     "payload": {
-      "learnedCardNums": [],
-      "learnedCards": [],
-      "deletedCardNums": [],
-      "deletedCards": [],
-      "activeDeckId": "deck-800-1000",
-      "lastActiveCardNum": 800,
-      "lastCard": 800,
-      "streakCount": 1,
-      "streak": 1,
+      "email": "cloud_sync@sync.internal",
       "customShortcuts": {},
+      "updatedAt": "2026-10-20T14:28:55.148Z",
       "customDecks": {},
+      "deletedCardNums": [
+        807,
+        "t800_807"
+      ],
       "customSections": [],
-      "audioPrefs": {
-        "sfxStyle": "whoosh",
-        "sfxVolume": 1,
-        "voicePitch": 1,
-        "voiceRate": 0.8,
-        "bgmEnabled": true,
-        "bgmVolume": 0.25,
-        "bgmMode": "lofi",
-        "voiceVolume": 1
-      },
-      "updatedAt": "2026-10-20T14:18:42.737Z"
-    }
-  },
-  "0d8d25ec1561b074fbecc3354d88e93734aa6d03ea23f5513416123fb3b950c6": {
-    "updatedAt": "2026-10-20T14:18:42.737Z",
-    "payload": {
-      "accountId": "0d8d25ec1561b074fbecc3354d88e93734aa6d03ea23f5513416123fb3b950c6",
-      "learnedCardNums": [],
-      "learnedCards": [],
-      "deletedCardNums": [],
-      "deletedCards": [],
       "activeDeckId": "deck-800-1000",
-      "lastActiveCardNum": 800,
-      "lastCard": 800,
       "streakCount": 1,
-      "streak": 1,
-      "customShortcuts": {},
-      "customDecks": {},
-      "customSections": [],
+      "learnedCardNums": [
+        800,
+        801,
+        804
+      ],
+      "lastActiveCardNum": 804,
       "audioPrefs": {
+        "sfxStyle": "snap",
         "bgmMode": "lofi",
         "bgmVolume": 0.25,
-        "sfxStyle": "whoosh",
-        "voicePitch": 1,
-        "bgmEnabled": true,
         "sfxVolume": 1,
+        "voicePitch": 1,
+        "voiceVolume": 1,
         "voiceRate": 0.8,
-        "voiceVolume": 1
-      },
-      "updatedAt": "2026-10-20T14:18:42.737Z"
+        "bgmEnabled": false
+      }
     }
   },
   "5d1ea1d9e8cd94d56153ea518eae8a2b74807df866316dda4db5d4ef201fdabc": {
-    "updatedAt": "2026-10-20T14:24:23.867Z",
+    "updatedAt": "2026-10-20T14:59:53.721Z",
     "payload": {
       "accountId": "5d1ea1d9e8cd94d56153ea518eae8a2b74807df866316dda4db5d4ef201fdabc",
       "learnedCardNums": [
         1,
         2,
-        3
+        3,
+        800,
+        801,
+        804
       ],
       "learnedCards": [
         1,
         2,
-        3
+        3,
+        800,
+        801,
+        804
       ],
-      "deletedCardNums": [],
-      "deletedCards": [],
+      "deletedCardNums": [
+        807,
+        "t800_807"
+      ],
+      "deletedCards": [
+        807,
+        "t800_807"
+      ],
       "activeDeckId": "deck-800-1000",
       "lastActiveCardNum": 801,
       "lastCard": 801,
@@ -80,25 +67,46 @@
       "customShortcuts": {},
       "customDecks": {},
       "customSections": [],
-      "audioPrefs": {},
-      "updatedAt": "2026-10-20T14:24:23.867Z"
+      "audioPrefs": {
+        "bgmEnabled": true,
+        "bgmMode": "lofi",
+        "bgmVolume": 0.25,
+        "voiceVolume": 1,
+        "voicePitch": 1,
+        "voiceRate": 0.8,
+        "sfxVolume": 1,
+        "sfxStyle": "whoosh"
+      },
+      "updatedAt": "2026-10-20T14:59:53.721Z"
     }
   },
   "stellarnetworkhub@gmail.com": {
-    "updatedAt": "2026-10-20T14:24:23.867Z",
+    "updatedAt": "2026-10-20T14:59:53.721Z",
     "payload": {
       "learnedCardNums": [
         1,
         2,
-        3
+        3,
+        800,
+        801,
+        804
       ],
       "learnedCards": [
         1,
         2,
-        3
+        3,
+        800,
+        801,
+        804
       ],
-      "deletedCardNums": [],
-      "deletedCards": [],
+      "deletedCardNums": [
+        807,
+        "t800_807"
+      ],
+      "deletedCards": [
+        807,
+        "t800_807"
+      ],
       "activeDeckId": "deck-800-1000",
       "lastActiveCardNum": 801,
       "lastCard": 801,
@@ -107,8 +115,17 @@
       "customShortcuts": {},
       "customDecks": {},
       "customSections": [],
-      "audioPrefs": {},
-      "updatedAt": "2026-10-20T14:24:23.867Z"
+      "audioPrefs": {
+        "voiceRate": 0.8,
+        "voiceVolume": 1,
+        "sfxStyle": "whoosh",
+        "bgmEnabled": true,
+        "voicePitch": 1,
+        "bgmVolume": 0.25,
+        "sfxVolume": 1,
+        "bgmMode": "lofi"
+      },
+      "updatedAt": "2026-10-20T14:59:53.721Z"
     }
   }
 }

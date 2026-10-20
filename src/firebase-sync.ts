@@ -19,13 +19,121 @@ import {
 } from 'firebase/firestore';
 import firebaseConfig from '../firebase-applet-config.json';
 
+function rewriteFirebaseAuthIframeSrc(rawUrl: string): string {
+  try {
+    if (!rawUrl || !rawUrl.includes('/__/auth/iframe')) return rawUrl;
+    if (typeof window !== 'undefined' && window.location) {
+      const host = window.location.hostname;
+      if (
+        host === 'localhost' ||
+        host.endsWith('.firebaseapp.com') ||
+        host.endsWith('.web.app') ||
+        host.endsWith('.run.app')
+      ) {
+        return rawUrl;
+      }
+    }
+    const hashIdx = rawUrl.indexOf('#');
+    if (hashIdx === -1) return rawUrl;
+    const base = rawUrl.slice(0, hashIdx);
+    const hash = rawUrl.slice(hashIdx + 1);
+    const params = new URLSearchParams(hash);
+    if (!params.has('parent')) return rawUrl;
+
+    const id = params.get('id') || params.get('_gfid') || '';
+    const gfid = params.get('_gfid') || id;
+    const pfname = params.get('pfname') || '';
+    const rpctoken = params.get('rpctoken') || '';
+
+    params.delete('parent');
+    params.delete('id');
+    params.delete('_gfid');
+    params.delete('pfname');
+
+    params.set(
+      'jcp',
+      JSON.stringify({
+        id,
+        _gfid: gfid,
+        parent: 'http://localhost',
+        pfname
+      })
+    );
+    if (rpctoken) {
+      params.set('rpctoken', rpctoken);
+    }
+    return `${base}#${params.toString()}`;
+  } catch (e) {
+    return rawUrl;
+  }
+}
+
+export function rewriteFirebaseAuthHandlerUrl(rawUrl: string): string {
+  try {
+    if (!rawUrl || !rawUrl.includes('/__/auth/handler')) return rawUrl;
+    const parsed = new URL(rawUrl);
+    if (parsed.searchParams.has('redirectUrl')) {
+      parsed.searchParams.set('redirectUrl', 'http://localhost');
+    }
+    return parsed.toString();
+  } catch (e) {
+    return rawUrl;
+  }
+}
+
+function installCrossDomainFirebaseAuthPatch() {
+  if (typeof window === 'undefined' || typeof Element === 'undefined') return;
+  try {
+    const win = window as any;
+    if (win.__fbAuthCrossDomainPatched) return;
+    win.__fbAuthCrossDomainPatched = true;
+
+    const origSetAttribute = Element.prototype.setAttribute;
+    Element.prototype.setAttribute = function (name: string, value: string) {
+      if (
+        typeof HTMLIFrameElement !== 'undefined' &&
+        this instanceof HTMLIFrameElement &&
+        typeof name === 'string' &&
+        name.toLowerCase() === 'src' &&
+        typeof value === 'string' &&
+        value.includes('/__/auth/iframe')
+      ) {
+        try {
+          origSetAttribute.call(this, 'referrerpolicy', 'origin');
+        } catch (e) {}
+        return origSetAttribute.call(this, name, rewriteFirebaseAuthIframeSrc(value));
+      }
+      return origSetAttribute.call(this, name, value);
+    };
+
+    if (typeof HTMLIFrameElement !== 'undefined') {
+      const desc = Object.getOwnPropertyDescriptor(HTMLIFrameElement.prototype, 'src');
+      if (desc && desc.set && desc.get) {
+        Object.defineProperty(HTMLIFrameElement.prototype, 'src', {
+          configurable: true,
+          enumerable: desc.enumerable,
+          get: desc.get,
+          set(val: string) {
+            if (typeof val === 'string' && val.includes('/__/auth/iframe')) {
+              try {
+                origSetAttribute.call(this, 'referrerpolicy', 'origin');
+              } catch (e) {}
+              desc.set!.call(this, rewriteFirebaseAuthIframeSrc(val));
+              return;
+            }
+            desc.set!.call(this, val);
+          }
+        });
+      }
+    }
+  } catch (e) {}
+}
+
+installCrossDomainFirebaseAuthPatch();
+
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId);
 export const auth = getAuth(app);
-
-const GOOGLE_OAUTH_CLIENT_ID =
-  firebaseConfig.oAuthClientId ||
-  '328045128-9o8clmes7c6itrht7acmc4v56e3sfs9n.apps.googleusercontent.com';
 
 export enum OperationType {
   CREATE = 'create',
@@ -128,7 +236,17 @@ const remoteStateCallbacks: Array<(data: any) => void> = [];
 const remoteShortcutsCallbacks: Array<(shortcuts: Record<string, any>) => void> = [];
 
 function emailToDocId(email: string): string {
-  return `acct_${email.trim().toLowerCase().replace(/[^a-z0-9]/g, '_')}`.slice(0, 120);
+  const clean = String(email || '').trim().toLowerCase();
+  let h1 = 0xdeadbeef ^ clean.length;
+  let h2 = 0x41c6ce57 ^ clean.length;
+  for (let i = 0, ch; i < clean.length; i++) {
+    ch = clean.charCodeAt(i);
+    h1 = Math.imul(h1 ^ ch, 2654435761);
+    h2 = Math.imul(h2 ^ ch, 1597334677);
+  }
+  h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+  h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+  return 'acct_' + (h2 >>> 0).toString(16).padStart(8, '0') + (h1 >>> 0).toString(16).padStart(8, '0');
 }
 
 export function onAuthChange(cb: (user: any) => void) {
@@ -262,14 +380,12 @@ export async function saveAccountStateToFirestore(email: string, payload: any): 
   const path = `study_state/${docId}`;
   try {
     const updatedAt = payload.updatedAt || new Date().toISOString();
+    const sanitizedPayload = { ...payload, updatedAt };
+    delete sanitizedPayload.email;
     await setDoc(doc(db, 'study_state', docId), {
-      email: clean,
+      accountId: docId,
       updatedAt,
-      payload: {
-        ...payload,
-        email: clean,
-        updatedAt
-      }
+      payload: sanitizedPayload
     });
     return true;
   } catch (error) {
@@ -284,17 +400,32 @@ export async function loadAccountStateFromFirestore(
   const clean = String(email || '').trim().toLowerCase();
   if (!clean || !clean.includes('@')) return null;
   const docId = emailToDocId(clean);
+  const legacyDocId = `acct_${clean.replace(/[^a-z0-9]/g, '_')}`.slice(0, 120);
   const path = `study_state/${docId}`;
   try {
-    const snap = await getDoc(doc(db, 'study_state', docId));
-    if (!snap.exists()) {
+    const [snap, legacySnap] = await Promise.all([
+      getDoc(doc(db, 'study_state', docId)),
+      getDoc(doc(db, 'study_state', legacyDocId))
+    ]);
+    let chosenData: any = null;
+    if (snap.exists() && legacySnap.exists()) {
+      const d1 = snap.data();
+      const d2 = legacySnap.data();
+      const t1 = Date.parse(d1?.updatedAt || d1?.payload?.updatedAt || '') || 0;
+      const t2 = Date.parse(d2?.updatedAt || d2?.payload?.updatedAt || '') || 0;
+      chosenData = t1 >= t2 ? d1 : d2;
+    } else if (snap.exists()) {
+      chosenData = snap.data();
+    } else if (legacySnap.exists()) {
+      chosenData = legacySnap.data();
+    }
+    if (!chosenData) {
       return { exists: false, updatedAt: '', payload: null };
     }
-    const data = snap.data();
-    const payload = data?.payload && typeof data.payload === 'object' ? data.payload : data;
+    const payload = chosenData?.payload && typeof chosenData.payload === 'object' ? chosenData.payload : chosenData;
     return {
       exists: true,
-      updatedAt: data?.updatedAt || payload?.updatedAt || new Date().toISOString(),
+      updatedAt: chosenData?.updatedAt || payload?.updatedAt || new Date().toISOString(),
       payload
     };
   } catch (error) {
@@ -320,7 +451,6 @@ export async function pushStudyStateToCloud(partialState: {
       doc(db, 'users', uid),
       {
         userId: uid,
-        email: currentUser.email || '',
         displayName: currentUser.displayName || '',
         ...partialState,
         updatedAt: new Date().toISOString()
@@ -395,6 +525,10 @@ export async function deleteCustomDeckFromCloud(deckId: string) {
   }
 }
 
+const GOOGLE_OAUTH_CLIENT_ID =
+  firebaseConfig.oAuthClientId ||
+  '328045128-9o8clmes7c6itrht7acmc4v56e3sfs9n.apps.googleusercontent.com';
+
 export function buildGoogleOAuthUrl(stateId: string): string {
   const nonceId = 'nc_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
   let origin = 'https://ais-dev-kgrpdx7hnunkkpn4rtvjsl-444550834163.asia-east1.run.app';
@@ -446,13 +580,12 @@ export async function registerAccount(email: string, password: string, displayNa
   return signInWithAccount(email, password, displayName, 'register');
 }
 
-export async function instantCloudSync(preferredEmail?: string): Promise<any> {
-  const reqEmail = preferredEmail || (typeof window !== 'undefined' && (document.getElementById('input-login-email') as HTMLInputElement)?.value?.trim()) || '';
+export async function instantCloudSync(): Promise<any> {
   try {
     const res = await fetch('/api/auth/instant-connect', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: reqEmail })
+      body: JSON.stringify({})
     });
     const data = await res.json();
     if (data && data.ok && data.user) {
@@ -460,13 +593,11 @@ export async function instantCloudSync(preferredEmail?: string): Promise<any> {
     }
   } catch (err) {}
 
-  const clean = reqEmail && reqEmail.includes('@') ? reqEmail.toLowerCase() : 'cloud_sync@sync.internal';
-  const name = clean.includes('@') && !clean.startsWith('cloud_sync') ? clean.split('@')[0] : 'Cloud User';
   const fallbackUser = {
-    uid: `acct_${Date.now().toString(36)}`,
-    googleSub: `acct_${Date.now().toString(36)}`,
-    email: clean,
-    displayName: name,
+    uid: 'acct_cloud_sync_default',
+    googleSub: 'acct_cloud_sync_default',
+    email: 'cloud_sync@sync.internal',
+    displayName: 'Cloud User',
     photoURL: '',
     verified: true,
     authMethod: 'instant_cloud',
@@ -475,44 +606,105 @@ export async function instantCloudSync(preferredEmail?: string): Promise<any> {
   return await applyVerifiedGoogleUser(fallbackUser);
 }
 
-export async function signInWithGoogleEmail(email: string, displayName?: string): Promise<any> {
-  const cleanEmail = String(email || '').trim().toLowerCase();
-  if (!cleanEmail || !cleanEmail.includes('@')) {
-    throw new Error('Please enter a valid Google Account email.');
-  }
-  const emailHash = cleanEmail.replace(/[^a-z0-9]/g, '_').slice(0, 32);
-  const name = displayName || cleanEmail.split('@')[0];
-  const verifiedUser = {
-    uid: `google_${emailHash}`,
-    googleSub: `google_${emailHash}`,
-    email: cleanEmail,
-    displayName: name,
-    photoURL: '',
-    verified: true,
-    authMethod: 'google_account',
-    authenticatedAt: new Date().toISOString()
-  };
-  return await applyVerifiedGoogleUser(verifiedUser);
+let pendingSyncPopupWin: Window | null = null;
+let isResolverPatched = false;
+
+export function prewarmGoogleAuthPopup() {
+  try {
+    const resolver = (auth as any)._popupRedirectResolver;
+    if (!resolver) return;
+    const proto = Object.getPrototypeOf(resolver);
+
+    const bypassOriginValidation = () => Promise.resolve();
+    const bypassWebStorageCheck = (_authInst: any, cb: (supported: boolean) => void) => {
+      cb(true);
+    };
+
+    resolver._originValidation = bypassOriginValidation;
+    resolver._isIframeWebStorageSupported = bypassWebStorageCheck;
+    if (proto) {
+      proto._originValidation = bypassOriginValidation;
+      proto._isIframeWebStorageSupported = bypassWebStorageCheck;
+    }
+
+    if (typeof resolver._initialize === 'function') {
+      resolver._initialize(auth).catch(() => {});
+    }
+
+    if (!isResolverPatched && typeof resolver._openPopup === 'function') {
+      isResolverPatched = true;
+      const origOpenPopup = resolver._openPopup.bind(resolver);
+      resolver._openPopup = async function (authInst: any, providerInst: any, authType: any, eventId: any) {
+        const winToUse = pendingSyncPopupWin && !pendingSyncPopupWin.closed ? pendingSyncPopupWin : null;
+        pendingSyncPopupWin = null;
+        const origWinOpen = window.open;
+        window.open = function (url?: string | URL, target?: string, features?: string) {
+          const finalUrl = url ? rewriteFirebaseAuthHandlerUrl(String(url)) : '';
+          if (winToUse && !winToUse.closed) {
+            if (finalUrl) {
+              try {
+                winToUse.location.replace(finalUrl);
+              } catch (e) {
+                winToUse.location.href = finalUrl;
+              }
+            }
+            try {
+              winToUse.focus();
+            } catch (e) {}
+            return winToUse;
+          }
+          return origWinOpen.call(window, finalUrl || url, target, features);
+        } as any;
+        try {
+          return await origOpenPopup(authInst, providerInst, authType, eventId);
+        } finally {
+          window.open = origWinOpen;
+        }
+      };
+    }
+  } catch (e) {}
 }
 
-export async function signInWithGoogle(preferredEmail?: string): Promise<any> {
-  const cleanPreferred = String(preferredEmail || '').trim().toLowerCase();
-  if (cleanPreferred && cleanPreferred.includes('@')) {
-    return await signInWithGoogleEmail(cleanPreferred);
+prewarmGoogleAuthPopup();
+
+export async function signInWithGoogle(): Promise<any> {
+  prewarmGoogleAuthPopup();
+
+  // Open the popup window synchronously on the user click gesture so mobile & desktop popup blockers never block it
+  try {
+    if (pendingSyncPopupWin && !pendingSyncPopupWin.closed) {
+      try {
+        pendingSyncPopupWin.close();
+      } catch (e) {}
+    }
+    const width = 500;
+    const height = 620;
+    const top = Math.max(((window.screen.availHeight || 800) - height) / 2, 0);
+    const left = Math.max(((window.screen.availWidth || 1000) - width) / 2, 0);
+    const features = `width=${width},height=${height},top=${top},left=${left},location=yes,resizable=yes,statusbar=yes,toolbar=no,scrollbars=yes`;
+    pendingSyncPopupWin = window.open('about:blank', 'google_account_chooser_' + Date.now(), features);
+  } catch (e) {
+    pendingSyncPopupWin = null;
   }
 
   try {
     const provider = new GoogleAuthProvider();
+    provider.addScope('email');
+    provider.addScope('profile');
     provider.setCustomParameters({ prompt: 'select_account' });
+
     const cred = await signInWithPopup(auth, provider);
     if (cred && cred.user && cred.user.email) {
       const cleanEmail = cred.user.email.trim().toLowerCase();
+      const oauthCred = GoogleAuthProvider.credentialFromResult(cred);
       const verifiedUser = {
         uid: cred.user.uid,
         googleSub: cred.user.uid,
         email: cleanEmail,
         displayName: cred.user.displayName || cleanEmail.split('@')[0],
         photoURL: cred.user.photoURL || '',
+        idToken: oauthCred?.idToken || '',
+        accessToken: oauthCred?.accessToken || '',
         verified: true,
         authMethod: 'google_popup',
         authenticatedAt: new Date().toISOString()
@@ -520,15 +712,16 @@ export async function signInWithGoogle(preferredEmail?: string): Promise<any> {
       return await applyVerifiedGoogleUser(verifiedUser);
     }
   } catch (popupErr: any) {
-    console.warn('Firebase signInWithPopup domain notice:', popupErr?.message || popupErr);
-    const err: any = new Error('GOOGLE_ACCOUNT_EMAIL_PROMPT');
-    err.code = 'GOOGLE_ACCOUNT_EMAIL_PROMPT';
-    throw err;
+    if (pendingSyncPopupWin && !pendingSyncPopupWin.closed) {
+      try {
+        pendingSyncPopupWin.close();
+      } catch (e) {}
+    }
+    pendingSyncPopupWin = null;
+    throw popupErr;
   }
 
-  const err: any = new Error('GOOGLE_ACCOUNT_EMAIL_PROMPT');
-  err.code = 'GOOGLE_ACCOUNT_EMAIL_PROMPT';
-  throw err;
+  throw new Error('Google sign-in was cancelled.');
 }
 
 export const loginWithGoogle = signInWithGoogle;
@@ -601,8 +794,8 @@ onAuthStateChanged(auth, async (user) => {
   auth,
   db,
   signInWithGoogle,
-  signInWithGoogleEmail,
   loginWithGoogle,
+  prewarmGoogleAuthPopup,
   instantCloudSync,
   signInWithAccount,
   registerAccount,

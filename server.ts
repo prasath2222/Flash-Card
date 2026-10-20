@@ -642,15 +642,14 @@ async function startServer() {
       const { email: reqEmail } = req.body || {};
       let cleanEmail = sanitizeEmailKey(reqEmail);
       if (!cleanEmail || !cleanEmail.includes("@")) {
-        const randId = crypto.randomBytes(4).toString("hex");
-        cleanEmail = `cloud_sync_${randId}@sync.internal`;
+        cleanEmail = "cloud_sync@sync.internal";
       }
       const emailHash = crypto.createHash("sha256").update(cleanEmail).digest("hex");
       const verifiedUser = {
         uid: `acct_${emailHash.slice(0, 24)}`,
         googleSub: `acct_${emailHash.slice(0, 24)}`,
         email: cleanEmail,
-        displayName: cleanEmail.startsWith("cloud_sync_") ? "Cloud User" : cleanEmail.split("@")[0],
+        displayName: cleanEmail.startsWith("cloud_sync") ? "Cloud User" : cleanEmail.split("@")[0],
         photoURL: "",
         verified: true,
         authMethod: "instant_cloud",
@@ -701,6 +700,20 @@ async function startServer() {
   function emailToFirestoreDocId(email: string): string {
     const hash = crypto.createHash("sha256").update(email).digest("hex").slice(0, 32);
     return `acct_${hash}`;
+  }
+
+  function emailToClientSyncDocId(email: string): string {
+    const clean = String(email || "").trim().toLowerCase();
+    let h1 = 0xdeadbeef ^ clean.length;
+    let h2 = 0x41c6ce57 ^ clean.length;
+    for (let i = 0, ch; i < clean.length; i++) {
+      ch = clean.charCodeAt(i);
+      h1 = Math.imul(h1 ^ ch, 2654435761);
+      h2 = Math.imul(h2 ^ ch, 1597334677);
+    }
+    h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+    h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+    return "acct_" + (h2 >>> 0).toString(16).padStart(8, "0") + (h1 >>> 0).toString(16).padStart(8, "0");
   }
 
   function normalizeProfilePayload(rawEntry: any): any {
@@ -866,21 +879,27 @@ async function startServer() {
       updatedAt
     };
 
+    if (profiles[email]) delete profiles[email];
     profiles[emailHash] = {
       updatedAt,
       payload: savedPayload
     };
     writeUserProfiles(profiles);
 
-    // Also persist to Google Cloud Firestore under isolated account document
+    // Also persist to Google Cloud Firestore under isolated hashed account document
     if (firestoreDb) {
       try {
         const docId = emailToFirestoreDocId(email);
-        await setDoc(doc(firestoreDb, "study_state", docId), {
+        const clientDocId = emailToClientSyncDocId(email);
+        const docBody = {
           accountId: emailHash,
           updatedAt,
           payload: savedPayload
-        });
+        };
+        await Promise.allSettled([
+          setDoc(doc(firestoreDb, "study_state", docId), docBody),
+          setDoc(doc(firestoreDb, "study_state", clientDocId), docBody)
+        ]);
       } catch (err) {
         console.warn("Firestore save notice:", err);
       }
@@ -905,9 +924,32 @@ async function startServer() {
     if (firestoreDb) {
       try {
         const docId = emailToFirestoreDocId(email);
-        const snap = await getDoc(doc(firestoreDb, "study_state", docId));
-        if (snap.exists()) {
-          firestoreNorm = normalizeProfilePayload(snap.data());
+        const clientDocId = emailToClientSyncDocId(email);
+        const legacyDocId = `acct_${email.replace(/[^a-z0-9]/g, "_")}`.slice(0, 120);
+        const snaps = await Promise.allSettled([
+          getDoc(doc(firestoreDb, "study_state", docId)),
+          getDoc(doc(firestoreDb, "study_state", clientDocId)),
+          getDoc(doc(firestoreDb, "study_state", legacyDocId))
+        ]);
+        for (const res of snaps) {
+          if (res.status === "fulfilled" && res.value.exists()) {
+            const candidate = normalizeProfilePayload(res.value.data());
+            if (candidate) {
+              if (!firestoreNorm) {
+                firestoreNorm = candidate;
+              } else {
+                const tCand = Date.parse(candidate.updatedAt || "") || 0;
+                const tBest = Date.parse(firestoreNorm.updatedAt || "") || 0;
+                if (tCand > tBest || (candidate.learnedCardNums?.length || 0) > (firestoreNorm.learnedCardNums?.length || 0)) {
+                  firestoreNorm = {
+                    ...candidate,
+                    learnedCardNums: Array.from(new Set([...(firestoreNorm.learnedCardNums || []), ...(candidate.learnedCardNums || [])])),
+                    learnedCards: Array.from(new Set([...(firestoreNorm.learnedCardNums || []), ...(candidate.learnedCardNums || [])]))
+                  };
+                }
+              }
+            }
+          }
         }
       } catch (err) {
         console.warn("Firestore load notice:", err);
@@ -932,9 +974,10 @@ async function startServer() {
       };
     }
 
-    // Keep local cache in sync with latest Firestore state
+    // Keep local cache in sync with latest Firestore state using only hashed key
     if (!localNorm || chosen === firestoreNorm) {
-      profiles[email] = {
+      if (profiles[email]) delete profiles[email];
+      profiles[emailHash] = {
         updatedAt: chosen.updatedAt,
         payload: chosen
       };
