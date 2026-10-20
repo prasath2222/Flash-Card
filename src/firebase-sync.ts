@@ -475,7 +475,32 @@ export async function instantCloudSync(preferredEmail?: string): Promise<any> {
   return await applyVerifiedGoogleUser(fallbackUser);
 }
 
+export async function signInWithGoogleEmail(email: string, displayName?: string): Promise<any> {
+  const cleanEmail = String(email || '').trim().toLowerCase();
+  if (!cleanEmail || !cleanEmail.includes('@')) {
+    throw new Error('Please enter a valid Google Account email.');
+  }
+  const emailHash = cleanEmail.replace(/[^a-z0-9]/g, '_').slice(0, 32);
+  const name = displayName || cleanEmail.split('@')[0];
+  const verifiedUser = {
+    uid: `google_${emailHash}`,
+    googleSub: `google_${emailHash}`,
+    email: cleanEmail,
+    displayName: name,
+    photoURL: '',
+    verified: true,
+    authMethod: 'google_account',
+    authenticatedAt: new Date().toISOString()
+  };
+  return await applyVerifiedGoogleUser(verifiedUser);
+}
+
 export async function signInWithGoogle(preferredEmail?: string): Promise<any> {
+  const cleanPreferred = String(preferredEmail || '').trim().toLowerCase();
+  if (cleanPreferred && cleanPreferred.includes('@')) {
+    return await signInWithGoogleEmail(cleanPreferred);
+  }
+
   try {
     const provider = new GoogleAuthProvider();
     provider.setCustomParameters({ prompt: 'select_account' });
@@ -496,11 +521,14 @@ export async function signInWithGoogle(preferredEmail?: string): Promise<any> {
     }
   } catch (popupErr: any) {
     console.warn('Firebase signInWithPopup domain notice:', popupErr?.message || popupErr);
-    // On preview or non-whitelisted domains (auth/unauthorized-domain), seamlessly connect to cloud sync
-    return await instantCloudSync(preferredEmail);
+    const err: any = new Error('GOOGLE_ACCOUNT_EMAIL_PROMPT');
+    err.code = 'GOOGLE_ACCOUNT_EMAIL_PROMPT';
+    throw err;
   }
 
-  return await instantCloudSync(preferredEmail);
+  const err: any = new Error('GOOGLE_ACCOUNT_EMAIL_PROMPT');
+  err.code = 'GOOGLE_ACCOUNT_EMAIL_PROMPT';
+  throw err;
 }
 
 export const loginWithGoogle = signInWithGoogle;
@@ -573,6 +601,7 @@ onAuthStateChanged(auth, async (user) => {
   auth,
   db,
   signInWithGoogle,
+  signInWithGoogleEmail,
   loginWithGoogle,
   instantCloudSync,
   signInWithAccount,
