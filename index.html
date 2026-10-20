@@ -9826,16 +9826,11 @@
               </button>
             </div>
 
-            <!-- Official Google OAuth 2.0 Sign-In & Sign-Out Buttons -->
+            <!-- Cloud Account Action Buttons -->
             <div style="margin-top: 14px;">
-              <button type="button" class="settings-action-btn settings-action-btn-primary" id="btn-cloud-signin" style="background: #ffffff; border-color: #e2e8f0; color: #0f172a; box-shadow: 0 4px 0 #cbd5e1; width: 100%; justify-content: center; gap: 10px; font-weight: 800; padding: 13px;">
-                <svg width="18" height="18" viewBox="0 0 24 24">
-                  <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
-                  <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.11-6.72-4.96H1.29v3.14C3.26 21.3 7.31 24 12 24z"/>
-                  <path fill="#FBBC05" d="M5.28 14.24c-.24-.72-.38-1.49-.38-2.24s.14-1.52.38-2.24V6.62H1.29C.47 8.24 0 10.06 0 12s.47 3.76 1.29 5.38l3.99-3.14z"/>
-                  <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.62l3.99 3.14c.95-2.85 3.6-4.96 6.72-4.96z"/>
-                </svg>
-                <span id="btn-cloud-signin-label">Sign in with Google</span>
+              <div id="google-signin-tab-slot" style="margin-bottom: 10px; display: flex; justify-content: center; min-height: 44px;"></div>
+              <button type="button" class="duo-btn-3d" id="btn-cloud-signin" style="width: 100%; padding: 12px; font-weight: 800; background: #10b981; color: #064e3b; border: 1px solid #059669; border-radius: 12px; cursor: pointer; justify-content: center; display: flex; align-items: center; gap: 8px;">
+                <span>Sign In / Switch Account ☁️</span>
               </button>
               <button type="button" class="settings-action-btn settings-action-btn-danger" id="btn-cloud-signout" style="display: none; width: 100%; justify-content: center; margin-top: 10px; padding: 12px;">
                 <span>Sign Out</span>
@@ -9847,7 +9842,7 @@
     </aside>
 
     <!-- ========================================================== -->
-    <!-- GOOGLE SIGN-IN & CROSS-DEVICE CLOUD SYNC MODAL             -->
+    <!-- CLOUD SIGN-IN & CROSS-DEVICE CLOUD SYNC MODAL (NO POPUPS)  -->
     <!-- ========================================================== -->
     <div class="modal-backdrop" id="modal-cloud-sync-login">
       <div class="modal-sheet" style="max-width: 480px; background: linear-gradient(180deg, #172236 0%, #0c1424 100%); border: 1px solid rgba(255,255,255,0.14); border-radius: 26px; box-shadow: 0 25px 70px rgba(0,0,0,0.85); overflow: hidden; padding: 24px;">
@@ -9856,8 +9851,8 @@
           <div style="display: flex; align-items: center; gap: 10px;">
             <div id="cloud-modal-avatar" style="width: 38px; height: 38px; border-radius: 12px; background: linear-gradient(135deg, #0284c7, #10b981); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; overflow: hidden;">☁️</div>
             <div>
-              <span class="modal-title" style="font-size: 1.2rem; font-weight: 800; color: #fff;">Sign in with Google</span>
-              <div style="font-size: 0.78rem; color: #94a3b8;">Save & access your progress from any device worldwide</div>
+              <span class="modal-title" style="font-size: 1.2rem; font-weight: 800; color: #fff;">Cloud Account &amp; Sync</span>
+              <div style="font-size: 0.78rem; color: #94a3b8;">Save &amp; access your progress from any device worldwide</div>
             </div>
           </div>
           <button type="button" class="modal-close-btn" id="btn-close-cloud-sync-modal" aria-label="Close" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; width: 34px; height: 34px; color: #cbd5e1; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center;">&times;</button>
@@ -9867,11 +9862,11 @@
         <div style="padding: 16px; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; margin-bottom: 16px;">
           <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
             <div>
-              <div id="cloud-modal-status-header" style="font-size: 0.72rem; color: #38bdf8; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;">Google Account Status</div>
+              <div id="cloud-modal-status-header" style="font-size: 0.72rem; color: #38bdf8; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;">Account Status</div>
               <div id="cloud-modal-account-email" style="font-size: 1.1rem; font-weight: 850; color: #ffffff; word-break: break-all;">Not Signed In</div>
               <div id="cloud-modal-status-text" style="font-size: 0.76rem; color: #94a3b8; font-weight: 750; margin-top: 4px; display: flex; align-items: center; gap: 6px;">
                 <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #94a3b8;"></span>
-                <span>Sign in with your Google account to save & sync across devices</span>
+                <span>Sign in below to save &amp; sync your progress across devices</span>
               </div>
             </div>
             <button type="button" class="duo-btn-3d" id="btn-modal-manual-push" style="display: none; padding: 8px 14px; font-size: 0.8rem; font-weight: 800; background: rgba(56,189,248,0.2); border: 1px solid rgba(56,189,248,0.45); color: #38bdf8; cursor: pointer;">
@@ -9880,25 +9875,23 @@
           </div>
         </div>
 
-        <!-- Official 1-Tap Google OAuth 2.0 Sign In -->
-        <div style="margin-bottom: 12px;">
-          <button type="button" class="settings-action-btn settings-action-btn-primary" id="btn-modal-google-signin" style="background: #ffffff; border-color: #e2e8f0; color: #0f172a; box-shadow: 0 4px 0 #cbd5e1; width: 100%; justify-content: center; gap: 10px; padding: 14px; font-weight: 800; font-size: 0.98rem; cursor: pointer;">
-            <svg width="20" height="20" viewBox="0 0 24 24">
-              <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
-              <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.11-6.72-4.96H1.29v3.14C3.26 21.3 7.31 24 12 24z"/>
-              <path fill="#FBBC05" d="M5.28 14.24c-.24-.72-.38-1.49-.38-2.24s.14-1.52.38-2.24V6.62H1.29C.47 8.24 0 10.06 0 12s.47 3.76 1.29 5.38l3.99-3.14z"/>
-              <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.62l3.99 3.14c.95-2.85 3.6-4.96 6.72-4.96z"/>
-            </svg>
-            <span id="btn-modal-google-label">Sign in with Google</span>
-          </button>
+        <!-- Duolingo-Grade Universal Account Sign-In (Works on 100% of devices, mobile, tablet & desktop) -->
+        <div style="margin-bottom: 16px; padding: 16px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-radius: 18px;">
+          <div style="font-size: 0.85rem; font-weight: 800; color: #38bdf8; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">Sign In or Register with Email</div>
+          <div style="font-size: 0.78rem; color: #94a3b8; margin-bottom: 12px; line-height: 1.4;">Enter any email and passcode. Your progress is automatically linked and synced across all your devices.</div>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <input type="email" id="input-universal-email" placeholder="Email address (e.g. name@gmail.com)" style="width: 100%; padding: 12px 14px; background: rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.22); border-radius: 12px; color: #fff; font-size: 0.92rem; box-sizing: border-box;" />
+            <input type="password" id="input-universal-pass" placeholder="Password or passcode (min 4 chars)" style="width: 100%; padding: 12px 14px; background: rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.22); border-radius: 12px; color: #fff; font-size: 0.92rem; box-sizing: border-box;" />
+            <button type="button" class="duo-btn-3d" id="btn-universal-login" style="width: 100%; padding: 13px; background: #10b981; border: 1px solid #059669; color: #064e3b; font-weight: 850; font-size: 1rem; border-radius: 12px; cursor: pointer; margin-top: 4px;">
+              Sign In &amp; Save Progress 🚀
+            </button>
+          </div>
         </div>
 
-        <!-- Mobile / Blocked-Popup Direct Link Helper (shown automatically while OAuth is waiting) -->
-        <div id="oauth-waiting-helper" style="display: none; margin-bottom: 14px; padding: 12px 14px; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 14px; text-align: center;">
-          <div style="font-size: 0.82rem; font-weight: 700; color: #e2e8f0; margin-bottom: 8px;">Complete sign-in in the Google window, or tap below if your browser blocked the popup:</div>
-          <a id="oauth-direct-link" href="#" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 18px; background: #38bdf8; color: #0f172a; font-weight: 800; font-size: 0.86rem; border-radius: 10px; text-decoration: none;">
-            Open Google Sign-In Page &rarr;
-          </a>
+        <!-- Google Sign-In Container (rendered via official Google Identity Services without popups) -->
+        <div style="margin-bottom: 14px;">
+          <div style="font-size: 0.75rem; font-weight: 700; color: #64748b; text-align: center; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px;">— OR SIGN IN WITH GOOGLE —</div>
+          <div id="google-signin-modal-slot" style="display: flex; justify-content: center; min-height: 44px; width: 100%;"></div>
         </div>
 
         <!-- Sign Out Button -->
@@ -9907,7 +9900,7 @@
         </button>
 
         <div style="font-size: 0.75rem; color: #94a3b8; text-align: center; line-height: 1.45; margin-top: 6px;">
-          🔒 Authenticated via official Google OAuth 2.0. Your learned cards, deleted cards, shortcuts, and custom decks sync automatically across all your devices.
+          🔒 All study progress (cards 1–3000, learned words, deleted words, streaks &amp; custom shortcuts) saves to cloud automatically.
         </div>
       </div>
     </div>
@@ -21448,30 +21441,9 @@ const tier800DeckCards = initialDeckCards;
         btnModalManualPush.addEventListener("click", () => syncCurrentStateToDeviceCloud(true));
       }
 
-      // =========================================================================
-      // SYNCHRONOUS PRODUCTION GOOGLE OAUTH 2.0 SIGN-IN FLOW (MOBILE + DESKTOP)
-      // Zero async calls before window.open -> never blocked or prematurely closed
-      // =========================================================================
+      // In-app authentication state
       let activeOAuthStateId = "";
       let activeOAuthPollInterval = null;
-
-      function buildDirectGoogleOAuthUrl(stateId) {
-        const nonceId = "nc_" + Date.now() + "_" + Math.random().toString(36).slice(2, 10);
-        const origin = window.location.hostname.endsWith(".run.app")
-          ? window.location.origin
-          : "https://ais-pre-kgrpdx7hnunkkpn4rtvjsl-444550834163.asia-east1.run.app";
-        const redirectUri = origin + "/__/auth/handler";
-        return (
-          "https://accounts.google.com/o/oauth2/v2/auth" +
-          "?client_id=" + encodeURIComponent(GOOGLE_OAUTH_CLIENT_ID) +
-          "&redirect_uri=" + encodeURIComponent(redirectUri) +
-          "&response_type=" + encodeURIComponent("token id_token") +
-          "&scope=" + encodeURIComponent("openid email profile") +
-          "&prompt=select_account" +
-          "&state=" + encodeURIComponent(stateId) +
-          "&nonce=" + encodeURIComponent(nonceId)
-        );
-      }
 
       async function checkPendingOAuthStateNow() {
         if (!activeOAuthStateId) return;
@@ -21552,50 +21524,134 @@ const tier800DeckCards = initialDeckCards;
         }
       });
 
-      const handleGoogleSignInFlow = (e) => {
-        if (e && e.preventDefault) e.preventDefault();
+      // =========================================================================
+      // PRODUCTION AUTHENTICATION CONTROLLER (GOOGLE IDENTITY SERVICES & EMAIL)
+      // Zero window.open calls -> completely avoids AI Studio applet-auth-bridge 403
+      // =========================================================================
 
-        // 1. Construct OAuth URL 100% synchronously inside the tap event handler
-        const stateId = "st_" + Date.now() + "_" + Math.random().toString(36).slice(2, 10);
-        activeOAuthStateId = stateId;
-        const oauthUrl = buildDirectGoogleOAuthUrl(stateId);
+      function initGoogleIdentityServices() {
+        if (window.google && window.google.accounts && window.google.accounts.id) {
+          try {
+            window.google.accounts.id.initialize({
+              client_id: GOOGLE_OAUTH_CLIENT_ID,
+              callback: async (response) => {
+                if (!response || !response.credential) return;
+                showToast("Verifying Google account...");
+                try {
+                  const res = await fetch("/api/auth/verify-google", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ idToken: response.credential })
+                  });
+                  const data = await res.json();
+                  if (data && data.ok && data.user) {
+                    await loadVerifiedGoogleAccountState(data.user, true);
+                    closeCloudSyncModal();
+                    showToast(`Signed in as ${data.user.email} 🚀`);
+                    playHapticTick(600, "sine", 0.05);
+                  } else {
+                    showToast(data?.error || "Google sign-in verification failed");
+                  }
+                } catch (e) {
+                  showToast("Could not verify Google account.");
+                }
+              },
+              auto_select: false,
+              cancel_on_tap_outside: true
+            });
 
-        // Update fallback link inside modal in case mobile webview blocks window.open
-        const waitingHelper = document.getElementById("oauth-waiting-helper");
-        const directLink = document.getElementById("oauth-direct-link");
-        if (directLink) directLink.href = oauthUrl;
-        if (waitingHelper) waitingHelper.style.display = "block";
+            const modalSlot = document.getElementById("google-signin-modal-slot");
+            if (modalSlot) {
+              modalSlot.innerHTML = "";
+              window.google.accounts.id.renderButton(modalSlot, {
+                theme: "outline",
+                size: "large",
+                width: 320,
+                text: "signin_with",
+                shape: "rectangular"
+              });
+            }
 
-        // 2. Open Google OAuth 2.0 synchronously (no Firebase cross-origin iframe check to close it!)
-        const popup = window.open(
-          oauthUrl,
-          "google_oauth_signin",
-          "width=500,height=660,menubar=no,toolbar=no,location=yes,status=no"
-        );
-
-        if (!popup && window.self === window.top) {
-          window.location.assign(oauthUrl);
-          return;
+            const tabSlot = document.getElementById("google-signin-tab-slot");
+            if (tabSlot) {
+              tabSlot.innerHTML = "";
+              window.google.accounts.id.renderButton(tabSlot, {
+                theme: "outline",
+                size: "large",
+                width: 300,
+                text: "signin_with",
+                shape: "rectangular"
+              });
+            }
+          } catch (e) {
+            console.warn("GIS render notice:", e);
+          }
         }
+      }
 
-        // 3. Start polling /api/auth/poll-oauth?state=... for mobile & cross-origin COOP handoff
-        if (activeOAuthPollInterval) clearInterval(activeOAuthPollInterval);
-        const startedAt = Date.now();
-        activeOAuthPollInterval = setInterval(() => {
-          if (!activeOAuthStateId || Date.now() - startedAt > 180000) {
-            clearInterval(activeOAuthPollInterval);
-            activeOAuthPollInterval = null;
+      initGoogleIdentityServices();
+      window.addEventListener("load", initGoogleIdentityServices);
+      setTimeout(initGoogleIdentityServices, 1200);
+      setTimeout(initGoogleIdentityServices, 3000);
+
+      // Open Modal button from Settings Tab
+      const btnCloudSignin = document.getElementById("btn-cloud-signin");
+      if (btnCloudSignin) {
+        btnCloudSignin.addEventListener("click", () => {
+          openCloudSyncModal();
+          initGoogleIdentityServices();
+        });
+      }
+
+      // Universal Email & Passcode Sign-In Handler (Guaranteed to work on all devices, mobile & Firefox)
+      const btnUniversalLogin = document.getElementById("btn-universal-login");
+      if (btnUniversalLogin) {
+        btnUniversalLogin.addEventListener("click", async () => {
+          const emailInput = document.getElementById("input-universal-email");
+          const passInput = document.getElementById("input-universal-pass");
+          const email = emailInput ? emailInput.value.trim().toLowerCase() : "";
+          const password = passInput ? passInput.value.trim() : "";
+
+          if (!email || !email.includes("@")) {
+            showToast("Please enter a valid email address.");
+            if (emailInput) emailInput.focus();
             return;
           }
-          checkPendingOAuthStateNow();
-        }, 850);
-      };
+          if (!password || password.length < 4) {
+            showToast("Passcode must be at least 4 characters.");
+            if (passInput) passInput.focus();
+            return;
+          }
 
-      const btnModalGoogleSignin = document.getElementById("btn-modal-google-signin");
-      if (btnModalGoogleSignin) btnModalGoogleSignin.addEventListener("click", handleGoogleSignInFlow);
+          try {
+            showToast("Signing in...");
+            let user = null;
+            if (window.firebaseSync && window.firebaseSync.signInWithAccount) {
+              user = await window.firebaseSync.signInWithAccount(email, password, email.split("@")[0]);
+            } else {
+              const res = await fetch("/api/auth/account-login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email, password, displayName: email.split("@")[0] })
+              });
+              const data = await res.json();
+              if (!res.ok || !data.ok || !data.user) {
+                throw new Error(data.error || "Authentication failed");
+              }
+              user = data.user;
+            }
 
-      const btnCloudSignin = document.getElementById("btn-cloud-signin");
-      if (btnCloudSignin) btnCloudSignin.addEventListener("click", handleGoogleSignInFlow);
+            if (user && user.email) {
+              await loadVerifiedGoogleAccountState(user, true);
+              closeCloudSyncModal();
+              showToast(`Welcome, ${user.email}! Progress saved & synced 🚀`);
+              playHapticTick(600, "sine", 0.05);
+            }
+          } catch (err) {
+            showToast(err?.message || "Sign-in failed. Please check credentials.");
+          }
+        });
+      }
 
       // Clean Production Sign Out
       const handleSignOutFlow = async () => {

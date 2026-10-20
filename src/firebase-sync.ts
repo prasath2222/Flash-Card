@@ -211,11 +211,14 @@ function attachStudyStateListener(email: string) {
 export async function applyVerifiedGoogleUser(userObj: any) {
   if (!userObj || !userObj.email || !userObj.verified) return null;
   const cleanEmail = String(userObj.email).trim().toLowerCase();
-  const googleSub = String(userObj.googleSub || userObj.uid || '').replace(/^google_/, '');
-  if (!cleanEmail.includes('@') || !googleSub) return null;
+  const rawSub = String(userObj.googleSub || userObj.uid || '').trim();
+  if (!cleanEmail.includes('@') || !rawSub) return null;
+
+  const uid = userObj.uid || (rawSub.startsWith('acct_') ? rawSub : `google_${rawSub.replace(/^google_/, '')}`);
+  const googleSub = rawSub.replace(/^google_/, '');
 
   verifiedSession = {
-    uid: `google_${googleSub}`,
+    uid,
     googleSub,
     email: cleanEmail,
     displayName: String(userObj.displayName || cleanEmail.split('@')[0]).trim(),
@@ -232,7 +235,7 @@ export async function applyVerifiedGoogleUser(userObj: any) {
   attachStudyStateListener(cleanEmail);
   notifyAuthCallbacks(verifiedSession);
 
-  // Also sign in to Firebase Auth using the verified Google credential (pure HTTPS REST, no popup/iframe)
+  // Also sign in to Firebase Auth using the verified Google credential if present
   if (verifiedSession.idToken || verifiedSession.accessToken) {
     try {
       const cred = GoogleAuthProvider.credential(
@@ -393,9 +396,13 @@ export async function deleteCustomDeckFromCloud(deckId: string) {
 
 export function buildGoogleOAuthUrl(stateId: string): string {
   const nonceId = 'nc_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
-  const origin = window.location.hostname.endsWith('.run.app')
-    ? window.location.origin
-    : 'https://ais-pre-kgrpdx7hnunkkpn4rtvjsl-444550834163.asia-east1.run.app';
+  let origin = 'https://ais-dev-kgrpdx7hnunkkpn4rtvjsl-444550834163.asia-east1.run.app';
+  if (typeof window !== 'undefined' && window.location && window.location.origin) {
+    const winOrig = window.location.origin;
+    if (winOrig && winOrig !== 'null' && winOrig.startsWith('http')) {
+      origin = winOrig;
+    }
+  }
   const redirectUri = origin + '/__/auth/handler';
 
   return (
@@ -410,99 +417,69 @@ export function buildGoogleOAuthUrl(stateId: string): string {
   );
 }
 
-let activeOAuthPollTimer: any = null;
-
-export function signInWithGoogle(): Promise<any> {
-  // Construct state & URL 100% synchronously so mobile browsers never block or close the popup
-  const stateId = 'st_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
-  const oauthUrl = buildGoogleOAuthUrl(stateId);
-
-  // Open Google OAuth 2.0 directly and synchronously on user gesture
-  const popup = window.open(
-    oauthUrl,
-    'google_oauth_signin',
-    'width=500,height=660,menubar=no,toolbar=no,location=yes,status=no'
-  );
-
-  // If running top-level on mobile and popup was blocked by the browser, navigate directly
-  if (!popup && window.self === window.top) {
-    window.location.assign(oauthUrl);
-    return new Promise(() => {});
+export async function signInWithAccount(email: string, password: string, displayName?: string): Promise<any> {
+  const cleanEmail = String(email || '').trim().toLowerCase();
+  const cleanPassword = String(password || '').trim();
+  if (!cleanEmail.includes('@')) {
+    throw new Error('Please enter a valid email address.');
+  }
+  if (!cleanPassword || cleanPassword.length < 4) {
+    throw new Error('Password or passcode must be at least 4 characters.');
   }
 
+  const res = await fetch('/api/auth/account-login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: cleanEmail, password: cleanPassword, displayName })
+  });
+
+  const data = await res.json();
+  if (!res.ok || !data.ok || !data.user) {
+    throw new Error(data.error || 'Authentication failed. Please check your credentials.');
+  }
+
+  return await applyVerifiedGoogleUser(data.user);
+}
+
+export function signInWithGoogle(): Promise<any> {
   return new Promise((resolve, reject) => {
-    let settled = false;
-    const startTime = Date.now();
-
-    const cleanup = () => {
-      if (activeOAuthPollTimer) {
-        clearInterval(activeOAuthPollTimer);
-        activeOAuthPollTimer = null;
-      }
-      window.removeEventListener('message', onMessage);
-      if (bc) {
-        try { bc.close(); } catch (e) {}
-      }
-    };
-
-    const finishSuccess = async (userObj: any) => {
-      if (settled) return;
-      settled = true;
-      cleanup();
-      const applied = await applyVerifiedGoogleUser(userObj);
-      resolve(applied || userObj);
-    };
-
-    const finishError = (errStr: string) => {
-      if (settled) return;
-      settled = true;
-      cleanup();
-      reject(new Error(errStr));
-    };
-
-    const onMessage = (event: MessageEvent) => {
-      const data = event.data;
-      if (!data || typeof data !== 'object') return;
-      if (data.type === 'GOOGLE_OAUTH_SUCCESS' && data.user && data.user.verified) {
-        finishSuccess(data.user);
-      } else if (data.type === 'GOOGLE_OAUTH_ERROR' && data.state === stateId) {
-        finishError(data.error || 'Google Sign-In cancelled');
-      }
-    };
-    window.addEventListener('message', onMessage);
-
-    let bc: BroadcastChannel | null = null;
-    try {
-      if (typeof BroadcastChannel !== 'undefined') {
-        bc = new BroadcastChannel('vocab_google_auth_channel');
-        bc.onmessage = (ev) => {
-          const data = ev.data;
-          if (data && data.type === 'GOOGLE_OAUTH_SUCCESS' && data.user && data.user.verified) {
-            finishSuccess(data.user);
+    const gsi = (window as any).google?.accounts?.id;
+    if (gsi) {
+      gsi.initialize({
+        client_id: GOOGLE_OAUTH_CLIENT_ID,
+        callback: async (resp: any) => {
+          if (resp && resp.credential) {
+            try {
+              const verifyRes = await fetch('/api/auth/verify-google', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ idToken: resp.credential })
+              });
+              const verifyData = await verifyRes.json();
+              if (verifyData && verifyData.ok && verifyData.user) {
+                const applied = await applyVerifiedGoogleUser(verifyData.user);
+                resolve(applied || verifyData.user);
+              } else {
+                reject(new Error(verifyData?.error || 'Google verification failed'));
+              }
+            } catch (err: any) {
+              reject(err);
+            }
+          } else {
+            reject(new Error('No credential returned from Google'));
           }
-        };
-      }
-    } catch (e) {}
-
-    if (activeOAuthPollTimer) clearInterval(activeOAuthPollTimer);
-    activeOAuthPollTimer = setInterval(async () => {
-      if (settled) return;
-      if (Date.now() - startTime > 180000) {
-        finishError('Google Sign-In timed out');
-        return;
-      }
-      try {
-        const res = await fetch(`/api/auth/poll-oauth?state=${encodeURIComponent(stateId)}`);
-        if (res.ok) {
-          const data = await res.json();
-          if (data && data.status === 'completed' && data.user && data.user.verified) {
-            finishSuccess(data.user);
-          } else if (data && data.status === 'error') {
-            finishError(data.error || 'Google Sign-In cancelled');
-          }
+        },
+        auto_select: false,
+        cancel_on_tap_outside: true
+      });
+      gsi.prompt((notification: any) => {
+        if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
+          reject(new Error('Google prompt not displayed. Please use Email & Passcode login.'));
         }
-      } catch (e) {}
-    }, 900);
+      });
+    } else {
+      reject(new Error('Google Identity Services not loaded. Please use Email & Passcode login.'));
+    }
   });
 }
 

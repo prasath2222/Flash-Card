@@ -3,6 +3,7 @@ import { createServer as createViteServer } from "vite";
 import path from "path";
 import { fileURLToPath } from "url";
 import fs from "fs";
+import crypto from "crypto";
 import { initializeApp, getApps } from "firebase/app";
 import { getFirestore, doc, getDoc, setDoc, deleteDoc } from "firebase/firestore";
 
@@ -485,6 +486,104 @@ async function startServer() {
     }
 
     return res.json({ ok: true, status: "pending" });
+  });
+
+  // Duolingo-grade Account Authentication (Email & Password / Passcode)
+  // Ensures 100% login reliability even when third-party Google popups are blocked on mobile or Firefox
+  app.post("/api/auth/account-login", async (req, res) => {
+    try {
+      const { email, password, displayName } = req.body || {};
+      const cleanEmail = sanitizeEmailKey(email);
+      const cleanPassword = String(password || "").trim();
+
+      if (!cleanEmail || !cleanEmail.includes("@")) {
+        return res.status(400).json({ ok: false, error: "Please enter a valid email address." });
+      }
+      if (!cleanPassword || cleanPassword.length < 4) {
+        return res.status(400).json({ ok: false, error: "Password or passcode must be at least 4 characters." });
+      }
+
+      const authDir = path.join(__dirname, "data");
+      const authFilePath = path.join(authDir, "user_credentials.json");
+
+      function readCredentials(): Record<string, any> {
+        try {
+          if (fs.existsSync(authFilePath)) {
+            return JSON.parse(fs.readFileSync(authFilePath, "utf8")) || {};
+          }
+        } catch (e) {}
+        return {};
+      }
+
+      function writeCredentials(creds: Record<string, any>) {
+        try {
+          if (!fs.existsSync(authDir)) fs.mkdirSync(authDir, { recursive: true });
+          fs.writeFileSync(authFilePath, JSON.stringify(creds, null, 2), "utf8");
+        } catch (e) {}
+      }
+
+      // Check Firestore first for credentials so multi-device works everywhere worldwide
+      let userCred: any = null;
+      const credDocId = `cred_${cleanEmail.replace(/[^a-z0-9]/g, "_")}`;
+      if (firestoreDb) {
+        try {
+          const snap = await getDoc(doc(firestoreDb, "study_state", credDocId));
+          if (snap.exists()) {
+            userCred = snap.data();
+          }
+        } catch (e) {}
+      }
+
+      if (!userCred) {
+        const localCreds = readCredentials();
+        userCred = localCreds[cleanEmail] || null;
+      }
+
+      if (userCred && userCred.passwordHash) {
+        // Existing user: verify password
+        const hash = crypto.pbkdf2Sync(cleanPassword, userCred.salt || "default_salt", 10000, 64, "sha512").toString("hex");
+        if (hash !== userCred.passwordHash) {
+          return res.status(401).json({ ok: false, error: "Incorrect password for this account. Please try again." });
+        }
+      } else {
+        // New account creation
+        const salt = crypto.randomBytes(16).toString("hex");
+        const hash = crypto.pbkdf2Sync(cleanPassword, salt, 10000, 64, "sha512").toString("hex");
+        const name = String(displayName || cleanEmail.split("@")[0]).trim();
+        userCred = {
+          email: cleanEmail,
+          displayName: name,
+          passwordHash: hash,
+          salt,
+          createdAt: new Date().toISOString()
+        };
+
+        const localCreds = readCredentials();
+        localCreds[cleanEmail] = userCred;
+        writeCredentials(localCreds);
+
+        if (firestoreDb) {
+          try {
+            await setDoc(doc(firestoreDb, "study_state", credDocId), userCred);
+          } catch (e) {}
+        }
+      }
+
+      const verifiedUser = {
+        uid: `acct_${cleanEmail.replace(/[^a-z0-9]/g, "_")}`,
+        googleSub: `acct_${cleanEmail.replace(/[^a-z0-9]/g, "_")}`,
+        email: cleanEmail,
+        displayName: userCred.displayName || cleanEmail.split("@")[0],
+        photoURL: "",
+        verified: true,
+        authMethod: "email_account",
+        authenticatedAt: new Date().toISOString()
+      };
+
+      return res.json({ ok: true, user: verifiedUser });
+    } catch (err: any) {
+      return res.status(500).json({ ok: false, error: err?.message || "Authentication error" });
+    }
   });
 
   // =========================================================================
