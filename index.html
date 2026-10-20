@@ -21309,8 +21309,8 @@ const tier800DeckCards = initialDeckCards;
         const isSwitchingFromDifferentAccount = Boolean(previousEmail && previousEmail !== cleanEmail);
 
         if (isSwitchingFromDifferentAccount) {
+          // Save previous account's state before switching without wiping the local cards
           await syncCurrentStateToDeviceCloud(false, previousEmail);
-          resetLocalBoardToCleanDefaults();
         }
 
         currentAccountEmail = cleanEmail;
@@ -21400,13 +21400,13 @@ const tier800DeckCards = initialDeckCards;
       function applyRemoteSyncPayload(payload, isInitialAccountLoad = false) {
         if (!payload) return;
 
-        // 1. Learned cards
+        // 1. Learned cards - union with current session so no mastered cards are lost
         const inLearned = Array.isArray(payload.learnedCardNums)
           ? payload.learnedCardNums
           : Array.isArray(payload.learnedCards)
           ? payload.learnedCards
           : [];
-        learnedCardsSet = new Set(inLearned);
+        learnedCardsSet = new Set([...learnedCardsSet, ...inLearned]);
         try {
           localStorage.setItem(LEARNED_STORAGE_KEY, JSON.stringify([...learnedCardsSet]));
         } catch (e) {}
@@ -21417,18 +21417,20 @@ const tier800DeckCards = initialDeckCards;
           : Array.isArray(payload.deletedCards)
           ? payload.deletedCards
           : [];
-        deletedCardNums = [...inDeleted];
+        deletedCardNums = [...new Set([...deletedCardNums, ...inDeleted])];
         try {
           localStorage.setItem(DELETED_CARDS_STORAGE_KEY, JSON.stringify(deletedCardNums));
         } catch (e) {}
 
-        // 3. Streak
+        // 3. Streak - always preserve highest streak
         const inStreak = typeof payload.streakCount === "number" ? payload.streakCount : payload.streak;
-        if (typeof inStreak === "number" && inStreak > 0) {
+        const curStreak = parseInt(localStorage.getItem("study_streak_count") || "0", 10) || 0;
+        const maxStreak = Math.max(curStreak, typeof inStreak === "number" ? inStreak : 0);
+        if (maxStreak > 0) {
           const streakEl = document.getElementById("flashcard-streak-count");
-          if (streakEl) streakEl.textContent = inStreak;
-          try { localStorage.setItem("study_streak_count", String(inStreak)); } catch (e) {}
-          if (typeof updateStreakDisplays === "function") updateStreakDisplays(inStreak);
+          if (streakEl) streakEl.textContent = maxStreak;
+          try { localStorage.setItem("study_streak_count", String(maxStreak)); } catch (e) {}
+          if (typeof updateStreakDisplays === "function") updateStreakDisplays(maxStreak);
         }
 
         // 4. Custom shortcuts & card edits
@@ -21890,12 +21892,14 @@ const tier800DeckCards = initialDeckCards;
             showToast("Connecting to Google Account...");
             btnGoogleCustom.disabled = true;
             btnGoogleCustom.style.opacity = "0.7";
+            const loginEmailInput = document.getElementById("input-login-email");
+            const typedEmail = loginEmailInput ? loginEmailInput.value.trim().toLowerCase() : "";
             if (window.firebaseSync && window.firebaseSync.signInWithGoogle) {
-              const user = await window.firebaseSync.signInWithGoogle();
+              const user = await window.firebaseSync.signInWithGoogle(typedEmail);
               if (user && user.email) {
                 await loadVerifiedGoogleAccountState(user, true);
                 closeCloudSyncModal();
-                showToast("Signed in to Cloud Sync 🚀");
+                showToast(`Signed in to Cloud Sync (${user.displayName || user.email}) 🚀`);
                 playHapticTick(600, "sine", 0.05);
                 return;
               }
@@ -21907,8 +21911,10 @@ const tier800DeckCards = initialDeckCards;
             console.warn("Google sign-in fallback notice:", err);
             // Seamlessly fall back to instant cloud sync so the user is never blocked
             try {
+              const loginEmailInput = document.getElementById("input-login-email");
+              const typedEmail = loginEmailInput ? loginEmailInput.value.trim().toLowerCase() : "";
               if (window.firebaseSync && window.firebaseSync.instantCloudSync) {
-                const user = await window.firebaseSync.instantCloudSync();
+                const user = await window.firebaseSync.instantCloudSync(typedEmail);
                 if (user) {
                   await loadVerifiedGoogleAccountState(user, true);
                   closeCloudSyncModal();
@@ -21935,14 +21941,16 @@ const tier800DeckCards = initialDeckCards;
             btnInstantSyncFast.disabled = true;
             btnInstantSyncFast.textContent = "Connecting...";
             showToast("Connecting to Cloud Sync...");
+            const loginEmailInput = document.getElementById("input-login-email");
+            const typedEmail = loginEmailInput ? loginEmailInput.value.trim().toLowerCase() : "";
             let user = null;
             if (window.firebaseSync && window.firebaseSync.instantCloudSync) {
-              user = await window.firebaseSync.instantCloudSync();
+              user = await window.firebaseSync.instantCloudSync(typedEmail);
             } else {
               const res = await fetch("/api/auth/instant-connect", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({})
+                body: JSON.stringify({ email: typedEmail })
               });
               const data = await res.json();
               if (data && data.ok && data.user) user = data.user;
@@ -21950,7 +21958,7 @@ const tier800DeckCards = initialDeckCards;
             if (user) {
               await loadVerifiedGoogleAccountState(user, true);
               closeCloudSyncModal();
-              showToast("Connected to Cloud Sync! Your flashcards are synced 🚀");
+              showToast(`Connected to Cloud Sync (${user.displayName || user.email}) 🚀`);
               playHapticTick(600, "sine", 0.05);
             }
           } catch (e) {

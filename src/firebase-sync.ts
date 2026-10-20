@@ -446,12 +446,13 @@ export async function registerAccount(email: string, password: string, displayNa
   return signInWithAccount(email, password, displayName, 'register');
 }
 
-export async function instantCloudSync(): Promise<any> {
+export async function instantCloudSync(preferredEmail?: string): Promise<any> {
+  const reqEmail = preferredEmail || (typeof window !== 'undefined' && (document.getElementById('input-login-email') as HTMLInputElement)?.value?.trim()) || '';
   try {
     const res = await fetch('/api/auth/instant-connect', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({})
+      body: JSON.stringify({ email: reqEmail })
     });
     const data = await res.json();
     if (data && data.ok && data.user) {
@@ -459,11 +460,13 @@ export async function instantCloudSync(): Promise<any> {
     }
   } catch (err) {}
 
+  const clean = reqEmail && reqEmail.includes('@') ? reqEmail.toLowerCase() : 'cloud_sync@sync.internal';
+  const name = clean.includes('@') && !clean.startsWith('cloud_sync') ? clean.split('@')[0] : 'Cloud User';
   const fallbackUser = {
     uid: `acct_${Date.now().toString(36)}`,
     googleSub: `acct_${Date.now().toString(36)}`,
-    email: 'cloud_sync@sync.internal',
-    displayName: 'Cloud User',
+    email: clean,
+    displayName: name,
     photoURL: '',
     verified: true,
     authMethod: 'instant_cloud',
@@ -472,7 +475,7 @@ export async function instantCloudSync(): Promise<any> {
   return await applyVerifiedGoogleUser(fallbackUser);
 }
 
-export async function signInWithGoogle(): Promise<any> {
+export async function signInWithGoogle(preferredEmail?: string): Promise<any> {
   try {
     const provider = new GoogleAuthProvider();
     provider.setCustomParameters({ prompt: 'select_account' });
@@ -494,10 +497,10 @@ export async function signInWithGoogle(): Promise<any> {
   } catch (popupErr: any) {
     console.warn('Firebase signInWithPopup domain notice:', popupErr?.message || popupErr);
     // On preview or non-whitelisted domains (auth/unauthorized-domain), seamlessly connect to cloud sync
-    return await instantCloudSync();
+    return await instantCloudSync(preferredEmail);
   }
 
-  return await instantCloudSync();
+  return await instantCloudSync(preferredEmail);
 }
 
 export const loginWithGoogle = signInWithGoogle;
