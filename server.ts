@@ -523,10 +523,11 @@ async function startServer() {
       }
 
       const action = String(req.body?.action || "login").toLowerCase();
+      const emailHash = crypto.createHash("sha256").update(cleanEmail).digest("hex");
+      const credDocId = `cred_${emailHash.slice(0, 32)}`;
 
       // Check Firestore first for credentials so multi-device works everywhere worldwide
       let userCred: any = null;
-      const credDocId = `cred_${cleanEmail.replace(/[^a-z0-9]/g, "_")}`;
       if (firestoreDb) {
         try {
           const snap = await getDoc(doc(firestoreDb, "study_state", credDocId));
@@ -538,7 +539,7 @@ async function startServer() {
 
       if (!userCred) {
         const localCreds = readCredentials();
-        userCred = localCreds[cleanEmail] || null;
+        userCred = localCreds[emailHash] || localCreds[cleanEmail] || null;
       }
 
       if (action === "register" || action === "signup") {
@@ -559,7 +560,7 @@ async function startServer() {
         const hash = crypto.pbkdf2Sync(cleanPassword, salt, 10000, 64, "sha512").toString("hex");
         const name = String(displayName || cleanEmail.split("@")[0]).trim();
         userCred = {
-          email: cleanEmail,
+          accountId: emailHash,
           displayName: name,
           passwordHash: hash,
           salt,
@@ -567,7 +568,7 @@ async function startServer() {
         };
 
         const localCreds = readCredentials();
-        localCreds[cleanEmail] = userCred;
+        localCreds[emailHash] = userCred;
         writeCredentials(localCreds);
 
         if (firestoreDb) {
@@ -595,8 +596,8 @@ async function startServer() {
       }
 
       const verifiedUser = {
-        uid: `acct_${cleanEmail.replace(/[^a-z0-9]/g, "_")}`,
-        googleSub: `acct_${cleanEmail.replace(/[^a-z0-9]/g, "_")}`,
+        uid: `acct_${emailHash.slice(0, 24)}`,
+        googleSub: `acct_${emailHash.slice(0, 24)}`,
         email: cleanEmail,
         displayName: userCred.displayName || cleanEmail.split("@")[0],
         photoURL: "",
@@ -648,7 +649,8 @@ async function startServer() {
   }
 
   function emailToFirestoreDocId(email: string): string {
-    return `acct_${email.replace(/[^a-z0-9]/g, "_")}`.slice(0, 120);
+    const hash = crypto.createHash("sha256").update(email).digest("hex").slice(0, 32);
+    return `acct_${hash}`;
   }
 
   function normalizeProfilePayload(rawEntry: any): any {
@@ -728,8 +730,9 @@ async function startServer() {
       return { email: "", exists: false, updatedAt: "", payload: null };
     }
 
+    const emailHash = crypto.createHash("sha256").update(email).digest("hex");
     const profiles = readUserProfiles();
-    const existingNorm = normalizeProfilePayload(profiles[email]) || normalizeProfilePayload({});
+    const existingNorm = normalizeProfilePayload(profiles[emailHash] || profiles[email]) || normalizeProfilePayload({});
 
     const incoming =
       incomingBody?.payload && typeof incomingBody.payload === "object"
@@ -796,7 +799,7 @@ async function startServer() {
     const updatedAt = new Date().toISOString();
 
     const savedPayload = {
-      email,
+      accountId: emailHash,
       learnedCardNums,
       learnedCards: learnedCardNums,
       deletedCardNums,
@@ -813,7 +816,7 @@ async function startServer() {
       updatedAt
     };
 
-    profiles[email] = {
+    profiles[emailHash] = {
       updatedAt,
       payload: savedPayload
     };
@@ -824,7 +827,7 @@ async function startServer() {
       try {
         const docId = emailToFirestoreDocId(email);
         await setDoc(doc(firestoreDb, "study_state", docId), {
-          email,
+          accountId: emailHash,
           updatedAt,
           payload: savedPayload
         });
@@ -844,8 +847,9 @@ async function startServer() {
       return { email: "", exists: false, updatedAt: "", payload: null };
     }
 
+    const emailHash = crypto.createHash("sha256").update(email).digest("hex");
     const profiles = readUserProfiles();
-    let localNorm = profiles[email] ? normalizeProfilePayload(profiles[email]) : null;
+    let localNorm = (profiles[emailHash] || profiles[email]) ? normalizeProfilePayload(profiles[emailHash] || profiles[email]) : null;
     let firestoreNorm: any = null;
 
     if (firestoreDb) {

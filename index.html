@@ -454,7 +454,7 @@
         -webkit-user-select: none;
       }
 
-      .flashcard-wrapper.flipped {
+      .flashcard-wrapper.flipped:not(.spring-animating) {
         transform: rotateY(180deg);
         -webkit-transform: rotateY(180deg);
       }
@@ -4860,7 +4860,7 @@
         background: #0d1422 !important;
       }
 
-      #screen-flashcard .flashcard-wrapper.flipped {
+      #screen-flashcard .flashcard-wrapper.flipped:not(.spring-animating) {
         transform: rotateY(180deg) !important;
         -webkit-transform: rotateY(180deg) !important;
       }
@@ -9855,7 +9855,6 @@
 
             <!-- Cloud Account Action Buttons in Settings Tab -->
             <div style="margin-top: 14px;">
-              <div id="google-signin-tab-slot" style="margin-bottom: 10px; display: flex; justify-content: center; min-height: 44px;"></div>
               <button type="button" class="duo-btn-3d" id="btn-cloud-signin" style="width: 100%; padding: 13px; font-weight: 850; background: #10b981; color: #052e16; border: 1px solid #059669; border-radius: 12px; cursor: pointer; justify-content: center; display: flex; align-items: center; gap: 8px; font-size: 0.95rem;">
                 <span id="btn-cloud-signin-label">Sign In to Sync Progress ☁️</span>
               </button>
@@ -9870,42 +9869,25 @@
 
     <!-- ========================================================== -->
     <!-- CLOUD SIGN-IN & CROSS-DEVICE CLOUD SYNC MODAL (DUOLINGO GRADE) -->
-    <!-- Fits 100% of all devices: mobile phones, tablets, desktop   -->
+    <!-- Responsive layout designed to fit all screen sizes smoothly -->
     <!-- ========================================================== -->
     <div class="modal-backdrop" id="modal-cloud-sync-login">
-      <div class="modal-sheet" style="max-width: 480px; max-height: 90dvh; overflow-y: auto; -webkit-overflow-scrolling: touch; background: linear-gradient(180deg, #172236 0%, #0c1424 100%); border: 1px solid rgba(255,255,255,0.14); border-radius: 26px 26px 0 0; box-shadow: 0 25px 70px rgba(0,0,0,0.85); padding: 22px 20px;">
+      <div class="modal-sheet" style="width: min(440px, 92vw); max-height: min(88dvh, 720px); overflow-y: auto; -webkit-overflow-scrolling: touch; background: linear-gradient(180deg, #172236 0%, #0c1424 100%); border: 1px solid rgba(255,255,255,0.14); border-radius: 24px; box-shadow: 0 25px 70px rgba(0,0,0,0.85); padding: 22px 20px; box-sizing: border-box; margin: auto;">
         <div class="modal-handle"></div>
-        <div class="modal-header" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.08);">
+        <div class="modal-header" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.08);">
           <div style="display: flex; align-items: center; gap: 10px;">
             <div id="cloud-modal-avatar" style="width: 38px; height: 38px; border-radius: 12px; background: linear-gradient(135deg, #0284c7, #10b981); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; overflow: hidden; flex-shrink: 0;">☁️</div>
             <div>
               <span class="modal-title" style="font-size: 1.15rem; font-weight: 800; color: #fff;">Cloud Account &amp; Sync</span>
-              <div style="font-size: 0.76rem; color: #94a3b8;">Save &amp; access your progress from any device worldwide</div>
+              <div style="font-size: 0.76rem; color: #94a3b8;">Save &amp; access your progress from any device</div>
             </div>
           </div>
           <button type="button" class="modal-close-btn" id="btn-close-cloud-sync-modal" aria-label="Close" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; width: 34px; height: 34px; color: #cbd5e1; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center;">&times;</button>
         </div>
 
-        <!-- Account Status Card -->
-        <div style="padding: 14px 16px; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; margin-bottom: 16px;">
-          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
-            <div>
-              <div id="cloud-modal-status-header" style="font-size: 0.72rem; color: #38bdf8; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;">Account Status</div>
-              <div id="cloud-modal-account-email" style="font-size: 1.05rem; font-weight: 850; color: #ffffff; word-break: break-all;">Not Signed In</div>
-              <div id="cloud-modal-status-text" style="font-size: 0.76rem; color: #94a3b8; font-weight: 750; margin-top: 4px; display: flex; align-items: center; gap: 6px;">
-                <span id="cloud-modal-status-dot" style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #94a3b8;"></span>
-                <span id="cloud-modal-status-desc">Log in below to sync your flashcards across all devices</span>
-              </div>
-            </div>
-            <button type="button" class="duo-btn-3d" id="btn-modal-manual-push" style="display: none; padding: 8px 14px; font-size: 0.8rem; font-weight: 800; background: rgba(56,189,248,0.2); border: 1px solid rgba(56,189,248,0.45); color: #38bdf8; cursor: pointer;">
-              ⚡ Sync Now
-            </button>
-          </div>
-        </div>
-
         <!-- Duolingo-Grade Auth Tabs: Log In vs Create Account -->
         <div id="auth-unauthenticated-panel">
-          <div style="display: flex; background: rgba(0,0,0,0.4); padding: 4px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 14px;">
+          <div style="display: flex; background: rgba(0,0,0,0.4); padding: 4px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 16px;">
             <button type="button" id="tab-auth-login" style="flex: 1; padding: 10px; border-radius: 10px; font-weight: 800; font-size: 0.88rem; cursor: pointer; border: none; background: #10b981; color: #052e16; transition: all 0.18s ease;">
               Log In
             </button>
@@ -9914,26 +9896,19 @@
             </button>
           </div>
 
-          <!-- Quick Fill Button for current user -->
-          <div style="margin-bottom: 12px; display: flex; align-items: center; justify-content: flex-end;">
-            <button type="button" id="btn-quick-fill-email" style="background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 9999px; padding: 4px 10px; font-size: 0.74rem; font-weight: 750; color: #38bdf8; cursor: pointer;">
-              ⚡ Fill: stellarnetworkhub@gmail.com
-            </button>
-          </div>
-
           <!-- FORM 1: LOG IN -->
           <div id="form-auth-login" style="display: block;">
             <div id="login-error-msg" style="display: none; padding: 10px 12px; background: rgba(239, 68, 68, 0.18); border: 1px solid #ef4444; border-radius: 12px; color: #fca5a5; font-size: 0.82rem; font-weight: 700; margin-bottom: 12px; line-height: 1.4;"></div>
-            <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: flex; flex-direction: column; gap: 12px;">
               <div>
-                <label for="input-login-email" style="display: block; font-size: 0.75rem; font-weight: 800; color: #94a3b8; text-transform: uppercase; margin-bottom: 4px; letter-spacing: 0.04em;">Email Address</label>
-                <input type="email" id="input-login-email" placeholder="e.g. stellarnetworkhub@gmail.com" autocomplete="email" style="width: 100%; padding: 12px 14px; background: rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.22); border-radius: 12px; color: #fff; font-size: 16px; box-sizing: border-box;" />
+                <label for="input-login-email" style="display: block; font-size: 0.75rem; font-weight: 800; color: #94a3b8; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 0.04em;">Email Address</label>
+                <input type="email" id="input-login-email" placeholder="name@example.com" autocomplete="email" style="width: 100%; padding: 12px 14px; background: rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.22); border-radius: 12px; color: #fff; font-size: 16px; box-sizing: border-box;" />
               </div>
               <div>
-                <label for="input-login-pass" style="display: block; font-size: 0.75rem; font-weight: 800; color: #94a3b8; text-transform: uppercase; margin-bottom: 4px; letter-spacing: 0.04em;">Password</label>
+                <label for="input-login-pass" style="display: block; font-size: 0.75rem; font-weight: 800; color: #94a3b8; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 0.04em;">Password</label>
                 <input type="password" id="input-login-pass" placeholder="Enter your password" autocomplete="current-password" style="width: 100%; padding: 12px 14px; background: rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.22); border-radius: 12px; color: #fff; font-size: 16px; box-sizing: border-box;" />
               </div>
-              <button type="button" class="duo-btn-3d" id="btn-submit-login" style="width: 100%; padding: 13px; background: #10b981; border: 1px solid #059669; color: #052e16; font-weight: 850; font-size: 1rem; border-radius: 12px; cursor: pointer; margin-top: 6px;">
+              <button type="button" class="duo-btn-3d" id="btn-submit-login" style="width: 100%; padding: 13px; background: #10b981; border: 1px solid #059669; color: #052e16; font-weight: 850; font-size: 1rem; border-radius: 12px; cursor: pointer; margin-top: 4px;">
                 Log In &amp; Restore Progress 🚀
               </button>
             </div>
@@ -9942,28 +9917,32 @@
           <!-- FORM 2: CREATE ACCOUNT -->
           <div id="form-auth-register" style="display: none;">
             <div id="register-error-msg" style="display: none; padding: 10px 12px; background: rgba(239, 68, 68, 0.18); border: 1px solid #ef4444; border-radius: 12px; color: #fca5a5; font-size: 0.82rem; font-weight: 700; margin-bottom: 12px; line-height: 1.4;"></div>
-            <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: flex; flex-direction: column; gap: 12px;">
               <div>
-                <label for="input-register-name" style="display: block; font-size: 0.75rem; font-weight: 800; color: #94a3b8; text-transform: uppercase; margin-bottom: 4px; letter-spacing: 0.04em;">Your Name</label>
+                <label for="input-register-name" style="display: block; font-size: 0.75rem; font-weight: 800; color: #94a3b8; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 0.04em;">Your Name</label>
                 <input type="text" id="input-register-name" placeholder="e.g. Alex" autocomplete="name" style="width: 100%; padding: 12px 14px; background: rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.22); border-radius: 12px; color: #fff; font-size: 16px; box-sizing: border-box;" />
               </div>
               <div>
-                <label for="input-register-email" style="display: block; font-size: 0.75rem; font-weight: 800; color: #94a3b8; text-transform: uppercase; margin-bottom: 4px; letter-spacing: 0.04em;">Email Address</label>
-                <input type="email" id="input-register-email" placeholder="e.g. stellarnetworkhub@gmail.com" autocomplete="email" style="width: 100%; padding: 12px 14px; background: rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.22); border-radius: 12px; color: #fff; font-size: 16px; box-sizing: border-box;" />
+                <label for="input-register-email" style="display: block; font-size: 0.75rem; font-weight: 800; color: #94a3b8; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 0.04em;">Email Address</label>
+                <input type="email" id="input-register-email" placeholder="name@example.com" autocomplete="email" style="width: 100%; padding: 12px 14px; background: rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.22); border-radius: 12px; color: #fff; font-size: 16px; box-sizing: border-box;" />
               </div>
               <div>
-                <label for="input-register-pass" style="display: block; font-size: 0.75rem; font-weight: 800; color: #94a3b8; text-transform: uppercase; margin-bottom: 4px; letter-spacing: 0.04em;">Password (min 6 chars)</label>
-                <input type="password" id="input-register-pass" placeholder="Create a password (min 6 characters)" autocomplete="new-password" style="width: 100%; padding: 12px 14px; background: rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.22); border-radius: 12px; color: #fff; font-size: 16px; box-sizing: border-box;" />
+                <label for="input-register-pass" style="display: block; font-size: 0.75rem; font-weight: 800; color: #94a3b8; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 0.04em;">Password (min 6 chars)</label>
+                <input type="password" id="input-register-pass" placeholder="Create password (min 6 characters)" autocomplete="new-password" style="width: 100%; padding: 12px 14px; background: rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.22); border-radius: 12px; color: #fff; font-size: 16px; box-sizing: border-box;" />
               </div>
-              <button type="button" class="duo-btn-3d" id="btn-submit-register" style="width: 100%; padding: 13px; background: #38bdf8; border: 1px solid #0284c7; color: #082f49; font-weight: 850; font-size: 1rem; border-radius: 12px; cursor: pointer; margin-top: 6px;">
+              <button type="button" class="duo-btn-3d" id="btn-submit-register" style="width: 100%; padding: 13px; background: #38bdf8; border: 1px solid #0284c7; color: #082f49; font-weight: 850; font-size: 1rem; border-radius: 12px; cursor: pointer; margin-top: 4px;">
                 Create Account &amp; Save Progress 🚀
               </button>
             </div>
           </div>
 
-          <!-- Official Google Sign-In Button Container -->
-          <div style="margin-top: 18px; margin-bottom: 12px;">
-            <div style="font-size: 0.75rem; font-weight: 700; color: #64748b; text-align: center; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px;">— OR SIGN IN WITH GOOGLE —</div>
+          <!-- Single Clean Google Sign-In Button (Zero Duplicates) -->
+          <div style="margin-top: 20px; margin-bottom: 8px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+              <div style="flex: 1; height: 1px; background: rgba(255,255,255,0.12);"></div>
+              <span style="font-size: 0.72rem; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.06em;">OR CONTINUE WITH</span>
+              <div style="flex: 1; height: 1px; background: rgba(255,255,255,0.12);"></div>
+            </div>
             
             <button type="button" id="btn-google-signin-custom" style="width: 100%; padding: 12px 16px; background: #ffffff; color: #1f2937; border: 1px solid #cbd5e1; border-radius: 12px; font-weight: 750; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 3px 0 #94a3b8; transition: all 0.15s ease;">
               <svg width="20" height="20" viewBox="0 0 24 24">
@@ -9972,17 +9951,33 @@
                 <path fill="#FBBC05" d="M5.28 14.29c-.25-.72-.38-1.49-.38-2.29s.13-1.57.38-2.29V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.13z"/>
                 <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.37 0 3.26 2.64 1.25 6.58l4.03 3.13c.95-2.83 3.6-4.96 6.72-4.96z"/>
               </svg>
-              <span>Sign In with Google</span>
+              <span>Continue with Google</span>
             </button>
-            <div id="google-signin-modal-slot" style="display: flex; justify-content: center; min-height: 0; width: 100%; margin-top: 6px;"></div>
-            <div id="google-auth-notice" style="font-size: 0.74rem; color: #94a3b8; text-align: center; margin-top: 8px; line-height: 1.4;">
-              🔒 Real-time cloud synchronization backed by Google Cloud Firestore.
+            <div id="google-auth-notice" style="font-size: 0.74rem; color: #94a3b8; text-align: center; margin-top: 10px; line-height: 1.4;">
+              🔒 Progress syncs securely to cloud storage across all your devices.
             </div>
           </div>
         </div>
 
         <!-- AUTHENTICATED USER PANEL (Shown when user is signed in) -->
         <div id="auth-authenticated-panel" style="display: none; padding-top: 4px;">
+          <!-- Account Status Card -->
+          <div style="padding: 14px 16px; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; margin-bottom: 14px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+              <div>
+                <div id="cloud-modal-status-header" style="font-size: 0.72rem; color: #38bdf8; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;">Account</div>
+                <div id="cloud-modal-account-email" style="font-size: 1.05rem; font-weight: 850; color: #ffffff; word-break: break-all;">Signed In</div>
+                <div id="cloud-modal-status-text" style="font-size: 0.76rem; color: #34d399; font-weight: 750; margin-top: 4px; display: flex; align-items: center; gap: 6px;">
+                  <span id="cloud-modal-status-dot" style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #10b981; box-shadow: 0 0 6px #10b981;"></span>
+                  <span id="cloud-modal-status-desc">Cloud sync active</span>
+                </div>
+              </div>
+              <button type="button" class="duo-btn-3d" id="btn-modal-manual-push" style="padding: 8px 14px; font-size: 0.8rem; font-weight: 800; background: rgba(56,189,248,0.2); border: 1px solid rgba(56,189,248,0.45); color: #38bdf8; cursor: pointer;">
+                ⚡ Sync Now
+              </button>
+            </div>
+          </div>
+
           <div style="background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 14px; padding: 14px; margin-bottom: 14px; text-align: center;">
             <div style="font-size: 1.1rem; font-weight: 850; color: #34d399; margin-bottom: 4px;">✓ Connected to Cloud</div>
             <div id="auth-auth-details" style="font-size: 0.84rem; color: #e2e8f0; line-height: 1.45;">Your 3,000 flashcards, mastered cards, streaks and notes are automatically syncing across all your devices.</div>
@@ -19016,22 +19011,49 @@ const tier800DeckCards = initialDeckCards;
         }
       }
 
-      // Flip card mechanic with strict debounce (guarantees exactly 1 flip per double tap)
+      // Flip card mechanic powered by spring-physics library for bouncy, tactile transitions
       let lastFlipTimestamp = 0;
-      function flipCard() {
+      function flipCard(options = {}) {
         if (isAnimating || isCardAnimating) return;
         const now = Date.now();
-        if (now - lastFlipTimestamp < 260) return;
+        if (now - lastFlipTimestamp < 240) return;
         lastFlipTimestamp = now;
 
         isFlipped = !isFlipped;
         if (typeof cardAudio !== "undefined" && cardAudio.playCardFlip) {
           cardAudio.playCardFlip(!isFlipped);
         }
-        if (isFlipped) {
-          cardWrapper.classList.add("flipped");
+
+        // Tactile Spring-Physics Rotation with bouncy overshoot and scale lift
+        if (window.cardSpring && typeof window.cardSpring.flip === "function") {
+          window.cardSpring.flip(cardWrapper, isFlipped, {
+            stiffness: 310,
+            damping: 19,
+            mass: 0.78,
+            bounce: 0.28,
+            velocity: options.velocity || 0,
+            tiltX: options.tiltX || 0,
+            onMidpoint: () => {
+              if (isFlipped) {
+                cardWrapper.classList.add("flipped");
+              } else {
+                cardWrapper.classList.remove("flipped");
+              }
+            },
+            onComplete: () => {
+              if (isFlipped) {
+                cardWrapper.classList.add("flipped");
+              } else {
+                cardWrapper.classList.remove("flipped");
+              }
+            }
+          });
         } else {
-          cardWrapper.classList.remove("flipped");
+          if (isFlipped) {
+            cardWrapper.classList.add("flipped");
+          } else {
+            cardWrapper.classList.remove("flipped");
+          }
         }
       }
 
@@ -19046,6 +19068,9 @@ const tier800DeckCards = initialDeckCards;
         setTimeout(() => {
           currentIndex++;
           isFlipped = false;
+          if (window.cardSpring && typeof window.cardSpring.reset === "function") {
+            window.cardSpring.reset(cardWrapper);
+          }
           cardWrapper.classList.remove("flipped");
           cardWrapper.classList.remove("slide-out-left");
           renderCurrentCard();
@@ -19069,6 +19094,9 @@ const tier800DeckCards = initialDeckCards;
         setTimeout(() => {
           currentIndex--;
           isFlipped = false;
+          if (window.cardSpring && typeof window.cardSpring.reset === "function") {
+            window.cardSpring.reset(cardWrapper);
+          }
           cardWrapper.classList.remove("flipped");
           cardWrapper.classList.remove("slide-out-right");
           renderCurrentCard();
@@ -19102,6 +19130,9 @@ const tier800DeckCards = initialDeckCards;
           currentIndex = 0;
           celebratedMilestones.clear();
           isFlipped = false;
+          if (window.cardSpring && typeof window.cardSpring.reset === "function") {
+            window.cardSpring.reset(cardWrapper);
+          }
           cardWrapper.classList.remove("flipped", "slide-out-left");
 
           if (deckBadgeEl) {
@@ -19133,6 +19164,9 @@ const tier800DeckCards = initialDeckCards;
         setTimeout(() => {
           currentIndex = idx;
           isFlipped = false;
+          if (window.cardSpring && typeof window.cardSpring.reset === "function") {
+            window.cardSpring.reset(cardWrapper);
+          }
           cardWrapper.classList.remove("flipped");
           cardWrapper.classList.remove("slide-out-left", "slide-out-right");
           renderCurrentCard();
@@ -21680,32 +21714,8 @@ const tier800DeckCards = initialDeckCards;
               auto_select: false,
               cancel_on_tap_outside: true
             });
-
-            const modalSlot = document.getElementById("google-signin-modal-slot");
-            if (modalSlot) {
-              modalSlot.innerHTML = "";
-              window.google.accounts.id.renderButton(modalSlot, {
-                theme: "outline",
-                size: "large",
-                width: 320,
-                text: "signin_with",
-                shape: "rectangular"
-              });
-            }
-
-            const tabSlot = document.getElementById("google-signin-tab-slot");
-            if (tabSlot) {
-              tabSlot.innerHTML = "";
-              window.google.accounts.id.renderButton(tabSlot, {
-                theme: "outline",
-                size: "large",
-                width: 300,
-                text: "signin_with",
-                shape: "rectangular"
-              });
-            }
           } catch (e) {
-            console.warn("GIS render notice:", e);
+            console.warn("GIS notice:", e);
           }
         }
       }
@@ -21757,20 +21767,6 @@ const tier800DeckCards = initialDeckCards;
           if (formAuthLogin) formAuthLogin.style.display = "none";
           if (loginErrorMsg) loginErrorMsg.style.display = "none";
           if (registerErrorMsg) registerErrorMsg.style.display = "none";
-        });
-      }
-
-      // Quick Fill Email button
-      const btnQuickFill = document.getElementById("btn-quick-fill-email");
-      if (btnQuickFill) {
-        btnQuickFill.addEventListener("click", () => {
-          const loginEmail = document.getElementById("input-login-email");
-          const regEmail = document.getElementById("input-register-email");
-          const loginPass = document.getElementById("input-login-pass");
-          if (loginEmail) loginEmail.value = "stellarnetworkhub@gmail.com";
-          if (regEmail) regEmail.value = "stellarnetworkhub@gmail.com";
-          if (loginPass) loginPass.focus();
-          showToast("Filled stellarnetworkhub@gmail.com ⚡");
         });
       }
 
@@ -21945,15 +21941,11 @@ const tier800DeckCards = initialDeckCards;
             console.warn("Google sign-in attempt notice:", err);
           }
 
-          // If Google popup/GSI fails or origin restricted, guide user to email login
+          // If Google popup/GSI encounters browser restriction, guide user to login/create account
           if (authNotice) {
-            authNotice.innerHTML = `<span style="color:#f59e0b;font-weight:700;">Google sign-in requires registered origins. Use your Google email (stellarnetworkhub@gmail.com) with a password above to log in instantly!</span>`;
+            authNotice.innerHTML = `<span style="color:#94a3b8;font-size:0.76rem;">You can also log in or create an account with email and password above.</span>`;
           }
-          const loginEmail = document.getElementById("input-login-email");
-          const regEmail = document.getElementById("input-register-email");
-          if (loginEmail && !loginEmail.value) loginEmail.value = "stellarnetworkhub@gmail.com";
-          if (regEmail && !regEmail.value) regEmail.value = "stellarnetworkhub@gmail.com";
-          showToast("Please enter your password above to sign in ☁️");
+          showToast("You can also sign in with your email and password above ☁️");
         });
       }
 
@@ -23426,5 +23418,6 @@ const tier800DeckCards = initialDeckCards;
     </div>
 
     <script type="module" src="/src/firebase-sync.ts"></script>
+    <script type="module" src="/src/card-spring.ts"></script>
 </body>
 </html>
