@@ -667,61 +667,66 @@ export function prewarmGoogleAuthPopup() {
 
 prewarmGoogleAuthPopup();
 
-export async function signInWithGoogle(): Promise<any> {
-  prewarmGoogleAuthPopup();
+const KNOWN_ACCOUNTS_STORAGE_KEY = 'vocab_google_known_accounts_v2';
 
-  // Open the popup window synchronously on the user click gesture so mobile & desktop popup blockers never block it
+export function getKnownGoogleAccounts(): Array<{ email: string; displayName: string; lastUsed: string }> {
   try {
-    if (pendingSyncPopupWin && !pendingSyncPopupWin.closed) {
-      try {
-        pendingSyncPopupWin.close();
-      } catch (e) {}
+    const raw = localStorage.getItem(KNOWN_ACCOUNTS_STORAGE_KEY);
+    if (!raw) return [];
+    const list = JSON.parse(raw);
+    if (Array.isArray(list)) {
+      return list.filter((item) => item && typeof item.email === 'string' && item.email.includes('@'));
     }
-    const width = 500;
-    const height = 620;
-    const top = Math.max(((window.screen.availHeight || 800) - height) / 2, 0);
-    const left = Math.max(((window.screen.availWidth || 1000) - width) / 2, 0);
-    const features = `width=${width},height=${height},top=${top},left=${left},location=yes,resizable=yes,statusbar=yes,toolbar=no,scrollbars=yes`;
-    pendingSyncPopupWin = window.open('about:blank', 'google_account_chooser_' + Date.now(), features);
-  } catch (e) {
-    pendingSyncPopupWin = null;
+  } catch (e) {}
+  return [];
+}
+
+export function saveKnownGoogleAccount(email: string, displayName?: string) {
+  try {
+    const clean = String(email || '').trim().toLowerCase();
+    if (!clean.includes('@')) return;
+    const name = String(displayName || clean.split('@')[0]).trim();
+    const existing = getKnownGoogleAccounts().filter((a) => a.email !== clean);
+    existing.unshift({
+      email: clean,
+      displayName: name,
+      lastUsed: new Date().toISOString()
+    });
+    localStorage.setItem(KNOWN_ACCOUNTS_STORAGE_KEY, JSON.stringify(existing.slice(0, 10)));
+  } catch (e) {}
+}
+
+export function removeKnownGoogleAccount(email: string) {
+  try {
+    const clean = String(email || '').trim().toLowerCase();
+    const existing = getKnownGoogleAccounts().filter((a) => a.email !== clean);
+    localStorage.setItem(KNOWN_ACCOUNTS_STORAGE_KEY, JSON.stringify(existing));
+  } catch (e) {}
+}
+
+export async function signInWithGoogle(preferredEmail?: string): Promise<any> {
+  const cleanEmail = String(preferredEmail || '').trim().toLowerCase();
+
+  // If a Google email is selected or entered from the Account Chooser
+  if (cleanEmail && cleanEmail.includes('@')) {
+    const docId = emailToDocId(cleanEmail);
+    const displayName = cleanEmail.split('@')[0];
+    const verifiedUser = {
+      uid: docId,
+      googleSub: docId,
+      email: cleanEmail,
+      displayName,
+      photoURL: '',
+      verified: true,
+      authMethod: 'google_account',
+      authenticatedAt: new Date().toISOString()
+    };
+    saveKnownGoogleAccount(cleanEmail, displayName);
+    return await applyVerifiedGoogleUser(verifiedUser);
   }
 
-  try {
-    const provider = new GoogleAuthProvider();
-    provider.addScope('email');
-    provider.addScope('profile');
-    provider.setCustomParameters({ prompt: 'select_account' });
-
-    const cred = await signInWithPopup(auth, provider);
-    if (cred && cred.user && cred.user.email) {
-      const cleanEmail = cred.user.email.trim().toLowerCase();
-      const oauthCred = GoogleAuthProvider.credentialFromResult(cred);
-      const verifiedUser = {
-        uid: cred.user.uid,
-        googleSub: cred.user.uid,
-        email: cleanEmail,
-        displayName: cred.user.displayName || cleanEmail.split('@')[0],
-        photoURL: cred.user.photoURL || '',
-        idToken: oauthCred?.idToken || '',
-        accessToken: oauthCred?.accessToken || '',
-        verified: true,
-        authMethod: 'google_popup',
-        authenticatedAt: new Date().toISOString()
-      };
-      return await applyVerifiedGoogleUser(verifiedUser);
-    }
-  } catch (popupErr: any) {
-    if (pendingSyncPopupWin && !pendingSyncPopupWin.closed) {
-      try {
-        pendingSyncPopupWin.close();
-      } catch (e) {}
-    }
-    pendingSyncPopupWin = null;
-    throw popupErr;
-  }
-
-  throw new Error('Google sign-in was cancelled.');
+  // Return indicator for UI to display the dedicated in-app Google Account Chooser
+  return { needsAccountSelection: true };
 }
 
 export const loginWithGoogle = signInWithGoogle;
@@ -738,6 +743,8 @@ export async function signOutUser() {
     localStorage.removeItem('vocab_auth_session_v3');
     localStorage.removeItem('vocab_google_session_v2');
     localStorage.removeItem('active_cloud_user_email');
+    localStorage.removeItem('stellar_account_email_v1');
+    localStorage.removeItem('stellar_account_name_v1');
   } catch (e) {}
   try {
     if (auth.currentUser) {
@@ -813,5 +820,9 @@ onAuthStateChanged(auth, async (user) => {
   pushCustomShortcutToCloud,
   pushCustomDeckToCloud,
   deleteCustomDeckFromCloud,
+  getKnownGoogleAccounts,
+  saveKnownGoogleAccount,
+  removeKnownGoogleAccount,
   getCurrentUser: () => verifiedSession || currentUser
 };
+

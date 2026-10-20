@@ -1,34 +1,44 @@
 {
   "525a61e074d0e66ddba7aed3e500f618190650a392d0f54a9de7679db97a4df7": {
-    "updatedAt": "2026-10-20T14:28:55.148Z",
+    "updatedAt": "2026-10-20T15:59:55.181Z",
     "payload": {
-      "email": "cloud_sync@sync.internal",
-      "customShortcuts": {},
-      "updatedAt": "2026-10-20T14:28:55.148Z",
-      "customDecks": {},
-      "deletedCardNums": [
-        807,
-        "t800_807"
-      ],
-      "customSections": [],
-      "activeDeckId": "deck-800-1000",
-      "streakCount": 1,
       "learnedCardNums": [
         800,
         801,
         804
       ],
-      "lastActiveCardNum": 804,
+      "learnedCards": [
+        800,
+        801,
+        804
+      ],
+      "deletedCardNums": [
+        807,
+        "t800_807"
+      ],
+      "deletedCards": [
+        807,
+        "t800_807"
+      ],
+      "activeDeckId": "deck-800-1000",
+      "lastActiveCardNum": 800,
+      "lastCard": 800,
+      "streakCount": 5,
+      "streak": 5,
+      "customShortcuts": {},
+      "customDecks": {},
+      "customSections": [],
       "audioPrefs": {
-        "sfxStyle": "snap",
-        "bgmMode": "lofi",
-        "bgmVolume": 0.25,
-        "sfxVolume": 1,
-        "voicePitch": 1,
+        "bgmEnabled": true,
         "voiceVolume": 1,
+        "sfxVolume": 1,
+        "bgmVolume": 0.25,
         "voiceRate": 0.8,
-        "bgmEnabled": false
-      }
+        "bgmMode": "lofi",
+        "voicePitch": 1,
+        "sfxStyle": "whoosh"
+      },
+      "updatedAt": "2026-10-20T15:59:55.181Z"
     }
   },
   "5d1ea1d9e8cd94d56153ea518eae8a2b74807df866316dda4db5d4ef201fdabc": {
