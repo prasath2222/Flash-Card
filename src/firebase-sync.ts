@@ -417,20 +417,20 @@ export function buildGoogleOAuthUrl(stateId: string): string {
   );
 }
 
-export async function signInWithAccount(email: string, password: string, displayName?: string): Promise<any> {
+export async function signInWithAccount(email: string, password: string, displayName?: string, action: string = 'login'): Promise<any> {
   const cleanEmail = String(email || '').trim().toLowerCase();
   const cleanPassword = String(password || '').trim();
   if (!cleanEmail.includes('@')) {
     throw new Error('Please enter a valid email address.');
   }
-  if (!cleanPassword || cleanPassword.length < 4) {
-    throw new Error('Password or passcode must be at least 4 characters.');
+  if (!cleanPassword || cleanPassword.length < (action === 'register' ? 6 : 4)) {
+    throw new Error(action === 'register' ? 'Password must be at least 6 characters.' : 'Password must be at least 4 characters.');
   }
 
   const res = await fetch('/api/auth/account-login', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email: cleanEmail, password: cleanPassword, displayName })
+    body: JSON.stringify({ email: cleanEmail, password: cleanPassword, displayName, action })
   });
 
   const data = await res.json();
@@ -439,6 +439,10 @@ export async function signInWithAccount(email: string, password: string, display
   }
 
   return await applyVerifiedGoogleUser(data.user);
+}
+
+export async function registerAccount(email: string, password: string, displayName?: string): Promise<any> {
+  return signInWithAccount(email, password, displayName, 'register');
 }
 
 export function signInWithGoogle(): Promise<any> {
@@ -554,6 +558,8 @@ onAuthStateChanged(auth, async (user) => {
   db,
   signInWithGoogle,
   loginWithGoogle,
+  signInWithAccount,
+  registerAccount,
   applyVerifiedGoogleUser,
   buildGoogleOAuthUrl,
   signOutUser,

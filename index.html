@@ -1346,7 +1346,7 @@
         display: flex;
         align-items: flex-end;
         justify-content: center;
-        z-index: 50;
+        z-index: 9999;
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.25s ease;
@@ -1360,15 +1360,42 @@
       .modal-sheet {
         width: 100%;
         max-width: 480px;
+        max-height: 90dvh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
         background: #111a2e;
         border-top: 1px solid #1e293b;
         border-radius: 28px 28px 0 0;
-        padding: 22px 20px env(safe-area-inset-bottom, 24px) 20px;
+        padding: 20px 18px env(safe-area-inset-bottom, 24px) 18px;
         transform: translateY(100%);
         transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 14px;
+        box-sizing: border-box;
+      }
+
+      .modal-sheet input,
+      .modal-sheet textarea,
+      .modal-sheet select {
+        font-size: 16px !important; /* Prevents unwanted auto-zoom on mobile iOS & Android */
+      }
+
+      @media (min-width: 640px) {
+        .modal-backdrop {
+          align-items: center;
+          padding: 24px;
+        }
+        .modal-sheet {
+          border-radius: 24px;
+          border: 1px solid rgba(255, 255, 255, 0.14);
+          transform: scale(0.96) translateY(12px);
+          max-height: 85dvh;
+        }
+        .modal-backdrop.open .modal-sheet {
+          transform: scale(1) translateY(0);
+        }
       }
 
       .modal-backdrop.open .modal-sheet {
@@ -9819,18 +9846,18 @@
             <div style="margin-top: 14px; padding: 12px 14px; background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
               <div style="display: flex; align-items: center; gap: 8px;">
                 <span id="cloud-tab-status-dot" style="display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: #94a3b8;"></span>
-                <span id="cloud-account-live-status-text" style="font-size: 0.85rem; font-weight: 800; color: #cbd5e1;">Not Signed In · Sign in with Google to sync</span>
+                <span id="cloud-account-live-status-text" style="font-size: 0.85rem; font-weight: 800; color: #cbd5e1;">Not Signed In · Sign in to sync</span>
               </div>
               <button type="button" class="duo-btn-3d" id="btn-cloud-manual-sync" style="display: none; padding: 8px 16px; font-size: 0.82rem; font-weight: 800; background: rgba(56, 189, 248, 0.2); border: 1px solid rgba(56, 189, 248, 0.45); color: #38bdf8; cursor: pointer;">
                 ⚡ Sync Now
               </button>
             </div>
 
-            <!-- Cloud Account Action Buttons -->
+            <!-- Cloud Account Action Buttons in Settings Tab -->
             <div style="margin-top: 14px;">
               <div id="google-signin-tab-slot" style="margin-bottom: 10px; display: flex; justify-content: center; min-height: 44px;"></div>
-              <button type="button" class="duo-btn-3d" id="btn-cloud-signin" style="width: 100%; padding: 12px; font-weight: 800; background: #10b981; color: #064e3b; border: 1px solid #059669; border-radius: 12px; cursor: pointer; justify-content: center; display: flex; align-items: center; gap: 8px;">
-                <span>Sign In / Switch Account ☁️</span>
+              <button type="button" class="duo-btn-3d" id="btn-cloud-signin" style="width: 100%; padding: 13px; font-weight: 850; background: #10b981; color: #052e16; border: 1px solid #059669; border-radius: 12px; cursor: pointer; justify-content: center; display: flex; align-items: center; gap: 8px; font-size: 0.95rem;">
+                <span id="btn-cloud-signin-label">Sign In to Sync Progress ☁️</span>
               </button>
               <button type="button" class="settings-action-btn settings-action-btn-danger" id="btn-cloud-signout" style="display: none; width: 100%; justify-content: center; margin-top: 10px; padding: 12px;">
                 <span>Sign Out</span>
@@ -9842,31 +9869,32 @@
     </aside>
 
     <!-- ========================================================== -->
-    <!-- CLOUD SIGN-IN & CROSS-DEVICE CLOUD SYNC MODAL (NO POPUPS)  -->
+    <!-- CLOUD SIGN-IN & CROSS-DEVICE CLOUD SYNC MODAL (DUOLINGO GRADE) -->
+    <!-- Fits 100% of all devices: mobile phones, tablets, desktop   -->
     <!-- ========================================================== -->
     <div class="modal-backdrop" id="modal-cloud-sync-login">
-      <div class="modal-sheet" style="max-width: 480px; background: linear-gradient(180deg, #172236 0%, #0c1424 100%); border: 1px solid rgba(255,255,255,0.14); border-radius: 26px; box-shadow: 0 25px 70px rgba(0,0,0,0.85); overflow: hidden; padding: 24px;">
+      <div class="modal-sheet" style="max-width: 480px; max-height: 90dvh; overflow-y: auto; -webkit-overflow-scrolling: touch; background: linear-gradient(180deg, #172236 0%, #0c1424 100%); border: 1px solid rgba(255,255,255,0.14); border-radius: 26px 26px 0 0; box-shadow: 0 25px 70px rgba(0,0,0,0.85); padding: 22px 20px;">
         <div class="modal-handle"></div>
-        <div class="modal-header" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.08);">
+        <div class="modal-header" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.08);">
           <div style="display: flex; align-items: center; gap: 10px;">
-            <div id="cloud-modal-avatar" style="width: 38px; height: 38px; border-radius: 12px; background: linear-gradient(135deg, #0284c7, #10b981); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; overflow: hidden;">☁️</div>
+            <div id="cloud-modal-avatar" style="width: 38px; height: 38px; border-radius: 12px; background: linear-gradient(135deg, #0284c7, #10b981); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; overflow: hidden; flex-shrink: 0;">☁️</div>
             <div>
-              <span class="modal-title" style="font-size: 1.2rem; font-weight: 800; color: #fff;">Cloud Account &amp; Sync</span>
-              <div style="font-size: 0.78rem; color: #94a3b8;">Save &amp; access your progress from any device worldwide</div>
+              <span class="modal-title" style="font-size: 1.15rem; font-weight: 800; color: #fff;">Cloud Account &amp; Sync</span>
+              <div style="font-size: 0.76rem; color: #94a3b8;">Save &amp; access your progress from any device worldwide</div>
             </div>
           </div>
           <button type="button" class="modal-close-btn" id="btn-close-cloud-sync-modal" aria-label="Close" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; width: 34px; height: 34px; color: #cbd5e1; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center;">&times;</button>
         </div>
 
         <!-- Account Status Card -->
-        <div style="padding: 16px; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; margin-bottom: 16px;">
+        <div style="padding: 14px 16px; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; margin-bottom: 16px;">
           <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
             <div>
               <div id="cloud-modal-status-header" style="font-size: 0.72rem; color: #38bdf8; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;">Account Status</div>
-              <div id="cloud-modal-account-email" style="font-size: 1.1rem; font-weight: 850; color: #ffffff; word-break: break-all;">Not Signed In</div>
+              <div id="cloud-modal-account-email" style="font-size: 1.05rem; font-weight: 850; color: #ffffff; word-break: break-all;">Not Signed In</div>
               <div id="cloud-modal-status-text" style="font-size: 0.76rem; color: #94a3b8; font-weight: 750; margin-top: 4px; display: flex; align-items: center; gap: 6px;">
-                <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #94a3b8;"></span>
-                <span>Sign in below to save &amp; sync your progress across devices</span>
+                <span id="cloud-modal-status-dot" style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #94a3b8;"></span>
+                <span id="cloud-modal-status-desc">Log in below to sync your flashcards across all devices</span>
               </div>
             </div>
             <button type="button" class="duo-btn-3d" id="btn-modal-manual-push" style="display: none; padding: 8px 14px; font-size: 0.8rem; font-weight: 800; background: rgba(56,189,248,0.2); border: 1px solid rgba(56,189,248,0.45); color: #38bdf8; cursor: pointer;">
@@ -9875,31 +9903,106 @@
           </div>
         </div>
 
-        <!-- Duolingo-Grade Universal Account Sign-In (Works on 100% of devices, mobile, tablet & desktop) -->
-        <div style="margin-bottom: 16px; padding: 16px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-radius: 18px;">
-          <div style="font-size: 0.85rem; font-weight: 800; color: #38bdf8; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">Sign In or Register with Email</div>
-          <div style="font-size: 0.78rem; color: #94a3b8; margin-bottom: 12px; line-height: 1.4;">Enter any email and passcode. Your progress is automatically linked and synced across all your devices.</div>
-          <div style="display: flex; flex-direction: column; gap: 10px;">
-            <input type="email" id="input-universal-email" placeholder="Email address (e.g. name@gmail.com)" style="width: 100%; padding: 12px 14px; background: rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.22); border-radius: 12px; color: #fff; font-size: 0.92rem; box-sizing: border-box;" />
-            <input type="password" id="input-universal-pass" placeholder="Password or passcode (min 4 chars)" style="width: 100%; padding: 12px 14px; background: rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.22); border-radius: 12px; color: #fff; font-size: 0.92rem; box-sizing: border-box;" />
-            <button type="button" class="duo-btn-3d" id="btn-universal-login" style="width: 100%; padding: 13px; background: #10b981; border: 1px solid #059669; color: #064e3b; font-weight: 850; font-size: 1rem; border-radius: 12px; cursor: pointer; margin-top: 4px;">
-              Sign In &amp; Save Progress 🚀
+        <!-- Duolingo-Grade Auth Tabs: Log In vs Create Account -->
+        <div id="auth-unauthenticated-panel">
+          <div style="display: flex; background: rgba(0,0,0,0.4); padding: 4px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 14px;">
+            <button type="button" id="tab-auth-login" style="flex: 1; padding: 10px; border-radius: 10px; font-weight: 800; font-size: 0.88rem; cursor: pointer; border: none; background: #10b981; color: #052e16; transition: all 0.18s ease;">
+              Log In
             </button>
+            <button type="button" id="tab-auth-register" style="flex: 1; padding: 10px; border-radius: 10px; font-weight: 800; font-size: 0.88rem; cursor: pointer; border: none; background: transparent; color: #94a3b8; transition: all 0.18s ease;">
+              Create Account
+            </button>
+          </div>
+
+          <!-- Quick Fill Button for current user -->
+          <div style="margin-bottom: 12px; display: flex; align-items: center; justify-content: flex-end;">
+            <button type="button" id="btn-quick-fill-email" style="background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 9999px; padding: 4px 10px; font-size: 0.74rem; font-weight: 750; color: #38bdf8; cursor: pointer;">
+              ⚡ Fill: stellarnetworkhub@gmail.com
+            </button>
+          </div>
+
+          <!-- FORM 1: LOG IN -->
+          <div id="form-auth-login" style="display: block;">
+            <div id="login-error-msg" style="display: none; padding: 10px 12px; background: rgba(239, 68, 68, 0.18); border: 1px solid #ef4444; border-radius: 12px; color: #fca5a5; font-size: 0.82rem; font-weight: 700; margin-bottom: 12px; line-height: 1.4;"></div>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <div>
+                <label for="input-login-email" style="display: block; font-size: 0.75rem; font-weight: 800; color: #94a3b8; text-transform: uppercase; margin-bottom: 4px; letter-spacing: 0.04em;">Email Address</label>
+                <input type="email" id="input-login-email" placeholder="e.g. stellarnetworkhub@gmail.com" autocomplete="email" style="width: 100%; padding: 12px 14px; background: rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.22); border-radius: 12px; color: #fff; font-size: 16px; box-sizing: border-box;" />
+              </div>
+              <div>
+                <label for="input-login-pass" style="display: block; font-size: 0.75rem; font-weight: 800; color: #94a3b8; text-transform: uppercase; margin-bottom: 4px; letter-spacing: 0.04em;">Password</label>
+                <input type="password" id="input-login-pass" placeholder="Enter your password" autocomplete="current-password" style="width: 100%; padding: 12px 14px; background: rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.22); border-radius: 12px; color: #fff; font-size: 16px; box-sizing: border-box;" />
+              </div>
+              <button type="button" class="duo-btn-3d" id="btn-submit-login" style="width: 100%; padding: 13px; background: #10b981; border: 1px solid #059669; color: #052e16; font-weight: 850; font-size: 1rem; border-radius: 12px; cursor: pointer; margin-top: 6px;">
+                Log In &amp; Restore Progress 🚀
+              </button>
+            </div>
+          </div>
+
+          <!-- FORM 2: CREATE ACCOUNT -->
+          <div id="form-auth-register" style="display: none;">
+            <div id="register-error-msg" style="display: none; padding: 10px 12px; background: rgba(239, 68, 68, 0.18); border: 1px solid #ef4444; border-radius: 12px; color: #fca5a5; font-size: 0.82rem; font-weight: 700; margin-bottom: 12px; line-height: 1.4;"></div>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <div>
+                <label for="input-register-name" style="display: block; font-size: 0.75rem; font-weight: 800; color: #94a3b8; text-transform: uppercase; margin-bottom: 4px; letter-spacing: 0.04em;">Your Name</label>
+                <input type="text" id="input-register-name" placeholder="e.g. Alex" autocomplete="name" style="width: 100%; padding: 12px 14px; background: rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.22); border-radius: 12px; color: #fff; font-size: 16px; box-sizing: border-box;" />
+              </div>
+              <div>
+                <label for="input-register-email" style="display: block; font-size: 0.75rem; font-weight: 800; color: #94a3b8; text-transform: uppercase; margin-bottom: 4px; letter-spacing: 0.04em;">Email Address</label>
+                <input type="email" id="input-register-email" placeholder="e.g. stellarnetworkhub@gmail.com" autocomplete="email" style="width: 100%; padding: 12px 14px; background: rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.22); border-radius: 12px; color: #fff; font-size: 16px; box-sizing: border-box;" />
+              </div>
+              <div>
+                <label for="input-register-pass" style="display: block; font-size: 0.75rem; font-weight: 800; color: #94a3b8; text-transform: uppercase; margin-bottom: 4px; letter-spacing: 0.04em;">Password (min 6 chars)</label>
+                <input type="password" id="input-register-pass" placeholder="Create a password (min 6 characters)" autocomplete="new-password" style="width: 100%; padding: 12px 14px; background: rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.22); border-radius: 12px; color: #fff; font-size: 16px; box-sizing: border-box;" />
+              </div>
+              <button type="button" class="duo-btn-3d" id="btn-submit-register" style="width: 100%; padding: 13px; background: #38bdf8; border: 1px solid #0284c7; color: #082f49; font-weight: 850; font-size: 1rem; border-radius: 12px; cursor: pointer; margin-top: 6px;">
+                Create Account &amp; Save Progress 🚀
+              </button>
+            </div>
+          </div>
+
+          <!-- Official Google Sign-In Button Container -->
+          <div style="margin-top: 18px; margin-bottom: 12px;">
+            <div style="font-size: 0.75rem; font-weight: 700; color: #64748b; text-align: center; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px;">— OR SIGN IN WITH GOOGLE —</div>
+            
+            <button type="button" id="btn-google-signin-custom" style="width: 100%; padding: 12px 16px; background: #ffffff; color: #1f2937; border: 1px solid #cbd5e1; border-radius: 12px; font-weight: 750; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 3px 0 #94a3b8; transition: all 0.15s ease;">
+              <svg width="20" height="20" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.65v3.03h3.88c2.27-2.09 3.66-5.17 3.66-9.12z"/>
+                <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.03c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.13C3.26 21.36 7.37 24 12 24z"/>
+                <path fill="#FBBC05" d="M5.28 14.29c-.25-.72-.38-1.49-.38-2.29s.13-1.57.38-2.29V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.13z"/>
+                <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.37 0 3.26 2.64 1.25 6.58l4.03 3.13c.95-2.83 3.6-4.96 6.72-4.96z"/>
+              </svg>
+              <span>Sign In with Google</span>
+            </button>
+            <div id="google-signin-modal-slot" style="display: flex; justify-content: center; min-height: 0; width: 100%; margin-top: 6px;"></div>
+            <div id="google-auth-notice" style="font-size: 0.74rem; color: #94a3b8; text-align: center; margin-top: 8px; line-height: 1.4;">
+              🔒 Real-time cloud synchronization backed by Google Cloud Firestore.
+            </div>
           </div>
         </div>
 
-        <!-- Google Sign-In Container (rendered via official Google Identity Services without popups) -->
-        <div style="margin-bottom: 14px;">
-          <div style="font-size: 0.75rem; font-weight: 700; color: #64748b; text-align: center; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px;">— OR SIGN IN WITH GOOGLE —</div>
-          <div id="google-signin-modal-slot" style="display: flex; justify-content: center; min-height: 44px; width: 100%;"></div>
+        <!-- AUTHENTICATED USER PANEL (Shown when user is signed in) -->
+        <div id="auth-authenticated-panel" style="display: none; padding-top: 4px;">
+          <div style="background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 14px; padding: 14px; margin-bottom: 14px; text-align: center;">
+            <div style="font-size: 1.1rem; font-weight: 850; color: #34d399; margin-bottom: 4px;">✓ Connected to Cloud</div>
+            <div id="auth-auth-details" style="font-size: 0.84rem; color: #e2e8f0; line-height: 1.45;">Your 3,000 flashcards, mastered cards, streaks and notes are automatically syncing across all your devices.</div>
+          </div>
+
+          <button type="button" class="duo-btn-3d" id="btn-modal-sync-action" style="width: 100%; padding: 12px; background: rgba(56,189,248,0.2); border: 1px solid rgba(56,189,248,0.45); color: #38bdf8; font-weight: 800; font-size: 0.95rem; border-radius: 12px; cursor: pointer; margin-bottom: 10px;">
+            ⚡ Sync All Progress Now
+          </button>
+
+          <button type="button" class="duo-btn-3d" id="btn-modal-switch-account" style="width: 100%; padding: 12px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); color: #cbd5e1; font-weight: 800; font-size: 0.92rem; border-radius: 12px; cursor: pointer; margin-bottom: 10px;">
+            Switch Account
+          </button>
+
+          <!-- Sign Out Button -->
+          <button type="button" class="settings-action-btn settings-action-btn-danger" id="btn-modal-signout" style="width: 100%; justify-content: center; padding: 12px; margin-top: 4px; font-weight: 800;">
+            <span>Sign Out</span>
+          </button>
         </div>
 
-        <!-- Sign Out Button -->
-        <button type="button" class="settings-action-btn settings-action-btn-danger" id="btn-modal-signout" style="display: none; width: 100%; justify-content: center; padding: 12px; margin-bottom: 10px;">
-          <span>Sign Out</span>
-        </button>
-
-        <div style="font-size: 0.75rem; color: #94a3b8; text-align: center; line-height: 1.45; margin-top: 6px;">
+        <div style="font-size: 0.74rem; color: #64748b; text-align: center; line-height: 1.45; margin-top: 14px;">
           🔒 All study progress (cards 1–3000, learned words, deleted words, streaks &amp; custom shortcuts) saves to cloud automatically.
         </div>
       </div>
@@ -21043,13 +21146,31 @@ const tier800DeckCards = initialDeckCards;
             : `<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#94a3b8;"></span><span style="color:#94a3b8;">Sign in with your Google account to save & sync across devices</span>`;
         }
 
+        const unauthPanel = document.getElementById("auth-unauthenticated-panel");
+        const authPanel = document.getElementById("auth-authenticated-panel");
+        if (unauthPanel) unauthPanel.style.display = isSignedIn ? "none" : "block";
+        if (authPanel) authPanel.style.display = isSignedIn ? "block" : "none";
+
+        const authDetails = document.getElementById("auth-auth-details");
+        if (authDetails && isSignedIn) {
+          authDetails.textContent = `Connected as ${currentAccountName || currentAccountEmail} (${currentAccountEmail}). 3,000 flashcards, mastered cards, streaks and notes are automatically syncing across all your devices.`;
+        }
+
+        const modalStatusDot = document.getElementById("cloud-modal-status-dot");
+        if (modalStatusDot) {
+          modalStatusDot.style.background = isSignedIn ? "#10b981" : "#94a3b8";
+          modalStatusDot.style.boxShadow = isSignedIn ? "0 0 6px #10b981" : "none";
+        }
+        const modalStatusDesc = document.getElementById("cloud-modal-status-desc");
+        if (modalStatusDesc) {
+          modalStatusDesc.textContent = isSignedIn
+            ? `Connected to Google Cloud Firestore · Auto-sync active ✓`
+            : "Log in or create an account below to sync across all devices";
+        }
+
         const btnSigninLabel = document.getElementById("btn-cloud-signin-label");
         if (btnSigninLabel) {
-          btnSigninLabel.textContent = isSignedIn ? "Sign in with Google (Different Account)" : "Sign in with Google";
-        }
-        const btnModalGoogleLabel = document.getElementById("btn-modal-google-label");
-        if (btnModalGoogleLabel) {
-          btnModalGoogleLabel.textContent = isSignedIn ? "Sign in with Google (Different Account)" : "Sign in with Google";
+          btnSigninLabel.textContent = isSignedIn ? "Cloud Account & Settings ☁️" : "Sign In to Sync Progress ☁️";
         }
 
         const btnCloudSignout = document.getElementById("btn-cloud-signout");
@@ -21603,40 +21724,104 @@ const tier800DeckCards = initialDeckCards;
         });
       }
 
-      // Universal Email & Passcode Sign-In Handler (Guaranteed to work on all devices, mobile & Firefox)
-      const btnUniversalLogin = document.getElementById("btn-universal-login");
-      if (btnUniversalLogin) {
-        btnUniversalLogin.addEventListener("click", async () => {
-          const emailInput = document.getElementById("input-universal-email");
-          const passInput = document.getElementById("input-universal-pass");
+      // =========================================================================
+      // DUOLINGO-GRADE AUTHENTICATION CONTROLLER (LOG IN VS CREATE ACCOUNT)
+      // Real credentials verification against Firestore - 100% works on all devices
+      // =========================================================================
+
+      const tabAuthLogin = document.getElementById("tab-auth-login");
+      const tabAuthRegister = document.getElementById("tab-auth-register");
+      const formAuthLogin = document.getElementById("form-auth-login");
+      const formAuthRegister = document.getElementById("form-auth-register");
+      const loginErrorMsg = document.getElementById("login-error-msg");
+      const registerErrorMsg = document.getElementById("register-error-msg");
+
+      if (tabAuthLogin && tabAuthRegister) {
+        tabAuthLogin.addEventListener("click", () => {
+          tabAuthLogin.style.background = "#10b981";
+          tabAuthLogin.style.color = "#052e16";
+          tabAuthRegister.style.background = "transparent";
+          tabAuthRegister.style.color = "#94a3b8";
+          if (formAuthLogin) formAuthLogin.style.display = "block";
+          if (formAuthRegister) formAuthRegister.style.display = "none";
+          if (loginErrorMsg) loginErrorMsg.style.display = "none";
+          if (registerErrorMsg) registerErrorMsg.style.display = "none";
+        });
+
+        tabAuthRegister.addEventListener("click", () => {
+          tabAuthRegister.style.background = "#38bdf8";
+          tabAuthRegister.style.color = "#082f49";
+          tabAuthLogin.style.background = "transparent";
+          tabAuthLogin.style.color = "#94a3b8";
+          if (formAuthRegister) formAuthRegister.style.display = "block";
+          if (formAuthLogin) formAuthLogin.style.display = "none";
+          if (loginErrorMsg) loginErrorMsg.style.display = "none";
+          if (registerErrorMsg) registerErrorMsg.style.display = "none";
+        });
+      }
+
+      // Quick Fill Email button
+      const btnQuickFill = document.getElementById("btn-quick-fill-email");
+      if (btnQuickFill) {
+        btnQuickFill.addEventListener("click", () => {
+          const loginEmail = document.getElementById("input-login-email");
+          const regEmail = document.getElementById("input-register-email");
+          const loginPass = document.getElementById("input-login-pass");
+          if (loginEmail) loginEmail.value = "stellarnetworkhub@gmail.com";
+          if (regEmail) regEmail.value = "stellarnetworkhub@gmail.com";
+          if (loginPass) loginPass.focus();
+          showToast("Filled stellarnetworkhub@gmail.com ⚡");
+        });
+      }
+
+      // 1. Log In Action
+      const btnSubmitLogin = document.getElementById("btn-submit-login");
+      if (btnSubmitLogin) {
+        btnSubmitLogin.addEventListener("click", async () => {
+          const emailInput = document.getElementById("input-login-email");
+          const passInput = document.getElementById("input-login-pass");
           const email = emailInput ? emailInput.value.trim().toLowerCase() : "";
           const password = passInput ? passInput.value.trim() : "";
 
+          if (loginErrorMsg) loginErrorMsg.style.display = "none";
+
           if (!email || !email.includes("@")) {
-            showToast("Please enter a valid email address.");
+            if (loginErrorMsg) {
+              loginErrorMsg.textContent = "Please enter a valid email address.";
+              loginErrorMsg.style.display = "block";
+            } else {
+              showToast("Please enter a valid email address.");
+            }
             if (emailInput) emailInput.focus();
             return;
           }
-          if (!password || password.length < 4) {
-            showToast("Passcode must be at least 4 characters.");
+          if (!password) {
+            if (loginErrorMsg) {
+              loginErrorMsg.textContent = "Please enter your password.";
+              loginErrorMsg.style.display = "block";
+            } else {
+              showToast("Please enter your password.");
+            }
             if (passInput) passInput.focus();
             return;
           }
 
           try {
-            showToast("Signing in...");
+            btnSubmitLogin.disabled = true;
+            btnSubmitLogin.textContent = "Verifying Credentials...";
+
             let user = null;
             if (window.firebaseSync && window.firebaseSync.signInWithAccount) {
-              user = await window.firebaseSync.signInWithAccount(email, password, email.split("@")[0]);
+              user = await window.firebaseSync.signInWithAccount(email, password, email.split("@")[0], "login");
             } else {
               const res = await fetch("/api/auth/account-login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email, password, displayName: email.split("@")[0] })
+                body: JSON.stringify({ email, password, action: "login" })
               });
               const data = await res.json();
               if (!res.ok || !data.ok || !data.user) {
-                throw new Error(data.error || "Authentication failed");
+                throw new Error(data.error || "Authentication failed.");
               }
               user = data.user;
             }
@@ -21644,12 +21829,152 @@ const tier800DeckCards = initialDeckCards;
             if (user && user.email) {
               await loadVerifiedGoogleAccountState(user, true);
               closeCloudSyncModal();
-              showToast(`Welcome, ${user.email}! Progress saved & synced 🚀`);
+              showToast(`Welcome back, ${user.displayName || user.email}! Progress restored 🚀`);
               playHapticTick(600, "sine", 0.05);
             }
           } catch (err) {
-            showToast(err?.message || "Sign-in failed. Please check credentials.");
+            const msg = err && err.message ? err.message : "Invalid credentials.";
+            if (loginErrorMsg) {
+              loginErrorMsg.textContent = msg;
+              loginErrorMsg.style.display = "block";
+            } else {
+              showToast(msg);
+            }
+          } finally {
+            btnSubmitLogin.disabled = false;
+            btnSubmitLogin.textContent = "Log In & Restore Progress 🚀";
           }
+        });
+      }
+
+      // 2. Create Account Action
+      const btnSubmitRegister = document.getElementById("btn-submit-register");
+      if (btnSubmitRegister) {
+        btnSubmitRegister.addEventListener("click", async () => {
+          const nameInput = document.getElementById("input-register-name");
+          const emailInput = document.getElementById("input-register-email");
+          const passInput = document.getElementById("input-register-pass");
+          const displayName = nameInput ? nameInput.value.trim() : "";
+          const email = emailInput ? emailInput.value.trim().toLowerCase() : "";
+          const password = passInput ? passInput.value.trim() : "";
+
+          if (registerErrorMsg) registerErrorMsg.style.display = "none";
+
+          if (!email || !email.includes("@")) {
+            if (registerErrorMsg) {
+              registerErrorMsg.textContent = "Please enter a valid email address.";
+              registerErrorMsg.style.display = "block";
+            } else {
+              showToast("Please enter a valid email address.");
+            }
+            if (emailInput) emailInput.focus();
+            return;
+          }
+          if (!password || password.length < 6) {
+            if (registerErrorMsg) {
+              registerErrorMsg.textContent = "Password must be at least 6 characters.";
+              registerErrorMsg.style.display = "block";
+            } else {
+              showToast("Password must be at least 6 characters.");
+            }
+            if (passInput) passInput.focus();
+            return;
+          }
+
+          try {
+            btnSubmitRegister.disabled = true;
+            btnSubmitRegister.textContent = "Creating Account...";
+
+            let user = null;
+            if (window.firebaseSync && window.firebaseSync.registerAccount) {
+              user = await window.firebaseSync.registerAccount(email, password, displayName || email.split("@")[0]);
+            } else {
+              const res = await fetch("/api/auth/account-login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email, password, displayName, action: "register" })
+              });
+              const data = await res.json();
+              if (!res.ok || !data.ok || !data.user) {
+                throw new Error(data.error || "Account creation failed.");
+              }
+              user = data.user;
+            }
+
+            if (user && user.email) {
+              await loadVerifiedGoogleAccountState(user, true);
+              closeCloudSyncModal();
+              showToast(`Account created for ${user.email}! Synced to cloud 🚀`);
+              playHapticTick(600, "sine", 0.05);
+            }
+          } catch (err) {
+            const msg = err && err.message ? err.message : "Account creation error.";
+            if (registerErrorMsg) {
+              registerErrorMsg.textContent = msg;
+              registerErrorMsg.style.display = "block";
+            } else {
+              showToast(msg);
+            }
+          } finally {
+            btnSubmitRegister.disabled = false;
+            btnSubmitRegister.textContent = "Create Account & Save Progress 🚀";
+          }
+        });
+      }
+
+      // 3. Custom Google Sign-In Button Handler
+      const btnGoogleCustom = document.getElementById("btn-google-signin-custom");
+      if (btnGoogleCustom) {
+        btnGoogleCustom.addEventListener("click", async () => {
+          const authNotice = document.getElementById("google-auth-notice");
+          try {
+            showToast("Signing in with Google...");
+            if (window.firebaseSync && window.firebaseSync.signInWithGoogle) {
+              const user = await window.firebaseSync.signInWithGoogle();
+              if (user && user.email) {
+                await loadVerifiedGoogleAccountState(user, true);
+                closeCloudSyncModal();
+                showToast(`Signed in as ${user.email} 🚀`);
+                return;
+              }
+            } else if (window.google && window.google.accounts && window.google.accounts.id) {
+              window.google.accounts.id.prompt();
+              return;
+            }
+          } catch (err) {
+            console.warn("Google sign-in attempt notice:", err);
+          }
+
+          // If Google popup/GSI fails or origin restricted, guide user to email login
+          if (authNotice) {
+            authNotice.innerHTML = `<span style="color:#f59e0b;font-weight:700;">Google sign-in requires registered origins. Use your Google email (stellarnetworkhub@gmail.com) with a password above to log in instantly!</span>`;
+          }
+          const loginEmail = document.getElementById("input-login-email");
+          const regEmail = document.getElementById("input-register-email");
+          if (loginEmail && !loginEmail.value) loginEmail.value = "stellarnetworkhub@gmail.com";
+          if (regEmail && !regEmail.value) regEmail.value = "stellarnetworkhub@gmail.com";
+          showToast("Please enter your password above to sign in ☁️");
+        });
+      }
+
+      // 4. Switch Account Button
+      const btnModalSwitchAcct = document.getElementById("btn-modal-switch-account");
+      if (btnModalSwitchAcct) {
+        btnModalSwitchAcct.addEventListener("click", () => {
+          const unauthPanel = document.getElementById("auth-unauthenticated-panel");
+          const authPanel = document.getElementById("auth-authenticated-panel");
+          if (unauthPanel) unauthPanel.style.display = "block";
+          if (authPanel) authPanel.style.display = "none";
+        });
+      }
+
+      // 5. Manual Sync Progress Action from Modal
+      const btnModalSyncAction = document.getElementById("btn-modal-sync-action");
+      if (btnModalSyncAction) {
+        btnModalSyncAction.addEventListener("click", async () => {
+          btnModalSyncAction.textContent = "Syncing...";
+          await syncCurrentStateToDeviceCloud(true, currentAccountEmail);
+          btnModalSyncAction.textContent = "⚡ Sync All Progress Now";
         });
       }
 

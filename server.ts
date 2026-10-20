@@ -522,6 +522,8 @@ async function startServer() {
         } catch (e) {}
       }
 
+      const action = String(req.body?.action || "login").toLowerCase();
+
       // Check Firestore first for credentials so multi-device works everywhere worldwide
       let userCred: any = null;
       const credDocId = `cred_${cleanEmail.replace(/[^a-z0-9]/g, "_")}`;
@@ -539,14 +541,20 @@ async function startServer() {
         userCred = localCreds[cleanEmail] || null;
       }
 
-      if (userCred && userCred.passwordHash) {
-        // Existing user: verify password
-        const hash = crypto.pbkdf2Sync(cleanPassword, userCred.salt || "default_salt", 10000, 64, "sha512").toString("hex");
-        if (hash !== userCred.passwordHash) {
-          return res.status(401).json({ ok: false, error: "Incorrect password for this account. Please try again." });
+      if (action === "register" || action === "signup") {
+        if (userCred && userCred.passwordHash) {
+          return res.status(409).json({
+            ok: false,
+            error: "An account with this email already exists. Please click 'Log In' instead."
+          });
         }
-      } else {
-        // New account creation
+        if (cleanPassword.length < 6) {
+          return res.status(400).json({
+            ok: false,
+            error: "Password must be at least 6 characters long."
+          });
+        }
+
         const salt = crypto.randomBytes(16).toString("hex");
         const hash = crypto.pbkdf2Sync(cleanPassword, salt, 10000, 64, "sha512").toString("hex");
         const name = String(displayName || cleanEmail.split("@")[0]).trim();
@@ -567,6 +575,23 @@ async function startServer() {
             await setDoc(doc(firestoreDb, "study_state", credDocId), userCred);
           } catch (e) {}
         }
+      } else {
+        // action === "login"
+        if (!userCred || !userCred.passwordHash) {
+          return res.status(404).json({
+            ok: false,
+            error: "No account found with this email. Please switch to 'Create Account' tab to sign up."
+          });
+        }
+
+        // Verify password
+        const hash = crypto.pbkdf2Sync(cleanPassword, userCred.salt || "default_salt", 10000, 64, "sha512").toString("hex");
+        if (hash !== userCred.passwordHash) {
+          return res.status(401).json({
+            ok: false,
+            error: "Incorrect password for this account. Please check and try again."
+          });
+        }
       }
 
       const verifiedUser = {
@@ -584,6 +609,23 @@ async function startServer() {
     } catch (err: any) {
       return res.status(500).json({ ok: false, error: err?.message || "Authentication error" });
     }
+  });
+
+  // Explicit helper endpoints for convenience
+  app.post("/api/auth/login", (req, res, next) => {
+    req.body = { ...req.body, action: "login" };
+    next();
+  }, (req, res) => {
+    // Forward to handler above
+    res.redirect(307, "/api/auth/account-login");
+  });
+
+  app.post("/api/auth/register", (req, res, next) => {
+    req.body = { ...req.body, action: "register" };
+    next();
+  }, (req, res) => {
+    // Forward to handler above
+    res.redirect(307, "/api/auth/account-login");
   });
 
   // =========================================================================
