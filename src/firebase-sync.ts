@@ -2,6 +2,7 @@ import { initializeApp } from 'firebase/app';
 import {
   getAuth,
   GoogleAuthProvider,
+  signInWithPopup,
   signInWithCredential,
   signOut,
   onAuthStateChanged,
@@ -445,46 +446,68 @@ export async function registerAccount(email: string, password: string, displayNa
   return signInWithAccount(email, password, displayName, 'register');
 }
 
-export function signInWithGoogle(): Promise<any> {
-  return new Promise((resolve, reject) => {
+export async function signInWithGoogle(): Promise<any> {
+  try {
+    const provider = new GoogleAuthProvider();
+    provider.setCustomParameters({ prompt: 'select_account' });
+    const cred = await signInWithPopup(auth, provider);
+    if (cred && cred.user && cred.user.email) {
+      const cleanEmail = cred.user.email.trim().toLowerCase();
+      const verifiedUser = {
+        uid: cred.user.uid,
+        googleSub: cred.user.uid,
+        email: cleanEmail,
+        displayName: cred.user.displayName || cleanEmail.split('@')[0],
+        photoURL: cred.user.photoURL || '',
+        verified: true,
+        authMethod: 'google_popup',
+        authenticatedAt: new Date().toISOString()
+      };
+      return await applyVerifiedGoogleUser(verifiedUser);
+    }
+    throw new Error('Google sign-in did not return user info.');
+  } catch (popupErr: any) {
+    console.warn('Firebase signInWithPopup notice:', popupErr);
+    // If popup is blocked by browser, try GIS OneTap prompt as fallback
     const gsi = (window as any).google?.accounts?.id;
     if (gsi) {
-      gsi.initialize({
-        client_id: GOOGLE_OAUTH_CLIENT_ID,
-        callback: async (resp: any) => {
-          if (resp && resp.credential) {
-            try {
-              const verifyRes = await fetch('/api/auth/verify-google', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ idToken: resp.credential })
-              });
-              const verifyData = await verifyRes.json();
-              if (verifyData && verifyData.ok && verifyData.user) {
-                const applied = await applyVerifiedGoogleUser(verifyData.user);
-                resolve(applied || verifyData.user);
-              } else {
-                reject(new Error(verifyData?.error || 'Google verification failed'));
+      return new Promise((resolve, reject) => {
+        gsi.initialize({
+          client_id: GOOGLE_OAUTH_CLIENT_ID,
+          callback: async (resp: any) => {
+            if (resp && resp.credential) {
+              try {
+                const verifyRes = await fetch('/api/auth/verify-google', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ idToken: resp.credential })
+                });
+                const verifyData = await verifyRes.json();
+                if (verifyData && verifyData.ok && verifyData.user) {
+                  const applied = await applyVerifiedGoogleUser(verifyData.user);
+                  resolve(applied || verifyData.user);
+                } else {
+                  reject(new Error(verifyData?.error || 'Google verification failed'));
+                }
+              } catch (err: any) {
+                reject(err);
               }
-            } catch (err: any) {
-              reject(err);
+            } else {
+              reject(new Error('No credential returned from Google'));
             }
-          } else {
-            reject(new Error('No credential returned from Google'));
+          },
+          auto_select: false,
+          cancel_on_tap_outside: true
+        });
+        gsi.prompt((notification: any) => {
+          if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
+            reject(new Error(popupErr?.message || 'Google sign-in popup was blocked or closed.'));
           }
-        },
-        auto_select: false,
-        cancel_on_tap_outside: true
+        });
       });
-      gsi.prompt((notification: any) => {
-        if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
-          reject(new Error('Google prompt not displayed. Please use Email & Passcode login.'));
-        }
-      });
-    } else {
-      reject(new Error('Google Identity Services not loaded. Please use Email & Passcode login.'));
     }
-  });
+    throw popupErr;
+  }
 }
 
 export const loginWithGoogle = signInWithGoogle;

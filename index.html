@@ -19014,9 +19014,10 @@ const tier800DeckCards = initialDeckCards;
       // Flip card mechanic powered by spring-physics library for bouncy, tactile transitions
       let lastFlipTimestamp = 0;
       function flipCard(options = {}) {
-        if (isAnimating || isCardAnimating) return;
+        isAnimating = false;
+        isCardAnimating = false;
         const now = Date.now();
-        if (now - lastFlipTimestamp < 240) return;
+        if (now - lastFlipTimestamp < 180) return;
         lastFlipTimestamp = now;
 
         isFlipped = !isFlipped;
@@ -19184,45 +19185,13 @@ const tier800DeckCards = initialDeckCards;
         closeSettingsModal();
       }
 
-      // STRICT DOUBLE-TAP & ACTION ISOLATION SYSTEM
-      // Single tap / single click: strictly NEVER flips the card!
-      // Double tap / double click: flips the card with physical audio.
+      // Touch & Click Gesture Controls
       let lastTapTime = 0;
       let lastTapX = 0;
       let lastTapY = 0;
       let ignoreSyntheticClicksUntil = 0;
-
-      // Pulse visual cue indicator on single tap
-      function pulseDoubleTapCue() {
-        const activeCue = isFlipped ? document.getElementById("card-cue-back") : document.getElementById("card-cue-front");
-        if (activeCue) {
-          activeCue.classList.remove("cue-highlight");
-          void activeCue.offsetWidth;
-          activeCue.classList.add("cue-highlight");
-          setTimeout(() => activeCue.classList.remove("cue-highlight"), 550);
-        }
-      }
-
-      // Action element guard: Spanish/Hindi tile taps, speech buttons, edit buttons, etc.
-      function isActionElement(target) {
-        if (!target) return false;
-        return Boolean(
-          target.closest(
-            "#card-es-tile, #card-hi-tile, .trans-tile, .tile-top-bar, .tile-audio-icon, .trans-tile-word, " +
-            "#card-tamil-tile, #front-speak-btn, #front-edit-btn, #back-edit-btn, .speak-btn, .icon-tool-btn, " +
-            ".shortcut-quick-edit-btn, #btn-quick-edit-shortcut, button, input, textarea, a, .modal-sheet, .modal-backdrop"
-          )
-        );
-      }
-
-      // Production-Grade Tactile Tap & Swipe Mechanics (Single tap flips, swipe navigates, vertical scroll free)
-      function isActionElement(target) {
-        return Boolean(
-          target.closest(
-            "button, input, textarea, a, .speak-btn, #front-speak-btn, #card-es-tile, #card-hi-tile, #card-tamil-tile, #btn-top-learned-toggle, #btn-card-learned-action, .icon-tool-btn, .shortcut-quick-edit-btn"
-          )
-        );
-      }
+      let suppressSyntheticClickUntil = 0;
+      let suppressDblClickUntil = 0;
 
       touchStartX = 0;
       touchStartY = 0;
@@ -19422,7 +19391,7 @@ const tier800DeckCards = initialDeckCards;
       touchStartTime = 0;
       velocitySamples = [];
       suppressSyntheticClickUntil = 0;
-      let suppressDblClickUntil = 0;
+      suppressDblClickUntil = 0;
       isCardAnimating = false;
 
       function executeKineticSwipe(diffX, velocityX) {
@@ -19573,24 +19542,12 @@ const tier800DeckCards = initialDeckCards;
 
         if (isSwiping && (Math.abs(diffX) > 22 || Math.abs(vX) > 0.22)) {
           executeKineticSwipe(diffX, vX);
-        } else if (dist < 18 && touchDuration < 380) {
-          // Stationary tap: DOUBLE TAP FLIPS (1st double tap flips 1 time to back, again double tap flips 1 time to front)
+        } else if (dist < 22 && touchDuration < 450) {
+          // Stationary tap: Single tap flips the card directly!
           if (!isCardInteractiveBtn(e.target)) {
-            const now = Date.now();
-            const timeSinceLastTap = now - lastTapTimestamp;
-            const tapDist = Math.hypot(touch.clientX - lastTapCoords.x, touch.clientY - lastTapCoords.y);
-
-            if (timeSinceLastTap < 420 && tapDist < 75) {
-              // Confirmed Double Tap! Exactly 1 flip per double tap
-              lastTapTimestamp = 0;
-              suppressSyntheticClickUntil = Date.now() + 550;
-              suppressDblClickUntil = Date.now() + 650;
-              flipCard();
-              if (typeof playHapticTick === "function") playHapticTick(620, "triangle", 0.04);
-            } else {
-              lastTapTimestamp = now;
-              lastTapCoords = { x: touch.clientX, y: touch.clientY };
-            }
+            suppressSyntheticClickUntil = Date.now() + 450;
+            flipCard();
+            if (typeof playHapticTick === "function") playHapticTick(620, "triangle", 0.04);
           }
         } else {
           cardWrapper.style.transition = "transform 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
@@ -19720,13 +19677,17 @@ const tier800DeckCards = initialDeckCards;
         }, { passive: false });
       }
 
-      // Suppress synthetic click interference from mobile touch
+      // Card direct click handler (desktop mouse & non-touch clicks)
       cardWrapper.addEventListener("click", (e) => {
         if (Date.now() < suppressSyntheticClickUntil) {
           e.preventDefault();
           e.stopPropagation();
           return;
         }
+        if (isDeckReelOpen) return;
+        if (isCardInteractiveBtn(e.target)) return;
+        if (e.button !== undefined && e.button !== 0) return;
+        flipCard();
       });
 
       // =========================================================================
@@ -21924,7 +21885,9 @@ const tier800DeckCards = initialDeckCards;
         btnGoogleCustom.addEventListener("click", async () => {
           const authNotice = document.getElementById("google-auth-notice");
           try {
-            showToast("Signing in with Google...");
+            showToast("Opening Google Sign-In...");
+            btnGoogleCustom.disabled = true;
+            btnGoogleCustom.style.opacity = "0.7";
             if (window.firebaseSync && window.firebaseSync.signInWithGoogle) {
               const user = await window.firebaseSync.signInWithGoogle();
               if (user && user.email) {
@@ -21938,14 +21901,16 @@ const tier800DeckCards = initialDeckCards;
               return;
             }
           } catch (err) {
-            console.warn("Google sign-in attempt notice:", err);
+            console.warn("Google sign-in notice:", err);
+            const msg = err && err.message ? err.message : "Google sign-in was closed or blocked.";
+            if (authNotice) {
+              authNotice.innerHTML = `<span style="color:#f59e0b;font-size:0.76rem;">${msg} You can also sign in with email above.</span>`;
+            }
+            showToast(msg);
+          } finally {
+            btnGoogleCustom.disabled = false;
+            btnGoogleCustom.style.opacity = "1";
           }
-
-          // If Google popup/GSI encounters browser restriction, guide user to login/create account
-          if (authNotice) {
-            authNotice.innerHTML = `<span style="color:#94a3b8;font-size:0.76rem;">You can also log in or create an account with email and password above.</span>`;
-          }
-          showToast("You can also sign in with your email and password above ☁️");
         });
       }
 
