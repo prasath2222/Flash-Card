@@ -138,13 +138,25 @@
       "updatedAt": "2026-10-20T14:59:53.721Z"
     }
   },
-  "c11f04ee7d72806b2ee485fb470fdec084865766cc55bcdd89ff042e211a8e13": {
-    "updatedAt": "2026-10-21T14:28:35.040Z",
+  "b7ca7d56a81439da096cc8ed45e4099e545d0a7505c0f987b6e2479a5e46f8b6": {
+    "updatedAt": "2026-10-21T15:55:16.301Z",
     "payload": {
-      "learnedCardNums": [],
-      "learnedCards": [],
-      "deletedCardNums": [],
-      "deletedCards": [],
+      "learnedCardNums": [
+        800,
+        808
+      ],
+      "learnedCards": [
+        800,
+        808
+      ],
+      "deletedCardNums": [
+        807,
+        "t800_807"
+      ],
+      "deletedCards": [
+        807,
+        "t800_807"
+      ],
       "activeDeckId": "deck-800-1000",
       "lastActiveCardNum": 800,
       "lastCard": 800,
@@ -154,16 +166,16 @@
       "customDecks": {},
       "customSections": [],
       "audioPrefs": {
-        "sfxVolume": 1,
         "bgmVolume": 0.25,
-        "sfxStyle": "whoosh",
-        "voiceRate": 0.8,
-        "voicePitch": 1,
         "bgmEnabled": true,
+        "sfxVolume": 1,
+        "voiceVolume": 1,
+        "sfxStyle": "whoosh",
         "bgmMode": "lofi",
-        "voiceVolume": 1
+        "voicePitch": 1,
+        "voiceRate": 0.8
       },
-      "updatedAt": "2026-10-21T14:28:35.040Z"
+      "updatedAt": "2026-10-21T15:55:16.301Z"
     }
   }
 }
