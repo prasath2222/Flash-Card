@@ -3,6 +3,8 @@ import {
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
+  signInWithRedirect,
+  getRedirectResult,
   signInWithCredential,
   signOut,
   onAuthStateChanged,
@@ -659,46 +661,78 @@ export async function registerAccount(email: string, password: string, displayNa
   return signInWithAccount(email, password, displayName, 'register');
 }
 
-export function prewarmGoogleAuthPopup() {
-  // No-op
-}
-
-export function canUseFirebaseAuthPopupOnCurrentHost(): boolean {
-  if (typeof window === 'undefined' || !window.location) return false;
-  const host = String(window.location.hostname || '').toLowerCase();
-  const isAuthorizedFirebaseDomain =
-    host === 'localhost' ||
-    host.endsWith('.firebaseapp.com') ||
-    host.endsWith('.web.app') ||
-    host.endsWith('.run.app');
-  if (!isAuthorizedFirebaseDomain) return false;
-  // Inside cross-origin AI Studio iframe, popup redirects to applet-auth-bridge which fails with 403 on /u/1/
+export function getNativeWindowOpen(): typeof window.open {
   try {
-    if (window.self !== window.top) {
-      return false;
+    let helper = document.getElementById('__native_open_helper__') as HTMLIFrameElement | null;
+    if (!helper && typeof document !== 'undefined' && document.body) {
+      helper = document.createElement('iframe');
+      helper.id = '__native_open_helper__';
+      helper.style.display = 'none';
+      helper.src = 'about:blank';
+      document.body.appendChild(helper);
     }
-  } catch (e) {
-    return false;
-  }
-  return true;
+    if (helper && helper.contentWindow && typeof helper.contentWindow.open === 'function') {
+      return helper.contentWindow.open.bind(helper.contentWindow);
+    }
+  } catch (e) {}
+  return window.open ? window.open.bind(window) : window.open;
 }
 
-export async function signInWithGoogle(): Promise<any> {
-  if (!canUseFirebaseAuthPopupOnCurrentHost()) {
-    return { requiresGoogleAccountForm: true };
-  }
-
+export function restoreNativeWindowOpen() {
   try {
-    const provider = new GoogleAuthProvider();
-    provider.addScope('email');
-    provider.addScope('profile');
+    const native = getNativeWindowOpen();
+    if (native && typeof window !== 'undefined') {
+      window.open = native;
+    }
+  } catch (e) {}
+}
+
+if (typeof window !== 'undefined') {
+  restoreNativeWindowOpen();
+}
+
+if (typeof window !== 'undefined') {
+  getRedirectResult(auth)
+    .then(async (result) => {
+      if (result && result.user && result.user.email) {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const cleanEmail = result.user.email.trim().toLowerCase();
+        const verifiedUser = {
+          uid: result.user.uid,
+          googleSub: result.user.uid,
+          email: cleanEmail,
+          displayName: result.user.displayName || cleanEmail.split('@')[0],
+          photoURL: result.user.photoURL || '',
+          idToken: credential?.idToken || '',
+          accessToken: credential?.accessToken || '',
+          verified: true,
+          authMethod: 'google_oauth',
+          authenticatedAt: new Date().toISOString()
+        };
+        await applyVerifiedGoogleUser(verifiedUser);
+      }
+    })
+    .catch((e) => {
+      console.warn('Redirect sign-in notice:', e);
+    });
+}
+
+export async function signInWithGoogle(forceAccountSelect = true): Promise<any> {
+  restoreNativeWindowOpen();
+
+  const provider = new GoogleAuthProvider();
+  provider.addScope('email');
+  provider.addScope('profile');
+  if (forceAccountSelect) {
     provider.setCustomParameters({
       prompt: 'select_account'
     });
+  }
 
+  try {
     const result = await signInWithPopup(auth, provider);
     if (!result || !result.user || !result.user.email) {
-      return { requiresGoogleAccountForm: true };
+      throw new Error('Google Sign-In was cancelled.');
     }
 
     const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -722,10 +756,19 @@ export async function signInWithGoogle(): Promise<any> {
     if (code === 'auth/popup-closed-by-user' || code === 'auth/cancelled-popup-request') {
       throw new Error('Google Sign-In window was closed.');
     }
-    return { requiresGoogleAccountForm: true };
+    if (code === 'auth/popup-blocked') {
+      try {
+        await signInWithRedirect(auth, provider);
+        return { isRedirecting: true };
+      } catch (redirErr: any) {
+        throw new Error(redirErr?.message || 'Popup was blocked. Please enable popups to sign in with Google.');
+      }
+    }
+    throw new Error(err?.message || 'Could not connect to Google Sign-In.');
   }
 }
 
+export const switchGoogleAccount = () => signInWithGoogle(true);
 export const loginWithGoogle = signInWithGoogle;
 
 export async function signOutUser() {
@@ -801,7 +844,8 @@ onAuthStateChanged(auth, async (user) => {
   markServerApiUnavailable,
   signInWithGoogle,
   loginWithGoogle,
-  prewarmGoogleAuthPopup,
+  switchGoogleAccount,
+  restoreNativeWindowOpen,
   signInWithAccount,
   registerAccount,
   applyVerifiedGoogleUser,
