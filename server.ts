@@ -488,19 +488,26 @@ async function startServer() {
     return res.json({ ok: true, status: "pending" });
   });
 
-  // Duolingo-grade Account Authentication (Email & Password / Passcode)
-  // Ensures 100% login reliability even when third-party Google popups are blocked on mobile or Firefox
+  // Duolingo-grade Account Authentication (Email & Password)
+  // Strictly verifies existing accounts and passwords; never auto-registers on login
   app.post("/api/auth/account-login", async (req, res) => {
     try {
       const { email, password, displayName } = req.body || {};
       const cleanEmail = sanitizeEmailKey(email);
       const cleanPassword = String(password || "").trim();
+      const action = String(req.body?.action || "login").toLowerCase();
+      const isRegister = action === "register" || action === "signup";
 
-      if (!cleanEmail || !cleanEmail.includes("@")) {
+      if (!cleanEmail || !cleanEmail.includes("@") || !cleanEmail.split("@")[1]?.includes(".")) {
         return res.status(400).json({ ok: false, error: "Please enter a valid email address." });
       }
-      if (!cleanPassword || cleanPassword.length < 4) {
-        return res.status(400).json({ ok: false, error: "Password or passcode must be at least 4 characters." });
+      if (!cleanPassword || cleanPassword.length < (isRegister ? 6 : 4)) {
+        return res.status(400).json({
+          ok: false,
+          error: isRegister
+            ? "Password must be at least 6 characters."
+            : "Please enter your password (at least 4 characters)."
+        });
       }
 
       const authDir = path.join(__dirname, "data");
@@ -522,9 +529,22 @@ async function startServer() {
         } catch (e) {}
       }
 
-      const action = String(req.body?.action || "login").toLowerCase();
       const emailHash = crypto.createHash("sha256").update(cleanEmail).digest("hex");
       const credDocId = `cred_${emailHash.slice(0, 32)}`;
+      const sha256PassHash = crypto.createHash("sha256").update(cleanPassword + "_salt_stellar").digest("hex");
+
+      function verifyStoredCredential(cred: any): boolean {
+        if (!cred) return false;
+        if (cred.sha256Hash && cred.sha256Hash === sha256PassHash) return true;
+        if (cred.passwordHash && cred.passwordHash === sha256PassHash) return true;
+        if (cred.passwordHash && cred.salt) {
+          const pbkdf2Hash = crypto
+            .pbkdf2Sync(cleanPassword, cred.salt, 10000, 64, "sha512")
+            .toString("hex");
+          if (pbkdf2Hash === cred.passwordHash) return true;
+        }
+        return false;
+      }
 
       // Check Firestore first for credentials so multi-device works everywhere worldwide
       let userCred: any = null;
@@ -542,33 +562,24 @@ async function startServer() {
         userCred = localCreds[emailHash] || localCreds[cleanEmail] || null;
       }
 
-      if (action === "register" || action === "signup") {
-        if (userCred && userCred.passwordHash) {
-          // If password matches, seamlessly log in instead of throwing an error
-          const hash = crypto.pbkdf2Sync(cleanPassword, userCred.salt || "default_salt", 10000, 64, "sha512").toString("hex");
-          if (hash === userCred.passwordHash) {
-            // Log in successfully
+      if (isRegister) {
+        if (userCred && (userCred.passwordHash || userCred.sha256Hash)) {
+          if (verifyStoredCredential(userCred)) {
+            // Password matches existing account; allow login
           } else {
             return res.status(409).json({
               ok: false,
-              error: "An account with this email already exists. Please enter your existing password to log in."
+              error: "An account with this email already exists. Please switch to 'Log In' and enter your password."
             });
           }
         } else {
-          if (cleanPassword.length < 4) {
-            return res.status(400).json({
-              ok: false,
-              error: "Password must be at least 4 characters long."
-            });
-          }
-
           const salt = crypto.randomBytes(16).toString("hex");
-          const hash = crypto.pbkdf2Sync(cleanPassword, salt, 10000, 64, "sha512").toString("hex");
           const name = String(displayName || cleanEmail.split("@")[0]).trim();
           userCred = {
             accountId: emailHash,
             displayName: name,
-            passwordHash: hash,
+            passwordHash: sha256PassHash,
+            sha256Hash: sha256PassHash,
             salt,
             createdAt: new Date().toISOString()
           };
@@ -584,38 +595,25 @@ async function startServer() {
           }
         }
       } else {
-        // action === "login"
-        if (!userCred || !userCred.passwordHash) {
-          // Auto-register seamless account so users are never blocked by having to switch tabs
-          const salt = crypto.randomBytes(16).toString("hex");
-          const hash = crypto.pbkdf2Sync(cleanPassword, salt, 10000, 64, "sha512").toString("hex");
-          const name = String(displayName || cleanEmail.split("@")[0]).trim();
-          userCred = {
-            accountId: emailHash,
-            displayName: name,
-            passwordHash: hash,
-            salt,
-            createdAt: new Date().toISOString()
-          };
-
-          const localCreds = readCredentials();
-          localCreds[emailHash] = userCred;
-          writeCredentials(localCreds);
-
-          if (firestoreDb) {
-            try {
-              await setDoc(doc(firestoreDb, "study_state", credDocId), userCred);
-            } catch (e) {}
-          }
-        } else {
-          // Verify password
-          const hash = crypto.pbkdf2Sync(cleanPassword, userCred.salt || "default_salt", 10000, 64, "sha512").toString("hex");
-          if (hash !== userCred.passwordHash) {
-            return res.status(401).json({
-              ok: false,
-              error: "Incorrect password for this account. Please check and try again."
-            });
-          }
+        // STRICT LOGIN: Account MUST already exist and password MUST match!
+        if (!userCred || (!userCred.passwordHash && !userCred.sha256Hash)) {
+          return res.status(404).json({
+            ok: false,
+            error: "No account found with this email. Please switch to 'Create Account' to register first."
+          });
+        }
+        if (!verifyStoredCredential(userCred)) {
+          return res.status(401).json({
+            ok: false,
+            error: "Incorrect password for this account. Please check your password and try again."
+          });
+        }
+        // Upgrade legacy PBKDF2 record with sha256Hash if needed so client & server stay in sync
+        if (!userCred.sha256Hash && firestoreDb) {
+          userCred.sha256Hash = sha256PassHash;
+          try {
+            await setDoc(doc(firestoreDb, "study_state", credDocId), userCred);
+          } catch (e) {}
         }
       }
 

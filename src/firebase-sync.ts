@@ -19,118 +19,6 @@ import {
 } from 'firebase/firestore';
 import firebaseConfig from '../firebase-applet-config.json';
 
-function rewriteFirebaseAuthIframeSrc(rawUrl: string): string {
-  try {
-    if (!rawUrl || !rawUrl.includes('/__/auth/iframe')) return rawUrl;
-    if (typeof window !== 'undefined' && window.location) {
-      const host = window.location.hostname;
-      if (
-        host === 'localhost' ||
-        host.endsWith('.firebaseapp.com') ||
-        host.endsWith('.web.app') ||
-        host.endsWith('.run.app')
-      ) {
-        return rawUrl;
-      }
-    }
-    const hashIdx = rawUrl.indexOf('#');
-    if (hashIdx === -1) return rawUrl;
-    const base = rawUrl.slice(0, hashIdx);
-    const hash = rawUrl.slice(hashIdx + 1);
-    const params = new URLSearchParams(hash);
-    if (!params.has('parent')) return rawUrl;
-
-    const id = params.get('id') || params.get('_gfid') || '';
-    const gfid = params.get('_gfid') || id;
-    const pfname = params.get('pfname') || '';
-    const rpctoken = params.get('rpctoken') || '';
-
-    params.delete('parent');
-    params.delete('id');
-    params.delete('_gfid');
-    params.delete('pfname');
-
-    params.set(
-      'jcp',
-      JSON.stringify({
-        id,
-        _gfid: gfid,
-        parent: 'http://localhost',
-        pfname
-      })
-    );
-    if (rpctoken) {
-      params.set('rpctoken', rpctoken);
-    }
-    return `${base}#${params.toString()}`;
-  } catch (e) {
-    return rawUrl;
-  }
-}
-
-export function rewriteFirebaseAuthHandlerUrl(rawUrl: string): string {
-  try {
-    if (!rawUrl || !rawUrl.includes('/__/auth/handler')) return rawUrl;
-    const parsed = new URL(rawUrl);
-    if (parsed.searchParams.has('redirectUrl')) {
-      parsed.searchParams.set('redirectUrl', 'http://localhost');
-    }
-    return parsed.toString();
-  } catch (e) {
-    return rawUrl;
-  }
-}
-
-function installCrossDomainFirebaseAuthPatch() {
-  if (typeof window === 'undefined' || typeof Element === 'undefined') return;
-  try {
-    const win = window as any;
-    if (win.__fbAuthCrossDomainPatched) return;
-    win.__fbAuthCrossDomainPatched = true;
-
-    const origSetAttribute = Element.prototype.setAttribute;
-    Element.prototype.setAttribute = function (name: string, value: string) {
-      if (
-        typeof HTMLIFrameElement !== 'undefined' &&
-        this instanceof HTMLIFrameElement &&
-        typeof name === 'string' &&
-        name.toLowerCase() === 'src' &&
-        typeof value === 'string' &&
-        value.includes('/__/auth/iframe')
-      ) {
-        try {
-          origSetAttribute.call(this, 'referrerpolicy', 'origin');
-        } catch (e) {}
-        return origSetAttribute.call(this, name, rewriteFirebaseAuthIframeSrc(value));
-      }
-      return origSetAttribute.call(this, name, value);
-    };
-
-    if (typeof HTMLIFrameElement !== 'undefined') {
-      const desc = Object.getOwnPropertyDescriptor(HTMLIFrameElement.prototype, 'src');
-      if (desc && desc.set && desc.get) {
-        Object.defineProperty(HTMLIFrameElement.prototype, 'src', {
-          configurable: true,
-          enumerable: desc.enumerable,
-          get: desc.get,
-          set(val: string) {
-            if (typeof val === 'string' && val.includes('/__/auth/iframe')) {
-              try {
-                origSetAttribute.call(this, 'referrerpolicy', 'origin');
-              } catch (e) {}
-              desc.set!.call(this, rewriteFirebaseAuthIframeSrc(val));
-              return;
-            }
-            desc.set!.call(this, val);
-          }
-        });
-      }
-    }
-  } catch (e) {}
-}
-
-installCrossDomainFirebaseAuthPatch();
-
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId);
 export const auth = getAuth(app);
@@ -187,9 +75,11 @@ try {
   localStorage.removeItem('stellar_account_name_v1');
   localStorage.removeItem('vocab_google_session_v2');
   localStorage.removeItem('vocab_auth_session_v3');
+  localStorage.removeItem('vocab_verified_google_session_v4');
+  localStorage.removeItem('vocab_google_known_accounts_v2');
 } catch (e) {}
 
-const VERIFIED_AUTH_STORAGE_KEY = 'vocab_verified_google_session_v4';
+const VERIFIED_AUTH_STORAGE_KEY = 'vocab_verified_auth_session_v5';
 
 let currentUser: User | null = null;
 let verifiedSession: {
@@ -200,6 +90,7 @@ let verifiedSession: {
   photoURL?: string;
   idToken?: string;
   accessToken?: string;
+  authMethod?: string;
   verified: boolean;
 } | null = null;
 
@@ -211,7 +102,8 @@ try {
     typeof saved.email === 'string' &&
     saved.email.includes('@') &&
     typeof saved.googleSub === 'string' &&
-    saved.googleSub.length > 3
+    saved.googleSub.length > 3 &&
+    (saved.authMethod === 'email_account' || saved.authMethod === 'google_oauth' || saved.authMethod === 'instant_cloud')
   ) {
     verifiedSession = {
       uid: saved.uid || `google_${saved.googleSub}`,
@@ -221,6 +113,7 @@ try {
       photoURL: saved.photoURL || '',
       idToken: saved.idToken || '',
       accessToken: saved.accessToken || '',
+      authMethod: saved.authMethod,
       verified: true
     };
   } else {
@@ -344,6 +237,7 @@ export async function applyVerifiedGoogleUser(userObj: any) {
     photoURL: String(userObj.photoURL || ''),
     idToken: String(userObj.idToken || ''),
     accessToken: String(userObj.accessToken || ''),
+    authMethod: String(userObj.authMethod || 'email_account'),
     verified: true
   };
 
@@ -552,28 +446,110 @@ export function buildGoogleOAuthUrl(stateId: string): string {
   );
 }
 
+async function hashStringSHA256(str: string): Promise<string> {
+  try {
+    if (typeof crypto !== 'undefined' && crypto.subtle) {
+      const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+      return Array.from(new Uint8Array(buf))
+        .map((b) => b.toString(16).padStart(2, '0'))
+        .join('');
+    }
+  } catch (e) {}
+  return emailToDocId(str);
+}
+
 export async function signInWithAccount(email: string, password: string, displayName?: string, action: string = 'login'): Promise<any> {
   const cleanEmail = String(email || '').trim().toLowerCase();
   const cleanPassword = String(password || '').trim();
-  if (!cleanEmail.includes('@')) {
+  const normalizedAction = String(action || 'login').toLowerCase();
+  const isRegister = normalizedAction === 'register' || normalizedAction === 'signup';
+
+  if (!cleanEmail || !cleanEmail.includes('@') || !cleanEmail.split('@')[1]?.includes('.')) {
     throw new Error('Please enter a valid email address.');
   }
-  if (!cleanPassword || cleanPassword.length < (action === 'register' ? 6 : 4)) {
-    throw new Error(action === 'register' ? 'Password must be at least 6 characters.' : 'Password must be at least 4 characters.');
+  if (!cleanPassword || cleanPassword.length < (isRegister ? 6 : 4)) {
+    throw new Error(isRegister ? 'Password must be at least 6 characters.' : 'Please enter your password (at least 4 characters).');
   }
 
-  const res = await fetch('/api/auth/account-login', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email: cleanEmail, password: cleanPassword, displayName, action })
-  });
-
-  const data = await res.json();
-  if (!res.ok || !data.ok || !data.user) {
-    throw new Error(data.error || 'Authentication failed. Please check your credentials.');
+  // 1. Try server endpoint if hosted in a Node.js full-stack container
+  let serverHandled = false;
+  try {
+    const res = await fetch('/api/auth/account-login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: cleanEmail, password: cleanPassword, displayName, action: normalizedAction })
+    });
+    const contentType = res.headers.get('content-type') || '';
+    if (contentType.includes('application/json')) {
+      serverHandled = true;
+      const data = await res.json();
+      if (!res.ok || !data || !data.ok) {
+        throw new Error(data?.error || 'Invalid email or password.');
+      }
+      if (data.user) {
+        return await applyVerifiedGoogleUser(data.user);
+      }
+    }
+  } catch (err: any) {
+    if (serverHandled) {
+      throw err;
+    }
+    // Static hosting environment (e.g. Render static site); fall through to direct Firestore auth
   }
 
-  return await applyVerifiedGoogleUser(data.user);
+  // 2. Direct client-side Firestore authentication (strictly checks credentials in Firestore)
+  const emailHash = await hashStringSHA256(cleanEmail);
+  const credDocId = `cred_${emailHash.slice(0, 32)}`;
+  const passHash = await hashStringSHA256(cleanPassword + '_salt_stellar');
+
+  const credSnap = await getDoc(doc(db, 'study_state', credDocId));
+  let resolvedDisplayName = displayName || cleanEmail.split('@')[0];
+
+  if (isRegister) {
+    if (credSnap.exists()) {
+      const data = credSnap.data();
+      const storedMatches =
+        data &&
+        (data.passwordHash === passHash || data.sha256Hash === passHash);
+      if (!storedMatches) {
+        throw new Error('An account with this email already exists. Please switch to "Log In" and enter your password.');
+      }
+      resolvedDisplayName = data.displayName || resolvedDisplayName;
+    } else {
+      await setDoc(doc(db, 'study_state', credDocId), {
+        accountId: emailHash,
+        displayName: resolvedDisplayName,
+        passwordHash: passHash,
+        sha256Hash: passHash,
+        createdAt: new Date().toISOString()
+      });
+    }
+  } else {
+    // STRICT LOGIN: Account MUST already exist in Firestore and password MUST match!
+    if (!credSnap.exists()) {
+      throw new Error('No account found with this email. Please switch to "Create Account" to register first.');
+    }
+    const data = credSnap.data();
+    const storedMatches =
+      data &&
+      (data.passwordHash === passHash || data.sha256Hash === passHash);
+    if (!storedMatches) {
+      throw new Error('Incorrect password for this account. Please check your password and try again.');
+    }
+    resolvedDisplayName = data.displayName || resolvedDisplayName;
+  }
+
+  const verifiedUser = {
+    uid: `acct_${emailHash.slice(0, 24)}`,
+    googleSub: `acct_${emailHash.slice(0, 24)}`,
+    email: cleanEmail,
+    displayName: resolvedDisplayName,
+    photoURL: '',
+    verified: true,
+    authMethod: 'email_account',
+    authenticatedAt: new Date().toISOString()
+  };
+  return await applyVerifiedGoogleUser(verifiedUser);
 }
 
 export async function registerAccount(email: string, password: string, displayName?: string): Promise<any> {
@@ -587,16 +563,29 @@ export async function instantCloudSync(): Promise<any> {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({})
     });
-    const data = await res.json();
-    if (data && data.ok && data.user) {
-      return await applyVerifiedGoogleUser(data.user);
+    if (res.ok) {
+      const data = await res.json();
+      if (data && data.ok && data.user) {
+        return await applyVerifiedGoogleUser(data.user);
+      }
     }
   } catch (err) {}
 
+  let deviceId = '';
+  try {
+    deviceId = localStorage.getItem('stellar_device_sync_id') || '';
+    if (!deviceId) {
+      deviceId = 'dev_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2, 8);
+      localStorage.setItem('stellar_device_sync_id', deviceId);
+    }
+  } catch (e) {
+    deviceId = 'dev_default';
+  }
+
   const fallbackUser = {
-    uid: 'acct_cloud_sync_default',
-    googleSub: 'acct_cloud_sync_default',
-    email: 'cloud_sync@sync.internal',
+    uid: `acct_${deviceId}`,
+    googleSub: `acct_${deviceId}`,
+    email: `${deviceId}@cloud.sync`,
     displayName: 'Cloud User',
     photoURL: '',
     verified: true,
@@ -606,127 +595,39 @@ export async function instantCloudSync(): Promise<any> {
   return await applyVerifiedGoogleUser(fallbackUser);
 }
 
-let pendingSyncPopupWin: Window | null = null;
-let isResolverPatched = false;
-
 export function prewarmGoogleAuthPopup() {
-  try {
-    const resolver = (auth as any)._popupRedirectResolver;
-    if (!resolver) return;
-    const proto = Object.getPrototypeOf(resolver);
-
-    const bypassOriginValidation = () => Promise.resolve();
-    const bypassWebStorageCheck = (_authInst: any, cb: (supported: boolean) => void) => {
-      cb(true);
-    };
-
-    resolver._originValidation = bypassOriginValidation;
-    resolver._isIframeWebStorageSupported = bypassWebStorageCheck;
-    if (proto) {
-      proto._originValidation = bypassOriginValidation;
-      proto._isIframeWebStorageSupported = bypassWebStorageCheck;
-    }
-
-    if (typeof resolver._initialize === 'function') {
-      resolver._initialize(auth).catch(() => {});
-    }
-
-    if (!isResolverPatched && typeof resolver._openPopup === 'function') {
-      isResolverPatched = true;
-      const origOpenPopup = resolver._openPopup.bind(resolver);
-      resolver._openPopup = async function (authInst: any, providerInst: any, authType: any, eventId: any) {
-        const winToUse = pendingSyncPopupWin && !pendingSyncPopupWin.closed ? pendingSyncPopupWin : null;
-        pendingSyncPopupWin = null;
-        const origWinOpen = window.open;
-        window.open = function (url?: string | URL, target?: string, features?: string) {
-          const finalUrl = url ? rewriteFirebaseAuthHandlerUrl(String(url)) : '';
-          if (winToUse && !winToUse.closed) {
-            if (finalUrl) {
-              try {
-                winToUse.location.replace(finalUrl);
-              } catch (e) {
-                winToUse.location.href = finalUrl;
-              }
-            }
-            try {
-              winToUse.focus();
-            } catch (e) {}
-            return winToUse;
-          }
-          return origWinOpen.call(window, finalUrl || url, target, features);
-        } as any;
-        try {
-          return await origOpenPopup(authInst, providerInst, authType, eventId);
-        } finally {
-          window.open = origWinOpen;
-        }
-      };
-    }
-  } catch (e) {}
+  // No-op: native Firebase Auth popup works directly without URL rewriting
 }
 
-prewarmGoogleAuthPopup();
+export async function signInWithGoogle(): Promise<any> {
+  const provider = new GoogleAuthProvider();
+  provider.addScope('email');
+  provider.addScope('profile');
+  provider.setCustomParameters({
+    prompt: 'select_account'
+  });
 
-const KNOWN_ACCOUNTS_STORAGE_KEY = 'vocab_google_known_accounts_v2';
-
-export function getKnownGoogleAccounts(): Array<{ email: string; displayName: string; lastUsed: string }> {
-  try {
-    const raw = localStorage.getItem(KNOWN_ACCOUNTS_STORAGE_KEY);
-    if (!raw) return [];
-    const list = JSON.parse(raw);
-    if (Array.isArray(list)) {
-      return list.filter((item) => item && typeof item.email === 'string' && item.email.includes('@'));
-    }
-  } catch (e) {}
-  return [];
-}
-
-export function saveKnownGoogleAccount(email: string, displayName?: string) {
-  try {
-    const clean = String(email || '').trim().toLowerCase();
-    if (!clean.includes('@')) return;
-    const name = String(displayName || clean.split('@')[0]).trim();
-    const existing = getKnownGoogleAccounts().filter((a) => a.email !== clean);
-    existing.unshift({
-      email: clean,
-      displayName: name,
-      lastUsed: new Date().toISOString()
-    });
-    localStorage.setItem(KNOWN_ACCOUNTS_STORAGE_KEY, JSON.stringify(existing.slice(0, 10)));
-  } catch (e) {}
-}
-
-export function removeKnownGoogleAccount(email: string) {
-  try {
-    const clean = String(email || '').trim().toLowerCase();
-    const existing = getKnownGoogleAccounts().filter((a) => a.email !== clean);
-    localStorage.setItem(KNOWN_ACCOUNTS_STORAGE_KEY, JSON.stringify(existing));
-  } catch (e) {}
-}
-
-export async function signInWithGoogle(preferredEmail?: string): Promise<any> {
-  const cleanEmail = String(preferredEmail || '').trim().toLowerCase();
-
-  // If a Google email is selected or entered from the Account Chooser
-  if (cleanEmail && cleanEmail.includes('@')) {
-    const docId = emailToDocId(cleanEmail);
-    const displayName = cleanEmail.split('@')[0];
-    const verifiedUser = {
-      uid: docId,
-      googleSub: docId,
-      email: cleanEmail,
-      displayName,
-      photoURL: '',
-      verified: true,
-      authMethod: 'google_account',
-      authenticatedAt: new Date().toISOString()
-    };
-    saveKnownGoogleAccount(cleanEmail, displayName);
-    return await applyVerifiedGoogleUser(verifiedUser);
+  const result = await signInWithPopup(auth, provider);
+  if (!result || !result.user || !result.user.email) {
+    throw new Error('Google sign-in did not return a verified email address.');
   }
 
-  // Return indicator for UI to display the dedicated in-app Google Account Chooser
-  return { needsAccountSelection: true };
+  const credential = GoogleAuthProvider.credentialFromResult(result);
+  const cleanEmail = result.user.email.trim().toLowerCase();
+  const verifiedUser = {
+    uid: result.user.uid,
+    googleSub: result.user.uid,
+    email: cleanEmail,
+    displayName: result.user.displayName || cleanEmail.split('@')[0],
+    photoURL: result.user.photoURL || '',
+    idToken: credential?.idToken || '',
+    accessToken: credential?.accessToken || '',
+    verified: true,
+    authMethod: 'google_oauth',
+    authenticatedAt: new Date().toISOString()
+  };
+
+  return await applyVerifiedGoogleUser(verifiedUser);
 }
 
 export const loginWithGoogle = signInWithGoogle;
@@ -740,6 +641,7 @@ export async function signOutUser() {
   }
   try {
     localStorage.removeItem(VERIFIED_AUTH_STORAGE_KEY);
+    localStorage.removeItem('vocab_verified_google_session_v4');
     localStorage.removeItem('vocab_auth_session_v3');
     localStorage.removeItem('vocab_google_session_v2');
     localStorage.removeItem('active_cloud_user_email');
@@ -782,6 +684,7 @@ onAuthStateChanged(auth, async (user) => {
         email: cleanEmail,
         displayName,
         photoURL: user.photoURL || '',
+        authMethod: 'google_oauth',
         verified: true
       };
       try {
@@ -820,9 +723,6 @@ onAuthStateChanged(auth, async (user) => {
   pushCustomShortcutToCloud,
   pushCustomDeckToCloud,
   deleteCustomDeckFromCloud,
-  getKnownGoogleAccounts,
-  saveKnownGoogleAccount,
-  removeKnownGoogleAccount,
   getCurrentUser: () => verifiedSession || currentUser
 };
 

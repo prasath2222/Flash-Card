@@ -137,5 +137,33 @@
       },
       "updatedAt": "2026-10-20T14:59:53.721Z"
     }
+  },
+  "c11f04ee7d72806b2ee485fb470fdec084865766cc55bcdd89ff042e211a8e13": {
+    "updatedAt": "2026-10-21T14:28:35.040Z",
+    "payload": {
+      "learnedCardNums": [],
+      "learnedCards": [],
+      "deletedCardNums": [],
+      "deletedCards": [],
+      "activeDeckId": "deck-800-1000",
+      "lastActiveCardNum": 800,
+      "lastCard": 800,
+      "streakCount": 5,
+      "streak": 5,
+      "customShortcuts": {},
+      "customDecks": {},
+      "customSections": [],
+      "audioPrefs": {
+        "sfxVolume": 1,
+        "bgmVolume": 0.25,
+        "sfxStyle": "whoosh",
+        "voiceRate": 0.8,
+        "voicePitch": 1,
+        "bgmEnabled": true,
+        "bgmMode": "lofi",
+        "voiceVolume": 1
+      },
+      "updatedAt": "2026-10-21T14:28:35.040Z"
+    }
   }
 }

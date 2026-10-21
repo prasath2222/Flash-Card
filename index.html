@@ -5763,6 +5763,13 @@
         pointer-events: auto !important;
         z-index: 1000 !important;
       }
+      #modal-google-account-chooser.open,
+      #modal-google-account-chooser.active {
+        display: flex !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        z-index: 99999 !important;
+      }
 
       .menu-drawer-backdrop:not(.open) {
         display: none !important;
@@ -10017,57 +10024,6 @@
       </div>
     </div>
 
-    <!-- ========================================================== -->
-    <!-- GOOGLE ACCOUNT CHOOSER MODAL (UNIVERSAL MULTI-ACCOUNT)     -->
-    <!-- Authentic Google Account Selection with Switch Support      -->
-    <!-- ========================================================== -->
-    <div class="modal-backdrop" id="modal-google-account-chooser" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.78); backdrop-filter: blur(8px); z-index: 10000; align-items: center; justify-content: center;">
-      <div class="modal-sheet" style="width: min(420px, 92vw); max-height: min(88dvh, 680px); overflow-y: auto; -webkit-overflow-scrolling: touch; background: #ffffff; color: #1f2937; border-radius: 24px; box-shadow: 0 25px 70px rgba(0,0,0,0.85); padding: 28px 24px; box-sizing: border-box; margin: auto; position: relative;">
-        <!-- Close button -->
-        <button type="button" id="btn-close-google-chooser" aria-label="Close" style="position: absolute; top: 16px; right: 16px; background: rgba(0,0,0,0.06); border: none; border-radius: 50%; width: 32px; height: 32px; color: #475569; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; transition: all 0.15s ease;">&times;</button>
-        
-        <!-- Google Header -->
-        <div style="text-align: center; margin-bottom: 20px;">
-          <svg width="40" height="40" viewBox="0 0 24 24" style="display: inline-block; margin-bottom: 10px;">
-            <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.65v3.03h3.88c2.27-2.09 3.66-5.17 3.66-9.12z"/>
-            <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.03c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.13C3.26 21.36 7.37 24 12 24z"/>
-            <path fill="#FBBC05" d="M5.28 14.29c-.25-.72-.38-1.49-.38-2.29s.13-1.57.38-2.29V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.13z"/>
-            <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.37 0 3.26 2.64 1.25 6.58l4.03 3.13c.95-2.83 3.6-4.96 6.72-4.96z"/>
-          </svg>
-          <div style="font-size: 1.35rem; font-weight: 800; color: #111827; letter-spacing: -0.01em;">Choose an account</div>
-          <div style="font-size: 0.86rem; color: #4b5563; margin-top: 4px;">to continue to Stellar and save your learning progress</div>
-        </div>
-
-        <!-- Known Accounts List (if any) -->
-        <div id="google-known-accounts-container" style="display: none; margin-bottom: 16px;">
-          <div style="font-size: 0.72rem; font-weight: 800; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;">Saved Accounts on this device</div>
-          <div id="google-known-accounts-list" style="display: flex; flex-direction: column; gap: 8px;"></div>
-        </div>
-
-        <!-- Add / Use Another Account Form -->
-        <div style="border: 1px solid #e5e7eb; border-radius: 16px; padding: 16px; background: #f9fafb;">
-          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
-            <div style="width: 32px; height: 32px; border-radius: 50%; background: #e0e7ff; color: #4338ca; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;">👤</div>
-            <div>
-              <div style="font-size: 0.92rem; font-weight: 750; color: #111827;">Use Google account</div>
-              <div style="font-size: 0.76rem; color: #6b7280;">Sign in with your Google email address</div>
-            </div>
-          </div>
-
-          <div id="google-chooser-error" style="display: none; padding: 8px 12px; background: #fee2e2; border: 1px solid #f87171; border-radius: 10px; color: #991b1b; font-size: 0.8rem; font-weight: 700; margin-bottom: 10px;"></div>
-
-          <input type="email" id="input-google-chooser-email" placeholder="Enter your Google email (e.g. name@gmail.com)" autocomplete="email" style="width: 100%; padding: 12px 14px; background: #ffffff; border: 1.5px solid #d1d5db; border-radius: 12px; color: #111827; font-size: 15px; box-sizing: border-box; outline: none; transition: border-color 0.15s ease;" />
-
-          <button type="button" id="btn-submit-google-chooser" style="width: 100%; margin-top: 10px; padding: 12px; background: #1a73e8; color: #ffffff; border: none; border-radius: 12px; font-weight: 800; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 2px 4px rgba(26,115,232,0.3); transition: all 0.15s ease;">
-            <span>Continue with Google 🚀</span>
-          </button>
-        </div>
-
-        <div style="font-size: 0.74rem; color: #6b7280; text-align: center; margin-top: 18px; line-height: 1.45;">
-          🔒 Your account progress is private and isolated to your chosen Google email in Cloud Firestore.
-        </div>
-      </div>
-    </div>
     <!-- ========================================================== -->
     <!-- UPLOAD DECK & AUTOMATIC IMAGE DISCOVERY MODAL              -->
     <!-- ========================================================== -->
@@ -21056,9 +21012,11 @@ const tier800DeckCards = initialDeckCards;
         localStorage.removeItem("stellar_account_name_v1");
         localStorage.removeItem("vocab_google_session_v2");
         localStorage.removeItem("vocab_auth_session_v3");
+        localStorage.removeItem("vocab_verified_google_session_v4");
+        localStorage.removeItem("vocab_google_known_accounts_v2");
       } catch (e) {}
 
-      const VERIFIED_AUTH_STORAGE_KEY = "vocab_verified_google_session_v4";
+      const VERIFIED_AUTH_STORAGE_KEY = "vocab_verified_auth_session_v5";
       const GOOGLE_OAUTH_CLIENT_ID = "328045128-9o8clmes7c6itrht7acmc4v56e3sfs9n.apps.googleusercontent.com";
 
       let currentAccountEmail = "";
@@ -21073,7 +21031,10 @@ const tier800DeckCards = initialDeckCards;
           typeof savedSession.email === "string" &&
           savedSession.email.includes("@") &&
           typeof savedSession.googleSub === "string" &&
-          savedSession.googleSub.length > 3
+          savedSession.googleSub.length > 3 &&
+          (savedSession.authMethod === "email_account" ||
+            savedSession.authMethod === "google_oauth" ||
+            savedSession.authMethod === "instant_cloud")
         ) {
           currentAccountEmail = savedSession.email.trim().toLowerCase();
           currentAccountName = savedSession.displayName || currentAccountEmail.split("@")[0];
@@ -21083,10 +21044,10 @@ const tier800DeckCards = initialDeckCards;
         }
       } catch (e) {}
 
-      // One-time clean boot migration for v4 verified auth
+      // One-time clean boot migration for v5 verified auth
       try {
-        if (!localStorage.getItem("vocab_clean_boot_v4")) {
-          localStorage.setItem("vocab_clean_boot_v4", "1");
+        if (!localStorage.getItem("vocab_clean_boot_v5")) {
+          localStorage.setItem("vocab_clean_boot_v5", "1");
           if (!currentAccountEmail) {
             localStorage.removeItem(LEARNED_STORAGE_KEY);
             localStorage.removeItem(DELETED_CARDS_STORAGE_KEY);
@@ -21335,20 +21296,37 @@ const tier800DeckCards = initialDeckCards;
 
           // 1. Save directly to Google Cloud Firestore from client SDK for instant worldwide sync
           if (window.firebaseSync && window.firebaseSync.saveAccountStateToFirestore) {
-            window.firebaseSync.saveAccountStateToFirestore(targetEmail, payload).catch(() => {});
+            try {
+              await window.firebaseSync.saveAccountStateToFirestore(targetEmail, payload);
+              showCloudSaveSuccessIndicator();
+            } catch (fsErr) {
+              console.warn("Direct firestore save note:", fsErr);
+            }
           }
 
-          // 2. Save to backend API (/api/user/save -> Firestore + server cache)
-          const res = await fetch("/api/user/save", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email: targetEmail, replaceArrays: true, payload })
-          });
-
-          if (res.ok) {
-            const data = await res.json();
-            if (data && data.updatedAt) lastAccountCloudTimestamp = data.updatedAt;
-            showCloudSaveSuccessIndicator();
+          // 2. Save to backend API if available (/api/user/save -> Firestore + server cache)
+          try {
+            const res = await fetch("/api/user/save", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ email: targetEmail, replaceArrays: true, payload })
+            });
+            if (res.ok) {
+              const data = await res.json();
+              if (data && data.updatedAt) lastAccountCloudTimestamp = data.updatedAt;
+              showCloudSaveSuccessIndicator();
+              if (isManual) {
+                const label = targetEmail === "cloud_sync@sync.internal" ? "Cloud Sync" : targetEmail;
+                showToast(`Saved to ${label} ☁️`);
+                playHapticTick(580, "sine", 0.04);
+              }
+            } else if (isManual) {
+              const label = targetEmail === "cloud_sync@sync.internal" ? "Cloud Sync" : targetEmail;
+              showToast(`Saved to ${label} ☁️`);
+              playHapticTick(580, "sine", 0.04);
+            }
+          } catch (apiErr) {
+            // Static host (e.g. Render); Firestore client SDK already saved directly
             if (isManual) {
               const label = targetEmail === "cloud_sync@sync.internal" ? "Cloud Sync" : targetEmail;
               showToast(`Saved to ${label} ☁️`);
@@ -21632,15 +21610,19 @@ const tier800DeckCards = initialDeckCards;
         });
       }
 
-      if (desktopCloudSyncBtn) desktopCloudSyncBtn.addEventListener("click", openCloudSyncModal);
-      if (mobileCloudSyncBtn) mobileCloudSyncBtn.addEventListener("click", openCloudSyncModal);
+      function handleHeaderSyncClick() {
+        openCloudSyncModal();
+      }
+
+      if (desktopCloudSyncBtn) desktopCloudSyncBtn.addEventListener("click", handleHeaderSyncClick);
+      if (mobileCloudSyncBtn) mobileCloudSyncBtn.addEventListener("click", handleHeaderSyncClick);
       if (mobDrawerCloudSync) {
         mobDrawerCloudSync.addEventListener("click", () => {
           closeMobileNavDrawer();
-          openCloudSyncModal();
+          handleHeaderSyncClick();
         });
       }
-      if (navBtnCloudSync) navBtnCloudSync.addEventListener("click", openCloudSyncModal);
+      if (navBtnCloudSync) navBtnCloudSync.addEventListener("click", handleHeaderSyncClick);
 
       // Manual Sync / Push
       const btnCloudManualSync = document.getElementById("btn-cloud-manual-sync");
@@ -21974,182 +21956,90 @@ const tier800DeckCards = initialDeckCards;
         });
       }
 
-      // 3. Google Account Chooser UI and Flow
-      const modalGoogleChooser = document.getElementById("modal-google-account-chooser");
-      const btnCloseGoogleChooser = document.getElementById("btn-close-google-chooser");
-      const googleKnownContainer = document.getElementById("google-known-accounts-container");
-      const googleKnownList = document.getElementById("google-known-accounts-list");
-      const inputGoogleEmail = document.getElementById("input-google-chooser-email");
-      const btnSubmitGoogleChooser = document.getElementById("btn-submit-google-chooser");
-      const googleChooserError = document.getElementById("google-chooser-error");
-
-      function openGoogleAccountChooserModal() {
-        if (!modalGoogleChooser) return;
-        if (googleChooserError) googleChooserError.style.display = "none";
-        if (inputGoogleEmail) inputGoogleEmail.value = "";
-
-        // Populate known accounts on this device
-        const knownAccounts = window.firebaseSync && window.firebaseSync.getKnownGoogleAccounts
-          ? window.firebaseSync.getKnownGoogleAccounts()
-          : [];
-
-        if (googleKnownList && googleKnownContainer) {
-          googleKnownList.innerHTML = "";
-          if (knownAccounts && knownAccounts.length > 0) {
-            googleKnownContainer.style.display = "block";
-            knownAccounts.forEach(acct => {
-              const item = document.createElement("div");
-              item.style.cssText = "display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: #f3f4f6; border: 1px solid #e5e7eb; border-radius: 12px; cursor: pointer; transition: all 0.15s ease;";
-              const initial = (acct.displayName || acct.email || "G").charAt(0).toUpperCase();
-              item.innerHTML = `
-                <div style="display: flex; align-items: center; gap: 10px; overflow: hidden; pointer-events: none;">
-                  <div style="width: 32px; height: 32px; border-radius: 50%; background: #4f46e5; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.9rem; flex-shrink: 0;">${initial}</div>
-                  <div style="overflow: hidden; text-align: left;">
-                    <div style="font-size: 0.9rem; font-weight: 750; color: #111827; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${acct.displayName || acct.email.split("@")[0]}</div>
-                    <div style="font-size: 0.75rem; color: #6b7280; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${acct.email}</div>
-                  </div>
-                </div>
-                <div style="display: flex; align-items: center; gap: 8px;">
-                  <span style="font-size: 0.82rem; color: #2563eb; font-weight: 700; pointer-events: none;">Sign in →</span>
-                  <button type="button" class="btn-remove-known-account" title="Remove account" style="background: transparent; border: none; color: #9ca3af; font-size: 1.1rem; cursor: pointer; padding: 2px 6px; line-height: 1;">&times;</button>
-                </div>
-              `;
-              item.addEventListener("click", async (e) => {
-                if (e.target && e.target.classList && e.target.classList.contains("btn-remove-known-account")) {
-                  e.stopPropagation();
-                  if (window.firebaseSync && window.firebaseSync.removeKnownGoogleAccount) {
-                    window.firebaseSync.removeKnownGoogleAccount(acct.email);
-                  }
-                  openGoogleAccountChooserModal();
-                  return;
-                }
-                await handleGoogleAccountSelection(acct.email, acct.displayName);
-              });
-              googleKnownList.appendChild(item);
-            });
-          } else {
-            googleKnownContainer.style.display = "none";
-          }
+      // Allow pressing Enter in Login / Register fields
+      const loginEmailEl = document.getElementById("input-login-email");
+      const loginPassEl = document.getElementById("input-login-pass");
+      [loginEmailEl, loginPassEl].forEach((el) => {
+        if (el) {
+          el.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              if (btnSubmitLogin) btnSubmitLogin.click();
+            }
+          });
         }
+      });
 
-        modalGoogleChooser.style.display = "flex";
-        setTimeout(() => { if (inputGoogleEmail) inputGoogleEmail.focus(); }, 100);
-      }
-
-      function closeGoogleAccountChooserModal() {
-        if (modalGoogleChooser) modalGoogleChooser.style.display = "none";
-      }
-
-      if (btnCloseGoogleChooser) {
-        btnCloseGoogleChooser.addEventListener("click", closeGoogleAccountChooserModal);
-      }
-      if (modalGoogleChooser) {
-        modalGoogleChooser.addEventListener("click", (e) => {
-          if (e.target === modalGoogleChooser) closeGoogleAccountChooserModal();
-        });
-      }
-
-      async function handleGoogleAccountSelection(email, displayName) {
-        const clean = String(email || "").trim().toLowerCase();
-        if (!clean || !clean.includes("@")) {
-          if (googleChooserError) {
-            googleChooserError.textContent = "Please enter a valid Google email address.";
-            googleChooserError.style.display = "block";
-          }
-          return;
+      const regNameEl = document.getElementById("input-register-name");
+      const regEmailEl = document.getElementById("input-register-email");
+      const regPassEl = document.getElementById("input-register-pass");
+      [regNameEl, regEmailEl, regPassEl].forEach((el) => {
+        if (el) {
+          el.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              if (btnSubmitRegister) btnSubmitRegister.click();
+            }
+          });
         }
+      });
 
-        if (btnSubmitGoogleChooser) {
-          btnSubmitGoogleChooser.disabled = true;
-          btnSubmitGoogleChooser.textContent = "Connecting to Google Account...";
-        }
+      // 3. Real Google OAuth Sign-In Handler (signInWithPopup with select_account)
+      async function triggerRealGoogleSignIn(btnEl) {
+        const origHtml = btnEl ? btnEl.innerHTML : "";
+        if (loginErrorMsg) loginErrorMsg.style.display = "none";
+        if (registerErrorMsg) registerErrorMsg.style.display = "none";
 
         try {
-          let user = null;
-          if (window.firebaseSync && window.firebaseSync.signInWithGoogle) {
-            user = await window.firebaseSync.signInWithGoogle(clean);
-          } else {
-            user = {
-              uid: "acct_" + clean.replace(/[^a-z0-9]/g, "_").slice(0, 30),
-              googleSub: clean,
-              email: clean,
-              displayName: displayName || clean.split("@")[0],
-              photoURL: "",
-              verified: true
-            };
+          if (btnEl) {
+            btnEl.disabled = true;
+            btnEl.textContent = "Opening Google Sign-In...";
           }
-
+          if (!window.firebaseSync || !window.firebaseSync.signInWithGoogle) {
+            throw new Error("Authentication service is initializing. Please try again in a moment.");
+          }
+          const user = await window.firebaseSync.signInWithGoogle();
           if (user && user.email) {
             await loadVerifiedGoogleAccountState(user, true);
-            closeGoogleAccountChooserModal();
             closeCloudSyncModal();
-            showToast(`Signed in as ${user.email} 🚀`);
+            showToast(`Signed in with Google as ${user.email} 🚀`);
             playHapticTick(600, "sine", 0.05);
           }
         } catch (err) {
-          if (googleChooserError) {
-            googleChooserError.textContent = err && err.message ? err.message : "Could not sign in with this Google account.";
-            googleChooserError.style.display = "block";
+          const code = err && err.code ? String(err.code) : "";
+          let msg = err && err.message ? err.message : "Google Sign-In could not be completed.";
+          if (code === "auth/popup-closed-by-user" || code === "auth/cancelled-popup-request") {
+            msg = "Google Sign-In popup was closed before completing sign-in.";
+          } else if (code === "auth/unauthorized-domain") {
+            msg = "Google popup is restricted on this external domain. Please use the Email & Password Log In / Create Account form above.";
+          } else if (code === "auth/popup-blocked") {
+            msg = "Browser blocked the Google popup window. Please allow popups or use Email & Password above.";
           }
-        } finally {
-          if (btnSubmitGoogleChooser) {
-            btnSubmitGoogleChooser.disabled = false;
-            btnSubmitGoogleChooser.textContent = "Continue with Google 🚀";
-          }
-        }
-      }
-
-      if (btnSubmitGoogleChooser && inputGoogleEmail) {
-        btnSubmitGoogleChooser.addEventListener("click", () => {
-          handleGoogleAccountSelection(inputGoogleEmail.value.trim(), "");
-        });
-        inputGoogleEmail.addEventListener("keydown", (e) => {
-          if (e.key === "Enter") {
-            e.preventDefault();
-            handleGoogleAccountSelection(inputGoogleEmail.value.trim(), "");
-          }
-        });
-      }
-
-      async function triggerGoogleAccountChooserPopup(triggerBtn) {
-        if (triggerBtn) {
-          triggerBtn.disabled = true;
-          triggerBtn.style.opacity = "0.7";
-        }
-        try {
-          if (window.google && window.google.accounts && window.google.accounts.id) {
-            window.google.accounts.id.prompt((notification) => {
-              if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
-                openGoogleAccountChooserModal();
-              }
-            });
+          if (loginErrorMsg) {
+            loginErrorMsg.textContent = msg;
+            loginErrorMsg.style.display = "block";
           } else {
-            openGoogleAccountChooserModal();
+            showToast(msg);
           }
-        } catch (e) {
-          openGoogleAccountChooserModal();
         } finally {
-          if (triggerBtn) {
-            triggerBtn.disabled = false;
-            triggerBtn.style.opacity = "1";
+          if (btnEl) {
+            btnEl.disabled = false;
+            btnEl.innerHTML = origHtml;
           }
         }
-        return true;
       }
 
-      // 3b. Google Sign-In button triggers popup or account chooser fallback
       const btnGoogleCustom = document.getElementById("btn-google-signin-custom");
       if (btnGoogleCustom) {
-        btnGoogleCustom.addEventListener("click", async () => {
-          await triggerGoogleAccountChooserPopup(btnGoogleCustom);
+        btnGoogleCustom.addEventListener("click", () => {
+          triggerRealGoogleSignIn(btnGoogleCustom);
         });
       }
 
-      // 3c. Switch / Choose Google Account button opens Account Chooser
       const btnModalSwitchAcct = document.getElementById("btn-modal-switch-account");
       if (btnModalSwitchAcct) {
         btnModalSwitchAcct.addEventListener("click", () => {
-          openGoogleAccountChooserModal();
+          triggerRealGoogleSignIn(btnModalSwitchAcct);
         });
       }
 
@@ -22229,6 +22119,7 @@ const tier800DeckCards = initialDeckCards;
 
         try {
           localStorage.removeItem(VERIFIED_AUTH_STORAGE_KEY);
+          localStorage.removeItem("vocab_verified_google_session_v4");
           localStorage.removeItem("vocab_auth_session_v3");
           localStorage.removeItem("active_cloud_user_email");
           localStorage.removeItem("stellar_account_email_v1");
