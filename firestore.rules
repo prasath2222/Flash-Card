@@ -39,5 +39,10 @@ service cloud.firestore {
         allow read, write: if true;
       }
     }
+
+    // Production User Progress records
+    match /user_progress/{userId} {
+      allow read, write: if true;
+    }
   }
 }

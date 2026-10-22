@@ -9889,79 +9889,90 @@
     <!-- Responsive layout designed to fit all screen sizes smoothly -->
     <!-- ========================================================== -->
     <div class="modal-backdrop" id="modal-cloud-sync-login">
-      <div class="modal-sheet" style="width: min(440px, 92vw); max-height: min(88dvh, 720px); overflow-y: auto; -webkit-overflow-scrolling: touch; background: linear-gradient(180deg, #172236 0%, #0c1424 100%); border: 1px solid rgba(255,255,255,0.14); border-radius: 24px; box-shadow: 0 25px 70px rgba(0,0,0,0.85); padding: 22px 20px; box-sizing: border-box; margin: auto;">
+      <div class="modal-sheet" style="width: min(440px, 92vw); max-height: min(88dvh, 740px); overflow-y: auto; -webkit-overflow-scrolling: touch; background: linear-gradient(180deg, #172236 0%, #0c1424 100%); border: 1px solid rgba(255,255,255,0.14); border-radius: 24px; box-shadow: 0 25px 70px rgba(0,0,0,0.85); padding: 22px 20px; box-sizing: border-box; margin: auto;">
         <div class="modal-handle"></div>
         <div class="modal-header" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.08);">
           <div style="display: flex; align-items: center; gap: 10px;">
-            <div id="cloud-modal-avatar" style="width: 40px; height: 40px; border-radius: 12px; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; overflow: hidden; flex-shrink: 0; border: 1px solid rgba(255,255,255,0.12);">
-              <svg width="22" height="22" viewBox="0 0 24 24">
-                <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.65v3.03h3.88c2.27-2.09 3.66-5.17 3.66-9.12z"/>
-                <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.03c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.13C3.26 21.36 7.37 24 12 24z"/>
-                <path fill="#FBBC05" d="M5.28 14.29c-.25-.72-.38-1.49-.38-2.29s.13-1.57.38-2.29V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.13z"/>
-                <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.37 0 3.26 2.64 1.25 6.58l4.03 3.13c.95-2.83 3.6-4.96 6.72-4.96z"/>
-              </svg>
+            <div id="cloud-modal-avatar" style="width: 40px; height: 40px; border-radius: 12px; background: rgba(16, 185, 129, 0.15); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; overflow: hidden; flex-shrink: 0; border: 1px solid rgba(16, 185, 129, 0.35);">
+              🌐
             </div>
             <div>
-              <span class="modal-title" style="font-size: 1.15rem; font-weight: 800; color: #fff;">Google Account &amp; Sync</span>
-              <div style="font-size: 0.76rem; color: #94a3b8;">Save &amp; access your progress from any device</div>
+              <span class="modal-title" style="font-size: 1.15rem; font-weight: 800; color: #fff;">All-Device Cloud Storage</span>
+              <div style="font-size: 0.76rem; color: #94a3b8;">Common cloud progress shared across every device</div>
             </div>
           </div>
           <button type="button" class="modal-close-btn" id="btn-close-cloud-sync-modal" aria-label="Close" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; width: 34px; height: 34px; color: #cbd5e1; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center;">&times;</button>
         </div>
 
-        <!-- Clean Google Sign-In Card (Zero email/password forms) -->
-        <div id="auth-unauthenticated-panel">
-          <div style="text-align: center; padding: 12px 6px 20px;">
-            <div style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; background: rgba(66, 133, 244, 0.12); border: 1px solid rgba(66, 133, 244, 0.35); border-radius: 999px; color: #60a5fa; font-size: 0.76rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px;">
-              <span>⚡ Google Cloud Sync</span>
+        <!-- =============================================================== -->
+        <!-- UNIVERSAL COMMON CLOUD STORAGE (SHARED ON ALL DEVICES WORLDWIDE) -->
+        <!-- =============================================================== -->
+        <div id="common-cloud-storage-panel" style="padding: 16px; background: linear-gradient(145deg, rgba(16, 185, 129, 0.14) 0%, rgba(6, 78, 59, 0.25) 100%); border: 1px solid rgba(16, 185, 129, 0.45); border-radius: 18px; margin-bottom: 16px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <div style="width: 42px; height: 42px; border-radius: 12px; background: rgba(16, 185, 129, 0.22); border: 1px solid rgba(52, 211, 153, 0.5); display: flex; align-items: center; justify-content: center; font-size: 1.35rem; flex-shrink: 0;">
+                🌐
+              </div>
+              <div>
+                <div style="font-size: 0.98rem; font-weight: 850; color: #ffffff; display: flex; align-items: center; gap: 6px;">
+                  <span>Common Cloud Website</span>
+                </div>
+                <div id="common-cloud-live-sub" style="font-size: 0.76rem; color: #34d399; font-weight: 750; display: flex; align-items: center; gap: 6px; margin-top: 2px;">
+                  <span style="display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #10b981; box-shadow: 0 0 6px #10b981;"></span>
+                  <span>Active on All Devices (Phone, Tablet &amp; PC)</span>
+                </div>
+              </div>
             </div>
-            <h3 style="font-size: 1.25rem; font-weight: 850; color: #ffffff; margin: 0 0 8px;">Sign in with Google</h3>
-            <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.5; margin: 0 auto; max-width: 340px;">
-              Choose any Google account active in your browser. All 3,000 flashcards, streak, and notes will sync seamlessly.
-            </p>
+            <div id="common-cloud-learned-badge" style="padding: 5px 10px; background: rgba(0,0,0,0.4); border: 1px solid rgba(52,211,153,0.35); border-radius: 10px; color: #34d399; font-size: 0.76rem; font-weight: 850; white-space: nowrap;">
+              0 Learned
+            </div>
           </div>
 
-          <div id="google-auth-error-banner" style="display: none; padding: 10px 14px; background: rgba(239, 68, 68, 0.18); border: 1px solid #ef4444; border-radius: 12px; color: #fca5a5; font-size: 0.82rem; font-weight: 700; margin-bottom: 14px; line-height: 1.4; text-align: center;"></div>
+          <div style="font-size: 0.8rem; color: #e2e8f0; line-height: 1.45; margin-bottom: 12px;">
+            Every device opening this website automatically shares the same common cloud progress in real time — no login required.
+          </div>
 
-          <!-- Prominent YouTube-grade Google Sign-In Button -->
-          <button type="button" id="btn-google-signin-custom" style="width: 100%; padding: 14px 18px; background: #ffffff; color: #1f2937; border: 1px solid #cbd5e1; border-radius: 14px; font-weight: 800; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.35); transition: all 0.15s ease;">
-            <svg width="22" height="22" viewBox="0 0 24 24">
-              <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.65v3.03h3.88c2.27-2.09 3.66-5.17 3.66-9.12z"/>
-              <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.03c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.13C3.26 21.36 7.37 24 12 24z"/>
-              <path fill="#FBBC05" d="M5.28 14.29c-.25-.72-.38-1.49-.38-2.29s.13-1.57.38-2.29V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.13z"/>
-              <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.37 0 3.26 2.64 1.25 6.58l4.03 3.13c.95-2.83 3.6-4.96 6.72-4.96z"/>
-            </svg>
-            <span id="btn-google-signin-text">Continue with Google</span>
-          </button>
-
-          <!-- Production Feature Highlights -->
-          <div style="margin-top: 18px; padding: 12px 14px; background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; display: flex; flex-direction: column; gap: 8px;">
-            <div style="display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: #e2e8f0;">
-              <span style="color: #34d399; font-weight: 800;">✓</span>
-              <span>1-click account chooser — no password typing required</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: #e2e8f0;">
-              <span style="color: #34d399; font-weight: 800;">✓</span>
-              <span>Automatically selects from Google accounts in this browser</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: #e2e8f0;">
-              <span style="color: #34d399; font-weight: 800;">✓</span>
-              <span>Instant sync to Google Cloud Firestore across all devices</span>
-            </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+            <button type="button" class="duo-btn-3d" id="btn-common-cloud-pull-now" style="padding: 11px 10px; background: rgba(16, 185, 129, 0.25); border: 1px solid rgba(52, 211, 153, 0.55); color: #34d399; font-weight: 800; font-size: 0.82rem; border-radius: 12px; cursor: pointer; text-align: center;">
+              🔄 Pull Cloud Progress
+            </button>
+            <button type="button" class="duo-btn-3d" id="btn-common-cloud-push-now" style="padding: 11px 10px; background: rgba(56, 189, 248, 0.22); border: 1px solid rgba(56, 189, 248, 0.5); color: #38bdf8; font-weight: 800; font-size: 0.82rem; border-radius: 12px; cursor: pointer; text-align: center;">
+              ☁️ Save to Common Cloud
+            </button>
           </div>
         </div>
 
-        <!-- AUTHENTICATED USER PANEL (Shown when user is signed in) -->
+        <!-- Optional Personal Google Sign-In Card (Zero email/password forms) -->
+        <div id="auth-unauthenticated-panel">
+          <div style="padding: 14px; background: rgba(0,0,0,0.32); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px;">
+            <div style="font-size: 0.78rem; font-weight: 800; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; text-align: center;">
+              Optional: Personal Google Account
+            </div>
+
+            <div id="google-auth-error-banner" style="display: none; padding: 10px 14px; background: rgba(239, 68, 68, 0.18); border: 1px solid #ef4444; border-radius: 12px; color: #fca5a5; font-size: 0.8rem; font-weight: 700; margin-bottom: 12px; line-height: 1.4; text-align: center;"></div>
+
+            <button type="button" id="btn-google-signin-custom" style="width: 100%; padding: 12px 16px; background: #ffffff; color: #1f2937; border: 1px solid #cbd5e1; border-radius: 12px; font-weight: 800; font-size: 0.92rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.3); transition: all 0.15s ease;">
+              <svg width="20" height="20" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.65v3.03h3.88c2.27-2.09 3.66-5.17 3.66-9.12z"/>
+                <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.03c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.13C3.26 21.36 7.37 24 12 24z"/>
+                <path fill="#FBBC05" d="M5.28 14.29c-.25-.72-.38-1.49-.38-2.29s.13-1.57.38-2.29V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.13z"/>
+                <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.37 0 3.26 2.64 1.25 6.58l4.03 3.13c.95-2.83 3.6-4.96 6.72-4.96z"/>
+              </svg>
+              <span id="btn-google-signin-text">Continue with Google</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- AUTHENTICATED USER PANEL (Shown when user is signed into personal Google account) -->
         <div id="auth-authenticated-panel" style="display: none; padding-top: 4px;">
-          <!-- Account Status Card -->
-          <div style="padding: 16px; background: rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.12); border-radius: 18px; margin-bottom: 14px;">
+          <div style="padding: 14px; background: rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; margin-bottom: 12px;">
             <div style="display: flex; align-items: center; gap: 12px;">
-              <div id="cloud-modal-user-avatar" style="width: 48px; height: 48px; border-radius: 50%; background: #0284c7; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; overflow: hidden; flex-shrink: 0; border: 2px solid #38bdf8;">
+              <div id="cloud-modal-user-avatar" style="width: 44px; height: 44px; border-radius: 50%; background: #0284c7; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; overflow: hidden; flex-shrink: 0; border: 2px solid #38bdf8;">
                 👤
               </div>
               <div style="flex: 1; min-width: 0;">
-                <div id="cloud-modal-user-name" style="font-size: 1.05rem; font-weight: 850; color: #ffffff; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Google User</div>
-                <div id="cloud-modal-account-email" style="font-size: 0.82rem; color: #94a3b8; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">user@gmail.com</div>
+                <div id="cloud-modal-user-name" style="font-size: 1rem; font-weight: 850; color: #ffffff; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Google User</div>
+                <div id="cloud-modal-account-email" style="font-size: 0.8rem; color: #94a3b8; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">user@gmail.com</div>
                 <div id="cloud-modal-status-text" style="font-size: 0.74rem; color: #34d399; font-weight: 750; margin-top: 3px; display: flex; align-items: center; gap: 6px;">
                   <span id="cloud-modal-status-dot" style="display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #10b981; box-shadow: 0 0 6px #10b981;"></span>
                   <span id="cloud-modal-status-desc">Google Cloud Firestore Active</span>
@@ -9970,14 +9981,10 @@
             </div>
           </div>
 
-          <div style="background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 14px; padding: 14px; margin-bottom: 14px; text-align: center;">
-            <div style="font-size: 1.05rem; font-weight: 850; color: #34d399; margin-bottom: 4px;">✓ Cloud Sync Active</div>
-            <div id="auth-auth-details" style="font-size: 0.82rem; color: #e2e8f0; line-height: 1.45;">Your 3,000 flashcards, mastered cards, streaks and notes are automatically syncing across all your devices.</div>
-          </div>
+          <div id="auth-auth-details" style="display: none;"></div>
 
-          <!-- Switch Google Account Button -->
-          <button type="button" id="btn-modal-switch-account" style="width: 100%; padding: 13px 16px; background: #ffffff; color: #1f2937; border: 1px solid #cbd5e1; border-radius: 12px; font-weight: 800; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 3px 0 #94a3b8; margin-bottom: 10px; transition: all 0.15s ease;">
-            <svg width="20" height="20" viewBox="0 0 24 24">
+          <button type="button" id="btn-modal-switch-account" style="width: 100%; padding: 12px 16px; background: #ffffff; color: #1f2937; border: 1px solid #cbd5e1; border-radius: 12px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24">
               <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.65v3.03h3.88c2.27-2.09 3.66-5.17 3.66-9.12z"/>
               <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.03c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.13C3.26 21.36 7.37 24 12 24z"/>
               <path fill="#FBBC05" d="M5.28 14.29c-.25-.72-.38-1.49-.38-2.29s.13-1.57.38-2.29V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.13z"/>
@@ -9986,18 +9993,17 @@
             <span id="btn-modal-switch-text">Switch Google Account</span>
           </button>
 
-          <button type="button" class="duo-btn-3d" id="btn-modal-manual-push" style="width: 100%; padding: 12px; background: rgba(56,189,248,0.2); border: 1px solid rgba(56,189,248,0.45); color: #38bdf8; font-weight: 800; font-size: 0.95rem; border-radius: 12px; cursor: pointer; margin-bottom: 10px;">
+          <button type="button" class="duo-btn-3d" id="btn-modal-manual-push" style="width: 100%; padding: 11px; background: rgba(56,189,248,0.2); border: 1px solid rgba(56,189,248,0.45); color: #38bdf8; font-weight: 800; font-size: 0.9rem; border-radius: 12px; cursor: pointer; margin-bottom: 8px;">
             ⚡ Sync All Progress Now
           </button>
 
-          <!-- Sign Out Button -->
-          <button type="button" class="settings-action-btn settings-action-btn-danger" id="btn-modal-signout" style="width: 100%; justify-content: center; padding: 12px; margin-top: 4px; font-weight: 800;">
-            <span>Sign Out</span>
+          <button type="button" class="settings-action-btn" id="btn-modal-signout" style="width: 100%; justify-content: center; padding: 11px; margin-top: 4px; font-weight: 800; background: rgba(16, 185, 129, 0.16); border: 1px solid rgba(16, 185, 129, 0.4); color: #34d399;">
+            <span>🌐 Switch Back to Common Cloud (All Devices)</span>
           </button>
         </div>
 
         <div style="font-size: 0.74rem; color: #64748b; text-align: center; line-height: 1.45; margin-top: 14px;">
-          🔒 All study progress (cards 1–3000, learned words, deleted words, streaks &amp; custom shortcuts) saves to cloud automatically.
+          🔒 All study progress (cards 1–3000, learned words, deleted words, streaks &amp; custom shortcuts) saves to Google Cloud Firestore automatically across all devices.
         </div>
       </div>
     </div>
@@ -20995,12 +21001,15 @@ const tier800DeckCards = initialDeckCards;
         localStorage.removeItem("vocab_google_known_accounts_v2");
       } catch (e) {}
 
+      const COMMON_CLOUD_EMAIL = "common_all_devices@stellar.cloud";
+      const COMMON_CLOUD_DOC_ID = "global_common_cloud_v1";
       const VERIFIED_AUTH_STORAGE_KEY = "vocab_verified_auth_session_v6";
       const GOOGLE_OAUTH_CLIENT_ID = "328045128-9o8clmes7c6itrht7acmc4v56e3sfs9n.apps.googleusercontent.com";
 
       function isBlockedOrDummyAccount(email) {
         const clean = String(email || "").trim().toLowerCase();
         if (!clean || !clean.includes("@")) return true;
+        if (clean === COMMON_CLOUD_EMAIL) return false;
         if (
           clean === "sgsgds@gmail.com" ||
           clean === "cloud_sync@sync.internal" ||
@@ -21029,8 +21038,8 @@ const tier800DeckCards = initialDeckCards;
         return true;
       }
 
-      let currentAccountEmail = "";
-      let currentAccountName = "";
+      let currentAccountEmail = COMMON_CLOUD_EMAIL;
+      let currentAccountName = "Common Cloud (All Devices)";
       let currentAccountPhoto = "";
 
       try {
@@ -21043,7 +21052,8 @@ const tier800DeckCards = initialDeckCards;
           typeof savedSession.googleSub === "string" &&
           savedSession.googleSub.length > 3 &&
           (savedSession.authMethod === "email_account" ||
-            savedSession.authMethod === "google_oauth")
+            savedSession.authMethod === "google_oauth" ||
+            savedSession.authMethod === "common_cloud")
         ) {
           currentAccountEmail = savedSession.email.trim().toLowerCase();
           currentAccountName = savedSession.displayName || currentAccountEmail.split("@")[0];
@@ -21053,82 +21063,35 @@ const tier800DeckCards = initialDeckCards;
         }
       } catch (e) {}
 
-      // One-time clean boot migration for v6 verified auth
-      try {
-        if (!localStorage.getItem("vocab_clean_boot_v6")) {
-          localStorage.setItem("vocab_clean_boot_v6", "1");
-          if (!currentAccountEmail) {
-            localStorage.removeItem(LEARNED_STORAGE_KEY);
-            localStorage.removeItem(DELETED_CARDS_STORAGE_KEY);
-            localStorage.removeItem(STORAGE_KEY_EDITS);
-            localStorage.removeItem("custom_decks_catalog_v1");
-            localStorage.removeItem(SECTIONS_STORAGE_KEY);
-            localStorage.removeItem(LAST_CARD_STORAGE_KEY);
-            localStorage.removeItem("active_deck_id_v1");
-            learnedCardsSet = new Set();
-            deletedCardNums = [];
-            customDecksCatalog = {};
-            currentSections = [];
-            currentDeckId = "deck-800-1000";
-            currentIndex = 0;
-          }
-        }
-      } catch (e) {}
-
       let lastAccountCloudTimestamp = "";
       let isSyncPushing = false;
       let hasPendingSyncPush = false;
 
-      function resetLocalBoardToCleanDefaults() {
-        learnedCardsSet = new Set();
-        deletedCardNums = [];
-        customDecksCatalog = {};
-        currentSections = [];
-        currentDeckId = "deck-800-1000";
-        currentIndex = 0;
-        isFlipped = false;
-
-        try {
-          localStorage.removeItem(LEARNED_STORAGE_KEY);
-          localStorage.removeItem(DELETED_CARDS_STORAGE_KEY);
-          localStorage.removeItem(STORAGE_KEY_EDITS);
-          localStorage.removeItem("custom_decks_catalog_v1");
-          localStorage.removeItem(SECTIONS_STORAGE_KEY);
-          localStorage.removeItem(LAST_CARD_STORAGE_KEY);
-          localStorage.setItem("active_deck_id_v1", "deck-800-1000");
-        } catch (e) {}
-
-        if (typeof loadSavedEdits === "function") loadSavedEdits();
-        reindexAndBuildCards();
-        if (frontVisualImgEl) {
-          frontVisualImgEl.removeAttribute("data-card-id");
-          frontVisualImgEl.classList.remove("loaded");
-        }
-        renderCurrentCard();
-        updateSectionLearnedCounter();
-        updateGlobalLearnedDisplays();
-        if (typeof updateSubsectionsUI === "function") updateSubsectionsUI();
-        if (typeof renderCustomDecksList === "function") renderCustomDecksList();
-        if (typeof renderCustomSections === "function") renderCustomSections();
-      }
-
       function updateAccountDisplays() {
-        const isSignedIn = Boolean(currentAccountEmail && !isBlockedOrDummyAccount(currentAccountEmail));
-        const shortName = currentAccountEmail ? currentAccountEmail.split("@")[0] : "";
-        const displayTitle = isSignedIn
-          ? currentAccountName && currentAccountName !== currentAccountEmail && currentAccountName !== shortName
-            ? `${currentAccountName} (${currentAccountEmail})`
-            : currentAccountEmail
-          : "Not Signed In";
+        const isCommonCloud = !currentAccountEmail || currentAccountEmail === COMMON_CLOUD_EMAIL;
+        const isPersonalAccount = Boolean(currentAccountEmail && !isCommonCloud && !isBlockedOrDummyAccount(currentAccountEmail));
+        const shortName = isCommonCloud
+          ? "Cloud Synced"
+          : (currentAccountEmail ? currentAccountEmail.split("@")[0] : "Cloud Synced");
+        const displayTitle = isCommonCloud
+          ? "Common Cloud Website (All Devices)"
+          : (currentAccountName && currentAccountName !== currentAccountEmail && currentAccountName !== shortName
+              ? `${currentAccountName} (${currentAccountEmail})`
+              : currentAccountEmail);
+
+        const commonLearnedBadge = document.getElementById("common-cloud-learned-badge");
+        if (commonLearnedBadge) {
+          commonLearnedBadge.textContent = `${learnedCardsSet ? learnedCardsSet.size : 0} Learned`;
+        }
 
         const currentEmailEl = document.getElementById("cloud-sync-user-title");
         if (currentEmailEl) currentEmailEl.textContent = displayTitle;
 
         const cloudUserSub = document.getElementById("cloud-sync-user-sub");
         if (cloudUserSub) {
-          cloudUserSub.textContent = isSignedIn
-            ? `Signed in as ${currentAccountEmail} · Changes save automatically across all devices.`
-            : "Sign in with your Google account to save and access your progress from any device anywhere in the world.";
+          cloudUserSub.textContent = isCommonCloud
+            ? "Common Cloud active across all devices (Phones, Tablets & PCs) · Auto-syncing in real time."
+            : `Signed in as ${currentAccountEmail} · Changes save automatically across all devices.`;
         }
 
         const modalEmailEl = document.getElementById("cloud-modal-account-email");
@@ -21140,145 +21103,133 @@ const tier800DeckCards = initialDeckCards;
         const mobileCloudLabel = document.getElementById("mobile-cloud-label");
         const mobileCloudIcon = document.getElementById("mobile-cloud-icon");
         const mobileDot = document.getElementById("mobile-cloud-dot");
-        const displayNameFirst = currentAccountName ? currentAccountName.split(" ")[0] : shortName;
+        const displayNameFirst = isCommonCloud
+          ? "Cloud Sync"
+          : (currentAccountName ? currentAccountName.split(" ")[0] : shortName);
 
         if (desktopCloudLabel) {
-          desktopCloudLabel.textContent = isSignedIn ? displayNameFirst : "Sign in";
+          desktopCloudLabel.textContent = displayNameFirst;
         }
         if (desktopCloudIcon) {
-          if (isSignedIn && currentAccountPhoto) {
+          if (isPersonalAccount && currentAccountPhoto) {
             desktopCloudIcon.innerHTML = `<img src="${currentAccountPhoto}" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" referrerpolicy="no-referrer" />`;
-          } else if (isSignedIn) {
+          } else if (isPersonalAccount) {
             desktopCloudIcon.innerHTML = `<span style="width:100%;height:100%;border-radius:50%;background:#0284c7;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;">${(displayNameFirst || 'G')[0].toUpperCase()}</span>`;
           } else {
-            desktopCloudIcon.innerHTML = `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`;
+            desktopCloudIcon.innerHTML = `<span style="font-size:13px;line-height:1;">🌐</span>`;
           }
         }
         if (desktopDot) {
-          desktopDot.style.display = isSignedIn ? "inline-block" : "none";
+          desktopDot.style.display = "inline-block";
           desktopDot.style.background = "#10b981";
           desktopDot.style.boxShadow = "0 0 6px #10b981";
         }
 
         if (mobileCloudLabel) {
-          mobileCloudLabel.textContent = isSignedIn ? displayNameFirst.slice(0, 8) : "Sign in";
+          mobileCloudLabel.textContent = isCommonCloud ? "Cloud" : displayNameFirst.slice(0, 8);
         }
         if (mobileCloudIcon) {
-          if (isSignedIn && currentAccountPhoto) {
+          if (isPersonalAccount && currentAccountPhoto) {
             mobileCloudIcon.innerHTML = `<img src="${currentAccountPhoto}" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" referrerpolicy="no-referrer" />`;
-          } else if (isSignedIn) {
+          } else if (isPersonalAccount) {
             mobileCloudIcon.innerHTML = `<span style="width:100%;height:100%;border-radius:50%;background:#0284c7;color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;">${(displayNameFirst || 'G')[0].toUpperCase()}</span>`;
           } else {
-            mobileCloudIcon.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`;
+            mobileCloudIcon.innerHTML = `<span style="font-size:12px;line-height:1;">🌐</span>`;
           }
         }
         if (mobileDot) {
-          mobileDot.style.display = isSignedIn ? "inline-block" : "none";
+          mobileDot.style.display = "inline-block";
           mobileDot.style.background = "#10b981";
           mobileDot.style.boxShadow = "0 0 5px #10b981";
         }
 
         const tabDot = document.getElementById("cloud-tab-status-dot");
         if (tabDot) {
-          tabDot.style.background = isSignedIn ? "#10b981" : "#94a3b8";
-          tabDot.style.boxShadow = isSignedIn ? "0 0 8px #10b981" : "none";
+          tabDot.style.background = "#10b981";
+          tabDot.style.boxShadow = "0 0 8px #10b981";
         }
 
         const tabBanner = document.getElementById("cloud-account-live-status-text");
         if (tabBanner) {
-          tabBanner.textContent = isSignedIn
-            ? `Synced (${currentAccountEmail}) ✓`
-            : "Not Signed In · Sign in with Google to sync";
-          tabBanner.style.color = isSignedIn ? "#34d399" : "#cbd5e1";
+          tabBanner.textContent = isCommonCloud
+            ? "Synced (Common Cloud · All Devices) ✓"
+            : `Synced (${currentAccountEmail}) ✓`;
+          tabBanner.style.color = "#34d399";
         }
 
         const modalBanner = document.getElementById("cloud-modal-status-text");
         if (modalBanner) {
-          modalBanner.innerHTML = isSignedIn
-            ? `<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#10b981;box-shadow:0 0 6px #10b981;"></span><span style="color:#34d399;">Google Account Connected · Auto-sync active ✓</span>`
-            : `<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#94a3b8;"></span><span style="color:#94a3b8;">Sign in with your Google account to sync across devices</span>`;
+          modalBanner.innerHTML = `<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#10b981;box-shadow:0 0 6px #10b981;"></span><span style="color:#34d399;">${isCommonCloud ? 'Common Cloud Active on All Devices ✓' : 'Google Account Connected · Auto-sync active ✓'}</span>`;
         }
 
         const unauthPanel = document.getElementById("auth-unauthenticated-panel");
         const authPanel = document.getElementById("auth-authenticated-panel");
-        if (unauthPanel) unauthPanel.style.display = isSignedIn ? "none" : "block";
-        if (authPanel) authPanel.style.display = isSignedIn ? "block" : "none";
+        if (unauthPanel) unauthPanel.style.display = isPersonalAccount ? "none" : "block";
+        if (authPanel) authPanel.style.display = isPersonalAccount ? "block" : "none";
 
         const modalUserName = document.getElementById("cloud-modal-user-name");
-        if (modalUserName) modalUserName.textContent = currentAccountName || shortName || "Google User";
+        if (modalUserName) modalUserName.textContent = currentAccountName || shortName || "Common Cloud";
 
         const modalUserEmail = document.getElementById("cloud-modal-account-email");
-        if (modalUserEmail) modalUserEmail.textContent = currentAccountEmail || "user@gmail.com";
+        if (modalUserEmail) modalUserEmail.textContent = isCommonCloud ? "Shared Across All Devices" : currentAccountEmail;
 
         const modalUserAvatar = document.getElementById("cloud-modal-user-avatar");
         if (modalUserAvatar) {
-          if (isSignedIn && currentAccountPhoto) {
+          if (isPersonalAccount && currentAccountPhoto) {
             modalUserAvatar.innerHTML = `<img src="${currentAccountPhoto}" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" referrerpolicy="no-referrer" />`;
           } else {
-            modalUserAvatar.innerHTML = `<span style="font-size:1.4rem;font-weight:850;color:#fff;">${(displayNameFirst || 'G')[0].toUpperCase()}</span>`;
+            modalUserAvatar.innerHTML = `<span style="font-size:1.3rem;font-weight:850;color:#fff;">${isCommonCloud ? '🌐' : (displayNameFirst || 'G')[0].toUpperCase()}</span>`;
           }
-        }
-
-        const authDetails = document.getElementById("auth-auth-details");
-        if (authDetails && isSignedIn) {
-          authDetails.textContent = `Connected as ${currentAccountName || currentAccountEmail} (${currentAccountEmail}). 3,000 flashcards, mastered cards, streaks and notes are automatically syncing to Google Cloud Firestore.`;
-        }
-
-        const modalStatusDot = document.getElementById("cloud-modal-status-dot");
-        if (modalStatusDot) {
-          modalStatusDot.style.background = isSignedIn ? "#10b981" : "#94a3b8";
-          modalStatusDot.style.boxShadow = isSignedIn ? "0 0 6px #10b981" : "none";
-        }
-        const modalStatusDesc = document.getElementById("cloud-modal-status-desc");
-        if (modalStatusDesc) {
-          modalStatusDesc.textContent = isSignedIn
-            ? `Google Cloud Firestore Active ✓`
-            : "Sign in with Google to sync across all devices";
         }
 
         const btnSigninLabel = document.getElementById("btn-cloud-signin-label");
         if (btnSigninLabel) {
-          btnSigninLabel.textContent = isSignedIn ? "Google Account & Sync ☁️" : "Sign In with Google ☁️";
+          btnSigninLabel.textContent = "All-Device Cloud Storage 🌐";
         }
 
         const btnCloudSignout = document.getElementById("btn-cloud-signout");
-        if (btnCloudSignout) btnCloudSignout.style.display = isSignedIn ? "flex" : "none";
+        if (btnCloudSignout) btnCloudSignout.style.display = isPersonalAccount ? "flex" : "none";
 
         const btnModalSignout = document.getElementById("btn-modal-signout");
-        if (btnModalSignout) btnModalSignout.style.display = isSignedIn ? "flex" : "none";
+        if (btnModalSignout) btnModalSignout.style.display = isPersonalAccount ? "flex" : "none";
 
         const btnModalManualPush = document.getElementById("btn-modal-manual-push");
-        if (btnModalManualPush) btnModalManualPush.style.display = isSignedIn ? "inline-flex" : "none";
+        if (btnModalManualPush) btnModalManualPush.style.display = "inline-flex";
 
         const btnCloudManualSync = document.getElementById("btn-cloud-manual-sync");
-        if (btnCloudManualSync) btnCloudManualSync.style.display = isSignedIn ? "inline-flex" : "none";
+        if (btnCloudManualSync) btnCloudManualSync.style.display = "inline-flex";
 
         const cloudAvatarIcon = document.getElementById("cloud-user-avatar-icon");
         if (cloudAvatarIcon) {
-          if (isSignedIn && currentAccountPhoto) {
+          if (isPersonalAccount && currentAccountPhoto) {
             cloudAvatarIcon.innerHTML = `<img src="${currentAccountPhoto}" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;" referrerpolicy="no-referrer" />`;
           } else {
-            cloudAvatarIcon.textContent = isSignedIn ? "✅" : "☁️";
+            cloudAvatarIcon.textContent = "🌐";
           }
         }
         const modalAvatar = document.getElementById("cloud-modal-avatar");
         if (modalAvatar) {
-          if (isSignedIn && currentAccountPhoto) {
+          if (isPersonalAccount && currentAccountPhoto) {
             modalAvatar.innerHTML = `<img src="${currentAccountPhoto}" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;" referrerpolicy="no-referrer" />`;
           } else {
-            modalAvatar.textContent = isSignedIn ? "✅" : "☁️";
+            modalAvatar.textContent = "🌐";
           }
         }
       }
 
       function showCloudSaveSuccessIndicator() {
-        if (!currentAccountEmail || isBlockedOrDummyAccount(currentAccountEmail)) return;
-        const label = currentAccountEmail;
+        const target = currentAccountEmail || COMMON_CLOUD_EMAIL;
+        if (isBlockedOrDummyAccount(target)) return;
+        const label = target === COMMON_CLOUD_EMAIL ? "Common Cloud (All Devices)" : target;
         const desktopDot = document.getElementById("desktop-cloud-dot");
         const mobileDot = document.getElementById("mobile-cloud-dot");
         const modalBanner = document.getElementById("cloud-modal-status-text");
         const tabBanner = document.getElementById("cloud-account-live-status-text");
+        const commonLearnedBadge = document.getElementById("common-cloud-learned-badge");
 
+        if (commonLearnedBadge) {
+          commonLearnedBadge.textContent = `${learnedCardsSet ? learnedCardsSet.size : 0} Learned`;
+        }
         if (desktopDot) {
           desktopDot.style.boxShadow = "0 0 12px #34d399, 0 0 4px #10b981";
           setTimeout(() => { desktopDot.style.boxShadow = "0 0 6px #10b981"; }, 1200);
@@ -21297,11 +21248,8 @@ const tier800DeckCards = initialDeckCards;
       }
 
       async function syncCurrentStateToDeviceCloud(isManual = false, explicitEmail = "") {
-        const targetEmail = String(explicitEmail || currentAccountEmail || "").trim().toLowerCase();
+        const targetEmail = String(explicitEmail || currentAccountEmail || COMMON_CLOUD_EMAIL).trim().toLowerCase();
         if (!targetEmail || isBlockedOrDummyAccount(targetEmail)) {
-          if (isManual) {
-            showToast("Please sign in with your Google or email account first.");
-          }
           return;
         }
 
@@ -21328,7 +21276,7 @@ const tier800DeckCards = initialDeckCards;
 
           lastAccountCloudTimestamp = updatedAt;
 
-          // 1. Save directly to Google Cloud Firestore from client SDK (works on ALL domains including Render Static Site)
+          // 1. Save directly to Google Cloud Firestore from client SDK (works on 100% of devices & domains including Render Static Site)
           if (window.firebaseSync && window.firebaseSync.saveAccountStateToFirestore) {
             try {
               await window.firebaseSync.saveAccountStateToFirestore(targetEmail, payload);
@@ -21364,7 +21312,8 @@ const tier800DeckCards = initialDeckCards;
           }
 
           if (isManual) {
-            showToast(`Saved to ${targetEmail} ☁️`);
+            const label = targetEmail === COMMON_CLOUD_EMAIL ? "Common Cloud (All Devices)" : targetEmail;
+            showToast(`Saved to ${label} 🌐`);
             playHapticTick(580, "sine", 0.04);
           }
         } catch (e) {
@@ -21379,33 +21328,33 @@ const tier800DeckCards = initialDeckCards;
       }
 
       async function loadVerifiedGoogleAccountState(verifiedUserObj, isUserSwitch = false) {
-        if (!verifiedUserObj || !verifiedUserObj.email || !verifiedUserObj.verified) {
-          updateAccountDisplays();
-          return;
-        }
-
-        const cleanEmail = String(verifiedUserObj.email).trim().toLowerCase();
+        const cleanEmail = String(verifiedUserObj?.email || COMMON_CLOUD_EMAIL).trim().toLowerCase();
         if (isBlockedOrDummyAccount(cleanEmail)) {
           updateAccountDisplays();
           return;
         }
 
-        const displayName = String(verifiedUserObj.displayName || cleanEmail.split("@")[0]).trim();
-        const photoURL = String(verifiedUserObj.photoURL || "");
-        const googleSub = String(verifiedUserObj.googleSub || verifiedUserObj.uid || "").replace(/^google_/, "");
-        const resolvedAuthMethod =
-          verifiedUserObj.authMethod === "google_oauth" ? "google_oauth" : "email_account";
-
-        if (!cleanEmail || !cleanEmail.includes("@") || !googleSub) {
-          updateAccountDisplays();
-          return;
-        }
+        const isCommonCloud = cleanEmail === COMMON_CLOUD_EMAIL;
+        const displayName = isCommonCloud
+          ? "Common Cloud (All Devices)"
+          : String(verifiedUserObj?.displayName || cleanEmail.split("@")[0]).trim();
+        const photoURL = isCommonCloud ? "" : String(verifiedUserObj?.photoURL || "");
+        const googleSub = isCommonCloud
+          ? COMMON_CLOUD_DOC_ID
+          : String(verifiedUserObj?.googleSub || verifiedUserObj?.uid || "").replace(/^google_/, "");
+        const resolvedAuthMethod = isCommonCloud
+          ? "common_cloud"
+          : (verifiedUserObj?.authMethod === "google_oauth" ? "google_oauth" : "email_account");
 
         const previousEmail = currentAccountEmail;
-        const isSwitchingFromDifferentAccount = Boolean(previousEmail && previousEmail !== cleanEmail);
-        const isSwitchingBetweenTwoRealAccounts = Boolean(isSwitchingFromDifferentAccount);
+        const isSwitchingBetweenTwoPersonalAccounts = Boolean(
+          previousEmail &&
+          previousEmail !== cleanEmail &&
+          previousEmail !== COMMON_CLOUD_EMAIL &&
+          !isCommonCloud
+        );
 
-        if (isSwitchingFromDifferentAccount) {
+        if (previousEmail && previousEmail !== cleanEmail) {
           await syncCurrentStateToDeviceCloud(false, previousEmail);
         }
 
@@ -21414,28 +21363,27 @@ const tier800DeckCards = initialDeckCards;
         currentAccountPhoto = photoURL;
 
         try {
-          localStorage.setItem(VERIFIED_AUTH_STORAGE_KEY, JSON.stringify({
-            uid: verifiedUserObj.uid || `google_${googleSub}`,
-            googleSub,
-            email: cleanEmail,
-            displayName: currentAccountName,
-            photoURL: currentAccountPhoto,
-            idToken: verifiedUserObj.idToken || "",
-            accessToken: verifiedUserObj.accessToken || "",
-            authMethod: resolvedAuthMethod,
-            verified: true
-          }));
-          if (window.firebaseSync && window.firebaseSync.applyVerifiedGoogleUser) {
-            window.firebaseSync.applyVerifiedGoogleUser({
-              ...verifiedUserObj,
+          if (!isCommonCloud) {
+            localStorage.setItem(VERIFIED_AUTH_STORAGE_KEY, JSON.stringify({
+              uid: verifiedUserObj?.uid || `google_${googleSub}`,
+              googleSub,
+              email: cleanEmail,
+              displayName: currentAccountName,
+              photoURL: currentAccountPhoto,
+              idToken: verifiedUserObj?.idToken || "",
+              accessToken: verifiedUserObj?.accessToken || "",
               authMethod: resolvedAuthMethod,
               verified: true
-            }).catch(() => {});
+            }));
+            if (window.firebaseSync && window.firebaseSync.applyVerifiedGoogleUser) {
+              window.firebaseSync.applyVerifiedGoogleUser({
+                ...verifiedUserObj,
+                authMethod: resolvedAuthMethod,
+                verified: true
+              }).catch(() => {});
+            }
           }
         } catch (e) {}
-
-        const waitingHelper = document.getElementById("oauth-waiting-helper");
-        if (waitingHelper) waitingHelper.style.display = "none";
 
         updateAccountDisplays();
 
@@ -21475,11 +21423,14 @@ const tier800DeckCards = initialDeckCards;
           if (apiResult && fsResult) {
             const tApi = Date.parse(apiResult.updatedAt || "") || 0;
             const tFs = Date.parse(fsResult.updatedAt || "") || 0;
+            const fsLearned = (fsResult.payload.learnedCardNums || fsResult.payload.learnedCards || []);
+            const apiLearned = (apiResult.payload.learnedCardNums || apiResult.payload.learnedCards || []);
+            const mergedLearned = Array.from(new Set([...fsLearned, ...apiLearned]));
             if (tFs >= tApi) {
-              chosenPayload = fsResult.payload;
+              chosenPayload = { ...fsResult.payload, learnedCardNums: mergedLearned, learnedCards: mergedLearned };
               chosenUpdatedAt = fsResult.updatedAt;
             } else {
-              chosenPayload = apiResult.payload;
+              chosenPayload = { ...apiResult.payload, learnedCardNums: mergedLearned, learnedCards: mergedLearned };
               chosenUpdatedAt = apiResult.updatedAt;
             }
           } else if (fsResult) {
@@ -21492,19 +21443,21 @@ const tier800DeckCards = initialDeckCards;
 
           if (chosenPayload) {
             lastAccountCloudTimestamp = chosenUpdatedAt || new Date().toISOString();
-            applyRemoteSyncPayload(chosenPayload, true, isSwitchingBetweenTwoRealAccounts);
-            if (!isSwitchingBetweenTwoRealAccounts) {
+            applyRemoteSyncPayload(chosenPayload, true, isSwitchingBetweenTwoPersonalAccounts);
+            if (!isSwitchingBetweenTwoPersonalAccounts) {
               await syncCurrentStateToDeviceCloud(false, cleanEmail);
             }
             showCloudSaveSuccessIndicator();
             if (isUserSwitch) {
-              showToast(`Signed in as ${cleanEmail}! Restored your cloud progress ☁️`);
+              const label = isCommonCloud ? "Common Cloud (All Devices)" : cleanEmail;
+              showToast(`Synced with ${label}! 🌐`);
               playHapticTick(620, "triangle", 0.06);
             }
           } else {
             await syncCurrentStateToDeviceCloud(false, cleanEmail);
             if (isUserSwitch) {
-              showToast(`Signed in as ${cleanEmail}! Cloud sync active ☁️`);
+              const label = isCommonCloud ? "Common Cloud (All Devices)" : cleanEmail;
+              showToast(`Connected to ${label}! 🌐`);
               playHapticTick(620, "triangle", 0.06);
             }
           }
@@ -21552,35 +21505,40 @@ const tier800DeckCards = initialDeckCards;
         }
 
         // 4. Custom shortcuts & card edits
-        const shortcutsObj =
-          payload.customShortcuts && typeof payload.customShortcuts === "object"
-            ? payload.customShortcuts
-            : {};
-        try {
-          localStorage.setItem(STORAGE_KEY_EDITS, JSON.stringify(shortcutsObj));
-          if (typeof loadSavedEdits === "function") loadSavedEdits();
-        } catch (e) {}
+        if (payload.customShortcuts && typeof payload.customShortcuts === "object") {
+          const existingEdits = replaceAccountData
+            ? {}
+            : JSON.parse(localStorage.getItem(STORAGE_KEY_EDITS) || "{}");
+          const mergedShortcuts = { ...existingEdits, ...payload.customShortcuts };
+          try {
+            localStorage.setItem(STORAGE_KEY_EDITS, JSON.stringify(mergedShortcuts));
+            if (typeof loadSavedEdits === "function") loadSavedEdits();
+          } catch (e) {}
+        }
 
-        // 5. Custom decks (replace cleanly so accounts never leak decks into each other)
-        customDecksCatalog =
-          payload.customDecks && typeof payload.customDecks === "object"
+        // 5. Custom decks
+        if (payload.customDecks && typeof payload.customDecks === "object") {
+          customDecksCatalog = replaceAccountData
             ? { ...payload.customDecks }
-            : {};
-        delete customDecksCatalog["deck-custom-1792253860086"];
-        try {
-          localStorage.setItem("custom_decks_catalog_v1", JSON.stringify(customDecksCatalog));
-        } catch (e) {}
-        if (typeof renderCustomDecksList === "function") renderCustomDecksList();
+            : { ...customDecksCatalog, ...payload.customDecks };
+          delete customDecksCatalog["deck-custom-1792253860086"];
+          try {
+            localStorage.setItem("custom_decks_catalog_v1", JSON.stringify(customDecksCatalog));
+          } catch (e) {}
+          if (typeof renderCustomDecksList === "function") renderCustomDecksList();
+        }
 
         // 6. Custom sections
-        currentSections = Array.isArray(payload.customSections) ? [...payload.customSections] : [];
-        try {
-          localStorage.setItem(SECTIONS_STORAGE_KEY, JSON.stringify(currentSections));
-        } catch (e) {}
-        if (typeof renderCustomSections === "function") renderCustomSections();
+        if (Array.isArray(payload.customSections) && payload.customSections.length > 0) {
+          currentSections = [...payload.customSections];
+          try {
+            localStorage.setItem(SECTIONS_STORAGE_KEY, JSON.stringify(currentSections));
+          } catch (e) {}
+          if (typeof renderCustomSections === "function") renderCustomSections();
+        }
 
         // 7. Active Deck
-        const targetDeck = payload.activeDeckId || "deck-800-1000";
+        const targetDeck = payload.activeDeckId || currentDeckId || "deck-800-1000";
         const deckChanged = targetDeck !== currentDeckId;
         currentDeckId = targetDeck;
         try { localStorage.setItem("active_deck_id_v1", currentDeckId); } catch (e) {}
@@ -21611,16 +21569,18 @@ const tier800DeckCards = initialDeckCards;
         renderCurrentCard();
         updateSectionLearnedCounter();
         updateGlobalLearnedDisplays();
+        updateAccountDisplays();
         if (typeof updateSubsectionsUI === "function") updateSubsectionsUI();
       }
       window.applyRemoteSyncPayload = applyRemoteSyncPayload;
 
-      // Live background sync check every 4 seconds ONLY when signed in to a verified account
+      // Live background sync check every 4 seconds on all devices (both Common Cloud and Personal Account)
       setInterval(async () => {
-        if (isSyncPushing || !currentAccountEmail || isBlockedOrDummyAccount(currentAccountEmail)) return;
+        const targetEmail = currentAccountEmail || COMMON_CLOUD_EMAIL;
+        if (isSyncPushing || isBlockedOrDummyAccount(targetEmail)) return;
         try {
           if (canCallServerApi()) {
-            const res = await fetch(`/api/user/poll?email=${encodeURIComponent(currentAccountEmail)}&since=${encodeURIComponent(lastAccountCloudTimestamp)}`);
+            const res = await fetch(`/api/user/poll?email=${encodeURIComponent(targetEmail)}&since=${encodeURIComponent(lastAccountCloudTimestamp)}`);
             const ct = res.headers.get("content-type") || "";
             if (res.ok && ct.includes("application/json")) {
               const data = await res.json();
@@ -21633,7 +21593,7 @@ const tier800DeckCards = initialDeckCards;
               window.firebaseSync.markServerApiUnavailable();
             }
           } else if (window.firebaseSync && window.firebaseSync.loadAccountStateFromFirestore) {
-            const fsRes = await window.firebaseSync.loadAccountStateFromFirestore(currentAccountEmail);
+            const fsRes = await window.firebaseSync.loadAccountStateFromFirestore(targetEmail);
             if (fsRes && fsRes.exists && fsRes.payload && fsRes.updatedAt) {
               const tRemote = Date.parse(fsRes.updatedAt) || 0;
               const tLocal = Date.parse(lastAccountCloudTimestamp) || 0;
@@ -21679,12 +21639,7 @@ const tier800DeckCards = initialDeckCards;
       }
 
       function handleHeaderSyncClick() {
-        const isSignedIn = Boolean(currentAccountEmail && !isBlockedOrDummyAccount(currentAccountEmail));
-        if (!isSignedIn) {
-          triggerRealGoogleSignIn(desktopCloudSyncBtn || mobileCloudSyncBtn);
-        } else {
-          openCloudSyncModal();
-        }
+        openCloudSyncModal();
       }
 
       if (desktopCloudSyncBtn) desktopCloudSyncBtn.addEventListener("click", handleHeaderSyncClick);
@@ -21697,7 +21652,7 @@ const tier800DeckCards = initialDeckCards;
       }
       if (navBtnCloudSync) navBtnCloudSync.addEventListener("click", handleHeaderSyncClick);
 
-      // Manual Sync / Push
+      // Manual Sync / Push & Common Cloud Pull/Push Buttons
       const btnCloudManualSync = document.getElementById("btn-cloud-manual-sync");
       if (btnCloudManualSync) {
         btnCloudManualSync.addEventListener("click", () => syncCurrentStateToDeviceCloud(true));
@@ -21705,6 +21660,31 @@ const tier800DeckCards = initialDeckCards;
       const btnModalManualPush = document.getElementById("btn-modal-manual-push");
       if (btnModalManualPush) {
         btnModalManualPush.addEventListener("click", () => syncCurrentStateToDeviceCloud(true));
+      }
+      const btnCommonCloudPullNow = document.getElementById("btn-common-cloud-pull-now");
+      if (btnCommonCloudPullNow) {
+        btnCommonCloudPullNow.addEventListener("click", async () => {
+          const orig = btnCommonCloudPullNow.textContent;
+          btnCommonCloudPullNow.textContent = "⏳ Pulling...";
+          await loadVerifiedGoogleAccountState({
+            uid: COMMON_CLOUD_DOC_ID,
+            googleSub: COMMON_CLOUD_DOC_ID,
+            email: COMMON_CLOUD_EMAIL,
+            displayName: "Common Cloud (All Devices)",
+            authMethod: "common_cloud",
+            verified: true
+          }, true);
+          btnCommonCloudPullNow.textContent = orig;
+        });
+      }
+      const btnCommonCloudPushNow = document.getElementById("btn-common-cloud-push-now");
+      if (btnCommonCloudPushNow) {
+        btnCommonCloudPushNow.addEventListener("click", async () => {
+          const orig = btnCommonCloudPushNow.textContent;
+          btnCommonCloudPushNow.textContent = "⏳ Saving...";
+          await syncCurrentStateToDeviceCloud(true, COMMON_CLOUD_EMAIL);
+          btnCommonCloudPushNow.textContent = orig;
+        });
       }
 
       // In-app authentication state
@@ -21770,13 +21750,16 @@ const tier800DeckCards = initialDeckCards;
       window.addEventListener("focus", () => {
         if (activeOAuthStateId) {
           checkPendingOAuthStateNow();
-        } else if (currentAccountEmail && !isBlockedOrDummyAccount(currentAccountEmail)) {
-          try {
-            const saved = JSON.parse(localStorage.getItem(VERIFIED_AUTH_STORAGE_KEY) || "null");
-            if (saved && saved.verified && saved.email) {
-              loadVerifiedGoogleAccountState(saved, false);
-            }
-          } catch (e) {}
+        } else {
+          loadVerifiedGoogleAccountState({
+            uid: COMMON_CLOUD_DOC_ID,
+            googleSub: COMMON_CLOUD_DOC_ID,
+            email: currentAccountEmail || COMMON_CLOUD_EMAIL,
+            displayName: currentAccountName || "Common Cloud (All Devices)",
+            photoURL: currentAccountPhoto || "",
+            authMethod: currentAccountEmail === COMMON_CLOUD_EMAIL ? "common_cloud" : "google_oauth",
+            verified: true
+          }, false);
         }
       });
 
@@ -21796,9 +21779,7 @@ const tier800DeckCards = initialDeckCards;
 
       // =========================================================================
       // PRODUCTION GOOGLE SIGN-IN CONTROLLER (1-CLICK BROWSER ACCOUNT CHOOSER)
-      // Directly opens Google's Account Chooser (YouTube-grade). Zero password typing.
       // =========================================================================
-
       async function triggerRealGoogleSignIn(btnEl, isSwitch = false) {
         const origHtml = btnEl ? btnEl.innerHTML : "";
         const errorBanner = document.getElementById("google-auth-error-banner");
@@ -21862,56 +21843,46 @@ const tier800DeckCards = initialDeckCards;
         });
       }
 
-      // 5. Manual Sync Progress Action from Modal
       const btnModalSyncAction = document.getElementById("btn-modal-sync-action");
       if (btnModalSyncAction) {
         btnModalSyncAction.addEventListener("click", async () => {
           btnModalSyncAction.textContent = "Syncing...";
-          await syncCurrentStateToDeviceCloud(true, currentAccountEmail);
+          await syncCurrentStateToDeviceCloud(true, currentAccountEmail || COMMON_CLOUD_EMAIL);
           btnModalSyncAction.textContent = "⚡ Sync All Progress Now";
         });
       }
 
-      // Clean Production Sign Out
+      // Switch Back to Common Cloud (All Devices)
       const handleSignOutFlow = async () => {
         const outgoingEmail = currentAccountEmail;
         if (outgoingEmail && !isBlockedOrDummyAccount(outgoingEmail)) {
           await syncCurrentStateToDeviceCloud(false, outgoingEmail);
         }
 
-        currentAccountEmail = "";
-        currentAccountName = "";
+        currentAccountEmail = COMMON_CLOUD_EMAIL;
+        currentAccountName = "Common Cloud (All Devices)";
         currentAccountPhoto = "";
         lastAccountCloudTimestamp = "";
-        activeOAuthStateId = "";
-        if (activeOAuthPollInterval) {
-          clearInterval(activeOAuthPollInterval);
-          activeOAuthPollInterval = null;
-        }
 
         try {
           localStorage.removeItem(VERIFIED_AUTH_STORAGE_KEY);
-          localStorage.removeItem("vocab_verified_auth_session_v5");
-          localStorage.removeItem("vocab_verified_google_session_v4");
-          localStorage.removeItem("vocab_auth_session_v3");
-          localStorage.removeItem("active_cloud_user_email");
-          localStorage.removeItem("stellar_account_email_v1");
-          localStorage.removeItem("stellar_account_name_v1");
-          localStorage.removeItem("vocab_google_session_v2");
         } catch (e) {}
 
-        if (window.firebaseSync && window.firebaseSync.logoutUser) {
-          try { await window.firebaseSync.logoutUser(); } catch (e) {}
+        if (window.firebaseSync && window.firebaseSync.activateCommonCloudMode) {
+          try { await window.firebaseSync.activateCommonCloudMode(); } catch (e) {}
         }
 
-        const waitingHelper = document.getElementById("oauth-waiting-helper");
-        if (waitingHelper) waitingHelper.style.display = "none";
-
-        // Reset local board to clean website defaults so previous user's progress is not shown after sign-out
-        resetLocalBoardToCleanDefaults();
+        await loadVerifiedGoogleAccountState({
+          uid: COMMON_CLOUD_DOC_ID,
+          googleSub: COMMON_CLOUD_DOC_ID,
+          email: COMMON_CLOUD_EMAIL,
+          displayName: "Common Cloud (All Devices)",
+          authMethod: "common_cloud",
+          verified: true
+        }, true);
 
         updateAccountDisplays();
-        showToast("Signed out of account.");
+        showToast("Switched to Common Cloud (All Devices) 🌐");
         playHapticTick(380, "sine", 0.04);
       };
 
@@ -21926,6 +21897,15 @@ const tier800DeckCards = initialDeckCards;
           const saved = JSON.parse(localStorage.getItem(VERIFIED_AUTH_STORAGE_KEY) || "null");
           if (saved && saved.verified === true && saved.email && saved.googleSub) {
             await loadVerifiedGoogleAccountState(saved, false);
+          } else {
+            await loadVerifiedGoogleAccountState({
+              uid: COMMON_CLOUD_DOC_ID,
+              googleSub: COMMON_CLOUD_DOC_ID,
+              email: COMMON_CLOUD_EMAIL,
+              displayName: "Common Cloud (All Devices)",
+              authMethod: "common_cloud",
+              verified: true
+            }, false);
           }
         } catch (e) {}
       }
@@ -21952,19 +21932,20 @@ const tier800DeckCards = initialDeckCards;
             if (currentAccountEmail !== cleanEmail) {
               loadVerifiedGoogleAccountState(user, false);
             } else {
-              currentAccountName = user.displayName || cleanEmail.split("@")[0];
+              currentAccountName = user.displayName || (cleanEmail === COMMON_CLOUD_EMAIL ? "Common Cloud (All Devices)" : cleanEmail.split("@")[0]);
               currentAccountPhoto = user.photoURL || currentAccountPhoto;
               updateAccountDisplays();
             }
-          } else if (!currentAccountEmail) {
+          } else {
             updateAccountDisplays();
           }
         });
 
-        // Listen for Remote Firestore State Updates (study_state/acct_<email>) from other devices
+        // Listen for Remote Firestore State Updates from any other device in real time
         window.firebaseSync.onRemoteStateChange((cloudData) => {
-          if (!cloudData || !currentAccountEmail) return;
-          if (cloudData.email && String(cloudData.email).toLowerCase() !== currentAccountEmail) return;
+          if (!cloudData) return;
+          const activeEmail = currentAccountEmail || COMMON_CLOUD_EMAIL;
+          if (cloudData.email && String(cloudData.email).toLowerCase() !== activeEmail && cloudData.email !== COMMON_CLOUD_EMAIL) return;
           if (cloudData.updatedAt && cloudData.updatedAt === lastAccountCloudTimestamp) return;
           if (cloudData.updatedAt) {
             lastAccountCloudTimestamp = cloudData.updatedAt;

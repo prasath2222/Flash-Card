@@ -887,17 +887,41 @@ async function startServer() {
     // Also persist to Google Cloud Firestore under isolated hashed account document
     if (firestoreDb) {
       try {
-        const docId = emailToFirestoreDocId(email);
+        const docId = email === "common_all_devices@stellar.cloud" ? "global_common_cloud_v1" : emailToFirestoreDocId(email);
         const clientDocId = emailToClientSyncDocId(email);
         const docBody = {
           accountId: emailHash,
           updatedAt,
           payload: savedPayload
         };
-        await Promise.allSettled([
+        const writes = [
           setDoc(doc(firestoreDb, "study_state", docId), docBody),
           setDoc(doc(firestoreDb, "study_state", clientDocId), docBody)
-        ]);
+        ];
+        if (email === "common_all_devices@stellar.cloud") {
+          writes.push(
+            setDoc(doc(firestoreDb, "study_state", emailToFirestoreDocId(email)), docBody),
+            setDoc(
+              doc(firestoreDb, "user_progress", "global_common_cloud_v1"),
+              {
+                userId: "global_common_cloud_v1",
+                email,
+                learnedCards: savedPayload.learnedCardNums || [],
+                deletedCardNums: savedPayload.deletedCardNums || [],
+                lastActiveCardNum: savedPayload.lastActiveCardNum || 800,
+                activeDeckId: savedPayload.activeDeckId || "deck-800-1000",
+                customShortcuts: savedPayload.customShortcuts || {},
+                customDecks: savedPayload.customDecks || {},
+                customSections: savedPayload.customSections || [],
+                streakCount: savedPayload.streakCount || 1,
+                lastStudied: updatedAt,
+                updatedAt
+              },
+              { merge: true }
+            )
+          );
+        }
+        await Promise.allSettled(writes);
       } catch (err) {
         console.warn("Firestore save notice:", err);
       }
@@ -909,25 +933,33 @@ async function startServer() {
   async function loadProfileData(
     rawEmail: unknown
   ): Promise<{ email: string; exists: boolean; updatedAt: string; payload: any }> {
-    const email = sanitizeEmailKey(rawEmail);
-    if (!email) {
-      return { email: "", exists: false, updatedAt: "", payload: null };
-    }
+    const email = sanitizeEmailKey(rawEmail) || "common_all_devices@stellar.cloud";
 
     const emailHash = crypto.createHash("sha256").update(email).digest("hex");
     const profiles = readUserProfiles();
-    let localNorm = (profiles[emailHash] || profiles[email]) ? normalizeProfilePayload(profiles[emailHash] || profiles[email]) : null;
+    let localNorm =
+      profiles[emailHash] || profiles[email]
+        ? normalizeProfilePayload(profiles[emailHash] || profiles[email])
+        : email === "common_all_devices@stellar.cloud" && profiles["stellarnetworkhub@gmail.com"]
+        ? normalizeProfilePayload(profiles["stellarnetworkhub@gmail.com"])
+        : null;
     let firestoreNorm: any = null;
 
     if (firestoreDb) {
       try {
-        const docId = emailToFirestoreDocId(email);
+        const docId = email === "common_all_devices@stellar.cloud" ? "global_common_cloud_v1" : emailToFirestoreDocId(email);
         const clientDocId = emailToClientSyncDocId(email);
-        const legacyDocId = `acct_${email.replace(/[^a-z0-9]/g, "_")}`.slice(0, 120);
+        const legacyDocId =
+          email === "common_all_devices@stellar.cloud"
+            ? emailToClientSyncDocId("stellarnetworkhub@gmail.com")
+            : `acct_${email.replace(/[^a-z0-9]/g, "_")}`.slice(0, 120);
         const snaps = await Promise.allSettled([
           getDoc(doc(firestoreDb, "study_state", docId)),
           getDoc(doc(firestoreDb, "study_state", clientDocId)),
-          getDoc(doc(firestoreDb, "study_state", legacyDocId))
+          getDoc(doc(firestoreDb, "study_state", legacyDocId)),
+          ...(email === "common_all_devices@stellar.cloud"
+            ? [getDoc(doc(firestoreDb, "study_state", emailToFirestoreDocId(email)))]
+            : [])
         ]);
         for (const res of snaps) {
           if (res.status === "fulfilled" && res.value.exists()) {

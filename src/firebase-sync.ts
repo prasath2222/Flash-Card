@@ -106,6 +106,9 @@ try {
   localStorage.removeItem('vocab_google_known_accounts_v2');
 } catch (e) {}
 
+export const COMMON_CLOUD_ACCOUNT = 'common_all_devices@stellar.cloud';
+export const COMMON_CLOUD_DOC_ID = 'global_common_cloud_v1';
+
 const VERIFIED_AUTH_STORAGE_KEY = 'vocab_verified_auth_session_v6';
 
 let currentUser: User | null = null;
@@ -124,6 +127,7 @@ let verifiedSession: {
 function isBlockedOrDummyEmail(email: string): boolean {
   const clean = String(email || '').trim().toLowerCase();
   if (!clean || !clean.includes('@')) return true;
+  if (clean === COMMON_CLOUD_ACCOUNT) return false;
   if (
     clean === 'sgsgds@gmail.com' ||
     clean === 'cloud_sync@sync.internal' ||
@@ -144,7 +148,9 @@ try {
     !isBlockedOrDummyEmail(saved.email) &&
     typeof saved.googleSub === 'string' &&
     saved.googleSub.length > 3 &&
-    (saved.authMethod === 'email_account' || saved.authMethod === 'google_oauth')
+    (saved.authMethod === 'email_account' ||
+      saved.authMethod === 'google_oauth' ||
+      saved.authMethod === 'common_cloud')
   ) {
     verifiedSession = {
       uid: saved.uid || `google_${saved.googleSub}`,
@@ -197,6 +203,14 @@ async function hashStringSHA256(str: string): Promise<string> {
 
 async function getAccountDocIds(email: string): Promise<{ primaryDocId: string; shaDocId: string; legacyDocId: string }> {
   const clean = String(email || '').trim().toLowerCase();
+  if (clean === COMMON_CLOUD_ACCOUNT) {
+    const shaFull = await hashStringSHA256(clean);
+    return {
+      primaryDocId: COMMON_CLOUD_DOC_ID,
+      shaDocId: `acct_${shaFull.slice(0, 32)}`,
+      legacyDocId: emailToDocId('stellarnetworkhub@gmail.com')
+    };
+  }
   const primaryDocId = emailToDocId(clean);
   const shaFull = await hashStringSHA256(clean);
   const shaDocId = `acct_${shaFull.slice(0, 32)}`;
@@ -212,7 +226,15 @@ export function onAuthChange(cb: (user: any) => void) {
     } else if (currentUser && currentUser.email) {
       cb(currentUser);
     } else {
-      cb(null);
+      cb({
+        uid: COMMON_CLOUD_DOC_ID,
+        googleSub: COMMON_CLOUD_DOC_ID,
+        email: COMMON_CLOUD_ACCOUNT,
+        displayName: 'Common Cloud (All Devices)',
+        photoURL: '',
+        authMethod: 'common_cloud',
+        verified: true
+      });
     }
   }
 }
@@ -244,7 +266,7 @@ export function getActiveAccountEmail(): string {
   if (currentUser && currentUser.email) {
     return currentUser.email.trim().toLowerCase();
   }
-  return '';
+  return COMMON_CLOUD_ACCOUNT;
 }
 
 function clearStudyStateListeners() {
@@ -260,11 +282,11 @@ function clearStudyStateListeners() {
 
 async function attachStudyStateListener(email: string) {
   clearStudyStateListeners();
-  const clean = String(email || '').trim().toLowerCase();
+  const clean = String(email || COMMON_CLOUD_ACCOUNT).trim().toLowerCase();
   if (!clean || isBlockedOrDummyEmail(clean)) return;
 
   const { primaryDocId, shaDocId } = await getAccountDocIds(clean);
-  const docIds = Array.from(new Set([primaryDocId, shaDocId]));
+  const docIds = Array.from(new Set([primaryDocId, shaDocId, ...(clean === COMMON_CLOUD_ACCOUNT ? [COMMON_CLOUD_DOC_ID] : [])]));
 
   docIds.forEach((docId) => {
     const stateDocRef = doc(db, 'study_state', docId);
@@ -279,7 +301,7 @@ async function attachStudyStateListener(email: string) {
         isApplyingRemoteUpdate = true;
         remoteStateCallbacks.forEach((cb) => {
           try {
-            cb({ ...payload, updatedAt: raw.updatedAt || payload.updatedAt });
+            cb({ ...payload, email: clean, updatedAt: raw.updatedAt || payload.updatedAt });
           } catch (e) {}
         });
         setTimeout(() => {
@@ -292,6 +314,49 @@ async function attachStudyStateListener(email: string) {
     );
     unsubscribeStudyStateList.push(unsub);
   });
+
+  // Also attach real-time listener to production user_progress/{userId}
+  const uid =
+    clean === COMMON_CLOUD_ACCOUNT
+      ? COMMON_CLOUD_DOC_ID
+      : currentUser?.uid || verifiedSession?.uid;
+  if (uid) {
+    const progDocRef = doc(db, 'user_progress', uid);
+    const unsubProg = onSnapshot(
+      progDocRef,
+      (docSnap) => {
+        if (!docSnap.exists()) return;
+        const raw = docSnap.data();
+        if (!raw) return;
+
+        isApplyingRemoteUpdate = true;
+        const payload = {
+          email: clean,
+          learnedCardNums: raw.learnedCards || raw.learnedCardNums || [],
+          deletedCardNums: raw.deletedCardNums || [],
+          lastActiveCardNum: raw.lastActiveCardNum,
+          activeDeckId: raw.activeDeckId,
+          customShortcuts: raw.customShortcuts,
+          customDecks: raw.customDecks,
+          customSections: raw.customSections,
+          streakCount: typeof raw.streakCount === 'number' ? raw.streakCount : 0,
+          updatedAt: raw.lastStudied || raw.updatedAt || new Date().toISOString()
+        };
+        remoteStateCallbacks.forEach((cb) => {
+          try {
+            cb(payload);
+          } catch (e) {}
+        });
+        setTimeout(() => {
+          isApplyingRemoteUpdate = false;
+        }, 250);
+      },
+      (error) => {
+        handleFirestoreError(error, OperationType.GET, `user_progress/${uid}`);
+      }
+    );
+    unsubscribeStudyStateList.push(unsubProg);
+  }
 }
 
 export async function applyVerifiedGoogleUser(userObj: any) {
@@ -323,6 +388,22 @@ export async function applyVerifiedGoogleUser(userObj: any) {
     localStorage.setItem(VERIFIED_AUTH_STORAGE_KEY, JSON.stringify(verifiedSession));
   } catch (e) {}
 
+  // Sync user profile to Firestore users/{uid}
+  try {
+    setDoc(
+      doc(db, 'users', uid),
+      {
+        uid,
+        email: cleanEmail,
+        name: verifiedSession.displayName,
+        photoURL: verifiedSession.photoURL,
+        lastActive: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+      },
+      { merge: true }
+    ).catch(() => {});
+  } catch (e) {}
+
   attachStudyStateListener(cleanEmail);
   notifyAuthCallbacks(verifiedSession);
 
@@ -336,16 +417,14 @@ export async function applyVerifiedGoogleUser(userObj: any) {
       if (fbResult && fbResult.user) {
         currentUser = fbResult.user;
       }
-    } catch (e) {
-      // Token may have expired on page reload; verifiedSession remains active
-    }
+    } catch (e) {}
   }
 
   return verifiedSession;
 }
 
 export async function saveAccountStateToFirestore(email: string, payload: any): Promise<boolean> {
-  const clean = String(email || '').trim().toLowerCase();
+  const clean = String(email || COMMON_CLOUD_ACCOUNT).trim().toLowerCase();
   if (!clean || isBlockedOrDummyEmail(clean) || !payload) return false;
   const { primaryDocId, shaDocId } = await getAccountDocIds(clean);
   const path = `study_state/${primaryDocId}`;
@@ -354,7 +433,7 @@ export async function saveAccountStateToFirestore(email: string, payload: any): 
     const sanitizedPayload = { ...payload, updatedAt };
     delete sanitizedPayload.email;
 
-    await Promise.all([
+    const writes: Promise<any>[] = [
       setDoc(doc(db, 'study_state', primaryDocId), {
         accountId: primaryDocId,
         updatedAt,
@@ -365,7 +444,53 @@ export async function saveAccountStateToFirestore(email: string, payload: any): 
         updatedAt,
         payload: sanitizedPayload
       })
-    ]);
+    ];
+
+    const uid =
+      clean === COMMON_CLOUD_ACCOUNT
+        ? COMMON_CLOUD_DOC_ID
+        : currentUser?.uid || verifiedSession?.uid;
+    if (uid) {
+      writes.push(
+        setDoc(
+          doc(db, 'user_progress', uid),
+          {
+            userId: uid,
+            email: clean,
+            learnedCards: sanitizedPayload.learnedCardNums || [],
+            deletedCardNums: sanitizedPayload.deletedCardNums || [],
+            lastActiveCardNum: sanitizedPayload.lastActiveCardNum || 800,
+            activeDeckId: sanitizedPayload.activeDeckId || 'deck-800-1000',
+            customShortcuts: sanitizedPayload.customShortcuts || {},
+            customDecks: sanitizedPayload.customDecks || {},
+            customSections: sanitizedPayload.customSections || [],
+            streakCount: typeof sanitizedPayload.streakCount === 'number' ? sanitizedPayload.streakCount : 0,
+            lastStudied: updatedAt,
+            updatedAt
+          },
+          { merge: true }
+        )
+      );
+      writes.push(
+        setDoc(
+          doc(db, 'users', uid),
+          {
+            uid,
+            email: clean,
+            name:
+              clean === COMMON_CLOUD_ACCOUNT
+                ? 'Common Cloud (All Devices)'
+                : verifiedSession?.displayName || clean.split('@')[0],
+            photoURL: verifiedSession?.photoURL || '',
+            lastActive: updatedAt,
+            updatedAt
+          },
+          { merge: true }
+        )
+      );
+    }
+
+    await Promise.all(writes);
     return true;
   } catch (error) {
     handleFirestoreError(error, OperationType.WRITE, path);
@@ -376,23 +501,32 @@ export async function saveAccountStateToFirestore(email: string, payload: any): 
 export async function loadAccountStateFromFirestore(
   email: string
 ): Promise<{ exists: boolean; updatedAt: string; payload: any } | null> {
-  const clean = String(email || '').trim().toLowerCase();
+  const clean = String(email || COMMON_CLOUD_ACCOUNT).trim().toLowerCase();
   if (!clean || isBlockedOrDummyEmail(clean)) return null;
   const { primaryDocId, shaDocId, legacyDocId } = await getAccountDocIds(clean);
   const path = `study_state/${primaryDocId}`;
   try {
-    const [snapPrimary, snapSha, snapLegacy] = await Promise.all([
+    const uid =
+      clean === COMMON_CLOUD_ACCOUNT
+        ? COMMON_CLOUD_DOC_ID
+        : currentUser?.uid || verifiedSession?.uid;
+    const fetchPromises: Promise<any>[] = [
       getDoc(doc(db, 'study_state', primaryDocId)),
       getDoc(doc(db, 'study_state', shaDocId)),
       getDoc(doc(db, 'study_state', legacyDocId))
-    ]);
+    ];
+    if (uid) {
+      fetchPromises.push(getDoc(doc(db, 'user_progress', uid)));
+    }
 
-    const candidates: Array<{ data: any; ts: number }> = [];
-    [snapPrimary, snapSha, snapLegacy].forEach((s) => {
+    const snaps = await Promise.all(fetchPromises);
+    const candidates: Array<{ data: any; ts: number; isProgressDoc?: boolean }> = [];
+
+    snaps.forEach((s, idx) => {
       if (s && s.exists()) {
         const d = s.data();
-        const t = Date.parse(d?.updatedAt || d?.payload?.updatedAt || '') || 0;
-        candidates.push({ data: d, ts: t });
+        const t = Date.parse(d?.updatedAt || d?.payload?.updatedAt || d?.lastStudied || '') || 0;
+        candidates.push({ data: d, ts: t, isProgressDoc: idx === 3 });
       }
     });
 
@@ -401,8 +535,26 @@ export async function loadAccountStateFromFirestore(
     }
 
     candidates.sort((a, b) => b.ts - a.ts);
-    const chosenData = candidates[0].data;
-    const payload = chosenData?.payload && typeof chosenData.payload === 'object' ? chosenData.payload : chosenData;
+    const chosen = candidates[0];
+    const chosenData = chosen.data;
+
+    let payload: any = null;
+    if (chosen.isProgressDoc) {
+      payload = {
+        learnedCardNums: chosenData.learnedCards || chosenData.learnedCardNums || [],
+        deletedCardNums: chosenData.deletedCardNums || [],
+        lastActiveCardNum: chosenData.lastActiveCardNum || 800,
+        activeDeckId: chosenData.activeDeckId || 'deck-800-1000',
+        customShortcuts: chosenData.customShortcuts || {},
+        customDecks: chosenData.customDecks || {},
+        customSections: chosenData.customSections || [],
+        streakCount: chosenData.streakCount || 0,
+        updatedAt: chosenData.lastStudied || chosenData.updatedAt || new Date().toISOString()
+      };
+    } else {
+      payload = chosenData?.payload && typeof chosenData.payload === 'object' ? chosenData.payload : chosenData;
+    }
+
     return {
       exists: true,
       updatedAt: chosenData?.updatedAt || payload?.updatedAt || new Date().toISOString(),
@@ -423,20 +575,34 @@ export async function pushStudyStateToCloud(partialState: {
   activeDeckId?: string;
 }) {
   if (isApplyingRemoteUpdate) return;
-  if (!currentUser) return;
-  const uid = currentUser.uid;
+  const uid = currentUser?.uid || verifiedSession?.uid || COMMON_CLOUD_DOC_ID;
+  if (!uid) return;
   const path = `users/${uid}`;
   try {
-    await setDoc(
-      doc(db, 'users', uid),
-      {
-        userId: uid,
-        displayName: currentUser.displayName || '',
-        ...partialState,
-        updatedAt: new Date().toISOString()
-      },
-      { merge: true }
-    );
+    const updatedAt = new Date().toISOString();
+    await Promise.all([
+      setDoc(
+        doc(db, 'users', uid),
+        {
+          userId: uid,
+          displayName: currentUser?.displayName || verifiedSession?.displayName || 'Common Cloud (All Devices)',
+          ...partialState,
+          updatedAt
+        },
+        { merge: true }
+      ),
+      setDoc(
+        doc(db, 'user_progress', uid),
+        {
+          userId: uid,
+          learnedCards: partialState.learnedCardNums || [],
+          streakCount: typeof partialState.streakCount === 'number' ? partialState.streakCount : 0,
+          lastStudied: updatedAt,
+          updatedAt
+        },
+        { merge: true }
+      )
+    ]);
   } catch (error) {
     handleFirestoreError(error, OperationType.WRITE, path);
   }
@@ -444,8 +610,8 @@ export async function pushStudyStateToCloud(partialState: {
 
 export async function pushCustomShortcutToCloud(cardNum: number | string, es: string, hi: string) {
   if (isApplyingRemoteUpdate) return;
-  if (!currentUser) return;
-  const uid = currentUser.uid;
+  const uid = currentUser?.uid || verifiedSession?.uid || COMMON_CLOUD_DOC_ID;
+  if (!uid) return;
   const docId = String(cardNum).replace(/[^a-zA-Z0-9_-]/g, '_');
   const path = `users/${uid}/customShortcuts/${docId}`;
   try {
@@ -472,8 +638,8 @@ export async function pushCustomDeckToCloud(deck: {
   cards: any[];
 }) {
   if (isApplyingRemoteUpdate) return;
-  if (!currentUser) return;
-  const uid = currentUser.uid;
+  const uid = currentUser?.uid || verifiedSession?.uid || COMMON_CLOUD_DOC_ID;
+  if (!uid) return;
   const path = `users/${uid}/decks/${deck.deckId}`;
   try {
     await setDoc(
@@ -495,8 +661,8 @@ export async function pushCustomDeckToCloud(deck: {
 }
 
 export async function deleteCustomDeckFromCloud(deckId: string) {
-  if (!currentUser) return;
-  const uid = currentUser.uid;
+  const uid = currentUser?.uid || verifiedSession?.uid || COMMON_CLOUD_DOC_ID;
+  if (!uid) return;
   const path = `users/${uid}/decks/${deckId}`;
   try {
     await deleteDoc(doc(db, 'users', uid, 'decks', deckId));
@@ -610,7 +776,6 @@ export async function signInWithAccount(
       });
     }
   } else {
-    // STRICT LOGIN: Account MUST already exist in Firestore and password MUST match!
     if (!credSnap || !credSnap.exists()) {
       throw new Error(
         `No registered account found for "${cleanEmail}". Please tap "Create Account" above to register your password first.`
@@ -628,7 +793,6 @@ export async function signInWithAccount(
     resolvedDisplayName = data.displayName || resolvedDisplayName;
   }
 
-  // Sync credentials with Node backend if running in full-stack container
   if (serverApiAvailable) {
     fetch('/api/auth/account-login', {
       method: 'POST',
@@ -729,6 +893,8 @@ export async function signInWithGoogle(forceAccountSelect = true): Promise<any> 
     });
   }
 
+  const isMobile = typeof navigator !== 'undefined' && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
   try {
     const result = await signInWithPopup(auth, provider);
     if (!result || !result.user || !result.user.email) {
@@ -756,7 +922,7 @@ export async function signInWithGoogle(forceAccountSelect = true): Promise<any> 
     if (code === 'auth/popup-closed-by-user' || code === 'auth/cancelled-popup-request') {
       throw new Error('Google Sign-In window was closed.');
     }
-    if (code === 'auth/popup-blocked') {
+    if (code === 'auth/popup-blocked' || isMobile) {
       try {
         await signInWithRedirect(auth, provider);
         return { isRedirecting: true };
@@ -768,34 +934,51 @@ export async function signInWithGoogle(forceAccountSelect = true): Promise<any> 
   }
 }
 
-export const switchGoogleAccount = () => signInWithGoogle(true);
-export const loginWithGoogle = signInWithGoogle;
+export async function saveCardProgress(learnedIndicesArray: (number | string)[], streak: number) {
+  const uid = currentUser?.uid || verifiedSession?.uid || COMMON_CLOUD_DOC_ID;
+  if (!uid) return;
+  const userProgressRef = doc(db, 'user_progress', uid);
+  const updatedAt = new Date().toISOString();
+  await setDoc(userProgressRef, {
+    learnedCards: learnedIndicesArray,
+    streakCount: streak,
+    lastStudied: updatedAt,
+    updatedAt
+  }, { merge: true });
+}
 
-export async function signOutUser() {
+export async function activateCommonCloudMode() {
   verifiedSession = null;
   currentUser = null;
-  clearStudyStateListeners();
   try {
     localStorage.removeItem(VERIFIED_AUTH_STORAGE_KEY);
-    localStorage.removeItem('vocab_verified_auth_session_v5');
-    localStorage.removeItem('vocab_verified_google_session_v4');
-    localStorage.removeItem('vocab_auth_session_v3');
-    localStorage.removeItem('vocab_google_session_v2');
-    localStorage.removeItem('active_cloud_user_email');
-    localStorage.removeItem('stellar_account_email_v1');
-    localStorage.removeItem('stellar_account_name_v1');
-  } catch (e) {}
-  try {
     if (auth.currentUser) {
       await signOut(auth);
     }
-  } catch (error) {}
-  notifyAuthCallbacks(null);
+  } catch (e) {}
+  attachStudyStateListener(COMMON_CLOUD_ACCOUNT);
+  const commonUser = {
+    uid: COMMON_CLOUD_DOC_ID,
+    googleSub: COMMON_CLOUD_DOC_ID,
+    email: COMMON_CLOUD_ACCOUNT,
+    displayName: 'Common Cloud (All Devices)',
+    photoURL: '',
+    authMethod: 'common_cloud',
+    verified: true
+  };
+  notifyAuthCallbacks(commonUser);
+  return commonUser;
 }
 
+export const switchGoogleAccount = () => signInWithGoogle(true);
+export const loginWithGoogle = signInWithGoogle;
 export const logoutUser = signOutUser;
 
-// Initialize listener if a verified session exists from previous login
+export async function signOutUser() {
+  return await activateCommonCloudMode();
+}
+
+// Initialize listener immediately (either verified session or Universal Common Cloud)
 if (verifiedSession && verifiedSession.verified && verifiedSession.email) {
   attachStudyStateListener(verifiedSession.email);
   if (verifiedSession.idToken || verifiedSession.accessToken) {
@@ -807,6 +990,8 @@ if (verifiedSession && verifiedSession.verified && verifiedSession.email) {
       signInWithCredential(auth, cred).catch(() => {});
     } catch (e) {}
   }
+} else {
+  attachStudyStateListener(COMMON_CLOUD_ACCOUNT);
 }
 
 onAuthStateChanged(auth, async (user) => {
@@ -833,18 +1018,30 @@ onAuthStateChanged(auth, async (user) => {
   } else if (verifiedSession && verifiedSession.verified) {
     notifyAuthCallbacks(verifiedSession);
   } else {
-    notifyAuthCallbacks(null);
+    attachStudyStateListener(COMMON_CLOUD_ACCOUNT);
+    notifyAuthCallbacks({
+      uid: COMMON_CLOUD_DOC_ID,
+      googleSub: COMMON_CLOUD_DOC_ID,
+      email: COMMON_CLOUD_ACCOUNT,
+      displayName: 'Common Cloud (All Devices)',
+      photoURL: '',
+      authMethod: 'common_cloud',
+      verified: true
+    });
   }
 });
 
 (window as any).firebaseSync = {
   auth,
   db,
+  COMMON_CLOUD_ACCOUNT,
+  COMMON_CLOUD_DOC_ID,
   isServerApiAvailable,
   markServerApiUnavailable,
   signInWithGoogle,
   loginWithGoogle,
   switchGoogleAccount,
+  activateCommonCloudMode,
   restoreNativeWindowOpen,
   signInWithAccount,
   registerAccount,
@@ -854,6 +1051,7 @@ onAuthStateChanged(auth, async (user) => {
   logoutUser,
   getActiveAccountEmail,
   saveAccountStateToFirestore,
+  saveCardProgress,
   loadAccountStateFromFirestore,
   onAuthChange,
   onRemoteStateChange,
