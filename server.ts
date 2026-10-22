@@ -162,12 +162,46 @@ async function startServer() {
 
   app.get("/api/find-image", async (req, res) => {
     try {
-      const q = String(req.query.q || "").trim();
+      const q = String(req.query.q || req.query.query || "").trim();
       const num = String(req.query.num || "").trim();
       const url = await resolveRealWorldPhoto(q, num);
       res.json({ ok: true, word: q, imageUrl: url || `/api/image?q=${encodeURIComponent(q)}` });
     } catch (e) {
-      res.json({ ok: false, imageUrl: `/api/image?q=${encodeURIComponent(String(req.query.q || ""))}` });
+      const fallbackQ = String(req.query.q || req.query.query || "");
+      res.json({ ok: false, imageUrl: `/api/image?q=${encodeURIComponent(fallbackQ)}` });
+    }
+  });
+
+  app.get("/api/tts", async (req, res) => {
+    try {
+      const text = String(req.query.text || req.query.q || "").trim().slice(0, 200);
+      const rawLang = String(req.query.lang || "en").trim().toLowerCase();
+      if (!text) {
+        return res.status(400).end();
+      }
+      const tl = rawLang.startsWith("ta")
+        ? "ta"
+        : rawLang.startsWith("es")
+        ? "es"
+        : rawLang.startsWith("hi")
+        ? "hi"
+        : "en";
+      const ttsUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=${encodeURIComponent(tl)}&client=tw-ob&q=${encodeURIComponent(text)}`;
+      const upstream = await fetch(ttsUrl, {
+        headers: {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+          "Referer": "https://translate.google.com/"
+        }
+      });
+      if (!upstream.ok) {
+        return res.status(upstream.status).end();
+      }
+      const arrayBuffer = await upstream.arrayBuffer();
+      res.setHeader("Content-Type", "audio/mpeg");
+      res.setHeader("Cache-Control", "public, max-age=86400");
+      return res.status(200).send(Buffer.from(arrayBuffer));
+    } catch (e) {
+      return res.status(502).end();
     }
   });
 
@@ -689,13 +723,19 @@ async function startServer() {
       .toLowerCase()
       .replace(/[^a-z0-9@._+-]/g, "")
       .slice(0, 120);
-    if (!clean || !clean.includes("@")) {
-      return "";
+    if (!clean) {
+      return "common_all_devices@stellar.cloud";
+    }
+    if (!clean.includes("@")) {
+      return `${clean}@stellar.cloud`;
     }
     return clean;
   }
 
   function emailToFirestoreDocId(email: string): string {
+    if (email === "common_all_devices@stellar.cloud" || email.startsWith("global") || email.startsWith("cloud_id_") || email.includes("global-1")) {
+      return "global_common_cloud_v2";
+    }
     const hash = crypto.createHash("sha256").update(email).digest("hex").slice(0, 32);
     return `acct_${hash}`;
   }
@@ -887,8 +927,9 @@ async function startServer() {
     // Also persist to Google Cloud Firestore under isolated hashed account document
     if (firestoreDb) {
       try {
-        const docId = email === "common_all_devices@stellar.cloud" ? "global_common_cloud_v1" : emailToFirestoreDocId(email);
-        const clientDocId = emailToClientSyncDocId(email);
+        const isCommonCloud = email === "common_all_devices@stellar.cloud" || email.startsWith("global") || email.startsWith("cloud_id_") || email.includes("global-1");
+        const docId = isCommonCloud ? "global_common_cloud_v2" : emailToFirestoreDocId(email);
+        const clientDocId = isCommonCloud ? "global_common_cloud_v2" : emailToClientSyncDocId(email);
         const docBody = {
           accountId: emailHash,
           updatedAt,
@@ -896,17 +937,17 @@ async function startServer() {
         };
         const writes = [
           setDoc(doc(firestoreDb, "study_state", docId), docBody),
-          setDoc(doc(firestoreDb, "study_state", clientDocId), docBody)
+          ...(clientDocId !== docId ? [setDoc(doc(firestoreDb, "study_state", clientDocId), docBody)] : [])
         ];
-        if (email === "common_all_devices@stellar.cloud") {
+        if (isCommonCloud) {
           writes.push(
-            setDoc(doc(firestoreDb, "study_state", emailToFirestoreDocId(email)), docBody),
             setDoc(
-              doc(firestoreDb, "user_progress", "global_common_cloud_v1"),
+              doc(firestoreDb, "user_progress", "global_common_cloud_v2"),
               {
-                userId: "global_common_cloud_v1",
+                userId: "global_common_cloud_v2",
                 email,
                 learnedCards: savedPayload.learnedCardNums || [],
+                learnedCardNums: savedPayload.learnedCardNums || [],
                 deletedCardNums: savedPayload.deletedCardNums || [],
                 lastActiveCardNum: savedPayload.lastActiveCardNum || 800,
                 activeDeckId: savedPayload.activeDeckId || "deck-800-1000",
@@ -940,26 +981,17 @@ async function startServer() {
     let localNorm =
       profiles[emailHash] || profiles[email]
         ? normalizeProfilePayload(profiles[emailHash] || profiles[email])
-        : email === "common_all_devices@stellar.cloud" && profiles["stellarnetworkhub@gmail.com"]
-        ? normalizeProfilePayload(profiles["stellarnetworkhub@gmail.com"])
         : null;
     let firestoreNorm: any = null;
 
     if (firestoreDb) {
       try {
-        const docId = email === "common_all_devices@stellar.cloud" ? "global_common_cloud_v1" : emailToFirestoreDocId(email);
-        const clientDocId = emailToClientSyncDocId(email);
-        const legacyDocId =
-          email === "common_all_devices@stellar.cloud"
-            ? emailToClientSyncDocId("stellarnetworkhub@gmail.com")
-            : `acct_${email.replace(/[^a-z0-9]/g, "_")}`.slice(0, 120);
+        const isCommonCloud = email === "common_all_devices@stellar.cloud" || email.startsWith("global") || email.startsWith("cloud_id_") || email.includes("global-1");
+        const docId = isCommonCloud ? "global_common_cloud_v2" : emailToFirestoreDocId(email);
+        const clientDocId = isCommonCloud ? "global_common_cloud_v2" : emailToClientSyncDocId(email);
         const snaps = await Promise.allSettled([
           getDoc(doc(firestoreDb, "study_state", docId)),
-          getDoc(doc(firestoreDb, "study_state", clientDocId)),
-          getDoc(doc(firestoreDb, "study_state", legacyDocId)),
-          ...(email === "common_all_devices@stellar.cloud"
-            ? [getDoc(doc(firestoreDb, "study_state", emailToFirestoreDocId(email)))]
-            : [])
+          ...(clientDocId !== docId ? [getDoc(doc(firestoreDb, "study_state", clientDocId))] : [])
         ]);
         for (const res of snaps) {
           if (res.status === "fulfilled" && res.value.exists()) {
@@ -970,12 +1002,8 @@ async function startServer() {
               } else {
                 const tCand = Date.parse(candidate.updatedAt || "") || 0;
                 const tBest = Date.parse(firestoreNorm.updatedAt || "") || 0;
-                if (tCand > tBest || (candidate.learnedCardNums?.length || 0) > (firestoreNorm.learnedCardNums?.length || 0)) {
-                  firestoreNorm = {
-                    ...candidate,
-                    learnedCardNums: Array.from(new Set([...(firestoreNorm.learnedCardNums || []), ...(candidate.learnedCardNums || [])])),
-                    learnedCards: Array.from(new Set([...(firestoreNorm.learnedCardNums || []), ...(candidate.learnedCardNums || [])]))
-                  };
+                if (tCand >= tBest) {
+                  firestoreNorm = candidate;
                 }
               }
             }
@@ -1022,17 +1050,17 @@ async function startServer() {
     };
   }
 
-  app.post("/api/user/save", async (req, res) => {
+  app.post(["/api/user/save", "/api/profile/save"], async (req, res) => {
     const result = await saveProfileData(req.body?.email, req.body);
     res.json({ ok: true, success: true, ...result });
   });
 
-  app.get("/api/user/load", async (req, res) => {
+  app.get(["/api/user/load", "/api/profile/load"], async (req, res) => {
     const result = await loadProfileData(req.query.email);
     res.json({ ok: true, success: true, ...result });
   });
 
-  app.get("/api/user/poll", async (req, res) => {
+  app.get(["/api/user/poll", "/api/profile/poll"], async (req, res) => {
     const since = String(req.query.since || "").trim();
     const result = await loadProfileData(req.query.email);
     if (!result.exists || !result.payload) {

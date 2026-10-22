@@ -107,7 +107,7 @@ try {
 } catch (e) {}
 
 export const COMMON_CLOUD_ACCOUNT = 'common_all_devices@stellar.cloud';
-export const COMMON_CLOUD_DOC_ID = 'global_common_cloud_v1';
+export const COMMON_CLOUD_DOC_ID = 'global_common_cloud_v2';
 
 const VERIFIED_AUTH_STORAGE_KEY = 'vocab_verified_auth_session_v6';
 
@@ -127,7 +127,7 @@ let verifiedSession: {
 function isBlockedOrDummyEmail(email: string): boolean {
   const clean = String(email || '').trim().toLowerCase();
   if (!clean || !clean.includes('@')) return true;
-  if (clean === COMMON_CLOUD_ACCOUNT) return false;
+  if (clean === COMMON_CLOUD_ACCOUNT || clean.endsWith('@stellar.cloud')) return false;
   if (
     clean === 'sgsgds@gmail.com' ||
     clean === 'cloud_sync@sync.internal' ||
@@ -203,12 +203,12 @@ async function hashStringSHA256(str: string): Promise<string> {
 
 async function getAccountDocIds(email: string): Promise<{ primaryDocId: string; shaDocId: string; legacyDocId: string }> {
   const clean = String(email || '').trim().toLowerCase();
-  if (clean === COMMON_CLOUD_ACCOUNT) {
-    const shaFull = await hashStringSHA256(clean);
+  if (clean === COMMON_CLOUD_ACCOUNT || clean.includes('global-1') || clean.includes('global_common')) {
+    const shaFull = await hashStringSHA256(COMMON_CLOUD_DOC_ID);
     return {
       primaryDocId: COMMON_CLOUD_DOC_ID,
       shaDocId: `acct_${shaFull.slice(0, 32)}`,
-      legacyDocId: emailToDocId('stellarnetworkhub@gmail.com')
+      legacyDocId: COMMON_CLOUD_DOC_ID
     };
   }
   const primaryDocId = emailToDocId(clean);
@@ -580,6 +580,28 @@ export async function pushStudyStateToCloud(partialState: {
   const path = `users/${uid}`;
   try {
     const updatedAt = new Date().toISOString();
+    const progressPatch: Record<string, any> = {
+      userId: uid,
+      lastStudied: updatedAt,
+      updatedAt
+    };
+    if (Array.isArray(partialState.learnedCardNums)) {
+      progressPatch.learnedCards = partialState.learnedCardNums;
+      progressPatch.learnedCardNums = partialState.learnedCardNums;
+    }
+    if (Array.isArray(partialState.deletedCardNums)) {
+      progressPatch.deletedCardNums = partialState.deletedCardNums;
+    }
+    if (typeof partialState.lastActiveCardNum === 'number') {
+      progressPatch.lastActiveCardNum = partialState.lastActiveCardNum;
+    }
+    if (typeof partialState.activeDeckId === 'string') {
+      progressPatch.activeDeckId = partialState.activeDeckId;
+    }
+    if (typeof partialState.streakCount === 'number') {
+      progressPatch.streakCount = partialState.streakCount;
+    }
+
     await Promise.all([
       setDoc(
         doc(db, 'users', uid),
@@ -593,13 +615,7 @@ export async function pushStudyStateToCloud(partialState: {
       ),
       setDoc(
         doc(db, 'user_progress', uid),
-        {
-          userId: uid,
-          learnedCards: partialState.learnedCardNums || [],
-          streakCount: typeof partialState.streakCount === 'number' ? partialState.streakCount : 0,
-          lastStudied: updatedAt,
-          updatedAt
-        },
+        progressPatch,
         { merge: true }
       )
     ]);

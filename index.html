@@ -6089,11 +6089,12 @@
 
 
       /* Front Face Tactile Action Buttons (Learned Icon, Delete Icon, Speak) */
-      .front-learned-btn {
-        background: rgba(255, 255, 255, 0.08) !important;
-        border: 1px solid rgba(255, 255, 255, 0.16) !important;
+      .front-learned-btn,
+      .icon-tool-btn.front-learned-btn {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1.5px solid rgba(255, 255, 255, 0.14) !important;
         box-shadow: 0 3px 0 rgba(0, 0, 0, 0.35) !important;
-        color: #94a3b8 !important;
+        color: #64748b !important;
         width: 36px !important;
         height: 36px !important;
         border-radius: 12px !important;
@@ -6101,23 +6102,28 @@
         align-items: center !important;
         justify-content: center !important;
         cursor: pointer !important;
-        transition: all 0.18s ease !important;
+        transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease !important;
         user-select: none !important;
       }
-      .front-learned-btn:hover {
-        background: rgba(16, 185, 129, 0.16) !important;
-        border-color: rgba(16, 185, 129, 0.45) !important;
-        color: #34d399 !important;
-        transform: translateY(-1px) !important;
+      @media (hover: hover) and (pointer: fine) {
+        .front-learned-btn:not(.is-learned):hover,
+        .icon-tool-btn.front-learned-btn:not(.is-learned):hover {
+          background: rgba(255, 255, 255, 0.12) !important;
+          border-color: rgba(255, 255, 255, 0.28) !important;
+          color: #cbd5e1 !important;
+          transform: translateY(-1px) !important;
+        }
       }
-      .front-learned-btn.is-learned {
-        background: rgba(16, 185, 129, 0.24) !important;
-        border: 1.5px solid rgba(16, 185, 129, 0.7) !important;
-        color: #34d399 !important;
-        box-shadow: 0 0 14px rgba(16, 185, 129, 0.45), 0 3px 0 rgba(5, 150, 105, 0.5) !important;
+      .front-learned-btn.is-learned,
+      .icon-tool-btn.front-learned-btn.is-learned {
+        background: linear-gradient(180deg, #10b981 0%, #059669 100%) !important;
+        border: 1.5px solid #34d399 !important;
+        color: #ffffff !important;
+        box-shadow: 0 3px 0 #047857, 0 0 16px rgba(16, 185, 129, 0.55) !important;
       }
-      .front-learned-btn.is-learned svg {
-        stroke-width: 3.2 !important;
+      .front-learned-btn.is-learned svg,
+      .icon-tool-btn.front-learned-btn.is-learned svg {
+        stroke-width: 3.4 !important;
       }
       .front-delete-btn {
         background: rgba(239, 68, 68, 0.12) !important;
@@ -6787,30 +6793,6 @@
       }
 
     /* Card Front Action Buttons */
-    .icon-tool-btn.front-learned-btn {
-      width: 36px !important;
-      height: 36px !important;
-      border-radius: 10px !important;
-      background: rgba(255, 255, 255, 0.08) !important;
-      border: 1px solid rgba(255, 255, 255, 0.15) !important;
-      color: #94a3b8 !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      cursor: pointer !important;
-      transition: all 0.16s ease !important;
-    }
-    .icon-tool-btn.front-learned-btn:hover {
-      background: rgba(16, 185, 129, 0.18) !important;
-      border-color: rgba(16, 185, 129, 0.4) !important;
-      color: #34d399 !important;
-    }
-    .icon-tool-btn.front-learned-btn.is-learned {
-      background: rgba(16, 185, 129, 0.28) !important;
-      border-color: #10b981 !important;
-      color: #10b981 !important;
-      box-shadow: 0 0 12px rgba(16, 185, 129, 0.4) !important;
-    }
     .icon-tool-btn.front-delete-btn {
       width: 36px !important;
       height: 36px !important;
@@ -9888,70 +9870,42 @@
     <!-- CLOUD SIGN-IN & CROSS-DEVICE CLOUD SYNC MODAL (DUOLINGO GRADE) -->
     <!-- Responsive layout designed to fit all screen sizes smoothly -->
     <!-- ========================================================== -->
+    <!-- SIMPLE SIGN-IN & 1-ID CLOUD SYNC MODAL                     -->
+    <!-- 1 Google Account Button & 1 Cloud Sync Button with 1 ID   -->
+    <!-- ========================================================== -->
     <div class="modal-backdrop" id="modal-cloud-sync-login">
       <div class="modal-sheet" style="width: min(440px, 92vw); max-height: min(88dvh, 740px); overflow-y: auto; -webkit-overflow-scrolling: touch; background: linear-gradient(180deg, #172236 0%, #0c1424 100%); border: 1px solid rgba(255,255,255,0.14); border-radius: 24px; box-shadow: 0 25px 70px rgba(0,0,0,0.85); padding: 22px 20px; box-sizing: border-box; margin: auto;">
         <div class="modal-handle"></div>
         <div class="modal-header" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.08);">
           <div style="display: flex; align-items: center; gap: 10px;">
-            <div id="cloud-modal-avatar" style="width: 40px; height: 40px; border-radius: 12px; background: rgba(16, 185, 129, 0.15); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; overflow: hidden; flex-shrink: 0; border: 1px solid rgba(16, 185, 129, 0.35);">
-              🌐
+            <div id="cloud-modal-avatar" style="width: 40px; height: 40px; border-radius: 12px; background: rgba(56, 189, 248, 0.15); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; overflow: hidden; flex-shrink: 0; border: 1px solid rgba(56, 189, 248, 0.35);">
+              ☁️
             </div>
             <div>
-              <span class="modal-title" style="font-size: 1.15rem; font-weight: 800; color: #fff;">All-Device Cloud Storage</span>
-              <div style="font-size: 0.76rem; color: #94a3b8;">Common cloud progress shared across every device</div>
+              <span class="modal-title" style="font-size: 1.15rem; font-weight: 800; color: #fff;">Sign In &amp; Cloud Sync</span>
+              <div style="font-size: 0.76rem; color: #94a3b8;">Choose how you want to save progress across your devices</div>
             </div>
           </div>
           <button type="button" class="modal-close-btn" id="btn-close-cloud-sync-modal" aria-label="Close" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; width: 34px; height: 34px; color: #cbd5e1; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center;">&times;</button>
         </div>
 
         <!-- =============================================================== -->
-        <!-- UNIVERSAL COMMON CLOUD STORAGE (SHARED ON ALL DEVICES WORLDWIDE) -->
+        <!-- OPTION 1: GOOGLE ACCOUNT (1-CLICK BROWSER SIGN-IN)             -->
         <!-- =============================================================== -->
-        <div id="common-cloud-storage-panel" style="padding: 16px; background: linear-gradient(145deg, rgba(16, 185, 129, 0.14) 0%, rgba(6, 78, 59, 0.25) 100%); border: 1px solid rgba(16, 185, 129, 0.45); border-radius: 18px; margin-bottom: 16px;">
-          <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px;">
-            <div style="display: flex; align-items: center; gap: 10px;">
-              <div style="width: 42px; height: 42px; border-radius: 12px; background: rgba(16, 185, 129, 0.22); border: 1px solid rgba(52, 211, 153, 0.5); display: flex; align-items: center; justify-content: center; font-size: 1.35rem; flex-shrink: 0;">
-                🌐
-              </div>
-              <div>
-                <div style="font-size: 0.98rem; font-weight: 850; color: #ffffff; display: flex; align-items: center; gap: 6px;">
-                  <span>Common Cloud Website</span>
-                </div>
-                <div id="common-cloud-live-sub" style="font-size: 0.76rem; color: #34d399; font-weight: 750; display: flex; align-items: center; gap: 6px; margin-top: 2px;">
-                  <span style="display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #10b981; box-shadow: 0 0 6px #10b981;"></span>
-                  <span>Active on All Devices (Phone, Tablet &amp; PC)</span>
-                </div>
-              </div>
+        <div style="margin-bottom: 14px; padding: 15px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 18px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+            <div style="font-size: 0.8rem; font-weight: 800; color: #38bdf8; text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 6px;">
+              <span>Option 1</span>
+              <span style="color: #64748b;">•</span>
+              <span style="color: #e2e8f0;">Google Account</span>
             </div>
-            <div id="common-cloud-learned-badge" style="padding: 5px 10px; background: rgba(0,0,0,0.4); border: 1px solid rgba(52,211,153,0.35); border-radius: 10px; color: #34d399; font-size: 0.76rem; font-weight: 850; white-space: nowrap;">
-              0 Learned
-            </div>
+            <span style="font-size: 0.72rem; color: #94a3b8; font-weight: 600;">1-Click Login</span>
           </div>
 
-          <div style="font-size: 0.8rem; color: #e2e8f0; line-height: 1.45; margin-bottom: 12px;">
-            Every device opening this website automatically shares the same common cloud progress in real time — no login required.
-          </div>
-
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-            <button type="button" class="duo-btn-3d" id="btn-common-cloud-pull-now" style="padding: 11px 10px; background: rgba(16, 185, 129, 0.25); border: 1px solid rgba(52, 211, 153, 0.55); color: #34d399; font-weight: 800; font-size: 0.82rem; border-radius: 12px; cursor: pointer; text-align: center;">
-              🔄 Pull Cloud Progress
-            </button>
-            <button type="button" class="duo-btn-3d" id="btn-common-cloud-push-now" style="padding: 11px 10px; background: rgba(56, 189, 248, 0.22); border: 1px solid rgba(56, 189, 248, 0.5); color: #38bdf8; font-weight: 800; font-size: 0.82rem; border-radius: 12px; cursor: pointer; text-align: center;">
-              ☁️ Save to Common Cloud
-            </button>
-          </div>
-        </div>
-
-        <!-- Optional Personal Google Sign-In Card (Zero email/password forms) -->
-        <div id="auth-unauthenticated-panel">
-          <div style="padding: 14px; background: rgba(0,0,0,0.32); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px;">
-            <div style="font-size: 0.78rem; font-weight: 800; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; text-align: center;">
-              Optional: Personal Google Account
-            </div>
-
-            <div id="google-auth-error-banner" style="display: none; padding: 10px 14px; background: rgba(239, 68, 68, 0.18); border: 1px solid #ef4444; border-radius: 12px; color: #fca5a5; font-size: 0.8rem; font-weight: 700; margin-bottom: 12px; line-height: 1.4; text-align: center;"></div>
-
-            <button type="button" id="btn-google-signin-custom" style="width: 100%; padding: 12px 16px; background: #ffffff; color: #1f2937; border: 1px solid #cbd5e1; border-radius: 12px; font-weight: 800; font-size: 0.92rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.3); transition: all 0.15s ease;">
+          <!-- Unauthenticated Google Button -->
+          <div id="auth-unauthenticated-panel">
+            <div id="google-auth-error-banner" style="display: none; padding: 10px 14px; background: rgba(239, 68, 68, 0.18); border: 1px solid #ef4444; border-radius: 12px; color: #fca5a5; font-size: 0.8rem; font-weight: 700; margin-bottom: 10px; line-height: 1.4; text-align: center;"></div>
+            <button type="button" id="btn-google-signin-custom" style="width: 100%; padding: 13px 16px; background: #ffffff; color: #1f2937; border: 1px solid #cbd5e1; border-radius: 14px; font-weight: 800; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: all 0.15s ease;">
               <svg width="20" height="20" viewBox="0 0 24 24">
                 <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.65v3.03h3.88c2.27-2.09 3.66-5.17 3.66-9.12z"/>
                 <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.03c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.13C3.26 21.36 7.37 24 12 24z"/>
@@ -9960,50 +9914,97 @@
               </svg>
               <span id="btn-google-signin-text">Continue with Google</span>
             </button>
-          </div>
-        </div>
-
-        <!-- AUTHENTICATED USER PANEL (Shown when user is signed into personal Google account) -->
-        <div id="auth-authenticated-panel" style="display: none; padding-top: 4px;">
-          <div style="padding: 14px; background: rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; margin-bottom: 12px;">
-            <div style="display: flex; align-items: center; gap: 12px;">
-              <div id="cloud-modal-user-avatar" style="width: 44px; height: 44px; border-radius: 50%; background: #0284c7; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; overflow: hidden; flex-shrink: 0; border: 2px solid #38bdf8;">
-                👤
-              </div>
-              <div style="flex: 1; min-width: 0;">
-                <div id="cloud-modal-user-name" style="font-size: 1rem; font-weight: 850; color: #ffffff; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Google User</div>
-                <div id="cloud-modal-account-email" style="font-size: 0.8rem; color: #94a3b8; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">user@gmail.com</div>
-                <div id="cloud-modal-status-text" style="font-size: 0.74rem; color: #34d399; font-weight: 750; margin-top: 3px; display: flex; align-items: center; gap: 6px;">
-                  <span id="cloud-modal-status-dot" style="display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #10b981; box-shadow: 0 0 6px #10b981;"></span>
-                  <span id="cloud-modal-status-desc">Google Cloud Firestore Active</span>
-                </div>
-              </div>
+            <div style="font-size: 0.74rem; color: #94a3b8; text-align: center; margin-top: 8px;">
+              Automatically selects your browser Google account — no password typing required.
             </div>
           </div>
 
-          <div id="auth-auth-details" style="display: none;"></div>
+          <!-- Authenticated Google Panel -->
+          <div id="auth-authenticated-panel" style="display: none;">
+            <div style="display: flex; align-items: center; gap: 12px; padding: 10px; background: rgba(0,0,0,0.3); border-radius: 12px; margin-bottom: 10px;">
+              <div id="cloud-modal-user-avatar" style="width: 42px; height: 42px; border-radius: 50%; background: #0284c7; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; overflow: hidden; flex-shrink: 0; border: 2px solid #38bdf8;">
+                👤
+              </div>
+              <div style="flex: 1; min-width: 0;">
+                <div id="cloud-modal-user-name" style="font-size: 0.95rem; font-weight: 850; color: #ffffff; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Google User</div>
+                <div id="cloud-modal-account-email" style="font-size: 0.78rem; color: #94a3b8; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">user@gmail.com</div>
+                <div style="font-size: 0.72rem; color: #34d399; font-weight: 750; margin-top: 2px; display: flex; align-items: center; gap: 5px;">
+                  <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #10b981; box-shadow: 0 0 6px #10b981;"></span>
+                  <span>Google Account Active</span>
+                </div>
+              </div>
+            </div>
 
-          <button type="button" id="btn-modal-switch-account" style="width: 100%; padding: 12px 16px; background: #ffffff; color: #1f2937; border: 1px solid #cbd5e1; border-radius: 12px; font-weight: 800; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 8px;">
-            <svg width="18" height="18" viewBox="0 0 24 24">
-              <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.65v3.03h3.88c2.27-2.09 3.66-5.17 3.66-9.12z"/>
-              <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.03c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.13C3.26 21.36 7.37 24 12 24z"/>
-              <path fill="#FBBC05" d="M5.28 14.29c-.25-.72-.38-1.49-.38-2.29s.13-1.57.38-2.29V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.13z"/>
-              <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.37 0 3.26 2.64 1.25 6.58l4.03 3.13c.95-2.83 3.6-4.96 6.72-4.96z"/>
-            </svg>
-            <span id="btn-modal-switch-text">Switch Google Account</span>
-          </button>
-
-          <button type="button" class="duo-btn-3d" id="btn-modal-manual-push" style="width: 100%; padding: 11px; background: rgba(56,189,248,0.2); border: 1px solid rgba(56,189,248,0.45); color: #38bdf8; font-weight: 800; font-size: 0.9rem; border-radius: 12px; cursor: pointer; margin-bottom: 8px;">
-            ⚡ Sync All Progress Now
-          </button>
-
-          <button type="button" class="settings-action-btn" id="btn-modal-signout" style="width: 100%; justify-content: center; padding: 11px; margin-top: 4px; font-weight: 800; background: rgba(16, 185, 129, 0.16); border: 1px solid rgba(16, 185, 129, 0.4); color: #34d399;">
-            <span>🌐 Switch Back to Common Cloud (All Devices)</span>
-          </button>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+              <button type="button" id="btn-modal-switch-account" style="padding: 10px; background: #ffffff; color: #1f2937; border: 1px solid #cbd5e1; border-radius: 10px; font-weight: 750; font-size: 0.8rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                🔄 Switch Account
+              </button>
+              <button type="button" id="btn-modal-signout" style="padding: 10px; background: rgba(255,255,255,0.08); color: #cbd5e1; border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; font-weight: 750; font-size: 0.8rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                🚪 Disconnect
+              </button>
+            </div>
+          </div>
         </div>
 
-        <div style="font-size: 0.74rem; color: #64748b; text-align: center; line-height: 1.45; margin-top: 14px;">
-          🔒 All study progress (cards 1–3000, learned words, deleted words, streaks &amp; custom shortcuts) saves to Google Cloud Firestore automatically across all devices.
+        <!-- =============================================================== -->
+        <!-- OPTION 2: CLOUD SYNC BUTTON WITH 1 ID                           -->
+        <!-- =============================================================== -->
+        <div id="cloud-sync-id-card" style="padding: 16px; background: linear-gradient(145deg, rgba(16, 185, 129, 0.12) 0%, rgba(6, 78, 59, 0.22) 100%); border: 1.5px solid rgba(16, 185, 129, 0.45); border-radius: 18px; margin-bottom: 14px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+            <div style="font-size: 0.8rem; font-weight: 800; color: #34d399; text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 6px;">
+              <span>Option 2</span>
+              <span style="color: #64748b;">•</span>
+              <span style="color: #ffffff;">Cloud Sync with 1 ID</span>
+            </div>
+            <div id="common-cloud-learned-badge" style="padding: 4px 9px; background: rgba(0,0,0,0.4); border: 1px solid rgba(52,211,153,0.35); border-radius: 999px; color: #34d399; font-size: 0.72rem; font-weight: 850;">
+              0 Learned
+            </div>
+          </div>
+
+          <!-- Single Cloud ID Display & Quick Switcher -->
+          <div style="background: rgba(0,0,0,0.35); border: 1px solid rgba(52,211,153,0.3); border-radius: 12px; padding: 10px 12px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+            <div style="min-width: 0;">
+              <div style="font-size: 0.68rem; color: #94a3b8; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;">Your 1 Cloud Sync ID</div>
+              <div id="display-cloud-sync-id" style="font-size: 0.96rem; font-weight: 900; color: #34d399; letter-spacing: 0.04em; font-family: monospace; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">GLOBAL-1</div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; flex-shrink: 0;">
+              <button type="button" id="btn-copy-cloud-id" title="Copy Cloud Sync ID" style="padding: 6px 10px; background: rgba(52,211,153,0.18); border: 1px solid rgba(52,211,153,0.4); color: #34d399; border-radius: 8px; font-size: 0.72rem; font-weight: 800; cursor: pointer;">
+                📋 Copy
+              </button>
+              <button type="button" id="btn-edit-cloud-id" title="Enter or Change Cloud ID" style="padding: 6px 10px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #e2e8f0; border-radius: 8px; font-size: 0.72rem; font-weight: 750; cursor: pointer;">
+                ✏️ Edit ID
+              </button>
+            </div>
+          </div>
+
+          <!-- Hidden input for typing custom Cloud ID if user wants to change -->
+          <div id="cloud-id-input-row" style="display: none; margin-bottom: 10px; gap: 6px;">
+            <input type="text" id="input-custom-cloud-id" placeholder="Enter Cloud ID (e.g. GLOBAL-1)" value="GLOBAL-1" style="flex: 1; min-width: 0; padding: 9px 12px; background: rgba(0,0,0,0.5); border: 1px solid #34d399; border-radius: 10px; color: #fff; font-size: 0.85rem; font-weight: 750; font-family: monospace; outline: none;" />
+            <button type="button" id="btn-save-custom-cloud-id" style="padding: 9px 14px; background: #10b981; color: #052e16; border: none; border-radius: 10px; font-weight: 850; font-size: 0.82rem; cursor: pointer; white-space: nowrap;">
+              Set ID
+            </button>
+          </div>
+
+          <!-- Prominent Cloud Sync Action Button with 1 ID -->
+          <button type="button" class="duo-btn-3d" id="btn-common-cloud-pull-now" style="width: 100%; padding: 13px 14px; background: linear-gradient(135deg, #059669 0%, #10b981 100%); border: 1px solid #34d399; color: #ffffff; font-weight: 850; font-size: 0.95rem; border-radius: 14px; cursor: pointer; text-align: center; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35); display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px;">
+            <span>☁️</span>
+            <span id="btn-cloud-id-main-label">Sync with Cloud ID: GLOBAL-1</span>
+          </button>
+
+          <!-- Fast Manual Push / Refresh Button -->
+          <button type="button" class="duo-btn-3d" id="btn-modal-manual-push" style="width: 100%; padding: 10px 12px; background: rgba(56, 189, 248, 0.16); border: 1px solid rgba(56, 189, 248, 0.45); color: #38bdf8; font-weight: 800; font-size: 0.84rem; border-radius: 11px; cursor: pointer; text-align: center; display: flex; align-items: center; justify-content: center; gap: 6px;">
+            <span>⚡ Save All Progress to Cloud Now</span>
+          </button>
+
+          <div style="font-size: 0.74rem; color: #cbd5e1; line-height: 1.45; margin-top: 10px; text-align: center;">
+            📱 <strong>Works on all devices:</strong> Open this website on any phone or laptop, tap Cloud Sync, and connect with ID <strong style="color: #34d399;">GLOBAL-1</strong> to instantly share all progress!
+          </div>
+        </div>
+
+        <!-- Real-time Live Sync Indicator / Guarantee -->
+        <div style="padding: 10px 14px; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 12px; display: flex; align-items: center; gap: 8px; font-size: 0.75rem; color: #93c5fd; line-height: 1.4;">
+          <span style="font-size: 1.1rem; flex-shrink: 0;">⚡</span>
+          <span><strong>Automatic Live Storage:</strong> In cloud, anything you change (learned words, deleted cards, streaks, flips) automatically stores in the Cloud &amp; Website in real time.</span>
         </div>
       </div>
     </div>
@@ -10192,16 +10193,21 @@
 
     <script>
       // TOP-LEVEL SAFE INITIALIZATION FOR LEARNED TRACKER & GLOBAL STATE
-      var LEARNED_STORAGE_KEY = "vocab_learned_cards_v3";
-      var LAST_CARD_STORAGE_KEY = "vocab_last_card_v3";
+      var LEARNED_STORAGE_KEY = "vocab_learned_cards_v4";
+      var LAST_CARD_STORAGE_KEY = "vocab_last_card_v4";
       var STORAGE_KEY_EDITS = "sequential_vocab_user_custom_edits_v2";
       var originalCardsMap = {};
+      var lastLocalMutationTime = 0;
+      try {
+        localStorage.removeItem("vocab_learned_cards_v3");
+        localStorage.removeItem("vocab_deleted_cards_v3");
+      } catch (e) {}
       function loadLearnedCards() {
         try {
           var raw = localStorage.getItem(LEARNED_STORAGE_KEY);
           if (raw) {
             var arr = JSON.parse(raw);
-            return new Set(arr);
+            if (Array.isArray(arr)) return new Set(arr);
           }
         } catch (e) {
           console.warn("Could not load learned cards:", e);
@@ -17504,7 +17510,7 @@ const tier800DeckCards = initialDeckCards;
       /* ==========================================================
          AUTOMATIC SEQUENTIAL REINDEXING & PERSISTENT DELETION SYSTEM
          ========================================================== */
-      const DELETED_CARDS_STORAGE_KEY = "vocab_deleted_cards_v3";
+      const DELETED_CARDS_STORAGE_KEY = "vocab_deleted_cards_v4";
       let deletedCardNums = [];
       try {
         deletedCardNums = JSON.parse(localStorage.getItem(DELETED_CARDS_STORAGE_KEY) || "[]");
@@ -17617,12 +17623,33 @@ const tier800DeckCards = initialDeckCards;
         switchScreen("screen-flashcard");
       }
 
-      function getSectionLearnedCount(targetDeckCards = cards) {
+      function getCardLearnedKey(card, deckId = currentDeckId) {
+        if (!card) return null;
+        if (typeof card === "number" || typeof card === "string") {
+          return BUILT_IN_DECKS_META[deckId] ? Number(card) || String(card) : `${deckId}:${card}`;
+        }
+        const orig = card.originalNum !== undefined ? card.originalNum : card.num;
+        if (BUILT_IN_DECKS_META[deckId]) {
+          return Number(orig);
+        }
+        return `${deckId}:${card.id || orig}`;
+      }
+
+      function isCardLearned(card, deckId = currentDeckId) {
+        if (!card || !learnedCardsSet) return false;
+        const key = getCardLearnedKey(card, deckId);
+        if (key === null || key === undefined) return false;
+        if (BUILT_IN_DECKS_META[deckId]) {
+          return learnedCardsSet.has(Number(key)) || learnedCardsSet.has(String(key));
+        }
+        return learnedCardsSet.has(String(key));
+      }
+
+      function getSectionLearnedCount(targetDeckCards = cards, deckId = currentDeckId) {
         if (!targetDeckCards || targetDeckCards.length === 0) return 0;
         let count = 0;
         targetDeckCards.forEach(card => {
-          const raw = card.originalNum || card.num;
-          if (learnedCardsSet && (learnedCardsSet.has(raw) || learnedCardsSet.has(String(raw)) || learnedCardsSet.has(Number(raw)))) {
+          if (isCardLearned(card, deckId)) {
             count++;
           }
         });
@@ -17630,7 +17657,7 @@ const tier800DeckCards = initialDeckCards;
       }
 
       function updateSectionLearnedCounter() {
-        const learnedCount = getSectionLearnedCount(cards);
+        const learnedCount = getSectionLearnedCount(cards, currentDeckId);
         const totalActive = cards ? cards.length : 0;
 
         const learnedEl = document.getElementById("section-learned-count");
@@ -17651,15 +17678,15 @@ const tier800DeckCards = initialDeckCards;
       /* ==========================================================
          COMPREHENSIVE LEARNED TRACKER & DYNAMIC DECK COUNTS
          ========================================================== */
-      var LEARNED_STORAGE_KEY = LEARNED_STORAGE_KEY || "vocab_learned_cards_v3";
-      var LAST_CARD_STORAGE_KEY = LAST_CARD_STORAGE_KEY || "vocab_last_card_v3";
+      var LEARNED_STORAGE_KEY = "vocab_learned_cards_v4";
+      var LAST_CARD_STORAGE_KEY = "vocab_last_card_v4";
 
       function loadLearnedCards() {
         try {
           const raw = localStorage.getItem(LEARNED_STORAGE_KEY);
           if (raw) {
             const arr = JSON.parse(raw);
-            return new Set(arr);
+            if (Array.isArray(arr)) return new Set(arr);
           }
         } catch (e) {
           console.warn("Could not load learned cards:", e);
@@ -17670,6 +17697,7 @@ const tier800DeckCards = initialDeckCards;
       learnedCardsSet = learnedCardsSet || loadLearnedCards();
 
       function saveLearnedCards() {
+        lastLocalMutationTime = Date.now();
         try {
           localStorage.setItem(LEARNED_STORAGE_KEY, JSON.stringify([...learnedCardsSet]));
           if (window.firebaseSync && window.firebaseSync.pushStudyStateToCloud) {
@@ -17698,7 +17726,7 @@ const tier800DeckCards = initialDeckCards;
         const mobileStatusEl = document.getElementById("mobile-status-count");
         if (mobileStatusEl) mobileStatusEl.textContent = totalLearned.toLocaleString();
 
-        const activeDeckLearned = getSectionLearnedCount(cards);
+        const activeDeckLearned = getSectionLearnedCount(cards, currentDeckId);
         const activeDeckTotal = cards ? cards.length : 200;
 
         // Update Home Screen displays
@@ -17724,7 +17752,7 @@ const tier800DeckCards = initialDeckCards;
         if (typeof BUILT_IN_DECKS_META === "object") {
           Object.values(BUILT_IN_DECKS_META).forEach(meta => {
             const rem = getRemainingDeckCards(meta.cards || []);
-            const lrn = getSectionLearnedCount(rem);
+            const lrn = getSectionLearnedCount(rem, meta.id);
             const pct = rem.length > 0 ? Math.min(100, Math.round((lrn / rem.length) * 100)) : 0;
             const statEl = document.getElementById(`${meta.prefix}-stat-line`);
             if (statEl) statEl.textContent = `${lrn} / ${rem.length} Learned`;
@@ -17745,39 +17773,47 @@ const tier800DeckCards = initialDeckCards;
         if (flashcard3kStatusText) flashcard3kStatusText.textContent = `${totalLearned} / 3,000`;
       }
 
-      function toggleCardLearned(cardNum) {
-        if (!cardNum) return;
-        const isNowLearned = !learnedCardsSet.has(cardNum);
-        if (isNowLearned) {
-          learnedCardsSet.add(cardNum);
-          playHapticTick(680, "triangle", 0.05);
-          showToast(`Card #${cardNum} marked learned! (Status: ${learnedCardsSet.size} / 3,000)`);
+      function toggleCardLearned(targetCardOrNum) {
+        const currentCard = (targetCardOrNum && typeof targetCardOrNum === "object") ? targetCardOrNum : cards[currentIndex];
+        if (!currentCard) return;
+        const key = getCardLearnedKey(currentCard, currentDeckId);
+        if (key === null || key === undefined) return;
+        const displayNum = currentCard.displayNum || currentCard.num;
+
+        if (isCardLearned(currentCard, currentDeckId)) {
+          learnedCardsSet.delete(key);
+          learnedCardsSet.delete(String(key));
+          learnedCardsSet.delete(Number(key));
+          if (typeof playHapticTick === "function") playHapticTick(380, "sine", 0.04);
+          if (typeof showToast === "function") showToast(`Card #${displayNum} (${currentCard.word}) unmarked`);
         } else {
-          learnedCardsSet.delete(cardNum);
-          playHapticTick(380, "sine", 0.04);
-          showToast(`Card #${cardNum} unmarked`);
+          learnedCardsSet.add(key);
+          if (typeof playHapticTick === "function") playHapticTick(720, "triangle", 0.06);
+          if (typeof showToast === "function") showToast(`Card #${displayNum} (${currentCard.word}) marked learned! 🌟`);
         }
         saveLearnedCards();
-        updateCardLearnedUI(cardNum);
+        updateCardLearnedUI(currentCard);
+        updateSectionLearnedCounter();
       }
 
-      function updateCardLearnedUI(cardNum) {
+      function updateCardLearnedUI(cardOrNum) {
         if (!learnedCardsSet) return;
-        const currentCard = cards[currentIndex];
-        const raw = (currentCard && (currentCard.originalNum || currentCard.num)) || cardNum;
-        const isLearned = learnedCardsSet.has(raw) || learnedCardsSet.has(String(raw)) || learnedCardsSet.has(cardNum) || learnedCardsSet.has(String(cardNum));
+        const currentCard = (cardOrNum && typeof cardOrNum === "object") ? cardOrNum : cards[currentIndex];
+        const isLearned = currentCard ? isCardLearned(currentCard, currentDeckId) : false;
 
         // Front face icon-only button
         const frontLearnedBtn = document.getElementById("front-learned-btn");
         if (frontLearnedBtn) {
           if (isLearned) {
             frontLearnedBtn.classList.add("is-learned");
+            frontLearnedBtn.setAttribute("aria-pressed", "true");
             frontLearnedBtn.setAttribute("title", "Card learned! (Tap to unmark)");
             frontLearnedBtn.setAttribute("aria-label", "Card learned! Tap to unmark");
           } else {
             frontLearnedBtn.classList.remove("is-learned");
-            frontLearnedBtn.setAttribute("title", "Mark as learned");
-            frontLearnedBtn.setAttribute("aria-label", "Mark as learned");
+            frontLearnedBtn.setAttribute("aria-pressed", "false");
+            frontLearnedBtn.setAttribute("title", "Mark card as learned");
+            frontLearnedBtn.setAttribute("aria-label", "Mark card as learned");
           }
         }
       }
@@ -18879,10 +18915,10 @@ const tier800DeckCards = initialDeckCards;
         if (!card) return;
 
         setLastCardNumber(card.originalNum || card.num);
-        updateCardLearnedUI(card.originalNum || card.num);
+        updateCardLearnedUI(card);
 
         // Header Learned Pill & Dynamic Total Count (Always reflects remaining cards after any deletion!)
-        const activeDeckLearned = getSectionLearnedCount(cards);
+        const activeDeckLearned = getSectionLearnedCount(cards, currentDeckId);
         const activeDeckTotal = cards.length;
         if (currentCategoryEl) {
           currentCategoryEl.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="color:#34d399;font-weight:800;"><strong id="flashcard-learned-3k-val">${activeDeckLearned}</strong>/<span id="flashcard-deck-total-val">${activeDeckTotal}</span></span>`;
@@ -19814,6 +19850,7 @@ const tier800DeckCards = initialDeckCards;
       // RESET FLASHCARD DECK & RESTORE DELETED CARDS
       // =========================================================================
       function resetFlashcardDeck() {
+        lastLocalMutationTime = Date.now();
         deletedCardNums = [];
         try {
           localStorage.removeItem(DELETED_CARDS_STORAGE_KEY);
@@ -19849,21 +19886,7 @@ const tier800DeckCards = initialDeckCards;
       function toggleLearnedCard(targetNum) {
         const currentCard = cards[currentIndex];
         if (!currentCard) return;
-        const num = targetNum || currentCard.originalNum || currentCard.num;
-
-        if (learnedCardsSet.has(num) || learnedCardsSet.has(String(num))) {
-          learnedCardsSet.delete(num);
-          learnedCardsSet.delete(String(num));
-          if (typeof playHapticTick === "function") playHapticTick(400, "sine", 0.03);
-          if (typeof showToast === "function") showToast("Card marked as unlearned");
-        } else {
-          learnedCardsSet.add(num);
-          if (typeof playHapticTick === "function") playHapticTick(750, "triangle", 0.06);
-          if (typeof showToast === "function") showToast("Card marked as learned! 🌟");
-        }
-        saveLearnedCards();
-        updateCardLearnedUI(num);
-        updateSectionLearnedCounter();
+        toggleCardLearned(currentCard);
       }
 
       const frontLearnedBtn = document.getElementById("front-learned-btn");
@@ -19872,6 +19895,7 @@ const tier800DeckCards = initialDeckCards;
           e.stopPropagation();
           e.preventDefault();
           toggleLearnedCard();
+          if (typeof frontLearnedBtn.blur === "function") frontLearnedBtn.blur();
         });
         frontLearnedBtn.addEventListener("touchstart", (e) => e.stopPropagation(), { passive: true });
       }
@@ -20440,22 +20464,6 @@ const tier800DeckCards = initialDeckCards;
         });
       }
 
-      const btnOpenSubsections = document.getElementById("btn-open-subsections");
-      if (btnOpenSubsections) {
-        btnOpenSubsections.addEventListener("click", (e) => {
-          e.stopPropagation();
-          switchScreen("screen-subsections");
-        });
-      }
-
-      const subTier800_1000 = document.getElementById("sub-tier-800-1000");
-      if (subTier800_1000) {
-        subTier800_1000.addEventListener("click", () => {
-          switchScreen("screen-flashcard");
-          renderCurrentCard();
-        });
-      }
-
       /* ==========================================================
          3D INTERACTIVE TILT PHYSICS FOR 3K VOCABULARY CARD
          ========================================================== */
@@ -21002,14 +21010,32 @@ const tier800DeckCards = initialDeckCards;
       } catch (e) {}
 
       const COMMON_CLOUD_EMAIL = "common_all_devices@stellar.cloud";
-      const COMMON_CLOUD_DOC_ID = "global_common_cloud_v1";
+      const COMMON_CLOUD_DOC_ID = "global_common_cloud_v2";
+      const CLOUD_SYNC_ID_STORAGE_KEY = "vocab_cloud_sync_id_v2";
       const VERIFIED_AUTH_STORAGE_KEY = "vocab_verified_auth_session_v6";
       const GOOGLE_OAUTH_CLIENT_ID = "328045128-9o8clmes7c6itrht7acmc4v56e3sfs9n.apps.googleusercontent.com";
+
+      function getActiveCloudSyncId() {
+        try {
+          const saved = localStorage.getItem(CLOUD_SYNC_ID_STORAGE_KEY);
+          if (saved && saved.trim()) return saved.trim().toUpperCase();
+        } catch (e) {}
+        return "GLOBAL-1";
+      }
+
+      function setActiveCloudSyncId(newId) {
+        const clean = String(newId || "GLOBAL-1").trim().toUpperCase().replace(/[^A-Z0-9_-]/g, "");
+        const validId = clean || "GLOBAL-1";
+        try {
+          localStorage.setItem(CLOUD_SYNC_ID_STORAGE_KEY, validId);
+        } catch (e) {}
+        return validId;
+      }
 
       function isBlockedOrDummyAccount(email) {
         const clean = String(email || "").trim().toLowerCase();
         if (!clean || !clean.includes("@")) return true;
-        if (clean === COMMON_CLOUD_EMAIL) return false;
+        if (clean === COMMON_CLOUD_EMAIL || clean.endsWith("@stellar.cloud")) return false;
         if (
           clean === "sgsgds@gmail.com" ||
           clean === "cloud_sync@sync.internal" ||
@@ -21068,16 +21094,25 @@ const tier800DeckCards = initialDeckCards;
       let hasPendingSyncPush = false;
 
       function updateAccountDisplays() {
-        const isCommonCloud = !currentAccountEmail || currentAccountEmail === COMMON_CLOUD_EMAIL;
+        const activeCloudId = getActiveCloudSyncId();
+        const isCommonCloud = !currentAccountEmail || currentAccountEmail === COMMON_CLOUD_EMAIL || currentAccountEmail.endsWith("@stellar.cloud");
         const isPersonalAccount = Boolean(currentAccountEmail && !isCommonCloud && !isBlockedOrDummyAccount(currentAccountEmail));
         const shortName = isCommonCloud
-          ? "Cloud Synced"
-          : (currentAccountEmail ? currentAccountEmail.split("@")[0] : "Cloud Synced");
+          ? `Cloud (${activeCloudId})`
+          : (currentAccountEmail ? currentAccountEmail.split("@")[0] : `Cloud (${activeCloudId})`);
         const displayTitle = isCommonCloud
-          ? "Common Cloud Website (All Devices)"
+          ? `Cloud Sync ID: ${activeCloudId} (All Devices)`
           : (currentAccountName && currentAccountName !== currentAccountEmail && currentAccountName !== shortName
               ? `${currentAccountName} (${currentAccountEmail})`
               : currentAccountEmail);
+
+        // Update single Cloud ID display and button labels
+        const displayCloudIdEl = document.getElementById("display-cloud-sync-id");
+        if (displayCloudIdEl) displayCloudIdEl.textContent = activeCloudId;
+        const inputCloudIdEl = document.getElementById("input-custom-cloud-id");
+        if (inputCloudIdEl) inputCloudIdEl.value = activeCloudId;
+        const mainCloudBtnLabel = document.getElementById("btn-cloud-id-main-label");
+        if (mainCloudBtnLabel) mainCloudBtnLabel.textContent = `Sync with Cloud ID: ${activeCloudId}`;
 
         const commonLearnedBadge = document.getElementById("common-cloud-learned-badge");
         if (commonLearnedBadge) {
@@ -21090,7 +21125,7 @@ const tier800DeckCards = initialDeckCards;
         const cloudUserSub = document.getElementById("cloud-sync-user-sub");
         if (cloudUserSub) {
           cloudUserSub.textContent = isCommonCloud
-            ? "Common Cloud active across all devices (Phones, Tablets & PCs) · Auto-syncing in real time."
+            ? `Cloud Sync ID: ${activeCloudId} active across all devices · Auto-syncing in real time.`
             : `Signed in as ${currentAccountEmail} · Changes save automatically across all devices.`;
         }
 
@@ -21104,7 +21139,7 @@ const tier800DeckCards = initialDeckCards;
         const mobileCloudIcon = document.getElementById("mobile-cloud-icon");
         const mobileDot = document.getElementById("mobile-cloud-dot");
         const displayNameFirst = isCommonCloud
-          ? "Cloud Sync"
+          ? `Cloud (${activeCloudId})`
           : (currentAccountName ? currentAccountName.split(" ")[0] : shortName);
 
         if (desktopCloudLabel) {
@@ -21423,14 +21458,11 @@ const tier800DeckCards = initialDeckCards;
           if (apiResult && fsResult) {
             const tApi = Date.parse(apiResult.updatedAt || "") || 0;
             const tFs = Date.parse(fsResult.updatedAt || "") || 0;
-            const fsLearned = (fsResult.payload.learnedCardNums || fsResult.payload.learnedCards || []);
-            const apiLearned = (apiResult.payload.learnedCardNums || apiResult.payload.learnedCards || []);
-            const mergedLearned = Array.from(new Set([...fsLearned, ...apiLearned]));
             if (tFs >= tApi) {
-              chosenPayload = { ...fsResult.payload, learnedCardNums: mergedLearned, learnedCards: mergedLearned };
+              chosenPayload = fsResult.payload;
               chosenUpdatedAt = fsResult.updatedAt;
             } else {
-              chosenPayload = { ...apiResult.payload, learnedCardNums: mergedLearned, learnedCards: mergedLearned };
+              chosenPayload = apiResult.payload;
               chosenUpdatedAt = apiResult.updatedAt;
             }
           } else if (fsResult) {
@@ -21443,11 +21475,7 @@ const tier800DeckCards = initialDeckCards;
 
           if (chosenPayload) {
             lastAccountCloudTimestamp = chosenUpdatedAt || new Date().toISOString();
-            applyRemoteSyncPayload(chosenPayload, true, isSwitchingBetweenTwoPersonalAccounts);
-            if (!isSwitchingBetweenTwoPersonalAccounts) {
-              await syncCurrentStateToDeviceCloud(false, cleanEmail);
-            }
-            showCloudSaveSuccessIndicator();
+            applyRemoteSyncPayload(chosenPayload, true, true);
             if (isUserSwitch) {
               const label = isCommonCloud ? "Common Cloud (All Devices)" : cleanEmail;
               showToast(`Synced with ${label}! 🌐`);
@@ -21466,30 +21494,32 @@ const tier800DeckCards = initialDeckCards;
         }
       }
 
-      function applyRemoteSyncPayload(payload, isInitialAccountLoad = false, replaceAccountData = false) {
+      function applyRemoteSyncPayload(payload, isInitialAccountLoad = false, replaceAccountData = true) {
         if (!payload) return;
 
-        // 1. Learned cards
-        const inLearned = Array.isArray(payload.learnedCardNums)
-          ? payload.learnedCardNums
-          : Array.isArray(payload.learnedCards)
-          ? payload.learnedCards
-          : [];
-        learnedCardsSet = replaceAccountData ? new Set(inLearned) : new Set([...learnedCardsSet, ...inLearned]);
-        try {
-          localStorage.setItem(LEARNED_STORAGE_KEY, JSON.stringify([...learnedCardsSet]));
-        } catch (e) {}
+        // 1. Learned cards (Authoritative replacement from latest cloud state so un-ticking persists across all devices)
+        const hasLearnedField = Array.isArray(payload.learnedCardNums) || Array.isArray(payload.learnedCards);
+        if (hasLearnedField) {
+          const inLearned = Array.isArray(payload.learnedCardNums)
+            ? payload.learnedCardNums
+            : payload.learnedCards;
+          learnedCardsSet = new Set(inLearned);
+          try {
+            localStorage.setItem(LEARNED_STORAGE_KEY, JSON.stringify([...learnedCardsSet]));
+          } catch (e) {}
+        }
 
-        // 2. Deleted cards
-        const inDeleted = Array.isArray(payload.deletedCardNums)
-          ? payload.deletedCardNums
-          : Array.isArray(payload.deletedCards)
-          ? payload.deletedCards
-          : [];
-        deletedCardNums = replaceAccountData ? [...new Set(inDeleted)] : [...new Set([...deletedCardNums, ...inDeleted])];
-        try {
-          localStorage.setItem(DELETED_CARDS_STORAGE_KEY, JSON.stringify(deletedCardNums));
-        } catch (e) {}
+        // 2. Deleted cards (Authoritative replacement from latest cloud state)
+        const hasDeletedField = Array.isArray(payload.deletedCardNums) || Array.isArray(payload.deletedCards);
+        if (hasDeletedField) {
+          const inDeleted = Array.isArray(payload.deletedCardNums)
+            ? payload.deletedCardNums
+            : payload.deletedCards;
+          deletedCardNums = [...new Set(inDeleted)];
+          try {
+            localStorage.setItem(DELETED_CARDS_STORAGE_KEY, JSON.stringify(deletedCardNums));
+          } catch (e) {}
+        }
 
         // 3. Streak
         const inStreak = typeof payload.streakCount === "number" ? payload.streakCount : payload.streak;
@@ -21529,7 +21559,7 @@ const tier800DeckCards = initialDeckCards;
         }
 
         // 6. Custom sections
-        if (Array.isArray(payload.customSections) && payload.customSections.length > 0) {
+        if (Array.isArray(payload.customSections)) {
           currentSections = [...payload.customSections];
           try {
             localStorage.setItem(SECTIONS_STORAGE_KEY, JSON.stringify(currentSections));
@@ -21577,16 +21607,16 @@ const tier800DeckCards = initialDeckCards;
       // Live background sync check every 4 seconds on all devices (both Common Cloud and Personal Account)
       setInterval(async () => {
         const targetEmail = currentAccountEmail || COMMON_CLOUD_EMAIL;
-        if (isSyncPushing || isBlockedOrDummyAccount(targetEmail)) return;
+        if (isSyncPushing || (Date.now() - lastLocalMutationTime < 3500) || isBlockedOrDummyAccount(targetEmail)) return;
         try {
           if (canCallServerApi()) {
             const res = await fetch(`/api/user/poll?email=${encodeURIComponent(targetEmail)}&since=${encodeURIComponent(lastAccountCloudTimestamp)}`);
             const ct = res.headers.get("content-type") || "";
             if (res.ok && ct.includes("application/json")) {
               const data = await res.json();
-              if (data && data.hasUpdates && data.payload) {
+              if (data && data.hasUpdates && data.payload && (Date.now() - lastLocalMutationTime >= 3500)) {
                 lastAccountCloudTimestamp = data.updatedAt;
-                applyRemoteSyncPayload(data.payload, false);
+                applyRemoteSyncPayload(data.payload, false, true);
                 showCloudSaveSuccessIndicator();
               }
             } else if (res.status === 404 && window.firebaseSync?.markServerApiUnavailable) {
@@ -21594,12 +21624,12 @@ const tier800DeckCards = initialDeckCards;
             }
           } else if (window.firebaseSync && window.firebaseSync.loadAccountStateFromFirestore) {
             const fsRes = await window.firebaseSync.loadAccountStateFromFirestore(targetEmail);
-            if (fsRes && fsRes.exists && fsRes.payload && fsRes.updatedAt) {
+            if (fsRes && fsRes.exists && fsRes.payload && fsRes.updatedAt && (Date.now() - lastLocalMutationTime >= 3500)) {
               const tRemote = Date.parse(fsRes.updatedAt) || 0;
               const tLocal = Date.parse(lastAccountCloudTimestamp) || 0;
               if (tRemote > tLocal) {
                 lastAccountCloudTimestamp = fsRes.updatedAt;
-                applyRemoteSyncPayload(fsRes.payload, false);
+                applyRemoteSyncPayload(fsRes.payload, false, true);
                 showCloudSaveSuccessIndicator();
               }
             }
@@ -21652,38 +21682,96 @@ const tier800DeckCards = initialDeckCards;
       }
       if (navBtnCloudSync) navBtnCloudSync.addEventListener("click", handleHeaderSyncClick);
 
-      // Manual Sync / Push & Common Cloud Pull/Push Buttons
+      // 1 Cloud ID Buttons: Copy, Edit, Set ID
+      const btnCopyCloudId = document.getElementById("btn-copy-cloud-id");
+      if (btnCopyCloudId) {
+        btnCopyCloudId.addEventListener("click", () => {
+          const id = getActiveCloudSyncId();
+          try {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(id);
+            }
+          } catch (e) {}
+          const orig = btnCopyCloudId.textContent;
+          btnCopyCloudId.textContent = "Copied! ✓";
+          setTimeout(() => { btnCopyCloudId.textContent = orig; }, 1500);
+          showToast(`Copied Cloud Sync ID: ${id} 📋`);
+        });
+      }
+
+      const btnEditCloudId = document.getElementById("btn-edit-cloud-id");
+      const cloudIdInputRow = document.getElementById("cloud-id-input-row");
+      if (btnEditCloudId && cloudIdInputRow) {
+        btnEditCloudId.addEventListener("click", () => {
+          const isHidden = cloudIdInputRow.style.display === "none" || !cloudIdInputRow.style.display;
+          cloudIdInputRow.style.display = isHidden ? "flex" : "none";
+          if (isHidden) {
+            const inputEl = document.getElementById("input-custom-cloud-id");
+            if (inputEl) {
+              inputEl.value = getActiveCloudSyncId();
+              inputEl.focus();
+            }
+          }
+        });
+      }
+
+      const btnSaveCustomCloudId = document.getElementById("btn-save-custom-cloud-id");
+      if (btnSaveCustomCloudId) {
+        btnSaveCustomCloudId.addEventListener("click", async () => {
+          const inputEl = document.getElementById("input-custom-cloud-id");
+          const val = inputEl ? inputEl.value : "";
+          const newId = setActiveCloudSyncId(val);
+          if (cloudIdInputRow) cloudIdInputRow.style.display = "none";
+          updateAccountDisplays();
+          showToast(`Cloud Sync ID set to: ${newId} ☁️`);
+
+          const emailForId = newId === "GLOBAL-1" ? COMMON_CLOUD_EMAIL : `${newId.toLowerCase()}@stellar.cloud`;
+          await loadVerifiedGoogleAccountState({
+            uid: newId === "GLOBAL-1" ? COMMON_CLOUD_DOC_ID : `sync_${newId.toLowerCase()}`,
+            googleSub: newId === "GLOBAL-1" ? COMMON_CLOUD_DOC_ID : `sync_${newId.toLowerCase()}`,
+            email: emailForId,
+            displayName: `Cloud Sync (${newId})`,
+            authMethod: "common_cloud",
+            verified: true
+          }, true);
+        });
+      }
+
+      // Manual Sync / Push & 1-ID Cloud Pull/Push Buttons
       const btnCloudManualSync = document.getElementById("btn-cloud-manual-sync");
       if (btnCloudManualSync) {
         btnCloudManualSync.addEventListener("click", () => syncCurrentStateToDeviceCloud(true));
       }
       const btnModalManualPush = document.getElementById("btn-modal-manual-push");
       if (btnModalManualPush) {
-        btnModalManualPush.addEventListener("click", () => syncCurrentStateToDeviceCloud(true));
+        btnModalManualPush.addEventListener("click", async () => {
+          const origHtml = btnModalManualPush.innerHTML;
+          btnModalManualPush.innerHTML = `<span>⏳</span> <span>Saving to Cloud &amp; Website...</span>`;
+          const activeId = getActiveCloudSyncId();
+          const targetEmail = currentAccountEmail && currentAccountEmail !== COMMON_CLOUD_EMAIL && !currentAccountEmail.endsWith("@stellar.cloud")
+            ? currentAccountEmail
+            : (activeId === "GLOBAL-1" ? COMMON_CLOUD_EMAIL : `${activeId.toLowerCase()}@stellar.cloud`);
+          await syncCurrentStateToDeviceCloud(true, targetEmail);
+          btnModalManualPush.innerHTML = origHtml;
+        });
       }
       const btnCommonCloudPullNow = document.getElementById("btn-common-cloud-pull-now");
       if (btnCommonCloudPullNow) {
         btnCommonCloudPullNow.addEventListener("click", async () => {
-          const orig = btnCommonCloudPullNow.textContent;
-          btnCommonCloudPullNow.textContent = "⏳ Pulling...";
+          const activeId = getActiveCloudSyncId();
+          const emailForId = activeId === "GLOBAL-1" ? COMMON_CLOUD_EMAIL : `${activeId.toLowerCase()}@stellar.cloud`;
+          const origHtml = btnCommonCloudPullNow.innerHTML;
+          btnCommonCloudPullNow.innerHTML = `<span>⏳</span> <span>Connecting to Cloud ID: ${activeId}...</span>`;
           await loadVerifiedGoogleAccountState({
-            uid: COMMON_CLOUD_DOC_ID,
-            googleSub: COMMON_CLOUD_DOC_ID,
-            email: COMMON_CLOUD_EMAIL,
-            displayName: "Common Cloud (All Devices)",
+            uid: activeId === "GLOBAL-1" ? COMMON_CLOUD_DOC_ID : `sync_${activeId.toLowerCase()}`,
+            googleSub: activeId === "GLOBAL-1" ? COMMON_CLOUD_DOC_ID : `sync_${activeId.toLowerCase()}`,
+            email: emailForId,
+            displayName: `Cloud Sync (${activeId})`,
             authMethod: "common_cloud",
             verified: true
           }, true);
-          btnCommonCloudPullNow.textContent = orig;
-        });
-      }
-      const btnCommonCloudPushNow = document.getElementById("btn-common-cloud-push-now");
-      if (btnCommonCloudPushNow) {
-        btnCommonCloudPushNow.addEventListener("click", async () => {
-          const orig = btnCommonCloudPushNow.textContent;
-          btnCommonCloudPushNow.textContent = "⏳ Saving...";
-          await syncCurrentStateToDeviceCloud(true, COMMON_CLOUD_EMAIL);
-          btnCommonCloudPushNow.textContent = orig;
+          btnCommonCloudPullNow.innerHTML = origHtml;
+          showToast(`Synced with Cloud ID: ${activeId}! ☁️`);
         });
       }
 
@@ -21859,8 +21947,10 @@ const tier800DeckCards = initialDeckCards;
           await syncCurrentStateToDeviceCloud(false, outgoingEmail);
         }
 
-        currentAccountEmail = COMMON_CLOUD_EMAIL;
-        currentAccountName = "Common Cloud (All Devices)";
+        const activeId = getActiveCloudSyncId();
+        const emailForId = activeId === "GLOBAL-1" ? COMMON_CLOUD_EMAIL : `${activeId.toLowerCase()}@stellar.cloud`;
+        currentAccountEmail = emailForId;
+        currentAccountName = `Cloud Sync (${activeId})`;
         currentAccountPhoto = "";
         lastAccountCloudTimestamp = "";
 
@@ -21873,16 +21963,16 @@ const tier800DeckCards = initialDeckCards;
         }
 
         await loadVerifiedGoogleAccountState({
-          uid: COMMON_CLOUD_DOC_ID,
-          googleSub: COMMON_CLOUD_DOC_ID,
-          email: COMMON_CLOUD_EMAIL,
-          displayName: "Common Cloud (All Devices)",
+          uid: activeId === "GLOBAL-1" ? COMMON_CLOUD_DOC_ID : `sync_${activeId.toLowerCase()}`,
+          googleSub: activeId === "GLOBAL-1" ? COMMON_CLOUD_DOC_ID : `sync_${activeId.toLowerCase()}`,
+          email: emailForId,
+          displayName: `Cloud Sync (${activeId})`,
           authMethod: "common_cloud",
           verified: true
         }, true);
 
         updateAccountDisplays();
-        showToast("Switched to Common Cloud (All Devices) 🌐");
+        showToast(`Switched to Cloud Sync (${activeId}) ☁️`);
         playHapticTick(380, "sine", 0.04);
       };
 
@@ -21898,11 +21988,13 @@ const tier800DeckCards = initialDeckCards;
           if (saved && saved.verified === true && saved.email && saved.googleSub) {
             await loadVerifiedGoogleAccountState(saved, false);
           } else {
+            const activeId = getActiveCloudSyncId();
+            const emailForId = activeId === "GLOBAL-1" ? COMMON_CLOUD_EMAIL : `${activeId.toLowerCase()}@stellar.cloud`;
             await loadVerifiedGoogleAccountState({
-              uid: COMMON_CLOUD_DOC_ID,
-              googleSub: COMMON_CLOUD_DOC_ID,
-              email: COMMON_CLOUD_EMAIL,
-              displayName: "Common Cloud (All Devices)",
+              uid: activeId === "GLOBAL-1" ? COMMON_CLOUD_DOC_ID : `sync_${activeId.toLowerCase()}`,
+              googleSub: activeId === "GLOBAL-1" ? COMMON_CLOUD_DOC_ID : `sync_${activeId.toLowerCase()}`,
+              email: emailForId,
+              displayName: `Cloud Sync (${activeId})`,
               authMethod: "common_cloud",
               verified: true
             }, false);
@@ -21943,14 +22035,17 @@ const tier800DeckCards = initialDeckCards;
 
         // Listen for Remote Firestore State Updates from any other device in real time
         window.firebaseSync.onRemoteStateChange((cloudData) => {
-          if (!cloudData) return;
+          if (!cloudData || isSyncPushing || (Date.now() - lastLocalMutationTime < 3500)) return;
           const activeEmail = currentAccountEmail || COMMON_CLOUD_EMAIL;
           if (cloudData.email && String(cloudData.email).toLowerCase() !== activeEmail && cloudData.email !== COMMON_CLOUD_EMAIL) return;
           if (cloudData.updatedAt && cloudData.updatedAt === lastAccountCloudTimestamp) return;
           if (cloudData.updatedAt) {
+            const tRemote = Date.parse(cloudData.updatedAt) || 0;
+            const tLocal = Date.parse(lastAccountCloudTimestamp) || 0;
+            if (tLocal > 0 && tRemote < tLocal) return;
             lastAccountCloudTimestamp = cloudData.updatedAt;
           }
-          applyRemoteSyncPayload(cloudData, false);
+          applyRemoteSyncPayload(cloudData, false, true);
           showCloudSaveSuccessIndicator();
         });
       }
@@ -22020,7 +22115,7 @@ const tier800DeckCards = initialDeckCards;
           btnCardLearnedAction.addEventListener("click", (e) => {
             e.stopPropagation();
             const currCard = cards[currentIndex];
-            if (currCard) toggleCardLearned(currCard.num);
+            if (currCard) toggleCardLearned(currCard);
           });
         }
 
@@ -22029,7 +22124,7 @@ const tier800DeckCards = initialDeckCards;
           btnTopLearnedToggle.addEventListener("click", (e) => {
             e.stopPropagation();
             const currCard = cards[currentIndex];
-            if (currCard) toggleCardLearned(currCard.num);
+            if (currCard) toggleCardLearned(currCard);
           });
         }
 
@@ -22053,18 +22148,20 @@ const tier800DeckCards = initialDeckCards;
         }
 
         // Settings Buttons -> Open Menu Drawer / Settings Modal
-        const btnHomeSettings = document.getElementById("btn-home-settings");
-        if (btnHomeSettings) btnHomeSettings.addEventListener("click", openMenuDrawer);
+        const allSettingsTriggers = [
+          document.getElementById("btn-home-settings"),
+          document.getElementById("btn-desktop-settings"),
+          document.getElementById("btn-subsections-menu"),
+          document.getElementById("nav-btn-settings"),
+          document.getElementById("sidebar-btn-settings"),
+          document.getElementById("mob-tab-settings"),
+          document.getElementById("btn-top-settings"),
+          document.getElementById("btn-desktop-open-settings")
+        ];
+        allSettingsTriggers.forEach(btn => {
+          if (btn) btn.addEventListener("click", openMenuDrawer);
+        });
 
-        const btnDesktopSettings = document.getElementById("btn-desktop-settings");
-        if (btnDesktopSettings) btnDesktopSettings.addEventListener("click", openMenuDrawer);
-
-        // Mobile Hamburger Buttons (On FAR LEFT CORNER of each screen)
-        const btnSubsectionsMenu = document.getElementById("btn-subsections-menu");
-        if (btnSubsectionsMenu) btnSubsectionsMenu.addEventListener("click", openMenuDrawer);
-
-        // Initial setup
-        
         // DESKTOP SIDEBAR NAVIGATION
         const navBtnHome = document.getElementById("nav-btn-home");
         if (navBtnHome) navBtnHome.addEventListener("click", () => switchScreen("screen-home"));
@@ -22086,18 +22183,10 @@ const tier800DeckCards = initialDeckCards;
           });
         }
 
-        const navBtnSettings = document.getElementById("nav-btn-settings");
-        if (navBtnSettings) navBtnSettings.addEventListener("click", openMenuDrawer);
-
         const sidebarBrandHome = document.getElementById("sidebar-brand-home");
         if (sidebarBrandHome) sidebarBrandHome.addEventListener("click", () => switchScreen("screen-home"));
 
-        const btnDesktopOpenSettings = document.getElementById("btn-desktop-open-settings");
-        if (btnDesktopOpenSettings) btnDesktopOpenSettings.addEventListener("click", openMenuDrawer);
-
-        // MOBILE TOP & BOTTOM NAVIGATION
-        // mobile-hamburger-btn opens mobile navigation drawer below
-
+        // MOBILE BOTTOM NAVIGATION
         const mobTabHome = document.getElementById("mob-tab-home");
         if (mobTabHome) mobTabHome.addEventListener("click", () => switchScreen("screen-home"));
 
@@ -22115,10 +22204,10 @@ const tier800DeckCards = initialDeckCards;
           });
         }
 
-        const mobTabSettings = document.getElementById("mob-tab-settings");
-        if (mobTabSettings) mobTabSettings.addEventListener("click", openMenuDrawer);
+        const btnOpenAddSub = document.getElementById("btn-subsections-add-section");
+        if (btnOpenAddSub) btnOpenAddSub.addEventListener("click", openAddSectionModal);
 
-        // SIDEBAR SOUND QUICK TOGGLE
+        // SIDEBAR SOUND QUICK TOGGLE (Single clean handler)
         const sidebarQuickSound = document.getElementById("sidebar-quick-sound");
         if (sidebarQuickSound) {
           let soundEnabled = true;
@@ -22129,6 +22218,7 @@ const tier800DeckCards = initialDeckCards;
               ind.textContent = soundEnabled ? "ON 🔊" : "MUTED 🔇";
               ind.style.color = soundEnabled ? "#34d399" : "#f87171";
             }
+            if (soundEnabled && typeof playHapticTick === "function") playHapticTick(520, "sine", 0.05);
             showToast(soundEnabled ? "Audio Sound FX Enabled" : "Audio Sound FX Muted");
           });
         }
@@ -22143,293 +22233,6 @@ const tier800DeckCards = initialDeckCards;
       } else {
         initButtonsAndInteractions();
       }
-
-      // ==========================================================
-      // MASTER NAVIGATION & SCREEN ROUTING ARCHITECTURE
-      // Flow: Home (3k Vocab) ---> Subsections (800 - 1000) ---> Flashcards
-      // ==========================================================
-      function initMasterNavigationRouting() {
-        // 1. Home Screen 3k Vocab Card & Resume button -> Subsections
-        const card3k = document.getElementById("card-3k-featured");
-        const btnOpenSub = document.getElementById("btn-open-subsections");
-        if (card3k) {
-          card3k.addEventListener("click", (e) => {
-            if (e.target.closest("button")) return;
-            switchScreen("screen-subsections");
-            playHapticTick(540, "sine", 0.04);
-          });
-        }
-        if (btnOpenSub) {
-          btnOpenSub.addEventListener("click", (e) => {
-            e.stopPropagation();
-            resumeStudyDeck();
-            playHapticTick(600, "triangle", 0.05);
-          });
-        }
-
-        // 2. Subsections Screen: Back to Home
-        const btnBackHome = document.getElementById("btn-back-to-home");
-        if (btnBackHome) {
-          btnBackHome.addEventListener("click", () => {
-            switchScreen("screen-home");
-            playHapticTick(440, "sine", 0.04);
-          });
-        }
-
-        // 3. Subsections Screen: Cards 800 - 1000 card & Study button -> Flashcards
-        const subTier800 = document.getElementById("sub-tier-800-1000");
-        const btnResumeFromSub = document.getElementById("btn-resume-from-subsections");
-        function launchDeck800() {
-          if (typeof currentDeckId !== "undefined" && currentDeckId !== "deck-800-1000" && typeof switchDeck === "function") {
-            switchDeck("deck-800-1000");
-            return;
-          }
-          const lastNum = getLastCardNumber() || 800;
-          const targetIndex = cards.findIndex(c => c.num === lastNum);
-          currentIndex = targetIndex !== -1 ? targetIndex : 0;
-          switchScreen("screen-flashcard");
-          renderCurrentCard();
-          playHapticTick(680, "triangle", 0.05);
-        }
-        if (subTier800) {
-          subTier800.addEventListener("click", (e) => {
-            if (e.target.closest("button")) return;
-            launchDeck800();
-          });
-        }
-        if (btnResumeFromSub) {
-          btnResumeFromSub.addEventListener("click", (e) => {
-            e.stopPropagation();
-            launchDeck800();
-          });
-        }
-
-        // 4. Flashcard Screen: Breadcrumb back -> Subsections
-        const btnBreadcrumbBack = document.getElementById("btn-breadcrumb-back");
-        if (btnBreadcrumbBack) {
-          btnBreadcrumbBack.addEventListener("click", () => {
-            switchScreen("screen-subsections");
-            playHapticTick(440, "sine", 0.04);
-          });
-        }
-
-        // 5. Add Section Buttons (Home & Subsections) -> Modal Add Section
-        const btnOpenAddHome = document.getElementById("btn-open-add-section");
-        const btnOpenAddSub = document.getElementById("btn-subsections-add-section");
-        function openAddSectionModal() {
-          const modal = document.getElementById("modal-add-section");
-          if (modal) {
-            modal.classList.add("open", "active");
-            modal.style.display = "flex";
-            const input = document.getElementById("input-new-section-title") || document.getElementById("input-section-title");
-            if (input) setTimeout(() => input.focus(), 80);
-          }
-          playHapticTick(500, "sine", 0.04);
-        }
-        if (btnOpenAddHome) btnOpenAddHome.addEventListener("click", openAddSectionModal);
-        if (btnOpenAddSub) btnOpenAddSub.addEventListener("click", openAddSectionModal);
-
-        // Close Add Section Modal
-        const btnCloseAdd = document.getElementById("btn-close-add-section");
-        const btnCancelAdd = document.getElementById("btn-cancel-add-section");
-        const modalAdd = document.getElementById("modal-add-section");
-        function closeAddSectionModal() {
-          if (modalAdd) {
-            modalAdd.classList.remove("open", "active");
-            modalAdd.style.display = "none";
-          }
-        }
-        if (btnCloseAdd) btnCloseAdd.addEventListener("click", closeAddSectionModal);
-        if (btnCancelAdd) btnCancelAdd.addEventListener("click", closeAddSectionModal);
-        if (modalAdd) {
-          modalAdd.addEventListener("click", (e) => {
-            if (e.target === modalAdd) closeAddSectionModal();
-          });
-        }
-
-        // Save New Section Handler
-        const btnSaveNew = document.getElementById("btn-save-new-section");
-        if (btnSaveNew) {
-          btnSaveNew.addEventListener("click", () => {
-            const titleInput = document.getElementById("input-section-title");
-            const subInput = document.getElementById("input-section-sub");
-            const title = titleInput ? titleInput.value.trim() : "";
-            const sub = subInput ? subInput.value.trim() : "";
-            if (!title) {
-              showToast("Please enter a section title");
-              if (titleInput) titleInput.focus();
-              return;
-            }
-            const newSec = {
-              id: "sec_" + Date.now(),
-              title: title,
-              sub: sub || "Custom vocabulary set",
-              count: 50,
-              progress: 0,
-              color: "#38bdf8",
-              icon: "📚"
-            };
-            customSections.push(newSec);
-            saveCustomSections();
-            renderCustomSections();
-            closeAddSectionModal();
-            if (titleInput) titleInput.value = "";
-            if (subInput) subInput.value = "";
-            showToast("Created section: " + title);
-          });
-        }
-
-        // 6. Settings Buttons (Desktop Sidebar & Mobile Header/Bar)
-        const allSettingsTriggers = [
-          document.getElementById("nav-btn-settings"),
-          document.getElementById("sidebar-btn-settings"),
-          document.getElementById("mob-tab-settings"),
-          document.getElementById("btn-top-settings"),
-          document.getElementById("btn-desktop-open-settings")
-        ];
-        allSettingsTriggers.forEach(btn => {
-          if (btn) btn.addEventListener("click", openMenuDrawer);
-        });
-
-        // Sidebar and Drawer navigation links
-        const navHome = document.getElementById("nav-btn-home");
-        if (navHome) navHome.addEventListener("click", () => switchScreen("screen-home"));
-        const nav3k = document.getElementById("nav-btn-3k");
-        if (nav3k) nav3k.addEventListener("click", () => switchScreen("screen-subsections"));
-        const mobHome = document.getElementById("mob-tab-home");
-        if (mobHome) mobHome.addEventListener("click", () => switchScreen("screen-home"));
-        const mob3k = document.getElementById("mob-tab-3k");
-        if (mob3k) mob3k.addEventListener("click", () => switchScreen("screen-subsections"));
-      }
-
-      if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", initMasterNavigationRouting);
-      } else {
-        initMasterNavigationRouting();
-      }
-
-      
-      // ==========================================================
-      // MASTER DUOLINGO NAVIGATION WIRE-UPS (All Tiers & Devices)
-      // ==========================================================
-      (function initDuolingoNav() {
-        // Tab click handlers (Sidebar buttons & Mobile bottom nav)
-        const navHome = document.getElementById("nav-btn-home");
-        if (navHome) navHome.addEventListener("click", () => switchScreen("screen-home"));
-
-        const nav3k = document.getElementById("nav-btn-3k");
-        if (nav3k) nav3k.addEventListener("click", () => switchScreen("screen-subsections"));
-
-        const navSections = document.getElementById("nav-btn-sections");
-        if (navSections) navSections.addEventListener("click", () => {
-          switchScreen("screen-home");
-          setTimeout(() => {
-            const addBtn = document.getElementById("btn-open-add-section");
-            if (addBtn) addBtn.scrollIntoView({ behavior: "smooth", block: "center" });
-          }, 120);
-        });
-
-        const navSettings = document.getElementById("nav-btn-settings");
-        if (navSettings) navSettings.addEventListener("click", () => {
-          if (typeof openMenuDrawer === "function") openMenuDrawer();
-        });
-
-        const brandHome = document.getElementById("sidebar-brand-home");
-        if (brandHome) brandHome.addEventListener("click", () => switchScreen("screen-home"));
-
-        // Mobile Bottom Bar Tabs
-        const mobHome = document.getElementById("mob-tab-home");
-        if (mobHome) mobHome.addEventListener("click", () => switchScreen("screen-home"));
-
-        const mob3k = document.getElementById("mob-tab-3k");
-        if (mob3k) mob3k.addEventListener("click", () => switchScreen("screen-subsections"));
-
-        const mobSections = document.getElementById("mob-tab-sections");
-        if (mobSections) mobSections.addEventListener("click", () => {
-          switchScreen("screen-home");
-          setTimeout(() => {
-            const addBtn = document.getElementById("btn-open-add-section");
-            if (addBtn) addBtn.scrollIntoView({ behavior: "smooth", block: "center" });
-          }, 120);
-        });
-
-        const mobSettings = document.getElementById("mob-tab-settings");
-        if (mobSettings) mobSettings.addEventListener("click", () => {
-          if (typeof openMenuDrawer === "function") openMenuDrawer();
-        });
-
-        // mobHamburger handled below
-
-        // Subsections Study Deck Button -> Enters Flashcard mode
-        const btnResumeFromSub = document.getElementById("btn-resume-from-subsections");
-        if (btnResumeFromSub) btnResumeFromSub.addEventListener("click", () => switchScreen("screen-flashcard"));
-
-        const tier800Card = document.getElementById("sub-tier-800-1000");
-        if (tier800Card) tier800Card.addEventListener("click", (e) => {
-          if (e.target.closest("button")) return;
-          switchScreen("screen-flashcard");
-        });
-
-        // 3K Vocab Card on Home -> RESUME button directly resumes left-off card
-        const btnOpenSub = document.getElementById("btn-open-subsections");
-        if (btnOpenSub) btnOpenSub.addEventListener("click", () => resumeStudyDeck());
-
-        const card3k = document.getElementById("card-3k-featured");
-        if (card3k) card3k.addEventListener("click", (e) => {
-          if (e.target.closest("button")) return;
-          switchScreen("screen-subsections");
-        });
-
-        // Centered Add Section Buttons on Both Screens
-        const btnAddHome = document.getElementById("btn-open-add-section");
-        const btnAddSub = document.getElementById("btn-subsections-add-section");
-        const modalAdd = document.getElementById("modal-add-section");
-        const closeAdd = document.getElementById("btn-close-add-section");
-        const cancelAdd = document.getElementById("btn-cancel-add-section");
-
-        function openAddModal() {
-          if (modalAdd) {
-            modalAdd.classList.add("open", "active");
-            modalAdd.style.display = "flex";
-            const input = document.getElementById("input-new-section-title") || document.getElementById("input-section-title");
-            if (input) { input.value = ""; input.focus(); }
-          }
-        }
-        function closeAddModal() {
-          if (modalAdd) {
-            modalAdd.classList.remove("open", "active");
-            modalAdd.style.display = "none";
-          }
-        }
-
-        if (btnAddHome) btnAddHome.addEventListener("click", openAddModal);
-        if (btnAddSub) btnAddSub.addEventListener("click", openAddModal);
-        if (closeAdd) closeAdd.addEventListener("click", closeAddModal);
-        if (cancelAdd) cancelAdd.addEventListener("click", closeAddModal);
-
-        if (modalAdd) {
-          modalAdd.addEventListener("click", (e) => {
-            if (e.target === modalAdd) closeAddModal();
-          });
-        }
-
-        // Quick Sound FX Toggle in Sidebar
-        const quickSound = document.getElementById("sidebar-quick-sound");
-        const soundIndicator = document.getElementById("sidebar-sound-indicator");
-        if (quickSound && soundIndicator) {
-          quickSound.addEventListener("click", () => {
-            const isMuted = soundIndicator.textContent.includes("OFF");
-            if (isMuted) {
-              soundIndicator.textContent = "ON 🔊";
-              soundIndicator.style.color = "#34d399";
-              if (typeof playHapticTick === "function") playHapticTick(520, "sine", 0.05);
-            } else {
-              soundIndicator.textContent = "OFF 🔇";
-              soundIndicator.style.color = "#94a3b8";
-            }
-          });
-        }
-      })();
 
       // =========================================================================
       // MOBILE NAVIGATION DRAWER (Slide-out menu showing left sidebar items)
@@ -22838,7 +22641,7 @@ const tier800DeckCards = initialDeckCards;
             cardEl.style.boxShadow = isCurrent ? meta.shadowActive : meta.shadowIdle;
           }
           const rem = getRemainingDeckCards(meta.cards || []);
-          const lrn = getSectionLearnedCount(rem);
+          const lrn = getSectionLearnedCount(rem, meta.id);
           const pct = rem.length > 0 ? Math.round((lrn / rem.length) * 100) : 0;
           const statEl = document.getElementById(`${meta.prefix}-stat-line`);
           if (statEl) statEl.textContent = `${lrn} / ${rem.length} Learned`;
