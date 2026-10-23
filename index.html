@@ -19585,11 +19585,25 @@ const tier800DeckCards = initialDeckCards;
         if (isSwiping && (Math.abs(diffX) > 22 || Math.abs(vX) > 0.22)) {
           executeKineticSwipe(diffX, vX);
         } else if (dist < 22 && touchDuration < 450) {
-          // Stationary tap: Single tap flips the card directly!
+          // Stationary tap: STRICT DOUBLE-TAP to flip back 2 times and front 2 times (single tap NEVER flips!)
           if (!isCardInteractiveBtn(e.target)) {
-            suppressSyntheticClickUntil = Date.now() + 450;
-            flipCard();
-            if (typeof playHapticTick === "function") playHapticTick(620, "triangle", 0.04);
+            suppressSyntheticClickUntil = Date.now() + 500;
+            const now = Date.now();
+            const timeSinceLastTap = now - lastTapTimestamp;
+            const tapDist = Math.hypot(touch.clientX - lastTapCoords.x, touch.clientY - lastTapCoords.y);
+
+            if (timeSinceLastTap > 30 && timeSinceLastTap < 420 && tapDist < 50) {
+              // 2nd tap detected! Double-tap flips the card (front to back OR back to front)
+              lastTapTimestamp = 0;
+              flipCard();
+              if (typeof playHapticTick === "function") playHapticTick(620, "triangle", 0.04);
+            } else {
+              // 1st tap: DO NOT flip! Record time and coordinates for double-tap detection
+              lastTapTimestamp = now;
+              lastTapCoords = { x: touch.clientX, y: touch.clientY };
+              cardWrapper.style.transition = "transform 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
+              cardWrapper.style.transform = isFlipped ? "rotateY(180deg)" : "rotateY(0deg)";
+            }
           }
         } else {
           cardWrapper.style.transition = "transform 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
@@ -19686,15 +19700,47 @@ const tier800DeckCards = initialDeckCards;
         }
       });
 
-      // Desktop native double-click (guarantees exactly 1 flip, ignores mobile synthetic dblclicks)
-      cardWrapper.addEventListener("dblclick", (e) => {
-        if (Date.now() < suppressDblClickUntil) {
+      // Desktop double-tap / double-click to flip (2 clicks within 420ms; single click NEVER flips!)
+      cardWrapper.addEventListener("click", (e) => {
+        if (Date.now() < suppressSyntheticClickUntil) {
           e.preventDefault();
           e.stopPropagation();
           return;
         }
+        if (isDeckReelOpen) return;
         if (isCardInteractiveBtn(e.target)) return;
-        flipCard();
+        if (e.button !== undefined && e.button !== 0) return;
+
+        const now = Date.now();
+        const timeSinceLastClick = now - lastMouseClickTime;
+        const clickDist = Math.hypot(e.clientX - lastMouseCoords.x, e.clientY - lastMouseCoords.y);
+
+        if (timeSinceLastClick > 30 && timeSinceLastClick < 420 && clickDist < 50) {
+          // 2nd click detected! Double-click flips the card (front to back OR back to front)
+          lastMouseClickTime = 0;
+          flipCard();
+          if (typeof playHapticTick === "function") playHapticTick(620, "triangle", 0.04);
+        } else {
+          // 1st click: DO NOT FLIP! Record time and coordinates for double-click detection
+          lastMouseClickTime = now;
+          lastMouseCoords = { x: e.clientX, y: e.clientY };
+        }
+      });
+
+      // Desktop native double-click (browser dblclick event fallback, throttled to prevent double flips)
+      cardWrapper.addEventListener("dblclick", (e) => {
+        if (Date.now() < suppressDblClickUntil || Date.now() < suppressSyntheticClickUntil) {
+          e.preventDefault();
+          e.stopPropagation();
+          return;
+        }
+        if (isDeckReelOpen) return;
+        if (isCardInteractiveBtn(e.target)) return;
+        const now = Date.now();
+        if (now - lastFlipTimestamp > 280) {
+          lastMouseClickTime = 0;
+          flipCard();
+        }
       });
 
       // Natural horizontal wheel & trackpad scroll support
@@ -19718,19 +19764,6 @@ const tier800DeckCards = initialDeckCards;
           }
         }, { passive: false });
       }
-
-      // Card direct click handler (desktop mouse & non-touch clicks)
-      cardWrapper.addEventListener("click", (e) => {
-        if (Date.now() < suppressSyntheticClickUntil) {
-          e.preventDefault();
-          e.stopPropagation();
-          return;
-        }
-        if (isDeckReelOpen) return;
-        if (isCardInteractiveBtn(e.target)) return;
-        if (e.button !== undefined && e.button !== 0) return;
-        flipCard();
-      });
 
       // =========================================================================
       // DELETE FLASHCARD WITH AUTOMATIC CONTINUOUS RENUMBERING
