@@ -5248,6 +5248,13 @@
         box-shadow: 0 1px 0 rgba(0, 0, 0, 0.4) !important;
       }
 
+      .flashcard-top-nav .shuffle-btn.active {
+        background: #a855f7 !important;
+        border-color: #c084fc !important;
+        color: #ffffff !important;
+        box-shadow: 0 3px 0 #7e22ce, 0 0 12px rgba(168, 85, 247, 0.5) !important;
+      }
+
       @media (max-width: 480px) {
         .flashcard-top-nav .breadcrumb-back-btn {
           padding: 0 8px !important;
@@ -6628,6 +6635,40 @@
         box-shadow: 0 3px 0 #1899d6, 0 6px 14px rgba(28, 176, 246, 0.3) !important;
         color: #ffffff !important;
         transform: translateY(1px) !important;
+      }
+
+      .settings-choice-group.four-cols {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 8px !important;
+        width: 100% !important;
+      }
+
+      .settings-choice-group.five-cols {
+        display: grid !important;
+        grid-template-columns: repeat(5, 1fr) !important;
+        gap: 8px !important;
+        width: 100% !important;
+      }
+
+      @media (max-width: 480px) {
+        .settings-choice-group.five-cols {
+          grid-template-columns: repeat(3, 1fr) !important;
+        }
+        .settings-choice-group.four-cols {
+          grid-template-columns: repeat(2, 1fr) !important;
+        }
+      }
+
+      @keyframes repeatPulseRing {
+        0% { box-shadow: 0 0 0 0 rgba(28, 176, 246, 0.7); }
+        70% { box-shadow: 0 0 0 12px rgba(28, 176, 246, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(28, 176, 246, 0); }
+      }
+
+      .repeating-speech-active {
+        animation: repeatPulseRing 1.2s infinite ease-out !important;
+        border-color: #38bdf8 !important;
       }
 
       /* Duolingo Chunky Sliders & Badges */
@@ -9652,18 +9693,20 @@
 
         <!-- ================= TAB 2: SPEECH & PRONUNCIATION ================= -->
         <div class="settings-tab-panel" id="tab-speech">
+          
+          <!-- 1. Native Pronunciation Tuning -->
           <div class="duo-settings-section-title">Voice Pronunciation</div>
           <div class="settings-card">
             <div class="settings-card-header">
               <div class="settings-card-left">
                 <div class="settings-card-icon" style="background: #58cc02; box-shadow: 0 3px 0 #46a302; color: #ffffff; border: none;">🎙️</div>
                 <div>
-                  <h3 class="settings-card-title">Native Pronunciation Tuning</h3>
-                  <p class="settings-card-sub">Accurate English, Tamil, Spanish & Hindi voices</p>
+                  <h3 class="settings-card-title">Native Pronunciation Studio</h3>
+                  <p class="settings-card-sub">Authentic Spanish (es) & Hindi (hi) native speech · Tamil text-only</p>
                 </div>
               </div>
               <button type="button" class="btn-audio-test" id="btn-test-voice" title="Test voice speech">
-                <span>Preview 🔊</span>
+                <span id="btn-test-voice-label">Preview 🔊</span>
               </button>
             </div>
 
@@ -9701,6 +9744,151 @@
                   <span class="settings-val-badge" id="badge-voice-pitch">1.0×</span>
                 </div>
                 <input type="range" class="custom-settings-slider" id="slider-voice-pitch" min="50" max="150" value="100" />
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Voice Repetition & Shadowing Loop -->
+          <div class="duo-settings-section-title">Voice Repetition & Shadowing Loop</div>
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <div class="settings-card-left">
+                <div class="settings-card-icon" style="background: #1cb0f6; box-shadow: 0 3px 0 #1899d6; color: #ffffff; border: none;">🔁</div>
+                <div>
+                  <h3 class="settings-card-title">Pronunciation Repetition Count</h3>
+                  <p class="settings-card-sub">Times native voice repeats each time you tap a speech tile</p>
+                </div>
+              </div>
+              <span class="settings-val-badge" id="badge-repeat-count-summary">1× Once</span>
+            </div>
+
+            <!-- Repetition Choice Group -->
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <span style="font-size: 0.8rem; color: #8496a0; font-weight: 750;">Repeat Cycle Count</span>
+              <div class="settings-choice-group five-cols" id="group-repeat-count">
+                <button type="button" class="settings-choice-btn active" data-repeat-count="1">1× Once</button>
+                <button type="button" class="settings-choice-btn" data-repeat-count="2">2× Shadow</button>
+                <button type="button" class="settings-choice-btn" data-repeat-count="3">3× Focus</button>
+                <button type="button" class="settings-choice-btn" data-repeat-count="5">5× Mastery</button>
+                <button type="button" class="settings-choice-btn" data-repeat-count="0">Loop ♾️</button>
+              </div>
+            </div>
+
+            <!-- Delay Interval Between Repeats -->
+            <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 6px; padding-top: 12px; border-top: 2px solid #28363e;">
+              <div class="settings-slider-row">
+                <div class="settings-slider-label-row">
+                  <span>Pause Delay Between Repeats (Shadowing Gap)</span>
+                  <span class="settings-val-badge" id="badge-repeat-delay">1.0s</span>
+                </div>
+                <input type="range" class="custom-settings-slider" id="slider-repeat-delay" min="300" max="4000" step="100" value="1000" />
+              </div>
+
+              <!-- Quick delay preset chips -->
+              <div class="settings-choice-group four-cols" id="group-repeat-delay-presets">
+                <button type="button" class="settings-choice-btn" data-repeat-delay="500">0.5s Fast</button>
+                <button type="button" class="settings-choice-btn active" data-repeat-delay="1000">1.0s Normal</button>
+                <button type="button" class="settings-choice-btn" data-repeat-delay="1500">1.5s Shadow</button>
+                <button type="button" class="settings-choice-btn" data-repeat-delay="2500">2.5s Relaxed</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Smart Audio Automation (Auto-Pronounce) -->
+          <div class="duo-settings-section-title">Hands-Free Automation</div>
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <div class="settings-card-left">
+                <div class="settings-card-icon" style="background: #ff9600; box-shadow: 0 3px 0 #d97d00; color: #ffffff; border: none;">⚡</div>
+                <div>
+                  <h3 class="settings-card-title">Auto-Pronounce on Card Flip</h3>
+                  <p class="settings-card-sub">Instantly pronounces native Spanish / Hindi when flipping to back</p>
+                </div>
+              </div>
+              <label class="toggle-switch" aria-label="Toggle Auto-Pronounce on Flip">
+                <input type="checkbox" id="toggle-auto-pronounce-flip" />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+
+            <div class="settings-card-header" style="margin-top: 6px; padding-top: 14px; border-top: 2px solid #28363e;">
+              <div class="settings-card-left">
+                <div class="settings-card-icon" style="background: #a855f7; box-shadow: 0 3px 0 #9333ea; color: #ffffff; border: none;">⏭️</div>
+                <div>
+                  <h3 class="settings-card-title">Auto-Pronounce on Next Card</h3>
+                  <p class="settings-card-sub">Speaks the English word automatically when swiping to new card</p>
+                </div>
+              </div>
+              <label class="toggle-switch" aria-label="Toggle Auto-Pronounce on Next Card">
+                <input type="checkbox" id="toggle-auto-pronounce-next" />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <!-- 4. Native Voice Transcription Studio -->
+          <div class="duo-settings-section-title">Native Voice Transcription (Speech-to-Text)</div>
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <div class="settings-card-left">
+                <div class="settings-card-icon" style="background: #ef4444; box-shadow: 0 3px 0 #dc2626; color: #ffffff; border: none;">🎤</div>
+                <div>
+                  <h3 class="settings-card-title">Native Speech Dictation Tuning</h3>
+                  <p class="settings-card-sub">Strictly Spanish (es-ES) & Hindi (hi-IN) voice typing (Zero English)</p>
+                </div>
+              </div>
+              <span class="settings-val-badge" style="color: #ef4444; border-color: rgba(239, 68, 68, 0.4);">Native Only</span>
+            </div>
+
+            <!-- Inactivity silence commit delay -->
+            <div class="settings-slider-row" style="margin-top: 4px;">
+              <div class="settings-slider-label-row">
+                <span>Silence Inactivity Auto-Commit Delay</span>
+                <span class="settings-val-badge" id="badge-transcribe-delay">1.5s</span>
+              </div>
+              <input type="range" class="custom-settings-slider" id="slider-transcribe-delay" min="800" max="4000" step="100" value="1500" />
+            </div>
+
+            <!-- Preset chips for silence commit -->
+            <div class="settings-choice-group four-cols" id="group-transcribe-delay-presets" style="margin-top: 6px;">
+              <button type="button" class="settings-choice-btn" data-transcribe-delay="1000">1.0s Fast</button>
+              <button type="button" class="settings-choice-btn active" data-transcribe-delay="1500">1.5s Normal</button>
+              <button type="button" class="settings-choice-btn" data-transcribe-delay="2500">2.5s Relaxed</button>
+              <button type="button" class="settings-choice-btn" data-transcribe-delay="3500">3.5s Long</button>
+            </div>
+
+            <!-- Continuous Dictation Switch -->
+            <div class="settings-card-header" style="margin-top: 12px; padding-top: 12px; border-top: 2px solid #28363e;">
+              <div class="settings-card-left">
+                <div>
+                  <h3 class="settings-card-title" style="font-size: 0.9rem;">Continuous Dictation</h3>
+                  <p class="settings-card-sub">Keep microphone listening across pauses until manually tapped</p>
+                </div>
+              </div>
+              <label class="toggle-switch" aria-label="Toggle Continuous Dictation">
+                <input type="checkbox" id="toggle-transcribe-continuous" checked />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+
+            <!-- Interactive Native Transcription Test Playground -->
+            <div style="margin-top: 12px; padding: 14px; background: #162026; border: 2px solid #28363e; border-radius: 14px; display: flex; flex-direction: column; gap: 10px;">
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                <span style="font-size: 0.8rem; font-weight: 750; color: #94a3b8;">🎙️ Live Transcription Tester</span>
+                <span id="transcribe-test-status" class="settings-val-badge" style="font-size: 0.72rem; color: #8496a0;">Mic Ready</span>
+              </div>
+              <div class="settings-choice-group" style="grid-template-columns: 1fr 1fr !important; gap: 8px;">
+                <button type="button" class="settings-choice-btn active" id="btn-transcribe-test-lang-es">🇪🇸 Spanish (es-ES)</button>
+                <button type="button" class="settings-choice-btn" id="btn-transcribe-test-lang-hi">🇮🇳 Hindi (hi-IN)</button>
+              </div>
+              <div style="display: flex; gap: 8px; align-items: center;">
+                <button type="button" id="btn-transcribe-test-mic" class="duo-btn-3d" style="flex: 1; padding: 10px 14px; background: #ef4444; border: none; box-shadow: 0 3px 0 #dc2626; color: #ffffff; border-radius: 12px; font-weight: 800; font-size: 0.82rem; cursor: pointer;">
+                  🎤 Speak Now To Test
+                </button>
+                <button type="button" id="btn-transcribe-test-clear" class="settings-choice-btn" style="padding: 10px 12px;">Clear</button>
+              </div>
+              <div id="transcribe-test-result" style="min-height: 44px; padding: 10px 12px; background: #202f36; border: 1.5px solid #37464f; border-radius: 10px; font-size: 0.86rem; color: #f8fafc; font-style: italic;">
+                (Recognized Spanish/Hindi speech will appear here in real-time)
               </div>
             </div>
           </div>
@@ -9756,6 +9944,24 @@
 
         <!-- ================= TAB 4: DECK TOOLS & DATA MANAGEMENT ================= -->
         <div class="settings-tab-panel" id="tab-deck">
+          <div class="duo-settings-section-title">Study Order</div>
+          <!-- Shuffle Mode Toggle Card -->
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <div class="settings-card-left">
+                <div class="settings-card-icon" style="background: #a855f7; box-shadow: 0 3px 0 #9333ea; color: #ffffff; border: none;">🔀</div>
+                <div>
+                  <h3 class="settings-card-title">Randomized Shuffle Mode</h3>
+                  <p class="settings-card-sub">Turn ON to randomize card study order, or turn OFF to study sequentially (800–1000)</p>
+                </div>
+              </div>
+              <label class="toggle-switch" aria-label="Toggle Shuffle Mode">
+                <input type="checkbox" id="toggle-settings-shuffle" />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+
           <div class="duo-settings-section-title">Deck Recovery</div>
           <!-- Restore Deleted Cards -->
           <div class="settings-card">
@@ -10222,6 +10428,12 @@
         voiceVolume: 1.0,
         voicePitch: 1.0,
         voiceRate: 0.80,
+        repeatCount: 1, // 1 (once), 2, 3, 5, or 0 (loop ♾️)
+        repeatDelay: 1000, // pause delay between repeats in ms
+        autoPronounceFlip: false, // auto speak Spanish/Hindi on card flip
+        autoPronounceNext: false, // auto speak English on card change
+        transcribeSilenceDelay: 1500, // ms to wait after silence before auto-committing
+        transcribeContinuous: true, // keep mic listening across pauses
         sfxVolume: 1.0,
         sfxStyle: "snap"
       };
@@ -17950,12 +18162,18 @@ const tier800DeckCards = initialDeckCards;
         settingsModal.classList.add("open");
         if (typeof jumpSlider !== "undefined" && jumpSlider) { jumpSlider.value = cards[currentIndex].num; }
         if (typeof sliderValIndicator !== "undefined" && sliderValIndicator) { sliderValIndicator.textContent = `#${cards[currentIndex].num} — ${cards[currentIndex].word}`; }
+        if (typeof syncAudioUI === "function") syncAudioUI();
+        const toggleSettingsShuffle = document.getElementById("toggle-settings-shuffle");
+        if (toggleSettingsShuffle) {
+          toggleSettingsShuffle.checked = Boolean(isShuffled);
+        }
         playHapticTick(500, "sine", 0.04);
       }
 
       function closeSettingsModal() {
         if (!settingsModal) return;
         settingsModal.classList.remove("open");
+        if (typeof stopAllNativeSpeech === "function") stopAllNativeSpeech();
       }
 
       if (btnSettingsModal) {
@@ -18146,6 +18364,12 @@ const tier800DeckCards = initialDeckCards;
         voiceVolume: 1.0,
         voicePitch: 1.0,
         voiceRate: 0.80,
+        repeatCount: 1,
+        repeatDelay: 1000,
+        autoPronounceFlip: false,
+        autoPronounceNext: false,
+        transcribeSilenceDelay: 1500,
+        transcribeContinuous: true,
         sfxVolume: 1.0,
         sfxStyle: "snap"
       });
@@ -18475,9 +18699,32 @@ const tier800DeckCards = initialDeckCards;
       }
       // Active Audio Track Tracker
       let currentActiveAudio = null;
-
-      // Speaks in 100% authentic native language accent, slowly and clearly
+      let activeSpeechLoopController = { id: 0, cancelled: false, activeTile: null, activeClass: "" };
       let lastSpeechTriggerTime = 0;
+
+      function stopAllNativeSpeech() {
+        if (activeSpeechLoopController) {
+          activeSpeechLoopController.cancelled = true;
+          if (activeSpeechLoopController.activeTile && activeSpeechLoopController.activeClass) {
+            activeSpeechLoopController.activeTile.classList.remove(activeSpeechLoopController.activeClass, "repeating-speech-active");
+          }
+        }
+        if (currentActiveAudio) {
+          try {
+            currentActiveAudio.pause();
+            currentActiveAudio.currentTime = 0;
+          } catch (e) {}
+          currentActiveAudio = null;
+        }
+        if ("speechSynthesis" in window) {
+          try {
+            window.speechSynthesis.cancel();
+          } catch (e) {}
+        }
+        document.querySelectorAll(".speaking-en, .speaking-ta, .speaking-es, .speaking-hi, .repeating-speech-active").forEach(el => {
+          el.classList.remove("speaking-en", "speaking-ta", "speaking-es", "speaking-hi", "repeating-speech-active");
+        });
+      }
 
       function cleanSpeechWord(rawText) {
         if (!rawText) return "";
@@ -18492,67 +18739,105 @@ const tier800DeckCards = initialDeckCards;
       }
 
       // Speaks in 100% authentic native language accent, slowly and clearly
-      function playNativeSpeech(text, langCode, visualTile = null, activeClass = "") {
+      // Supports configurable repetition loop (1x, 2x, 3x, 5x, or continuous loop) with pause delay
+      function playNativeSpeech(text, langCode, visualTile = null, activeClass = "", onIterationProgress = null) {
         const cleanWord = cleanSpeechWord(text);
         if (!cleanWord) return;
 
-        // Stop any currently playing audio track
-        if (currentActiveAudio) {
-          try {
-            currentActiveAudio.pause();
-            currentActiveAudio.currentTime = 0;
-          } catch (e) {}
-          currentActiveAudio = null;
-        }
-        if ("speechSynthesis" in window) {
-          try {
-            window.speechSynthesis.cancel();
-          } catch (e) {}
-        }
-
-        document.querySelectorAll(".speaking-en, .speaking-ta, .speaking-es, .speaking-hi").forEach(el => {
-          el.classList.remove("speaking-en", "speaking-ta", "speaking-es", "speaking-hi");
-        });
-
-        if (visualTile && activeClass) {
-          visualTile.classList.add(activeClass);
-        }
-
-        // Strictly native speech: Spanish (es), Hindi (hi), English (en)
-        if (langCode.startsWith("ta")) {
-          // Tamil speech audio omitted per user specification
-          cleanupActive();
+        // If user taps the active speaking tile that is already repeating, act as an instant stop toggle!
+        if (visualTile && activeClass && visualTile.classList.contains(activeClass) && activeSpeechLoopController && !activeSpeechLoopController.cancelled) {
+          stopAllNativeSpeech();
           return;
         }
+
+        stopAllNativeSpeech();
+
+        // Strictly native speech: Spanish (es), Hindi (hi), English (en) - Tamil speech omitted per user specification
+        if (langCode.startsWith("ta")) {
+          return;
+        }
+
+        const prefs = (typeof window !== "undefined" && window.audioPrefs) || (typeof audioPrefs !== "undefined" ? audioPrefs : {});
+        const targetRepeatCount = typeof prefs.repeatCount === "number" ? prefs.repeatCount : 1; // 1 = once, 0 = infinite loop
+        const repeatDelay = typeof prefs.repeatDelay === "number" ? Math.max(200, prefs.repeatDelay) : 1000;
+        
+        const loopId = Date.now() + Math.random();
+        const loopCtrl = { id: loopId, cancelled: false, activeTile: visualTile, activeClass: activeClass };
+        activeSpeechLoopController = loopCtrl;
 
         const ttsLang = langCode.startsWith("es") ? "es" : langCode.startsWith("hi") ? "hi" : "en";
         const speechQuery = ttsLang === "en" ? cleanWord.toLowerCase() : cleanWord;
         const ttsUrl = `/api/tts?lang=${encodeURIComponent(ttsLang)}&text=${encodeURIComponent(speechQuery)}`;
 
-        const audio = new Audio();
-        const cleanupActive = () => {
+        let currentIter = 1;
+
+        function runSpeechCycle() {
+          if (loopCtrl.cancelled) return;
+
           if (visualTile && activeClass) {
-            visualTile.classList.remove(activeClass);
+            visualTile.classList.add(activeClass);
+            if (targetRepeatCount > 1 || targetRepeatCount === 0) {
+              visualTile.classList.add("repeating-speech-active");
+            }
           }
-          if (currentActiveAudio === audio) {
-            currentActiveAudio = null;
+
+          if (onIterationProgress) {
+            onIterationProgress(currentIter, targetRepeatCount, false);
           }
-        };
 
-        audio.src = ttsUrl;
-        const prefs = (typeof window !== "undefined" && window.audioPrefs) || (typeof audioPrefs !== "undefined" ? audioPrefs : {});
-        audio.volume = typeof prefs.voiceVolume === "number" ? Math.max(0.2, Math.min(1, prefs.voiceVolume)) : 1.0;
-        audio.playbackRate = typeof prefs.voiceRate === "number" ? Math.max(0.65, Math.min(1.25, prefs.voiceRate)) : 0.88;
-        currentActiveAudio = audio;
+          const onCycleFinished = () => {
+            if (loopCtrl.cancelled) return;
 
-        audio.onended = cleanupActive;
-        audio.onerror = () => {
-          speakWebSpeechStrict(speechQuery, ttsLang, cleanupActive);
-        };
+            // Check if we need to repeat
+            const shouldContinue = (targetRepeatCount === 0) || (currentIter < targetRepeatCount);
 
-        audio.play().catch(() => {
-          speakWebSpeechStrict(speechQuery, ttsLang, cleanupActive);
-        });
+            if (!shouldContinue) {
+              // Completed all repetitions cleanly
+              if (visualTile && activeClass) {
+                visualTile.classList.remove(activeClass, "repeating-speech-active");
+              }
+              if (currentActiveAudio === audio) {
+                currentActiveAudio = null;
+              }
+              if (onIterationProgress) {
+                onIterationProgress(currentIter, targetRepeatCount, true);
+              }
+              return;
+            }
+
+            // More repetitions to play: pause for repeatDelay, then trigger next cycle
+            currentIter++;
+            if (visualTile && activeClass) {
+              // Brief visual relaxation to show repetition rhythm
+              visualTile.classList.remove(activeClass);
+            }
+            if (onIterationProgress) {
+              onIterationProgress(currentIter - 1, targetRepeatCount, false);
+            }
+
+            setTimeout(() => {
+              if (loopCtrl.cancelled) return;
+              runSpeechCycle();
+            }, repeatDelay);
+          };
+
+          const audio = new Audio();
+          audio.src = ttsUrl;
+          audio.volume = typeof prefs.voiceVolume === "number" ? Math.max(0.2, Math.min(1, prefs.voiceVolume)) : 1.0;
+          audio.playbackRate = typeof prefs.voiceRate === "number" ? Math.max(0.65, Math.min(1.25, prefs.voiceRate)) : 0.88;
+          currentActiveAudio = audio;
+
+          audio.onended = onCycleFinished;
+          audio.onerror = () => {
+            speakWebSpeechStrict(speechQuery, ttsLang, onCycleFinished);
+          };
+
+          audio.play().catch(() => {
+            speakWebSpeechStrict(speechQuery, ttsLang, onCycleFinished);
+          });
+        }
+
+        runSpeechCycle();
       }
 
       // Pre-cache available system synthesis voices
@@ -18642,26 +18927,63 @@ const tier800DeckCards = initialDeckCards;
       // =========================================================================
       let activeSpeechRecognition = null;
       let activeTranscribeTarget = null;
+      let activeSpeechSilenceTimer = null;
 
       function setupNativeSpeechTranscription() {
         const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
         const btnTranscribeEs = document.getElementById("btn-transcribe-es");
         const btnTranscribeHi = document.getElementById("btn-transcribe-hi");
 
-        if (!btnTranscribeEs || !btnTranscribeHi) return;
+        // Settings Modal Live Transcription Tester Elements
+        const testBtnMic = document.getElementById("btn-transcribe-test-mic");
+        const testLangEs = document.getElementById("btn-transcribe-test-lang-es");
+        const testLangHi = document.getElementById("btn-transcribe-test-lang-hi");
+        const testClear = document.getElementById("btn-transcribe-test-clear");
+        const testResult = document.getElementById("transcribe-test-result");
+        const testStatus = document.getElementById("transcribe-test-status");
+
+        let activeTestLang = "es-ES";
+        if (testLangEs && testLangHi) {
+          testLangEs.addEventListener("click", () => {
+            testLangEs.classList.add("active");
+            testLangHi.classList.remove("active");
+            activeTestLang = "es-ES";
+          });
+          testLangHi.addEventListener("click", () => {
+            testLangHi.classList.add("active");
+            testLangEs.classList.remove("active");
+            activeTestLang = "hi-IN";
+          });
+        }
+        if (testClear && testResult) {
+          testClear.addEventListener("click", () => {
+            testResult.textContent = "(Recognized Spanish/Hindi speech will appear here in real-time)";
+            testResult.style.fontStyle = "italic";
+            testResult.style.color = "#8496a0";
+          });
+        }
 
         if (!SpeechRec) {
           const markUnsupported = (btn) => {
-            btn.style.opacity = "0.5";
-            btn.title = "Voice transcription requires Web Speech API support";
+            if (btn) {
+              btn.style.opacity = "0.5";
+              btn.title = "Voice transcription requires Web Speech API support";
+            }
           };
           markUnsupported(btnTranscribeEs);
           markUnsupported(btnTranscribeHi);
+          markUnsupported(testBtnMic);
+          if (testStatus) testStatus.textContent = "Web Speech API not supported on browser";
           return;
         }
 
-        function toggleRecognition(btn, targetInput, nativeLang, langLabel) {
-          if (activeSpeechRecognition && activeTranscribeTarget === targetInput) {
+        function toggleRecognition(btn, targetElOrInput, nativeLang, langLabel, isTestArea = false) {
+          if (activeSpeechSilenceTimer) {
+            clearTimeout(activeSpeechSilenceTimer);
+            activeSpeechSilenceTimer = null;
+          }
+
+          if (activeSpeechRecognition && activeTranscribeTarget === targetElOrInput) {
             try { activeSpeechRecognition.stop(); } catch(e) {}
             return;
           }
@@ -18671,9 +18993,14 @@ const tier800DeckCards = initialDeckCards;
 
           try {
             const recognition = new SpeechRec();
-            // Strictly configure voice transcription for native speaking (never English!)
+            // Strictly native speaking (never English!)
             recognition.lang = nativeLang; // 'es-ES' for Spanish, 'hi-IN' for Hindi
-            recognition.continuous = false;
+            
+            const prefs = (typeof window !== "undefined" && window.audioPrefs) || (typeof audioPrefs !== "undefined" ? audioPrefs : {});
+            const isContinuous = prefs.transcribeContinuous !== false;
+            const silenceDelay = typeof prefs.transcribeSilenceDelay === "number" ? Math.max(600, prefs.transcribeSilenceDelay) : 1500;
+            
+            recognition.continuous = isContinuous;
             recognition.interimResults = true;
             recognition.maxAlternatives = 1;
 
@@ -18681,17 +19008,43 @@ const tier800DeckCards = initialDeckCards;
             btn.innerHTML = `<span style="display:inline-block;animation: pulse 1s infinite;">🔴</span> <span>Listening (${langLabel})...</span>`;
             btn.style.background = "rgba(239, 68, 68, 0.25)";
             btn.style.borderColor = "#ef4444";
+            if (testStatus && isTestArea) {
+              testStatus.textContent = `Listening in ${nativeLang}...`;
+              testStatus.style.color = "#ef4444";
+              testStatus.style.borderColor = "rgba(239, 68, 68, 0.4)";
+            }
+
             activeSpeechRecognition = recognition;
-            activeTranscribeTarget = targetInput;
+            activeTranscribeTarget = targetElOrInput;
 
             recognition.onresult = (event) => {
-              let transcript = "";
+              let interimTranscript = "";
+              let finalTranscript = "";
               for (let i = event.resultIndex; i < event.results.length; ++i) {
-                transcript += event.results[i][0].transcript;
+                if (event.results[i].isFinal) {
+                  finalTranscript += event.results[i][0].transcript;
+                } else {
+                  interimTranscript += event.results[i][0].transcript;
+                }
               }
-              if (transcript && transcript.trim()) {
-                targetInput.value = transcript.trim();
+              const spokenText = (finalTranscript || interimTranscript).trim();
+              if (spokenText) {
+                if (targetElOrInput.tagName === "INPUT" || targetElOrInput.tagName === "TEXTAREA") {
+                  targetElOrInput.value = spokenText;
+                } else {
+                  targetElOrInput.textContent = spokenText;
+                  targetElOrInput.style.fontStyle = "normal";
+                  targetElOrInput.style.color = "#f8fafc";
+                }
               }
+
+              // Silence Inactivity Auto-Commit Timer:
+              if (activeSpeechSilenceTimer) clearTimeout(activeSpeechSilenceTimer);
+              activeSpeechSilenceTimer = setTimeout(() => {
+                try {
+                  recognition.stop();
+                } catch(e) {}
+              }, silenceDelay);
             };
 
             recognition.onerror = (event) => {
@@ -18700,13 +19053,26 @@ const tier800DeckCards = initialDeckCards;
                 if (typeof showToast === "function") {
                   showToast("Microphone access needed for native transcription");
                 }
+                if (testStatus && isTestArea) {
+                  testStatus.textContent = "Mic permission denied";
+                  testStatus.style.color = "#f59e0b";
+                }
               }
             };
 
             recognition.onend = () => {
+              if (activeSpeechSilenceTimer) {
+                clearTimeout(activeSpeechSilenceTimer);
+                activeSpeechSilenceTimer = null;
+              }
               btn.innerHTML = originalBtnHtml;
               btn.style.background = "";
               btn.style.borderColor = "";
+              if (testStatus && isTestArea) {
+                testStatus.textContent = "Committed & Ready";
+                testStatus.style.color = "#58cc02";
+                testStatus.style.borderColor = "rgba(88, 204, 2, 0.4)";
+              }
               if (activeSpeechRecognition === recognition) {
                 activeSpeechRecognition = null;
                 activeTranscribeTarget = null;
@@ -18719,19 +19085,32 @@ const tier800DeckCards = initialDeckCards;
           }
         }
 
-        btnTranscribeEs.addEventListener("click", (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          const target = document.getElementById("edit-input-es");
-          if (target) toggleRecognition(btnTranscribeEs, target, "es-ES", "Español");
-        });
+        if (btnTranscribeEs) {
+          btnTranscribeEs.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const target = document.getElementById("edit-input-es");
+            if (target) toggleRecognition(btnTranscribeEs, target, "es-ES", "Español");
+          });
+        }
 
-        btnTranscribeHi.addEventListener("click", (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          const target = document.getElementById("edit-input-hi");
-          if (target) toggleRecognition(btnTranscribeHi, target, "hi-IN", "हिन्दी");
-        });
+        if (btnTranscribeHi) {
+          btnTranscribeHi.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const target = document.getElementById("edit-input-hi");
+            if (target) toggleRecognition(btnTranscribeHi, target, "hi-IN", "हिन्दी");
+          });
+        }
+
+        if (testBtnMic && testResult) {
+          testBtnMic.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const label = activeTestLang === "es-ES" ? "Español" : "हिन्दी";
+            toggleRecognition(testBtnMic, testResult, activeTestLang, label, true);
+          });
+        }
       }
 
       function getCardDefaultShortcuts(card) {
@@ -19262,6 +19641,18 @@ const tier800DeckCards = initialDeckCards;
             cardWrapper.classList.remove("flipped");
           }
         }
+
+        // Auto-Pronounce on Flip (Speaks native Spanish/Hindi when turned to back)
+        if (isFlipped && typeof audioPrefs !== "undefined" && audioPrefs.autoPronounceFlip) {
+          setTimeout(() => {
+            if (isFlipped) {
+              const card = cards[currentIndex];
+              if (card && card.trans && card.trans.es && typeof handleSpanishSpeech === "function") {
+                handleSpanishSpeech();
+              }
+            }
+          }, 240);
+        }
       }
 
       // Sequential navigation: Next Card
@@ -19269,6 +19660,7 @@ const tier800DeckCards = initialDeckCards;
         if (isAnimating || currentIndex >= cards.length - 1) return;
         isAnimating = true;
 
+        if (typeof stopAllNativeSpeech === "function") stopAllNativeSpeech();
         playHapticTick(600, "sine", 0.04);
         cardWrapper.classList.add("slide-out-left");
 
@@ -19286,6 +19678,16 @@ const tier800DeckCards = initialDeckCards;
           }
           cardWrapper.classList.add("slide-in-right");
 
+          // Auto-Pronounce English on Card Change
+          if (!isFlipped && typeof audioPrefs !== "undefined" && audioPrefs.autoPronounceNext) {
+            clearTimeout(window._autoPronounceTimer);
+            window._autoPronounceTimer = setTimeout(() => {
+              if (!isFlipped && typeof handleEnglishSpeech === "function") {
+                handleEnglishSpeech();
+              }
+            }, 320);
+          }
+
           setTimeout(() => {
             cardWrapper.classList.remove("slide-in-right");
             isAnimating = false;
@@ -19298,6 +19700,7 @@ const tier800DeckCards = initialDeckCards;
         if (isAnimating || currentIndex <= 0) return;
         isAnimating = true;
 
+        if (typeof stopAllNativeSpeech === "function") stopAllNativeSpeech();
         playHapticTick(420, "sine", 0.04);
         cardWrapper.classList.add("slide-out-right");
 
@@ -19315,6 +19718,16 @@ const tier800DeckCards = initialDeckCards;
           }
           cardWrapper.classList.add("slide-in-left");
 
+          // Auto-Pronounce English on Card Change
+          if (!isFlipped && typeof audioPrefs !== "undefined" && audioPrefs.autoPronounceNext) {
+            clearTimeout(window._autoPronounceTimer);
+            window._autoPronounceTimer = setTimeout(() => {
+              if (!isFlipped && typeof handleEnglishSpeech === "function") {
+                handleEnglishSpeech();
+              }
+            }, 320);
+          }
+
           setTimeout(() => {
             cardWrapper.classList.remove("slide-in-left");
             isAnimating = false;
@@ -19322,49 +19735,92 @@ const tier800DeckCards = initialDeckCards;
         }, 220);
       }
 
-      // Shuffle cards randomly for a non-linear study session
-      function shuffleCards() {
+      // Production-Grade Shuffle Mode Controller (Toggles ON to randomize, Toggles OFF to restore sequential order)
+      function toggleShuffleMode(forceState = null) {
         if (isAnimating) return;
+        const targetState = forceState !== null ? forceState : !isShuffled;
+
+        if (typeof stopAllNativeSpeech === "function") stopAllNativeSpeech();
         isAnimating = true;
 
-        btnShuffle.classList.add("animating", "active");
-        playHapticTick(680, "triangle", 0.06);
+        if (btnShuffle) {
+          btnShuffle.classList.add("animating");
+        }
+        playHapticTick(targetState ? 680 : 440, "triangle", 0.05);
 
-        cardWrapper.classList.add("slide-out-left");
+        if (cardWrapper) {
+          cardWrapper.classList.add("slide-out-left");
+        }
 
         setTimeout(() => {
-          // Fisher-Yates shuffle algorithm
-          for (let i = cards.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [cards[i], cards[j]] = [cards[j], cards[i]];
+          const currentCard = cards[currentIndex];
+          const currentOrigNum = currentCard ? (currentCard.originalNum || currentCard.num) : null;
+
+          if (targetState) {
+            // TURNING SHUFFLE ON:
+            // Randomize active cards array with Fisher-Yates algorithm
+            for (let i = cards.length - 1; i > 0; i--) {
+              const j = Math.floor(Math.random() * (i + 1));
+              [cards[i], cards[j]] = [cards[j], cards[i]];
+            }
+            isShuffled = true;
+            if (btnShuffle) {
+              btnShuffle.classList.add("active");
+              btnShuffle.title = "Shuffle Mode ON (Click to turn OFF and restore sequential order)";
+              btnShuffle.setAttribute("aria-label", "Shuffle Mode ON");
+            }
+            showToast("🔀 Shuffle Mode ON · Cards randomized");
+          } else {
+            // TURNING SHUFFLE OFF:
+            // Rebuild the deck back to pure numerical sequential order (800 -> 1000)
+            reindexAndBuildCards();
+            isShuffled = false;
+            if (btnShuffle) {
+              btnShuffle.classList.remove("active");
+              btnShuffle.title = "Shuffle cards (Click to randomize deck)";
+              btnShuffle.setAttribute("aria-label", "Shuffle cards");
+            }
+            showToast("🔢 Shuffle Mode OFF · Sequential order restored");
           }
 
-          isShuffled = true;
-          currentIndex = 0;
+          // Keep user focused on the same card after toggling
+          if (currentOrigNum !== null) {
+            const matchIdx = cards.findIndex(c => (c.originalNum || c.num) === currentOrigNum);
+            currentIndex = matchIdx !== -1 ? matchIdx : 0;
+          } else {
+            currentIndex = 0;
+          }
+
           celebratedMilestones.clear();
           isFlipped = false;
           if (window.cardSpring && typeof window.cardSpring.reset === "function") {
             window.cardSpring.reset(cardWrapper);
           }
-          cardWrapper.classList.remove("flipped", "slide-out-left");
-
-          if (deckBadgeEl) {
-            deckBadgeEl.textContent = "Shuffled Deck";
-            deckBadgeEl.style.color = "#a5b4fc";
-            deckBadgeEl.style.borderColor = "rgba(129, 140, 248, 0.45)";
-            deckBadgeEl.style.background = "rgba(99, 102, 241, 0.16)";
+          if (cardWrapper) {
+            cardWrapper.classList.remove("flipped", "slide-out-left");
           }
 
-          
+          // Sync Settings Modal toggle
+          const toggleSettingsShuffle = document.getElementById("toggle-settings-shuffle");
+          if (toggleSettingsShuffle) {
+            toggleSettingsShuffle.checked = isShuffled;
+          }
+
           renderCurrentCard();
-          cardWrapper.classList.add("slide-in-right");
+          if (cardWrapper) {
+            cardWrapper.classList.add("slide-in-right");
+          }
 
           setTimeout(() => {
-            cardWrapper.classList.remove("slide-in-right");
-            btnShuffle.classList.remove("animating");
+            if (cardWrapper) cardWrapper.classList.remove("slide-in-right");
+            if (btnShuffle) btnShuffle.classList.remove("animating");
             isAnimating = false;
           }, 300);
         }, 220);
+      }
+
+      function shuffleCards() {
+        toggleShuffleMode();
       }
 
       // Jump to a specific card index
@@ -20419,7 +20875,28 @@ const tier800DeckCards = initialDeckCards;
       const badgeVoicePitch = document.getElementById("badge-voice-pitch");
       const sliderVoiceRate = document.getElementById("slider-voice-rate");
       const badgeVoiceRate = document.getElementById("badge-voice-rate");
+      const btnRateSlow = document.getElementById("btn-rate-slow");
+      const btnRateNormal = document.getElementById("btn-rate-normal");
+      const btnRateFast = document.getElementById("btn-rate-fast");
       const btnTestVoice = document.getElementById("btn-test-voice");
+      const btnTestVoiceLabel = document.getElementById("btn-test-voice-label");
+
+      // Repetition & Shadowing Loop Elements
+      const repeatCountBtns = document.querySelectorAll("#group-repeat-count [data-repeat-count]");
+      const badgeRepeatCountSummary = document.getElementById("badge-repeat-count-summary");
+      const sliderRepeatDelay = document.getElementById("slider-repeat-delay");
+      const badgeRepeatDelay = document.getElementById("badge-repeat-delay");
+      const repeatDelayPresetBtns = document.querySelectorAll("#group-repeat-delay-presets [data-repeat-delay]");
+
+      // Auto-Pronounce Switches
+      const toggleAutoPronounceFlip = document.getElementById("toggle-auto-pronounce-flip");
+      const toggleAutoPronounceNext = document.getElementById("toggle-auto-pronounce-next");
+
+      // Native Voice Transcription Settings Elements
+      const sliderTranscribeDelay = document.getElementById("slider-transcribe-delay");
+      const badgeTranscribeDelay = document.getElementById("badge-transcribe-delay");
+      const transcribeDelayPresetBtns = document.querySelectorAll("#group-transcribe-delay-presets [data-transcribe-delay]");
+      const toggleTranscribeContinuous = document.getElementById("toggle-transcribe-continuous");
 
       const sliderSfxVol = document.getElementById("slider-sfx-vol");
       const badgeSfxVol = document.getElementById("badge-sfx-vol");
@@ -20428,7 +20905,7 @@ const tier800DeckCards = initialDeckCards;
 
       function syncAudioUI() {
         if (toggleBgm) {
-          toggleBgm.checked = audioPrefs.bgmEnabled;
+          toggleBgm.checked = Boolean(audioPrefs.bgmEnabled);
           if (bgmPanel) bgmPanel.style.display = audioPrefs.bgmEnabled ? "flex" : "none";
         }
         if (sliderBgmVol && badgeBgmVol) {
@@ -20439,6 +20916,7 @@ const tier800DeckCards = initialDeckCards;
           btn.classList.toggle("active", btn.dataset.bgm === audioPrefs.bgmMode);
         });
 
+        // Speech Tuning
         if (sliderVoiceVol && badgeVoiceVol) {
           sliderVoiceVol.value = Math.round(audioPrefs.voiceVolume * 100);
           badgeVoiceVol.textContent = `${Math.round(audioPrefs.voiceVolume * 100)}%`;
@@ -20451,7 +20929,60 @@ const tier800DeckCards = initialDeckCards;
           sliderVoiceRate.value = Math.round(audioPrefs.voiceRate * 100);
           badgeVoiceRate.textContent = `${audioPrefs.voiceRate.toFixed(2)}×`;
         }
+        if (btnRateSlow && btnRateNormal && btnRateFast) {
+          btnRateSlow.classList.toggle("active", Math.abs(audioPrefs.voiceRate - 0.75) < 0.05);
+          btnRateNormal.classList.toggle("active", Math.abs(audioPrefs.voiceRate - 1.0) < 0.05);
+          btnRateFast.classList.toggle("active", Math.abs(audioPrefs.voiceRate - 1.25) < 0.05);
+        }
 
+        // Repetition Count
+        const currentRepeat = typeof audioPrefs.repeatCount === "number" ? audioPrefs.repeatCount : 1;
+        repeatCountBtns.forEach(btn => {
+          const val = parseInt(btn.dataset.repeatCount, 10);
+          btn.classList.toggle("active", val === currentRepeat);
+        });
+        if (badgeRepeatCountSummary) {
+          badgeRepeatCountSummary.textContent = currentRepeat === 0 ? "Loop ♾️" : `${currentRepeat}× ${currentRepeat === 1 ? 'Once' : currentRepeat === 2 ? 'Shadow' : currentRepeat === 3 ? 'Focus' : 'Mastery'}`;
+        }
+
+        // Repetition Pause Delay
+        const currentDelay = typeof audioPrefs.repeatDelay === "number" ? audioPrefs.repeatDelay : 1000;
+        if (sliderRepeatDelay) {
+          sliderRepeatDelay.value = currentDelay;
+        }
+        if (badgeRepeatDelay) {
+          badgeRepeatDelay.textContent = `${(currentDelay / 1000).toFixed(1)}s`;
+        }
+        repeatDelayPresetBtns.forEach(btn => {
+          const val = parseInt(btn.dataset.repeatDelay, 10);
+          btn.classList.toggle("active", Math.abs(val - currentDelay) < 50);
+        });
+
+        // Auto-Pronounce
+        if (toggleAutoPronounceFlip) {
+          toggleAutoPronounceFlip.checked = Boolean(audioPrefs.autoPronounceFlip);
+        }
+        if (toggleAutoPronounceNext) {
+          toggleAutoPronounceNext.checked = Boolean(audioPrefs.autoPronounceNext);
+        }
+
+        // Native Transcription Settings
+        const currentTransDelay = typeof audioPrefs.transcribeSilenceDelay === "number" ? audioPrefs.transcribeSilenceDelay : 1500;
+        if (sliderTranscribeDelay) {
+          sliderTranscribeDelay.value = currentTransDelay;
+        }
+        if (badgeTranscribeDelay) {
+          badgeTranscribeDelay.textContent = `${(currentTransDelay / 1000).toFixed(1)}s`;
+        }
+        transcribeDelayPresetBtns.forEach(btn => {
+          const val = parseInt(btn.dataset.transcribeDelay, 10);
+          btn.classList.toggle("active", Math.abs(val - currentTransDelay) < 50);
+        });
+        if (toggleTranscribeContinuous) {
+          toggleTranscribeContinuous.checked = Boolean(audioPrefs.transcribeContinuous !== false);
+        }
+
+        // Sound Effects
         if (sliderSfxVol && badgeSfxVol) {
           sliderSfxVol.value = Math.round(audioPrefs.sfxVolume * 100);
           badgeSfxVol.textContent = `${Math.round(audioPrefs.sfxVolume * 100)}%`;
@@ -20516,16 +21047,167 @@ const tier800DeckCards = initialDeckCards;
         sliderVoiceRate.addEventListener("input", (e) => {
           audioPrefs.voiceRate = e.target.value / 100;
           if (badgeVoiceRate) badgeVoiceRate.textContent = `${audioPrefs.voiceRate.toFixed(2)}×`;
+          if (btnRateSlow && btnRateNormal && btnRateFast) {
+            btnRateSlow.classList.toggle("active", Math.abs(audioPrefs.voiceRate - 0.75) < 0.05);
+            btnRateNormal.classList.toggle("active", Math.abs(audioPrefs.voiceRate - 1.0) < 0.05);
+            btnRateFast.classList.toggle("active", Math.abs(audioPrefs.voiceRate - 1.25) < 0.05);
+          }
           saveAudioPrefs();
         });
       }
 
+      // Speed Presets
+      if (btnRateSlow) {
+        btnRateSlow.addEventListener("click", () => {
+          audioPrefs.voiceRate = 0.75;
+          syncAudioUI();
+          saveAudioPrefs();
+          cardAudio.playTapClick();
+        });
+      }
+      if (btnRateNormal) {
+        btnRateNormal.addEventListener("click", () => {
+          audioPrefs.voiceRate = 1.0;
+          syncAudioUI();
+          saveAudioPrefs();
+          cardAudio.playTapClick();
+        });
+      }
+      if (btnRateFast) {
+        btnRateFast.addEventListener("click", () => {
+          audioPrefs.voiceRate = 1.25;
+          syncAudioUI();
+          saveAudioPrefs();
+          cardAudio.playTapClick();
+        });
+      }
+
+      // Repetition Count Listeners
+      repeatCountBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          repeatCountBtns.forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          audioPrefs.repeatCount = parseInt(btn.dataset.repeatCount, 10);
+          if (badgeRepeatCountSummary) {
+            badgeRepeatCountSummary.textContent = audioPrefs.repeatCount === 0 ? "Loop ♾️" : `${audioPrefs.repeatCount}× ${audioPrefs.repeatCount === 1 ? 'Once' : audioPrefs.repeatCount === 2 ? 'Shadow' : audioPrefs.repeatCount === 3 ? 'Focus' : 'Mastery'}`;
+          }
+          saveAudioPrefs();
+          cardAudio.playTapClick();
+          showToast(`Speech set to ${audioPrefs.repeatCount === 0 ? 'continuous loop' : audioPrefs.repeatCount + '× repetition'}`);
+        });
+      });
+
+      // Repetition Delay Slider
+      if (sliderRepeatDelay) {
+        sliderRepeatDelay.addEventListener("input", (e) => {
+          audioPrefs.repeatDelay = parseInt(e.target.value, 10);
+          if (badgeRepeatDelay) {
+            badgeRepeatDelay.textContent = `${(audioPrefs.repeatDelay / 1000).toFixed(1)}s`;
+          }
+          repeatDelayPresetBtns.forEach(b => {
+            b.classList.toggle("active", Math.abs(parseInt(b.dataset.repeatDelay, 10) - audioPrefs.repeatDelay) < 50);
+          });
+          saveAudioPrefs();
+        });
+      }
+
+      // Repetition Delay Preset Chips
+      repeatDelayPresetBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const val = parseInt(btn.dataset.repeatDelay, 10);
+          audioPrefs.repeatDelay = val;
+          if (sliderRepeatDelay) sliderRepeatDelay.value = val;
+          if (badgeRepeatDelay) badgeRepeatDelay.textContent = `${(val / 1000).toFixed(1)}s`;
+          repeatDelayPresetBtns.forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          saveAudioPrefs();
+          cardAudio.playTapClick();
+        });
+      });
+
+      // Auto-Pronounce Toggles
+      if (toggleAutoPronounceFlip) {
+        toggleAutoPronounceFlip.addEventListener("change", (e) => {
+          audioPrefs.autoPronounceFlip = e.target.checked;
+          saveAudioPrefs();
+          cardAudio.playTapClick();
+          showToast(audioPrefs.autoPronounceFlip ? "⚡ Auto-pronounce on card flip enabled" : "Auto-pronounce on flip disabled");
+        });
+      }
+      if (toggleAutoPronounceNext) {
+        toggleAutoPronounceNext.addEventListener("change", (e) => {
+          audioPrefs.autoPronounceNext = e.target.checked;
+          saveAudioPrefs();
+          cardAudio.playTapClick();
+          showToast(audioPrefs.autoPronounceNext ? "⏭️ Auto-pronounce on new card enabled" : "Auto-pronounce on new card disabled");
+        });
+      }
+
+      // Native Transcription Silence Delay Slider
+      if (sliderTranscribeDelay) {
+        sliderTranscribeDelay.addEventListener("input", (e) => {
+          audioPrefs.transcribeSilenceDelay = parseInt(e.target.value, 10);
+          if (badgeTranscribeDelay) {
+            badgeTranscribeDelay.textContent = `${(audioPrefs.transcribeSilenceDelay / 1000).toFixed(1)}s`;
+          }
+          transcribeDelayPresetBtns.forEach(b => {
+            b.classList.toggle("active", Math.abs(parseInt(b.dataset.transcribeDelay, 10) - audioPrefs.transcribeSilenceDelay) < 50);
+          });
+          saveAudioPrefs();
+        });
+      }
+
+      // Native Transcription Delay Presets
+      transcribeDelayPresetBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const val = parseInt(btn.dataset.transcribeDelay, 10);
+          audioPrefs.transcribeSilenceDelay = val;
+          if (sliderTranscribeDelay) sliderTranscribeDelay.value = val;
+          if (badgeTranscribeDelay) badgeTranscribeDelay.textContent = `${(val / 1000).toFixed(1)}s`;
+          transcribeDelayPresetBtns.forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          saveAudioPrefs();
+          cardAudio.playTapClick();
+        });
+      });
+
+      // Continuous Dictation Toggle
+      if (toggleTranscribeContinuous) {
+        toggleTranscribeContinuous.addEventListener("change", (e) => {
+          audioPrefs.transcribeContinuous = e.target.checked;
+          saveAudioPrefs();
+          cardAudio.playTapClick();
+          showToast(audioPrefs.transcribeContinuous ? "🎙️ Continuous native dictation enabled" : "Single-sentence dictation enabled");
+        });
+      }
+
+      // Interactive Voice Preview Audition Button with Live Loop Tracker
       if (btnTestVoice) {
         btnTestVoice.addEventListener("click", () => {
           cardAudio.playTapClick();
           const card = cards[currentIndex] || cards[0];
           const spanishWord = (card && card.trans && card.trans.es ? card.trans.es.split('/')[0].trim() : "hola");
-          playNativeSpeech(spanishWord, "es", btnTestVoice, "speaking-es");
+
+          // If already playing, stop toggle
+          if (btnTestVoice.classList.contains("speaking-es")) {
+            stopAllNativeSpeech();
+            if (btnTestVoiceLabel) btnTestVoiceLabel.textContent = "Preview 🔊";
+            return;
+          }
+
+          playNativeSpeech(spanishWord, "es", btnTestVoice, "speaking-es", (iter, total, isComplete) => {
+            if (btnTestVoiceLabel) {
+              if (isComplete) {
+                btnTestVoiceLabel.textContent = "Preview 🔊";
+              } else if (total === 0) {
+                btnTestVoiceLabel.textContent = `Loop ♾️ Stop ⏹️`;
+              } else if (total > 1) {
+                btnTestVoiceLabel.textContent = `Cycle ${iter}/${total} ⏹️`;
+              } else {
+                btnTestVoiceLabel.textContent = "Speaking... ⏹️";
+              }
+            }
+          });
         });
       }
 
@@ -20564,7 +21246,15 @@ const tier800DeckCards = initialDeckCards;
           localStorage.setItem("flashcard_animations_enabled", animationsEnabled ? "true" : "false");
           document.body.classList.toggle("reduce-motion", !animationsEnabled);
           if (typeof playHapticTick === "function") playHapticTick(animationsEnabled ? 560 : 380, "sine", 0.04);
-          if (typeof showToast === "function") showToast(animationsEnabled ? "✨ Animations enabled" : "⚡ Minimal motion enabled");
+        });
+      }
+
+      // Settings Modal: Shuffle Mode Switch
+      const toggleSettingsShuffle = document.getElementById("toggle-settings-shuffle");
+      if (toggleSettingsShuffle) {
+        toggleSettingsShuffle.checked = Boolean(isShuffled);
+        toggleSettingsShuffle.addEventListener("change", (e) => {
+          toggleShuffleMode(e.target.checked);
         });
       }
 
@@ -21136,33 +21826,6 @@ const tier800DeckCards = initialDeckCards;
           if (typeof playHapticTick === "function") playHapticTick(520, "sine", 0.03);
         });
       });
-
-      // Quick Speech Speed Preset Buttons
-      const btnRateSlow = document.getElementById("btn-rate-slow");
-      const btnRateNormal = document.getElementById("btn-rate-normal");
-      const btnRateFast = document.getElementById("btn-rate-fast");
-      const sliderVoiceRateEl = document.getElementById("slider-voice-rate");
-
-      function setSpeechRatePreset(rateVal, activeBtn) {
-        if (!sliderVoiceRateEl) return;
-        sliderVoiceRateEl.value = rateVal;
-        sliderVoiceRateEl.dispatchEvent(new Event("input"));
-        [btnRateSlow, btnRateNormal, btnRateFast].forEach(b => {
-          if (b) b.classList.remove("active");
-        });
-        if (activeBtn) activeBtn.classList.add("active");
-        if (typeof playHapticTick === "function") playHapticTick(480, "sine", 0.03);
-      }
-
-      if (btnRateSlow) {
-        btnRateSlow.addEventListener("click", () => setSpeechRatePreset(75, btnRateSlow));
-      }
-      if (btnRateNormal) {
-        btnRateNormal.addEventListener("click", () => setSpeechRatePreset(100, btnRateNormal));
-      }
-      if (btnRateFast) {
-        btnRateFast.addEventListener("click", () => setSpeechRatePreset(125, btnRateFast));
-      }
 
       // Settings Modal: Reset Deck & Restore All 200 Cards
       const btnSettingsResetDeck = document.getElementById("btn-settings-reset-deck");
