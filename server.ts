@@ -777,9 +777,13 @@ async function startServer() {
     const customSections = Array.isArray(inner.customSections) ? inner.customSections : [];
     const audioPrefs =
       inner.audioPrefs && typeof inner.audioPrefs === "object" ? inner.audioPrefs : {};
+    const syncRevision = Number(rawEntry.syncRevision ?? inner.syncRevision ?? 0);
+    const isExplicitUserAction = Boolean(rawEntry.isExplicitUserAction ?? inner.isExplicitUserAction);
     const updatedAt = rawEntry.updatedAt || inner.updatedAt || new Date().toISOString();
 
     return {
+      syncRevision,
+      isExplicitUserAction,
       learnedCardNums,
       learnedCards: learnedCardNums,
       deletedCardNums,
@@ -843,14 +847,18 @@ async function startServer() {
       p.customDecks && typeof p.customDecks === "object"
         ? Object.keys(p.customDecks).length
         : 0;
+    const sectionsCount = Array.isArray(p.customSections) ? p.customSections.length : 0;
     const activeDeck = p.activeDeckId && p.activeDeckId !== "deck-800-1000";
+    const rev = Number(p.syncRevision || 0);
     return Boolean(
       learned.length > 0 ||
       deleted.length > 0 ||
       (lastCard !== 800 && lastCard > 0) ||
       shortcutsCount > 0 ||
       decksCount > 0 ||
-      activeDeck
+      sectionsCount > 0 ||
+      activeDeck ||
+      rev > 0
     );
   }
 
@@ -863,10 +871,10 @@ async function startServer() {
   async function saveProfileData(
     rawEmail: unknown,
     incomingBody: any
-  ): Promise<{ email: string; exists: boolean; updatedAt: string; payload: any }> {
+  ): Promise<{ email: string; exists: boolean; syncRevision: number; updatedAt: string; payload: any }> {
     const email = sanitizeEmailKey(rawEmail);
     if (!email) {
-      return { email: "", exists: false, updatedAt: "", payload: null };
+      return { email: "", exists: false, syncRevision: 0, updatedAt: "", payload: null };
     }
 
     const emailHash = crypto.createHash("sha256").update(email).digest("hex");
@@ -893,6 +901,7 @@ async function startServer() {
       return {
         email,
         exists: true,
+        syncRevision: Number(existingNorm.syncRevision || 0),
         updatedAt: existingNorm.updatedAt || new Date().toISOString(),
         payload: existingNorm
       };
@@ -954,10 +963,17 @@ async function startServer() {
     const streakCount = Number(
       incoming.streakCount ?? incoming.streak ?? existingNorm.streakCount ?? 1
     );
-    const updatedAt = new Date().toISOString();
+    const existingRev = Number(existingNorm.syncRevision || 0);
+    const incomingRev = Number(incoming.syncRevision ?? incomingBody?.syncRevision ?? 0);
+    const syncRevision = incomingRev > existingRev ? incomingRev : existingRev + 1;
+    const updatedAt =
+      typeof incoming.updatedAt === "string" && incoming.updatedAt.trim()
+        ? incoming.updatedAt.trim()
+        : new Date().toISOString();
 
     const savedPayload = {
       accountId: emailHash,
+      syncRevision,
       learnedCardNums,
       learnedCards: learnedCardNums,
       deletedCardNums,
@@ -977,11 +993,13 @@ async function startServer() {
 
     if (profiles[email]) delete profiles[email];
     profiles[emailHash] = {
+      syncRevision,
       updatedAt,
       isExplicitUserAction,
       payload: savedPayload
     };
     profiles[COMMON_CLOUD_HASH_KEY] = {
+      syncRevision,
       updatedAt,
       isExplicitUserAction,
       payload: { ...savedPayload, accountId: COMMON_CLOUD_HASH_KEY }
@@ -997,15 +1015,14 @@ async function startServer() {
           new Set([
             docId,
             clientDocId,
-            "global_common_cloud_v2",
-            "global_common_cloud_v1",
-            "acct_73801410b67c7ba66a922cc3105f74f2"
+            "global_common_cloud_v2"
           ])
         );
 
         const writes: Promise<any>[] = targetDocs.map((dId) =>
           setDoc(doc(firestoreDb!, "study_state", dId), {
             accountId: dId,
+            syncRevision,
             updatedAt,
             isExplicitUserAction,
             payload: savedPayload
@@ -1015,6 +1032,7 @@ async function startServer() {
         const progDocBody = {
           userId: "global_common_cloud_v2",
           email,
+          syncRevision,
           learnedCards: savedPayload.learnedCardNums || [],
           learnedCardNums: savedPayload.learnedCardNums || [],
           deletedCardNums: savedPayload.deletedCardNums || [],
@@ -1023,6 +1041,7 @@ async function startServer() {
           customShortcuts: savedPayload.customShortcuts || {},
           customDecks: savedPayload.customDecks || {},
           customSections: savedPayload.customSections || [],
+          audioPrefs: savedPayload.audioPrefs || {},
           streakCount: savedPayload.streakCount || 1,
           isExplicitUserAction,
           lastStudied: updatedAt,
@@ -1030,8 +1049,7 @@ async function startServer() {
         };
 
         writes.push(
-          setDoc(doc(firestoreDb, "user_progress", "global_common_cloud_v2"), progDocBody, { merge: true }),
-          setDoc(doc(firestoreDb, "user_progress", "global_common_cloud_v1"), progDocBody, { merge: true })
+          setDoc(doc(firestoreDb, "user_progress", "global_common_cloud_v2"), progDocBody)
         );
 
         await Promise.allSettled(writes);
@@ -1040,18 +1058,18 @@ async function startServer() {
       }
     }
 
-    return { email, exists: true, updatedAt, payload: savedPayload };
+    return { email, exists: true, syncRevision, updatedAt, payload: savedPayload };
   }
 
   async function loadProfileData(
     rawEmail: unknown
-  ): Promise<{ email: string; exists: boolean; updatedAt: string; payload: any }> {
+  ): Promise<{ email: string; exists: boolean; syncRevision: number; updatedAt: string; payload: any }> {
     const email = sanitizeEmailKey(rawEmail) || COMMON_CLOUD_EMAIL_KEY;
 
     const emailHash = crypto.createHash("sha256").update(email).digest("hex");
     const profiles = readUserProfiles();
 
-    const candidates: Array<{ payload: any; ts: number; hasProgress: boolean }> = [];
+    const candidates: Array<{ payload: any; rev: number; ts: number; hasProgress: boolean }> = [];
 
     for (const key of [emailHash, COMMON_CLOUD_HASH_KEY, email]) {
       if (profiles[key]) {
@@ -1059,8 +1077,9 @@ async function startServer() {
         if (norm) {
           candidates.push({
             payload: norm,
+            rev: Number(norm.syncRevision || 0),
             ts: Date.parse(norm.updatedAt || "") || 0,
-            hasProgress: isProfilePayloadNonEmpty(norm)
+            hasProgress: isProfilePayloadNonEmpty(norm) || Boolean(norm.isExplicitUserAction)
           });
         }
       }
@@ -1074,23 +1093,22 @@ async function startServer() {
           new Set([
             docId,
             clientDocId,
-            "global_common_cloud_v2",
-            "global_common_cloud_v1",
-            "acct_73801410b67c7ba66a922cc3105f74f2",
-            "acct_stellarnetworkhub_gmail_com"
+            "global_common_cloud_v2"
           ])
         );
-        const snaps = await Promise.allSettled(
-          targetDocs.map((dId) => getDoc(doc(firestoreDb!, "study_state", dId)))
-        );
+        const snaps = await Promise.allSettled([
+          ...targetDocs.map((dId) => getDoc(doc(firestoreDb!, "study_state", dId))),
+          getDoc(doc(firestoreDb!, "user_progress", "global_common_cloud_v2"))
+        ]);
         for (const res of snaps) {
           if (res.status === "fulfilled" && res.value.exists()) {
             const candidate = normalizeProfilePayload(res.value.data());
             if (candidate) {
               candidates.push({
                 payload: candidate,
+                rev: Number(candidate.syncRevision || 0),
                 ts: Date.parse(candidate.updatedAt || "") || 0,
-                hasProgress: isProfilePayloadNonEmpty(candidate)
+                hasProgress: isProfilePayloadNonEmpty(candidate) || Boolean(candidate.isExplicitUserAction)
               });
             }
           }
@@ -1104,6 +1122,7 @@ async function startServer() {
       return {
         email,
         exists: false,
+        syncRevision: 0,
         updatedAt: "",
         payload: null
       };
@@ -1111,16 +1130,22 @@ async function startServer() {
 
     const nonEmpty = candidates.filter((c) => c.hasProgress);
     const pool = nonEmpty.length > 0 ? nonEmpty : candidates;
-    pool.sort((a, b) => b.ts - a.ts);
+    pool.sort((a, b) => {
+      if (b.rev !== a.rev) return b.rev - a.rev;
+      return b.ts - a.ts;
+    });
     const chosen = pool[0].payload;
+    const chosenRev = Number(chosen.syncRevision || 0);
 
     // Keep local cache in sync with latest state
     if (profiles[email]) delete profiles[email];
     profiles[emailHash] = {
+      syncRevision: chosenRev,
       updatedAt: chosen.updatedAt,
       payload: chosen
     };
     profiles[COMMON_CLOUD_HASH_KEY] = {
+      syncRevision: chosenRev,
       updatedAt: chosen.updatedAt,
       payload: chosen
     };
@@ -1129,6 +1154,7 @@ async function startServer() {
     return {
       email,
       exists: true,
+      syncRevision: chosenRev,
       updatedAt: chosen.updatedAt || new Date().toISOString(),
       payload: chosen
     };
@@ -1146,23 +1172,34 @@ async function startServer() {
 
   app.get(["/api/user/poll", "/api/profile/poll"], async (req, res) => {
     const since = String(req.query.since || "").trim();
+    const clientRev = Number(req.query.rev || 0);
     const result = await loadProfileData(req.query.email);
     if (!result.exists || !result.payload) {
       return res.json({
         ok: true,
         success: true,
         hasUpdates: false,
+        syncRevision: 0,
         updatedAt: "",
         payload: null
       });
     }
+    const cloudRev = Number(result.syncRevision || result.payload?.syncRevision || 0);
     const sinceMs = Date.parse(since) || 0;
     const updatedMs = Date.parse(result.updatedAt) || 0;
-    const hasUpdates = Boolean(!since || updatedMs > sinceMs);
+    let hasUpdates = false;
+    if (clientRev > 0 && cloudRev > 0) {
+      hasUpdates = cloudRev > clientRev;
+    } else if (cloudRev > clientRev) {
+      hasUpdates = true;
+    } else {
+      hasUpdates = Boolean(!since || updatedMs > sinceMs);
+    }
     res.json({
       ok: true,
       success: true,
       hasUpdates,
+      syncRevision: cloudRev,
       updatedAt: result.updatedAt,
       payload: hasUpdates ? result.payload : null
     });

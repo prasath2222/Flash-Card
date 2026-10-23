@@ -70,12 +70,11 @@ async function testConnection() {
 }
 testConnection();
 
-// Detect if hosted on a static site (e.g. Render Static Site *.onrender.com) where /api/* routes do not exist
+// Detect if hosted on a pure static host where /api/* routes do not exist
 let serverApiAvailable: boolean = (() => {
   if (typeof window === 'undefined' || !window.location) return false;
   const host = String(window.location.hostname || '').toLowerCase();
   if (
-    host.endsWith('.onrender.com') ||
     host.endsWith('.github.io') ||
     host.endsWith('.netlify.app') ||
     host.endsWith('.vercel.app') ||
@@ -295,14 +294,18 @@ function isPayloadNonEmptyProgress(p: any): boolean {
   const lastCard = Number(p.lastActiveCardNum ?? p.lastCard ?? 800);
   const shortcutsCount = p.customShortcuts && typeof p.customShortcuts === 'object' ? Object.keys(p.customShortcuts).length : 0;
   const decksCount = p.customDecks && typeof p.customDecks === 'object' ? Object.keys(p.customDecks).length : 0;
+  const sectionsCount = Array.isArray(p.customSections) ? p.customSections.length : 0;
   const activeDeck = p.activeDeckId && p.activeDeckId !== 'deck-800-1000';
+  const rev = Number(p.syncRevision || 0);
   return Boolean(
     learned.length > 0 ||
     deleted.length > 0 ||
     (lastCard !== 800 && lastCard > 0) ||
     shortcutsCount > 0 ||
     decksCount > 0 ||
-    activeDeck
+    sectionsCount > 0 ||
+    activeDeck ||
+    rev > 0
   );
 }
 
@@ -316,8 +319,7 @@ async function attachStudyStateListener(email: string) {
     new Set([
       primaryDocId,
       shaDocId,
-      COMMON_CLOUD_DOC_ID,
-      'global_common_cloud_v1'
+      COMMON_CLOUD_DOC_ID
     ])
   );
 
@@ -336,10 +338,16 @@ async function attachStudyStateListener(email: string) {
           return;
         }
 
+        const rev = Number(raw?.syncRevision ?? payload?.syncRevision ?? 0);
         isApplyingRemoteUpdate = true;
         remoteStateCallbacks.forEach((cb) => {
           try {
-            cb({ ...payload, email: clean, updatedAt: raw.updatedAt || payload.updatedAt });
+            cb({
+              ...payload,
+              email: clean,
+              syncRevision: rev,
+              updatedAt: raw.updatedAt || payload.updatedAt
+            });
           } catch (e) {}
         });
         setTimeout(() => {
@@ -367,8 +375,10 @@ async function attachStudyStateListener(email: string) {
         const raw = docSnap.data();
         if (!raw) return;
 
+        const rev = Number(raw.syncRevision || 0);
         const payload = {
           email: clean,
+          syncRevision: rev,
           learnedCardNums: raw.learnedCards || raw.learnedCardNums || [],
           deletedCardNums: raw.deletedCardNums || [],
           lastActiveCardNum: raw.lastActiveCardNum,
@@ -480,15 +490,22 @@ export async function saveAccountStateToFirestore(
     return false;
   }
 
-  const { primaryDocId, shaDocId } = await getAccountDocIds(clean);
+  const { primaryDocId, shaDocId, legacyDocId } = await getAccountDocIds(clean);
   const path = `study_state/${primaryDocId}`;
   try {
     const updatedAt = payload.updatedAt || new Date().toISOString();
-    const sanitizedPayload = { ...payload, updatedAt, isExplicitUserAction: explicitFlag };
+    const syncRevision = Number(payload.syncRevision || 0);
+    const sanitizedPayload = {
+      ...payload,
+      syncRevision,
+      updatedAt,
+      isExplicitUserAction: explicitFlag
+    };
     delete sanitizedPayload.email;
 
     const docRecord = {
       accountId: primaryDocId,
+      syncRevision,
       updatedAt,
       isExplicitUserAction: explicitFlag,
       payload: sanitizedPayload
@@ -498,9 +515,8 @@ export async function saveAccountStateToFirestore(
       new Set([
         primaryDocId,
         shaDocId,
-        COMMON_CLOUD_DOC_ID,
-        'global_common_cloud_v1',
-        'acct_73801410b67c7ba66a922cc3105f74f2'
+        legacyDocId,
+        COMMON_CLOUD_DOC_ID
       ])
     );
 
@@ -519,6 +535,7 @@ export async function saveAccountStateToFirestore(
     const progressDocData = {
       userId: uid,
       email: clean,
+      syncRevision,
       learnedCards: sanitizedPayload.learnedCardNums || [],
       learnedCardNums: sanitizedPayload.learnedCardNums || [],
       deletedCardNums: sanitizedPayload.deletedCardNums || [],
@@ -527,17 +544,17 @@ export async function saveAccountStateToFirestore(
       customShortcuts: sanitizedPayload.customShortcuts || {},
       customDecks: sanitizedPayload.customDecks || {},
       customSections: sanitizedPayload.customSections || [],
+      audioPrefs: sanitizedPayload.audioPrefs || {},
       streakCount: typeof sanitizedPayload.streakCount === 'number' ? sanitizedPayload.streakCount : 1,
       isExplicitUserAction: explicitFlag,
       lastStudied: updatedAt,
       updatedAt
     };
 
-    writes.push(setDoc(doc(db, 'user_progress', COMMON_CLOUD_DOC_ID), progressDocData, { merge: true }));
-    writes.push(setDoc(doc(db, 'user_progress', 'global_common_cloud_v1'), progressDocData, { merge: true }));
+    writes.push(setDoc(doc(db, 'user_progress', COMMON_CLOUD_DOC_ID), progressDocData));
 
     if (uid && uid !== COMMON_CLOUD_DOC_ID) {
-      writes.push(setDoc(doc(db, 'user_progress', uid), progressDocData, { merge: true }));
+      writes.push(setDoc(doc(db, 'user_progress', uid), progressDocData));
       writes.push(
         setDoc(
           doc(db, 'users', uid),
@@ -564,7 +581,7 @@ export async function saveAccountStateToFirestore(
 
 export async function loadAccountStateFromFirestore(
   email: string
-): Promise<{ exists: boolean; updatedAt: string; payload: any } | null> {
+): Promise<{ exists: boolean; updatedAt: string; syncRevision: number; payload: any } | null> {
   const clean = String(email || COMMON_CLOUD_ACCOUNT).trim().toLowerCase();
   if (!clean || isBlockedOrDummyEmail(clean)) return null;
   const { primaryDocId, shaDocId, legacyDocId } = await getAccountDocIds(clean);
@@ -580,10 +597,7 @@ export async function loadAccountStateFromFirestore(
         primaryDocId,
         shaDocId,
         legacyDocId,
-        COMMON_CLOUD_DOC_ID,
-        'global_common_cloud_v1',
-        'acct_73801410b67c7ba66a922cc3105f74f2',
-        'acct_stellarnetworkhub_gmail_com'
+        COMMON_CLOUD_DOC_ID
       ])
     );
 
@@ -592,21 +606,29 @@ export async function loadAccountStateFromFirestore(
     );
     const progressStartIndex = fetchPromises.length;
     fetchPromises.push(getDoc(doc(db, 'user_progress', COMMON_CLOUD_DOC_ID)));
-    fetchPromises.push(getDoc(doc(db, 'user_progress', 'global_common_cloud_v1')));
     if (uid && uid !== COMMON_CLOUD_DOC_ID) {
       fetchPromises.push(getDoc(doc(db, 'user_progress', uid)));
     }
 
     const snaps = await Promise.all(fetchPromises);
-    const candidates: Array<{ payload: any; updatedAt: string; ts: number; hasProgress: boolean; isExplicit: boolean }> = [];
+    const candidates: Array<{
+      payload: any;
+      updatedAt: string;
+      rev: number;
+      ts: number;
+      hasProgress: boolean;
+      isExplicit: boolean;
+    }> = [];
 
     snaps.forEach((s, idx) => {
       if (s && s.exists()) {
         const d = s.data();
         const isProg = idx >= progressStartIndex;
         let normPayload: any = null;
+        const rev = Number(d?.syncRevision ?? d?.payload?.syncRevision ?? 0);
         if (isProg) {
           normPayload = {
+            syncRevision: rev,
             learnedCardNums: d.learnedCards || d.learnedCardNums || [],
             deletedCardNums: d.deletedCardNums || [],
             lastActiveCardNum: d.lastActiveCardNum || 800,
@@ -614,11 +636,12 @@ export async function loadAccountStateFromFirestore(
             customShortcuts: d.customShortcuts || {},
             customDecks: d.customDecks || {},
             customSections: d.customSections || [],
+            audioPrefs: d.audioPrefs || {},
             streakCount: d.streakCount || 1,
-            updatedAt: d.lastStudied || d.updatedAt || new Date().toISOString()
+            updatedAt: d.lastStudied || d.updatedAt || ''
           };
         } else {
-          normPayload = d?.payload && typeof d.payload === 'object' ? d.payload : d;
+          normPayload = d?.payload && typeof d.payload === 'object' ? { ...d.payload, syncRevision: rev } : { ...d, syncRevision: rev };
         }
         if (normPayload) {
           const updatedAtStr = d?.updatedAt || normPayload?.updatedAt || d?.lastStudied || '';
@@ -628,6 +651,7 @@ export async function loadAccountStateFromFirestore(
           candidates.push({
             payload: normPayload,
             updatedAt: updatedAtStr,
+            rev,
             ts: t,
             hasProgress: hasProg,
             isExplicit
@@ -637,17 +661,21 @@ export async function loadAccountStateFromFirestore(
     });
 
     if (candidates.length === 0) {
-      return { exists: false, updatedAt: '', payload: null };
+      return { exists: false, updatedAt: '', syncRevision: 0, payload: null };
     }
 
-    const nonEmptyCandidates = candidates.filter((c) => c.hasProgress);
+    const nonEmptyCandidates = candidates.filter((c) => c.hasProgress || c.isExplicit);
     const pool = nonEmptyCandidates.length > 0 ? nonEmptyCandidates : candidates;
-    pool.sort((a, b) => b.ts - a.ts);
+    pool.sort((a, b) => {
+      if (b.rev !== a.rev) return b.rev - a.rev;
+      return b.ts - a.ts;
+    });
     const chosen = pool[0];
 
     return {
       exists: true,
       updatedAt: chosen.updatedAt || new Date().toISOString(),
+      syncRevision: chosen.rev,
       payload: chosen.payload
     };
   } catch (error) {
