@@ -8687,11 +8687,21 @@
           </div>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
             <div class="edit-form-field">
-              <label class="edit-label" for="edit-input-es" style="font-size: 0.78rem; font-weight: 700; color: #94a3b8; margin-bottom: 4px; display: block;">Spanish (Español)</label>
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+                <label class="edit-label" for="edit-input-es" style="font-size: 0.78rem; font-weight: 700; color: #94a3b8; display: block; margin: 0;">Spanish (Español)</label>
+                <button type="button" class="btn-voice-dictate" id="btn-transcribe-es" title="Speak native Spanish to transcribe" aria-label="Transcribe Spanish" style="background: rgba(244, 63, 94, 0.15); border: 1px solid rgba(244, 63, 94, 0.4); color: #fb7185; border-radius: 8px; padding: 2px 7px; font-size: 0.70rem; font-weight: 750; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; line-height: 1.3;">
+                  <span>🎙️</span> <span>Transcribe</span>
+                </button>
+              </div>
               <input type="text" class="edit-input" id="edit-input-es" style="width: 100%; padding: 10px 14px; border-radius: 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); color: #fff; font-size: 0.95rem; box-sizing: border-box;" />
             </div>
             <div class="edit-form-field">
-              <label class="edit-label" for="edit-input-hi" style="font-size: 0.78rem; font-weight: 700; color: #94a3b8; margin-bottom: 4px; display: block;">Hindi (हिन्दी)</label>
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+                <label class="edit-label" for="edit-input-hi" style="font-size: 0.78rem; font-weight: 700; color: #94a3b8; display: block; margin: 0;">Hindi (हिन्दी)</label>
+                <button type="button" class="btn-voice-dictate" id="btn-transcribe-hi" title="Speak native Hindi to transcribe" aria-label="Transcribe Hindi" style="background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.4); color: #fbbf24; border-radius: 8px; padding: 2px 7px; font-size: 0.70rem; font-weight: 750; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; line-height: 1.3;">
+                  <span>🎙️</span> <span>Transcribe</span>
+                </button>
+              </div>
               <input type="text" class="edit-input" id="edit-input-hi" style="width: 100%; padding: 10px 14px; border-radius: 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); color: #fff; font-size: 0.95rem; box-sizing: border-box;" />
             </div>
           </div>
@@ -9407,21 +9417,15 @@
 
               <!-- Back Content: 3 Cleanly Separated, Non-Overlapping Blocks -->
               <div class="back-content">
-                <!-- Block 1: Native Tamil Translation & Voice -->
-                <div class="tamil-hero-card" id="card-tamil-tile" title="Tap to hear Tamil pronunciation" role="button" tabindex="0">
+                <!-- Block 1: Native Tamil Translation (Reading Script) -->
+                <div class="tamil-hero-card" id="card-tamil-tile" role="region" aria-label="Tamil translation">
                   <div class="tamil-hero-header">
                     <span class="lang-tag tag-ta">TAMIL · தமிழ்</span>
-                    <span class="tile-audio-icon">
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                      </svg>
-                    </span>
                   </div>
                   <div class="tamil-script-display" id="back-tamil-script">அடுப்பு</div>
                 </div>
 
-                <!-- Block 2: Spanish & Hindi Main Translations & Voice -->
+                <!-- Block 2: Spanish & Hindi Main Translations & Voice (Native Speaking) -->
                 <div class="translations-grid">
                   <!-- Spanish Tile -->
                   <div
@@ -9464,20 +9468,14 @@
                   </div>
                 </div>
 
-                <!-- Block 3: Shortcut Memory Cards (Spanish & Hindi) -->
+                <!-- Block 3: Shortcut Memory Cards (Text & Mnemonic Only - No Audio/Transcribe) -->
                 <div class="shortcut-section" id="card-shortcut-section">
                   <div class="shortcut-grid">
                     <!-- Spanish Shortcut Memory -->
-                    <div class="shortcut-box shortcut-box-es" id="shortcut-card-es" title="Tap to hear Spanish pronunciation" role="button" tabindex="0">
+                    <div class="shortcut-box shortcut-box-es" id="shortcut-card-es">
                       <div class="shortcut-box-top">
                         <span class="shortcut-lang-label tag-es">💡 SPANISH SHORTCUT MEMORY</span>
                         <span class="shortcut-target-word" id="shortcut-es-word" style="display: none;">estufa</span>
-                        <span class="tile-audio-icon" style="opacity: 0.75;">
-                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fb7185" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                          </svg>
-                        </span>
                       </div>
                       <div class="shortcut-punchline" id="shortcut-es-text">
                         <strong>Es-tufa</strong> → <em>Tough-ah</em> flame on the stove!
@@ -9485,16 +9483,10 @@
                     </div>
 
                     <!-- Hindi Shortcut Memory -->
-                    <div class="shortcut-box shortcut-box-hi" id="shortcut-card-hi" title="Tap to hear Hindi pronunciation" role="button" tabindex="0">
+                    <div class="shortcut-box shortcut-box-hi" id="shortcut-card-hi">
                       <div class="shortcut-box-top">
                         <span class="shortcut-lang-label tag-hi">💡 HINDI SHORTCUT MEMORY</span>
                         <span class="shortcut-target-word" id="shortcut-hi-word" style="display: none;">choolha</span>
-                        <span class="tile-audio-icon" style="opacity: 0.75;">
-                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                          </svg>
-                        </span>
                       </div>
                       <div class="shortcut-punchline" id="shortcut-hi-text">
                         <strong>Choolha</strong> → Village desi <em>Chulha</em> cooking hot rotis!
@@ -18526,7 +18518,14 @@ const tier800DeckCards = initialDeckCards;
           visualTile.classList.add(activeClass);
         }
 
-        const ttsLang = langCode.startsWith("es") ? "es" : langCode.startsWith("hi") ? "hi" : langCode.startsWith("ta") ? "ta" : "en";
+        // Strictly native speech: Spanish (es), Hindi (hi), English (en)
+        if (langCode.startsWith("ta")) {
+          // Tamil speech audio omitted per user specification
+          cleanupActive();
+          return;
+        }
+
+        const ttsLang = langCode.startsWith("es") ? "es" : langCode.startsWith("hi") ? "hi" : "en";
         const speechQuery = ttsLang === "en" ? cleanWord.toLowerCase() : cleanWord;
         const ttsUrl = `/api/tts?lang=${encodeURIComponent(ttsLang)}&text=${encodeURIComponent(speechQuery)}`;
 
@@ -18556,49 +18555,183 @@ const tier800DeckCards = initialDeckCards;
         });
       }
 
-      // Local fallback with strict voice matching for English, Spanish, Hindi, and Tamil
+      // Pre-cache available system synthesis voices
+      let cachedSystemVoices = [];
+      function refreshSystemVoices() {
+        if ("speechSynthesis" in window) {
+          try {
+            cachedSystemVoices = window.speechSynthesis.getVoices() || [];
+          } catch(e) {}
+        }
+      }
+      if ("speechSynthesis" in window) {
+        refreshSystemVoices();
+        window.speechSynthesis.onvoiceschanged = refreshSystemVoices;
+      }
+
+      // Local fallback with STRICT native voice verification (NEVER speaks foreign words in English!)
       function speakWebSpeechStrict(text, langCode, onFinish) {
         if (!("speechSynthesis" in window)) {
           if (onFinish) onFinish();
           return;
         }
 
-        const utterance = new SpeechSynthesisUtterance(text);
-        const code = langCode.startsWith("es")
-          ? "es-ES"
-          : langCode.startsWith("hi")
-            ? "hi-IN"
-            : langCode.startsWith("ta")
-              ? "ta-IN"
-              : "en-US";
-        utterance.lang = code;
+        const cleanWord = cleanSpeechWord(text);
+        if (!cleanWord) {
+          if (onFinish) onFinish();
+          return;
+        }
+
+        refreshSystemVoices();
+        const voices = cachedSystemVoices.length > 0 ? cachedSystemVoices : (window.speechSynthesis.getVoices() || []);
+        const isEs = langCode.startsWith("es");
+        const isHi = langCode.startsWith("hi");
+
+        const utterance = new SpeechSynthesisUtterance(cleanWord);
         utterance.volume = 1.0;
         utterance.rate = 0.82;
         utterance.pitch = 1.0;
 
-        const voices = window.speechSynthesis.getVoices() || [];
-        const prefix = code.split("-")[0];
-        const nativeVoice = voices.find(v => {
-          const vLang = (v.lang || "").toLowerCase().replace("_", "-");
-          const vName = (v.name || "").toLowerCase();
-          return (
-            vLang.startsWith(prefix) ||
-            (prefix === "es" && vName.includes("spanish")) ||
-            (prefix === "hi" && vName.includes("hindi")) ||
-            (prefix === "ta" && vName.includes("tamil"))
-          );
-        });
+        let matchingVoice = null;
+        if (isEs) {
+          utterance.lang = "es-ES";
+          matchingVoice = voices.find(v => {
+            const vLang = (v.lang || "").toLowerCase().replace("_", "-");
+            const vName = (v.name || "").toLowerCase();
+            return vLang.startsWith("es") || vName.includes("spanish") || vName.includes("español");
+          });
+          // STRICT RULE: If no Spanish native voice is installed on device, NEVER fall back to English!
+          if (!matchingVoice) {
+            if (onFinish) onFinish();
+            return;
+          }
+        } else if (isHi) {
+          utterance.lang = "hi-IN";
+          matchingVoice = voices.find(v => {
+            const vLang = (v.lang || "").toLowerCase().replace("_", "-");
+            const vName = (v.name || "").toLowerCase();
+            return vLang.startsWith("hi") || vName.includes("hindi") || vName.includes("kalpana") || vName.includes("lekha");
+          });
+          // STRICT RULE: If no Hindi native voice is installed on device, NEVER fall back to English!
+          if (!matchingVoice) {
+            if (onFinish) onFinish();
+            return;
+          }
+        } else {
+          utterance.lang = "en-US";
+          matchingVoice = voices.find(v => (v.lang || "").toLowerCase().startsWith("en"));
+        }
 
-        if (nativeVoice) {
-          utterance.voice = nativeVoice;
-        } else if (prefix === "hi" || prefix === "ta") {
-          const indianVoice = voices.find(v => (v.lang || "").toLowerCase().includes("in"));
-          if (indianVoice) utterance.voice = indianVoice;
+        if (matchingVoice) {
+          utterance.voice = matchingVoice;
         }
 
         utterance.onend = () => { if (onFinish) onFinish(); };
         utterance.onerror = () => { if (onFinish) onFinish(); };
-        window.speechSynthesis.speak(utterance);
+        try {
+          window.speechSynthesis.speak(utterance);
+        } catch(e) {
+          if (onFinish) onFinish();
+        }
+      }
+
+      // =========================================================================
+      // NATIVE VOICE TRANSCRIBER (SPEECH-TO-TEXT FOR SPANISH & HINDI ONLY)
+      // Strictly transcribes native speaking directly into card edit fields
+      // No transcribe for Tamil or shortcut memory fields
+      // =========================================================================
+      let activeSpeechRecognition = null;
+      let activeTranscribeTarget = null;
+
+      function setupNativeSpeechTranscription() {
+        const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const btnTranscribeEs = document.getElementById("btn-transcribe-es");
+        const btnTranscribeHi = document.getElementById("btn-transcribe-hi");
+
+        if (!btnTranscribeEs || !btnTranscribeHi) return;
+
+        if (!SpeechRec) {
+          const markUnsupported = (btn) => {
+            btn.style.opacity = "0.5";
+            btn.title = "Voice transcription requires Web Speech API support";
+          };
+          markUnsupported(btnTranscribeEs);
+          markUnsupported(btnTranscribeHi);
+          return;
+        }
+
+        function toggleRecognition(btn, targetInput, nativeLang, langLabel) {
+          if (activeSpeechRecognition && activeTranscribeTarget === targetInput) {
+            try { activeSpeechRecognition.stop(); } catch(e) {}
+            return;
+          }
+          if (activeSpeechRecognition) {
+            try { activeSpeechRecognition.stop(); } catch(e) {}
+          }
+
+          try {
+            const recognition = new SpeechRec();
+            // Strictly configure voice transcription for native speaking (never English!)
+            recognition.lang = nativeLang; // 'es-ES' for Spanish, 'hi-IN' for Hindi
+            recognition.continuous = false;
+            recognition.interimResults = true;
+            recognition.maxAlternatives = 1;
+
+            const originalBtnHtml = btn.innerHTML;
+            btn.innerHTML = `<span style="display:inline-block;animation: pulse 1s infinite;">🔴</span> <span>Listening (${langLabel})...</span>`;
+            btn.style.background = "rgba(239, 68, 68, 0.25)";
+            btn.style.borderColor = "#ef4444";
+            activeSpeechRecognition = recognition;
+            activeTranscribeTarget = targetInput;
+
+            recognition.onresult = (event) => {
+              let transcript = "";
+              for (let i = event.resultIndex; i < event.results.length; ++i) {
+                transcript += event.results[i][0].transcript;
+              }
+              if (transcript && transcript.trim()) {
+                targetInput.value = transcript.trim();
+              }
+            };
+
+            recognition.onerror = (event) => {
+              console.warn("Speech recognition notice:", event.error);
+              if (event.error === "not-allowed") {
+                if (typeof showToast === "function") {
+                  showToast("Microphone access needed for native transcription");
+                }
+              }
+            };
+
+            recognition.onend = () => {
+              btn.innerHTML = originalBtnHtml;
+              btn.style.background = "";
+              btn.style.borderColor = "";
+              if (activeSpeechRecognition === recognition) {
+                activeSpeechRecognition = null;
+                activeTranscribeTarget = null;
+              }
+            };
+
+            recognition.start();
+          } catch(err) {
+            console.warn("Speech recognition initialization notice:", err);
+          }
+        }
+
+        btnTranscribeEs.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const target = document.getElementById("edit-input-es");
+          if (target) toggleRecognition(btnTranscribeEs, target, "es-ES", "Español");
+        });
+
+        btnTranscribeHi.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const target = document.getElementById("edit-input-hi");
+          if (target) toggleRecognition(btnTranscribeHi, target, "hi-IN", "हिन्दी");
+        });
       }
 
       function getCardDefaultShortcuts(card) {
@@ -19843,17 +19976,6 @@ const tier800DeckCards = initialDeckCards;
           } catch(e) {}
         }
 
-        lastLocalMutationTime = Date.now();
-        isInitialCloudHydrationDone = true;
-        try {
-          localStorage.setItem(DELETED_CARDS_STORAGE_KEY, JSON.stringify(deletedCardNums));
-          if (typeof commitLocalStateImmediately === "function") {
-            commitLocalStateImmediately(true);
-          } else if (typeof syncCurrentStateToDeviceCloud === "function") {
-            syncCurrentStateToDeviceCloud(false, "", true);
-          }
-        } catch(e) {}
-
         // Rebuild cards array without the deleted card
         reindexAndBuildCards();
 
@@ -19872,6 +19994,18 @@ const tier800DeckCards = initialDeckCards;
           frontVisualImgEl.removeAttribute("data-card-id");
           frontVisualImgEl.classList.remove("loaded");
         }
+
+        // Instantly persist deleted cards locally and sync to cloud
+        lastLocalMutationTime = Date.now();
+        isInitialCloudHydrationDone = true;
+        try {
+          localStorage.setItem(DELETED_CARDS_STORAGE_KEY, JSON.stringify(deletedCardNums));
+          if (typeof commitLocalStateImmediately === "function") {
+            commitLocalStateImmediately(true);
+          } else if (typeof syncCurrentStateToDeviceCloud === "function") {
+            syncCurrentStateToDeviceCloud(false, "", true);
+          }
+        } catch(e) {}
 
         renderCurrentCard();
         updateSectionLearnedCounter();
@@ -19936,12 +20070,16 @@ const tier800DeckCards = initialDeckCards;
         deletedCardNums = [];
         try {
           localStorage.removeItem(DELETED_CARDS_STORAGE_KEY);
+          isExplicitDeckReset = true;
           if (typeof commitLocalStateImmediately === "function") {
             commitLocalStateImmediately(true);
           } else if (typeof syncCurrentStateToDeviceCloud === "function") {
             syncCurrentStateToDeviceCloud(false, "", true);
           }
-        } catch (e) {}
+          isExplicitDeckReset = false;
+        } catch (e) {
+          isExplicitDeckReset = false;
+        }
         reindexAndBuildCards();
         currentIndex = 0;
         isFlipped = false;
@@ -20030,28 +20168,12 @@ const tier800DeckCards = initialDeckCards;
         backCardWordPreviewEl.addEventListener("click", handleEnglishSpeech);
       }
 
-      // Tamil Voice Handler: Speaks this card Tamil translation
-      function handleTamilSpeech(e) {
-        if (e) {
-          e.stopPropagation();
-          e.stopImmediatePropagation();
-        }
-        const now = Date.now();
-        if (now - lastSpeechTriggerTime < 180) return;
-        lastSpeechTriggerTime = now;
-        cardAudio.playTapClick();
-        const card = cards[currentIndex];
-        if (card && card.tamil) {
-          playNativeSpeech(card.tamil, "ta", cardTamilTile, "speaking-ta");
-        }
-      }
-
+      // Tamil: Voice speech omitted per user specification (strictly reading script)
       if (cardTamilTile) {
         cardTamilTile.addEventListener("pointerdown", (e) => e.stopPropagation());
-        cardTamilTile.addEventListener("click", handleTamilSpeech);
       }
 
-      // Spanish Voice Handler: Speaks this card Spanish translation (from tile or shortcut box)
+      // Spanish Voice Handler: Speaks THIS card authentic Spanish translation (Spanish Tile only)
       function handleSpanishSpeech(e) {
         if (e) {
           e.stopPropagation();
@@ -20071,13 +20193,8 @@ const tier800DeckCards = initialDeckCards;
         cardEsTile.addEventListener("pointerdown", (e) => e.stopPropagation());
         cardEsTile.addEventListener("click", handleSpanishSpeech);
       }
-      const shortcutCardEs = document.getElementById("shortcut-card-es");
-      if (shortcutCardEs) {
-        shortcutCardEs.addEventListener("pointerdown", (e) => e.stopPropagation());
-        shortcutCardEs.addEventListener("click", handleSpanishSpeech);
-      }
 
-      // Hindi Voice Handler: Speaks THIS card native Hindi Devanagari (never uses shifted card.num!)
+      // Hindi Voice Handler: Speaks THIS card native Hindi Devanagari (Hindi Tile only)
       function handleHindiSpeech(e) {
         if (e) {
           e.stopPropagation();
@@ -20090,14 +20207,7 @@ const tier800DeckCards = initialDeckCards;
         const card = cards[currentIndex];
         if (card && card.trans && card.trans.hi) {
           const origNum = card.originalNum || card.num;
-          let hiText = card.trans.hi;
-          if (!card.isCustomEdited) {
-            if (card.hiDevanagari) {
-              hiText = card.hiDevanagari;
-            } else if (typeof hindiDevMap !== "undefined" && hindiDevMap[origNum]) {
-              hiText = hindiDevMap[origNum];
-            }
-          }
+          const hiText = card.hiDevanagari || (typeof hindiDevMap !== "undefined" ? hindiDevMap[origNum] : "") || card.trans.hi;
           playNativeSpeech(hiText, "hi", cardHiTile, "speaking-hi");
         }
       }
@@ -20106,11 +20216,19 @@ const tier800DeckCards = initialDeckCards;
         cardHiTile.addEventListener("pointerdown", (e) => e.stopPropagation());
         cardHiTile.addEventListener("click", handleHindiSpeech);
       }
+
+      // Shortcut Memory: Strictly mnemonic text without speech playback
+      const shortcutCardEs = document.getElementById("shortcut-card-es");
+      if (shortcutCardEs) {
+        shortcutCardEs.addEventListener("pointerdown", (e) => e.stopPropagation());
+      }
       const shortcutCardHi = document.getElementById("shortcut-card-hi");
       if (shortcutCardHi) {
         shortcutCardHi.addEventListener("pointerdown", (e) => e.stopPropagation());
-        shortcutCardHi.addEventListener("click", handleHindiSpeech);
       }
+
+      // Initialize Native Voice Transcription for Spanish & Hindi Edit Fields
+      setupNativeSpeechTranscription();
 
       // Open Edit Modal Listeners
       if (frontEditBtn) {
@@ -20406,7 +20524,8 @@ const tier800DeckCards = initialDeckCards;
         btnTestVoice.addEventListener("click", () => {
           cardAudio.playTapClick();
           const card = cards[currentIndex] || cards[0];
-          playNativeSpeech(`${card.word}, ${card.trans.es.split('/')[0]}`, "es", btnTestVoice, "speaking-es");
+          const spanishWord = (card && card.trans && card.trans.es ? card.trans.es.split('/')[0].trim() : "hola");
+          playNativeSpeech(spanishWord, "es", btnTestVoice, "speaking-es");
         });
       }
 
@@ -21200,6 +21319,8 @@ const tier800DeckCards = initialDeckCards;
         return clean;
       }
 
+      let isExplicitDeckReset = false;
+
       function buildCurrentAuthoritativePayload(targetEmailOverride = "", syncRevOverride = null) {
         const targetEmail = String(targetEmailOverride || currentAccountEmail || COMMON_CLOUD_EMAIL).trim().toLowerCase();
         const savedLastCard = getLastCardNumber();
@@ -21209,6 +21330,7 @@ const tier800DeckCards = initialDeckCards;
         return {
           email: targetEmail,
           syncRevision,
+          isResetDeck: Boolean(isExplicitDeckReset),
           learnedCardNums: [...learnedCardsSet],
           deletedCardNums: Array.isArray(deletedCardNums) ? [...deletedCardNums] : [],
           activeDeckId: currentDeckId || "deck-800-1000",
@@ -21840,13 +21962,17 @@ const tier800DeckCards = initialDeckCards;
             } catch (e) {}
           }
 
-          // 2. Deleted cards (Authoritative replacement from latest cloud state)
+          // 2. Deleted cards (Preserves manual user card deletions across all devices)
           const hasDeletedField = Array.isArray(payload.deletedCardNums) || Array.isArray(payload.deletedCards);
           if (hasDeletedField) {
             const inDeleted = Array.isArray(payload.deletedCardNums)
               ? payload.deletedCardNums
               : payload.deletedCards;
-            deletedCardNums = [...new Set(inDeleted)];
+            if (payload.isResetDeck || replaceAccountData) {
+              deletedCardNums = [...new Set(inDeleted)];
+            } else {
+              deletedCardNums = [...new Set([...(deletedCardNums || []), ...inDeleted])];
+            }
             try {
               localStorage.setItem(DELETED_CARDS_STORAGE_KEY, JSON.stringify(deletedCardNums));
             } catch (e) {}

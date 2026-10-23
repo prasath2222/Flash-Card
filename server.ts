@@ -172,6 +172,8 @@ async function startServer() {
     }
   });
 
+  const ttsAudioCache = new Map<string, Buffer>();
+
   app.get("/api/tts", async (req, res) => {
     try {
       const text = String(req.query.text || req.query.q || "").trim().slice(0, 200);
@@ -179,13 +181,21 @@ async function startServer() {
       if (!text) {
         return res.status(400).end();
       }
-      const tl = rawLang.startsWith("ta")
-        ? "ta"
-        : rawLang.startsWith("es")
+      // Strictly native languages: Spanish (es), Hindi (hi), English (en)
+      const tl = rawLang.startsWith("es")
         ? "es"
         : rawLang.startsWith("hi")
         ? "hi"
         : "en";
+
+      const cacheKey = `${tl}:${text}`;
+      if (ttsAudioCache.has(cacheKey)) {
+        const cached = ttsAudioCache.get(cacheKey)!;
+        res.setHeader("Content-Type", "audio/mpeg");
+        res.setHeader("Cache-Control", "public, max-age=86400");
+        return res.status(200).send(cached);
+      }
+
       const ttsUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=${encodeURIComponent(tl)}&client=tw-ob&q=${encodeURIComponent(text)}`;
       const upstream = await fetch(ttsUrl, {
         headers: {
@@ -197,9 +207,15 @@ async function startServer() {
         return res.status(upstream.status).end();
       }
       const arrayBuffer = await upstream.arrayBuffer();
+      const buf = Buffer.from(arrayBuffer);
+      if (ttsAudioCache.size > 2000) {
+        const firstKey = ttsAudioCache.keys().next().value;
+        if (firstKey) ttsAudioCache.delete(firstKey);
+      }
+      ttsAudioCache.set(cacheKey, buf);
       res.setHeader("Content-Type", "audio/mpeg");
       res.setHeader("Cache-Control", "public, max-age=86400");
-      return res.status(200).send(Buffer.from(arrayBuffer));
+      return res.status(200).send(buf);
     } catch (e) {
       return res.status(502).end();
     }
@@ -926,9 +942,10 @@ async function startServer() {
           : Array.from(new Set([...(existingNorm.learnedCardNums || []), ...inLearned]))
         : existingNorm.learnedCardNums || [];
 
+    const isResetDeck = Boolean(incoming.isResetDeck || incomingBody?.isResetDeck);
     const deletedCardNums =
       inDeleted !== null
-        ? replaceArrays
+        ? isResetDeck
           ? inDeleted
           : Array.from(new Set([...(existingNorm.deletedCardNums || []), ...inDeleted]))
         : existingNorm.deletedCardNums || [];
