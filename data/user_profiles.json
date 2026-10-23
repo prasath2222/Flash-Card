@@ -1,66 +1,170 @@
 {
   "73801410b67c7ba66a922cc3105f74f279ec21460127d1f8645136a22bffcee3": {
-    "updatedAt": "2026-10-22T17:09:42.172Z",
+    "updatedAt": "2026-10-23T11:16:21.756Z",
     "payload": {
       "learnedCardNums": [
-        800
+        800,
+        801,
+        804,
+        1,
+        2,
+        3,
+        802,
+        803,
+        805,
+        806
       ],
       "learnedCards": [
-        800
+        800,
+        801,
+        804,
+        1,
+        2,
+        3,
+        802,
+        803,
+        805,
+        806
       ],
-      "deletedCardNums": [],
-      "deletedCards": [],
+      "deletedCardNums": [
+        807,
+        "t800_807"
+      ],
+      "deletedCards": [
+        807,
+        "t800_807"
+      ],
       "activeDeckId": "deck-800-1000",
-      "lastActiveCardNum": 800,
-      "lastCard": 800,
-      "streakCount": 1,
-      "streak": 1,
+      "lastActiveCardNum": 808,
+      "lastCard": 808,
+      "streakCount": 5,
+      "streak": 5,
       "customShortcuts": {},
       "customDecks": {},
       "customSections": [],
       "audioPrefs": {
         "voiceRate": 0.8,
+        "bgmEnabled": false,
+        "voiceVolume": 1,
+        "bgmMode": "lofi",
         "bgmVolume": 0.25,
         "voicePitch": 1,
         "sfxVolume": 1,
-        "bgmMode": "lofi",
-        "sfxStyle": "whoosh",
-        "bgmEnabled": true,
-        "voiceVolume": 1
+        "sfxStyle": "snap"
       },
-      "updatedAt": "2026-10-22T17:09:42.172Z"
+      "updatedAt": "2026-10-23T11:16:21.756Z"
     }
   },
-  "a86c9a9676dd641bbc8a7fe06bcbaa10b5951dd0da25aed3937bfb930372fc2d": {
-    "updatedAt": "2026-10-22T17:09:42.172Z",
+  "d35d4d4b85f6d4564904fd6193f6fcd0b68dc077bc6b71ff1c6eb03177edabaa": {
+    "updatedAt": "2026-10-23T11:16:21.756Z",
     "payload": {
       "learnedCardNums": [
-        800
+        800,
+        801,
+        804,
+        1,
+        2,
+        3,
+        802,
+        803,
+        805,
+        806
       ],
       "learnedCards": [
-        800
+        800,
+        801,
+        804,
+        1,
+        2,
+        3,
+        802,
+        803,
+        805,
+        806
       ],
-      "deletedCardNums": [],
-      "deletedCards": [],
+      "deletedCardNums": [
+        807,
+        "t800_807"
+      ],
+      "deletedCards": [
+        807,
+        "t800_807"
+      ],
       "activeDeckId": "deck-800-1000",
-      "lastActiveCardNum": 800,
-      "lastCard": 800,
-      "streakCount": 1,
-      "streak": 1,
+      "lastActiveCardNum": 808,
+      "lastCard": 808,
+      "streakCount": 5,
+      "streak": 5,
       "customShortcuts": {},
       "customDecks": {},
       "customSections": [],
       "audioPrefs": {
         "voiceRate": 0.8,
+        "bgmEnabled": false,
+        "voiceVolume": 1,
+        "bgmMode": "lofi",
         "bgmVolume": 0.25,
         "voicePitch": 1,
         "sfxVolume": 1,
-        "bgmMode": "lofi",
-        "sfxStyle": "whoosh",
-        "bgmEnabled": true,
-        "voiceVolume": 1
+        "sfxStyle": "snap"
       },
-      "updatedAt": "2026-10-22T17:09:42.172Z"
+      "updatedAt": "2026-10-23T11:16:21.756Z"
+    }
+  },
+  "db015cdc4faa6a67257fc82145cbddde565209207ea9b82d51fd6e7a13f948a2": {
+    "updatedAt": "2026-10-23T11:16:21.756Z",
+    "payload": {
+      "learnedCardNums": [
+        800,
+        801,
+        804,
+        1,
+        2,
+        3,
+        802,
+        803,
+        805,
+        806
+      ],
+      "learnedCards": [
+        800,
+        801,
+        804,
+        1,
+        2,
+        3,
+        802,
+        803,
+        805,
+        806
+      ],
+      "deletedCardNums": [
+        807,
+        "t800_807"
+      ],
+      "deletedCards": [
+        807,
+        "t800_807"
+      ],
+      "activeDeckId": "deck-800-1000",
+      "lastActiveCardNum": 808,
+      "lastCard": 808,
+      "streakCount": 5,
+      "streak": 5,
+      "customShortcuts": {},
+      "customDecks": {},
+      "customSections": [],
+      "audioPrefs": {
+        "voiceRate": 0.8,
+        "bgmEnabled": false,
+        "voiceVolume": 1,
+        "bgmMode": "lofi",
+        "bgmVolume": 0.25,
+        "voicePitch": 1,
+        "sfxVolume": 1,
+        "sfxStyle": "snap"
+      },
+      "updatedAt": "2026-10-23T11:16:21.756Z"
     }
   }
 }

@@ -822,6 +822,44 @@ async function startServer() {
     }
   }
 
+  function isProfilePayloadNonEmpty(p: any): boolean {
+    if (!p || typeof p !== "object") return false;
+    const learned = Array.isArray(p.learnedCardNums)
+      ? p.learnedCardNums
+      : Array.isArray(p.learnedCards)
+      ? p.learnedCards
+      : [];
+    const deleted = Array.isArray(p.deletedCardNums)
+      ? p.deletedCardNums
+      : Array.isArray(p.deletedCards)
+      ? p.deletedCards
+      : [];
+    const lastCard = Number(p.lastActiveCardNum ?? p.lastCard ?? 800);
+    const shortcutsCount =
+      p.customShortcuts && typeof p.customShortcuts === "object"
+        ? Object.keys(p.customShortcuts).length
+        : 0;
+    const decksCount =
+      p.customDecks && typeof p.customDecks === "object"
+        ? Object.keys(p.customDecks).length
+        : 0;
+    const activeDeck = p.activeDeckId && p.activeDeckId !== "deck-800-1000";
+    return Boolean(
+      learned.length > 0 ||
+      deleted.length > 0 ||
+      (lastCard !== 800 && lastCard > 0) ||
+      shortcutsCount > 0 ||
+      decksCount > 0 ||
+      activeDeck
+    );
+  }
+
+  const COMMON_CLOUD_EMAIL_KEY = "common_all_devices@stellar.cloud";
+  const COMMON_CLOUD_HASH_KEY = crypto
+    .createHash("sha256")
+    .update(COMMON_CLOUD_EMAIL_KEY)
+    .digest("hex");
+
   async function saveProfileData(
     rawEmail: unknown,
     incomingBody: any
@@ -833,13 +871,32 @@ async function startServer() {
 
     const emailHash = crypto.createHash("sha256").update(email).digest("hex");
     const profiles = readUserProfiles();
-    const existingNorm = normalizeProfilePayload(profiles[emailHash] || profiles[email]) || normalizeProfilePayload({});
+    const existingRaw = profiles[emailHash] || profiles[COMMON_CLOUD_HASH_KEY] || profiles[email];
+    const existingNorm = normalizeProfilePayload(existingRaw) || normalizeProfilePayload({});
 
     const incoming =
       incomingBody?.payload && typeof incomingBody.payload === "object"
         ? incomingBody.payload
         : incomingBody || {};
     const replaceArrays = incomingBody?.replaceArrays !== false;
+    const isExplicitUserAction = Boolean(
+      incomingBody?.isExplicitUserAction || incoming?.isExplicitUserAction
+    );
+
+    const incomingNormCheck = normalizeProfilePayload(incoming);
+    if (
+      !isProfilePayloadNonEmpty(incomingNormCheck) &&
+      !isExplicitUserAction &&
+      isProfilePayloadNonEmpty(existingNorm)
+    ) {
+      // Prevent an unhydrated new device boot from wiping out existing cloud progress!
+      return {
+        email,
+        exists: true,
+        updatedAt: existingNorm.updatedAt || new Date().toISOString(),
+        payload: existingNorm
+      };
+    }
 
     const inLearned = Array.isArray(incoming.learnedCardNums)
       ? incoming.learnedCardNums
@@ -914,54 +971,69 @@ async function startServer() {
       customDecks,
       customSections,
       audioPrefs,
+      isExplicitUserAction,
       updatedAt
     };
 
     if (profiles[email]) delete profiles[email];
     profiles[emailHash] = {
       updatedAt,
+      isExplicitUserAction,
       payload: savedPayload
+    };
+    profiles[COMMON_CLOUD_HASH_KEY] = {
+      updatedAt,
+      isExplicitUserAction,
+      payload: { ...savedPayload, accountId: COMMON_CLOUD_HASH_KEY }
     };
     writeUserProfiles(profiles);
 
-    // Also persist to Google Cloud Firestore under isolated hashed account document
+    // Also persist to Google Cloud Firestore under both account document and universal website cloud documents
     if (firestoreDb) {
       try {
-        const isCommonCloud = email === "common_all_devices@stellar.cloud" || email.startsWith("global") || email.startsWith("cloud_id_") || email.includes("global-1");
-        const docId = isCommonCloud ? "global_common_cloud_v2" : emailToFirestoreDocId(email);
-        const clientDocId = isCommonCloud ? "global_common_cloud_v2" : emailToClientSyncDocId(email);
-        const docBody = {
-          accountId: emailHash,
-          updatedAt,
-          payload: savedPayload
+        const docId = emailToFirestoreDocId(email);
+        const clientDocId = emailToClientSyncDocId(email);
+        const targetDocs = Array.from(
+          new Set([
+            docId,
+            clientDocId,
+            "global_common_cloud_v2",
+            "global_common_cloud_v1",
+            "acct_73801410b67c7ba66a922cc3105f74f2"
+          ])
+        );
+
+        const writes: Promise<any>[] = targetDocs.map((dId) =>
+          setDoc(doc(firestoreDb!, "study_state", dId), {
+            accountId: dId,
+            updatedAt,
+            isExplicitUserAction,
+            payload: savedPayload
+          })
+        );
+
+        const progDocBody = {
+          userId: "global_common_cloud_v2",
+          email,
+          learnedCards: savedPayload.learnedCardNums || [],
+          learnedCardNums: savedPayload.learnedCardNums || [],
+          deletedCardNums: savedPayload.deletedCardNums || [],
+          lastActiveCardNum: savedPayload.lastActiveCardNum || 800,
+          activeDeckId: savedPayload.activeDeckId || "deck-800-1000",
+          customShortcuts: savedPayload.customShortcuts || {},
+          customDecks: savedPayload.customDecks || {},
+          customSections: savedPayload.customSections || [],
+          streakCount: savedPayload.streakCount || 1,
+          isExplicitUserAction,
+          lastStudied: updatedAt,
+          updatedAt
         };
-        const writes = [
-          setDoc(doc(firestoreDb, "study_state", docId), docBody),
-          ...(clientDocId !== docId ? [setDoc(doc(firestoreDb, "study_state", clientDocId), docBody)] : [])
-        ];
-        if (isCommonCloud) {
-          writes.push(
-            setDoc(
-              doc(firestoreDb, "user_progress", "global_common_cloud_v2"),
-              {
-                userId: "global_common_cloud_v2",
-                email,
-                learnedCards: savedPayload.learnedCardNums || [],
-                learnedCardNums: savedPayload.learnedCardNums || [],
-                deletedCardNums: savedPayload.deletedCardNums || [],
-                lastActiveCardNum: savedPayload.lastActiveCardNum || 800,
-                activeDeckId: savedPayload.activeDeckId || "deck-800-1000",
-                customShortcuts: savedPayload.customShortcuts || {},
-                customDecks: savedPayload.customDecks || {},
-                customSections: savedPayload.customSections || [],
-                streakCount: savedPayload.streakCount || 1,
-                lastStudied: updatedAt,
-                updatedAt
-              },
-              { merge: true }
-            )
-          );
-        }
+
+        writes.push(
+          setDoc(doc(firestoreDb, "user_progress", "global_common_cloud_v2"), progDocBody, { merge: true }),
+          setDoc(doc(firestoreDb, "user_progress", "global_common_cloud_v1"), progDocBody, { merge: true })
+        );
+
         await Promise.allSettled(writes);
       } catch (err) {
         console.warn("Firestore save notice:", err);
@@ -974,38 +1046,52 @@ async function startServer() {
   async function loadProfileData(
     rawEmail: unknown
   ): Promise<{ email: string; exists: boolean; updatedAt: string; payload: any }> {
-    const email = sanitizeEmailKey(rawEmail) || "common_all_devices@stellar.cloud";
+    const email = sanitizeEmailKey(rawEmail) || COMMON_CLOUD_EMAIL_KEY;
 
     const emailHash = crypto.createHash("sha256").update(email).digest("hex");
     const profiles = readUserProfiles();
-    let localNorm =
-      profiles[emailHash] || profiles[email]
-        ? normalizeProfilePayload(profiles[emailHash] || profiles[email])
-        : null;
-    let firestoreNorm: any = null;
+
+    const candidates: Array<{ payload: any; ts: number; hasProgress: boolean }> = [];
+
+    for (const key of [emailHash, COMMON_CLOUD_HASH_KEY, email]) {
+      if (profiles[key]) {
+        const norm = normalizeProfilePayload(profiles[key]);
+        if (norm) {
+          candidates.push({
+            payload: norm,
+            ts: Date.parse(norm.updatedAt || "") || 0,
+            hasProgress: isProfilePayloadNonEmpty(norm)
+          });
+        }
+      }
+    }
 
     if (firestoreDb) {
       try {
-        const isCommonCloud = email === "common_all_devices@stellar.cloud" || email.startsWith("global") || email.startsWith("cloud_id_") || email.includes("global-1");
-        const docId = isCommonCloud ? "global_common_cloud_v2" : emailToFirestoreDocId(email);
-        const clientDocId = isCommonCloud ? "global_common_cloud_v2" : emailToClientSyncDocId(email);
-        const snaps = await Promise.allSettled([
-          getDoc(doc(firestoreDb, "study_state", docId)),
-          ...(clientDocId !== docId ? [getDoc(doc(firestoreDb, "study_state", clientDocId))] : [])
-        ]);
+        const docId = emailToFirestoreDocId(email);
+        const clientDocId = emailToClientSyncDocId(email);
+        const targetDocs = Array.from(
+          new Set([
+            docId,
+            clientDocId,
+            "global_common_cloud_v2",
+            "global_common_cloud_v1",
+            "acct_73801410b67c7ba66a922cc3105f74f2",
+            "acct_stellarnetworkhub_gmail_com"
+          ])
+        );
+        const snaps = await Promise.allSettled(
+          targetDocs.map((dId) => getDoc(doc(firestoreDb!, "study_state", dId)))
+        );
         for (const res of snaps) {
           if (res.status === "fulfilled" && res.value.exists()) {
             const candidate = normalizeProfilePayload(res.value.data());
             if (candidate) {
-              if (!firestoreNorm) {
-                firestoreNorm = candidate;
-              } else {
-                const tCand = Date.parse(candidate.updatedAt || "") || 0;
-                const tBest = Date.parse(firestoreNorm.updatedAt || "") || 0;
-                if (tCand >= tBest) {
-                  firestoreNorm = candidate;
-                }
-              }
+              candidates.push({
+                payload: candidate,
+                ts: Date.parse(candidate.updatedAt || "") || 0,
+                hasProgress: isProfilePayloadNonEmpty(candidate)
+              });
             }
           }
         }
@@ -1014,16 +1100,7 @@ async function startServer() {
       }
     }
 
-    let chosen: any = null;
-    if (localNorm && firestoreNorm) {
-      const localTime = Date.parse(localNorm.updatedAt || "") || 0;
-      const remoteTime = Date.parse(firestoreNorm.updatedAt || "") || 0;
-      chosen = remoteTime >= localTime ? firestoreNorm : localNorm;
-    } else {
-      chosen = firestoreNorm || localNorm;
-    }
-
-    if (!chosen) {
+    if (candidates.length === 0) {
       return {
         email,
         exists: false,
@@ -1032,15 +1109,22 @@ async function startServer() {
       };
     }
 
-    // Keep local cache in sync with latest Firestore state using only hashed key
-    if (!localNorm || chosen === firestoreNorm) {
-      if (profiles[email]) delete profiles[email];
-      profiles[emailHash] = {
-        updatedAt: chosen.updatedAt,
-        payload: chosen
-      };
-      writeUserProfiles(profiles);
-    }
+    const nonEmpty = candidates.filter((c) => c.hasProgress);
+    const pool = nonEmpty.length > 0 ? nonEmpty : candidates;
+    pool.sort((a, b) => b.ts - a.ts);
+    const chosen = pool[0].payload;
+
+    // Keep local cache in sync with latest state
+    if (profiles[email]) delete profiles[email];
+    profiles[emailHash] = {
+      updatedAt: chosen.updatedAt,
+      payload: chosen
+    };
+    profiles[COMMON_CLOUD_HASH_KEY] = {
+      updatedAt: chosen.updatedAt,
+      payload: chosen
+    };
+    writeUserProfiles(profiles);
 
     return {
       email,

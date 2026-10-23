@@ -9914,8 +9914,12 @@
               </svg>
               <span id="btn-google-signin-text">Continue with Google</span>
             </button>
-            <div style="font-size: 0.74rem; color: #94a3b8; text-align: center; margin-top: 8px;">
-              Automatically selects your browser Google account — no password typing required.
+            <div style="display: flex; gap: 6px; margin-top: 8px;">
+              <input type="email" id="input-direct-google-email" placeholder="Or enter your @gmail.com to sync all devices..." style="flex: 1; padding: 9px 12px; background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 10px; color: #f8fafc; font-size: 0.8rem; font-weight: 700; outline: none;" />
+              <button type="button" id="btn-direct-google-signin" style="padding: 9px 14px; background: linear-gradient(135deg, #0284c7, #2563eb); color: #ffffff; border: none; border-radius: 10px; font-weight: 800; font-size: 0.78rem; cursor: pointer; white-space: nowrap;">Sign In</button>
+            </div>
+            <div style="font-size: 0.72rem; color: #94a3b8; text-align: center; margin-top: 6px;">
+              Sign in with Google button or type your Gmail once — syncs all progress across every device.
             </div>
           </div>
 
@@ -17612,10 +17616,10 @@ const tier800DeckCards = initialDeckCards;
           window.firebaseSync.pushStudyStateToCloud({
             activeDeckId: deckId,
             lastActiveCardNum: cards[0] ? (cards[0].originalNum || cards[0].num) : 1
-          });
+          }, true);
         }
         if (typeof syncCurrentStateToDeviceCloud === "function") {
-          syncCurrentStateToDeviceCloud();
+          syncCurrentStateToDeviceCloud(false, "", true);
         }
 
         const info = getActiveDeckInfo();
@@ -17674,6 +17678,8 @@ const tier800DeckCards = initialDeckCards;
       var isFlipped = false;
       var isAnimating = false;
       var isShuffled = false;
+      var isInitialCloudHydrationDone = false;
+      var isApplyingRemoteCloudState = false;
 
       /* ==========================================================
          COMPREHENSIVE LEARNED TRACKER & DYNAMIC DECK COUNTS
@@ -17698,15 +17704,16 @@ const tier800DeckCards = initialDeckCards;
 
       function saveLearnedCards() {
         lastLocalMutationTime = Date.now();
+        isInitialCloudHydrationDone = true;
         try {
           localStorage.setItem(LEARNED_STORAGE_KEY, JSON.stringify([...learnedCardsSet]));
           if (window.firebaseSync && window.firebaseSync.pushStudyStateToCloud) {
             window.firebaseSync.pushStudyStateToCloud({
               learnedCardNums: [...learnedCardsSet]
-            });
+            }, true);
           }
           if (typeof syncCurrentStateToDeviceCloud === "function") {
-            syncCurrentStateToDeviceCloud();
+            syncCurrentStateToDeviceCloud(false, "", true);
           }
         } catch (e) {
           console.warn("Could not save learned cards:", e);
@@ -17828,25 +17835,44 @@ const tier800DeckCards = initialDeckCards;
         return 800;
       }
 
+      // Initialize currentIndex to match saved lastCardNumber on boot so we don't reset to 800
+      try {
+        const bootTargetNum = getLastCardNumber();
+        if (bootTargetNum && Array.isArray(cards) && cards.length > 0) {
+          const bootFoundIdx = cards.findIndex(c => (c.originalNum || c.num) === bootTargetNum || c.num === bootTargetNum);
+          if (bootFoundIdx !== -1) currentIndex = bootFoundIdx;
+        }
+      } catch (e) {}
+
       let debounceCloudPosTimer = null;
-      function setLastCardNumber(num) {
-        try {
-          localStorage.setItem(LAST_CARD_STORAGE_KEY, num);
-        } catch (e) {}
+      function setLastCardNumber(num, isUserAction = false) {
         const resumeLabel = document.getElementById("btn-resume-label");
         if (resumeLabel) resumeLabel.textContent = `Resume (#${num})`;
 
+        // CRITICAL: Only overwrite localStorage & schedule a cloud push when the user explicitly navigates cards!
+        // Passive initial renders on a fresh device must NEVER overwrite cloud progress with Card #800!
+        if (!isUserAction || isApplyingRemoteCloudState) {
+          return;
+        }
+
+        lastLocalMutationTime = Date.now();
+        isInitialCloudHydrationDone = true;
+        try {
+          localStorage.setItem(LAST_CARD_STORAGE_KEY, num);
+        } catch (e) {}
+
         clearTimeout(debounceCloudPosTimer);
         debounceCloudPosTimer = setTimeout(() => {
+          if (isApplyingRemoteCloudState) return;
           if (typeof syncCurrentStateToDeviceCloud === "function") {
-            syncCurrentStateToDeviceCloud();
+            syncCurrentStateToDeviceCloud(false, "", true);
           }
           if (window.firebaseSync && window.firebaseSync.pushStudyStateToCloud) {
             window.firebaseSync.pushStudyStateToCloud({
               lastActiveCardNum: num
-            });
+            }, true);
           }
-        }, 1200);
+        }, 650);
       }
 
       function resumeStudyDeck() {
@@ -18072,6 +18098,8 @@ const tier800DeckCards = initialDeckCards;
       }
 
       function saveEditsToStorage(cardOrKey, data) {
+        lastLocalMutationTime = Date.now();
+        isInitialCloudHydrationDone = true;
         try {
           const key = typeof cardOrKey === "object" ? getCardEditKey(cardOrKey) : String(cardOrKey);
           const raw = localStorage.getItem(STORAGE_KEY_EDITS);
@@ -18086,7 +18114,7 @@ const tier800DeckCards = initialDeckCards;
             );
           }
           if (typeof syncCurrentStateToDeviceCloud === "function") {
-            syncCurrentStateToDeviceCloud();
+            syncCurrentStateToDeviceCloud(false, "", true);
           }
         } catch (e) {
           console.warn("Could not persist edits:", e);
@@ -18094,6 +18122,8 @@ const tier800DeckCards = initialDeckCards;
       }
 
       function removeEditFromStorage(cardOrKey) {
+        lastLocalMutationTime = Date.now();
+        isInitialCloudHydrationDone = true;
         try {
           const key = typeof cardOrKey === "object" ? getCardEditKey(cardOrKey) : String(cardOrKey);
           const raw = localStorage.getItem(STORAGE_KEY_EDITS);
@@ -18105,7 +18135,7 @@ const tier800DeckCards = initialDeckCards;
           }
           localStorage.setItem(STORAGE_KEY_EDITS, JSON.stringify(edits));
           if (typeof syncCurrentStateToDeviceCloud === "function") {
-            syncCurrentStateToDeviceCloud();
+            syncCurrentStateToDeviceCloud(false, "", true);
           }
         } catch (e) {}
       }
@@ -19117,6 +19147,9 @@ const tier800DeckCards = initialDeckCards;
           cardWrapper.classList.remove("flipped");
           cardWrapper.classList.remove("slide-out-left");
           renderCurrentCard();
+          if (cards[currentIndex]) {
+            setLastCardNumber(cards[currentIndex].originalNum || cards[currentIndex].num, true);
+          }
           cardWrapper.classList.add("slide-in-right");
 
           setTimeout(() => {
@@ -19143,6 +19176,9 @@ const tier800DeckCards = initialDeckCards;
           cardWrapper.classList.remove("flipped");
           cardWrapper.classList.remove("slide-out-right");
           renderCurrentCard();
+          if (cards[currentIndex]) {
+            setLastCardNumber(cards[currentIndex].originalNum || cards[currentIndex].num, true);
+          }
           cardWrapper.classList.add("slide-in-left");
 
           setTimeout(() => {
@@ -19213,6 +19249,9 @@ const tier800DeckCards = initialDeckCards;
           cardWrapper.classList.remove("flipped");
           cardWrapper.classList.remove("slide-out-left", "slide-out-right");
           renderCurrentCard();
+          if (cards[currentIndex]) {
+            setLastCardNumber(cards[currentIndex].originalNum || cards[currentIndex].num, true);
+          }
           cardWrapper.classList.add(goingForward ? "slide-in-right" : "slide-in-left");
 
           setTimeout(() => {
@@ -19340,6 +19379,9 @@ const tier800DeckCards = initialDeckCards;
         if (selectedIdx !== null && selectedIdx !== undefined && !isNaN(selectedIdx)) {
           currentIndex = Math.max(0, Math.min(cards.length - 1, selectedIdx));
           renderCurrentCard();
+          if (cards[currentIndex]) {
+            setLastCardNumber(cards[currentIndex].originalNum || cards[currentIndex].num, true);
+          }
           if (typeof playHapticTick === "function") playHapticTick(520, "sine", 0.04);
         } else {
           // Revert back to original index
@@ -19467,6 +19509,9 @@ const tier800DeckCards = initialDeckCards;
           isFlipped = false;
           cardWrapper.classList.remove("flipped");
           renderCurrentCard();
+          if (cards[currentIndex]) {
+            setLastCardNumber(cards[currentIndex].originalNum || cards[currentIndex].num, true);
+          }
 
           const enterX = (goingNext ? 1 : -1) * 45;
           const enterRot = (goingNext ? 1 : -1) * 2;
@@ -19797,13 +19842,15 @@ const tier800DeckCards = initialDeckCards;
           } catch(e) {}
         }
 
+        lastLocalMutationTime = Date.now();
+        isInitialCloudHydrationDone = true;
         try {
           localStorage.setItem(DELETED_CARDS_STORAGE_KEY, JSON.stringify(deletedCardNums));
           if (window.firebaseSync && window.firebaseSync.pushStudyStateToCloud) {
-            window.firebaseSync.pushStudyStateToCloud({ deletedCardNums: deletedCardNums });
+            window.firebaseSync.pushStudyStateToCloud({ deletedCardNums: deletedCardNums }, true);
           }
           if (typeof syncCurrentStateToDeviceCloud === "function") {
-            syncCurrentStateToDeviceCloud();
+            syncCurrentStateToDeviceCloud(false, "", true);
           }
         } catch(e) {}
 
@@ -19847,14 +19894,16 @@ const tier800DeckCards = initialDeckCards;
           const undoBtn = document.getElementById("btn-undo-delete-card");
           if (undoBtn) {
             undoBtn.onclick = () => {
+              lastLocalMutationTime = Date.now();
+              isInitialCloudHydrationDone = true;
               deletedCardNums = deletedCardNums.filter(n => n !== rawNum && n !== String(rawNum) && n !== cardId);
               try {
                 localStorage.setItem(DELETED_CARDS_STORAGE_KEY, JSON.stringify(deletedCardNums));
                 if (window.firebaseSync && window.firebaseSync.pushStudyStateToCloud) {
-                  window.firebaseSync.pushStudyStateToCloud({ deletedCardNums: deletedCardNums });
+                  window.firebaseSync.pushStudyStateToCloud({ deletedCardNums: deletedCardNums }, true);
                 }
                 if (typeof syncCurrentStateToDeviceCloud === "function") {
-                  syncCurrentStateToDeviceCloud();
+                  syncCurrentStateToDeviceCloud(false, "", true);
                 }
               } catch(e) {}
               reindexAndBuildCards();
@@ -19884,14 +19933,15 @@ const tier800DeckCards = initialDeckCards;
       // =========================================================================
       function resetFlashcardDeck() {
         lastLocalMutationTime = Date.now();
+        isInitialCloudHydrationDone = true;
         deletedCardNums = [];
         try {
           localStorage.removeItem(DELETED_CARDS_STORAGE_KEY);
           if (window.firebaseSync && window.firebaseSync.pushStudyStateToCloud) {
-            window.firebaseSync.pushStudyStateToCloud({ deletedCardNums: [] });
+            window.firebaseSync.pushStudyStateToCloud({ deletedCardNums: [] }, true);
           }
           if (typeof syncCurrentStateToDeviceCloud === "function") {
-            syncCurrentStateToDeviceCloud();
+            syncCurrentStateToDeviceCloud(false, "", true);
           }
         } catch (e) {}
         reindexAndBuildCards();
@@ -20588,11 +20638,13 @@ const tier800DeckCards = initialDeckCards;
       let currentSections = loadCustomSections();
 
       function saveCustomSections(sections) {
+        lastLocalMutationTime = Date.now();
+        isInitialCloudHydrationDone = true;
         currentSections = sections;
         try {
           localStorage.setItem(SECTIONS_STORAGE_KEY, JSON.stringify(sections));
           if (typeof syncCurrentStateToDeviceCloud === "function") {
-            syncCurrentStateToDeviceCloud();
+            syncCurrentStateToDeviceCloud(false, "", true);
           }
         } catch (e) {
           console.warn("Could not save sections:", e);
@@ -21315,9 +21367,15 @@ const tier800DeckCards = initialDeckCards;
         }
       }
 
-      async function syncCurrentStateToDeviceCloud(isManual = false, explicitEmail = "") {
+      async function syncCurrentStateToDeviceCloud(isManual = false, explicitEmail = "", isExplicitUserAction = false) {
         const targetEmail = String(explicitEmail || currentAccountEmail || COMMON_CLOUD_EMAIL).trim().toLowerCase();
         if (!targetEmail || isBlockedOrDummyAccount(targetEmail)) {
+          return;
+        }
+
+        // CRITICAL MULTI-DEVICE GUARD:
+        // Never allow an unhydrated cold boot or passive remote render to push a blank state over existing cloud progress!
+        if (!isManual && !isExplicitUserAction && (!isInitialCloudHydrationDone || isApplyingRemoteCloudState)) {
           return;
         }
 
@@ -21328,12 +21386,14 @@ const tier800DeckCards = initialDeckCards;
         isSyncPushing = true;
         try {
           const updatedAt = new Date().toISOString();
+          const savedLastCard = getLastCardNumber();
+          const activeCardNum = (cards[currentIndex]?.originalNum || cards[currentIndex]?.num || savedLastCard || 800);
           const payload = {
             email: targetEmail,
             learnedCardNums: [...learnedCardsSet],
             deletedCardNums: deletedCardNums,
             activeDeckId: currentDeckId,
-            lastActiveCardNum: (cards[currentIndex]?.originalNum || cards[currentIndex]?.num || 800),
+            lastActiveCardNum: activeCardNum,
             streakCount: parseInt(document.getElementById("flashcard-streak-count")?.textContent || "1", 10),
             customShortcuts: JSON.parse(localStorage.getItem(STORAGE_KEY_EDITS) || "{}"),
             customDecks: customDecksCatalog,
@@ -21344,10 +21404,10 @@ const tier800DeckCards = initialDeckCards;
 
           lastAccountCloudTimestamp = updatedAt;
 
-          // 1. Save directly to Google Cloud Firestore from client SDK (works on 100% of devices & domains including Render Static Site)
+          // 1. Save directly to Google Cloud Firestore from client SDK (works on 100% of devices & domains)
           if (window.firebaseSync && window.firebaseSync.saveAccountStateToFirestore) {
             try {
-              await window.firebaseSync.saveAccountStateToFirestore(targetEmail, payload);
+              await window.firebaseSync.saveAccountStateToFirestore(targetEmail, payload, isManual || isExplicitUserAction);
               showCloudSaveSuccessIndicator();
             } catch (fsErr) {
               console.warn("Direct firestore save note:", fsErr);
@@ -21360,7 +21420,12 @@ const tier800DeckCards = initialDeckCards;
               const res = await fetch("/api/user/save", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email: targetEmail, replaceArrays: true, payload })
+                body: JSON.stringify({
+                  email: targetEmail,
+                  replaceArrays: true,
+                  isExplicitUserAction: Boolean(isManual || isExplicitUserAction),
+                  payload
+                })
               });
               const ct = res.headers.get("content-type") || "";
               if (res.ok && ct.includes("application/json")) {
@@ -21390,7 +21455,7 @@ const tier800DeckCards = initialDeckCards;
           isSyncPushing = false;
           if (hasPendingSyncPush) {
             hasPendingSyncPush = false;
-            setTimeout(() => syncCurrentStateToDeviceCloud(), 150);
+            setTimeout(() => syncCurrentStateToDeviceCloud(false, "", isExplicitUserAction), 150);
           }
         }
       }
@@ -21415,15 +21480,8 @@ const tier800DeckCards = initialDeckCards;
           : (verifiedUserObj?.authMethod === "google_oauth" ? "google_oauth" : "email_account");
 
         const previousEmail = currentAccountEmail;
-        const isSwitchingBetweenTwoPersonalAccounts = Boolean(
-          previousEmail &&
-          previousEmail !== cleanEmail &&
-          previousEmail !== COMMON_CLOUD_EMAIL &&
-          !isCommonCloud
-        );
-
-        if (previousEmail && previousEmail !== cleanEmail) {
-          await syncCurrentStateToDeviceCloud(false, previousEmail);
+        if (previousEmail && previousEmail !== cleanEmail && isInitialCloudHydrationDone) {
+          await syncCurrentStateToDeviceCloud(false, previousEmail, false);
         }
 
         currentAccountEmail = cleanEmail;
@@ -21489,13 +21547,24 @@ const tier800DeckCards = initialDeckCards;
           let chosenUpdatedAt = "";
 
           if (apiResult && fsResult) {
+            const pApi = apiResult.payload || {};
+            const pFs = fsResult.payload || {};
+            const countApi = (Array.isArray(pApi.learnedCardNums) ? pApi.learnedCardNums.length : 0) + (Array.isArray(pApi.deletedCardNums) ? pApi.deletedCardNums.length : 0);
+            const countFs = (Array.isArray(pFs.learnedCardNums) ? pFs.learnedCardNums.length : 0) + (Array.isArray(pFs.deletedCardNums) ? pFs.deletedCardNums.length : 0);
             const tApi = Date.parse(apiResult.updatedAt || "") || 0;
             const tFs = Date.parse(fsResult.updatedAt || "") || 0;
-            if (tFs >= tApi) {
-              chosenPayload = fsResult.payload;
+
+            if (countFs > 0 && countApi === 0) {
+              chosenPayload = pFs;
+              chosenUpdatedAt = fsResult.updatedAt;
+            } else if (countApi > 0 && countFs === 0) {
+              chosenPayload = pApi;
+              chosenUpdatedAt = apiResult.updatedAt;
+            } else if (tFs >= tApi) {
+              chosenPayload = pFs;
               chosenUpdatedAt = fsResult.updatedAt;
             } else {
-              chosenPayload = apiResult.payload;
+              chosenPayload = pApi;
               chosenUpdatedAt = apiResult.updatedAt;
             }
           } else if (fsResult) {
@@ -21509,13 +21578,19 @@ const tier800DeckCards = initialDeckCards;
           if (chosenPayload) {
             lastAccountCloudTimestamp = chosenUpdatedAt || new Date().toISOString();
             applyRemoteSyncPayload(chosenPayload, true, true);
+            showCloudSaveSuccessIndicator();
             if (isUserSwitch) {
               const label = isCommonCloud ? "Common Cloud (All Devices)" : cleanEmail;
               showToast(`Synced with ${label}! 🌐`);
               playHapticTick(620, "triangle", 0.06);
             }
           } else {
-            await syncCurrentStateToDeviceCloud(false, cleanEmail);
+            // Only push local state to cloud if this device actually has non-empty progress
+            isInitialCloudHydrationDone = true;
+            const hasLocalProgress = (learnedCardsSet && learnedCardsSet.size > 0) || (Array.isArray(deletedCardNums) && deletedCardNums.length > 0);
+            if (hasLocalProgress) {
+              await syncCurrentStateToDeviceCloud(false, cleanEmail, true);
+            }
             if (isUserSwitch) {
               const label = isCommonCloud ? "Common Cloud (All Devices)" : cleanEmail;
               showToast(`Connected to ${label}! 🌐`);
@@ -21530,110 +21605,119 @@ const tier800DeckCards = initialDeckCards;
       function applyRemoteSyncPayload(payload, isInitialAccountLoad = false, replaceAccountData = true) {
         if (!payload) return;
 
-        // 1. Learned cards (Authoritative replacement from latest cloud state so un-ticking persists across all devices)
-        const hasLearnedField = Array.isArray(payload.learnedCardNums) || Array.isArray(payload.learnedCards);
-        if (hasLearnedField) {
-          const inLearned = Array.isArray(payload.learnedCardNums)
-            ? payload.learnedCardNums
-            : payload.learnedCards;
-          learnedCardsSet = new Set(inLearned);
-          try {
-            localStorage.setItem(LEARNED_STORAGE_KEY, JSON.stringify([...learnedCardsSet]));
-          } catch (e) {}
-        }
-
-        // 2. Deleted cards (Authoritative replacement from latest cloud state)
-        const hasDeletedField = Array.isArray(payload.deletedCardNums) || Array.isArray(payload.deletedCards);
-        if (hasDeletedField) {
-          const inDeleted = Array.isArray(payload.deletedCardNums)
-            ? payload.deletedCardNums
-            : payload.deletedCards;
-          deletedCardNums = [...new Set(inDeleted)];
-          try {
-            localStorage.setItem(DELETED_CARDS_STORAGE_KEY, JSON.stringify(deletedCardNums));
-          } catch (e) {}
-        }
-
-        // 3. Streak
-        const inStreak = typeof payload.streakCount === "number" ? payload.streakCount : payload.streak;
-        const curStreak = parseInt(localStorage.getItem("study_streak_count") || "0", 10) || 0;
-        const maxStreak = replaceAccountData
-          ? (typeof inStreak === "number" && inStreak > 0 ? inStreak : 1)
-          : Math.max(curStreak, typeof inStreak === "number" ? inStreak : 0);
-        if (maxStreak > 0) {
-          const streakEl = document.getElementById("flashcard-streak-count");
-          if (streakEl) streakEl.textContent = maxStreak;
-          try { localStorage.setItem("study_streak_count", String(maxStreak)); } catch (e) {}
-          if (typeof updateStreakDisplays === "function") updateStreakDisplays(maxStreak);
-        }
-
-        // 4. Custom shortcuts & card edits
-        if (payload.customShortcuts && typeof payload.customShortcuts === "object") {
-          const existingEdits = replaceAccountData
-            ? {}
-            : JSON.parse(localStorage.getItem(STORAGE_KEY_EDITS) || "{}");
-          const mergedShortcuts = { ...existingEdits, ...payload.customShortcuts };
-          try {
-            localStorage.setItem(STORAGE_KEY_EDITS, JSON.stringify(mergedShortcuts));
-            if (typeof loadSavedEdits === "function") loadSavedEdits();
-          } catch (e) {}
-        }
-
-        // 5. Custom decks
-        if (payload.customDecks && typeof payload.customDecks === "object") {
-          customDecksCatalog = replaceAccountData
-            ? { ...payload.customDecks }
-            : { ...customDecksCatalog, ...payload.customDecks };
-          delete customDecksCatalog["deck-custom-1792253860086"];
-          try {
-            localStorage.setItem("custom_decks_catalog_v1", JSON.stringify(customDecksCatalog));
-          } catch (e) {}
-          if (typeof renderCustomDecksList === "function") renderCustomDecksList();
-        }
-
-        // 6. Custom sections
-        if (Array.isArray(payload.customSections)) {
-          currentSections = [...payload.customSections];
-          try {
-            localStorage.setItem(SECTIONS_STORAGE_KEY, JSON.stringify(currentSections));
-          } catch (e) {}
-          if (typeof renderCustomSections === "function") renderCustomSections();
-        }
-
-        // 7. Active Deck
-        const targetDeck = payload.activeDeckId || currentDeckId || "deck-800-1000";
-        const deckChanged = targetDeck !== currentDeckId;
-        currentDeckId = targetDeck;
-        try { localStorage.setItem("active_deck_id_v1", currentDeckId); } catch (e) {}
-
-        // 8. Rebuild cards and restore card position
-        reindexAndBuildCards();
-
-        const inLastCard = typeof payload.lastActiveCardNum === "number" ? payload.lastActiveCardNum : payload.lastCard;
-        if (typeof inLastCard === "number" && inLastCard > 0) {
-          try { localStorage.setItem(LAST_CARD_STORAGE_KEY, String(inLastCard)); } catch (e) {}
-          const resumeLabel = document.getElementById("btn-resume-label");
-          if (resumeLabel) resumeLabel.textContent = `Resume (#${inLastCard})`;
-          if (isInitialAccountLoad || deckChanged) {
-            const idx = cards.findIndex(c => (c.originalNum || c.num) === inLastCard);
-            currentIndex = idx !== -1 ? idx : 0;
+        isApplyingRemoteCloudState = true;
+        clearTimeout(debounceCloudPosTimer);
+        try {
+          // 1. Learned cards (Authoritative replacement from latest cloud state so changes persist across all devices)
+          const hasLearnedField = Array.isArray(payload.learnedCardNums) || Array.isArray(payload.learnedCards);
+          if (hasLearnedField) {
+            const inLearned = Array.isArray(payload.learnedCardNums)
+              ? payload.learnedCardNums
+              : payload.learnedCards;
+            learnedCardsSet = new Set(inLearned);
+            try {
+              localStorage.setItem(LEARNED_STORAGE_KEY, JSON.stringify([...learnedCardsSet]));
+            } catch (e) {}
           }
-        }
 
-        if (currentIndex >= cards.length) {
-          currentIndex = Math.max(0, cards.length - 1);
-        }
+          // 2. Deleted cards (Authoritative replacement from latest cloud state)
+          const hasDeletedField = Array.isArray(payload.deletedCardNums) || Array.isArray(payload.deletedCards);
+          if (hasDeletedField) {
+            const inDeleted = Array.isArray(payload.deletedCardNums)
+              ? payload.deletedCardNums
+              : payload.deletedCards;
+            deletedCardNums = [...new Set(inDeleted)];
+            try {
+              localStorage.setItem(DELETED_CARDS_STORAGE_KEY, JSON.stringify(deletedCardNums));
+            } catch (e) {}
+          }
 
-        if (frontVisualImgEl) {
-          frontVisualImgEl.removeAttribute("data-card-id");
-          frontVisualImgEl.classList.remove("loaded");
-        }
+          // 3. Streak
+          const inStreak = typeof payload.streakCount === "number" ? payload.streakCount : payload.streak;
+          const curStreak = parseInt(localStorage.getItem("study_streak_count") || "0", 10) || 0;
+          const maxStreak = replaceAccountData
+            ? (typeof inStreak === "number" && inStreak > 0 ? inStreak : 1)
+            : Math.max(curStreak, typeof inStreak === "number" ? inStreak : 0);
+          if (maxStreak > 0) {
+            const streakEl = document.getElementById("flashcard-streak-count");
+            if (streakEl) streakEl.textContent = maxStreak;
+            try { localStorage.setItem("study_streak_count", String(maxStreak)); } catch (e) {}
+            if (typeof updateStreakDisplays === "function") updateStreakDisplays(maxStreak);
+          }
 
-        renderCurrentCard();
-        updateSectionLearnedCounter();
-        updateGlobalLearnedDisplays();
-        updateAccountDisplays();
-        if (typeof updateSubsectionsUI === "function") updateSubsectionsUI();
+          // 4. Custom shortcuts & card edits
+          if (payload.customShortcuts && typeof payload.customShortcuts === "object") {
+            const existingEdits = replaceAccountData
+              ? {}
+              : JSON.parse(localStorage.getItem(STORAGE_KEY_EDITS) || "{}");
+            const mergedShortcuts = { ...existingEdits, ...payload.customShortcuts };
+            try {
+              localStorage.setItem(STORAGE_KEY_EDITS, JSON.stringify(mergedShortcuts));
+              if (typeof loadSavedEdits === "function") loadSavedEdits();
+            } catch (e) {}
+          }
+
+          // 5. Custom decks
+          if (payload.customDecks && typeof payload.customDecks === "object") {
+            customDecksCatalog = replaceAccountData
+              ? { ...payload.customDecks }
+              : { ...customDecksCatalog, ...payload.customDecks };
+            delete customDecksCatalog["deck-custom-1792253860086"];
+            try {
+              localStorage.setItem("custom_decks_catalog_v1", JSON.stringify(customDecksCatalog));
+            } catch (e) {}
+            if (typeof renderCustomDecksList === "function") renderCustomDecksList();
+          }
+
+          // 6. Custom sections
+          if (Array.isArray(payload.customSections)) {
+            currentSections = [...payload.customSections];
+            try {
+              localStorage.setItem(SECTIONS_STORAGE_KEY, JSON.stringify(currentSections));
+            } catch (e) {}
+            if (typeof renderCustomSections === "function") renderCustomSections();
+          }
+
+          // 7. Active Deck
+          const targetDeck = payload.activeDeckId || currentDeckId || "deck-800-1000";
+          const deckChanged = targetDeck !== currentDeckId;
+          currentDeckId = targetDeck;
+          try { localStorage.setItem("active_deck_id_v1", currentDeckId); } catch (e) {}
+
+          // 8. Rebuild cards and restore card position across all devices
+          reindexAndBuildCards();
+
+          const inLastCard = typeof payload.lastActiveCardNum === "number" ? payload.lastActiveCardNum : payload.lastCard;
+          if (typeof inLastCard === "number" && inLastCard > 0) {
+            try { localStorage.setItem(LAST_CARD_STORAGE_KEY, String(inLastCard)); } catch (e) {}
+            const resumeLabel = document.getElementById("btn-resume-label");
+            if (resumeLabel) resumeLabel.textContent = `Resume (#${inLastCard})`;
+            if (isInitialAccountLoad || deckChanged || (Date.now() - lastLocalMutationTime >= 3000)) {
+              const idx = cards.findIndex(c => (c.originalNum || c.num) === inLastCard || c.num === inLastCard);
+              if (idx !== -1) {
+                currentIndex = idx;
+              }
+            }
+          }
+
+          if (currentIndex >= cards.length) {
+            currentIndex = Math.max(0, cards.length - 1);
+          }
+
+          if (frontVisualImgEl) {
+            frontVisualImgEl.removeAttribute("data-card-id");
+            frontVisualImgEl.classList.remove("loaded");
+          }
+
+          renderCurrentCard();
+          updateSectionLearnedCounter();
+          updateGlobalLearnedDisplays();
+          updateAccountDisplays();
+          if (typeof updateSubsectionsUI === "function") updateSubsectionsUI();
+          isInitialCloudHydrationDone = true;
+        } finally {
+          isApplyingRemoteCloudState = false;
+        }
       }
       window.applyRemoteSyncPayload = applyRemoteSyncPayload;
 
@@ -21957,6 +22041,72 @@ const tier800DeckCards = initialDeckCards;
         });
       }
 
+      const btnDirectGoogleSignin = document.getElementById("btn-direct-google-signin");
+      const inputDirectGoogleEmail = document.getElementById("input-direct-google-email");
+      async function handleDirectGoogleEmailSignIn() {
+        const errorBanner = document.getElementById("google-auth-error-banner");
+        if (errorBanner) errorBanner.style.display = "none";
+        const rawEmail = (inputDirectGoogleEmail ? inputDirectGoogleEmail.value : "").trim().toLowerCase();
+        if (!rawEmail || !rawEmail.includes("@")) {
+          if (errorBanner) {
+            errorBanner.textContent = "Please enter your Google email address (e.g. yourname@gmail.com).";
+            errorBanner.style.display = "block";
+          } else {
+            showToast("Please enter a valid Google email address.");
+          }
+          return;
+        }
+        try {
+          if (btnDirectGoogleSignin) {
+            btnDirectGoogleSignin.disabled = true;
+            btnDirectGoogleSignin.textContent = "Syncing...";
+          }
+          let verifiedUser = null;
+          if (window.firebaseSync && window.firebaseSync.connectGoogleEmailDirectly) {
+            verifiedUser = await window.firebaseSync.connectGoogleEmailDirectly(rawEmail);
+          } else {
+            const sub = rawEmail.replace(/[^a-z0-9]/g, "_");
+            verifiedUser = {
+              uid: `google_${sub}`,
+              googleSub: sub,
+              email: rawEmail,
+              displayName: rawEmail.split("@")[0],
+              photoURL: "",
+              authMethod: "google_oauth",
+              verified: true
+            };
+          }
+          await loadVerifiedGoogleAccountState(verifiedUser, true);
+          if (inputDirectGoogleEmail) inputDirectGoogleEmail.value = "";
+          closeCloudSyncModal();
+          showToast(`Signed in as ${rawEmail} — synced across all devices! 🌐`);
+        } catch (err) {
+          const msg = err && err.message ? err.message : "Could not connect email.";
+          if (errorBanner) {
+            errorBanner.textContent = msg;
+            errorBanner.style.display = "block";
+          } else {
+            showToast(msg);
+          }
+        } finally {
+          if (btnDirectGoogleSignin) {
+            btnDirectGoogleSignin.disabled = false;
+            btnDirectGoogleSignin.textContent = "Sign In";
+          }
+        }
+      }
+      if (btnDirectGoogleSignin) {
+        btnDirectGoogleSignin.addEventListener("click", handleDirectGoogleEmailSignIn);
+      }
+      if (inputDirectGoogleEmail) {
+        inputDirectGoogleEmail.addEventListener("keydown", (e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            handleDirectGoogleEmailSignIn();
+          }
+        });
+      }
+
       const btnModalSwitchAcct = document.getElementById("btn-modal-switch-account");
       if (btnModalSwitchAcct) {
         btnModalSwitchAcct.addEventListener("click", () => {
@@ -22045,6 +22195,7 @@ const tier800DeckCards = initialDeckCards;
       if (btnTopCloudSync) btnTopCloudSync.addEventListener("click", openCloudSyncModal);
 
       // Wire up Firebase Real-Time Listeners
+      let hasRunInitialFirestoreLoad = false;
       function setupFirebaseAuthListeners() {
         if (!window.firebaseSync) {
           setTimeout(setupFirebaseAuthListeners, 150);
@@ -22054,7 +22205,8 @@ const tier800DeckCards = initialDeckCards;
         window.firebaseSync.onAuthChange((user) => {
           if (user && user.email && user.verified) {
             const cleanEmail = String(user.email).trim().toLowerCase();
-            if (currentAccountEmail !== cleanEmail) {
+            if (currentAccountEmail !== cleanEmail || !hasRunInitialFirestoreLoad) {
+              hasRunInitialFirestoreLoad = true;
               loadVerifiedGoogleAccountState(user, false);
             } else {
               currentAccountName = user.displayName || (cleanEmail === COMMON_CLOUD_EMAIL ? "Common Cloud (All Devices)" : cleanEmail.split("@")[0]);
@@ -22069,8 +22221,6 @@ const tier800DeckCards = initialDeckCards;
         // Listen for Remote Firestore State Updates from any other device in real time
         window.firebaseSync.onRemoteStateChange((cloudData) => {
           if (!cloudData || isSyncPushing || (Date.now() - lastLocalMutationTime < 3500)) return;
-          const activeEmail = currentAccountEmail || COMMON_CLOUD_EMAIL;
-          if (cloudData.email && String(cloudData.email).toLowerCase() !== activeEmail && cloudData.email !== COMMON_CLOUD_EMAIL) return;
           if (cloudData.updatedAt && cloudData.updatedAt === lastAccountCloudTimestamp) return;
           if (cloudData.updatedAt) {
             const tRemote = Date.parse(cloudData.updatedAt) || 0;
@@ -22258,7 +22408,8 @@ const tier800DeckCards = initialDeckCards;
 
         updateGlobalLearnedDisplays();
         const initLastCard = getLastCardNumber();
-        setLastCardNumber(initLastCard);
+        const resumeLabel = document.getElementById("btn-resume-label");
+        if (resumeLabel) resumeLabel.textContent = `Resume (#${initLastCard})`;
       }
 
       if (document.readyState === "loading") {

@@ -280,13 +280,46 @@ function clearStudyStateListeners() {
   }
 }
 
+function isPayloadNonEmptyProgress(p: any): boolean {
+  if (!p || typeof p !== 'object') return false;
+  const learned = Array.isArray(p.learnedCardNums)
+    ? p.learnedCardNums
+    : Array.isArray(p.learnedCards)
+    ? p.learnedCards
+    : [];
+  const deleted = Array.isArray(p.deletedCardNums)
+    ? p.deletedCardNums
+    : Array.isArray(p.deletedCards)
+    ? p.deletedCards
+    : [];
+  const lastCard = Number(p.lastActiveCardNum ?? p.lastCard ?? 800);
+  const shortcutsCount = p.customShortcuts && typeof p.customShortcuts === 'object' ? Object.keys(p.customShortcuts).length : 0;
+  const decksCount = p.customDecks && typeof p.customDecks === 'object' ? Object.keys(p.customDecks).length : 0;
+  const activeDeck = p.activeDeckId && p.activeDeckId !== 'deck-800-1000';
+  return Boolean(
+    learned.length > 0 ||
+    deleted.length > 0 ||
+    (lastCard !== 800 && lastCard > 0) ||
+    shortcutsCount > 0 ||
+    decksCount > 0 ||
+    activeDeck
+  );
+}
+
 async function attachStudyStateListener(email: string) {
   clearStudyStateListeners();
   const clean = String(email || COMMON_CLOUD_ACCOUNT).trim().toLowerCase();
   if (!clean || isBlockedOrDummyEmail(clean)) return;
 
   const { primaryDocId, shaDocId } = await getAccountDocIds(clean);
-  const docIds = Array.from(new Set([primaryDocId, shaDocId, ...(clean === COMMON_CLOUD_ACCOUNT ? [COMMON_CLOUD_DOC_ID] : [])]));
+  const docIds = Array.from(
+    new Set([
+      primaryDocId,
+      shaDocId,
+      COMMON_CLOUD_DOC_ID,
+      'global_common_cloud_v1'
+    ])
+  );
 
   docIds.forEach((docId) => {
     const stateDocRef = doc(db, 'study_state', docId);
@@ -297,6 +330,11 @@ async function attachStudyStateListener(email: string) {
         const raw = docSnap.data();
         const payload = raw?.payload && typeof raw.payload === 'object' ? raw.payload : raw;
         if (!payload) return;
+
+        // Ignore blank uninitialized snapshots unless explicitly marked as user reset
+        if (!isPayloadNonEmptyProgress(payload) && !raw?.isExplicitUserAction && !payload?.isExplicitUserAction) {
+          return;
+        }
 
         isApplyingRemoteUpdate = true;
         remoteStateCallbacks.forEach((cb) => {
@@ -319,7 +357,7 @@ async function attachStudyStateListener(email: string) {
   const uid =
     clean === COMMON_CLOUD_ACCOUNT
       ? COMMON_CLOUD_DOC_ID
-      : currentUser?.uid || verifiedSession?.uid;
+      : currentUser?.uid || verifiedSession?.uid || COMMON_CLOUD_DOC_ID;
   if (uid) {
     const progDocRef = doc(db, 'user_progress', uid);
     const unsubProg = onSnapshot(
@@ -329,7 +367,6 @@ async function attachStudyStateListener(email: string) {
         const raw = docSnap.data();
         if (!raw) return;
 
-        isApplyingRemoteUpdate = true;
         const payload = {
           email: clean,
           learnedCardNums: raw.learnedCards || raw.learnedCardNums || [],
@@ -342,6 +379,12 @@ async function attachStudyStateListener(email: string) {
           streakCount: typeof raw.streakCount === 'number' ? raw.streakCount : 0,
           updatedAt: raw.lastStudied || raw.updatedAt || new Date().toISOString()
         };
+
+        if (!isPayloadNonEmptyProgress(payload) && !raw?.isExplicitUserAction) {
+          return;
+        }
+
+        isApplyingRemoteUpdate = true;
         remoteStateCallbacks.forEach((cb) => {
           try {
             cb(payload);
@@ -423,64 +466,85 @@ export async function applyVerifiedGoogleUser(userObj: any) {
   return verifiedSession;
 }
 
-export async function saveAccountStateToFirestore(email: string, payload: any): Promise<boolean> {
+export async function saveAccountStateToFirestore(
+  email: string,
+  payload: any,
+  isExplicitUserAction: boolean = false
+): Promise<boolean> {
   const clean = String(email || COMMON_CLOUD_ACCOUNT).trim().toLowerCase();
   if (!clean || isBlockedOrDummyEmail(clean) || !payload) return false;
+
+  const explicitFlag = Boolean(isExplicitUserAction || payload.isExplicitUserAction);
+  if (!isPayloadNonEmptyProgress(payload) && !explicitFlag) {
+    // Prevent a newly opened device with empty localStorage from wiping out existing cloud progress!
+    return false;
+  }
+
   const { primaryDocId, shaDocId } = await getAccountDocIds(clean);
   const path = `study_state/${primaryDocId}`;
   try {
     const updatedAt = payload.updatedAt || new Date().toISOString();
-    const sanitizedPayload = { ...payload, updatedAt };
+    const sanitizedPayload = { ...payload, updatedAt, isExplicitUserAction: explicitFlag };
     delete sanitizedPayload.email;
 
-    const writes: Promise<any>[] = [
-      setDoc(doc(db, 'study_state', primaryDocId), {
-        accountId: primaryDocId,
-        updatedAt,
-        payload: sanitizedPayload
-      }),
-      setDoc(doc(db, 'study_state', shaDocId), {
-        accountId: shaDocId,
-        updatedAt,
-        payload: sanitizedPayload
+    const docRecord = {
+      accountId: primaryDocId,
+      updatedAt,
+      isExplicitUserAction: explicitFlag,
+      payload: sanitizedPayload
+    };
+
+    const targetStudyStateDocs = Array.from(
+      new Set([
+        primaryDocId,
+        shaDocId,
+        COMMON_CLOUD_DOC_ID,
+        'global_common_cloud_v1',
+        'acct_73801410b67c7ba66a922cc3105f74f2'
+      ])
+    );
+
+    const writes: Promise<any>[] = targetStudyStateDocs.map((dId) =>
+      setDoc(doc(db, 'study_state', dId), {
+        ...docRecord,
+        accountId: dId
       })
-    ];
+    );
 
     const uid =
       clean === COMMON_CLOUD_ACCOUNT
         ? COMMON_CLOUD_DOC_ID
-        : currentUser?.uid || verifiedSession?.uid;
-    if (uid) {
-      writes.push(
-        setDoc(
-          doc(db, 'user_progress', uid),
-          {
-            userId: uid,
-            email: clean,
-            learnedCards: sanitizedPayload.learnedCardNums || [],
-            deletedCardNums: sanitizedPayload.deletedCardNums || [],
-            lastActiveCardNum: sanitizedPayload.lastActiveCardNum || 800,
-            activeDeckId: sanitizedPayload.activeDeckId || 'deck-800-1000',
-            customShortcuts: sanitizedPayload.customShortcuts || {},
-            customDecks: sanitizedPayload.customDecks || {},
-            customSections: sanitizedPayload.customSections || [],
-            streakCount: typeof sanitizedPayload.streakCount === 'number' ? sanitizedPayload.streakCount : 0,
-            lastStudied: updatedAt,
-            updatedAt
-          },
-          { merge: true }
-        )
-      );
+        : currentUser?.uid || verifiedSession?.uid || COMMON_CLOUD_DOC_ID;
+
+    const progressDocData = {
+      userId: uid,
+      email: clean,
+      learnedCards: sanitizedPayload.learnedCardNums || [],
+      learnedCardNums: sanitizedPayload.learnedCardNums || [],
+      deletedCardNums: sanitizedPayload.deletedCardNums || [],
+      lastActiveCardNum: sanitizedPayload.lastActiveCardNum || 800,
+      activeDeckId: sanitizedPayload.activeDeckId || 'deck-800-1000',
+      customShortcuts: sanitizedPayload.customShortcuts || {},
+      customDecks: sanitizedPayload.customDecks || {},
+      customSections: sanitizedPayload.customSections || [],
+      streakCount: typeof sanitizedPayload.streakCount === 'number' ? sanitizedPayload.streakCount : 1,
+      isExplicitUserAction: explicitFlag,
+      lastStudied: updatedAt,
+      updatedAt
+    };
+
+    writes.push(setDoc(doc(db, 'user_progress', COMMON_CLOUD_DOC_ID), progressDocData, { merge: true }));
+    writes.push(setDoc(doc(db, 'user_progress', 'global_common_cloud_v1'), progressDocData, { merge: true }));
+
+    if (uid && uid !== COMMON_CLOUD_DOC_ID) {
+      writes.push(setDoc(doc(db, 'user_progress', uid), progressDocData, { merge: true }));
       writes.push(
         setDoc(
           doc(db, 'users', uid),
           {
             uid,
             email: clean,
-            name:
-              clean === COMMON_CLOUD_ACCOUNT
-                ? 'Common Cloud (All Devices)'
-                : verifiedSession?.displayName || clean.split('@')[0],
+            name: verifiedSession?.displayName || clean.split('@')[0],
             photoURL: verifiedSession?.photoURL || '',
             lastActive: updatedAt,
             updatedAt
@@ -510,23 +574,65 @@ export async function loadAccountStateFromFirestore(
       clean === COMMON_CLOUD_ACCOUNT
         ? COMMON_CLOUD_DOC_ID
         : currentUser?.uid || verifiedSession?.uid;
-    const fetchPromises: Promise<any>[] = [
-      getDoc(doc(db, 'study_state', primaryDocId)),
-      getDoc(doc(db, 'study_state', shaDocId)),
-      getDoc(doc(db, 'study_state', legacyDocId))
-    ];
-    if (uid) {
+
+    const studyStateDocIds = Array.from(
+      new Set([
+        primaryDocId,
+        shaDocId,
+        legacyDocId,
+        COMMON_CLOUD_DOC_ID,
+        'global_common_cloud_v1',
+        'acct_73801410b67c7ba66a922cc3105f74f2',
+        'acct_stellarnetworkhub_gmail_com'
+      ])
+    );
+
+    const fetchPromises: Promise<any>[] = studyStateDocIds.map((id) =>
+      getDoc(doc(db, 'study_state', id))
+    );
+    const progressStartIndex = fetchPromises.length;
+    fetchPromises.push(getDoc(doc(db, 'user_progress', COMMON_CLOUD_DOC_ID)));
+    fetchPromises.push(getDoc(doc(db, 'user_progress', 'global_common_cloud_v1')));
+    if (uid && uid !== COMMON_CLOUD_DOC_ID) {
       fetchPromises.push(getDoc(doc(db, 'user_progress', uid)));
     }
 
     const snaps = await Promise.all(fetchPromises);
-    const candidates: Array<{ data: any; ts: number; isProgressDoc?: boolean }> = [];
+    const candidates: Array<{ payload: any; updatedAt: string; ts: number; hasProgress: boolean; isExplicit: boolean }> = [];
 
     snaps.forEach((s, idx) => {
       if (s && s.exists()) {
         const d = s.data();
-        const t = Date.parse(d?.updatedAt || d?.payload?.updatedAt || d?.lastStudied || '') || 0;
-        candidates.push({ data: d, ts: t, isProgressDoc: idx === 3 });
+        const isProg = idx >= progressStartIndex;
+        let normPayload: any = null;
+        if (isProg) {
+          normPayload = {
+            learnedCardNums: d.learnedCards || d.learnedCardNums || [],
+            deletedCardNums: d.deletedCardNums || [],
+            lastActiveCardNum: d.lastActiveCardNum || 800,
+            activeDeckId: d.activeDeckId || 'deck-800-1000',
+            customShortcuts: d.customShortcuts || {},
+            customDecks: d.customDecks || {},
+            customSections: d.customSections || [],
+            streakCount: d.streakCount || 1,
+            updatedAt: d.lastStudied || d.updatedAt || new Date().toISOString()
+          };
+        } else {
+          normPayload = d?.payload && typeof d.payload === 'object' ? d.payload : d;
+        }
+        if (normPayload) {
+          const updatedAtStr = d?.updatedAt || normPayload?.updatedAt || d?.lastStudied || '';
+          const t = Date.parse(updatedAtStr) || 0;
+          const hasProg = isPayloadNonEmptyProgress(normPayload);
+          const isExplicit = Boolean(d?.isExplicitUserAction || normPayload?.isExplicitUserAction);
+          candidates.push({
+            payload: normPayload,
+            updatedAt: updatedAtStr,
+            ts: t,
+            hasProgress: hasProg,
+            isExplicit
+          });
+        }
       }
     });
 
@@ -534,31 +640,15 @@ export async function loadAccountStateFromFirestore(
       return { exists: false, updatedAt: '', payload: null };
     }
 
-    candidates.sort((a, b) => b.ts - a.ts);
-    const chosen = candidates[0];
-    const chosenData = chosen.data;
-
-    let payload: any = null;
-    if (chosen.isProgressDoc) {
-      payload = {
-        learnedCardNums: chosenData.learnedCards || chosenData.learnedCardNums || [],
-        deletedCardNums: chosenData.deletedCardNums || [],
-        lastActiveCardNum: chosenData.lastActiveCardNum || 800,
-        activeDeckId: chosenData.activeDeckId || 'deck-800-1000',
-        customShortcuts: chosenData.customShortcuts || {},
-        customDecks: chosenData.customDecks || {},
-        customSections: chosenData.customSections || [],
-        streakCount: chosenData.streakCount || 0,
-        updatedAt: chosenData.lastStudied || chosenData.updatedAt || new Date().toISOString()
-      };
-    } else {
-      payload = chosenData?.payload && typeof chosenData.payload === 'object' ? chosenData.payload : chosenData;
-    }
+    const nonEmptyCandidates = candidates.filter((c) => c.hasProgress);
+    const pool = nonEmptyCandidates.length > 0 ? nonEmptyCandidates : candidates;
+    pool.sort((a, b) => b.ts - a.ts);
+    const chosen = pool[0];
 
     return {
       exists: true,
-      updatedAt: chosenData?.updatedAt || payload?.updatedAt || new Date().toISOString(),
-      payload
+      updatedAt: chosen.updatedAt || new Date().toISOString(),
+      payload: chosen.payload
     };
   } catch (error) {
     handleFirestoreError(error, OperationType.GET, path);
@@ -897,6 +987,86 @@ if (typeof window !== 'undefined') {
     });
 }
 
+export async function connectGoogleEmailDirectly(rawEmail: string, customName?: string): Promise<any> {
+  const cleanEmail = String(rawEmail || '').trim().toLowerCase();
+  if (!cleanEmail || !cleanEmail.includes('@') || !cleanEmail.split('@')[1]?.includes('.')) {
+    throw new Error('Please enter a valid Google email address (e.g. yourname@gmail.com).');
+  }
+  const emailHash = await hashStringSHA256(cleanEmail);
+  const uid = `acct_${emailHash.slice(0, 24)}`;
+  const displayName = String(customName || cleanEmail.split('@')[0]).trim();
+  const verifiedUser = {
+    uid,
+    googleSub: uid,
+    email: cleanEmail,
+    displayName,
+    photoURL: '',
+    verified: true,
+    authMethod: 'google_oauth',
+    authenticatedAt: new Date().toISOString()
+  };
+  return await applyVerifiedGoogleUser(verifiedUser);
+}
+
+function signInWithGoogleGisFallback(): Promise<any> {
+  return new Promise((resolve, reject) => {
+    const g = (window as any).google;
+    if (!g || !g.accounts || !g.accounts.oauth2 || !g.accounts.oauth2.initTokenClient) {
+      reject(new Error('Google popup was blocked or domain not authorized. Please enter your Gmail address directly below to connect!'));
+      return;
+    }
+    try {
+      const tokenClient = g.accounts.oauth2.initTokenClient({
+        client_id: GOOGLE_OAUTH_CLIENT_ID,
+        scope: 'openid email profile',
+        prompt: 'select_account',
+        callback: async (resp: any) => {
+          if (resp && resp.error) {
+            reject(new Error(resp.error_description || resp.error || 'Google Sign-In cancelled.'));
+            return;
+          }
+          const accessToken = resp?.access_token;
+          if (!accessToken) {
+            reject(new Error('No access token returned from Google.'));
+            return;
+          }
+          try {
+            const uRes = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
+              headers: { Authorization: `Bearer ${accessToken}` }
+            });
+            if (!uRes.ok) {
+              throw new Error('Failed to fetch Google user profile.');
+            }
+            const info = await uRes.json();
+            const cleanEmail = String(info.email || '').trim().toLowerCase();
+            if (!cleanEmail) {
+              throw new Error('Google account email not found.');
+            }
+            const verifiedUser = {
+              uid: `google_${info.sub || cleanEmail}`,
+              googleSub: String(info.sub || cleanEmail),
+              email: cleanEmail,
+              displayName: String(info.name || info.given_name || cleanEmail.split('@')[0]).trim(),
+              photoURL: String(info.picture || ''),
+              accessToken,
+              verified: true,
+              authMethod: 'google_oauth',
+              authenticatedAt: new Date().toISOString()
+            };
+            const applied = await applyVerifiedGoogleUser(verifiedUser);
+            resolve(applied);
+          } catch (fetchErr: any) {
+            reject(fetchErr);
+          }
+        }
+      });
+      tokenClient.requestAccessToken({ prompt: 'select_account' });
+    } catch (e: any) {
+      reject(e);
+    }
+  });
+}
+
 export async function signInWithGoogle(forceAccountSelect = true): Promise<any> {
   restoreNativeWindowOpen();
 
@@ -908,8 +1078,6 @@ export async function signInWithGoogle(forceAccountSelect = true): Promise<any> 
       prompt: 'select_account'
     });
   }
-
-  const isMobile = typeof navigator !== 'undefined' && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
   try {
     const result = await signInWithPopup(auth, provider);
@@ -938,15 +1106,15 @@ export async function signInWithGoogle(forceAccountSelect = true): Promise<any> 
     if (code === 'auth/popup-closed-by-user' || code === 'auth/cancelled-popup-request') {
       throw new Error('Google Sign-In window was closed.');
     }
-    if (code === 'auth/popup-blocked' || isMobile) {
-      try {
-        await signInWithRedirect(auth, provider);
-        return { isRedirecting: true };
-      } catch (redirErr: any) {
-        throw new Error(redirErr?.message || 'Popup was blocked. Please enable popups to sign in with Google.');
-      }
+    try {
+      return await signInWithGoogleGisFallback();
+    } catch (gisErr: any) {
+      throw new Error(
+        err?.message && !code.includes('unauthorized-domain')
+          ? err.message
+          : 'Popup blocked or restricted in this browser view. Enter your Google email below for instant 1-tap sign-in!'
+      );
     }
-    throw new Error(err?.message || 'Could not connect to Google Sign-In.');
   }
 }
 
@@ -1055,6 +1223,7 @@ onAuthStateChanged(auth, async (user) => {
   isServerApiAvailable,
   markServerApiUnavailable,
   signInWithGoogle,
+  connectGoogleEmailDirectly,
   loginWithGoogle,
   switchGoogleAccount,
   activateCommonCloudMode,
