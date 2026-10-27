@@ -6588,4996 +6588,7 @@
       /* ==========================================================
          WORLD-CLASS CENTERED SETTINGS MODAL & DIALOG
          ========================================================== */
-      /* ==========================================================
-         DUOLINGO PRODUCTION DESIGN SYSTEM: SETTINGS & AUDIO STUDIO
-         ========================================================== */
-      .menu-drawer-backdrop {
-        position: fixed !important;
-        inset: 0 !important;
-        background: rgba(10, 16, 20, 0.78) !important;
-        backdrop-filter: blur(14px) !important;
-        -webkit-backdrop-filter: blur(14px) !important;
-        z-index: 2100 !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-        transition: opacity 0.24s cubic-bezier(0.16, 1, 0.3, 1) !important;
-      }
-      .menu-drawer-backdrop.open {
-        opacity: 1 !important;
-        pointer-events: auto !important;
-      }
-
-      /* Duolingo Modal Container */
-      .app-menu-drawer {
-        position: fixed !important;
-        inset: 0 !important;
-        margin: auto !important;
-        width: min(520px, 94vw) !important;
-        height: fit-content !important;
-        max-height: min(86dvh, 740px) !important;
-        background: #0f172a !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        border-radius: 20px !important;
-        box-shadow: 0 24px 64px rgba(0, 0, 0, 0.72), 0 0 0 1px rgba(255, 255, 255, 0.04) !important;
-        z-index: 3000 !important;
-        display: flex !important;
-        flex-direction: column !important;
-        overflow: hidden !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-        pointer-events: none !important;
-        transform: translateY(12px) scale(0.98) !important;
-        transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s !important;
-      }
-
-      .app-menu-drawer.open {
-        opacity: 1 !important;
-        visibility: visible !important;
-        pointer-events: auto !important;
-        transform: translateY(0) scale(1) !important;
-      }
-
-      @media (max-width: 640px) {
-        .app-menu-drawer {
-          top: auto !important;
-          bottom: 0 !important;
-          left: 0 !important;
-          right: 0 !important;
-          width: 100% !important;
-          max-width: 100vw !important;
-          max-height: 88dvh !important;
-          border-radius: 22px 22px 0 0 !important;
-          border-left: none !important;
-          border-right: none !important;
-          border-bottom: none !important;
-          transform: translateY(100%) !important;
-          box-shadow: 0 -12px 48px rgba(0, 0, 0, 0.8) !important;
-          margin: 0 !important;
-        }
-        .app-menu-drawer.open {
-          transform: translateY(0) !important;
-        }
-      }
-
-      .drawer-sheet-handle {
-        display: none;
-        width: 38px;
-        height: 4px;
-        border-radius: 9999px;
-        background: rgba(148, 163, 184, 0.35);
-        margin: 10px auto 2px;
-        flex-shrink: 0;
-      }
-      @media (max-width: 640px) {
-        .drawer-sheet-handle {
-          display: block;
-        }
-      }
-
-      .settings-modal-header {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        padding: 16px 20px !important;
-        background: rgba(15, 23, 42, 0.96) !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-        flex-shrink: 0 !important;
-      }
-
-      .settings-header-title-group {
-        display: flex !important;
-        align-items: center !important;
-        gap: 10px !important;
-      }
-
-      .settings-modal-title {
-        font-size: 1.12rem !important;
-        font-weight: 700 !important;
-        color: #f8fafc !important;
-        margin: 0 !important;
-        line-height: 1.2 !important;
-        letter-spacing: -0.015em !important;
-      }
-
-      .settings-modal-close-btn {
-        width: 36px !important;
-        height: 36px !important;
-        border-radius: 10px !important;
-        background: rgba(255, 255, 255, 0.06) !important;
-        border: 1px solid rgba(255, 255, 255, 0.08) !important;
-        box-shadow: none !important;
-        color: #94a3b8 !important;
-        font-size: 0.95rem !important;
-        font-weight: 600 !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        cursor: pointer !important;
-        transition: background-color 0.15s ease, color 0.15s ease !important;
-        flex-shrink: 0 !important;
-      }
-
-      .settings-modal-close-btn:hover {
-        background: rgba(255, 255, 255, 0.12) !important;
-        color: #f8fafc !important;
-      }
-
-      .settings-modal-body {
-        flex: 1 1 auto !important;
-        overflow-y: auto !important;
-        -webkit-overflow-scrolling: touch !important;
-        overscroll-behavior: contain !important;
-        padding: 16px 20px calc(24px + env(safe-area-inset-bottom, 0px)) !important;
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 20px !important;
-        background: #0f172a !important;
-        scrollbar-width: thin !important;
-        scrollbar-color: rgba(148, 163, 184, 0.25) transparent !important;
-      }
-
-      .settings-modal-body::-webkit-scrollbar {
-        width: 5px !important;
-      }
-      .settings-modal-body::-webkit-scrollbar-thumb {
-        background: rgba(148, 163, 184, 0.25) !important;
-        border-radius: 9999px !important;
-      }
-
-      .settings-group {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 8px !important;
-      }
-
-      .duo-settings-section-title,
-      .settings-group-title {
-        font-size: 0.7rem !important;
-        font-weight: 700 !important;
-        letter-spacing: 0.06em !important;
-        text-transform: uppercase !important;
-        color: #64748b !important;
-        margin: 0 0 2px 2px !important;
-      }
-
-      .settings-card {
-        background: rgba(30, 41, 59, 0.5) !important;
-        border: 1px solid rgba(255, 255, 255, 0.08) !important;
-        border-radius: 14px !important;
-        box-shadow: none !important;
-        padding: 14px 16px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 12px !important;
-      }
-
-      .settings-row-divider {
-        height: 1px !important;
-        background: rgba(255, 255, 255, 0.07) !important;
-        margin: 2px 0 !important;
-        width: 100% !important;
-      }
-
-      .settings-card-header {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        gap: 12px !important;
-      }
-
-      .settings-card-left {
-        display: flex !important;
-        align-items: center !important;
-        gap: 12px !important;
-        min-width: 0 !important;
-        flex: 1 !important;
-      }
-
-      .settings-card-title {
-        font-size: 0.9rem !important;
-        font-weight: 600 !important;
-        color: #f1f5f9 !important;
-        margin: 0 !important;
-        line-height: 1.3 !important;
-      }
-
-      .settings-card-sub {
-        font-size: 0.76rem !important;
-        color: #94a3b8 !important;
-        margin: 2px 0 0 !important;
-        line-height: 1.35 !important;
-        font-weight: 400 !important;
-      }
-
-      .settings-choice-group {
-        display: grid !important;
-        grid-template-columns: repeat(3, 1fr) !important;
-        gap: 4px !important;
-        width: 100% !important;
-        background: rgba(15, 23, 42, 0.75) !important;
-        padding: 3px !important;
-        border-radius: 10px !important;
-        border: 1px solid rgba(255, 255, 255, 0.07) !important;
-        box-sizing: border-box !important;
-      }
-
-      .settings-choice-btn {
-        padding: 7px 8px !important;
-        min-height: 34px !important;
-        border-radius: 7px !important;
-        background: transparent !important;
-        border: none !important;
-        box-shadow: none !important;
-        color: #94a3b8 !important;
-        font-size: 0.78rem !important;
-        font-weight: 600 !important;
-        cursor: pointer !important;
-        transition: background-color 0.15s ease, color 0.15s ease !important;
-        text-align: center !important;
-        user-select: none !important;
-      }
-
-      .settings-choice-btn:hover {
-        color: #f8fafc !important;
-        background: rgba(255, 255, 255, 0.05) !important;
-      }
-
-      .settings-choice-btn.active {
-        background: #38bdf8 !important;
-        color: #0f172a !important;
-        font-weight: 700 !important;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) !important;
-      }
-
-      .settings-choice-group.five-cols {
-        grid-template-columns: repeat(5, 1fr) !important;
-      }
-
-      @media (max-width: 420px) {
-        .settings-choice-group.five-cols {
-          grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
-        }
-        .settings-choice-group.five-cols .settings-choice-btn {
-          font-size: 0.72rem !important;
-          padding: 7px 2px !important;
-        }
-      }
-
-      @keyframes repeatPulseRing {
-        0% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.6); }
-        70% { box-shadow: 0 0 0 10px rgba(56, 189, 248, 0); }
-        100% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0); }
-      }
-
-      .repeating-speech-active {
-        animation: repeatPulseRing 1.2s infinite ease-out !important;
-        border-color: #38bdf8 !important;
-      }
-
-      .settings-slider-row {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 6px !important;
-      }
-
-      .settings-slider-label-row {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        font-size: 0.78rem !important;
-        font-weight: 500 !important;
-        color: #cbd5e1 !important;
-      }
-
-      .settings-val-badge {
-        font-size: 0.74rem !important;
-        font-weight: 600 !important;
-        color: #38bdf8 !important;
-        background: rgba(56, 189, 248, 0.12) !important;
-        padding: 2px 8px !important;
-        border-radius: 6px !important;
-        border: 1px solid rgba(56, 189, 248, 0.25) !important;
-        box-shadow: none !important;
-        font-variant-numeric: tabular-nums !important;
-      }
-
-      .custom-settings-slider {
-        -webkit-appearance: none !important;
-        appearance: none !important;
-        width: 100% !important;
-        height: 6px !important;
-        background: rgba(15, 23, 42, 0.9) !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        border-radius: 9999px !important;
-        outline: none !important;
-        cursor: pointer !important;
-      }
-
-      .custom-settings-slider::-webkit-slider-thumb {
-        -webkit-appearance: none !important;
-        appearance: none !important;
-        width: 18px !important;
-        height: 18px !important;
-        border-radius: 50% !important;
-        background: #38bdf8 !important;
-        border: 2px solid #ffffff !important;
-        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4) !important;
-        cursor: pointer !important;
-      }
-
-      .settings-action-btn {
-        width: 100% !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 8px !important;
-        padding: 10px 14px !important;
-        min-height: 40px !important;
-        border-radius: 10px !important;
-        font-weight: 600 !important;
-        font-size: 0.82rem !important;
-        letter-spacing: -0.01em !important;
-        text-transform: none !important;
-        cursor: pointer !important;
-        user-select: none !important;
-        transition: background-color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease !important;
-        box-shadow: none !important;
-      }
-
-      .settings-action-btn:disabled {
-        opacity: 0.4 !important;
-        cursor: not-allowed !important;
-      }
-
-      .settings-action-btn-primary {
-        background: rgba(56, 189, 248, 0.14) !important;
-        color: #38bdf8 !important;
-        border: 1px solid rgba(56, 189, 248, 0.3) !important;
-      }
-
-      .settings-action-btn-primary:hover:not(:disabled) {
-        background: rgba(56, 189, 248, 0.22) !important;
-      }
-
-      .settings-action-btn-danger {
-        background: rgba(239, 68, 68, 0.14) !important;
-        color: #f87171 !important;
-        border: 1px solid rgba(239, 68, 68, 0.3) !important;
-      }
-
-      .settings-action-btn-danger:hover:not(:disabled) {
-        background: rgba(239, 68, 68, 0.22) !important;
-      }
-
-      .settings-action-btn-success {
-        background: rgba(16, 185, 129, 0.14) !important;
-        color: #34d399 !important;
-        border: 1px solid rgba(16, 185, 129, 0.3) !important;
-      }
-
-      .settings-action-btn-success:hover:not(:disabled) {
-        background: rgba(16, 185, 129, 0.22) !important;
-      }
-
-      .btn-audio-test {
-        padding: 5px 12px !important;
-        border-radius: 8px !important;
-        font-size: 0.76rem !important;
-        font-weight: 600 !important;
-        background: rgba(56, 189, 248, 0.14) !important;
-        color: #38bdf8 !important;
-        border: 1px solid rgba(56, 189, 248, 0.3) !important;
-        box-shadow: none !important;
-        cursor: pointer !important;
-      }
-
-      /* Clean Toggle Switch */
-      .toggle-switch {
-        position: relative;
-        display: inline-block;
-        width: 44px;
-        height: 24px;
-        flex-shrink: 0;
-      }
-
-      .toggle-switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-      }
-
-      .toggle-slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(255, 255, 255, 0.15);
-        transition: .3s cubic-bezier(0.4, 0, 0.2, 1);
-        border-radius: 9999px;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-      }
-
-      .toggle-slider:before {
-        position: absolute;
-        content: "";
-        height: 18px;
-        width: 18px;
-        left: 2px;
-        bottom: 2px;
-        background-color: white;
-        transition: .3s cubic-bezier(0.4, 0, 0.2, 1);
-        border-radius: 50%;
-      }
-
-      input:checked + .toggle-slider {
-        background-color: #0284c7;
-        border-color: #38bdf8;
-      }
-
-      input:checked + .toggle-slider:before {
-        transform: translateX(20px);
-        background-color: #f0f9ff;
-      }
-
-      .settings-sheet {
-        max-height: 82vh;
-      }
-
-      .settings-content-body {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        padding-top: 6px;
-      }
-
-      .settings-action-card {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        padding: 14px 16px;
-        border-radius: 18px;
-        background: rgba(56, 189, 248, 0.05);
-        border: 1px solid rgba(56, 189, 248, 0.22);
-      }
-
-      .settings-card-info {
-        display: flex;
-        align-items: flex-start;
-        gap: 12px;
-      }
-
-      .settings-card-icon-box {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        border-radius: 12px;
-        background: rgba(56, 189, 248, 0.12);
-        border: 1px solid rgba(56, 189, 248, 0.28);
-        flex-shrink: 0;
-      }
-
-      .settings-card-title {
-        font-size: 0.95rem;
-        font-weight: 750;
-        color: #f8fafc;
-        margin-bottom: 2px;
-      }
-
-      .settings-card-desc {
-        font-size: 0.76rem;
-        color: #94a3b8;
-        line-height: 1.35;
-      }
-
-      .btn-download-html {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        width: 100%;
-        padding: 11px 16px;
-        border-radius: 14px;
-        background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
-        border: 1px solid rgba(56, 189, 248, 0.4);
-        color: #ffffff;
-        font-size: 0.88rem;
-        font-weight: 700;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
-      }
-
-      .btn-download-html:hover,
-      .btn-download-html:active {
-        background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
-        transform: translateY(-1px);
-        box-shadow: 0 6px 18px rgba(2, 132, 199, 0.5);
-      }
-
-      .settings-card-section {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        padding: 14px 16px;
-        border-radius: 18px;
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-      }
-
-      .settings-section-label {
-        font-size: 0.78rem;
-        font-weight: 700;
-        color: #94a3b8;
-        letter-spacing: 0.03em;
-        text-transform: uppercase;
-      }
-
-      /* Front Face Shortcut Glance Button */
-      .front-shortcut-glance {
-        margin-top: 4px;
-        display: flex;
-        justify-content: center;
-      }
-
-      .front-shortcut-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 6px 14px;
-        border-radius: 9999px;
-        background: rgba(56, 189, 248, 0.08);
-        border: 1px solid rgba(56, 189, 248, 0.25);
-        color: #7dd3fc;
-        font-size: 0.75rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-      }
-
-      .front-shortcut-btn:hover,
-      .front-shortcut-btn:active {
-        background: rgba(56, 189, 248, 0.2);
-        border-color: rgba(56, 189, 248, 0.5);
-        transform: scale(0.97);
-        color: #38bdf8;
-      }
-
-      .front-shortcut-btn .shortcut-bolt {
-        font-size: 0.85rem;
-        animation: subtlePulse 1.8s infinite;
-      }
-
-      @keyframes subtlePulse {
-        0%, 100% { transform: scale(1); opacity: 0.9; }
-        50% { transform: scale(1.25); opacity: 1; }
-      }
-
-      /* Floating Toast Notification */
-      .toast-notification {
-        position: fixed;
-        top: 16px;
-        left: 50%;
-        transform: translateX(-50%) translateY(-40px);
-        background: rgba(15, 23, 42, 0.97);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        border: 1.5px solid rgba(56, 189, 248, 0.55);
-        box-shadow: 0 14px 32px -4px rgba(0, 0, 0, 0.7), 0 0 20px rgba(56, 189, 248, 0.28);
-        padding: 10px 16px;
-        border-radius: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        font-size: 0.84rem;
-        font-weight: 700;
-        color: #f8fafc;
-        pointer-events: none;
-        opacity: 0;
-        transition: transform 0.26s cubic-bezier(0.34, 1.4, 0.64, 1), opacity 0.22s ease;
-        z-index: 99999;
-        max-width: min(92vw, 460px);
-        width: max-content;
-        overflow: hidden;
-      }
-
-      .toast-notification.visible,
-      .toast-notification.show {
-        transform: translateX(-50%) translateY(0);
-        opacity: 1;
-        pointer-events: auto !important;
-      }
-
-      .toast-icon {
-        color: var(--accent-cyan);
-        font-weight: 800;
-        flex-shrink: 0;
-      }
-
-      .toast-undo-btn {
-        padding: 6px 14px !important;
-        background: #38bdf8 !important;
-        border: 1px solid #7dd3fc !important;
-        box-shadow: 0 2px 0 #0284c7 !important;
-        color: #082f49 !important;
-        border-radius: 10px !important;
-        font-weight: 900 !important;
-        font-size: 0.78rem !important;
-        letter-spacing: 0.03em !important;
-        cursor: pointer !important;
-        pointer-events: auto !important;
-        flex-shrink: 0 !important;
-        text-transform: uppercase !important;
-        transition: transform 0.12s ease, background 0.15s ease !important;
-      }
-
-      .toast-undo-btn:hover {
-        background: #7dd3fc !important;
-      }
-
-      .toast-undo-btn:active {
-        transform: translateY(2px) !important;
-      }
-
-      .toast-progress-track {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: rgba(255, 255, 255, 0.1);
-        overflow: hidden;
-        pointer-events: none;
-      }
-
-      .toast-progress-fill {
-        height: 100%;
-        width: 100%;
-        background: linear-gradient(90deg, #38bdf8, #10b981);
-        transform-origin: left center;
-      }
-
-      /* Simple Inline Confirmation Label Bar on Flashcard */
-      .card-inline-confirm-bar {
-        position: absolute;
-        top: 8px;
-        left: 10px;
-        right: 10px;
-        z-index: 50;
-        background: rgba(15, 23, 42, 0.97);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1.5px solid rgba(248, 113, 113, 0.55);
-        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.75);
-        border-radius: 14px;
-        padding: 10px 14px;
-        display: none;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-        pointer-events: auto !important;
-        animation: confirmBarSlideDown 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      }
-
-      .card-inline-confirm-bar.active {
-        display: flex !important;
-      }
-
-      @keyframes confirmBarSlideDown {
-        from { opacity: 0; transform: translateY(-8px) scale(0.98); }
-        to { opacity: 1; transform: translateY(0) scale(1); }
-      }
-    
-      /* ==========================================================
-         Multi-Device Responsive Architecture (Mobile, Tablet, Desktop)
-         ========================================================== */
-      :root {
-        --home-max-width: 1080px;
-        --deck-max-width: 520px;
-      }
-
-      #app-container {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 100%;
-        max-width: var(--deck-max-width);
-        height: 100%;
-        height: 100dvh;
-        margin: 0 auto;
-        padding: env(safe-area-inset-top, 16px) 16px env(safe-area-inset-bottom, 16px) 16px;
-        z-index: 1;
-        transition: max-width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-
-      /* Home Screen Active: Expands for Tablet & Desktop Screens */
-      body.home-view-active #app-container {
-        max-width: var(--home-max-width);
-        padding: env(safe-area-inset-top, 18px) 24px env(safe-area-inset-bottom, 20px) 24px;
-      }
-
-      @media (min-width: 768px) {
-        body:not(.home-view-active) #app-container {
-          max-width: 600px;
-          padding: 24px 20px;
-        }
-        body.home-view-active #app-container {
-          padding: 28px 32px;
-        }
-      }
-
-      /* Multi-Screen Display */
-      .app-screen {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        height: 100%;
-        flex: 1;
-        overflow: hidden;
-      }
-
-      .app-screen.active-screen {
-        display: flex;
-      }
-
-      /* ==========================================================
-         Home Page Header & Top Bar
-         ========================================================== */
-      .home-app-bar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 4px 0 16px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-        flex-shrink: 0;
-      }
-
-      .brand-group {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-
-      .brand-icon-box {
-        width: 40px;
-        height: 40px;
-        border-radius: 12px;
-        background: linear-gradient(135deg, #2563eb, #10b981);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #ffffff;
-        font-size: 1.25rem;
-        box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35);
-      }
-
-      .brand-text-col {
-        display: flex;
-        flex-direction: column;
-      }
-
-      .brand-title {
-        font-size: 1.12rem;
-        font-weight: 800;
-        letter-spacing: -0.02em;
-        color: #ffffff;
-        line-height: 1.2;
-      }
-
-      .brand-subtitle {
-        font-size: 0.72rem;
-        color: #94a3b8;
-        font-weight: 500;
-      }
-
-      .home-top-actions {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .btn-menu-drawer-toggle {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 8px 14px;
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.09);
-        color: #cbd5e1;
-        font-size: 0.82rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.18s ease;
-      }
-
-      .btn-menu-drawer-toggle:hover,
-      .btn-menu-drawer-toggle:active {
-        background: rgba(255, 255, 255, 0.1);
-        color: #ffffff;
-        border-color: rgba(255, 255, 255, 0.2);
-      }
-
-      .home-scroll-canvas {
-        flex: 1;
-        overflow-y: auto;
-        padding: 18px 0 24px;
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-        scrollbar-width: thin;
-        scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
-      }
-
-      /* ==========================================================
-         FEATURED 3K VOCABULARY SECTION (Interactive 3D Card)
-         ========================================================== */
-      .featured-3k-wrapper {
-        position: relative;
-        perspective: 1200px;
-        width: 100%;
-      }
-
-      .card-3k-featured {
-        position: relative;
-        border-radius: 26px;
-        background: linear-gradient(145deg, #131b2e 0%, #0d1322 65%, #080c16 100%);
-        border: 1px solid rgba(56, 189, 248, 0.28);
-        box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.85),
-                    0 0 0 1px rgba(255, 255, 255, 0.06),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.15);
-        padding: 26px 24px;
-        overflow: hidden;
-        cursor: pointer;
-        transform-style: preserve-3d;
-        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
-      }
-
-      .card-3k-featured:hover {
-        border-color: rgba(56, 189, 248, 0.55);
-        box-shadow: 0 30px 70px -12px rgba(37, 99, 235, 0.3),
-                    0 0 24px rgba(56, 189, 248, 0.2);
-      }
-
-      /* Dynamic Specular Reflection Sheen */
-      .card-3d-shine {
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.12), transparent 70%);
-        opacity: 0.6;
-        transition: opacity 0.3s ease;
-        z-index: 1;
-      }
-
-      .card-3k-layout {
-        position: relative;
-        z-index: 2;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-
-      @media (min-width: 860px) {
-        .card-3k-layout {
-          grid-template-columns: 1.25fr 1fr;
-          align-items: center;
-          gap: 32px;
-        }
-      }
-
-      .card-3k-info-col {
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-      }
-
-      .card-3k-badge-row {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        flex-wrap: wrap;
-      }
-
-      .badge-live-pulse {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 4px 10px;
-        border-radius: 9999px;
-        background: rgba(16, 185, 129, 0.16);
-        border: 1px solid rgba(16, 185, 129, 0.35);
-        color: #34d399;
-        font-size: 0.68rem;
-        font-weight: 750;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-      }
-
-      .pulse-indicator-dot {
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: #10b981;
-        box-shadow: 0 0 8px #10b981;
-        animation: livePulse 2s infinite;
-      }
-
-      @keyframes livePulse {
-        0%, 100% { opacity: 1; transform: scale(1); }
-        50% { opacity: 0.4; transform: scale(0.8); }
-      }
-
-      .badge-trilingual {
-        font-size: 0.7rem;
-        font-weight: 650;
-        color: #7dd3fc;
-        background: rgba(56, 189, 248, 0.1);
-        border: 1px solid rgba(56, 189, 248, 0.25);
-        padding: 3px 9px;
-        border-radius: 9999px;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-      }
-
-      .card-3k-title {
-        font-size: clamp(1.8rem, 5vw, 2.35rem);
-        font-weight: 850;
-        letter-spacing: -0.025em;
-        line-height: 1.1;
-        color: #ffffff;
-        margin: 0;
-      }
-
-      .card-3k-desc {
-        font-size: 0.88rem;
-        line-height: 1.45;
-        color: #94a3b8;
-      }
-
-      .card-3k-progress-box {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        background: rgba(0, 0, 0, 0.25);
-        padding: 12px 14px;
-        border-radius: 14px;
-        border: 1px solid rgba(255, 255, 255, 0.06);
-      }
-
-      .progress-meta-row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 0.78rem;
-        font-weight: 600;
-        color: #cbd5e1;
-      }
-
-      .progress-meta-row strong {
-        color: #38bdf8;
-      }
-
-      .progress-track-3k {
-        width: 100%;
-        height: 6px;
-        border-radius: 9999px;
-        background: rgba(255, 255, 255, 0.09);
-        overflow: hidden;
-      }
-
-      .progress-fill-3k {
-        width: 80%;
-        height: 100%;
-        border-radius: 9999px;
-        background: linear-gradient(90deg, #2563eb, #38bdf8 60%, #10b981);
-        box-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
-      }
-
-      .card-3k-actions {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        flex-wrap: wrap;
-        padding-top: 4px;
-      }
-
-      .btn-launch-3k {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        padding: 12px 24px;
-        border-radius: 14px;
-        background: linear-gradient(135deg, #2563eb, #1d4ed8);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        color: #ffffff;
-        font-size: 0.9rem;
-        font-weight: 750;
-        cursor: pointer;
-        box-shadow: 0 8px 24px -4px rgba(37, 99, 235, 0.6);
-        transition: all 0.2s ease;
-      }
-
-      .btn-launch-3k:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 12px 28px -4px rgba(37, 99, 235, 0.75);
-      }
-
-      .btn-subsections-3k {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 12px 18px;
-        border-radius: 14px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        color: #cbd5e1;
-        font-size: 0.85rem;
-        font-weight: 650;
-        cursor: pointer;
-        transition: all 0.18s ease;
-      }
-
-      .btn-subsections-3k:hover {
-        background: rgba(255, 255, 255, 0.1);
-        color: #ffffff;
-      }
-
-      /* 3D Isometric Mini Flashcards Stack Animation */
-      .card-3k-visual-col {
-        position: relative;
-        height: 190px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        perspective: 1000px;
-      }
-
-      .floating-card-stack {
-        position: relative;
-        width: 220px;
-        height: 140px;
-        transform-style: preserve-3d;
-      }
-
-      .mini-deck-card {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        border-radius: 18px;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        padding: 14px 16px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.7);
-        transition: all 0.3s ease;
-      }
-
-      .mini-card-3 {
-        background: #090e1a;
-        transform: translate3d(24px, -18px, -40px) rotate(8deg);
-        opacity: 0.55;
-        border-color: rgba(255, 255, 255, 0.06);
-      }
-
-      .mini-card-2 {
-        background: #0e1628;
-        transform: translate3d(12px, -9px, -20px) rotate(-4deg);
-        opacity: 0.8;
-        border-color: rgba(56, 189, 248, 0.2);
-      }
-
-      .mini-card-1 {
-        background: linear-gradient(135deg, #152238 0%, #0d1526 100%);
-        transform: translate3d(0, 0, 10px) rotate(1deg);
-        border-color: rgba(56, 189, 248, 0.45);
-        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(56, 189, 248, 0.2);
-      }
-
-      .mini-card-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 0.72rem;
-        font-weight: 700;
-        color: #38bdf8;
-      }
-
-      .mini-card-word {
-        font-size: 1.3rem;
-        font-weight: 850;
-        color: #ffffff;
-        letter-spacing: -0.01em;
-      }
-
-      .mini-card-trans {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 0.72rem;
-        color: #94a3b8;
-      }
-
-      .mini-card-trans span {
-        color: #34d399;
-        font-weight: 700;
-      }
-
-      /* Hover animation for 3D stack */
-      .card-3k-featured:hover .mini-card-1 {
-        transform: translate3d(-4px, -6px, 25px) rotate(0deg);
-      }
-      .card-3k-featured:hover .mini-card-2 {
-        transform: translate3d(18px, -16px, -10px) rotate(-6deg);
-      }
-      .card-3k-featured:hover .mini-card-3 {
-        transform: translate3d(36px, -26px, -30px) rotate(12deg);
-      }
-
-      /* ==========================================================
-         DYNAMIC SECTIONS LIST (Add, Edit, Drag and Move)
-         ========================================================== */
-      .sections-container-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        padding-top: 6px;
-      }
-
-      .sections-heading-group {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .sections-main-heading {
-        font-size: 1.18rem;
-        font-weight: 800;
-        letter-spacing: -0.02em;
-        color: #ffffff;
-      }
-
-      .sections-count-pill {
-        font-size: 0.72rem;
-        font-weight: 700;
-        padding: 2px 8px;
-        border-radius: 9999px;
-        background: rgba(255, 255, 255, 0.08);
-        color: #94a3b8;
-      }
-
-      .btn-create-section-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 8px 16px;
-        border-radius: 12px;
-        background: rgba(56, 189, 248, 0.12);
-        border: 1px solid rgba(56, 189, 248, 0.35);
-        color: #38bdf8;
-        font-size: 0.82rem;
-        font-weight: 700;
-        cursor: pointer;
-        transition: all 0.18s ease;
-      }
-
-      .btn-create-section-pill:hover,
-      .btn-create-section-pill:active {
-        background: rgba(56, 189, 248, 0.25);
-        color: #ffffff;
-        transform: scale(0.98);
-      }
-
-      .sections-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 14px;
-      }
-
-      @media (min-width: 720px) {
-        .sections-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-
-      @media (min-width: 1020px) {
-        .sections-grid {
-          grid-template-columns: repeat(3, 1fr);
-        }
-      }
-
-      /* Custom Section Card (Draggable, Editable) */
-      .custom-section-card {
-        position: relative;
-        background: #111724;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 20px;
-        padding: 16px 18px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        gap: 12px;
-        cursor: pointer;
-        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-        user-select: none;
-      }
-
-      .custom-section-card:hover {
-        background: #151d2e;
-        border-color: rgba(255, 255, 255, 0.16);
-        transform: translateY(-2px);
-        box-shadow: 0 14px 30px -8px rgba(0, 0, 0, 0.6);
-      }
-
-      .custom-section-card.dragging {
-        opacity: 0.45;
-        border: 1px dashed #38bdf8;
-        transform: scale(0.97);
-      }
-
-      .custom-section-card.drag-over {
-        border-color: #38bdf8;
-        box-shadow: 0 0 16px rgba(56, 189, 248, 0.4);
-      }
-
-      .section-card-top-bar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 8px;
-      }
-
-      .section-drag-handle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 30px;
-        height: 30px;
-        border-radius: 8px;
-        color: #64748b;
-        cursor: grab;
-        transition: color 0.15s ease, background 0.15s ease;
-      }
-
-      .section-drag-handle:hover,
-      .section-drag-handle:active {
-        color: #e2e8f0;
-        background: rgba(255, 255, 255, 0.06);
-      }
-
-      .section-icon-badge {
-        font-size: 1.35rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 38px;
-        height: 38px;
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .section-card-actions {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-
-      .section-tool-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 30px;
-        height: 30px;
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        color: #94a3b8;
-        cursor: pointer;
-        transition: all 0.15s ease;
-      }
-
-      .section-tool-btn:hover {
-        background: rgba(255, 255, 255, 0.1);
-        color: #ffffff;
-      }
-
-      .section-main-meta {
-        display: flex;
-        flex-direction: column;
-        gap: 3px;
-      }
-
-      .section-title-text {
-        font-size: 1.05rem;
-        font-weight: 750;
-        color: #ffffff;
-        letter-spacing: -0.015em;
-      }
-
-      .section-subtitle-text {
-        font-size: 0.78rem;
-        color: #94a3b8;
-        line-height: 1.35;
-      }
-
-      .section-card-bottom {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        padding-top: 4px;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-      }
-
-      .section-bottom-stats {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 0.74rem;
-        color: #cbd5e1;
-        font-weight: 600;
-      }
-
-      .section-card-progress {
-        width: 100%;
-        height: 4px;
-        border-radius: 9999px;
-        background: rgba(255, 255, 255, 0.07);
-        overflow: hidden;
-      }
-
-      .section-card-progress-fill {
-        height: 100%;
-        border-radius: 9999px;
-        transition: width 0.3s ease;
-      }
-
-      /* Quick reorder buttons for touch / accessibility */
-      .reorder-btns-group {
-        display: inline-flex;
-        align-items: center;
-        gap: 2px;
-      }
-
-      .btn-reorder-arrow {
-        width: 24px;
-        height: 24px;
-        border-radius: 6px;
-        background: transparent;
-        border: none;
-        color: #64748b;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0;
-      }
-
-      .btn-reorder-arrow:hover {
-        color: #ffffff;
-        background: rgba(255, 255, 255, 0.08);
-      }
-
-      /* ==========================================================
-         SLIDE-OVER MENU DRAWER (Moving Settings to Menu)
-         ========================================================== */
-      .menu-drawer-backdrop {
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.75);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        z-index: 999;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-
-      .menu-drawer-backdrop.open {
-        opacity: 1;
-        pointer-events: auto;
-      }
-
-      .app-menu-drawer {
-        position: fixed;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        width: 88%;
-        max-width: 440px;
-        background: #0d1322;
-        border-right: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 24px 0 60px rgba(0, 0, 0, 0.85);
-        z-index: 1000;
-        display: flex;
-        flex-direction: column;
-        transform: translateX(-100%);
-        transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
-        overflow: hidden;
-      }
-
       
-
-      .drawer-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px 22px 16px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        flex-shrink: 0;
-      }
-
-      .drawer-brand {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-
-      .drawer-close-btn {
-        width: 36px;
-        height: 36px;
-        border-radius: 10px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        color: #94a3b8;
-        font-size: 1.25rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: all 0.15s ease;
-      }
-
-      .drawer-close-btn:hover {
-        background: rgba(255, 255, 255, 0.1);
-        color: #ffffff;
-      }
-
-      .drawer-scroll-body {
-        flex: 1;
-        overflow-y: auto;
-        padding: 18px 22px 28px;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
-
-      .drawer-section-heading {
-        font-size: 0.72rem;
-        font-weight: 750;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: #64748b;
-        margin-bottom: 8px;
-      }
-
-      .drawer-nav-list {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-      }
-
-      .drawer-nav-item {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 12px 14px;
-        border-radius: 14px;
-        background: rgba(255, 255, 255, 0.035);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        color: #e2e8f0;
-        font-size: 0.88rem;
-        font-weight: 650;
-        cursor: pointer;
-        transition: all 0.18s ease;
-      }
-
-      .drawer-nav-item:hover,
-      .drawer-nav-item:active {
-        background: rgba(56, 189, 248, 0.12);
-        border-color: rgba(56, 189, 248, 0.3);
-        color: #ffffff;
-      }
-
-      .drawer-nav-item-left {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-    
-      /* ==========================================================
-         MODERN RESPONSIVE LAYOUT (DESKTOP / TABLET / MOBILE)
-         ========================================================== */
-
-      /* App Container & Screen Responsive Sizing */
-      #app-container {
-        width: 100%;
-        height: 100%;
-        max-width: 100%;
-        background: #070a13;
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .app-screen {
-        width: 100%;
-        height: 100%;
-        max-width: 1120px;
-        margin: 0 auto;
-        padding: 0 16px;
-        flex: 1;
-        display: none;
-        flex-direction: column;
-        overflow: hidden;
-      }
-
-      .app-screen.active-screen {
-        display: flex;
-      }
-
-      /* Desktop Navigation Bar (PC / Large Screen) */
-      .desktop-nav-bar {
-        display: none;
-        align-items: center;
-        gap: 6px;
-        background: rgba(255, 255, 255, 0.04);
-        padding: 4px 6px;
-        border-radius: 14px;
-        border: 1px solid rgba(255, 255, 255, 0.07);
-      }
-
-      .desktop-nav-link {
-        background: transparent;
-        border: none;
-        color: #94a3b8;
-        padding: 6px 14px;
-        border-radius: 10px;
-        font-size: 0.85rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.16s ease;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-      }
-
-      .desktop-nav-link:hover {
-        color: #ffffff;
-        background: rgba(255, 255, 255, 0.07);
-      }
-
-      .desktop-nav-link.active {
-        color: #38bdf8;
-        background: rgba(56, 189, 248, 0.12);
-        border: 1px solid rgba(56, 189, 248, 0.25);
-      }
-
-      /* Mobile Hamburger Menu Button (FAR LEFT CORNER ON MOBILE) */
-      .mobile-hamburger-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 42px;
-        height: 42px;
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        color: #e2e8f0;
-        cursor: pointer;
-        transition: all 0.18s ease;
-        flex-shrink: 0;
-        margin-right: 8px;
-      }
-
-      .mobile-hamburger-btn:hover,
-      .mobile-hamburger-btn:active {
-        background: rgba(56, 189, 248, 0.15);
-        color: #38bdf8;
-        border-color: rgba(56, 189, 248, 0.35);
-        transform: scale(0.96);
-      }
-
-      /* Top App Bar Modern Styling */
-      .home-app-bar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 12px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-        flex-shrink: 0;
-        width: 100%;
-        gap: 12px;
-      }
-
-      .brand-group {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        flex-shrink: 0;
-      }
-
-      /* Global Status 1 to 3K Pill */
-      .global-status-3k-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 7px;
-        padding: 6px 12px;
-        border-radius: 20px;
-        background: rgba(16, 185, 129, 0.1);
-        border: 1px solid rgba(16, 185, 129, 0.28);
-        color: #34d399;
-        font-size: 0.8rem;
-        font-weight: 600;
-        white-space: nowrap;
-      }
-
-      .status-dot-pulse {
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: #10b981;
-        box-shadow: 0 0 10px #10b981;
-        animation: pulseLiveDot 2s infinite ease-in-out;
-      }
-
-      @keyframes pulseLiveDot {
-        0%, 100% { opacity: 1; transform: scale(1); }
-        50% { opacity: 0.45; transform: scale(0.85); }
-      }
-
-      /* Settings Button in Header */
-      .btn-settings-header,
-      .desktop-settings-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 8px 14px;
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        color: #cbd5e1;
-        font-size: 0.82rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.18s ease;
-      }
-
-      .btn-settings-header:hover,
-      .desktop-settings-btn:hover {
-        background: rgba(255, 255, 255, 0.1);
-        color: #ffffff;
-        border-color: rgba(255, 255, 255, 0.22);
-      }
-
-      /* Learned Checkbox Buttons (Tactile Feedback) */
-      .btn-card-face-learned,
-      .btn-top-learned-toggle {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 6px 12px;
-        border-radius: 20px;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        color: #94a3b8;
-        font-size: 0.78rem;
-        font-weight: 700;
-        cursor: pointer;
-        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-
-      .btn-card-face-learned .learned-face-check,
-      .btn-top-learned-toggle .learned-check-indicator {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 16px;
-        height: 16px;
-        border-radius: 4px;
-        background: rgba(255, 255, 255, 0.1);
-        font-size: 0.7rem;
-        font-weight: 900;
-        color: transparent;
-        transition: all 0.2s ease;
-      }
-
-      .btn-card-face-learned.is-learned,
-      .btn-top-learned-toggle.is-learned {
-        background: rgba(16, 185, 129, 0.15);
-        border-color: rgba(16, 185, 129, 0.5);
-        color: #34d399;
-        box-shadow: 0 0 16px rgba(16, 185, 129, 0.2);
-      }
-
-      .btn-card-face-learned.is-learned .learned-face-check,
-      .btn-top-learned-toggle.is-learned .learned-check-indicator {
-        background: #10b981;
-        color: #064e3b;
-      }
-
-      /* Featured 3k Vocabulary Card Enhancements */
-      .featured-3k-wrapper {
-        width: 100%;
-        perspective: 1200px;
-      }
-
-      .card-3k-featured {
-        background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(20, 30, 52, 0.88));
-        border: 1px solid rgba(56, 189, 248, 0.25);
-        border-radius: 24px;
-        padding: 28px 32px;
-        position: relative;
-        overflow: hidden;
-        cursor: pointer;
-        box-shadow: 0 20px 48px -12px rgba(0, 0, 0, 0.7), 0 0 32px rgba(56, 189, 248, 0.08);
-        transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease, border-color 0.22s ease;
-      }
-
-      .card-3k-featured:hover {
-        border-color: rgba(56, 189, 248, 0.45);
-        box-shadow: 0 24px 56px -10px rgba(0, 0, 0, 0.8), 0 0 40px rgba(56, 189, 248, 0.15);
-      }
-
-      .card-3k-layout {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 32px;
-      }
-
-      .card-3k-info-col {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .card-3k-title {
-        font-size: 2.1rem;
-        font-weight: 800;
-        letter-spacing: -0.03em;
-        color: #ffffff;
-        line-height: 1.1;
-      }
-
-      .card-3k-desc {
-        font-size: 0.92rem;
-        line-height: 1.5;
-        color: #94a3b8;
-        max-width: 540px;
-      }
-
-      .progress-tier-hint {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 0.78rem;
-        color: #94a3b8;
-        margin-top: 6px;
-      }
-
-      /* Direct Launch Buttons on 3k Card */
-      .card-3k-actions {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-top: 8px;
-        flex-wrap: wrap;
-      }
-
-      .btn-launch-3k {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 12px 24px;
-        border-radius: 14px;
-        background: linear-gradient(135deg, #0284c7, #0ea5e9);
-        color: #ffffff;
-        font-size: 0.95rem;
-        font-weight: 700;
-        border: none;
-        cursor: pointer;
-        box-shadow: 0 8px 24px rgba(14, 165, 233, 0.38);
-        transition: all 0.2s ease;
-      }
-
-      .btn-launch-3k:hover {
-        background: linear-gradient(135deg, #0369a1, #0284c7);
-        transform: translateY(-2px);
-        box-shadow: 0 12px 28px rgba(14, 165, 233, 0.48);
-      }
-
-      .btn-subsections-3k {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 12px 20px;
-        border-radius: 14px;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        color: #e2e8f0;
-        font-size: 0.9rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.2s ease;
-      }
-
-      .btn-subsections-3k:hover {
-        background: rgba(255, 255, 255, 0.12);
-        color: #ffffff;
-        border-color: rgba(255, 255, 255, 0.25);
-      }
-
-      /* Subsections Screen Styling */
-      .subsections-overview-banner {
-        background: linear-gradient(135deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.85));
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 18px;
-        padding: 18px 22px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 16px;
-        margin-bottom: 8px;
-        flex-wrap: wrap;
-      }
-
-      .banner-kicker {
-        font-size: 0.7rem;
-        font-weight: 800;
-        letter-spacing: 0.1em;
-        color: #38bdf8;
-        margin-bottom: 4px;
-      }
-
-      .banner-heading {
-        font-size: 1.2rem;
-        font-weight: 700;
-        color: #ffffff;
-      }
-
-      .banner-sub {
-        font-size: 0.82rem;
-        color: #94a3b8;
-        margin-top: 2px;
-      }
-
-      .btn-direct-resume-tier {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 10px 18px;
-        border-radius: 12px;
-        background: rgba(56, 189, 248, 0.14);
-        border: 1px solid rgba(56, 189, 248, 0.3);
-        color: #38bdf8;
-        font-size: 0.85rem;
-        font-weight: 700;
-        cursor: pointer;
-        transition: all 0.18s ease;
-      }
-
-      .btn-direct-resume-tier:hover {
-        background: rgba(56, 189, 248, 0.24);
-        border-color: #38bdf8;
-        color: #ffffff;
-      }
-
-      .active-tier-highlight {
-        background: #101c30 !important;
-        border-color: #38bdf8 !important;
-        box-shadow: 0 0 28px rgba(56, 189, 248, 0.18) !important;
-      }
-
-      /* MEDIA QUERIES FOR SCREEN BREAKPOINTS */
-      @media (min-width: 768px) {
-        /* On PC/Tablet: HIDE mobile hamburger menu completely! */
-        .mobile-hamburger-btn {
-          display: none !important;
-        }
-
-        /* On PC: SHOW full desktop navigation bar */
-        .desktop-nav-bar {
-          display: flex !important;
-        }
-
-        .desktop-only-text {
-          display: inline !important;
-        }
-
-        /* Flashcard screen desktop optimization */
-        .flashcard-top-nav {
-          max-width: 900px;
-          margin: 0 auto;
-        }
-
-        .card-stage {
-          max-width: 700px;
-          margin: 0 auto;
-        }
-
-        .bottom-nav-bar {
-          max-width: 700px;
-          margin: 0 auto;
-        }
-      }
-
-      @media (max-width: 767px) {
-        .desktop-nav-bar {
-          display: none !important;
-        }
-
-        .mobile-hamburger-btn {
-          display: flex !important;
-        }
-
-        .desktop-only-text {
-          display: none !important;
-        }
-
-        .card-3k-featured {
-          padding: 20px 18px;
-        }
-
-        .card-3k-layout {
-          flex-direction: column;
-        }
-
-        .card-3k-visual-col {
-          display: none;
-        }
-
-        .card-3k-title {
-          font-size: 1.6rem;
-        }
-      }
-
-
-      /* ==========================================================
-         PRODUCTION-GRADE DUOLINGO-INSPIRED LAYOUT & ARCHITECTURE
-         ========================================================== */
-      
-      :root {
-        --sidebar-width: 256px;
-        --accent-emerald: #10b981;
-        --accent-emerald-dark: #059669;
-        --accent-blue: #0284c7;
-        --accent-amber: #f59e0b;
-        --surface-dark: #070a13;
-        --surface-card: #0d1424;
-        --surface-border: rgba(255, 255, 255, 0.08);
-      }
-
-      /* Global App Reset */
-      html, body {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        background: #070a13;
-        color: #f8fafc;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        overflow-x: hidden;
-      }
-
-      /* Outer Application Shell */
-      #app-container {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-height: 100vh !important;
-        height: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        display: flex !important;
-        flex-direction: row !important;
-        background: #070a13 !important;
-        position: relative !important;
-        overflow: hidden !important;
-      }
-
-      /* ==========================================================
-         DESKTOP PERSISTENT LEFT SIDEBAR (Duolingo-grade)
-         ========================================================== */
-      .app-desktop-sidebar {
-        width: var(--sidebar-width);
-        min-width: var(--sidebar-width);
-        height: 100vh;
-        background: #0b1120;
-        border-right: 1px solid rgba(255, 255, 255, 0.08);
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 24px 18px;
-        position: fixed;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        z-index: 50;
-        overflow-y: auto;
-      }
-
-      .sidebar-brand-lockup {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        padding-bottom: 24px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-        text-decoration: none;
-        cursor: pointer;
-      }
-
-      .sidebar-brand-text {
-        display: flex;
-        flex-direction: column;
-      }
-
-      .sidebar-brand-title {
-        font-size: 1.25rem;
-        font-weight: 800;
-        letter-spacing: -0.02em;
-        color: #ffffff;
-        line-height: 1.1;
-      }
-
-      .sidebar-brand-sub {
-        font-size: 0.72rem;
-        font-weight: 600;
-        color: #10b981;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-      }
-
-      /* Nav Items with Chunky Tactile 3D Depth */
-      .sidebar-nav-list {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        margin-top: 20px;
-        flex: 1;
-      }
-
-      .sidebar-nav-btn {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        padding: 12px 16px;
-        border-radius: 16px;
-        background: transparent;
-        border: 2px solid transparent;
-        color: #94a3b8;
-        font-size: 0.95rem;
-        font-weight: 700;
-        cursor: pointer;
-        transition: all 0.16s ease;
-        text-align: left;
-        width: 100%;
-      }
-
-      .sidebar-nav-btn:hover {
-        background: rgba(255, 255, 255, 0.05);
-        color: #ffffff;
-      }
-
-      .sidebar-nav-btn.active {
-        background: rgba(16, 185, 129, 0.12);
-        border-color: rgba(16, 185, 129, 0.35);
-        color: #34d399;
-        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
-      }
-
-      .sidebar-nav-icon {
-        font-size: 1.25rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 28px;
-        height: 28px;
-        flex-shrink: 0;
-      }
-
-      /* Sidebar Footer Widget */
-      .sidebar-footer-card {
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.07);
-        border-radius: 18px;
-        padding: 16px;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .sidebar-streak-badge {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 0.85rem;
-        font-weight: 700;
-        color: #f59e0b;
-      }
-
-      .sidebar-sound-quick-toggle {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 0.8rem;
-        color: #94a3b8;
-        background: rgba(0, 0, 0, 0.25);
-        padding: 6px 10px;
-        border-radius: 10px;
-        cursor: pointer;
-      }
-
-      /* ==========================================================
-         MAIN CONTENT AREA (Expands beside Sidebar on Desktop)
-         ========================================================== */
-      .app-main-viewport {
-        flex: 1;
-        margin-left: var(--sidebar-width);
-        min-height: 100vh;
-        width: calc(100% - var(--sidebar-width));
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        overflow-y: auto;
-      }
-
-      /* Desktop Top Stats Bar */
-      .desktop-top-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 16px 36px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        background: rgba(11, 17, 32, 0.7);
-        backdrop-filter: blur(12px);
-        position: sticky;
-        top: 0;
-        z-index: 40;
-      }
-
-      .desktop-header-left {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-
-      .desktop-page-breadcrumb {
-        font-size: 0.95rem;
-        font-weight: 700;
-        color: #cbd5e1;
-      }
-
-      .desktop-header-stats {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-      }
-
-      .stat-badge-duo {
-        display: inline-flex;
-        align-items: center;
-        gap: 7px;
-        padding: 6px 14px;
-        border-radius: 14px;
-        font-size: 0.82rem;
-        font-weight: 700;
-        border: 1px solid transparent;
-        white-space: nowrap;
-        flex-shrink: 0;
-      }
-
-      .stat-badge-streak {
-        background: rgba(245, 158, 11, 0.12);
-        border-color: rgba(245, 158, 11, 0.3);
-        color: #fbbf24;
-      }
-
-      .stat-badge-mastery {
-        background: rgba(16, 185, 129, 0.12);
-        border-color: rgba(16, 185, 129, 0.3);
-        color: #34d399;
-      }
-
-      /* ==========================================================
-         MOBILE TOP APP BAR (HAMBURGER STRICTLY FAR LEFT)
-         ========================================================== */
-      .mobile-top-bar {
-        display: none;
-        align-items: center;
-        justify-content: space-between;
-        padding: 12px 16px;
-        background: #0b1120;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        position: sticky;
-        top: 0;
-        z-index: 40;
-        width: 100%;
-      }
-
-      .mobile-left-cluster {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-
-      /* Mobile Hamburger Menu Button: Pin strictly to top-left! */
-      .mobile-hamburger-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 44px;
-        height: 44px;
-        min-width: 44px;
-        min-height: 44px;
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        color: #f8fafc;
-        cursor: pointer;
-        flex-shrink: 0;
-        transition: transform 0.15s ease, background 0.15s ease;
-      }
-
-      .mobile-hamburger-btn:active {
-        transform: scale(0.94);
-        background: rgba(16, 185, 129, 0.2);
-        color: #34d399;
-      }
-
-      .mobile-brand-title {
-        font-size: 1.1rem;
-        font-weight: 800;
-        color: #ffffff;
-        letter-spacing: -0.02em;
-      }
-
-      /* Mobile Bottom Navigation Bar */
-      .mobile-bottom-nav {
-        display: none;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 64px;
-        background: #0b1120;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        z-index: 45;
-        grid-template-columns: repeat(4, 1fr);
-        align-items: center;
-      }
-
-      .mobile-tab-btn {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 3px;
-        background: transparent;
-        border: none;
-        color: #94a3b8;
-        font-size: 0.68rem;
-        font-weight: 700;
-        cursor: pointer;
-        height: 100%;
-      }
-
-      .mobile-tab-btn.active {
-        color: #34d399;
-      }
-
-      .mobile-tab-icon {
-        font-size: 1.25rem;
-      }
-
-      /* ==========================================================
-         APP SCREENS ARCHITECTURE (Smooth Switching)
-         ========================================================== */
-      .app-screen {
-        width: 100%;
-        max-width: 1080px;
-        margin: 0 auto;
-        padding: 24px 32px 48px;
-        display: none;
-        flex-direction: column;
-        gap: 28px;
-        flex: 1;
-      }
-
-      .app-screen.active-screen {
-        display: flex;
-      }
-
-      /* ==========================================================
-         FEATURED 3K VOCABULARY SECTION (Modern 3D Tactile Card)
-         ========================================================== */
-      .featured-3k-wrapper {
-        width: 100%;
-        perspective: 1200px;
-      }
-
-      .card-3k-featured {
-        position: relative;
-        border-radius: 28px;
-        background: linear-gradient(145deg, #131d33 0%, #0e172a 60%, #090e1c 100%);
-        border: 2px solid rgba(56, 189, 248, 0.35);
-        box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.8),
-                    0 6px 0 #075985,
-                    0 0 28px rgba(56, 189, 248, 0.15);
-        padding: 32px 36px;
-        overflow: hidden;
-        cursor: pointer;
-        transform-style: preserve-3d;
-        transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease, border-color 0.22s ease;
-      }
-
-      .card-3k-featured:hover {
-        border-color: #38bdf8;
-        transform: translateY(-3px);
-        box-shadow: 0 22px 50px -10px rgba(0, 0, 0, 0.9),
-                    0 8px 0 #0284c7,
-                    0 0 36px rgba(56, 189, 248, 0.25);
-      }
-
-      .card-3k-featured:active {
-        transform: translateY(2px);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7),
-                    0 2px 0 #0284c7;
-      }
-
-      .card-3k-layout {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 36px;
-        position: relative;
-        z-index: 2;
-      }
-
-      .card-3k-info-col {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-      }
-
-      /* Clean unboxed label: 3k Vocabulary */
-      .card-3k-title {
-        font-size: 2.35rem;
-        font-weight: 900;
-        letter-spacing: -0.03em;
-        color: #ffffff;
-        margin: 0;
-        line-height: 1.1;
-      }
-
-      .card-3k-desc {
-        font-size: 0.98rem;
-        line-height: 1.55;
-        color: #94a3b8;
-        max-width: 580px;
-        margin: 0;
-      }
-
-      /* Status Progress Box */
-      .card-3k-progress-box {
-        background: rgba(0, 0, 0, 0.3);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 16px;
-        padding: 14px 18px;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        max-width: 540px;
-      }
-
-      .progress-meta-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 0.88rem;
-        font-weight: 700;
-        color: #cbd5e1;
-      }
-
-      .progress-track-3k {
-        width: 100%;
-        height: 12px;
-        border-radius: 9999px;
-        background: rgba(255, 255, 255, 0.08);
-        overflow: hidden;
-        position: relative;
-      }
-
-      .progress-fill-3k {
-        height: 100%;
-        border-radius: 9999px;
-        background: linear-gradient(90deg, #0284c7 0%, #10b981 100%);
-        transition: width 0.35s ease;
-      }
-
-      /* Actions: Resume & Open Subsections */
-      .card-3k-actions {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        margin-top: 6px;
-        flex-wrap: wrap;
-      }
-
-      .btn-launch-3k {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        padding: 13px 28px;
-        border-radius: 16px;
-        background: #0284c7;
-        color: #ffffff;
-        font-size: 1rem;
-        font-weight: 800;
-        border: none;
-        cursor: pointer;
-        box-shadow: 0 4px 0 #0369a1, 0 8px 20px rgba(2, 132, 199, 0.4);
-        transition: all 0.16s ease;
-      }
-
-      .btn-launch-3k:hover {
-        background: #0ea5e9;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 0 #0369a1, 0 12px 24px rgba(2, 132, 199, 0.5);
-      }
-
-      .btn-launch-3k:active {
-        transform: translateY(2px);
-        box-shadow: 0 1px 0 #0369a1;
-      }
-
-      .btn-subsections-3k {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 13px 22px;
-        border-radius: 16px;
-        background: rgba(255, 255, 255, 0.07);
-        border: 2px solid rgba(255, 255, 255, 0.14);
-        color: #f1f5f9;
-        font-size: 0.92rem;
-        font-weight: 700;
-        cursor: pointer;
-        transition: all 0.18s ease;
-      }
-
-      .btn-subsections-3k:hover {
-        background: rgba(255, 255, 255, 0.14);
-        border-color: rgba(255, 255, 255, 0.28);
-      }
-
-      /* ==========================================================
-         SECTIONS & CUSTOM DECKS GRID
-         ========================================================== */
-      .sections-container-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-top: 8px;
-      }
-
-      .sections-main-heading {
-        font-size: 1.4rem;
-        font-weight: 800;
-        color: #ffffff;
-        letter-spacing: -0.02em;
-        margin: 0;
-      }
-
-      .btn-create-section-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 10px 18px;
-        border-radius: 14px;
-        background: rgba(16, 185, 129, 0.15);
-        border: 1px solid rgba(16, 185, 129, 0.35);
-        color: #34d399;
-        font-size: 0.88rem;
-        font-weight: 700;
-        cursor: pointer;
-        transition: all 0.18s ease;
-      }
-
-      .btn-create-section-pill:hover {
-        background: #10b981;
-        color: #064e3b;
-        transform: translateY(-1px);
-      }
-
-      .sections-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-        gap: 16px;
-      }
-
-      .custom-section-card {
-        background: #0f172a;
-        border: 1.5px solid rgba(255, 255, 255, 0.08);
-        border-radius: 20px;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-        cursor: pointer;
-        transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
-        position: relative;
-      }
-
-      .custom-section-card:hover {
-        border-color: rgba(56, 189, 248, 0.4);
-        transform: translateY(-2px);
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
-      }
-
-      .section-card-top-bar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .section-icon-badge {
-        width: 44px;
-        height: 44px;
-        min-width: 44px;
-        min-height: 44px;
-        border-radius: 14px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.3rem;
-        flex-shrink: 0;
-      }
-
-      .section-title-text {
-        font-size: 1.1rem;
-        font-weight: 800;
-        color: #ffffff;
-      }
-
-      .section-subtitle-text {
-        font-size: 0.82rem;
-        color: #94a3b8;
-        line-height: 1.4;
-      }
-
-      .reorder-btns-group {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-      }
-
-      .btn-reorder-arrow {
-        width: 28px;
-        height: 28px;
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        color: #cbd5e1;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 0.72rem;
-      }
-
-      .btn-reorder-arrow:hover {
-        background: rgba(56, 189, 248, 0.2);
-        color: #38bdf8;
-      }
-
-      /* ==========================================================
-         SUBSECTIONS SCREEN (Tiers 800 - 1000 & all)
-         ========================================================== */
-      .subsections-top-bar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding-bottom: 8px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .breadcrumb-back-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 8px 16px;
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        color: #e2e8f0;
-        font-size: 0.88rem;
-        font-weight: 700;
-        cursor: pointer;
-        transition: all 0.16s ease;
-      }
-
-      .breadcrumb-back-btn:hover {
-        background: rgba(255, 255, 255, 0.12);
-        color: #ffffff;
-      }
-
-      .tier-active-pill {
-        background: #0284c7 !important;
-        border-color: #38bdf8 !important;
-        color: #ffffff !important;
-        box-shadow: 0 0 24px rgba(2, 132, 199, 0.35) !important;
-      }
-
-      /* ==========================================================
-         FLASHCARD SCREEN & STRICT DOUBLE TAP
-         ========================================================== */
-      .flashcard-top-nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 8px 0 16px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .btn-card-face-learned {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 6px 14px;
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1.5px solid rgba(255, 255, 255, 0.15);
-        color: #cbd5e1;
-        font-size: 0.82rem;
-        font-weight: 700;
-        cursor: pointer;
-        transition: all 0.18s ease;
-      }
-
-      .btn-card-face-learned.is-learned {
-        background: rgba(16, 185, 129, 0.18);
-        border-color: #10b981;
-        color: #34d399;
-        box-shadow: 0 0 14px rgba(16, 185, 129, 0.25);
-      }
-
-      .btn-card-face-learned.is-learned .learned-face-check {
-        background: #10b981;
-        color: #064e3b;
-      }
-
-      .learned-face-check {
-        width: 18px;
-        height: 18px;
-        border-radius: 5px;
-        background: rgba(255, 255, 255, 0.1);
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 0.72rem;
-        font-weight: 900;
-      }
-
-      /* Flashcard Stage Sizing */
-      .card-stage {
-        max-width: 660px;
-        width: 100%;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .bottom-nav-bar {
-        max-width: 660px;
-        width: 100%;
-        margin: 16px auto 0;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-      }
-
-      /* Clean Red / Status / Indicator Geometry Fixes: NEVER COMPRESSED! */
-      .round-indicator,
-      .status-dot-pulse,
-      .badge-dot,
-      .vector-icon,
-      .brand-mascot-svg {
-        flex-shrink: 0 !important;
-        aspect-ratio: 1 / 1 !important;
-        overflow: visible !important;
-      }
-
-      /* ==========================================================
-         RESPONSIVE BREAKPOINTS (Desktop vs Mobile)
-         ========================================================== */
-      @media (min-width: 768px) {
-        .app-desktop-sidebar {
-          display: flex !important;
-        }
-
-        .desktop-top-header {
-          display: flex !important;
-        }
-
-        .mobile-top-bar {
-          display: none !important;
-        }
-
-        .mobile-bottom-nav {
-          display: none !important;
-        }
-
-        .mobile-hamburger-btn {
-          display: none !important;
-        }
-      }
-
-      @media (max-width: 767px) {
-        .app-desktop-sidebar {
-          display: none !important;
-        }
-
-        .app-main-viewport {
-          margin-left: 0 !important;
-          width: 100% !important;
-          padding-bottom: 74px !important;
-        }
-
-        .desktop-top-header {
-          display: none !important;
-        }
-
-        .mobile-top-bar {
-          display: flex !important;
-        }
-
-        .mobile-bottom-nav {
-          display: grid !important;
-        }
-
-        .app-screen {
-          padding: 16px 16px 32px !important;
-          gap: 20px !important;
-        }
-
-        .card-3k-featured {
-          padding: 22px 20px !important;
-        }
-
-        .card-3k-layout {
-          flex-direction: column !important;
-          gap: 20px !important;
-        }
-
-        .card-3k-visual-col {
-          display: none !important;
-        }
-
-        .card-3k-title {
-          font-size: 1.75rem !important;
-        }
-      }
-
-
-      /* PRODUCTION-GRADE MOBILE & DESKTOP HEADER DISCIPLINE */
-      @media (min-width: 768px) {
-        .mobile-hamburger-btn {
-          display: none !important;
-          visibility: hidden !important;
-          pointer-events: none !important;
-        }
-      }
-
-      @media (max-width: 767px) {
-        .mobile-top-bar {
-          display: flex !important;
-          align-items: center !important;
-          justify-content: space-between !important;
-          padding: 10px 16px !important;
-          position: sticky !important;
-          top: 0 !important;
-          left: 0 !important;
-          right: 0 !important;
-          width: 100% !important;
-          background: #0b1120 !important;
-          z-index: 100 !important;
-        }
-
-        .mobile-left-cluster {
-          display: flex !important;
-          align-items: center !important;
-          gap: 12px !important;
-          margin-right: auto !important;
-        }
-
-        .mobile-hamburger-btn {
-          display: flex !important;
-          align-items: center !important;
-          justify-content: center !important;
-          flex-shrink: 0 !important;
-          margin: 0 !important;
-        }
-      }
-
-
-      /* ==========================================================
-         PRODUCTION-GRADE FLASHCARD VIEWPORT & RESPONSIVE GEOMETRY
-         ========================================================== */
-      #screen-flashcard {
-        display: none;
-        flex-direction: column !important;
-        justify-content: space-between !important;
-        width: 100% !important;
-        max-width: 600px !important;
-        margin: 0 auto !important;
-        padding: 12px 16px 16px !important;
-        gap: 10px !important;
-        height: 100vh !important;
-        max-height: 100vh !important;
-        min-height: 100vh !important;
-        box-sizing: border-box !important;
-        overflow: hidden !important;
-      }
-
-      #screen-flashcard.active-screen {
-        display: flex !important;
-      }
-
-      body.in-flashcard-mode {
-        overflow: hidden !important;
-      }
-
-      body.in-flashcard-mode .app-desktop-sidebar {
-        display: none !important;
-      }
-
-      body.in-flashcard-mode .desktop-top-header,
-      body.in-flashcard-mode .mobile-top-bar,
-      body.in-flashcard-mode .mobile-bottom-nav {
-        display: none !important;
-      }
-
-      body.in-flashcard-mode .app-main-viewport {
-        margin-left: 0 !important;
-        width: 100% !important;
-        padding-bottom: 0 !important;
-        min-height: 100vh !important;
-        height: 100vh !important;
-        overflow: hidden !important;
-      }
-
-      .flashcard-top-nav {
-        flex-shrink: 0 !important;
-        width: 100% !important;
-        padding: 4px 0 8px !important;
-      }
-
-      .flashcard-top-nav .top-nav-main {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        gap: 12px !important;
-      }
-
-      .flashcard-top-nav .breadcrumb-back-btn {
-        display: inline-flex !important;
-        align-items: center !important;
-        gap: 6px !important;
-        padding: 8px 14px !important;
-        border-radius: 9999px !important;
-        background: rgba(255, 255, 255, 0.06) !important;
-        border: 1px solid rgba(255, 255, 255, 0.12) !important;
-        color: #f1f5f9 !important;
-        font-size: 0.82rem !important;
-        font-weight: 700 !important;
-        cursor: pointer !important;
-        transition: all 0.18s ease !important;
-      }
-
-      .flashcard-top-nav .breadcrumb-back-btn:hover {
-        background: rgba(255, 255, 255, 0.12) !important;
-        transform: translateX(-2px) !important;
-      }
-
-      #screen-flashcard .card-stage {
-        flex: 1 1 auto !important;
-        width: 100% !important;
-        max-width: 500px !important;
-        margin: 0 auto !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        perspective: 1200px !important;
-        min-height: 0 !important;
-        position: relative !important;
-      }
-
-      #screen-flashcard .flashcard-wrapper {
-        width: 100% !important;
-        height: 100% !important;
-        max-height: 520px !important;
-        min-height: 380px !important;
-        position: relative !important;
-        transform-style: preserve-3d !important;
-        -webkit-transform-style: preserve-3d !important;
-        cursor: grab !important;
-        transition: transform 0.48s cubic-bezier(0.34, 1.28, 0.64, 1);
-        user-select: none !important;
-        -webkit-user-select: none !important;
-        touch-action: pan-y !important;
-      }
-
-      #screen-flashcard .flashcard-wrapper.is-dragging {
-        transition: none !important;
-        cursor: grabbing !important;
-      }
-
-      #screen-flashcard .card-face {
-        position: absolute !important;
-        inset: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        border-radius: 24px !important;
-        background: #111726 !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.05) !important;
-        backface-visibility: hidden !important;
-        -webkit-backface-visibility: hidden !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: space-between !important;
-        padding: 18px 20px 14px !important;
-        box-sizing: border-box !important;
-        overflow-y: auto !important;
-        scrollbar-width: thin;
-      }
-
-      #screen-flashcard .card-face-front {
-        transform: rotateY(0deg) !important;
-        -webkit-transform: rotateY(0deg) !important;
-        z-index: 2 !important;
-        touch-action: none !important;
-      }
-
-      #screen-flashcard .card-face-back {
-        transform: rotateY(180deg) !important;
-        -webkit-transform: rotateY(180deg) !important;
-        z-index: 1 !important;
-        background: #0d1422 !important;
-        touch-action: pan-y !important;
-      }
-
-      #screen-flashcard .flashcard-wrapper.flipped:not(.spring-animating):not(.is-dragging) {
-        transform: rotateY(180deg);
-        -webkit-transform: rotateY(180deg);
-      }
-
-      #screen-flashcard .flashcard-wrapper.flipped .card-face-front {
-        z-index: 1 !important;
-        pointer-events: none !important;
-      }
-
-      #screen-flashcard .flashcard-wrapper.flipped .card-face-back {
-        z-index: 2 !important;
-        pointer-events: auto !important;
-      }
-
-      .card-face .card-header-bar {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        width: 100% !important;
-        padding-bottom: 8px !important;
-      }
-
-      .card-face .front-content {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        flex: 1 1 auto !important;
-        min-height: 0 !important;
-        gap: 12px !important;
-        text-align: center !important;
-        padding: 6px 0 !important;
-      }
-
-      .card-face .visual-box {
-        position: relative !important;
-        width: 100% !important;
-        max-width: 320px !important;
-        height: min(180px, 26vh) !important;
-        border-radius: 18px !important;
-        background: #080c14 !important;
-        border: 1px solid rgba(255, 255, 255, 0.08) !important;
-        overflow: hidden !important;
-        box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.6) !important;
-      }
-
-      .card-face .target-word-container {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-      }
-
-      .card-face .target-word {
-        font-size: clamp(2rem, 6.5vw, 2.75rem) !important;
-        font-weight: 800 !important;
-        letter-spacing: -0.01em !important;
-        color: #ffffff !important;
-        margin: 0 !important;
-        line-height: 1.1 !important;
-      }
-
-      .card-hint-footer {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 6px !important;
-        font-size: 0.74rem !important;
-        font-weight: 600 !important;
-        color: #64748b !important;
-        padding-top: 8px !important;
-      }
-
-      /* Back Content styling */
-      .card-face .back-content {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 12px !important;
-        flex: 1 1 auto !important;
-        min-height: 0 !important;
-        overflow-y: auto !important;
-        padding: 4px 0 6px !important;
-      }
-
-      .tamil-hero-card {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        padding: 12px 16px !important;
-        border-radius: 16px !important;
-        background: rgba(16, 185, 129, 0.08) !important;
-        border: 1px solid rgba(16, 185, 129, 0.28) !important;
-        cursor: pointer !important;
-        transition: all 0.18s ease !important;
-      }
-
-      .tamil-hero-card:hover {
-        background: rgba(16, 185, 129, 0.15) !important;
-        border-color: rgba(16, 185, 129, 0.45) !important;
-      }
-
-      .tamil-hero-header {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        width: 100% !important;
-        margin-bottom: 4px !important;
-      }
-
-      .lang-tag.tag-ta {
-        color: #34d399 !important;
-        font-size: 0.68rem !important;
-        font-weight: 800 !important;
-        letter-spacing: 0.06em !important;
-      }
-
-      .tamil-script-display {
-        font-size: clamp(2rem, 6.5vw, 2.6rem) !important;
-        font-weight: 800 !important;
-        color: #ffffff !important;
-        line-height: 1.2 !important;
-      }
-
-      .translations-grid {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
-        gap: 10px !important;
-      }
-
-      .trans-tile {
-        padding: 10px 14px !important;
-        border-radius: 14px !important;
-        background: rgba(255, 255, 255, 0.04) !important;
-        border: 1px solid rgba(255, 255, 255, 0.08) !important;
-        cursor: pointer !important;
-        transition: all 0.18s ease !important;
-      }
-
-      .trans-tile:hover {
-        background: rgba(255, 255, 255, 0.08) !important;
-        border-color: rgba(255, 255, 255, 0.18) !important;
-      }
-
-      .trans-tile-word {
-        font-size: 1.15rem !important;
-        font-weight: 700 !important;
-        color: #ffffff !important;
-        margin-top: 4px !important;
-      }
-
-      .shortcut-section {
-        background: rgba(15, 23, 42, 0.5) !important;
-        border: 1px solid rgba(255, 255, 255, 0.06) !important;
-        border-radius: 14px !important;
-        padding: 10px 12px !important;
-      }
-
-      .shortcut-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 8px !important;
-        width: 100% !important;
-      }
-
-      .shortcut-box {
-        padding: 8px 10px !important;
-        border-radius: 10px !important;
-        background: rgba(0, 0, 0, 0.25) !important;
-        border: 1px solid rgba(255, 255, 255, 0.05) !important;
-      }
-
-      .shortcut-punchline {
-        font-size: 0.74rem !important;
-        color: #cbd5e1 !important;
-        line-height: 1.35 !important;
-        margin-top: 4px !important;
-      }
-
-      /* Clean Tactile Bottom Controls */
-      #screen-flashcard .nav-controls {
-        flex-shrink: 0 !important;
-        width: 100% !important;
-        max-width: 500px !important;
-        margin: 0 auto !important;
-        padding: 6px 12px 10px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 16px !important;
-      }
-
-      .nav-btn-flip-cobalt {
-        flex: 1 !important;
-        max-width: 220px !important;
-        height: 52px !important;
-        border-radius: 9999px !important;
-        background: #2563eb !important;
-        color: #ffffff !important;
-        font-size: 1rem !important;
-        font-weight: 700 !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 8px !important;
-        border: 1px solid rgba(255, 255, 255, 0.2) !important;
-        cursor: pointer !important;
-        box-shadow: 0 4px 16px rgba(37, 99, 235, 0.45) !important;
-        transition: all 0.18s ease !important;
-      }
-
-      .nav-btn-flip-cobalt:hover, .nav-btn-flip-cobalt:active {
-        background: #1d4ed8 !important;
-        transform: translateY(-1px) !important;
-        box-shadow: 0 6px 22px rgba(37, 99, 235, 0.6) !important;
-      }
-
-      .nav-chevron-btn {
-        width: 52px !important;
-        height: 52px !important;
-        border-radius: 9999px !important;
-        background: #18181f !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        color: #e2e8f0 !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        cursor: pointer !important;
-        transition: all 0.18s ease !important;
-      }
-
-      .nav-chevron-btn:hover, .nav-chevron-btn:active {
-        background: #23232d !important;
-        color: #ffffff !important;
-        border-color: rgba(255, 255, 255, 0.2) !important;
-      }
-
-
-      /* Double Tap & Clean Flashcard Layout Overrides */
-      .card-hint-footer {
-        display: none !important;
-      }
-      .flashcard-top-nav {
-        flex-shrink: 0 !important;
-        width: 100% !important;
-        max-width: 480px !important;
-        margin: 0 auto !important;
-        padding: 4px 0 8px !important;
-        box-sizing: border-box !important;
-      }
-      .flashcard-top-nav .top-nav-main {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        gap: 6px !important;
-        width: 100% !important;
-        padding: 0 4px !important;
-        box-sizing: border-box !important;
-      }
-      .flashcard-top-nav .breadcrumb-back-btn {
-        flex-shrink: 0 !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 5px !important;
-        padding: 6px 12px !important;
-        height: 34px !important;
-        border-radius: 12px !important;
-        background: rgba(255, 255, 255, 0.08) !important;
-        border: 1px solid rgba(255, 255, 255, 0.16) !important;
-        box-shadow: 0 3px 0 rgba(0, 0, 0, 0.4) !important;
-        color: #f1f5f9 !important;
-        font-size: 0.8rem !important;
-        font-weight: 700 !important;
-        cursor: pointer !important;
-        white-space: nowrap !important;
-        transition: all 0.15s ease !important;
-        box-sizing: border-box !important;
-      }
-      .flashcard-top-nav .breadcrumb-back-btn:hover {
-        background: rgba(255, 255, 255, 0.14) !important;
-      }
-      .flashcard-top-nav .breadcrumb-back-btn:active {
-        transform: translateY(2px) scale(0.96) !important;
-        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.4) !important;
-      }
-      .flashcard-top-nav .top-nav-center-group {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 6px !important;
-        flex: 1 1 auto !important;
-        min-width: 0 !important;
-      }
-      .flashcard-top-nav .top-category-pill {
-        font-size: 0.74rem !important;
-        font-weight: 800 !important;
-        color: #34d399 !important;
-        background: rgba(16, 185, 129, 0.12) !important;
-        border: 1px solid rgba(16, 185, 129, 0.3) !important;
-        padding: 4px 8px !important;
-        height: 28px !important;
-        border-radius: 9999px !important;
-        white-space: nowrap !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        gap: 4px !important;
-        flex-shrink: 0 !important;
-        box-sizing: border-box !important;
-      }
-      .flashcard-top-nav .counter-display {
-        flex-shrink: 0 !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 3px !important;
-        background: rgba(255, 255, 255, 0.06) !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        padding: 4px 8px !important;
-        height: 28px !important;
-        border-radius: 9999px !important;
-        font-variant-numeric: tabular-nums !important;
-        font-size: 0.8rem !important;
-        font-weight: 800 !important;
-        color: #f1f5f9 !important;
-        white-space: nowrap !important;
-        box-sizing: border-box !important;
-      }
-      #flashcard-streak-badge {
-        flex-shrink: 0 !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 4px !important;
-        padding: 4px 8px !important;
-        height: 28px !important;
-        border-radius: 9999px !important;
-        box-sizing: border-box !important;
-        font-size: 0.74rem !important;
-        white-space: nowrap !important;
-      }
-      .flashcard-top-nav .top-nav-actions {
-        flex-shrink: 0 !important;
-        display: flex !important;
-        align-items: center !important;
-        gap: 5px !important;
-      }
-      .flashcard-top-nav .reset-deck-btn,
-      .flashcard-top-nav .shuffle-btn,
-      .flashcard-top-nav .flashcard-settings-btn,
-      .flashcard-top-nav .deck-upload-nav-btn,
-      .flashcard-top-nav #btn-top-upload-deck,
-      .flashcard-top-nav #btn-flashcard-settings {
-        width: 32px !important;
-        height: 32px !important;
-        min-width: 32px !important;
-        min-height: 32px !important;
-        max-width: 32px !important;
-        max-height: 32px !important;
-        border-radius: 10px !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        background: rgba(255, 255, 255, 0.08) !important;
-        border: 1px solid rgba(255, 255, 255, 0.16) !important;
-        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.35) !important;
-        color: #f1f5f9 !important;
-        cursor: pointer !important;
-        transition: all 0.15s ease !important;
-        box-sizing: border-box !important;
-        user-select: none !important;
-        flex-shrink: 0 !important;
-      }
-      .flashcard-top-nav .reset-deck-btn {
-        color: #38bdf8 !important;
-        background: rgba(56, 189, 248, 0.12) !important;
-        border-color: rgba(56, 189, 248, 0.3) !important;
-      }
-      .flashcard-top-nav .reset-deck-btn:hover {
-        background: rgba(56, 189, 248, 0.22) !important;
-      }
-      .flashcard-top-nav .shuffle-btn:hover,
-      .flashcard-top-nav .flashcard-settings-btn:hover,
-      .flashcard-top-nav .deck-upload-nav-btn:hover {
-        background: rgba(255, 255, 255, 0.14) !important;
-      }
-      .flashcard-top-nav .reset-deck-btn:active,
-      .flashcard-top-nav .shuffle-btn:active,
-      .flashcard-top-nav .flashcard-settings-btn:active,
-      .flashcard-top-nav .deck-upload-nav-btn:active {
-        transform: translateY(2px) scale(0.96) !important;
-        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.4) !important;
-      }
-
-      .flashcard-top-nav .shuffle-btn.active {
-        background: #a855f7 !important;
-        border-color: #c084fc !important;
-        color: #ffffff !important;
-        box-shadow: 0 3px 0 #7e22ce, 0 0 12px rgba(168, 85, 247, 0.5) !important;
-      }
-
-      @media (max-width: 600px) {
-        .flashcard-top-nav .deck-upload-nav-btn,
-        .flashcard-top-nav #btn-top-upload-deck {
-          display: none !important;
-        }
-        .flashcard-top-nav .breadcrumb-back-btn {
-          padding: 0 !important;
-          min-width: 32px !important;
-          width: 32px !important;
-          height: 32px !important;
-          border-radius: 10px !important;
-          display: inline-flex !important;
-          align-items: center !important;
-          justify-content: center !important;
-        }
-        .flashcard-top-nav .breadcrumb-back-btn .back-btn-label {
-          display: none !important;
-        }
-        .flashcard-top-nav .top-nav-main {
-          gap: 6px !important;
-          padding: 0 !important;
-        }
-        .flashcard-top-nav .top-nav-center-group {
-          gap: 5px !important;
-        }
-        .flashcard-top-nav .top-category-pill {
-          padding: 3px 7px !important;
-          font-size: 0.74rem !important;
-          height: 28px !important;
-        }
-        .flashcard-top-nav .counter-display {
-          padding: 3px 7px !important;
-          font-size: 0.76rem !important;
-          height: 28px !important;
-        }
-        #flashcard-streak-badge {
-          padding: 2px 5px !important;
-          font-size: 0.7rem !important;
-          height: 26px !important;
-        }
-        .flashcard-top-nav .top-nav-actions {
-          gap: 5px !important;
-        }
-        .flashcard-top-nav .reset-deck-btn,
-        .flashcard-top-nav .shuffle-btn,
-        .flashcard-top-nav .flashcard-settings-btn,
-        .flashcard-top-nav #btn-flashcard-settings {
-          width: 32px !important;
-          height: 32px !important;
-          min-width: 32px !important;
-          min-height: 32px !important;
-          max-width: 32px !important;
-          max-height: 32px !important;
-          border-radius: 10px !important;
-        }
-      }
-      .shortcut-section {
-        background: rgba(15, 23, 42, 0.5) !important;
-        border: 1px solid rgba(255, 255, 255, 0.06) !important;
-        border-radius: 14px !important;
-        padding: 10px 12px !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-      }
-      .shortcut-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 8px !important;
-        width: 100% !important;
-      }
-      .shortcut-box {
-        width: 100% !important;
-        box-sizing: border-box !important;
-        padding: 8px 12px !important;
-        border-radius: 12px !important;
-        background: rgba(0, 0, 0, 0.28) !important;
-        border: 1px solid rgba(255, 255, 255, 0.05) !important;
-      }
-      .shortcut-box-es {
-        border-left: 3px solid #f43f5e !important;
-        background: rgba(244, 63, 94, 0.06) !important;
-      }
-      .shortcut-box-hi {
-        border-left: 3px solid #f59e0b !important;
-        background: rgba(245, 158, 11, 0.06) !important;
-      }
-      .shortcut-box-top {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        margin-bottom: 3px !important;
-      }
-      .shortcut-lang-label {
-        font-size: 0.72rem !important;
-        font-weight: 750 !important;
-        letter-spacing: 0.04em !important;
-        text-transform: uppercase !important;
-      }
-      .shortcut-target-word {
-        font-size: 0.82rem !important;
-        font-weight: 700 !important;
-        color: #ffffff !important;
-      }
-      .shortcut-punchline {
-        font-size: 0.8rem !important;
-        color: #cbd5e1 !important;
-        line-height: 1.4 !important;
-        margin-top: 2px !important;
-      }
-
-    
-      /* ==========================================================
-         CRITICAL SCROLLING & ACCESSIBILITY SYSTEM OVERHAUL
-         ========================================================== */
-      html, body {
-        width: 100% !important;
-        min-height: 100% !important;
-        height: auto !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        background: #070a13 !important;
-        color: #f8fafc !important;
-        overflow-x: hidden !important;
-        overflow-y: auto !important;
-        -webkit-overflow-scrolling: touch !important;
-        touch-action: pan-y !important;
-      }
-
-      #app-container {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-height: 100vh !important;
-        height: auto !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        display: flex !important;
-        flex-direction: row !important;
-        background: #070a13 !important;
-        position: relative !important;
-        overflow: visible !important;
-      }
-
-      .app-main-viewport {
-        flex: 1 1 auto !important;
-        margin-left: var(--sidebar-width) !important;
-        min-height: 100vh !important;
-        height: auto !important;
-        width: calc(100% - var(--sidebar-width)) !important;
-        display: flex !important;
-        flex-direction: column !important;
-        position: relative !important;
-        overflow-y: auto !important;
-        overflow-x: hidden !important;
-        -webkit-overflow-scrolling: touch !important;
-      }
-
-      @media (max-width: 900px) {
-        .app-main-viewport {
-          margin-left: 0 !important;
-          width: 100% !important;
-          padding-bottom: 78px !important;
-          overflow-y: auto !important;
-          height: auto !important;
-          min-height: 100vh !important;
-        }
-      }
-
-      .app-screen {
-        width: 100% !important;
-        max-width: 1080px !important;
-        margin: 0 auto !important;
-        padding: 24px 28px 60px !important;
-        display: none;
-        flex-direction: column !important;
-        gap: 24px !important;
-        flex: 1 0 auto !important;
-        min-height: 100% !important;
-        height: auto !important;
-        overflow-y: visible !important;
-        overflow-x: hidden !important;
-        box-sizing: border-box !important;
-      }
-
-      .app-screen.active-screen {
-        display: flex !important;
-      }
-
-      @media (max-width: 900px) {
-        .app-screen {
-          padding: 16px 16px 90px !important;
-          gap: 18px !important;
-        }
-      }
-
-      #screen-flashcard {
-        width: 100% !important;
-        max-width: 600px !important;
-        margin: 0 auto !important;
-        min-height: calc(100vh - 20px) !important;
-        height: auto !important;
-        display: none;
-        flex-direction: column !important;
-        justify-content: space-between !important;
-        overflow-y: auto !important;
-        overflow-x: hidden !important;
-        padding: 10px 14px 20px !important;
-      }
-
-      #screen-flashcard.active-screen {
-        display: flex !important;
-      }
-
-      /* Modal & Drawer strict pointer-events and display discipline */
-      .modal-backdrop:not(.open):not(.active) {
-        display: none !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-      }
-      .modal-backdrop.open,
-      .modal-backdrop.active {
-        display: flex !important;
-        opacity: 1 !important;
-        pointer-events: auto !important;
-      }
-
-      .menu-drawer-backdrop:not(.open) {
-        display: none !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-      }
-      .menu-drawer-backdrop.open {
-        display: block !important;
-        opacity: 1 !important;
-        pointer-events: auto !important;
-      }
-
-      
-      
-
-      /* Empty Add Section button card */
-      .btn-empty-add-section-card {
-        width: 100%;
-        background: rgba(255, 255, 255, 0.02);
-        border: 1.5px dashed rgba(255, 255, 255, 0.16);
-        border-radius: 18px;
-        padding: 18px 22px;
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        color: #94a3b8;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        text-align: left;
-      }
-      .btn-empty-add-section-card:hover {
-        background: rgba(56, 189, 248, 0.06);
-        border-color: rgba(56, 189, 248, 0.45);
-        color: #ffffff;
-        transform: translateY(-2px);
-      }
-      .empty-add-icon {
-        width: 44px;
-        height: 44px;
-        border-radius: 14px;
-        background: rgba(56, 189, 248, 0.12);
-        border: 1px solid rgba(56, 189, 248, 0.28);
-        color: #38bdf8;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-      }
-      .empty-add-text {
-        display: flex;
-        flex-direction: column;
-        gap: 3px;
-      }
-      .empty-add-title {
-        font-size: 0.95rem;
-        font-weight: 700;
-        color: #f1f5f9;
-      }
-      .empty-add-sub {
-        font-size: 0.8rem;
-        color: #94a3b8;
-      }
-    
-      /* ==========================================================
-         CRITICAL SCROLLING & DUOLINGO 3D STYLING CONSTITUTION
-         ========================================================== */
-      html, body {
-        width: 100% !important;
-        min-height: 100% !important;
-        height: auto !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        background: #070a13 !important;
-        color: #f8fafc !important;
-        overflow-x: hidden !important;
-        overflow-y: auto !important;
-        -webkit-overflow-scrolling: touch !important;
-        touch-action: pan-y !important;
-      }
-
-      body.home-view-active {
-        overflow-y: auto !important;
-        height: auto !important;
-      }
-
-      #app-container {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-height: 100vh !important;
-        height: auto !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        display: flex !important;
-        flex-direction: row !important;
-        background: #070a13 !important;
-        position: relative !important;
-        overflow: visible !important;
-      }
-
-      .app-main-viewport {
-        flex: 1 1 auto !important;
-        margin-left: var(--sidebar-width) !important;
-        min-height: 100vh !important;
-        height: auto !important;
-        width: calc(100% - var(--sidebar-width)) !important;
-        display: flex !important;
-        flex-direction: column !important;
-        position: relative !important;
-        overflow-y: auto !important;
-        overflow-x: hidden !important;
-        -webkit-overflow-scrolling: touch !important;
-        touch-action: pan-y !important;
-      }
-
-      @media (max-width: 900px) {
-        .app-main-viewport {
-          margin-left: 0 !important;
-          width: 100% !important;
-          padding-bottom: 78px !important;
-          overflow-y: auto !important;
-          height: auto !important;
-          min-height: 100vh !important;
-        }
-      }
-
-      .app-screen {
-        width: 100% !important;
-        max-width: 1080px !important;
-        margin: 0 auto !important;
-        padding: 24px 28px 60px !important;
-        display: none;
-        flex-direction: column !important;
-        gap: 24px !important;
-        flex: 1 0 auto !important;
-        min-height: 100% !important;
-        height: auto !important;
-        overflow-y: visible !important;
-        overflow-x: hidden !important;
-        box-sizing: border-box !important;
-      }
-
-      .app-screen.active-screen {
-        display: flex !important;
-      }
-
-      @media (max-width: 900px) {
-        .app-screen {
-          padding: 16px 16px 90px !important;
-          gap: 18px !important;
-        }
-      }
-
-      #screen-flashcard {
-        width: 100% !important;
-        max-width: 600px !important;
-        margin: 0 auto !important;
-        min-height: calc(100vh - 20px) !important;
-        height: auto !important;
-        display: none;
-        flex-direction: column !important;
-        justify-content: space-between !important;
-        overflow-y: auto !important;
-        overflow-x: hidden !important;
-        padding: 10px 14px 24px !important;
-      }
-
-      #screen-flashcard.active-screen {
-        display: flex !important;
-      }
-
-      img, .card-face, .flashcard-wrapper, .card-img, .card-stage {
-        -webkit-touch-callout: none !important;
-        -webkit-user-select: none !important;
-        user-select: none !important;
-      }
-
-      /* DUOLINGO 3D TACTILE BUTTONS & CARDS */
-      .duo-btn-3d {
-        position: relative !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 10px !important;
-        border-radius: 16px !important;
-        font-weight: 800 !important;
-        letter-spacing: 0.04em !important;
-        text-transform: uppercase !important;
-        cursor: pointer !important;
-        user-select: none !important;
-        transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.12s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.15s ease !important;
-        will-change: transform, box-shadow !important;
-        border: none !important;
-        outline: none !important;
-      }
-
-      .duo-btn-3d-green {
-        background: #22c55e !important;
-        color: #ffffff !important;
-        box-shadow: 0 5px 0 #15803d, 0 8px 18px rgba(34, 197, 94, 0.35) !important;
-      }
-
-      .duo-btn-3d-green:hover {
-        transform: translateY(-2px) !important;
-        box-shadow: 0 7px 0 #15803d, 0 12px 22px rgba(34, 197, 94, 0.45) !important;
-      }
-
-      .duo-btn-3d-green:active {
-        transform: translateY(4px) !important;
-        box-shadow: 0 1px 0 #15803d, 0 3px 8px rgba(34, 197, 94, 0.25) !important;
-      }
-
-      .duo-btn-3d-blue {
-        background: #0284c7 !important;
-        color: #ffffff !important;
-        box-shadow: 0 5px 0 #0369a1, 0 8px 18px rgba(2, 132, 199, 0.35) !important;
-      }
-
-      .duo-btn-3d-blue:hover {
-        transform: translateY(-2px) !important;
-        box-shadow: 0 7px 0 #0369a1, 0 12px 22px rgba(2, 132, 199, 0.45) !important;
-      }
-
-      .duo-btn-3d-blue:active {
-        transform: translateY(4px) !important;
-        box-shadow: 0 1px 0 #0369a1, 0 3px 8px rgba(2, 132, 199, 0.25) !important;
-      }
-
-      /* Centered Duolingo Add Section Button */
-      .duo-add-section-wrapper {
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        width: 100% !important;
-        margin: 28px 0 20px !important;
-      }
-
-      .duo-btn-add-section {
-        width: 100% !important;
-        max-width: 440px !important;
-        padding: 16px 28px !important;
-        font-size: 1.05rem !important;
-        border-radius: 20px !important;
-        background: linear-gradient(180deg, #1e293b, #0f172a) !important;
-        color: #38bdf8 !important;
-        border: 2px solid rgba(56, 189, 248, 0.35) !important;
-        box-shadow: 0 6px 0 #090e1a, 0 10px 24px rgba(0, 0, 0, 0.5) !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 12px !important;
-        font-weight: 800 !important;
-        letter-spacing: 0.03em !important;
-        cursor: pointer !important;
-        transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.12s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s ease !important;
-      }
-
-      .duo-btn-add-section:hover {
-        transform: translateY(-2px) !important;
-        border-color: #38bdf8 !important;
-        color: #ffffff !important;
-        box-shadow: 0 8px 0 #090e1a, 0 14px 28px rgba(56, 189, 248, 0.25) !important;
-      }
-
-      .duo-btn-add-section:active {
-        transform: translateY(4px) !important;
-        box-shadow: 0 1px 0 #090e1a, 0 4px 10px rgba(0, 0, 0, 0.3) !important;
-      }
-
-      /* Stacked Shortcut Memory Section (Spanish top, Hindi bottom, generously padded) */
-      .shortcut-section {
-        margin-top: 14px !important;
-        width: 100% !important;
-      }
-
-      .shortcut-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 10px !important;
-        width: 100% !important;
-      }
-
-      .shortcut-box {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 5px !important;
-        padding: 10px 14px !important;
-        border-radius: 12px !important;
-        background: rgba(255, 255, 255, 0.035) !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-      }
-
-      /* Modal & Drawer strict pointer-events and display discipline */
-      .modal-backdrop:not(.open):not(.active) {
-        display: none !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-      }
-      .modal-backdrop.open,
-      .modal-backdrop.active {
-        display: flex !important;
-        opacity: 1 !important;
-        pointer-events: auto !important;
-        z-index: 1000 !important;
-      }
-      #modal-google-account-chooser.open,
-      #modal-google-account-chooser.active {
-        display: flex !important;
-        opacity: 1 !important;
-        pointer-events: auto !important;
-        z-index: 99999 !important;
-      }
-
-      .menu-drawer-backdrop:not(.open) {
-        display: none !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-      }
-      .menu-drawer-backdrop.open {
-        display: block !important;
-        opacity: 1 !important;
-        pointer-events: auto !important;
-        z-index: 998 !important;
-      }
-
-      
-      
-
-      /* ==========================================================
-         DESKTOP TOP HEADER: SEPARATED CORNERS (FAR-LEFT & FAR-RIGHT)
-         ========================================================== */
-      .desktop-top-header {
-        width: 100% !important;
-        max-width: 100% !important;
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        padding: 16px 36px !important;
-        box-sizing: border-box !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-        background: rgba(11, 17, 32, 0.8) !important;
-        backdrop-filter: blur(12px) !important;
-        position: sticky !important;
-        top: 0 !important;
-        z-index: 40 !important;
-        flex-shrink: 0 !important;
-      }
-
-      .desktop-header-left {
-        display: flex !important;
-        align-items: center !important;
-        gap: 12px !important;
-        margin-right: auto !important;
-        flex: 0 1 auto !important;
-      }
-
-      .desktop-page-breadcrumb {
-        font-size: 0.95rem !important;
-        font-weight: 700 !important;
-        color: #cbd5e1 !important;
-        white-space: nowrap !important;
-      }
-
-      .desktop-header-stats {
-        display: flex !important;
-        align-items: center !important;
-        gap: 14px !important;
-        margin-left: auto !important;
-        flex: 0 0 auto !important;
-      }
-    
-      
-      /* ========================================================== */
-      /* DUOLINGO 3-TIER PRODUCTION RESPONSIVE ENGINE               */
-      /* ========================================================== */
-      #app-container {
-        display: flex !important;
-        flex-direction: row !important;
-        width: 100% !important;
-        min-height: 100vh !important;
-        position: relative !important;
-        background: #090e1a !important;
-        overflow-x: hidden !important;
-      }
-
-      /* Core Sidebar */
-      .app-desktop-sidebar {
-        height: 100vh !important;
-        background: #0b1120 !important;
-        border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: space-between !important;
-        box-sizing: border-box !important;
-        position: fixed !important;
-        left: 0 !important;
-        top: 0 !important;
-        bottom: 0 !important;
-        z-index: 50 !important;
-        overflow-y: auto !important;
-        overflow-x: hidden !important;
-        transition: width 0.22s cubic-bezier(0.16, 1, 0.3, 1), padding 0.22s ease !important;
-      }
-
-      .sidebar-main-group {
-        display: flex !important;
-        flex-direction: column !important;
-        width: 100% !important;
-      }
-
-      .sidebar-brand-lockup {
-        display: flex !important;
-        align-items: center !important;
-        gap: 12px !important;
-        padding-bottom: 20px !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
-        cursor: pointer !important;
-        text-decoration: none !important;
-      }
-      .sidebar-brand-text {
-        display: flex !important;
-        flex-direction: column !important;
-      }
-      .sidebar-brand-title {
-        font-size: 1.25rem !important;
-        font-weight: 800 !important;
-        letter-spacing: -0.02em !important;
-        color: #ffffff !important;
-        line-height: 1.1 !important;
-      }
-      .sidebar-brand-sub {
-        font-size: 0.72rem !important;
-        font-weight: 600 !important;
-        color: #10b981 !important;
-        letter-spacing: 0.05em !important;
-        text-transform: uppercase !important;
-      }
-
-      .sidebar-nav-list {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 8px !important;
-        margin-top: 18px !important;
-        width: 100% !important;
-      }
-
-      /* Duolingo 3D Tactile Sidebar Buttons */
-      .sidebar-nav-btn {
-        display: flex !important;
-        align-items: center !important;
-        gap: 14px !important;
-        border-radius: 16px !important;
-        background: transparent !important;
-        border: 2px solid transparent !important;
-        color: #94a3b8 !important;
-        font-size: 0.95rem !important;
-        font-weight: 700 !important;
-        cursor: pointer !important;
-        transition: all 0.16s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-        text-align: left !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-      }
-      .sidebar-nav-btn:hover {
-        background: rgba(255, 255, 255, 0.05) !important;
-        color: #ffffff !important;
-      }
-      .sidebar-nav-btn.active {
-        background: rgba(16, 185, 129, 0.12) !important;
-        border-color: rgba(16, 185, 129, 0.4) !important;
-        color: #34d399 !important;
-        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15), 0 3px 0 #059669 !important;
-        transform: translateY(-1px) !important;
-      }
-      .sidebar-nav-btn:active {
-        transform: translateY(1px) !important;
-        box-shadow: 0 1px 0 #059669 !important;
-      }
-
-      .sidebar-nav-icon {
-        font-size: 1.25rem !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        width: 28px !important;
-        height: 28px !important;
-        flex-shrink: 0 !important;
-      }
-
-      /* Sidebar Footer Card */
-      .sidebar-footer-card {
-        padding: 14px !important;
-        background: rgba(255, 255, 255, 0.03) !important;
-        border: 1px solid rgba(255, 255, 255, 0.06) !important;
-        border-radius: 16px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 10px !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-      }
-      .sidebar-streak-badge {
-        display: flex !important;
-        align-items: center !important;
-        gap: 8px !important;
-        font-size: 0.82rem !important;
-        font-weight: 700 !important;
-        color: #fbbf24 !important;
-      }
-      .sidebar-sound-quick-toggle {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        font-size: 0.8rem !important;
-        color: #94a3b8 !important;
-        cursor: pointer !important;
-        padding: 6px 10px !important;
-        border-radius: 10px !important;
-        background: rgba(255, 255, 255, 0.04) !important;
-        border: 1px solid rgba(255, 255, 255, 0.06) !important;
-      }
-
-      /* Common Main Viewport */
-      .app-main-viewport {
-        flex: 1 1 auto !important;
-        min-height: 100vh !important;
-        height: auto !important;
-        display: flex !important;
-        flex-direction: column !important;
-        position: relative !important;
-        overflow-y: auto !important;
-        overflow-x: hidden !important;
-        background: #090e1a !important;
-        box-sizing: border-box !important;
-        transition: margin-left 0.22s cubic-bezier(0.16, 1, 0.3, 1), width 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
-      }
-
-      /* ========================================================== */
-      /* Flashcard Full Immersion Mode (Distraction-Free) */
-      body.in-flashcard-mode .app-desktop-sidebar,
-      body.in-flashcard-mode .desktop-top-header,
-      body.in-flashcard-mode .mobile-top-bar,
-      body.in-flashcard-mode .mobile-bottom-nav {
-        display: none !important;
-      }
-      body.in-flashcard-mode .app-main-viewport {
-        margin-left: 0 !important;
-        width: 100% !important;
-        padding-bottom: 0 !important;
-        min-height: 100vh !important;
-        height: 100vh !important;
-        overflow: hidden !important;
-      }
-
-      /* Desktop Top Header Corner Separation */
-      .desktop-top-header {
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        padding: 16px 32px !important;
-        background: rgba(11, 17, 32, 0.85) !important;
-        backdrop-filter: blur(14px) !important;
-        -webkit-backdrop-filter: blur(14px) !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-        position: sticky !important;
-        top: 0 !important;
-        z-index: 40 !important;
-        flex-shrink: 0 !important;
-      }
-      .desktop-header-left {
-        display: flex !important;
-        align-items: center !important;
-        gap: 12px !important;
-        min-width: 0 !important;
-        flex: 1 1 auto !important;
-      }
-      .desktop-page-breadcrumb {
-        font-size: 0.95rem !important;
-        font-weight: 700 !important;
-        color: #f1f5f9 !important;
-        white-space: nowrap !important;
-        overflow: hidden !important;
-        text-overflow: ellipsis !important;
-        min-width: 0 !important;
-      }
-      .desktop-header-stats {
-        display: flex !important;
-        align-items: center !important;
-        gap: 12px !important;
-        flex: 0 0 auto !important;
-        margin-left: auto !important;
-      }
-
-      /* Duolingo 3D Delete Card Button */
-      .delete-card-btn {
-        width: 38px !important;
-        height: 38px !important;
-        border-radius: 12px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        background: rgba(239, 68, 68, 0.14) !important;
-        border: 1.5px solid rgba(239, 68, 68, 0.35) !important;
-        box-shadow: 0 3px 0 rgba(185, 28, 28, 0.5) !important;
-        color: #f87171 !important;
-        cursor: pointer !important;
-        transition: all 0.14s ease !important;
-        padding: 0 !important;
-      }
-      .delete-card-btn:hover {
-        background: rgba(239, 68, 68, 0.25) !important;
-        border-color: rgba(239, 68, 68, 0.6) !important;
-        color: #fca5a5 !important;
-        transform: translateY(-1px) !important;
-        box-shadow: 0 4px 0 rgba(185, 28, 28, 0.6) !important;
-      }
-      .delete-card-btn:active {
-        transform: translateY(2px) !important;
-        box-shadow: 0 1px 0 rgba(185, 28, 28, 0.5) !important;
-      }
-      .learned-tier-badge {
-        transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-      }
-
-
-      /* Front Face Tactile Action Buttons (Learned Icon, Delete Icon, Speak) */
-      .front-learned-btn,
-      .icon-tool-btn.front-learned-btn {
-        background: rgba(255, 255, 255, 0.05) !important;
-        border: 1.5px solid rgba(255, 255, 255, 0.14) !important;
-        box-shadow: 0 3px 0 rgba(0, 0, 0, 0.35) !important;
-        color: #64748b !important;
-        width: 36px !important;
-        height: 36px !important;
-        border-radius: 12px !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        cursor: pointer !important;
-        transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease !important;
-        user-select: none !important;
-      }
-      @media (hover: hover) and (pointer: fine) {
-        .front-learned-btn:not(.is-learned):hover,
-        .icon-tool-btn.front-learned-btn:not(.is-learned):hover {
-          background: rgba(255, 255, 255, 0.12) !important;
-          border-color: rgba(255, 255, 255, 0.28) !important;
-          color: #cbd5e1 !important;
-          transform: translateY(-1px) !important;
-        }
-      }
-      .front-learned-btn.is-learned,
-      .icon-tool-btn.front-learned-btn.is-learned {
-        background: linear-gradient(180deg, #10b981 0%, #059669 100%) !important;
-        border: 1.5px solid #34d399 !important;
-        color: #ffffff !important;
-        box-shadow: 0 3px 0 #047857, 0 0 16px rgba(16, 185, 129, 0.55) !important;
-      }
-      .front-learned-btn.is-learned svg,
-      .icon-tool-btn.front-learned-btn.is-learned svg {
-        stroke-width: 3.4 !important;
-      }
-      .front-delete-btn {
-        background: rgba(239, 68, 68, 0.12) !important;
-        border: 1px solid rgba(239, 68, 68, 0.3) !important;
-        box-shadow: 0 3px 0 rgba(185, 28, 28, 0.4) !important;
-        color: #f87171 !important;
-        width: 36px !important;
-        height: 36px !important;
-        border-radius: 12px !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        cursor: pointer !important;
-        transition: all 0.18s ease !important;
-        user-select: none !important;
-      }
-      .front-delete-btn:hover {
-        background: rgba(239, 68, 68, 0.28) !important;
-        border-color: rgba(239, 68, 68, 0.65) !important;
-        color: #fca5a5 !important;
-        transform: translateY(-1px) !important;
-      }
-      .front-delete-btn:active {
-        transform: translateY(2px) !important;
-        box-shadow: 0 1px 0 rgba(185, 28, 28, 0.5) !important;
-      }
-      .reset-deck-btn {
-        width: 38px !important;
-        height: 38px !important;
-        border-radius: 12px !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        background: rgba(56, 189, 248, 0.12) !important;
-        border: 1px solid rgba(56, 189, 248, 0.3) !important;
-        box-shadow: 0 3px 0 rgba(14, 116, 144, 0.5) !important;
-        color: #38bdf8 !important;
-        cursor: pointer !important;
-        transition: all 0.15s ease !important;
-        user-select: none !important;
-      }
-      .reset-deck-btn:hover {
-        background: rgba(56, 189, 248, 0.24) !important;
-        border-color: rgba(56, 189, 248, 0.6) !important;
-        transform: translateY(-1px) !important;
-      }
-      .reset-deck-btn:active {
-        transform: translateY(2px) !important;
-        box-shadow: 0 1px 0 rgba(14, 116, 144, 0.5) !important;
-      }
-      /* Kinetic Swipe Speed Indicator Badge - hidden per user request */
-      .swipe-speed-badge,
-      .swipe-speed-badge.show {
-        display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-      }
-      /* Double Tap Pulse Ripple Effect */
-      .double-tap-ripple {
-        position: absolute;
-        width: 80px;
-        height: 80px;
-        margin-left: -40px;
-        margin-top: -40px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(56, 189, 248, 0.45) 0%, rgba(56, 189, 248, 0) 70%);
-        pointer-events: none;
-        z-index: 40;
-        animation: doubleTapExpand 0.42s ease-out forwards;
-      }
-      @keyframes doubleTapExpand {
-        0% { transform: scale(0.3); opacity: 1; }
-        100% { transform: scale(2.4); opacity: 0; }
-      }
-
-
-
-      /* ==========================================================
-         WORLD-CLASS CENTERED SETTINGS MODAL & DIALOG
-         ========================================================== */
-      /* ==========================================================
-         DUOLINGO PRODUCTION DESIGN SYSTEM: SETTINGS & AUDIO STUDIO
-         ========================================================== */
-      .menu-drawer-backdrop {
-        position: fixed !important;
-        inset: 0 !important;
-        background: rgba(10, 16, 20, 0.78) !important;
-        backdrop-filter: blur(14px) !important;
-        -webkit-backdrop-filter: blur(14px) !important;
-        z-index: 2100 !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-        transition: opacity 0.24s cubic-bezier(0.16, 1, 0.3, 1) !important;
-      }
-      .menu-drawer-backdrop.open {
-        opacity: 1 !important;
-        pointer-events: auto !important;
-      }
-
-      /* Duolingo Modal Container */
-      .app-menu-drawer {
-        position: fixed !important;
-        inset: 0 !important;
-        margin: auto !important;
-        width: calc(100% - 32px) !important;
-        max-width: 580px !important;
-        height: fit-content !important;
-        max-height: 88vh !important;
-        background: #131f24 !important;
-        border: 2px solid #37464f !important;
-        border-radius: 24px !important;
-        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.85), 0 6px 0 #202b33 !important;
-        z-index: 2101 !important;
-        display: flex !important;
-        flex-direction: column !important;
-        overflow: hidden !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-        transform: scale(0.95) translateY(14px) !important;
-        transition: transform 0.26s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.22s ease !important;
-      }
-
-      .app-menu-drawer.open {
-        opacity: 1 !important;
-        pointer-events: auto !important;
-        transform: scale(1) translateY(0) !important;
-      }
-
-      @media (max-width: 640px) {
-        .app-menu-drawer {
-          inset: auto 0 0 0 !important;
-          width: 100% !important;
-          max-width: 100% !important;
-          max-height: 90vh !important;
-          border-radius: 26px 26px 0 0 !important;
-          border-left: none !important;
-          border-right: none !important;
-          border-bottom: none !important;
-          transform: translateY(100%) !important;
-          box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.8), 0 0 0 1px #37464f !important;
-          margin: 0 !important;
-        }
-        .app-menu-drawer.open {
-          transform: translateY(0) !important;
-        }
-      }
-
-      .drawer-sheet-handle {
-        display: none;
-        width: 44px;
-        height: 5px;
-        border-radius: 9999px;
-        background: #37464f;
-        margin: 10px auto 2px;
-      }
-      @media (max-width: 640px) {
-        .drawer-sheet-handle {
-          display: block;
-        }
-      }
-
-      /* Duolingo Modal Header */
-      .settings-modal-header {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        padding: 18px 22px 16px !important;
-        background: #18272f !important;
-        border-bottom: 2px solid #2b3942 !important;
-      }
-
-      .settings-header-title-group {
-        display: flex !important;
-        align-items: center !important;
-        gap: 14px !important;
-      }
-
-      .settings-icon-badge {
-        width: 44px !important;
-        height: 44px !important;
-        border-radius: 14px !important;
-        background: #58cc02 !important;
-        border: none !important;
-        box-shadow: 0 4px 0 #46a302, 0 6px 14px rgba(88, 204, 2, 0.3) !important;
-        color: #ffffff !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        flex-shrink: 0 !important;
-      }
-
-      .settings-modal-title {
-        font-size: 1.3rem !important;
-        font-weight: 850 !important;
-        color: #ffffff !important;
-        margin: 0 !important;
-        line-height: 1.15 !important;
-        letter-spacing: -0.015em !important;
-      }
-
-      .settings-modal-sub {
-        font-size: 0.8rem !important;
-        color: #8496a0 !important;
-        margin: 3px 0 0 !important;
-        font-weight: 600 !important;
-      }
-
-      /* Duolingo 3D Close Button */
-      .settings-modal-close-btn {
-        width: 40px !important;
-        height: 40px !important;
-        border-radius: 14px !important;
-        background: #202f36 !important;
-        border: 2px solid #37464f !important;
-        box-shadow: 0 4px 0 #28373f !important;
-        color: #8496a0 !important;
-        font-size: 1.1rem !important;
-        font-weight: 800 !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        cursor: pointer !important;
-        transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.12s ease, background-color 0.15s ease !important;
-        flex-shrink: 0 !important;
-      }
-
-      .settings-modal-close-btn:hover {
-        background: #283942 !important;
-        border-color: #485c67 !important;
-        color: #ffffff !important;
-        transform: translateY(-1px) !important;
-        box-shadow: 0 5px 0 #28373f !important;
-      }
-
-      .settings-modal-close-btn:active {
-        transform: translateY(3px) !important;
-        box-shadow: 0 1px 0 #28373f !important;
-      }
-
-      /* Duolingo Segmented 4-Tab Navigation */
-      .settings-tabs-bar {
-        display: flex !important;
-        gap: 8px !important;
-        padding: 10px 18px !important;
-        background: #111a1f !important;
-        border-bottom: 2px solid #28363e !important;
-        overflow-x: auto !important;
-        scrollbar-width: none !important;
-      }
-      .settings-tabs-bar::-webkit-scrollbar {
-        display: none !important;
-      }
-
-      .settings-tab-btn {
-        flex: 1 1 0 !important;
-        min-width: 0 !important;
-        padding: 10px 8px !important;
-        border-radius: 14px !important;
-        background: #18272f !important;
-        border: 2px solid #37464f !important;
-        box-shadow: 0 3px 0 #28373f !important;
-        color: #8496a0 !important;
-        font-size: 0.8rem !important;
-        font-weight: 800 !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 6px !important;
-        cursor: pointer !important;
-        transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.12s ease, background 0.15s ease, color 0.15s ease !important;
-        white-space: nowrap !important;
-        user-select: none !important;
-      }
-
-      .settings-tab-btn:hover {
-        background: #20313a !important;
-        color: #ffffff !important;
-        border-color: #4a5c66 !important;
-        transform: translateY(-1px) !important;
-        box-shadow: 0 4px 0 #28373f !important;
-      }
-
-      .settings-tab-btn:active {
-        transform: translateY(2px) !important;
-        box-shadow: 0 1px 0 #28373f !important;
-      }
-
-      .settings-tab-btn.active {
-        background: #1cb0f6 !important;
-        border-color: #1cb0f6 !important;
-        box-shadow: 0 3px 0 #1899d6, 0 6px 14px rgba(28, 176, 246, 0.3) !important;
-        color: #ffffff !important;
-        transform: translateY(1px) !important;
-      }
-
-      /* Modal Body & Tab Panels */
-      .settings-modal-body {
-        flex: 1 1 auto !important;
-        overflow-y: auto !important;
-        padding: 18px 20px 24px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 16px !important;
-        background: #131f24 !important;
-        scrollbar-width: thin !important;
-        scrollbar-color: #37464f transparent !important;
-      }
-
-      .settings-modal-body::-webkit-scrollbar {
-        width: 6px !important;
-      }
-      .settings-modal-body::-webkit-scrollbar-thumb {
-        background: #37464f !important;
-        border-radius: 9999px !important;
-      }
-
-      .settings-tab-panel {
-        display: none !important;
-        flex-direction: column !important;
-        gap: 16px !important;
-        animation: duoPanelIn 0.22s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-      }
-
-      .settings-tab-panel.active {
-        display: flex !important;
-      }
-
-      @keyframes duoPanelIn {
-        from {
-          opacity: 0;
-          transform: translateY(6px) scale(0.99);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0) scale(1);
-        }
-      }
-
-      /* Duolingo Category Section Label */
-      .duo-settings-section-title {
-        font-size: 0.74rem !important;
-        font-weight: 850 !important;
-        letter-spacing: 0.08em !important;
-        text-transform: uppercase !important;
-        color: #778f9b !important;
-        margin: 2px 0 6px 4px !important;
-      }
-
-      /* Duolingo Grouped Card */
-      .settings-card {
-        background: #18272f !important;
-        border: 2px solid #37464f !important;
-        border-radius: 20px !important;
-        box-shadow: 0 4px 0 #202f36 !important;
-        padding: 18px 20px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 14px !important;
-        transition: border-color 0.18s ease, transform 0.15s ease !important;
-      }
-
-      .settings-card:hover {
-        border-color: #485c67 !important;
-      }
-
-      .settings-card-header {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        gap: 14px !important;
-      }
-
-      .settings-card-left {
-        display: flex !important;
-        align-items: center !important;
-        gap: 14px !important;
-      }
-
-      .settings-card-icon {
-        width: 42px !important;
-        height: 42px !important;
-        border-radius: 12px !important;
-        background: #202f36 !important;
-        border: 2px solid #37464f !important;
-        box-shadow: 0 3px 0 #28373f !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        font-size: 1.25rem !important;
-        flex-shrink: 0 !important;
-      }
-
-      .settings-card-title {
-        font-size: 1rem !important;
-        font-weight: 850 !important;
-        color: #ffffff !important;
-        margin: 0 !important;
-        letter-spacing: -0.01em !important;
-      }
-
-      .settings-card-sub {
-        font-size: 0.79rem !important;
-        color: #94a3b8 !important;
-        margin: 3px 0 0 !important;
-        font-weight: 500 !important;
-        line-height: 1.35 !important;
-      }
-
-      /* ==========================================================
-         DUOLINGO CHUNKY TACTILE TOGGLE SWITCH (Per User Image)
-         ========================================================== */
-      .toggle-switch {
-        position: relative !important;
-        display: inline-block !important;
-        width: 52px !important;
-        height: 30px !important;
-        flex-shrink: 0 !important;
-      }
-
-      .toggle-switch input {
-        opacity: 0 !important;
-        width: 0 !important;
-        height: 0 !important;
-      }
-
-      .toggle-slider {
-        position: absolute !important;
-        cursor: pointer !important;
-        inset: 0 !important;
-        background-color: #37464f !important;
-        border: 2px solid #4a5c66 !important;
-        border-radius: 9999px !important;
-        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25) !important;
-        transition: background-color 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.22s ease, box-shadow 0.22s ease !important;
-      }
-
-      .toggle-slider:before {
-        position: absolute !important;
-        content: "" !important;
-        height: 22px !important;
-        width: 22px !important;
-        left: 2px !important;
-        top: 2px !important;
-        background-color: #ffffff !important;
-        border-radius: 50% !important;
-        box-shadow: 0 3px 0 rgba(0, 0, 0, 0.25) !important;
-        transition: transform 0.24s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-      }
-
-      input:checked + .toggle-slider {
-        background-color: #1cb0f6 !important;
-        border-color: #1899d6 !important;
-        box-shadow: 0 0 14px rgba(28, 176, 246, 0.45) !important;
-      }
-
-      input:checked + .toggle-slider:before {
-        transform: translateX(22px) !important;
-        background-color: #ffffff !important;
-        box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2) !important;
-      }
-
-      /* Duolingo Segmented Choice Buttons */
-      .settings-choice-group {
-        display: grid !important;
-        grid-template-columns: repeat(3, 1fr) !important;
-        gap: 8px !important;
-        width: 100% !important;
-      }
-
-      .settings-choice-btn {
-        padding: 10px 8px !important;
-        border-radius: 14px !important;
-        background: #202f36 !important;
-        border: 2px solid #37464f !important;
-        box-shadow: 0 3px 0 #28373f !important;
-        color: #94a3b8 !important;
-        font-size: 0.82rem !important;
-        font-weight: 800 !important;
-        cursor: pointer !important;
-        transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.12s ease, background 0.15s ease, color 0.15s ease, border-color 0.15s ease !important;
-        text-align: center !important;
-        user-select: none !important;
-      }
-
-      .settings-choice-btn:hover {
-        background: #283b44 !important;
-        border-color: #4a5c66 !important;
-        color: #ffffff !important;
-        transform: translateY(-1px) !important;
-        box-shadow: 0 4px 0 #28373f !important;
-      }
-
-      .settings-choice-btn:active {
-        transform: translateY(2px) !important;
-        box-shadow: 0 1px 0 #28373f !important;
-      }
-
-      .settings-choice-btn.active {
-        background: #1cb0f6 !important;
-        border-color: #1cb0f6 !important;
-        box-shadow: 0 3px 0 #1899d6, 0 6px 14px rgba(28, 176, 246, 0.3) !important;
-        color: #ffffff !important;
-        transform: translateY(1px) !important;
-      }
-
-      .settings-choice-group.four-cols {
-        display: grid !important;
-        grid-template-columns: repeat(4, 1fr) !important;
-        gap: 8px !important;
-        width: 100% !important;
-      }
-
-      .settings-choice-group.five-cols {
-        display: grid !important;
-        grid-template-columns: repeat(5, 1fr) !important;
-        gap: 8px !important;
-        width: 100% !important;
-      }
-
-      @media (max-width: 480px) {
-        .settings-choice-group.five-cols {
-          grid-template-columns: repeat(3, 1fr) !important;
-        }
-        .settings-choice-group.four-cols {
-          grid-template-columns: repeat(2, 1fr) !important;
-        }
-      }
-
-      @keyframes repeatPulseRing {
-        0% { box-shadow: 0 0 0 0 rgba(28, 176, 246, 0.7); }
-        70% { box-shadow: 0 0 0 12px rgba(28, 176, 246, 0); }
-        100% { box-shadow: 0 0 0 0 rgba(28, 176, 246, 0); }
-      }
-
-      .repeating-speech-active {
-        animation: repeatPulseRing 1.2s infinite ease-out !important;
-        border-color: #38bdf8 !important;
-      }
-
-      /* Duolingo Chunky Sliders & Badges */
-      .settings-slider-row {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 8px !important;
-      }
-
-      .settings-slider-label-row {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        font-size: 0.82rem !important;
-        font-weight: 750 !important;
-        color: #e2e8f0 !important;
-      }
-
-      .settings-val-badge {
-        font-size: 0.78rem !important;
-        font-weight: 850 !important;
-        color: #1cb0f6 !important;
-        background: #202f36 !important;
-        padding: 3px 10px !important;
-        border-radius: 10px !important;
-        border: 2px solid #37464f !important;
-        box-shadow: 0 2px 0 #28373f !important;
-        font-variant-numeric: tabular-nums !important;
-      }
-
-      .custom-settings-slider {
-        -webkit-appearance: none !important;
-        appearance: none !important;
-        width: 100% !important;
-        height: 8px !important;
-        background: #28363e !important;
-        border: 1.5px solid #37464f !important;
-        border-radius: 9999px !important;
-        outline: none !important;
-        cursor: pointer !important;
-      }
-
-      .custom-settings-slider::-webkit-slider-thumb {
-        -webkit-appearance: none !important;
-        appearance: none !important;
-        width: 22px !important;
-        height: 22px !important;
-        border-radius: 50% !important;
-        background: #ffffff !important;
-        border: 3px solid #1cb0f6 !important;
-        box-shadow: 0 3px 0 rgba(0, 0, 0, 0.3) !important;
-        cursor: pointer !important;
-        transition: transform 0.1s ease !important;
-      }
-
-      .custom-settings-slider::-webkit-slider-thumb:hover {
-        transform: scale(1.15) !important;
-      }
-
-      /* Duolingo 3D Action Buttons in Settings */
-      .settings-action-btn {
-        width: 100% !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 10px !important;
-        padding: 13px 20px !important;
-        border-radius: 16px !important;
-        font-weight: 850 !important;
-        font-size: 0.86rem !important;
-        letter-spacing: 0.04em !important;
-        text-transform: uppercase !important;
-        cursor: pointer !important;
-        user-select: none !important;
-        border: none !important;
-        transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.12s ease, background 0.15s ease !important;
-      }
-
-      .settings-action-btn-primary {
-        background: #1cb0f6 !important;
-        color: #ffffff !important;
-        box-shadow: 0 5px 0 #1899d6, 0 8px 18px rgba(28, 176, 246, 0.35) !important;
-      }
-
-      .settings-action-btn-primary:hover {
-        background: #2ec0ff !important;
-        transform: translateY(-2px) !important;
-        box-shadow: 0 7px 0 #1899d6, 0 12px 22px rgba(28, 176, 246, 0.45) !important;
-      }
-
-      .settings-action-btn-primary:active {
-        transform: translateY(4px) !important;
-        box-shadow: 0 1px 0 #1899d6 !important;
-      }
-
-      .settings-action-btn-danger {
-        background: #ff4b4b !important;
-        color: #ffffff !important;
-        box-shadow: 0 5px 0 #d93838, 0 8px 18px rgba(255, 75, 75, 0.35) !important;
-      }
-
-      .settings-action-btn-danger:hover {
-        background: #ff5e5e !important;
-        transform: translateY(-2px) !important;
-        box-shadow: 0 7px 0 #d93838, 0 12px 22px rgba(255, 75, 75, 0.45) !important;
-      }
-
-      .settings-action-btn-danger:active {
-        transform: translateY(4px) !important;
-        box-shadow: 0 1px 0 #d93838 !important;
-      }
-
-      .settings-action-btn-success {
-        background: #58cc02 !important;
-        color: #ffffff !important;
-        box-shadow: 0 5px 0 #46a302, 0 8px 18px rgba(88, 204, 2, 0.35) !important;
-      }
-
-      .settings-action-btn-success:hover {
-        background: #61df02 !important;
-        transform: translateY(-2px) !important;
-        box-shadow: 0 7px 0 #46a302, 0 12px 22px rgba(88, 204, 2, 0.45) !important;
-      }
-
-      .settings-action-btn-success:active {
-        transform: translateY(4px) !important;
-        box-shadow: 0 1px 0 #46a302 !important;
-      }
-
-      /* Duolingo Audition / Test Button */
-      .btn-audio-test {
-        padding: 7px 16px !important;
-        border-radius: 12px !important;
-        font-size: 0.8rem !important;
-        font-weight: 850 !important;
-        letter-spacing: 0.04em !important;
-        text-transform: uppercase !important;
-        background: #1cb0f6 !important;
-        border: none !important;
-        color: #ffffff !important;
-        box-shadow: 0 3px 0 #1899d6 !important;
-        cursor: pointer !important;
-        transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.15s ease !important;
-      }
-
-      .btn-audio-test:hover {
-        background: #2ec0ff !important;
-        transform: translateY(-1px) !important;
-        box-shadow: 0 4px 0 #1899d6 !important;
-      }
-
-      .btn-audio-test:active {
-        transform: translateY(2px) !important;
-        box-shadow: 0 1px 0 #1899d6 !important;
-      }
-
-      /* Reduce Motion Preference (Duolingo Style) */
-      body.reduce-motion .card-wrapper,
-      body.reduce-motion .card-flipper,
-      body.reduce-motion .card-front,
-      body.reduce-motion .card-back {
-        transition-duration: 0.08s !important;
-      }
 
     /* Card Front Action Buttons */
     .icon-tool-btn.front-delete-btn {
@@ -12868,10 +7879,21 @@
        or tap outside to cancel & revert!
        ========================================================== */
     .deck-reel-overlay {
-      display: none !important;
-      visibility: hidden !important;
-      pointer-events: none !important;
-      opacity: 0 !important;
+      position: absolute;
+      inset: 0;
+      z-index: 65;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+    .deck-reel-overlay.active {
+      display: flex !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+      opacity: 1 !important;
     }
     .deck-reel-backdrop {
       position: absolute;
@@ -14244,7 +9266,7 @@
           </div>
 
           <!-- Modern Mini-Flashcard Reel Overlay (Disabled to prevent touch popups) -->
-          <div class="deck-reel-overlay" id="deck-reel-overlay" aria-hidden="true" style="display: none !important;">
+          <div class="deck-reel-overlay" id="deck-reel-overlay" aria-hidden="true" style="display: none;">
             <div class="deck-reel-backdrop" id="deck-reel-backdrop"></div>
             <div class="deck-reel-content">
               <button type="button" class="deck-reel-close-btn" id="deck-reel-close-btn" aria-label="Cancel">✕</button>
@@ -14500,6 +9522,20 @@
       </div>
 
       <div class="settings-modal-body">
+        <!-- GROUP 0: QUICK JUMP TO CARD SLIDER -->
+        <div class="settings-group">
+          <div class="settings-group-title">Card Scrubber &amp; Quick Jump</div>
+          <div class="settings-card">
+            <div class="settings-slider-row">
+              <div class="settings-slider-label-row">
+                <span>Slide to Jump to Card</span>
+                <span class="settings-val-badge" id="slider-val-indicator">#800 — STOVE</span>
+              </div>
+              <input type="range" class="custom-settings-slider jump-slider" id="jump-slider" min="800" max="1000" value="800" />
+            </div>
+          </div>
+        </div>
+
         <!-- GROUP 1: SECTION & GLOBAL RESET -->
         <div class="settings-group">
           <div class="settings-group-title">Section &amp; Progress Reset</div>
@@ -14520,7 +9556,6 @@
                 <option value="deck-800-1000">Cards 800 – 1000 (Home, City &amp; Nature)</option>
               </select>
             </div>
-
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
               <button type="button" class="settings-action-btn settings-action-btn-primary" id="btn-settings-restore-section-deleted">
                 <span id="label-restore-section-deleted">Restore Deleted (0)</span>
@@ -14529,7 +9564,6 @@
                 <span id="label-reset-section-learned">Reset Learned (0)</span>
               </button>
             </div>
-
             <div id="settings-section-confirm-row" style="display: none; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 12px; background: rgba(239, 68, 68, 0.12); border: 1px solid rgba(239, 68, 68, 0.35); border-radius: 10px;">
               <span id="settings-section-confirm-text" style="font-size: 0.78rem; font-weight: 600; color: #fca5a5;">Reset learned for this section?</span>
               <div style="display: flex; gap: 6px; flex-shrink: 0;">
@@ -14545,7 +9579,6 @@
               <div class="settings-card-title">Reset All Sections (Common)</div>
               <div class="settings-card-sub" id="settings-global-reset-stats">All Sections · 0 Learned · 0 Deleted</div>
             </div>
-
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
               <button type="button" class="settings-action-btn settings-action-btn-primary" id="btn-settings-reset-deck">
                 <span id="label-restore-all-deleted">Restore All Deleted (0)</span>
@@ -14554,7 +9587,6 @@
                 <span id="label-reset-all-learned">Reset All Learned (0)</span>
               </button>
             </div>
-
             <div id="settings-global-confirm-row" style="display: none; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 12px; background: rgba(239, 68, 68, 0.12); border: 1px solid rgba(239, 68, 68, 0.35); border-radius: 10px;">
               <span id="settings-global-confirm-text" style="font-size: 0.78rem; font-weight: 600; color: #fca5a5;">Reset learned across all sections?</span>
               <div style="display: flex; gap: 6px; flex-shrink: 0;">
@@ -14565,32 +9597,44 @@
           </div>
         </div>
 
-        <!-- GROUP 2: PRONUNCIATION & AUDIO -->
+        <!-- GROUP 2: PRONUNCIATION, VOICE SLIDERS & AUDIO -->
         <div class="settings-group">
-          <div class="settings-group-title">Pronunciation &amp; Audio</div>
+          <div class="settings-group-title">Pronunciation &amp; Audio Sliders</div>
           <div class="settings-card">
             <div class="settings-card-header">
               <div>
-                <h3 class="settings-card-title">Voice Speed</h3>
-                <p class="settings-card-sub">Spanish &amp; Hindi native pronunciation rate</p>
+                <h3 class="settings-card-title">Voice Speed, Volume &amp; Pitch</h3>
+                <p class="settings-card-sub">Spanish &amp; Hindi native pronunciation tuning</p>
               </div>
               <button type="button" class="btn-audio-test" id="btn-test-voice">
                 <span id="btn-test-voice-label">Preview</span>
               </button>
             </div>
-
             <div class="settings-choice-group">
               <button type="button" class="settings-choice-btn" id="btn-rate-slow">0.75× Slow</button>
               <button type="button" class="settings-choice-btn active" id="btn-rate-normal">1.0× Normal</button>
               <button type="button" class="settings-choice-btn" id="btn-rate-fast">1.25× Fast</button>
             </div>
-
             <div class="settings-slider-row">
               <div class="settings-slider-label-row">
-                <span>Fine Speed Adjustment</span>
+                <span>Voice Speed</span>
                 <span class="settings-val-badge" id="badge-voice-rate">0.80×</span>
               </div>
               <input type="range" class="custom-settings-slider" id="slider-voice-rate" min="50" max="130" value="80" />
+            </div>
+            <div class="settings-slider-row">
+              <div class="settings-slider-label-row">
+                <span>Voice Volume</span>
+                <span class="settings-val-badge" id="badge-voice-vol">100%</span>
+              </div>
+              <input type="range" class="custom-settings-slider" id="slider-voice-vol" min="10" max="100" value="100" />
+            </div>
+            <div class="settings-slider-row">
+              <div class="settings-slider-label-row">
+                <span>Voice Pitch</span>
+                <span class="settings-val-badge" id="badge-voice-pitch">1.00×</span>
+              </div>
+              <input type="range" class="custom-settings-slider" id="slider-voice-pitch" min="50" max="150" value="100" />
             </div>
 
             <div class="settings-row-divider"></div>
@@ -14603,7 +9647,6 @@
               </div>
               <span class="settings-val-badge" id="badge-repeat-count-summary">1× Once</span>
             </div>
-
             <div class="settings-choice-group five-cols" id="group-repeat-count">
               <button type="button" class="settings-choice-btn active" data-repeat-count="1">1×</button>
               <button type="button" class="settings-choice-btn" data-repeat-count="2">2×</button>
@@ -14611,13 +9654,18 @@
               <button type="button" class="settings-choice-btn" data-repeat-count="5">5×</button>
               <button type="button" class="settings-choice-btn" data-repeat-count="0">Loop</button>
             </div>
-
             <div class="settings-slider-row">
               <div class="settings-slider-label-row">
                 <span>Pause Between Repeats</span>
                 <span class="settings-val-badge" id="badge-repeat-delay">1.0s</span>
               </div>
               <input type="range" class="custom-settings-slider" id="slider-repeat-delay" min="300" max="4000" step="100" value="1000" />
+            </div>
+            <div class="settings-choice-group four-cols" id="group-repeat-delay-presets">
+              <button type="button" class="settings-choice-btn" data-repeat-delay="500">0.5s</button>
+              <button type="button" class="settings-choice-btn active" data-repeat-delay="1000">1.0s</button>
+              <button type="button" class="settings-choice-btn" data-repeat-delay="2000">2.0s</button>
+              <button type="button" class="settings-choice-btn" data-repeat-delay="3000">3.0s</button>
             </div>
 
             <div class="settings-row-divider"></div>
@@ -14635,9 +9683,7 @@
                 <span class="toggle-slider"></span>
               </label>
             </div>
-
             <div class="settings-row-divider"></div>
-
             <div class="settings-card-header">
               <div class="settings-card-left">
                 <div>
@@ -14653,19 +9699,75 @@
 
             <div class="settings-row-divider"></div>
 
-            <!-- Card Flip Sound -->
-            <div style="display: flex; flex-direction: column; gap: 8px;">
+            <!-- Card Flip Sound & Volume Slider -->
+            <div style="display: flex; flex-direction: column; gap: 10px;">
               <div class="settings-card-header">
                 <div>
-                  <h3 class="settings-card-title">Card Flip Sound</h3>
+                  <h3 class="settings-card-title">Card Flip Sound &amp; Volume</h3>
                   <p class="settings-card-sub">Tactile audio feedback when flipping cards</p>
                 </div>
+                <button type="button" class="btn-audio-test" id="btn-test-sfx">Test</button>
               </div>
               <div class="settings-choice-group">
                 <button type="button" class="settings-choice-btn active" data-sfx="snap">Crisp</button>
                 <button type="button" class="settings-choice-btn" data-sfx="whoosh">Soft</button>
                 <button type="button" class="settings-choice-btn" data-sfx="mute">Mute</button>
               </div>
+              <div class="settings-slider-row">
+                <div class="settings-slider-label-row">
+                  <span>Sound Effects Volume</span>
+                  <span class="settings-val-badge" id="badge-sfx-vol">70%</span>
+                </div>
+                <input type="range" class="custom-settings-slider" id="slider-sfx-vol" min="0" max="100" value="70" />
+              </div>
+            </div>
+
+            <div class="settings-row-divider"></div>
+
+            <!-- Study Ambient Music & Volume Slider -->
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <div class="settings-card-header">
+                <div class="settings-card-left">
+                  <div>
+                    <h3 class="settings-card-title">Focus Background Audio</h3>
+                    <p class="settings-card-sub">Ambient soundscape during study sessions</p>
+                  </div>
+                </div>
+                <label class="toggle-switch" aria-label="Toggle Focus Background Audio">
+                  <input type="checkbox" id="toggle-bgm" />
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div id="bgm-panel" style="display: none; flex-direction: column; gap: 10px;">
+                <div class="settings-choice-group">
+                  <button type="button" class="settings-choice-btn active" data-bgm="lofi">Lo-Fi</button>
+                  <button type="button" class="settings-choice-btn" data-bgm="rain">Soft Rain</button>
+                  <button type="button" class="settings-choice-btn" data-bgm="zen">Zen Drone</button>
+                </div>
+                <div class="settings-slider-row">
+                  <div class="settings-slider-label-row">
+                    <span>Ambient Volume</span>
+                    <span class="settings-val-badge" id="badge-bgm-vol">35%</span>
+                  </div>
+                  <input type="range" class="custom-settings-slider" id="slider-bgm-vol" min="5" max="100" value="35" />
+                </div>
+              </div>
+            </div>
+
+            <div class="settings-row-divider"></div>
+
+            <!-- Smooth Card Motion Toggle -->
+            <div class="settings-card-header">
+              <div class="settings-card-left">
+                <div>
+                  <h3 class="settings-card-title">Smooth 3D Card Motion</h3>
+                  <p class="settings-card-sub">Spring flip and kinetic swipe transitions</p>
+                </div>
+              </div>
+              <label class="toggle-switch" aria-label="Toggle Card Animations">
+                <input type="checkbox" id="toggle-card-animations" checked />
+                <span class="toggle-slider"></span>
+              </label>
             </div>
           </div>
         </div>
@@ -14684,12 +9786,10 @@
               </div>
               <button type="button" class="btn-audio-test" id="btn-cloud-manual-sync" style="display: none;">Sync Now</button>
             </div>
-
             <div style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: rgba(15, 23, 42, 0.65); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px;">
               <span id="cloud-tab-status-dot" style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #94a3b8; flex-shrink: 0;"></span>
               <span id="cloud-account-live-status-text" style="font-size: 0.76rem; font-weight: 500; color: #cbd5e1;">Not Signed In · Sign in to sync</span>
             </div>
-
             <div style="display: flex; gap: 8px;">
               <button type="button" class="settings-action-btn settings-action-btn-primary" id="btn-cloud-signin">
                 <span id="btn-cloud-signin-label">Sign In / Cloud Sync</span>
@@ -14698,9 +9798,7 @@
                 <span>Sign Out</span>
               </button>
             </div>
-
             <div class="settings-row-divider"></div>
-
             <div class="settings-card-header">
               <div>
                 <h3 class="settings-card-title">Offline HTML Deck</h3>
@@ -17111,10 +12209,11 @@ var tier800DeckCards = initialDeckCards;
         if (btnNext) btnNext.disabled = currentIndex >= cards.length - 1;
 
         if (typeof jumpSlider !== "undefined" && jumpSlider) {
-          const deckStart = (deckInfo && deckInfo.startNum) ? deckInfo.startNum : 1;
+          const deckInfo = typeof getActiveDeckInfo === "function" ? getActiveDeckInfo() : null;
+          const deckStart = (deckInfo && deckInfo.startNum) ? deckInfo.startNum : Number(cards[0]?.displayNum || cards[0]?.num || 1);
           jumpSlider.min = deckStart;
           jumpSlider.max = cards.length > 0 ? (deckStart + cards.length - 1) : deckStart;
-          jumpSlider.value = card.num;
+          jumpSlider.value = card.displayNum || card.num;
         }
         if (typeof sliderValIndicator !== "undefined" && sliderValIndicator) {
           sliderValIndicator.textContent = `#${displayNum} — ${card.word}`;
@@ -17407,6 +12506,51 @@ var tier800DeckCards = initialDeckCards;
         }, 200);
       }
 
+      function shuffleCards(forceState = null) {
+        toggleShuffleMode(forceState);
+      }
+
+      function jumpToIndex(targetIdx) {
+        if (!cards || cards.length === 0) return;
+        const clamped = Math.max(0, Math.min(cards.length - 1, Number(targetIdx) || 0));
+        isFlipped = false;
+        if (cardWrapper) {
+          cardWrapper.classList.remove("flipped", "is-dragging");
+          cardWrapper.style.transform = "";
+          cardWrapper.style.transition = "";
+        }
+        currentIndex = clamped;
+        renderCurrentCard();
+        if (cards[currentIndex] && !isShuffled) {
+          setLastCardNumber(cards[currentIndex].originalNum || cards[currentIndex].num, true);
+        }
+      }
+
+      function hideCardInlineConfirmBars() {
+        const delBar = document.getElementById("card-delete-confirm-bar");
+        if (delBar) delBar.classList.remove("active");
+        const resetBar = document.getElementById("card-section-reset-bar");
+        if (resetBar) resetBar.classList.remove("active");
+      }
+
+      function isCardInteractiveBtn(target) {
+        if (!target || typeof target.closest !== "function") return false;
+        return Boolean(
+          target.closest(
+            "button, .icon-tool-btn, .speak-btn, .front-learned-btn, .front-delete-btn, #front-speak-btn, #front-learned-btn, #front-delete-btn, #back-edit-btn, #back-edit-pill-btn, a, input, select, textarea"
+          )
+        );
+      }
+
+      function isCardAudioOrInfoSurface(target) {
+        if (!target || typeof target.closest !== "function") return false;
+        return Boolean(
+          target.closest(
+            ".trans-tile, #card-es-tile, #card-hi-tile, #back-card-word-preview"
+          )
+        );
+      }
+
       const deckReelOverlay = document.getElementById("deck-reel-overlay");
       const deckReelBackdrop = document.getElementById("deck-reel-backdrop");
       const deckReelCloseBtn = document.getElementById("deck-reel-close-btn");
@@ -17414,10 +12558,185 @@ var tier800DeckCards = initialDeckCards;
       const deckReelTrack = document.getElementById("deck-reel-track");
       let isDeckReelOpen = false;
       let originalIndexBeforeReel = 0;
+      let isReelProgrammaticScroll = false;
+      let reelDragMoved = false;
+      let isHoldReelScrubbing = false;
+      let holdReelStartX = 0;
+      let holdReelInitialScrollLeft = 0;
+
+      function openDeckReel(initialPointerX = null) {
+        if (!deckReelOverlay || !deckReelTrack || !deckReelScroller || cards.length === 0) return;
+        if (isDeckReelOpen) return;
+        hideCardInlineConfirmBars();
+        isDeckReelOpen = true;
+        originalIndexBeforeReel = currentIndex;
+        reelDragMoved = false;
+
+        deckReelTrack.innerHTML = "";
+        cards.forEach((c, idx) => {
+          const mini = document.createElement("div");
+          mini.className = "reel-mini-card" + (idx === currentIndex ? " active" : "");
+          mini.dataset.index = String(idx);
+          const dispNum = c.displayNum || c.num || (idx + 1);
+          const lookupNum = c.originalNum || c.num;
+          const imgSrc = c.imageUrl ||
+            ((typeof cardAccurateImages !== "undefined" && cardAccurateImages[lookupNum])
+              ? cardAccurateImages[lookupNum]
+              : (typeof getVerifiedCardImageUrl === "function"
+                  ? getVerifiedCardImageUrl(c)
+                  : `/api/image?num=${lookupNum}&q=${encodeURIComponent(c.word || "")}`));
+          const fallbackEmoji = (c.emoji || "📘").replace(/"/g, "");
+          mini.innerHTML = `
+            <span class="mini-card-top-tag">#${dispNum}</span>
+            <div class="mini-card-thumb-box">
+              <img class="mini-card-thumb" draggable="false" src="${imgSrc}" alt="${(c.word || "").replace(/"/g, "")}" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='${fallbackEmoji}';" />
+            </div>
+            <div class="mini-card-word-title">${c.word || ""}</div>
+          `;
+          mini.addEventListener("click", (ev) => {
+            ev.stopPropagation();
+            if (reelDragMoved) {
+              reelDragMoved = false;
+              return;
+            }
+            closeDeckReel(idx);
+          });
+          deckReelTrack.appendChild(mini);
+        });
+
+        deckReelOverlay.style.display = "flex";
+        deckReelOverlay.setAttribute("aria-hidden", "false");
+        const itemWidth = 150; // 136px card + 14px gap
+        const targetScrollLeft = currentIndex * itemWidth;
+
+        if (initialPointerX !== null && !isNaN(initialPointerX)) {
+          isHoldReelScrubbing = true;
+          holdReelStartX = initialPointerX;
+          holdReelInitialScrollLeft = targetScrollLeft;
+        } else {
+          isHoldReelScrubbing = false;
+        }
+
+        requestAnimationFrame(() => {
+          deckReelOverlay.classList.add("active");
+          isReelProgrammaticScroll = true;
+          deckReelScroller.scrollLeft = targetScrollLeft;
+          holdReelInitialScrollLeft = deckReelScroller.scrollLeft;
+          setTimeout(() => { isReelProgrammaticScroll = false; }, 90);
+        });
+
+        if (typeof playHapticTick === "function") playHapticTick(580, "triangle", 0.05);
+      }
+
+      if (deckReelScroller) {
+        let reelScrollRaf = null;
+        deckReelScroller.addEventListener("scroll", () => {
+          if (!isDeckReelOpen || isReelProgrammaticScroll) return;
+          if (reelScrollRaf) cancelAnimationFrame(reelScrollRaf);
+          reelScrollRaf = requestAnimationFrame(() => {
+            const itemWidth = 150;
+            const rawIdx = Math.round(deckReelScroller.scrollLeft / itemWidth);
+            const clampedIdx = Math.max(0, Math.min(cards.length - 1, rawIdx));
+            const miniCards = deckReelTrack ? deckReelTrack.querySelectorAll(".reel-mini-card") : [];
+            miniCards.forEach((mc, i) => {
+              mc.classList.toggle("active", i === clampedIdx);
+            });
+            if (clampedIdx !== currentIndex) {
+              currentIndex = clampedIdx;
+              renderCurrentCard(true);
+              if (typeof playHapticTick === "function") playHapticTick(440, "sine", 0.02);
+            }
+          });
+        }, { passive: true });
+
+        // Desktop mouse drag-to-scroll for deckReelScroller
+        let isDraggingReel = false;
+        let reelStartX = 0;
+        let reelScrollStart = 0;
+        deckReelScroller.addEventListener("mousedown", (e) => {
+          isDraggingReel = true;
+          reelDragMoved = false;
+          reelStartX = e.pageX - deckReelScroller.offsetLeft;
+          reelScrollStart = deckReelScroller.scrollLeft;
+        });
+        window.addEventListener("mousemove", (e) => {
+          if (!isDraggingReel || !isDeckReelOpen) return;
+          const x = e.pageX - deckReelScroller.offsetLeft;
+          const delta = x - reelStartX;
+          if (Math.abs(delta) > 6) reelDragMoved = true;
+          const walk = delta * 1.35;
+          deckReelScroller.scrollLeft = reelScrollStart - walk;
+        });
+        window.addEventListener("mouseup", () => {
+          isDraggingReel = false;
+          setTimeout(() => { reelDragMoved = false; }, 60);
+        });
+
+        // Wheel / trackpad horizontal & vertical scroll inside deckReelScroller
+        deckReelScroller.addEventListener("wheel", (e) => {
+          if (!isDeckReelOpen) return;
+          e.preventDefault();
+          const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+          deckReelScroller.scrollLeft += delta;
+        }, { passive: false });
+      }
+
+      // Tap card counter pill (e.g. 15 / 200) to open horizontal sliding card reel
+      const counterDisplayEl = document.querySelector("#screen-flashcard .counter-display");
+      if (counterDisplayEl) {
+        counterDisplayEl.style.cursor = "pointer";
+        counterDisplayEl.title = "Tap to slide through cards";
+        counterDisplayEl.addEventListener("click", (e) => {
+          e.stopPropagation();
+          if (isDeckReelOpen) {
+            closeDeckReel(currentIndex);
+          } else {
+            openDeckReel();
+          }
+        });
+      }
+
+      // Interactive top progress track scrubbing (touch & mouse slide to scrub cards)
+      const topProgressTrackEl = document.querySelector("#screen-flashcard .progress-track");
+      if (topProgressTrackEl) {
+        topProgressTrackEl.style.cursor = "pointer";
+        topProgressTrackEl.style.height = "7px";
+        const scrubFromClientX = (clientX) => {
+          if (!cards || cards.length === 0) return;
+          const rect = topProgressTrackEl.getBoundingClientRect();
+          const ratio = Math.max(0, Math.min(1, (clientX - rect.left) / Math.max(1, rect.width)));
+          const targetIdx = Math.min(cards.length - 1, Math.max(0, Math.round(ratio * (cards.length - 1))));
+          if (targetIdx !== currentIndex) {
+            currentIndex = targetIdx;
+            renderCurrentCard();
+            if (cards[currentIndex] && !isShuffled) {
+              setLastCardNumber(cards[currentIndex].originalNum || cards[currentIndex].num, true);
+            }
+          }
+        };
+        let isScrubbingBar = false;
+        topProgressTrackEl.addEventListener("mousedown", (e) => {
+          isScrubbingBar = true;
+          scrubFromClientX(e.clientX);
+        });
+        window.addEventListener("mousemove", (e) => {
+          if (isScrubbingBar) scrubFromClientX(e.clientX);
+        });
+        window.addEventListener("mouseup", () => {
+          isScrubbingBar = false;
+        });
+        topProgressTrackEl.addEventListener("touchstart", (e) => {
+          if (e.touches[0]) scrubFromClientX(e.touches[0].clientX);
+        }, { passive: true });
+        topProgressTrackEl.addEventListener("touchmove", (e) => {
+          if (e.touches[0]) scrubFromClientX(e.touches[0].clientX);
+        }, { passive: true });
+      }
 
       function closeDeckReel(selectedIdx) {
         if (!isDeckReelOpen) return;
         isDeckReelOpen = false;
+        isHoldReelScrubbing = false;
 
         if (selectedIdx !== null && selectedIdx !== undefined && !isNaN(selectedIdx)) {
           currentIndex = Math.max(0, Math.min(cards.length - 1, selectedIdx));
@@ -17540,7 +12859,15 @@ var tier800DeckCards = initialDeckCards;
         }, Math.round(durationMs * 0.65));
       }
 
-      // --- ULTRA-RESPONSIVE PHYSICAL TOUCH & DOUBLE-TAP FLIP SYSTEM ---
+      // Prevent native HTML5 image dragging inside flashcard stage so desktop mouse swipes never get hijacked
+      if (cardWrapper) {
+        cardWrapper.addEventListener("dragstart", (e) => {
+          e.preventDefault();
+          return false;
+        });
+      }
+
+      // --- ULTRA-RESPONSIVE PHYSICAL TOUCH, LONG-PRESS REEL & DOUBLE-TAP FLIP SYSTEM ---
       let touchPressStartTime = 0;
       let longPressTimer = null;
       let touchHasMoved = false;
@@ -17572,11 +12899,29 @@ var tier800DeckCards = initialDeckCards;
         velocitySamples = [{ x: touch.clientX, y: touch.clientY, time: performance.now() }];
         cardWrapper.classList.add("is-dragging");
         cardWrapper.style.transition = "none";
+        longPressTimer = setTimeout(() => {
+          if (!touchHasMoved && !isSwiping && !isCardAnimating) {
+            isDragging = false;
+            cardWrapper.classList.remove("is-dragging");
+            cardWrapper.style.transition = "transform 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
+            cardWrapper.style.transform = isFlipped ? "rotateY(180deg)" : "rotateY(0deg)";
+            openDeckReel(touchStartX);
+          }
+        }, 460);
       }, { passive: true });
 
       cardWrapper.addEventListener("touchmove", (e) => {
-        if (!isDragging || isDeckReelOpen) return;
         const touch = e.touches[0];
+        if (!touch) return;
+
+        // If long-press already opened the deck reel during this touch, allow continuous horizontal sliding!
+        if (isDeckReelOpen && isHoldReelScrubbing && deckReelScroller) {
+          const deltaX = touch.clientX - holdReelStartX;
+          deckReelScroller.scrollLeft = holdReelInitialScrollLeft - deltaX * 1.45;
+          return;
+        }
+
+        if (!isDragging || isDeckReelOpen) return;
         const diffX = touch.clientX - touchStartX;
         const diffY = touch.clientY - touchStartY;
         const absX = Math.abs(diffX);
@@ -17585,13 +12930,13 @@ var tier800DeckCards = initialDeckCards;
         velocitySamples.push({ x: touch.clientX, y: touch.clientY, time: performance.now() });
         if (velocitySamples.length > 6) velocitySamples.shift();
 
-        if (absX > 6 || absY > 6) {
+        if (absX > 7 || absY > 7) {
           touchHasMoved = true;
           clearTimeout(longPressTimer);
         }
 
         // 1:1 real-time horizontal drag tracking (works on both front and back faces)
-        if (absX > 5 && absX >= absY * 0.85) {
+        if (absX > 5 && absX >= absY * 0.8) {
           isSwiping = true;
           const isAtStart = currentIndex <= 0;
           const isAtEnd = currentIndex >= cards.length - 1;
@@ -17607,7 +12952,12 @@ var tier800DeckCards = initialDeckCards;
 
       function handleTouchEndOrCancel(e, isCancel = false) {
         clearTimeout(longPressTimer);
-        if (isDeckReelOpen) return;
+        if (isDeckReelOpen) {
+          isHoldReelScrubbing = false;
+          isDragging = false;
+          isSwiping = false;
+          return;
+        }
         if (!isDragging) return;
         isDragging = false;
         cardWrapper.classList.remove("is-dragging");
@@ -17639,7 +12989,7 @@ var tier800DeckCards = initialDeckCards;
         if ((isSwiping && (Math.abs(diffX) > 16 || Math.abs(vX) > 0.16)) || (Math.abs(diffX) > 26 && Math.abs(diffX) > Math.abs(diffY))) {
           suppressSyntheticClickUntil = Date.now() + 420;
           executeKineticSwipe(diffX, vX);
-        } else if (dist < 18 && touchDuration < 450) {
+        } else if (dist < 18 && touchDuration < 460) {
           // Stationary tap: if user tapped a Spanish/Hindi audio tile on the back face, let its click handler speak without flipping
           if (!isCardInteractiveBtn(e.target) && !isCardAudioOrInfoSurface(e.target)) {
             suppressSyntheticClickUntil = Date.now() + 500;
@@ -17671,7 +13021,7 @@ var tier800DeckCards = initialDeckCards;
       cardWrapper.addEventListener("touchend", (e) => handleTouchEndOrCancel(e, false));
       cardWrapper.addEventListener("touchcancel", (e) => handleTouchEndOrCancel(e, true));
 
-      // --- DESKTOP MOUSE DRAG & DOUBLE-CLICK FLIP ---
+      // --- DESKTOP MOUSE DRAG, LONG-PRESS REEL & DOUBLE-CLICK FLIP ---
       let isMouseDown = false;
       let mouseStartX = 0;
       let mouseStartY = 0;
@@ -17699,9 +13049,25 @@ var tier800DeckCards = initialDeckCards;
         mouseSamples = [{ x: e.clientX, y: e.clientY, time: performance.now() }];
         cardWrapper.classList.add("is-dragging");
         cardWrapper.style.transition = "none";
+
+        longPressTimer = setTimeout(() => {
+          if (isMouseDown && !mouseHasMoved && !isCardAnimating) {
+            isMouseDown = false;
+            cardWrapper.classList.remove("is-dragging");
+            cardWrapper.style.transition = "transform 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
+            cardWrapper.style.transform = isFlipped ? "rotateY(180deg)" : "rotateY(0deg)";
+            suppressSyntheticClickUntil = Date.now() + 450;
+            openDeckReel(mouseStartX);
+          }
+        }, 460);
       });
 
       window.addEventListener("mousemove", (e) => {
+        if (isDeckReelOpen && isHoldReelScrubbing && deckReelScroller) {
+          const deltaX = e.clientX - holdReelStartX;
+          deckReelScroller.scrollLeft = holdReelInitialScrollLeft - deltaX * 1.45;
+          return;
+        }
         if (!isMouseDown || isDeckReelOpen || isCardAnimating) return;
         const diffX = e.clientX - mouseStartX;
         const diffY = e.clientY - mouseStartY;
@@ -17709,7 +13075,7 @@ var tier800DeckCards = initialDeckCards;
         mouseSamples.push({ x: e.clientX, y: e.clientY, time: performance.now() });
         if (mouseSamples.length > 6) mouseSamples.shift();
 
-        if (Math.abs(diffX) > 6 || Math.abs(diffY) > 6) {
+        if (Math.abs(diffX) > 7 || Math.abs(diffY) > 7) {
           mouseHasMoved = true;
           clearTimeout(longPressTimer);
         }
@@ -17729,6 +13095,11 @@ var tier800DeckCards = initialDeckCards;
 
       window.addEventListener("mouseup", (e) => {
         clearTimeout(longPressTimer);
+        if (isDeckReelOpen && isHoldReelScrubbing) {
+          isHoldReelScrubbing = false;
+          isMouseDown = false;
+          return;
+        }
         if (!isMouseDown || isDeckReelOpen) return;
         isMouseDown = false;
         cardWrapper.classList.remove("is-dragging");
@@ -18517,17 +13888,35 @@ var tier800DeckCards = initialDeckCards;
       
 
       if (jumpSlider) jumpSlider.addEventListener("input", (e) => {
-        const targetNum = parseInt(e.target.value, 10);
-        const card = cards.find((c) => c.num === targetNum) || cards[0];
-        if (typeof sliderValIndicator !== "undefined" && sliderValIndicator) { sliderValIndicator.textContent = `#${card.num} — ${card.word}`; }
+        const targetVal = parseInt(e.target.value, 10);
+        let targetIdx = cards.findIndex((c) => Number(c.displayNum || c.num) === targetVal || Number(c.num) === targetVal);
+        if (targetIdx === -1 && targetVal >= 1 && targetVal <= cards.length) {
+          targetIdx = targetVal - 1;
+        }
+        const card = cards[targetIdx] || cards[0];
+        if (card) {
+          const disp = card.displayNum || card.num;
+          if (typeof sliderValIndicator !== "undefined" && sliderValIndicator) {
+            sliderValIndicator.textContent = `#${disp} — ${card.word}`;
+          }
+          if (targetIdx !== -1 && targetIdx !== currentIndex) {
+            currentIndex = targetIdx;
+            renderCurrentCard();
+            if (cards[currentIndex] && !isShuffled) {
+              setLastCardNumber(cards[currentIndex].originalNum || cards[currentIndex].num, true);
+            }
+          }
+        }
       });
 
       if (jumpSlider) jumpSlider.addEventListener("change", (e) => {
-        const targetNum = parseInt(e.target.value, 10);
-        const targetIdx = cards.findIndex((c) => c.num === targetNum);
+        const targetVal = parseInt(e.target.value, 10);
+        let targetIdx = cards.findIndex((c) => Number(c.displayNum || c.num) === targetVal || Number(c.num) === targetVal);
+        if (targetIdx === -1 && targetVal >= 1 && targetVal <= cards.length) {
+          targetIdx = targetVal - 1;
+        }
         if (targetIdx !== -1) {
           jumpToIndex(targetIdx);
-          closeSettingsModal();
         }
       });
 
@@ -19735,6 +15124,17 @@ var tier800DeckCards = initialDeckCards;
       function openMenuDrawer() {
         if (appMenuDrawer) appMenuDrawer.classList.add("open");
         if (menuDrawerBackdrop) menuDrawerBackdrop.classList.add("open");
+        if (typeof jumpSlider !== "undefined" && jumpSlider && cards[currentIndex]) {
+          const deckInfo = typeof getActiveDeckInfo === "function" ? getActiveDeckInfo() : null;
+          const deckStart = (deckInfo && deckInfo.startNum) ? deckInfo.startNum : Number(cards[0]?.displayNum || cards[0]?.num || 1);
+          jumpSlider.min = deckStart;
+          jumpSlider.max = cards.length > 0 ? (deckStart + cards.length - 1) : deckStart;
+          jumpSlider.value = cards[currentIndex].displayNum || cards[currentIndex].num;
+          if (typeof sliderValIndicator !== "undefined" && sliderValIndicator) {
+            sliderValIndicator.textContent = `#${cards[currentIndex].displayNum || cards[currentIndex].num} — ${cards[currentIndex].word}`;
+          }
+        }
+        if (typeof syncAudioUI === "function") syncAudioUI();
         const secSelect = document.getElementById("settings-section-reset-select");
         if (secSelect && currentDeckId) {
           refreshSettingsDeckResetUI(currentDeckId);
