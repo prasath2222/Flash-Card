@@ -8841,6 +8841,469 @@
         }
       }
 
+    
+      /* ==========================================================
+         PRODUCTION-GRADE RESPONSIVE SETTINGS MODAL / BOTTOM SHEET
+         Works across Desktop, Tablet, and Mobile in all screens
+         ========================================================== */
+      #menu-drawer-backdrop,
+      .menu-drawer-backdrop {
+        position: fixed !important;
+        inset: 0 !important;
+        background: rgba(3, 5, 10, 0.72) !important;
+        backdrop-filter: blur(6px) !important;
+        -webkit-backdrop-filter: blur(6px) !important;
+        z-index: 9900 !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        display: none !important;
+        transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      }
+      #menu-drawer-backdrop.open,
+      .menu-drawer-backdrop.open {
+        display: block !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        z-index: 9900 !important;
+      }
+
+      #app-menu-drawer,
+      .app-menu-drawer {
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        right: auto !important;
+        bottom: auto !important;
+        width: min(460px, 94vw) !important;
+        max-width: 460px !important;
+        max-height: min(86dvh, 740px) !important;
+        background: #0b0e14 !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border-radius: 16px !important;
+        box-shadow: 0 24px 64px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.03) !important;
+        z-index: 9910 !important;
+        display: none !important;
+        flex-direction: column !important;
+        transform: translate(-50%, -48%) scale(0.97) !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+        transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.16s ease !important;
+      }
+      #app-menu-drawer.open,
+      .app-menu-drawer.open {
+        display: flex !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: translate(-50%, -50%) scale(1) !important;
+        z-index: 9910 !important;
+      }
+
+      @media (max-width: 640px) {
+        #app-menu-drawer,
+        .app-menu-drawer {
+          top: auto !important;
+          left: 0 !important;
+          right: 0 !important;
+          bottom: 0 !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          max-height: 88dvh !important;
+          border-radius: 20px 20px 0 0 !important;
+          border-left: none !important;
+          border-right: none !important;
+          border-bottom: none !important;
+          border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+          transform: translateY(100%) !important;
+        }
+        #app-menu-drawer.open,
+        .app-menu-drawer.open {
+          transform: translateY(0) !important;
+        }
+      }
+
+      .drawer-sheet-handle {
+        width: 36px;
+        height: 4px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.18);
+        margin: 8px auto 0;
+        flex-shrink: 0;
+        display: none;
+      }
+      @media (max-width: 640px) {
+        .drawer-sheet-handle {
+          display: block;
+        }
+      }
+
+      .settings-modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 18px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        background: #0b0e14;
+        flex-shrink: 0;
+      }
+      .settings-header-title-group {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .settings-modal-title {
+        margin: 0;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #f3f4f6;
+        letter-spacing: -0.01em;
+      }
+      .settings-modal-close-btn {
+        width: 28px;
+        height: 28px;
+        border-radius: 7px;
+        background: transparent;
+        border: 1px solid transparent;
+        color: #9ca3af;
+        font-size: 0.9rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 0.14s ease, color 0.14s ease;
+        flex-shrink: 0;
+      }
+      .settings-modal-close-btn:hover {
+        background: rgba(255, 255, 255, 0.06);
+        color: #f9fafb;
+      }
+
+      .settings-modal-body {
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        -webkit-overflow-scrolling: touch !important;
+        touch-action: pan-y !important;
+        overscroll-behavior: contain !important;
+        padding: 16px 16px calc(24px + env(safe-area-inset-bottom, 0px));
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .settings-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .settings-group-title {
+        font-size: 0.68rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: #6b7280;
+        padding: 0 4px;
+      }
+      .settings-card {
+        background: #11151f;
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      .settings-row-block {
+        padding: 12px 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .settings-card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .settings-card-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+      }
+      .settings-card-title {
+        margin: 0;
+        font-size: 0.84rem;
+        font-weight: 500;
+        color: #f3f4f6;
+        line-height: 1.3;
+      }
+      .settings-card-sub {
+        margin: 2px 0 0;
+        font-size: 0.73rem;
+        color: #6b7280;
+        line-height: 1.35;
+      }
+      .settings-row-divider {
+        height: 1px;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.055);
+        margin: 0;
+      }
+
+      .settings-slider-row {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+      .settings-slider-label-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        font-size: 0.76rem;
+        font-weight: 500;
+        color: #9ca3af;
+      }
+      /* Unboxed tabular value readout (Zero-Pill Discipline) */
+      .settings-val-badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 0;
+        border-radius: 0;
+        background: transparent;
+        border: none;
+        color: #9ca3af;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-variant-numeric: tabular-nums;
+        font-size: 0.75rem;
+        font-weight: 500;
+        white-space: nowrap;
+      }
+
+      .custom-settings-slider {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        height: 4px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        outline: none;
+        cursor: pointer;
+        margin: 4px 0;
+        touch-action: pan-x !important;
+      }
+      .custom-settings-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #f3f4f6;
+        border: 1px solid rgba(0, 0, 0, 0.35);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+        cursor: pointer;
+        transition: transform 0.12s ease;
+      }
+      .custom-settings-slider::-webkit-slider-thumb:hover,
+      .custom-settings-slider::-webkit-slider-thumb:active {
+        transform: scale(1.1);
+        background: #ffffff;
+      }
+      .custom-settings-slider::-moz-range-thumb {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #f3f4f6;
+        border: 1px solid rgba(0, 0, 0, 0.35);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+        cursor: pointer;
+      }
+
+      /* Native Segmented Control Track */
+      .settings-choice-group {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2px;
+        background: #080b11;
+        padding: 2px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .settings-choice-group.four-cols {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .settings-choice-group.five-cols {
+        grid-template-columns: repeat(5, 1fr);
+      }
+      .settings-choice-btn {
+        padding: 6px 6px;
+        border-radius: 6px;
+        background: transparent;
+        border: none;
+        color: #8b95a5;
+        font-size: 0.74rem;
+        font-weight: 500;
+        cursor: pointer;
+        text-align: center;
+        transition: background 0.14s ease, color 0.14s ease;
+      }
+      .settings-choice-btn:hover {
+        color: #d1d5db;
+      }
+      .settings-choice-btn.active {
+        background: #1e2536;
+        color: #f9fafb;
+        font-weight: 600;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
+
+      .btn-audio-test {
+        padding: 5px 10px;
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        color: #e5e7eb;
+        font-size: 0.73rem;
+        font-weight: 500;
+        cursor: pointer;
+        flex-shrink: 0;
+        transition: all 0.14s ease;
+      }
+      .btn-audio-test:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: #ffffff;
+      }
+
+      .settings-select-input {
+        width: 100%;
+        padding: 8px 10px;
+        border-radius: 8px;
+        background: #080b11;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: #f3f4f6;
+        font-size: 0.8rem;
+        font-weight: 500;
+        outline: none;
+        cursor: pointer;
+        transition: border-color 0.14s ease;
+      }
+      .settings-select-input:focus {
+        border-color: rgba(255, 255, 255, 0.22);
+      }
+
+      .settings-action-btn {
+        width: 100%;
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-size: 0.76rem;
+        font-weight: 500;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        transition: all 0.14s ease;
+        box-sizing: border-box;
+      }
+      .settings-action-btn:disabled {
+        opacity: 0.38;
+        cursor: not-allowed;
+      }
+      .settings-action-btn-primary {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        color: #e5e7eb;
+      }
+      .settings-action-btn-primary:hover:not(:disabled) {
+        background: rgba(255, 255, 255, 0.1);
+        color: #ffffff;
+      }
+      .settings-action-btn-danger {
+        background: rgba(239, 68, 68, 0.08);
+        border: 1px solid rgba(239, 68, 68, 0.22);
+        color: #f87171;
+      }
+      .settings-action-btn-danger:hover:not(:disabled) {
+        background: rgba(239, 68, 68, 0.16);
+        color: #fca5a5;
+      }
+      .settings-action-btn-success {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #f3f4f6;
+      }
+      .settings-action-btn-success:hover:not(:disabled) {
+        background: rgba(255, 255, 255, 0.12);
+        color: #ffffff;
+      }
+
+      /* Compact iOS/Linear Toggle Override inside Settings */
+      #app-menu-drawer .toggle-switch {
+        width: 38px;
+        height: 22px;
+        flex-shrink: 0;
+      }
+      #app-menu-drawer .toggle-slider {
+        background-color: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 999px;
+      }
+      #app-menu-drawer .toggle-slider:before {
+        height: 16px;
+        width: 16px;
+        left: 2px;
+        bottom: 2px;
+        background-color: #cbd5e1;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+      }
+      #app-menu-drawer input:checked + .toggle-slider {
+        background-color: #2563eb;
+        border-color: #3b82f6;
+      }
+      #app-menu-drawer input:checked + .toggle-slider:before {
+        transform: translateX(16px);
+        background-color: #ffffff;
+      }
+
+      /* Ensure Flashcard Top Bar never clips #btn-flashcard-settings on narrow phones */
+      @media (max-width: 600px) {
+        body.in-flashcard-mode #screen-flashcard .top-nav-main {
+          gap: 4px !important;
+        }
+        body.in-flashcard-mode #screen-flashcard .top-nav-center-group {
+          gap: 4px !important;
+        }
+        body.in-flashcard-mode #screen-flashcard .counter-display,
+        body.in-flashcard-mode #screen-flashcard .top-category-pill {
+          padding: 3px 6px !important;
+          height: 26px !important;
+          font-size: 0.72rem !important;
+        }
+        body.in-flashcard-mode #screen-flashcard .top-section-grid-btn {
+          width: 28px !important;
+          height: 26px !important;
+          min-width: 28px !important;
+          min-height: 26px !important;
+        }
+        body.in-flashcard-mode #screen-flashcard .top-nav-actions {
+          gap: 4px !important;
+        }
+        body.in-flashcard-mode #screen-flashcard .top-nav-actions button,
+        body.in-flashcard-mode #screen-flashcard .reset-deck-btn,
+        body.in-flashcard-mode #screen-flashcard .shuffle-btn,
+        body.in-flashcard-mode #screen-flashcard .flashcard-settings-btn {
+          width: 30px !important;
+          height: 30px !important;
+          min-width: 30px !important;
+          min-height: 30px !important;
+          max-width: 30px !important;
+          max-height: 30px !important;
+        }
+      }
+
     </style>
   </head>
   <body class="home-view-active">
@@ -9985,193 +10448,134 @@
         <div class="settings-header-title-group">
           <h2 class="settings-modal-title">Settings</h2>
         </div>
-        <button type="button" class="settings-modal-close-btn" id="drawer-close-btn" aria-label="Close Settings">✕</button>
+        <button type="button" class="settings-modal-close-btn" id="drawer-close-btn" aria-label="Close Settings">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
       </div>
 
       <div class="settings-modal-body">
-        <!-- GROUP 0: QUICK JUMP TO CARD SLIDER -->
+        <!-- GROUP 1: VOICE & PRONUNCIATION -->
         <div class="settings-group">
-          <div class="settings-group-title">Card Scrubber &amp; Quick Jump</div>
+          <div class="settings-group-title">Voice &amp; Pronunciation</div>
           <div class="settings-card">
-            <div class="settings-slider-row">
-              <div class="settings-slider-label-row">
-                <span>Slide to Jump to Card</span>
-                <span class="settings-val-badge" id="slider-val-indicator">#800 — STOVE</span>
+            <div class="settings-row-block">
+              <div class="settings-card-header">
+                <div>
+                  <h3 class="settings-card-title">Speech Output</h3>
+                  <p class="settings-card-sub">Spanish &amp; Hindi native pronunciation</p>
+                </div>
+                <button type="button" class="btn-audio-test" id="btn-test-voice">
+                  <span id="btn-test-voice-label">Preview</span>
+                </button>
               </div>
-              <input type="range" class="custom-settings-slider jump-slider" id="jump-slider" min="800" max="1000" value="800" />
-            </div>
-          </div>
-        </div>
-
-        <!-- GROUP 1: SECTION & GLOBAL RESET -->
-        <div class="settings-group">
-          <div class="settings-group-title">Section &amp; Progress Reset</div>
-
-          <!-- Particular Section Reset -->
-          <div class="settings-card">
-            <div style="display: flex; flex-direction: column; gap: 8px;">
-              <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
-                <label for="settings-section-reset-select" class="settings-card-title">Reset Particular Section</label>
-                <span id="settings-section-reset-stats" style="font-size: 0.74rem; color: #38bdf8; font-weight: 600;">Active: 200 / 200 · Learned: 0 · Deleted: 0</span>
+              <div class="settings-choice-group">
+                <button type="button" class="settings-choice-btn" id="btn-rate-slow">0.75×</button>
+                <button type="button" class="settings-choice-btn active" id="btn-rate-normal">1.0×</button>
+                <button type="button" class="settings-choice-btn" id="btn-rate-fast">1.25×</button>
               </div>
-              <select id="settings-section-reset-select" style="width: 100%; padding: 10px 12px; border-radius: 10px; background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(255, 255, 255, 0.12); color: #f8fafc; font-size: 0.84rem; font-weight: 600; outline: none; cursor: pointer;">
-                <option value="deck-1-100">Cards 1 – 100 (Pronouns &amp; Core Verbs)</option>
-                <option value="deck-101-200">Cards 101 – 200 (Prepositions &amp; Connectors)</option>
-                <option value="deck-201-400">Cards 201 – 400 (Numbers, Time &amp; Core Verbs)</option>
-                <option value="deck-401-600">Cards 401 – 600 (Action Verbs &amp; Adjectives)</option>
-                <option value="deck-601-800">Cards 601 – 800 (People, Body &amp; Food)</option>
-                <option value="deck-800-1000">Cards 800 – 1000 (Home, City &amp; Nature)</option>
-              </select>
-            </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-              <button type="button" class="settings-action-btn settings-action-btn-primary" id="btn-settings-restore-section-deleted">
-                <span id="label-restore-section-deleted">Restore Deleted (0)</span>
-              </button>
-              <button type="button" class="settings-action-btn settings-action-btn-danger" id="btn-settings-reset-section-learned">
-                <span id="label-reset-section-learned">Reset Learned (0)</span>
-              </button>
-            </div>
-            <div id="settings-section-confirm-row" style="display: none; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 12px; background: rgba(239, 68, 68, 0.12); border: 1px solid rgba(239, 68, 68, 0.35); border-radius: 10px;">
-              <span id="settings-section-confirm-text" style="font-size: 0.78rem; font-weight: 600; color: #fca5a5;">Reset learned for this section?</span>
-              <div style="display: flex; gap: 6px; flex-shrink: 0;">
-                <button type="button" id="btn-cancel-section-confirm" style="padding: 6px 12px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #e2e8f0; border-radius: 7px; font-size: 0.75rem; font-weight: 600; cursor: pointer;">Cancel</button>
-                <button type="button" id="btn-exec-section-confirm" style="padding: 6px 12px; background: #ef4444; border: none; color: #fff; border-radius: 7px; font-size: 0.75rem; font-weight: 600; cursor: pointer;">Confirm</button>
+              <div class="settings-slider-row">
+                <div class="settings-slider-label-row">
+                  <span>Speed</span>
+                  <span class="settings-val-badge" id="badge-voice-rate">0.80×</span>
+                </div>
+                <input type="range" class="custom-settings-slider" id="slider-voice-rate" min="50" max="130" value="80" />
               </div>
-            </div>
-
-            <div class="settings-row-divider"></div>
-
-            <!-- Global Reset Across All Sections -->
-            <div style="display: flex; flex-direction: column; gap: 4px;">
-              <div class="settings-card-title">Reset All Sections (Common)</div>
-              <div class="settings-card-sub" id="settings-global-reset-stats">All Sections · 0 Learned · 0 Deleted</div>
-            </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-              <button type="button" class="settings-action-btn settings-action-btn-primary" id="btn-settings-reset-deck">
-                <span id="label-restore-all-deleted">Restore All Deleted (0)</span>
-              </button>
-              <button type="button" class="settings-action-btn settings-action-btn-danger" id="btn-settings-reset-learned">
-                <span id="label-reset-all-learned">Reset All Learned (0)</span>
-              </button>
-            </div>
-            <div id="settings-global-confirm-row" style="display: none; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 12px; background: rgba(239, 68, 68, 0.12); border: 1px solid rgba(239, 68, 68, 0.35); border-radius: 10px;">
-              <span id="settings-global-confirm-text" style="font-size: 0.78rem; font-weight: 600; color: #fca5a5;">Reset learned across all sections?</span>
-              <div style="display: flex; gap: 6px; flex-shrink: 0;">
-                <button type="button" id="btn-cancel-global-confirm" style="padding: 6px 12px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #e2e8f0; border-radius: 7px; font-size: 0.75rem; font-weight: 600; cursor: pointer;">Cancel</button>
-                <button type="button" id="btn-exec-global-confirm" style="padding: 6px 12px; background: #ef4444; border: none; color: #fff; border-radius: 7px; font-size: 0.75rem; font-weight: 600; cursor: pointer;">Reset All</button>
+              <div class="settings-slider-row">
+                <div class="settings-slider-label-row">
+                  <span>Volume</span>
+                  <span class="settings-val-badge" id="badge-voice-vol">100%</span>
+                </div>
+                <input type="range" class="custom-settings-slider" id="slider-voice-vol" min="10" max="100" value="100" />
               </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- GROUP 2: PRONUNCIATION, VOICE SLIDERS & AUDIO -->
-        <div class="settings-group">
-          <div class="settings-group-title">Pronunciation &amp; Audio Sliders</div>
-          <div class="settings-card">
-            <div class="settings-card-header">
-              <div>
-                <h3 class="settings-card-title">Voice Speed, Volume &amp; Pitch</h3>
-                <p class="settings-card-sub">Spanish &amp; Hindi native pronunciation tuning</p>
+              <div class="settings-slider-row">
+                <div class="settings-slider-label-row">
+                  <span>Pitch</span>
+                  <span class="settings-val-badge" id="badge-voice-pitch">1.00×</span>
+                </div>
+                <input type="range" class="custom-settings-slider" id="slider-voice-pitch" min="50" max="150" value="100" />
               </div>
-              <button type="button" class="btn-audio-test" id="btn-test-voice">
-                <span id="btn-test-voice-label">Preview</span>
-              </button>
-            </div>
-            <div class="settings-choice-group">
-              <button type="button" class="settings-choice-btn" id="btn-rate-slow">0.75× Slow</button>
-              <button type="button" class="settings-choice-btn active" id="btn-rate-normal">1.0× Normal</button>
-              <button type="button" class="settings-choice-btn" id="btn-rate-fast">1.25× Fast</button>
-            </div>
-            <div class="settings-slider-row">
-              <div class="settings-slider-label-row">
-                <span>Voice Speed</span>
-                <span class="settings-val-badge" id="badge-voice-rate">0.80×</span>
-              </div>
-              <input type="range" class="custom-settings-slider" id="slider-voice-rate" min="50" max="130" value="80" />
-            </div>
-            <div class="settings-slider-row">
-              <div class="settings-slider-label-row">
-                <span>Voice Volume</span>
-                <span class="settings-val-badge" id="badge-voice-vol">100%</span>
-              </div>
-              <input type="range" class="custom-settings-slider" id="slider-voice-vol" min="10" max="100" value="100" />
-            </div>
-            <div class="settings-slider-row">
-              <div class="settings-slider-label-row">
-                <span>Voice Pitch</span>
-                <span class="settings-val-badge" id="badge-voice-pitch">1.00×</span>
-              </div>
-              <input type="range" class="custom-settings-slider" id="slider-voice-pitch" min="50" max="150" value="100" />
             </div>
 
             <div class="settings-row-divider"></div>
 
             <!-- Voice Repetition -->
-            <div class="settings-card-header">
-              <div>
-                <h3 class="settings-card-title">Tap Repeat Count</h3>
-                <p class="settings-card-sub">Repetitions when tapping a pronunciation tile</p>
+            <div class="settings-row-block">
+              <div class="settings-card-header">
+                <div>
+                  <h3 class="settings-card-title">Tap Repeat</h3>
+                  <p class="settings-card-sub">Repetitions when tapping a language tile</p>
+                </div>
+                <span class="settings-val-badge" id="badge-repeat-count-summary">1× Once</span>
               </div>
-              <span class="settings-val-badge" id="badge-repeat-count-summary">1× Once</span>
-            </div>
-            <div class="settings-choice-group five-cols" id="group-repeat-count">
-              <button type="button" class="settings-choice-btn active" data-repeat-count="1">1×</button>
-              <button type="button" class="settings-choice-btn" data-repeat-count="2">2×</button>
-              <button type="button" class="settings-choice-btn" data-repeat-count="3">3×</button>
-              <button type="button" class="settings-choice-btn" data-repeat-count="5">5×</button>
-              <button type="button" class="settings-choice-btn" data-repeat-count="0">Loop</button>
-            </div>
-            <div class="settings-slider-row">
-              <div class="settings-slider-label-row">
-                <span>Pause Between Repeats</span>
-                <span class="settings-val-badge" id="badge-repeat-delay">1.0s</span>
+              <div class="settings-choice-group five-cols" id="group-repeat-count">
+                <button type="button" class="settings-choice-btn active" data-repeat-count="1">1×</button>
+                <button type="button" class="settings-choice-btn" data-repeat-count="2">2×</button>
+                <button type="button" class="settings-choice-btn" data-repeat-count="3">3×</button>
+                <button type="button" class="settings-choice-btn" data-repeat-count="5">5×</button>
+                <button type="button" class="settings-choice-btn" data-repeat-count="0">Loop</button>
               </div>
-              <input type="range" class="custom-settings-slider" id="slider-repeat-delay" min="300" max="4000" step="100" value="1000" />
-            </div>
-            <div class="settings-choice-group four-cols" id="group-repeat-delay-presets">
-              <button type="button" class="settings-choice-btn" data-repeat-delay="500">0.5s</button>
-              <button type="button" class="settings-choice-btn active" data-repeat-delay="1000">1.0s</button>
-              <button type="button" class="settings-choice-btn" data-repeat-delay="2000">2.0s</button>
-              <button type="button" class="settings-choice-btn" data-repeat-delay="3000">3.0s</button>
+              <div class="settings-slider-row">
+                <div class="settings-slider-label-row">
+                  <span>Pause Interval</span>
+                  <span class="settings-val-badge" id="badge-repeat-delay">1.0s</span>
+                </div>
+                <input type="range" class="custom-settings-slider" id="slider-repeat-delay" min="300" max="4000" step="100" value="1000" />
+              </div>
+              <div class="settings-choice-group four-cols" id="group-repeat-delay-presets">
+                <button type="button" class="settings-choice-btn" data-repeat-delay="500">0.5s</button>
+                <button type="button" class="settings-choice-btn active" data-repeat-delay="1000">1.0s</button>
+                <button type="button" class="settings-choice-btn" data-repeat-delay="2000">2.0s</button>
+                <button type="button" class="settings-choice-btn" data-repeat-delay="3000">3.0s</button>
+              </div>
             </div>
 
             <div class="settings-row-divider"></div>
 
             <!-- Auto-Pronounce Toggles -->
-            <div class="settings-card-header">
-              <div class="settings-card-left">
-                <div>
-                  <h3 class="settings-card-title">Auto-Pronounce on Flip</h3>
-                  <p class="settings-card-sub">Speak translations automatically when flipping to back</p>
+            <div class="settings-row-block">
+              <div class="settings-card-header">
+                <div class="settings-card-left">
+                  <div>
+                    <h3 class="settings-card-title">Auto-Pronounce on Flip</h3>
+                    <p class="settings-card-sub">Speak translations when flipping card</p>
+                  </div>
                 </div>
+                <label class="toggle-switch" aria-label="Toggle Auto-Pronounce on Flip">
+                  <input type="checkbox" id="toggle-auto-pronounce-flip" />
+                  <span class="toggle-slider"></span>
+                </label>
               </div>
-              <label class="toggle-switch" aria-label="Toggle Auto-Pronounce on Flip">
-                <input type="checkbox" id="toggle-auto-pronounce-flip" />
-                <span class="toggle-slider"></span>
-              </label>
-            </div>
-            <div class="settings-row-divider"></div>
-            <div class="settings-card-header">
-              <div class="settings-card-left">
-                <div>
-                  <h3 class="settings-card-title">Auto-Pronounce on Next Card</h3>
-                  <p class="settings-card-sub">Speak English word when moving to a new card</p>
-                </div>
-              </div>
-              <label class="toggle-switch" aria-label="Toggle Auto-Pronounce on Next Card">
-                <input type="checkbox" id="toggle-auto-pronounce-next" />
-                <span class="toggle-slider"></span>
-              </label>
             </div>
 
             <div class="settings-row-divider"></div>
 
+            <div class="settings-row-block">
+              <div class="settings-card-header">
+                <div class="settings-card-left">
+                  <div>
+                    <h3 class="settings-card-title">Auto-Pronounce on Next Card</h3>
+                    <p class="settings-card-sub">Speak English word when advancing</p>
+                  </div>
+                </div>
+                <label class="toggle-switch" aria-label="Toggle Auto-Pronounce on Next Card">
+                  <input type="checkbox" id="toggle-auto-pronounce-next" />
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GROUP 2: SOUND & MOTION -->
+        <div class="settings-group">
+          <div class="settings-group-title">Sound &amp; Motion</div>
+          <div class="settings-card">
             <!-- Card Flip Sound & Volume Slider -->
-            <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div class="settings-row-block">
               <div class="settings-card-header">
                 <div>
-                  <h3 class="settings-card-title">Card Flip Sound &amp; Volume</h3>
-                  <p class="settings-card-sub">Tactile audio feedback when flipping cards</p>
+                  <h3 class="settings-card-title">Card Flip Sound</h3>
+                  <p class="settings-card-sub">Tactile audio feedback on flip</p>
                 </div>
                 <button type="button" class="btn-audio-test" id="btn-test-sfx">Test</button>
               </div>
@@ -10182,7 +10586,7 @@
               </div>
               <div class="settings-slider-row">
                 <div class="settings-slider-label-row">
-                  <span>Sound Effects Volume</span>
+                  <span>Effects Volume</span>
                   <span class="settings-val-badge" id="badge-sfx-vol">70%</span>
                 </div>
                 <input type="range" class="custom-settings-slider" id="slider-sfx-vol" min="0" max="100" value="70" />
@@ -10192,12 +10596,12 @@
             <div class="settings-row-divider"></div>
 
             <!-- Study Ambient Music & Volume Slider -->
-            <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div class="settings-row-block">
               <div class="settings-card-header">
                 <div class="settings-card-left">
                   <div>
-                    <h3 class="settings-card-title">Focus Background Audio</h3>
-                    <p class="settings-card-sub">Ambient soundscape during study sessions</p>
+                    <h3 class="settings-card-title">Ambient Focus Audio</h3>
+                    <p class="settings-card-sub">Background soundscape during study</p>
                   </div>
                 </div>
                 <label class="toggle-switch" aria-label="Toggle Focus Background Audio">
@@ -10224,56 +10628,127 @@
             <div class="settings-row-divider"></div>
 
             <!-- Smooth Card Motion Toggle -->
-            <div class="settings-card-header">
-              <div class="settings-card-left">
-                <div>
-                  <h3 class="settings-card-title">Smooth 3D Card Motion</h3>
-                  <p class="settings-card-sub">Spring flip and kinetic swipe transitions</p>
+            <div class="settings-row-block">
+              <div class="settings-card-header">
+                <div class="settings-card-left">
+                  <div>
+                    <h3 class="settings-card-title">Smooth 3D Card Motion</h3>
+                    <p class="settings-card-sub">Spring flip and swipe transitions</p>
+                  </div>
                 </div>
+                <label class="toggle-switch" aria-label="Toggle Card Animations">
+                  <input type="checkbox" id="toggle-card-animations" checked />
+                  <span class="toggle-slider"></span>
+                </label>
               </div>
-              <label class="toggle-switch" aria-label="Toggle Card Animations">
-                <input type="checkbox" id="toggle-card-animations" checked />
-                <span class="toggle-slider"></span>
-              </label>
             </div>
           </div>
         </div>
 
-        <!-- GROUP 3: CLOUD SYNC & BACKUP -->
+        <!-- GROUP 3: STUDY PROGRESS & RESET -->
+        <div class="settings-group">
+          <div class="settings-group-title">Study Progress</div>
+          <div class="settings-card">
+            <div class="settings-row-block">
+              <div class="settings-card-header">
+                <label for="settings-section-reset-select" class="settings-card-title">Section Reset</label>
+                <span id="settings-section-reset-stats" class="settings-val-badge">Active: 200 / 200 · Learned: 0 · Deleted: 0</span>
+              </div>
+              <select id="settings-section-reset-select" class="settings-select-input">
+                <option value="deck-1-100">Cards 1 – 100 (Pronouns &amp; Core Verbs)</option>
+                <option value="deck-101-200">Cards 101 – 200 (Prepositions &amp; Connectors)</option>
+                <option value="deck-201-400">Cards 201 – 400 (Numbers, Time &amp; Core Verbs)</option>
+                <option value="deck-401-600">Cards 401 – 600 (Action Verbs &amp; Adjectives)</option>
+                <option value="deck-601-800">Cards 601 – 800 (People, Body &amp; Food)</option>
+                <option value="deck-800-1000">Cards 800 – 1000 (Home, City &amp; Nature)</option>
+              </select>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                <button type="button" class="settings-action-btn settings-action-btn-primary" id="btn-settings-restore-section-deleted">
+                  <span id="label-restore-section-deleted">Restore Deleted (0)</span>
+                </button>
+                <button type="button" class="settings-action-btn settings-action-btn-danger" id="btn-settings-reset-section-learned">
+                  <span id="label-reset-section-learned">Reset Learned (0)</span>
+                </button>
+              </div>
+              <div id="settings-section-confirm-row" style="display: none; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 10px; background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.24); border-radius: 8px;">
+                <span id="settings-section-confirm-text" style="font-size: 0.75rem; font-weight: 500; color: #fca5a5;">Reset learned for this section?</span>
+                <div style="display: flex; gap: 6px; flex-shrink: 0;">
+                  <button type="button" id="btn-cancel-section-confirm" style="padding: 5px 10px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: #e5e7eb; border-radius: 6px; font-size: 0.73rem; font-weight: 500; cursor: pointer;">Cancel</button>
+                  <button type="button" id="btn-exec-section-confirm" style="padding: 5px 10px; background: #dc2626; border: none; color: #fff; border-radius: 6px; font-size: 0.73rem; font-weight: 500; cursor: pointer;">Confirm</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="settings-row-divider"></div>
+
+            <!-- Global Reset Across All Sections -->
+            <div class="settings-row-block">
+              <div class="settings-card-header">
+                <div class="settings-card-title">All Sections</div>
+                <div class="settings-val-badge" id="settings-global-reset-stats">All Sections · 0 Learned · 0 Deleted</div>
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                <button type="button" class="settings-action-btn settings-action-btn-primary" id="btn-settings-reset-deck">
+                  <span id="label-restore-all-deleted">Restore All Deleted (0)</span>
+                </button>
+                <button type="button" class="settings-action-btn settings-action-btn-danger" id="btn-settings-reset-learned">
+                  <span id="label-reset-all-learned">Reset All Learned (0)</span>
+                </button>
+              </div>
+              <div id="settings-global-confirm-row" style="display: none; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 10px; background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.24); border-radius: 8px;">
+                <span id="settings-global-confirm-text" style="font-size: 0.75rem; font-weight: 500; color: #fca5a5;">Reset learned across all sections?</span>
+                <div style="display: flex; gap: 6px; flex-shrink: 0;">
+                  <button type="button" id="btn-cancel-global-confirm" style="padding: 5px 10px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: #e5e7eb; border-radius: 6px; font-size: 0.73rem; font-weight: 500; cursor: pointer;">Cancel</button>
+                  <button type="button" id="btn-exec-global-confirm" style="padding: 5px 10px; background: #dc2626; border: none; color: #fff; border-radius: 6px; font-size: 0.73rem; font-weight: 500; cursor: pointer;">Reset All</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GROUP 4: ACCOUNT & BACKUP -->
         <div class="settings-group">
           <div class="settings-group-title">Account &amp; Backup</div>
           <div class="settings-card">
-            <div class="settings-card-header">
-              <div class="settings-card-left">
-                <div id="cloud-user-avatar-icon" style="width: 36px; height: 36px; border-radius: 10px; background: rgba(56, 189, 248, 0.14); border: 1px solid rgba(56, 189, 248, 0.3); color: #38bdf8; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; flex-shrink: 0; overflow: hidden;">☁️</div>
-                <div>
-                  <h3 class="settings-card-title" id="cloud-sync-user-title">Cloud Sync</h3>
-                  <p class="settings-card-sub" id="cloud-sync-user-sub">Sync learned progress and sections across devices</p>
+            <div class="settings-row-block">
+              <div class="settings-card-header">
+                <div class="settings-card-left">
+                  <div id="cloud-user-avatar-icon" style="width: 32px; height: 32px; border-radius: 8px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08); color: #9ca3af; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 0; overflow: hidden;">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
+                  </div>
+                  <div>
+                    <h3 class="settings-card-title" id="cloud-sync-user-title">Cloud Sync</h3>
+                    <p class="settings-card-sub" id="cloud-sync-user-sub">Sync progress and sections across devices</p>
+                  </div>
                 </div>
+                <button type="button" class="btn-audio-test" id="btn-cloud-manual-sync" style="display: none;">Sync Now</button>
               </div>
-              <button type="button" class="btn-audio-test" id="btn-cloud-manual-sync" style="display: none;">Sync Now</button>
+              <div style="display: flex; align-items: center; gap: 8px; padding: 7px 10px; background: #080b11; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 7px;">
+                <span id="cloud-tab-status-dot" style="display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #6b7280; flex-shrink: 0;"></span>
+                <span id="cloud-account-live-status-text" style="font-size: 0.74rem; font-weight: 500; color: #9ca3af;">Not Signed In · Sign in to sync</span>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <button type="button" class="settings-action-btn settings-action-btn-primary" id="btn-cloud-signin">
+                  <span id="btn-cloud-signin-label">Sign In / Cloud Sync</span>
+                </button>
+                <button type="button" class="settings-action-btn settings-action-btn-danger" id="btn-cloud-signout" style="display: none;">
+                  <span>Sign Out</span>
+                </button>
+              </div>
             </div>
-            <div style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: rgba(15, 23, 42, 0.65); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px;">
-              <span id="cloud-tab-status-dot" style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #94a3b8; flex-shrink: 0;"></span>
-              <span id="cloud-account-live-status-text" style="font-size: 0.76rem; font-weight: 500; color: #cbd5e1;">Not Signed In · Sign in to sync</span>
-            </div>
-            <div style="display: flex; gap: 8px;">
-              <button type="button" class="settings-action-btn settings-action-btn-primary" id="btn-cloud-signin">
-                <span id="btn-cloud-signin-label">Sign In / Cloud Sync</span>
-              </button>
-              <button type="button" class="settings-action-btn settings-action-btn-danger" id="btn-cloud-signout" style="display: none;">
-                <span>Sign Out</span>
-              </button>
-            </div>
+
             <div class="settings-row-divider"></div>
-            <div class="settings-card-header">
-              <div>
-                <h3 class="settings-card-title">Offline HTML Deck</h3>
-                <p class="settings-card-sub">Export self-contained file for offline study</p>
+
+            <div class="settings-row-block">
+              <div class="settings-card-header">
+                <div>
+                  <h3 class="settings-card-title">Offline HTML Deck</h3>
+                  <p class="settings-card-sub">Export standalone file for offline study</p>
+                </div>
+                <button type="button" class="settings-action-btn settings-action-btn-success" id="btn-download-html-menu" style="width: auto !important; padding: 6px 12px !important;">
+                  <span>Export HTML</span>
+                </button>
               </div>
-              <button type="button" class="settings-action-btn settings-action-btn-success" id="btn-download-html-menu" style="width: auto !important; padding: 8px 14px !important;">
-                <span>Export HTML</span>
-              </button>
             </div>
           </div>
         </div>
@@ -11216,11 +11691,12 @@ var tier800DeckCards = initialDeckCards;
       const btnDownloadHtml = document.getElementById("btn-download-html");
 
       function openSettingsModal() {
+        if (typeof openMenuDrawer === "function") {
+          openMenuDrawer();
+          return;
+        }
         if (!settingsModal) return;
         settingsModal.classList.add("open");
-        if (typeof jumpSlider !== "undefined" && jumpSlider) { jumpSlider.value = cards[currentIndex].num; }
-        if (typeof sliderValIndicator !== "undefined" && sliderValIndicator) { sliderValIndicator.textContent = `#${cards[currentIndex].num} — ${cards[currentIndex].word}`; }
-        if (typeof syncAudioUI === "function") syncAudioUI();
       }
       function closeSettingsModal() {
         if (!settingsModal) return;
@@ -15990,42 +16466,67 @@ var tier800DeckCards = initialDeckCards;
       const btnFlashcardSettings = document.getElementById("btn-flashcard-settings");
       if (btnFlashcardSettings) {
         btnFlashcardSettings.addEventListener("click", (e) => {
+          e.preventDefault();
           e.stopPropagation();
           openMenuDrawer();
         });
       }
 
       function openMenuDrawer() {
-        if (appMenuDrawer) appMenuDrawer.classList.add("open");
-        if (menuDrawerBackdrop) menuDrawerBackdrop.classList.add("open");
-        if (typeof jumpSlider !== "undefined" && jumpSlider && cards[currentIndex]) {
-          const deckInfo = typeof getActiveDeckInfo === "function" ? getActiveDeckInfo() : null;
-          const deckStart = (deckInfo && deckInfo.startNum) ? deckInfo.startNum : Number(cards[0]?.displayNum || cards[0]?.num || 1);
-          jumpSlider.min = deckStart;
-          jumpSlider.max = cards.length > 0 ? (deckStart + cards.length - 1) : deckStart;
-          jumpSlider.value = cards[currentIndex].displayNum || cards[currentIndex].num;
-          if (typeof sliderValIndicator !== "undefined" && sliderValIndicator) {
-            sliderValIndicator.textContent = `#${cards[currentIndex].displayNum || cards[currentIndex].num} — ${cards[currentIndex].word}`;
+        const drawerEl = document.getElementById("app-menu-drawer") || appMenuDrawer;
+        const backdropEl = document.getElementById("menu-drawer-backdrop") || menuDrawerBackdrop;
+        if (drawerEl) drawerEl.classList.add("open");
+        if (backdropEl) backdropEl.classList.add("open");
+        try {
+          if (typeof jumpSlider !== "undefined" && jumpSlider && Array.isArray(cards) && cards[currentIndex]) {
+            const deckInfo = typeof getActiveDeckInfo === "function" ? getActiveDeckInfo() : null;
+            const deckStart = (deckInfo && deckInfo.startNum) ? deckInfo.startNum : Number(cards[0]?.displayNum || cards[0]?.num || 1);
+            jumpSlider.min = deckStart;
+            jumpSlider.max = cards.length > 0 ? (deckStart + cards.length - 1) : deckStart;
+            jumpSlider.value = cards[currentIndex].displayNum || cards[currentIndex].num;
+            if (typeof sliderValIndicator !== "undefined" && sliderValIndicator) {
+              sliderValIndicator.textContent = `#${cards[currentIndex].displayNum || cards[currentIndex].num} — ${cards[currentIndex].word}`;
+            }
           }
-        }
-        if (typeof syncAudioUI === "function") syncAudioUI();
-        const secSelect = document.getElementById("settings-section-reset-select");
-        if (secSelect && currentDeckId) {
-          refreshSettingsDeckResetUI(currentDeckId);
-        } else {
-          refreshSettingsDeckResetUI();
-        }
-        if (typeof playHapticTick === "function") playHapticTick(480, "sine", 0.04);
+        } catch (err) {}
+        try {
+          if (typeof syncAudioUI === "function") syncAudioUI();
+        } catch (err) {}
+        try {
+          const secSelect = document.getElementById("settings-section-reset-select");
+          if (secSelect && typeof currentDeckId !== "undefined" && currentDeckId) {
+            refreshSettingsDeckResetUI(currentDeckId);
+          } else if (typeof refreshSettingsDeckResetUI === "function") {
+            refreshSettingsDeckResetUI();
+          }
+        } catch (err) {}
+        try {
+          if (typeof playHapticTick === "function") playHapticTick(480, "sine", 0.04);
+        } catch (err) {}
       }
 
       function closeMenuDrawer() {
-        if (appMenuDrawer) appMenuDrawer.classList.remove("open");
-        if (menuDrawerBackdrop) menuDrawerBackdrop.classList.remove("open");
+        const drawerEl = document.getElementById("app-menu-drawer") || appMenuDrawer;
+        const backdropEl = document.getElementById("menu-drawer-backdrop") || menuDrawerBackdrop;
+        if (drawerEl) drawerEl.classList.remove("open");
+        if (backdropEl) backdropEl.classList.remove("open");
         const secConfirm = document.getElementById("settings-section-confirm-row");
         const glbConfirm = document.getElementById("settings-global-confirm-row");
         if (secConfirm) secConfirm.style.display = "none";
         if (glbConfirm) glbConfirm.style.display = "none";
       }
+
+      window.openMenuDrawer = openMenuDrawer;
+      window.closeMenuDrawer = closeMenuDrawer;
+
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          const drawerEl = document.getElementById("app-menu-drawer");
+          if (drawerEl && drawerEl.classList.contains("open")) {
+            closeMenuDrawer();
+          }
+        }
+      });
 
       if (btnHomeMenu) btnHomeMenu.addEventListener("click", openMenuDrawer);
       if (btnFlashcardMenu) btnFlashcardMenu.addEventListener("click", openMenuDrawer);
@@ -16665,7 +17166,7 @@ var tier800DeckCards = initialDeckCards;
           if (isPersonalAccount && currentAccountPhoto) {
             cloudAvatarIcon.innerHTML = `<img src="${currentAccountPhoto}" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;" referrerpolicy="no-referrer" />`;
           } else {
-            cloudAvatarIcon.textContent = "🌐";
+            cloudAvatarIcon.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>`;
           }
         }
         const modalAvatar = document.getElementById("cloud-modal-avatar");
