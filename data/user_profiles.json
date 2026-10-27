@@ -19,10 +19,10 @@
     "updatedAt": "2026-03-01T00:00:00.000Z"
   },
   "73801410b67c7ba66a922cc3105f74f279ec21460127d1f8645136a22bffcee3": {
-    "syncRevision": 2280,
-    "updatedAt": "2026-10-27T16:11:44.631Z",
+    "syncRevision": 2283,
+    "updatedAt": "2026-10-27T16:55:00.865Z",
     "payload": {
-      "syncRevision": 2280,
+      "syncRevision": 2283,
       "isExplicitUserAction": true,
       "learnedCardNums": [
         801,
@@ -621,52 +621,52 @@
       "streak": 3,
       "customShortcuts": {
         "t800_919": {
-          "shortcutEs": "<strong>Cremallera (Kreh-mah-yeh-rah)</strong> → Glides up and down your jacket as smooth as <em>Cream (Crema)</em> = <em>Zipper</em>!",
           "word": "ZIPPER",
           "shortcutHi": "<strong>Chain / Zip</strong> → Pull up your jacket's metal <em>Chain (Zipper)</em> when the cold wind blows!",
-          "tamil": "பல்பூட்டு",
-          "category": "Garment Details",
+          "es": "cierre",
           "hi": "zip",
-          "es": "cierre"
-        },
-        "t800_850": {
-          "hi": "almari",
-          "es": "armario/ropero",
-          "word": "CLOSET",
-          "shortcutHi": "<strong>Almaari</strong> → Traditional heavy Godrej steel <em>Almaari</em> full of neatly folded clothes!",
-          "shortcutEs": "<strong>Armario</strong> → Sounds like <em>Armory</em> / Wardrobe closet where all shirts and outfits are stored!",
-          "category": "Furniture & Storage",
-          "tamil": "ஆடை அலமாரி"
+          "category": "Garment Details",
+          "shortcutEs": "<strong>Cremallera (Kreh-mah-yeh-rah)</strong> → Glides up and down your jacket as smooth as <em>Cream (Crema)</em> = <em>Zipper</em>!",
+          "tamil": "பல்பூட்டு"
         },
         "t800_965": {
+          "category": "Road & Streets",
           "word": "PATH",
+          "hi": "raasta",
           "shortcutEs": "<strong>Camino (Kah-mee-noh)</strong> ≈ Sounds like <strong>\"Come-In-Now\"</strong> → Follow the walking <em>Path (Camino)</em>!",
-          "tamil": "ஒற்றையடிப் பாதை",
           "shortcutHi": "<strong>Raasta (रास्ता)</strong> ≈ <strong>Spoken Tamil ரஸ்தா (Rasthaa - road/path!)</strong> → 100% same word! Spoken Tamil <em>Rasthaa (ரஸ்தா)</em> = Hindi <em>Raasta</em> (Path)!",
           "es": "camino/acera",
-          "hi": "raasta",
-          "category": "Road & Streets"
+          "tamil": "ஒற்றையடிப் பாதை"
+        },
+        "t800_850": {
+          "es": "armario/ropero",
+          "category": "Furniture & Storage",
+          "shortcutHi": "<strong>Almaari</strong> → Traditional heavy Godrej steel <em>Almaari</em> full of neatly folded clothes!",
+          "hi": "almari",
+          "tamil": "ஆடை அலமாரி",
+          "shortcutEs": "<strong>Armario</strong> → Sounds like <em>Armory</em> / Wardrobe closet where all shirts and outfits are stored!",
+          "word": "CLOSET"
         }
       },
       "customDecks": {},
       "customSections": [],
       "audioPrefs": {
-        "transcribeSilenceDelay": 1500,
         "bgmMode": "lofi",
-        "sfxVolume": 1,
+        "voiceRate": 0.8,
+        "voicePitch": 1,
         "sfxStyle": "mute",
+        "autoPronounceFlip": false,
         "autoPronounceNext": false,
         "transcribeContinuous": true,
-        "autoPronounceFlip": false,
-        "repeatCount": 1,
-        "voiceRate": 0.8,
         "repeatDelay": 1000,
         "bgmEnabled": true,
+        "repeatCount": 1,
         "bgmVolume": 1,
-        "voiceVolume": 1,
-        "voicePitch": 1
+        "transcribeSilenceDelay": 1500,
+        "sfxVolume": 1,
+        "voiceVolume": 1
       },
-      "updatedAt": "2026-10-27T16:11:44.631Z"
+      "updatedAt": "2026-10-27T16:55:00.865Z"
     }
   }
 }

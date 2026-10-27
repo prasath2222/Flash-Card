@@ -1,0 +1,1813 @@
+﻿1601. 💵 SALARY = salario / salary
+
+
+EN: Employees receive their direct monthly salary deposit on the final workday.
+ES: Los empleados reciben su salario mensual en el último día laboral.
+HI: Karmachaariyon ko mahine ke aakhri din salary milti hai.
+
+
+1602. 💰 WAGE = salario / dehaadi
+
+
+EN: Factory workers negotiated a higher hourly wage with company management.
+ES: Los trabajadores de la fábrica negociaron un salario por hora más alto.
+HI: Mazdooron ne ghante ki dehaadi badhaane par baat ki.
+
+
+1603. 📈 INCOME = ingresos / aamdani
+
+
+EN: Calculate your annual taxable income carefully before filing tax forms.
+ES: Calcula cuidadosamente tus ingresos anuales imponibles.
+HI: Tax bharne se pehle apni saalaana aamdani calculate kar lo.
+
+
+1604. 💳 EARNINGS = ganancias / kamai
+
+
+EN: The company reported record commercial earnings for the third financial
+quarter.
+ES: La empresa reportó ganancias récord para el tercer trimestre.
+HI: Company ne teesri tihaai mein record kamai darj ki.
+
+
+1605. 🎁 BONUS = bono / bonus
+
+
+EN: Hardworking sales representatives received a generous end-of-year bonus.
+ES: Los representantes de ventas recibieron un generoso bono de fin de año.
+HI: Sales team ko saal ke aakhir mein achha bonus mila.
+
+
+1606. 💼 COMMISSION = comisión / commission
+
+
+EN: Real estate agents earn a percentage commission on every house they sell.
+ES: Los agentes inmobiliarios ganan una comisión por cada casa que venden.
+HI: Property agents ko har makaan bechne par commission milta hai.
+
+
+1607. ⬆️ PROMOTION = ascenso / promotion
+
+
+EN: Her exceptional leadership skills earned her a promotion to senior manager.
+ES: Sus habilidades de liderazgo le valieron un ascenso a gerente sénior.
+HI: Uski achhi leadership ki wajah se use manager pad par promotion mila.
+
+
+1608. ⬇️ DEMOTION = descenso de categoría / demotion
+
+
+EN: Repeated workplace negligence resulted in his demotion to junior assistant.
+ES: La negligencia laboral reiterada provocó su descenso de categoría.
+HI: Laparwahi ki wajah se uska demotion kar diya gaya.
+
+
+1609. 📝 RESIGNATION = renuncia / isteefa
+
+
+EN: He handed his formal written letter of resignation to the company boss.
+ES: Entregó su carta formal de renuncia a su jefe.
+HI: Usne boss ko apna isteefa saupa.
+
+
+1610. 🚪 DISMISSAL = despido / naukri se nikaalna
+
+
+EN: Breaking safety regulations repeatedly led to immediate employee dismissal.
+ES: Infringir las normas de seguridad provocó el despido inmediato del empleado.
+HI: Niyam todne par karmachaari ko turant naukri se nikaal diya gaya.
+
+
+1611. 🏖️ RETIREMENT = jubilación / retirement
+
+
+EN: After forty years of service, he is enjoying a peaceful countryside
+retirement.
+ES: Después de cuarenta años de servicio, disfruta de una tranquila jubilación.
+HI: Chaalees saal kaam karne ke baad woh retirement enjoy kar rahe hain.
+
+
+1612. 🏦 PENSION = pensión / pension
+
+
+EN: Retired government workers receive a reliable monthly state pension deposit.
+ES: Los trabajadores jubilados reciben una pensión mensual estatal.
+HI: Retired logon ko har mahine sarkari pension milti hai.
+
+
+1613. 📜 CONTRACT = contrato / contract
+
+
+EN: Read every clause carefully before signing the official employment contract.
+ES: Lee cada cláusula atentamente antes de firmar el contrato de trabajo.
+HI: Job contract sign karne se pehle har shart dhyaan se padho.
+
+
+1614. 📋 STIPULATION = estipulación / shart
+
+
+EN: The contract contains a strict stipulation regarding employee
+confidentiality.
+ES: El contrato contiene una estipulación estricta sobre confidencialidad.
+HI: Contract mein gopaniyata ko lekar ek sakht shart hai.
+
+
+1615. ✅ TASK = tarea / kaam
+
+
+EN: Finish your assigned daily work tasks before leaving the office today.
+ES: Termina tus tareas de trabajo asignadas antes de salir de la oficina.
+HI: Office chhodne se pehle apne saare kaam poore kar lo.
+
+
+1616. 🫡 DUTY = deber / farz
+
+
+EN: It is the duty of every citizen to follow basic traffic laws.
+ES: Es el deber de cada ciudadano seguir las leyes de tráfico.
+HI: Traffic niyam ka paalan karna har naagrik ka farz hai.
+
+
+1617. 🤝 OBLIGATION = obligación / zimmedaari
+
+
+EN: We have a legal and moral obligation to protect children's safety.
+ES: Tenemos la obligación legal y moral de proteger la seguridad de los niños.
+HI: Bachhon ki suraksha hamari kanooni aur naitik zimmedaari hai.
+
+
+1618. 📁 PROJECT = proyecto / project
+
+
+EN: Our software engineering team started working on a new mobile app project.
+ES: Nuestro equipo de software comenzó a trabajar en un nuevo proyecto.
+HI: Hamari software team ne ek naye app project par kaam shuru kiya.
+
+
+1619. ⏰ DEADLINE = fecha límite / deadline
+
+
+EN: We must submit the finalized research proposal before Friday's deadline.
+ES: Debemos entregar la propuesta antes de la fecha límite del viernes.
+HI: Humein shukravaar ki deadline se pehle proposal jama karna hoga.
+
+
+1620. 📅 SCHEDULE = horario / schedule
+
+
+EN: Check the updated train schedule before booking your travel tickets.
+ES: Consulta el horario de trenes actualizado antes de reservar boletos.
+HI: Ticket book karne se pehle train ka naya schedule check kar lo.
+
+
+1621. 👥 SESSION = sesión / session
+
+
+EN: The morning training session begins promptly at nine in room four.
+ES: La sesión de capacitación matutina comienza a las nueve en la sala cuatro.
+HI: Subah ka training session nau baje shuru hoga.
+
+
+1622. 📅 APPOINTMENT = cita / appointment
+
+
+EN: I scheduled a dental checkup appointment for next Tuesday afternoon.
+ES: Programé una cita para una revisión dental el próximo martes por la tarde.
+HI: Maine mangalvaar ke liye dentist ki appointment li hai.
+
+
+1623. SHIFT
+
+
+⏰ 1. SHIFT — scheduled work period = turno / shift
+
+
+EN: Nurses work twelve-hour hospital shifts caring for emergency patients.
+ES: Las enfermeras trabajan turnos de doce horas cuidando a pacientes.
+HI: Nurses aspatal mein baarah ghante ki shift karti hain.
+
+
+🔄 2. SHIFT — move / change position = mover / badalna
+
+
+EN: Help me shift this heavy desk to the other corner of the room.
+ES: Ayúdame a mover este escritorio pesado al otro rincón.
+HI: Is bhaari desk ko kamre ke doosre kone mein shift karne mein madad karo.
+
+
+1624. ⏰ OVERTIME = horas extras / overtime
+
+
+EN: He worked five hours of overtime this weekend to meet the project deadline.
+ES: Trabajó cinco horas extras este fin de semana para cumplir la fecha límite.
+HI: Deadline poori karne ke liye usne paanch ghante overtime kiya.
+
+
+1625. 🏖️ LEAVE = permiso / chhutti
+
+
+EN: She applied for two weeks of annual paid leave to travel abroad.
+ES: Solicitó dos semanas de permiso anual remunerado para viajar.
+HI: Usne videsh ghoomne ke liye do hafte ki chhutti apply ki.
+
+
+1626. 🏖️ VACATION = vacaciones / chhuttiyan
+
+
+EN: Our family took a wonderful two-week summer beach vacation together.
+ES: Nuestra familia se tomó unas maravillosas vacaciones de verano en la playa.
+HI: Hamare parivaar ne beach par do hafte ki chhuttiyan bitayin.
+
+
+1627. 🎉 HOLIDAY = día festivo / tyohaar ki chhutti
+
+
+EN: The national library remains closed on every official government holiday.
+ES: La biblioteca nacional permanece cerrada en todos los días festivos.
+HI: Sarkari chhutti ke din library band rehti hai.
+
+
+1628. 📚 WORKLOAD = carga de trabajo / kaam ka bojh
+
+
+EN: Sharing tasks evenly among coworkers helps reduce heavy individual workload.
+ES: Compartir tareas equitativamente ayuda a reducir la carga de trabajo.
+HI: Kaam baantne se kaam ka bojh kam ho jaata hai.
+
+
+1629. 👥 STAFF = personal / staff
+
+
+EN: Friendly hotel staff assist guests with luggage and room check-in.
+ES: El amable personal del hotel ayuda a los huéspedes con el equipaje.
+HI: Hotel ka staff mehmaano ki madad karta hai.
+
+
+1630. 🤝 COLLEAGUE = colega / saathi
+
+
+EN: I had lunch with my new work colleague at the cafeteria today.
+ES: Almorcé con mi nuevo colega de trabajo en la cafetería hoy.
+HI: Maine aaj canteen mein apne naye saathi ke saath lunch kiya.
+
+
+Category 59: Business, Commerce, Trade & Retail Operations (1631–1665)
+
+
+1631. 🏢 BUSINESS = negocio / business
+
+
+EN: Starting a small family business requires careful planning and capital.
+ES: Iniciar un pequeño negocio familiar requiere una planificación cuidadosa.
+HI: Ek chhota business shuru karne ke liye plan aur paise chahiye.
+
+
+1632. 🏢 COMPANY = empresa / company
+
+
+EN: The software company develops educational mobile applications for children.
+ES: La empresa de software desarrolla aplicaciones educativas para niños.
+HI: Software company bachhon ke liye educational apps banati hai.
+
+
+1633. FIRM
+
+
+🏢 1. FIRM — business partnership = firma / company
+
+
+EN: She joined a prominent corporate law firm in the capital city.
+ES: Se unió a una destacada firma de abogados en la capital.
+HI: Usne rajdhani mein ek law company join ki.
+
+
+🪨 2. FIRM — solid / unyielding = firme / mazboot
+
+
+EN: Sleep on a firm mattress to give proper support to your back.
+ES: Duerme en un colchón firme para dar soporte adecuado a tu espalda.
+HI: Peeth ko support dene ke liye ek mazboot gadde par soyein.
+
+
+1634. 🚀 ENTERPRISE = empresa / udyog
+
+
+EN: Modern tech enterprises invest heavily in research and artificial
+intelligence.
+ES: Las empresas de tecnología invierten fuertemente en investigación.
+HI: Tech udyog research aur AI mein bada nivesh karte hain.
+
+
+1635. 🏢 CORPORATION = corporación / corporation
+
+
+EN: The multinational corporation operates manufacturing factories in twelve
+countries.
+ES: La corporación multinacional opera fábricas en doce países.
+HI: Multinational corporation ke baarah deshon mein factories hain.
+
+
+1636. 🏭 INDUSTRY = industria / udyog
+
+
+EN: The automobile industry provides thousands of manufacturing jobs locally.
+ES: La industria automotriz proporciona miles de empleos manufactureros.
+HI: Automobile udyog hazaron logon ko rozgaar deta hai.
+
+
+1637. 🚢 TRADE = comercio / vyapaar
+
+
+EN: International trade allows nations to exchange raw materials and finished
+goods.
+ES: El comercio internacional permite a las naciones intercambiar bienes.
+HI: International trade deshon ke beech samaan ke aadaan-pradaan ko aasaan
+banata hai.
+
+
+1638. 💼 COMMERCE = comercio / vanijya
+
+
+EN: Electronic commerce enables consumers to purchase goods easily online.
+ES: El comercio electrónico permite a los consumidores comprar en línea.
+HI: E-commerce se grahak online aasaani se khareedari karte hain.
+
+
+1639. 🏭 FACTORY = fábrica / factory
+
+
+EN: The textile factory produces cotton clothing for domestic markets.
+ES: La fábrica textil produce ropa de algodón para mercados nacionales.
+HI: Textile factory cotton ke kapde banati hai.
+
+
+1640. 🏢 WORKPLACE = lugar de trabajo / kaam ki jagah
+
+
+EN: Maintain a clean, respectful, and safe workplace for all employees.
+ES: Mantén un lugar de trabajo limpio, respetuoso y seguro para todos.
+HI: Sabhi ke liye kaam ki jagah saaf aur surakshit rakhein.
+
+
+1641. 🛒 CUSTOMER = cliente / grahak
+
+
+EN: The shop assistant helped the customer find the correct shoe size.
+ES: El dependiente ayudó al cliente a encontrar la talla de zapato correcta.
+HI: Dukaandar ne grahak ko sahi size ka joota dhoondhne mein madad ki.
+
+
+1642. 💼 CLIENT = cliente / client
+
+
+EN: The lawyer met with her corporate client to review the draft contract.
+ES: La abogada se reunió con su cliente para revisar el borrador del contrato.
+HI: Vakeel ne draft contract check karne ke liye apne client se mulaqat ki.
+
+
+1643. 👥 CONSUMER = consumidor / upbhokta
+
+
+EN: Consumer demand for eco-friendly organic products has grown rapidly.
+ES: La demanda de los consumidores por productos ecológicos ha crecido.
+HI: Eco-friendly products ke liye upbhoktaon ki maang badh gayi hai.
+
+
+1644. 🏪 VENDOR = vendedor / vendor
+
+
+EN: Street food vendors sell delicious hot snacks in the evening market.
+ES: Los vendedores de comida callejera venden deliciosos bocadillos calientes.
+HI: Street food vendors shaam ke bazaar mein snacks bechte hain.
+
+
+1645. 🚚 SUPPLIER = proveedor / supplier
+
+
+EN: Our bakery buys organic whole-wheat flour from a trusted local supplier.
+ES: Nuestra panadería compra harina integral a un proveedor local confiable.
+HI: Hamari bakery local supplier se aata khareedti hai.
+
+
+1646. 🤝 ASSOCIATE = asociado / sahyogi
+
+
+EN: She introduced her senior business associate during the partner meeting.
+ES: Presentó a su socia comercial durante la reunión de socios.
+HI: Usne meeting mein apne business sahyogi ka parichay karwaya.
+
+
+1647. 🤺 COMPETITOR = competidor / pratidwandi
+
+
+EN: Our main retail competitor opened a new supermarket across the street.
+ES: Nuestro principal competidor abrió un nuevo supermercado al otro lado de la
+calle.
+HI: Hamare pratidwandi ne sadak ke us paar naya supermarket khola.
+
+
+1648. 📦 PRODUCT = producto / product
+
+
+EN: Check the expiry date printed on the product label before buying.
+ES: Revisa la fecha de vencimiento impresa en la etiqueta del producto.
+HI: Khareedne se pehle product par expiry date check kar lo.
+
+
+1649. 🛠️ SERVICE = servicio / service
+
+
+EN: Excellent customer service builds lasting loyalty among shoppers.
+ES: Un excelente servicio al cliente genera lealtad entre los compradores.
+HI: Achhi customer service grahakon ka bharosa jeetti hai.
+
+
+1650. 🏷️ BRAND = marca / brand
+
+
+EN: That famous sportswear brand is known worldwide for durable running shoes.
+ES: Esa famosa marca deportiva es conocida por sus zapatillas duraderas.
+HI: Woh brand mazboot jooton ke liye duniya bhar mein mashhoor hai.
+
+
+1651. 💰 PRICE = precio / daam
+
+
+EN: Compare the price of fresh fruits before making your purchase.
+ES: Compara el precio de las frutas frescas antes de comprar.
+HI: Khareedari karne se pehle taaza phalon ke daam check kar lo.
+
+
+1652. 💸 COST = costo / laagat
+
+
+EN: The total cost of building the new bridge was fifty million dollars.
+ES: El costo total de construir el nuevo puente fue de cincuenta millones.
+HI: Naya pul banane ki kul laagat das laakh dollar thi.
+
+
+1653. 💳 FEE = tarifa / fees
+
+
+EN: Visitors must pay a small entrance fee at the historical museum gate.
+ES: Los visitantes deben pagar una pequeña tarifa de entrada al museo.
+HI: Museum mein entry ke liye ek chhoti fees deni hoti hai.
+
+
+1654. CHARGE
+
+
+💳 1. CHARGE — price asked for service = cobrar / charge karna
+
+
+EN: The repair shop will charge twenty dollars to fix the flat tire.
+ES: El taller cobrará veinte dólares por reparar el neumático pinchado.
+HI: Tyre theek karne ke liye repair shop bees dollar charge karegi.
+
+
+⚡ 2. CHARGE — supply electrical energy = cargar / charge karna
+
+
+EN: Plug in your phone to charge the depleted battery overnight.
+ES: Conecta tu teléfono para cargar la batería durante la noche.
+HI: Raat ko battery charge karne ke liye phone plug karo.
+
+
+1655. BILL
+
+
+🧾 1. BILL — invoice for payment = factura / bill
+
+
+EN: Pay your monthly electricity and water bill before the due date.
+ES: Paga tu factura mensual de luz y agua antes de la fecha de vencimiento.
+HI: Bijli aur paani ka bill aakhri taareekh se pehle bhar do.
+
+
+📜 2. BILL — proposed legislative draft = proyecto de ley / vidheyak
+
+
+EN: Parliament debated the new healthcare reform bill this morning.
+ES: El parlamento debatió el nuevo proyecto de ley de salud esta mañana.
+HI: Sansad ne naye vidheyak par charcha ki.
+
+
+1656. 🧾 INVOICE = factura / invoice
+
+
+EN: The supplier sent an itemized invoice for the delivered office supplies.
+ES: El proveedor envió una factura detallada de los suministros de oficina.
+HI: Supplier ne office samaan ka invoice bheja.
+
+
+1657. 🧾 RECEIPT = recibo / raseed
+
+
+EN: Always keep your store purchase receipt in case you need an exchange.
+ES: Guarda siempre el recibo de compra por si necesitas un cambio.
+HI: Samaan badalne ki zaroorat padne par raseed sambhaal kar rakhein.
+
+
+1658. 🏷️ DISCOUNT = descuento / discount
+
+
+EN: The store offered a twenty percent discount on all winter jackets today.
+ES: La tienda ofreció un veinte por ciento de descuento en chaquetas.
+HI: Dukaan ne winter jackets par bees percent discount diya.
+
+
+1659. 💵 REFUND = reembolso / refund
+
+
+EN: She received a full refund after returning the defective electrical heater.
+ES: Recibió un reembolso completo tras devolver el calentador defectuoso.
+HI: Kharaab heater lautaane par use poora refund mila.
+
+
+1660. 🔄 EXCHANGE = cambio / exchange
+
+
+EN: You can exchange this shirt for a larger size within thirty days.
+ES: Puedes cambiar esta camisa por una talla más grande en treinta días.
+HI: Tees dino ke andar aap is shirt ko bade size se exchange kar sakte hain.
+
+
+1661. 🛍️ SALE = venta / sale
+
+
+EN: The end-of-season clearance sale attracted hundreds of bargain shoppers.
+ES: La venta de liquidación de fin de temporada atrajo a cientos de compradores.
+HI: Season clearance sale ne saikadon grahakon ko aakarshit kiya.
+
+
+1662. 🤝 DEAL = trato / deal
+
+
+EN: We shook hands after closing a successful real estate deal.
+ES: Nos dimos la mano después de cerrar un trato inmobiliario exitoso.
+HI: Property deal final karne ke baad humne haath milaya.
+
+
+1663. 🏷️ BARGAIN = ganga / sasta sauda
+
+
+EN: Buying fresh vegetables directly from local farmers is a wonderful bargain.
+ES: Comprar verduras frescas a agricultores locales es una gran ganga.
+HI: Kisaano se seedha sabzi khareedna ek sasta sauda hai.
+
+
+1664. 💵 REBATE = rebaja / rebate
+
+
+EN: The government offers a tax rebate for homeowners who install solar panels.
+ES: El gobierno ofrece una rebaja fiscal a quienes instalan paneles solares.
+HI: Solar panel lagane par sarkaar tax rebate deti hai.
+
+
+1665. 🎟️ COUPON = cupón / coupon
+
+
+EN: Use this grocery discount coupon to save five dollars on your order.
+ES: Usa este cupón de descuento para ahorrar cinco dólares en tu pedido.
+HI: Paanch dollar bachane ke liye discount coupon ka istemaal karein.
+
+
+Category 60: Money, Banking Transactions & Personal Wealth (1,666–1,700)
+
+
+1666. 💵 CASH = efectivo / cash
+
+
+EN: Do you prefer paying with physical cash or by credit card?
+ES: ¿Prefieres pagar en efectivo o con tarjeta de crédito?
+HI: Aap cash mein payment karna pasand karenge ya card se?
+
+
+1667. 🪙 COIN = moneda / sikka
+
+
+EN: Drop a gold coin into the vending machine to buy cold soda.
+ES: Introduce una moneda en la máquina para comprar un refresco frío.
+HI: Machine mein sikka daalkar thanda soda khareedo.
+
+
+1668. 💵 BANKNOTE = billete / note
+
+
+EN: The cashier checked the fifty-dollar banknote to verify that it was real.
+ES: El cajero revisó el billete de cincuenta dólares para verificar su
+autenticidad.
+HI: Cashier ne note ko check kiya ki woh asli hai ya nahi.
+
+
+1669. 💱 CURRENCY = moneda / currency
+
+
+EN: Exchange your local currency for foreign euros before traveling abroad.
+ES: Cambia tu moneda local por euros antes de viajar al extranjero.
+HI: Videsh jaane se pehle apni currency ko exchange kar lo.
+
+
+1670. 💰 MONEY = dinero / paisa
+
+
+EN: Save a portion of your earned money in a secure bank account.
+ES: Guarda una parte de tu dinero ganado en una cuenta bancaria segura.
+HI: Apni kamai ka ek hissa bank account mein bachao.
+
+
+1671. 💎 WEALTH = riqueza / daulat
+
+
+EN: True wealth lies in good health, family happiness, and peace of mind.
+ES: La verdadera riqueza reside en la buena salud y la paz mental.
+HI: Asli daulat achhi sehat aur sukoon mein hai.
+
+
+1672. 🏚️ POVERTY = pobreza / gareebi
+
+
+EN: Access to quality education helps lift communities out of extreme poverty.
+ES: El acceso a una educación de calidad ayuda a superar la pobreza extrema.
+HI: Achhi shiksha gareebi door karne mein madad karti hai.
+
+
+1673. 💼 FUND = fondo / fund
+
+
+EN: Community leaders established a charity fund to support needy neighborhood
+students.
+ES: Líderes comunitarios crearon un fondo benéfico para estudiantes.
+HI: Zarooratmand chhaatron ki madad ke liye ek fund banaya gaya.
+
+
+1674. 🏢 CAPITAL = capital / poonji
+
+
+EN: Starting a manufacturing business requires substantial upfront investment
+capital.
+ES: Iniciar un negocio de manufactura requiere un capital de inversión
+considerable.
+HI: Manufacturing business shuru karne ke liye badi poonji chahiye.
+
+
+1675. 📊 BUDGET = presupuesto / budget
+
+
+EN: Create a sensible monthly household budget to track grocery expenses.
+ES: Crea un presupuesto mensual sensato para controlar los gastos.
+HI: Kharchon par nazar rakhne ke liye ek monthly budget banao.
+
+
+1676. 🏛️ TAX = impuesto / tax
+
+
+EN: Citizens pay income tax to fund public schools, hospitals, and highways.
+ES: Los ciudadanos pagan impuestos para financiar escuelas y hospitales.
+HI: Naagrik school aur aspatal ke vikas ke liye tax dete hain.
+
+
+1677. 📈 REVENUE = ingresos / revenue
+
+
+EN: Strong seasonal tourism brought substantial tax revenue to the coastal town.
+ES: El turismo aportó importantes ingresos fiscales a la ciudad costera.
+HI: Tourism se shahar ko achha revenue mila.
+
+
+1678. 💸 EXPENSE = gasto / kharcha
+
+
+EN: Medical bills were their single largest unexpected expense this month.
+ES: Las facturas médicas fueron su mayor gasto inesperado este mes.
+HI: Aspatal ka bill is mahine ka sabse bada kharcha tha.
+
+
+1679. 💳 EXPENDITURE = gasto / kharch
+
+
+EN: Government expenditure on infrastructure created thousands of new jobs.
+ES: El gasto público en infraestructura creó miles de nuevos empleos.
+HI: Infrastructure par sarkari kharch se naye rozgaar bane.
+
+
+1680. 📅 INSTALLMENT = cuota / kisht
+
+
+EN: Pay your monthly car loan installment on the first day of every month.
+ES: Paga la cuota mensual de tu préstamo de auto el primer día del mes.
+HI: Har mahine ki pehli taareekh ko car loan ki kisht chukao.
+
+
+1681. 🏦 DEPOSIT = depositar / jama karna
+
+
+EN: Deposit your cash earnings directly into your savings bank account.
+ES: Deposita tus ganancias en efectivo en tu cuenta de ahorros.
+HI: Apne cash ko savings account mein jama karo.
+
+
+1682. 🏧 WITHDRAWAL = retiro / nikaasi
+
+
+EN: Make a cash withdrawal from the automated teller machine around the corner.
+ES: Haz un retiro de efectivo en el cajero automático de la esquina.
+HI: ATM se cash nikaasi kar lo.
+
+
+1683. 📲 TRANSFER = transferencia / transfer
+
+
+EN: Transfer money securely between your two personal bank accounts online.
+ES: Transfiere dinero de forma segura entre tus cuentas bancarias en línea.
+HI: Online tareeqe se ek account se doosre account mein paise transfer karo.
+
+
+1684. BALANCE
+
+
+🏦 1. BALANCE — remaining account funds = saldo / balance
+
+
+EN: Check your bank account balance on the mobile banking app regularly.
+ES: Revisa el saldo de tu cuenta bancaria en la aplicación móvil con
+regularidad.
+HI: Mobile app par apna bank balance check karte raho.
+
+
+⚖️ 2. BALANCE — physical stability = equilibrio / santulan
+
+
+EN: Keep your body balance while walking across the narrow wooden bridge.
+ES: Mantén el equilibrio mientras cruzas el estrecho puente de madera.
+HI: Patle lakdi ke pul par chalte waqt shareer ka santulan banaye rakho.
+
+
+1685. 📋 ACCOUNT = cuenta / khaata
+
+
+EN: Open a high-interest savings account to grow your money safely.
+ES: Abre una cuenta de ahorros para hacer crecer tu dinero de forma segura.
+HI: Paise ki bachat ke liye ek savings khaata kholo.
+
+
+1686. 💳 CREDIT = crédito / credit
+
+
+EN: Maintain a high credit score by paying off monthly credit card bills on
+time.
+ES: Mantén un buen puntaje de crédito pagando tus tarjetas a tiempo.
+HI: Credit score achha rakhne ke liye credit card ka bill waqt par bharo.
+
+
+1687. 💳 DEBIT = débito / debit
+
+
+EN: Money is deducted immediately from your checking account when using a debit
+card.
+ES: El dinero se descuenta inmediatamente de tu cuenta al usar tarjeta de
+débito.
+HI: Debit card se payment karne par paise account se turant kat jaate hain.
+
+
+1688. 📉 DEBT = deuda / karz
+
+
+EN: Work diligently to pay off all high-interest credit card debt quickly.
+ES: Trabaja con empeño para pagar rápidamente las deudas de tarjetas.
+HI: Credit card ka karz jaldi chukane ki koshish karo.
+
+
+1689. 🏦 LOAN = préstamo / loan
+
+
+EN: They secured a thirty-year housing loan to purchase their family home.
+ES: Obtuvieron un préstamo hipotecario para comprar su casa familiar.
+HI: Unhone ghar khareedne ke liye loan liya.
+
+
+1690. 📈 PROFIT = beneficio / munaafa
+
+
+EN: The small retail business earned a healthy profit during the holiday
+quarter.
+ES: El pequeño negocio obtuvo un buen beneficio durante el trimestre festivo.
+HI: Tyohaaron ke dauran business ne achha munaafa kamaya.
+
+
+1691. ⚠️ OVERDRAFT = sobregiro / overdraft
+
+
+EN: An expensive bank overdraft fee applies if your checking balance drops below
+zero.
+ES: Se aplica un cargo por sobregiro si tu saldo cae por debajo de cero.
+HI: Balance zero se kam hone par overdraft fee lagti hai.
+
+
+1692. 🐖 SAVINGS = ahorros / bachat
+
+
+EN: Keep three months of living expenses safely in an emergency savings fund.
+ES: Guarda tres meses de gastos de manutención en tus ahorros de emergencia.
+HI: Emergency bachat ke roop mein teen mahine ka kharcha alag rakhein.
+
+
+1693. 📉 BANKRUPTCY = bancarrota / diwaliyapan
+
+
+EN: Heavy commercial debts forced the struggling retail company into formal
+bankruptcy.
+ES: Las cuantiosas deudas llevaron a la empresa a la bancarrota formal.
+HI: Bhaari karz ki wajah se company diwalia ho gayi.
+
+
+1694. 🔍 AUDIT = auditoría / audit
+
+
+EN: Independent certified accountants conducted an annual financial audit of the
+firm.
+ES: Contadores independientes realizaron una auditoría financiera de la empresa.
+HI: Independent accountants ne company ka annual audit kiya.
+
+
+1695. 💳 TRANSACTION = transacción / transaction
+
+
+EN: Keep the printed receipt for every retail transaction made at the checkout
+counter.
+ES: Guarda el recibo de cada transacción realizada en la caja.
+HI: Har transaction ki raseed sambhaal kar rakhein.
+
+
+1696. 🎁 DONATION = donación / daan
+
+
+EN: Make a generous financial donation to the local homeless shelter this
+winter.
+ES: Haz una generosa donación al refugio local para personas sin hogar.
+HI: Beghar logon ke shelter ke liye daan dein.
+
+
+1697. 🤝 CHARITY = caridad / charity
+
+
+EN: The non-profit charity provides free warm meals to families in need.
+ES: La organización benéfica ofrece comidas calientes a familias necesitadas.
+HI: Charity sanstha zarooratmand parivaaron ko muft khaana deti hai.
+
+
+1698. 💎 FORTUNE = fortuna / kismat-daulat
+
+
+EN: He made an immense personal fortune through early investments in technology.
+ES: Hizo una inmensa fortuna personal invirtiendo en tecnología.
+HI: Technology mein nivesh karke usne badi daulat kamayi.
+
+
+1699. FINE
+
+
+💸 1. FINE — monetary penalty = multa / jurmana
+
+
+EN: Pay the parking fine online before the statutory fourteen-day deadline.
+ES: Paga la multa de estacionamiento en línea antes de la fecha límite.
+HI: Parking jurmana choudah din ke andar online bhar do.
+
+
+👍 2. FINE — satisfactory / well = bien / theek
+
+
+EN: I feel completely fine and energetic after drinking a fresh fruit smoothie.
+ES: Me siento completamente bien y con energía después del batido.
+HI: Fruit smoothie peene ke baad main bilkul theek mehsoos kar raha hoon.
+
+
+1700. ⚠️ PENALTY = penalización / jurmana
+
+
+EN: Late payment of municipal utility bills results in a five percent financial
+penalty.
+ES: El pago tardío de los servicios públicos conlleva una penalización del cinco
+por ciento.
+HI: Utility bill der se bharne par paanch percent jurmana lagta hai.
+
+
+Category 61: Macroeconomics, Investment & Market Concepts (1701–1730)
+
+
+1701. 🌐 ECONOMY = economía / arthavyavastha
+
+
+EN: Strong job growth and consumer spending keep the national economy healthy.
+ES: El crecimiento del empleo mantiene saludable la economía nacional.
+HI: Naye rozgaar se desh ki arthavyavastha mazboot hoti hai.
+
+
+1702. 💳 FINANCIAL = financiero / vittiya
+
+
+EN: Seek professional financial advice before investing in commercial property.
+ES: Busca asesoramiento financiero profesional antes de invertir en propiedades.
+HI: Property mein nivesh karne se pehle vittiya salaah lein.
+
+
+1703. 🏠 ASSET = activo / sampatti
+
+
+EN: Real estate and government bonds are considered valuable long-term assets.
+ES: Los bienes raíces y los bonos se consideran activos valiosos a largo plazo.
+HI: Real estate aur bonds ko achhi sampatti maana jaata hai.
+
+
+1704. 📉 LIABILITY = pasivo / dayitva
+
+
+EN: Unpaid credit card balances and bank loans represent significant financial
+liabilities.
+ES: Los préstamos bancarios representan pasivos financieros significativos.
+HI: Bank loan aur udhaar badi vittiya liabilities hain.
+
+
+1705. INTEREST
+
+
+📈 1. INTEREST — financial charge rate = interés / byaaj
+
+
+EN: The bank charges five percent annual interest on personal car loans.
+ES: El banco cobra un interés anual del cinco por ciento en préstamos.
+HI: Bank car loan par paanch percent saalaana byaaj leta hai.
+
+
+🎨 2. INTEREST — curiosity / hobby = interés / ruchi
+
+
+EN: She showed a deep childhood interest in painting and classical music.
+ES: Mostró un profundo interés por la pintura y la música clásica.
+HI: Uski sangeet aur painting mein gehri ruchi thi.
+
+
+1706. 📊 RATE = tasa / dar
+
+
+EN: The central bank decided to lower the baseline lending interest rate today.
+ES: El banco central decidió bajar la tasa de interés de referencia hoy.
+HI: Central bank ne byaaj dar kam karne ka faisla kiya.
+
+
+1707. STOCK
+
+
+📈 1. STOCK — company shares = acciones / share
+
+
+EN: Investors buy technology company stocks on the international exchange.
+ES: Los inversores compran acciones de empresas de tecnología.
+HI: Niveshak market se company ke shares khareedte hain.
+
+
+📦 2. STOCK — merchandise inventory = existencias / stock
+
+
+EN: The store maintains a large stock of warm winter coats in warehouse storage.
+ES: La tienda mantiene un gran inventario de abrigos de invierno.
+HI: Store mein winter coats ka bada stock hai.
+
+
+1708. 📈 EQUITY = capital contable / equity
+
+
+EN: Homeowners build valuable home equity as they pay down their mortgages.
+ES: Los propietarios acumulan capital a medida que pagan sus hipotecas.
+HI: Mortgage chukane se ghar ki equity badhti hai.
+
+
+1709. BOND
+
+
+📜 1. BOND — fixed-income security = bono / bond
+
+
+EN: Conservative investors buy ten-year government bonds for steady returns.
+ES: Los inversores compran bonos del gobierno a diez años para obtener
+rendimientos.
+HI: Niveshak steady return ke liye sarkari bonds khareedte hain.
+
+
+🤝 2. BOND — emotional connection = vínculo / rishta
+
+
+EN: A shared struggle created a strong emotional bond among team members.
+ES: Una lucha compartida creó un fuerte vínculo entre los miembros del equipo.
+HI: Saath kaam karne se team ke beech ek mazboot rishta bana.
+
+
+1710. 💼 INVESTMENT = inversión / nivesh
+
+
+EN: Buying high-quality education and skills training is the best personal
+investment.
+ES: Adquirir una educación de calidad es la mejor inversión personal.
+HI: Shiksha par kharch karna sabse behtar nivesh hai.
+
+
+1711. 🚀 VENTURE = empresa arriesgada / venture
+
+
+EN: The business partners launched a bold new software venture this spring.
+ES: Los socios comerciales lanzaron una nueva empresa de software esta
+primavera.
+HI: Business partners ne ek naya software venture shuru kiya.
+
+
+1712. ⚠️ RISK = riesgo / jokhim
+
+
+EN: Every financial investment carries some degree of market risk.
+ES: Toda inversión financiera conlleva cierto grado de riesgo de mercado.
+HI: Har vittiya nivesh mein market ka jokhim hota hai.
+
+
+1713. 🛡️ INSURANCE = seguro / bima
+
+
+EN: Buy comprehensive vehicle insurance to protect against accidental damage.
+ES: Compra un seguro de vehículo completo para protegerte de accidentes.
+HI: Gaadi ke bachaav ke liye bima karwao.
+
+
+1714. 🏠 MORTGAGE = hipoteca / home loan
+
+
+EN: They make regular monthly mortgage payments on their family home.
+ES: Hacen pagos mensuales regulares de la hipoteca de su casa familiar.
+HI: Woh har mahine home loan ki kisht bharte hain.
+
+
+1715. 📈 INFLATION = inflación / mehengaai
+
+
+EN: Rising food and energy prices contributed to higher annual inflation rates.
+ES: El aumento de precios contribuyó a tasas de inflación más altas.
+HI: Khaane aur tel ke daam badhne se mehengaai badh gayi.
+
+
+1716. 📉 RECESSION = recesión / mandi
+
+
+EN: Central banks reduce interest rates to stimulate business during economic
+recessions.
+ES: Los bancos centrales bajan las tasas para estimular negocios en recesión.
+HI: Mandi ke dauran bank byaaj darein kam karte hain.
+
+
+1717. 📉 DOWNTURN = desaceleración / g गिरावट
+
+
+EN: The factory reduced manufacturing output during the seasonal market
+downturn.
+ES: La fábrica redujo la producción durante la desaceleración del mercado.
+HI: Market mein giraavat ke dauran factory ne production kam kiya.
+
+
+1718. 💵 DIVIDEND = dividendo / dividend
+
+
+EN: The profitable multinational company pays a regular quarterly cash dividend
+to shareholders.
+ES: La empresa paga un dividendo en efectivo trimestral a los accionistas.
+HI: Company apne shareholders ko quarterly dividend deti hai.
+
+
+1719. 🌾 YIELD = rendimiento / paidawaar
+
+
+EN: Modern agricultural methods produced a record grain crop yield this year.
+ES: Los métodos agrícolas modernos produjeron un rendimiento récord de cosechas.
+HI: Naye tareeqon se is saal anaaj ki paidawaar badhi.
+
+
+1720. 📈 SURPLUS = superávit / bachat
+
+
+EN: Strong tax revenues resulted in a significant government budget surplus.
+ES: Fuertes ingresos fiscales resultaron en un superávit presupuestario.
+HI: Achhe tax collection se budget mein bachat hui.
+
+
+1721. 📉 DEFICIT = déficit / ghaata
+
+
+EN: The national trade deficit widened due to increased imports of energy.
+ES: El déficit comercial nacional aumentó debido al incremento de importaciones.
+HI: Import badhne se trade ghaata badh gaya.
+
+
+1722. 📊 VALUATION = valoración / valuation
+
+
+EN: Independent financial analysts calculated a high market valuation for the
+tech startup.
+ES: Analistas financieros calcularon una alta valoración para la startup.
+HI: Analysts ne startup ki achhi valuation nikaali.
+
+
+1723. 🏛️ SUBSIDY = subsidio / subsidy
+
+
+EN: The government provides an agricultural subsidy to help local dairy farmers.
+ES: El gobierno proporciona un subsidio agrícola para ayudar a los granjeros.
+HI: Sarkaar kisaano ki madad ke liye subsidy deti hai.
+
+
+1724. 📦 TARIFF = arancel / tariff
+
+
+EN: The state imposed a ten percent customs tariff on imported steel shipments.
+ES: El estado impuso un arancel aduanero del diez por ciento al acero importado.
+HI: Sarkaar ne import hone wale steel par customs tariff lagaya.
+
+
+1725. 💧 LIQUIDITY = liquidez / liquidity
+
+
+EN: Commercial banks must maintain adequate cash liquidity to satisfy customer
+withdrawals.
+ES: Los bancos comerciales deben mantener liquidez de efectivo adecuada.
+HI: Bankon ko withdrawal ke liye liquidity banaye rakhni hoti hai.
+
+
+1726. 🛢️ COMMODITY = materia prima / commodity
+
+
+EN: Crude oil, gold, and wheat are traded actively as global commodities.
+ES: El petróleo crudo, el oro y el trigo se comercializan como materias primas.
+HI: Tel, sona aur gehoon international commodity market mein trade hote hain.
+
+
+1727. 🏢 MONOPOLY = monopolio / monopoly
+
+
+EN: Antitrust laws prevent any single corporation from establishing a market
+monopoly.
+ES: Las leyes antimonopolio impiden que una corporación establezca un monopolio.
+HI: Kanoon kisi ek company ko market mein monopoly banane se rokta hai.
+
+
+1728. 🤝 CARTEL = cártel / cartel
+
+
+EN: The oil-producing cartel met in Vienna to regulate international production
+quotas.
+ES: El cártel petrolero se reunió para regular las cuotas de producción.
+HI: Tel utpaadak cartel ne production tai karne ke liye meeting ki.
+
+
+1729. 🏛️ FISCAL = fiscal / vittiya
+
+
+EN: The finance minister presented a balanced fiscal policy plan to parliament.
+ES: El ministro de finanzas presentó un plan de política fiscal equilibrado.
+HI: Finance minister ne sansad mein vittiya policy pesh ki.
+
+
+1730. 💵 MONETARY = monetario / maudrik
+
+
+EN: The central bank uses monetary policy to control inflation and interest
+rates.
+ES: El banco central utiliza la política monetaria para controlar la inflación.
+HI: Central bank mehengaai rokne ke liye maudrik policy ka istemaal karta hai.
+
+
+Category 62: Legal Justice, Courtroom Process & Due Procedure (1731–1765)
+
+
+1731. ⚖️ LAW = ley / kanoon
+
+
+EN: Every citizen must respect and obey the established national law.
+ES: Cada ciudadano debe respetar y obedecer la ley nacional establecida.
+HI: Har naagrik ko kanoon ka paalan karna chahiye.
+
+
+1732. 📜 LEGAL = legal / kanooni
+
+
+EN: Ensure that you obtain proper legal advice before signing commercial
+property contracts.
+ES: Asegúrate de obtener asesoramiento legal antes de firmar contratos.
+HI: Property contract sign karne se pehle kanooni salaah lein.
+
+
+1733. 🚫 ILLEGAL = ilegal / gair-kanooni
+
+
+EN: Driving a motor vehicle without a valid driving license is strictly illegal.
+ES: Conducir un vehículo sin una licencia de conducir válida es ilegal.
+HI: Bina license gaadi chalana gair-kanooni hai.
+
+
+1734. 🚫 UNLAWFUL = ilegítimo / gair-kanooni
+
+
+EN: Entering private property without permission is considered unlawful
+trespassing.
+ES: Entrar en propiedad privada sin permiso se considera un allanamiento
+ilegítimo.
+HI: Bina anumati doosre ki property mein jaana gair-kanooni hai.
+
+
+1735. ⚖️ JUSTICE = justicia / nyaay
+
+
+EN: The fair court system exists to ensure justice for all victims.
+ES: El sistema judicial existe para garantizar la justicia para las víctimas.
+HI: Adaalat ka maqsad sabhi ke liye nyaay sunishchit karna hai.
+
+
+1736. ⚖️ INJUSTICE = injusticia / anyaay
+
+
+EN: Peaceful civic protests raised public awareness against social injustice.
+ES: Protestas cívicas pacíficas crearon conciencia contra la injusticia social.
+HI: Shaantipoorna pradarshan ne anyaay ke khilaaf aawaaz uthayi.
+
+
+1737. COURT
+
+
+⚖️ 1. COURT — tribunal of justice = tribunal / adaalat
+
+
+EN: The witness testified under oath in the district court this morning.
+ES: El testigo testificó bajo juramento en el tribunal de distrito esta mañana.
+HI: Gawaah ne subah adaalat mein kasam khaakar gawaahi di.
+
+
+🎾 2. COURT — playing area for sports = cancha / court
+
+
+EN: They reserved a tennis court for two hours on Saturday afternoon.
+ES: Reservaron una cancha de tenis por dos horas el sábado por la tarde.
+HI: Unhone shanivaar ke liye tennis court book kiya.
+
+
+1738. 🏛️ COURTROOM = sala de audiencias / adaalat ka kamra
+
+
+EN: Spectators sat quietly on wooden benches inside the solemn courtroom.
+ES: Los espectadores se sentaron en silencio dentro de la sala de audiencias.
+HI: Darshak adaalat ke kamre mein shaanti se baith gaye.
+
+
+1739. 📜 STATUTE = estatuto / kanoon
+
+
+EN: The newly enacted federal statute protects wildlife habitats from commercial
+development.
+ES: El estatuto recién promulgado protege los hábitats de vida silvestre.
+HI: Naye kanoon ne wildlife ko suraksha di.
+
+
+1740. 📋 CLAUSE = cláusula / shart
+
+
+EN: Review the cancellation clause in the hotel booking contract before
+confirming.
+ES: Revisa la cláusula de cancelación en el contrato de reserva.
+HI: Booking confirm karne se pehle cancellation shart padh lo.
+
+
+1741. 👥 JURY = jurado / jury
+
+
+EN: The twelve members of the jury listened attentively to the evidence.
+ES: Los doce miembros del jurado escucharon atentamente las pruebas.
+HI: Jury ke sadasyon ne sabooton ko dhyaan se suna.
+
+
+1742. 🏛️ TRIBUNAL = tribunal / tribunal
+
+
+EN: An international human rights tribunal investigated the reported violations.
+ES: Un tribunal internacional de derechos humanos investigó las violaciones
+reportadas.
+HI: International tribunal ne violations ki jaanch ki.
+
+
+1743. ⚖️ TRIAL = juicio / trial
+
+
+EN: The criminal murder trial lasted for three weeks in regional court.
+ES: El juicio penal duró tres semanas en el tribunal regional.
+HI: Adaalat mein trial teen hafte tak chala.
+
+
+1744. 📜 VERDICT = veredicto / faisla
+
+
+EN: The jury delivered a unanimous verdict of not guilty this afternoon.
+ES: El jurado emitió un veredicto unánime de no culpable esta tarde.
+HI: Jury ne aropi ko nirdosh karaar dete hue faisla sunaya.
+
+
+1745. SENTENCE
+
+
+⚖️ 1. SENTENCE — judicial punishment ruling = sentencia / saza
+
+
+EN: The judge handed down a five-year prison sentence to the convicted criminal.
+ES: El juez dictó una sentencia de cinco años de prisión al convicto.
+HI: Judge ne aropi ko paanch saal ki jail ki saza sunayi.
+
+
+✍️ 2. SENTENCE — grammatical clause = oración / vaakya
+
+
+EN: Write a complete English sentence with a subject, verb, and object.
+ES: Escribe una oración completa en inglés con sujeto, verbo y objeto.
+HI: Subject aur verb ke saath ek poora vaakya likho.
+
+
+1746. ⚖️ HEARING = audiencia / sunwayi
+
+
+EN: The judge scheduled a formal preliminary hearing for next Thursday morning.
+ES: El juez programó una audiencia preliminar para el próximo jueves.
+HI: Judge ne agle guruvaar ko sunwayi tai ki.
+
+
+1747. ⚖️ LAWSUIT = demanda / mukadma
+
+
+EN: The customer filed a formal lawsuit against the airline for lost luggage.
+ES: El cliente presentó una demanda formal contra la aerolínea por equipaje
+perdido.
+HI: Grahak ne saamaan khone par airline ke khilaaf mukadma kiya.
+
+
+1748. ⚖️ LITIGATION = litigio / mukadmebaazi
+
+
+EN: Commercial litigation between competing technology corporations can drag on
+for years.
+ES: El litigio comercial entre empresas puede prolongarse durante años.
+HI: Companies ke beech mukadmebaazi saalon tak chal sakti hai.
+
+
+1749. 👤 WITNESS = testigo / gawaah
+
+
+EN: An eyewitness gave an accurate description of the speeding vehicle to
+police.
+ES: Un testigo dio una descripción precisa del vehículo a la policía.
+HI: Gawaah ne police ko gaadi ka sahi vivaran diya.
+
+
+1750. 📜 TESTIMONY = testimonio / gawaahi
+
+
+EN: The doctor's expert medical testimony proved crucial during the court trial.
+ES: El testimonio médico del doctor resultó crucial durante el juicio.
+HI: Doctor ki gawaahi adaalat mein behad zaroori saabit hui.
+
+
+1751. 🔍 EVIDENCE = evidencia / saboot
+
+
+EN: Police detectives gathered forensic evidence from the scene of the burglary.
+ES: Los detectives recolectaron evidencia forense en la escena del robo.
+HI: Police ne chori ki jagah se forensic saboot jutaye.
+
+
+1752. 📜 AFFIDAVIT = declaración jurada / halfnama
+
+
+EN: Sign the formal written affidavit before a licensed notary public official.
+ES: Firme la declaración jurada ante un notario público autorizado.
+HI: Notary ke saamne halfname par dastakhat karein.
+
+
+1753. ✋ CONFESSION = confesión / iqraar
+
+
+EN: The suspect signed a written confession admitting his role in the robbery.
+ES: El sospechoso firmó una confesión escrita admitiendo su papel en el robo.
+HI: Aropi ne chori mein shaamil hone ka iqraar karte hue sign kiya.
+
+
+1754. ✋ OATH = juramento / kasam
+
+
+EN: Witnesses place their hand on the holy book and take a solemn oath.
+ES: Los testigos ponen la mano sobre el libro sagrado y prestan juramento.
+HI: Gawaah sach bolne ki kasam khaate hain.
+
+
+1755. ⚖️ APPEAL = apelación / appeal
+
+
+EN: The defense lawyer filed an immediate appeal against the judge's sentencing
+decision.
+ES: El abogado defensor presentó una apelación inmediata contra la sentencia.
+HI: Vakeel ne faisle ke khilaaf turant appeal daakhil ki.
+
+
+1756. 🤝 SETTLEMENT = acuerdo / samjhauta
+
+
+EN: The two business partners reached an out-of-court financial settlement
+amicably.
+ES: Los dos socios llegaron a un acuerdo financiero fuera de los tribunales.
+HI: Dono partners ne adaalat ke baahar aapsi samjhauta kar liya.
+
+
+1757. 💵 BAIL = fianza / zamaanat
+
+
+EN: The magistrate set cash bail at five thousand dollars for the defendant.
+ES: El magistrado fijó una fianza en efectivo de cinco mil dólares.
+HI: Judge ne aropi ke liye paanch hazaar dollar ki zamaanat tai ki.
+
+
+1758. 🔒 CUSTODY = custodia / hiraasat
+
+
+EN: Police took the violent suspect into protective custody following the armed
+robbery.
+ES: La policía puso al sospechoso bajo custodia tras el robo armado.
+HI: Police ne aropi ko apni hiraasat mein liya.
+
+
+1759. 🚨 ARREST = arrestar / giraftaar karna
+
+
+EN: Police officers acted quickly to arrest the fleeing criminal near the
+station.
+ES: Los oficiales de policía actuaron rápidamente para arrestar al criminal.
+HI: Police ne bhaagte hue aropi ko giraftaar kar liya.
+
+
+1760. ⚖️ ACQUITTAL = absolución / bari hona
+
+
+EN: The court trial ended in complete acquittal when no evidence was found.
+ES: El juicio terminó en una completa absolución por falta de pruebas.
+HI: Saboot na milne par adaalat ne aropi ko bari kar diya.
+
+
+1761. ⚖️ CONVICTION = condena / dosh-siddhi
+
+
+EN: The overwhelming forensic evidence resulted in a swift felony criminal
+conviction.
+ES: La abrumadora evidencia forense resultó en una rápida condena penal.
+HI: Sabooton ke aadhar par aropi ko doshi thehraaya gaya.
+
+
+1762. 📜 INDICTMENT = acusación formal / charge sheet
+
+
+EN: The grand jury returned a formal federal indictment on charges of fraud.
+ES: El gran jurado emitió una acusación formal por cargos de fraude.
+HI: Fraud ke maamle mein formal charge sheet pesh ki gayi.
+
+
+1763. ⚖️ PROSECUTOR = fiscal / sarkari vakeel
+
+
+EN: The state prosecutor presented eyewitness testimony to prove the defendant's
+guilt.
+ES: El fiscal presentó testimonios de testigos para demostrar la culpabilidad.
+HI: Sarkari vakeel ne dosh saabit karne ke liye gawaah pesh kiye.
+
+
+1764. ⚖️ COUNSEL = asesor legal / vakeel
+
+
+EN: You have the constitutional right to seek advice from legal counsel.
+ES: Tienes el derecho constitucional de buscar asesoramiento legal.
+HI: Aapko kanooni vakeel se salaah lene ka adhikaar hai.
+
+
+1765. 👤 DEFENDANT = acusado / aropi
+
+
+EN: The defendant stood up calmly as the judge read the formal verdict.
+ES: El acusado se levantó con calma mientras el juez leía el veredicto.
+HI: Faisla sunte waqt aropi adaalat mein khada hua.
+
+
+Category 63: Crimes, Offenses, Public Harm & Weapons (1766–1800)
+
+
+1766. 👤 PLAINTIFF = demandante / vaadi
+
+
+EN: The plaintiff presented medical bills to support her financial damage claim.
+ES: La demandante presentó facturas médicas para respaldar su reclamo.
+HI: Vaadi ne nuksaan ki bharpai ke liye bills pesh kiye.
+
+
+1767. 🔍 SUSPECT = sospechoso / sandigdh
+
+
+EN: Police arrested the prime suspect three blocks away from the crime scene.
+ES: La policía arrestó al principal sospechoso a tres calles de la escena.
+HI: Police ne mukhya sandigdh ko giraftaar kiya.
+
+
+1768. 🤕 VICTIM = víctima / peedhit
+
+
+EN: Community social workers provided immediate emotional support to the crime
+victim.
+ES: Los trabajadores sociales brindaron apoyo emocional a la víctima del delito.
+HI: Social workers ne peedhit ko madad pradaan ki.
+
+
+1769. 🚨 CRIME = delito / jurm
+
+
+EN: Strict street patrols helped reduce local property crime across the
+district.
+ES: Las patrullas estrictas ayudaron a reducir el delito local contra la
+propiedad.
+HI: Police patrol se mohalle mein jurm kam hua.
+
+
+1770. 🚨 CRIMINAL = criminal / apradhi
+
+
+EN: The convicted criminal was sentenced to ten years in federal prison.
+ES: El criminal convicto fue sentenciado a diez años de prisión.
+HI: Apradhi ko das saal ki jail ki saza hui.
+
+
+1771. ⚠️ OFFENSE = infracción / jurm
+
+
+EN: Exceeding highway speed limits is a punishable traffic offense everywhere.
+ES: Superar los límites de velocidad en carretera es una infracción punible.
+HI: Highway par tez gaadi chalana ek jurm hai.
+
+
+1772. ⚖️ FELONY = delito grave / gambheer jurm
+
+
+EN: Armed bank robbery is categorized legally as a serious federal felony.
+ES: El robo a mano armada se clasifica legalmente como un delito grave.
+HI: Hathiyaar ke bal par chori karna ek gambheer jurm hai.
+
+
+1773. ⚖️ MISDEMEANOR = delito menor / chhota jurm
+
+
+EN: Minor property vandalism is treated legally as a punishable misdemeanor
+offense.
+ES: El vandalismo menor se trata como un delito menor punible.
+HI: Chhote-mote nuksaan ko kanoonan chhota jurm maana jaata hai.
+
+
+1774. 🦹 THEFT = robo / chori
+
+
+EN: Report any vehicle or bicycle theft immediately to the local police.
+ES: Reporta cualquier robo de vehículo o bicicleta de inmediato a la policía.
+HI: Cycle ya gaadi ki chori hone par turant police ko batao.
+
+
+1775. 💰 ROBBERY = atraco / dacoity
+
+
+EN: The armed bank robbery was captured clearly on high-definition surveillance
+cameras.
+ES: El atraco a mano armada al banco fue capturado claramente por las cámaras.
+HI: Dacoity ki ghatna camera mein record ho gayi.
+
+
+1776. 🏠 BURGLARY = allanamiento / sendhmaari
+
+
+EN: Install a burglar alarm system to protect your house against nighttime
+burglary.
+ES: Instala un sistema de alarma para proteger tu casa contra allanamientos.
+HI: Sendhmaari se bachne ke liye ghar par alarm lagao.
+
+
+1777. 🎭 FRAUD = fraude / dhokhadhadi
+
+
+EN: Online financial fraud schemes trick victims into sharing private bank
+passwords.
+ES: Los fraudes en línea engañan a las víctimas para que compartan contraseñas.
+HI: Online dhokhadhadi se bachne ke liye password share na karein.
+
+
+1778. ✍️ FORGERY = falsificación / jaalsaazi
+
+
+EN: Forgery of signatures on commercial bank checks carries severe legal
+penalties.
+ES: La falsificación de firmas en cheques bancarios conlleva severas sanciones.
+HI: Check par nakli sign karna jaalsaazi hai.
+
+
+1779. 💵 BRIBERY = soborno / rishwatkhori
+
+
+EN: Offering cash to government officials to bypass safety inspections is
+bribery.
+ES: Ofrecer dinero a funcionarios públicos para eludir inspecciones es soborno.
+HI: Afsaron ko paise dena rishwatkhori hai.
+
+
+1780. 🏛️ CORRUPTION = corrupción / bhrashtachaar
+
+
+EN: Independent journalism plays a vital role in uncovering public government
+corruption.
+ES: El periodismo independiente juega un papel vital en descubrir la corrupción.
+HI: Patrakaarita bhrashtachaar ko saamne laane mein madad karti hai.
+
+
+1781. 🤫 BLACKMAIL = chantaje / blackmail
+
+
+EN: Threatening to reveal private secrets unless money is paid constitutes
+criminal blackmail.
+ES: Amenazar con revelar secretos privados a menos que se pague constituye
+chantaje.
+HI: Paise na milne par raaz kholne ki dhamki dena blackmail hai.
+
+
+1782. 💰 EXTORTION = extorsión / vasooli
+
+
+EN: The criminal gang engaged in extortion by demanding protection money from
+merchants.
+ES: La banda criminal exigía dinero de protección a los comerciantes.
+HI: Giroh dukandaron se gair-kanooni vasooli karta tha.
+
+
+1783. 🚗 KIDNAPPING = secuestro / apaharan
+
+
+EN: Rapid police action prevented the attempted kidnapping of the wealthy
+merchant.
+ES: La rápida acción policial impidió el intento de secuestro del comerciante.
+HI: Police ne vyapari ka apaharan hone se bacha liya.
+
+
+1784. 👤 HOSTAGE = rehén / bandhak
+
+
+EN: Negotiators talked continuously to secure the safe release of every hostage.
+ES: Los negociadores hablaron continuamente para asegurar la liberación del
+rehén.
+HI: Negotiators ne sabhi bandhakon ko surakshit chhudwaya.
+
+
+1785. ☠️ MURDER = asesinato / hatya
+
+
+EN: Police launched a homicide investigation to solve the brutal street murder.
+ES: La policía inició una investigación de homicidio para resolver el asesinato.
+HI: Police ne hatya ki jaanch shuru ki.
+
+
+1786. ☠️ HOMICIDE = homicidio / hatya
+
+
+EN: Detective teams arrived at the scene to investigate the suspected homicide.
+ES: Equipos de detectives llegaron al lugar para investigar el presunto
+homicidio.
+HI: Detectives hatya ke maamle ki jaanch ke liye pahunche.
+
+
+1787. 🥊 ASSAULT = agresión / hamla
+
+
+EN: Physical assault causing bodily harm results in immediate criminal arrest
+and prosecution.
+ES: La agresión física que cause daño corporal resulta en arresto penal
+inmediato.
+HI: Maar-peet karne par turant giraftaari hoti hai.
+
+
+1788. 🥊 BATTERY = agresión física / maar-peet
+
+
+EN: The defendant faced combined courtroom charges of verbal assault and
+physical battery.
+ES: El acusado enfrentó cargos de agresión verbal y agresión física.
+HI: Aropi par maar-peet ke arop lage.
+
+
+1789. 💥 VIOLENCE = violencia / hinsa
+
+
+EN: Non-violent communication resolves workplace disagreements without resorting
+to physical violence.
+ES: La comunicación no violenta resuelve desacuerdos sin recurrir a la
+violencia.
+HI: Hinsa ke bina aapsi baat-cheet se masle suljhayein.
+
+
+1790. ⚔️ WEAPON = arma / hathiyaar
+
+
+EN: Carrying a concealed dangerous weapon without an official government permit
+is forbidden.
+ES: Está prohibido portar un arma peligrosa oculta sin permiso oficial.
+HI: Bina permit ke hathiyaar rakhna mana hai.
+
+
+1791. 🔫 GUN = pistola / bandook
+
+
+EN: Keep every firearm gun unloaded and locked securely in a safe.
+ES: Mantén cada arma de fuego descargada y guardada bajo llave.
+HI: Bandook ko hamesha safe mein lock karke rakhein.
+
+
+1792. 🔫 PISTOL = pistola / pistol
+
+
+EN: The target shooter practiced loading and firing the small caliber pistol.
+ES: El tirador practicó cargar y disparar la pistola de pequeño calibre.
+HI: Shooter ne pistol chalane ka abhyaas kiya.
+
+
+1793. 🎯 RIFLE = rifle / rifle
+
+
+EN: The park ranger carried a hunting rifle for personal protection against
+bears.
+ES: El guardaparques llevaba un rifle de caza para protegerse de los osos.
+HI: Guard ne bachaav ke liye rifle rakhi thi.
+
+
+1794. 💥 BULLET = bala / goli
+
+
+EN: The metal bullet lodged harmlessly inside the heavy wooden wall beam.
+ES: La bala de metal se alojó en la pesada viga de madera.
+HI: Goli lakdi ke pille ke andar phas gayi.
+
+
+1795. 💣 BOMB = bomba / bomb
+
+
+EN: The emergency bomb disposal squad defused the suspicious explosive device
+safely.
+ES: El escuadrón de desactivación de bombas desactivó el artefacto explosivo con
+seguridad.
+HI: Bomb squad ne bomb ko surakshit tareeqe se nishkriya kiya.
+
+
+1796. 💥 EXPLOSION = explosión / dhamaka
+
+
+EN: A gas leak in the basement caused a sudden loud building explosion.
+ES: Una fuga de gas en el sótano provocó una fuerte explosión en el edificio.
+HI: Gas leak hone se basement mein tez dhamaka hua.
+
+
+1797. 🔒 HANDCUFFS = esposas / hathkadi
+
+
+EN: Police officers placed steel handcuffs on the arrested burglar's wrists.
+ES: Los agentes de policía colocaron esposas de acero en las muñecas del ladrón.
+HI: Police ne aropi ke haathon mein hathkadi lagayi.
+
+
+1798. 🚨 SIREN = sirena / siren
+
+
+EN: The loud ambulance siren warned drivers to clear the road lanes immediately.
+ES: La fuerte sirena de la ambulancia advirtió a los conductores que despejaran
+el paso.
+HI: Ambulance ke siren ne gaadiyon ko raasta dene ka ishara kiya.
+
+
+1799. 🚓 PATROL = patrulla / patrol
+
+
+EN: Police officers conduct a regular night patrol through quiet neighborhood
+residential streets.
+ES: Los agentes de policía realizan un patrullaje nocturno regular por las
+calles.
+HI: Police raat ko mohalle mein patrol karti hai.
+
+
+1800. 🦹 THIEF = ladrón / chor
+
+
+EN: The nimble thief stole a leather wallet from the commuter's backpack.
+ES: El ágil ladrón robó una billetera de cuero de la mochila del pasajero.
+HI: Chor ne backpack se wallet nikaal liya.
