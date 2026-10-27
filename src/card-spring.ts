@@ -120,11 +120,7 @@ export class CardSpringPhysics {
         const scale = 1 + Math.max(0, liftFactor) * 0.048; // Elastic tactile pop
         const subtleTilt = tiltX ? Math.sin(normalizedProgress * Math.PI) * tiltX : 0;
 
-        cardElement.style.setProperty(
-          "transform",
-          `rotateY(${currentDeg.toFixed(2)}deg) rotateX(${subtleTilt.toFixed(2)}deg) scale(${scale.toFixed(4)})`,
-          "important"
-        );
+        cardElement.style.transform = `rotateY(${currentDeg.toFixed(2)}deg) rotateX(${subtleTilt.toFixed(2)}deg) scale(${scale.toFixed(4)})`;
 
         // Midpoint trigger: cleanly toggle card faces when passing 90 degrees
         if (!midpointTriggered && Math.abs(currentDeg - startAngle) >= Math.abs(diff) * 0.5) {
@@ -143,7 +139,8 @@ export class CardSpringPhysics {
           this.isFlipping = false;
           this.currentAngle = targetAngle;
           cardElement.classList.remove("spring-animating");
-          cardElement.style.setProperty("transform", `rotateY(${targetAngle}deg) scale(1)`, "important");
+          cardElement.style.removeProperty("transform");
+          cardElement.style.transform = `rotateY(${targetAngle}deg)`;
           if (onComplete) onComplete();
           resolve();
         } else {
@@ -165,7 +162,8 @@ export class CardSpringPhysics {
     if (cardElement) {
       cardElement.classList.remove("spring-animating");
       cardElement.style.transition = "none";
-      cardElement.style.setProperty("transform", "rotateY(0deg) scale(1)", "important");
+      cardElement.style.removeProperty("transform");
+      cardElement.style.transform = "rotateY(0deg)";
     }
   }
 
@@ -179,7 +177,17 @@ export class CardSpringPhysics {
     if (cardElement) {
       cardElement.classList.remove("spring-animating");
       cardElement.style.transition = "none";
-      cardElement.style.setProperty("transform", "rotateY(180deg) scale(1)", "important");
+      cardElement.style.removeProperty("transform");
+      cardElement.style.transform = "rotateY(180deg)";
+    }
+  }
+
+  public cancel(cardElement?: HTMLElement): void {
+    this.cancelCurrentAnimation();
+    this.isFlipping = false;
+    if (cardElement) {
+      cardElement.classList.remove("spring-animating");
+      cardElement.style.removeProperty("transform");
     }
   }
 
