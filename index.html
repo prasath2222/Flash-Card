@@ -8473,6 +8473,374 @@
         word-break: break-word !important;
       }
 
+      /* ==========================================================
+         TOP-BAR GRID BUTTON & THEATER SEAT-BOOKING SECTION MODAL
+         ========================================================== */
+      body.in-flashcard-mode #screen-flashcard .top-section-grid-btn {
+        width: 30px !important;
+        height: 28px !important;
+        min-width: 30px !important;
+        min-height: 28px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border-radius: 9px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: rgba(56, 189, 248, 0.14) !important;
+        border: 1px solid rgba(56, 189, 248, 0.42) !important;
+        color: #38bdf8 !important;
+        box-shadow: 0 2px 0 rgba(8, 145, 178, 0.35) !important;
+        cursor: pointer !important;
+        flex-shrink: 0 !important;
+        transition: transform 0.14s ease, background 0.14s ease, border-color 0.14s ease !important;
+      }
+      body.in-flashcard-mode #screen-flashcard .top-section-grid-btn:hover {
+        background: rgba(56, 189, 248, 0.24) !important;
+        border-color: #38bdf8 !important;
+        transform: translateY(-1px);
+      }
+      body.in-flashcard-mode #screen-flashcard .top-section-grid-btn:active {
+        transform: translateY(1px);
+      }
+
+      .section-grid-modal-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 9800;
+        background: rgba(4, 7, 15, 0.82);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: max(12px, env(safe-area-inset-top, 12px)) 12px max(14px, env(safe-area-inset-bottom, 14px)) 12px;
+        box-sizing: border-box;
+        opacity: 0;
+        transition: opacity 0.18s ease;
+      }
+      .section-grid-modal-backdrop.open {
+        display: flex;
+        opacity: 1;
+      }
+
+      .section-grid-modal-sheet {
+        width: 100%;
+        max-width: 560px;
+        max-height: min(86dvh, 720px);
+        background: linear-gradient(180deg, #0f172a 0%, #090d16 100%);
+        border: 1px solid rgba(148, 163, 184, 0.22);
+        border-radius: 22px;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(56, 189, 248, 0.12);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        transform: scale(0.96) translateY(8px);
+        transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .section-grid-modal-backdrop.open .section-grid-modal-sheet {
+        transform: scale(1) translateY(0);
+      }
+
+      .section-grid-header {
+        padding: 14px 16px 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        background: rgba(15, 23, 42, 0.75);
+        flex-shrink: 0;
+      }
+      .section-grid-title-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        min-width: 0;
+      }
+      .section-grid-title {
+        font-size: 0.98rem;
+        font-weight: 900;
+        color: #f8fafc;
+        letter-spacing: -0.01em;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .section-grid-subtitle {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: #94a3b8;
+      }
+
+      .section-grid-header-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+      }
+
+      .btn-grid-mark-all {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 12px;
+        border-radius: 11px;
+        font-size: 0.76rem;
+        font-weight: 800;
+        cursor: pointer;
+        background: rgba(16, 185, 129, 0.16);
+        border: 1px solid rgba(16, 185, 129, 0.48);
+        color: #34d399;
+        box-shadow: 0 2px 0 rgba(5, 150, 105, 0.4);
+        transition: all 0.15s ease;
+        white-space: nowrap;
+      }
+      .btn-grid-mark-all:hover {
+        background: rgba(16, 185, 129, 0.26);
+        border-color: #10b981;
+      }
+      .btn-grid-mark-all.all-marked {
+        background: rgba(245, 158, 11, 0.15);
+        border-color: rgba(245, 158, 11, 0.45);
+        color: #fbbf24;
+        box-shadow: 0 2px 0 rgba(180, 83, 9, 0.4);
+      }
+
+      .btn-grid-close {
+        width: 32px;
+        height: 32px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        color: #cbd5e1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 800;
+      }
+      .btn-grid-close:hover {
+        background: rgba(239, 68, 68, 0.2);
+        border-color: rgba(239, 68, 68, 0.5);
+        color: #fca5a5;
+      }
+
+      /* Theater Screen Curve & Filter Bar */
+      .section-grid-toolbar {
+        padding: 10px 16px;
+        background: rgba(9, 13, 22, 0.85);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        flex-shrink: 0;
+      }
+      .section-grid-filter-group {
+        display: inline-flex;
+        background: rgba(15, 23, 42, 0.9);
+        padding: 3px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        gap: 3px;
+      }
+      .section-grid-filter-btn {
+        padding: 5px 10px;
+        border-radius: 7px;
+        font-size: 0.73rem;
+        font-weight: 800;
+        color: #94a3b8;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        transition: all 0.14s ease;
+      }
+      .section-grid-filter-btn.active {
+        background: rgba(56, 189, 248, 0.2);
+        color: #38bdf8;
+        box-shadow: inset 0 0 0 1px rgba(56, 189, 248, 0.4);
+      }
+
+      .section-grid-legend {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: #cbd5e1;
+      }
+      .legend-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .legend-box {
+        width: 12px;
+        height: 12px;
+        border-radius: 4px;
+        display: inline-block;
+      }
+      .legend-box.learning {
+        background: rgba(30, 41, 59, 0.95);
+        border: 1.5px solid rgba(148, 163, 184, 0.4);
+      }
+      .legend-box.learned {
+        background: rgba(16, 185, 129, 0.35);
+        border: 1.5px solid #10b981;
+      }
+      .legend-box.current {
+        background: rgba(56, 189, 248, 0.25);
+        border: 1.5px solid #38bdf8;
+      }
+
+      /* Theater Seat Box Matrix */
+      .section-grid-body {
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow-y: auto;
+        padding: 14px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(62px, 1fr));
+        gap: 8px;
+        align-content: start;
+        user-select: none;
+        -webkit-user-select: none;
+      }
+
+      .seat-card-box {
+        position: relative;
+        height: 54px;
+        border-radius: 11px;
+        background: rgba(30, 41, 59, 0.78);
+        border: 1.5px solid rgba(148, 163, 184, 0.24);
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 4px 4px;
+        cursor: pointer;
+        transition: transform 0.1s ease, background 0.14s ease, border-color 0.14s ease, box-shadow 0.14s ease;
+        overflow: hidden;
+        touch-action: manipulation;
+      }
+      .seat-card-box:hover {
+        border-color: rgba(148, 163, 184, 0.55);
+        transform: translateY(-1px);
+      }
+      .seat-card-box:active,
+      .seat-card-box.pressing {
+        transform: scale(0.93);
+      }
+
+      /* Learned State (Booked Green Seat) */
+      .seat-card-box.is-learned {
+        background: linear-gradient(145deg, rgba(16, 185, 129, 0.28) 0%, rgba(5, 150, 105, 0.42) 100%);
+        border-color: #10b981;
+        box-shadow: 0 2px 0 rgba(4, 120, 87, 0.65), inset 0 0 10px rgba(16, 185, 129, 0.15);
+      }
+
+      /* Active / Current Flashcard Ring */
+      .seat-card-box.is-current {
+        border-color: #38bdf8;
+        box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.45), 0 3px 10px rgba(56, 189, 248, 0.25);
+      }
+
+      .seat-box-num {
+        font-size: 0.73rem;
+        font-weight: 900;
+        color: #f8fafc;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+      }
+      .seat-card-box.is-learned .seat-box-num {
+        color: #ecfdf5;
+      }
+
+      .seat-box-word {
+        font-size: 0.58rem;
+        font-weight: 700;
+        color: #94a3b8;
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-top: 2px;
+        text-transform: uppercase;
+      }
+      .seat-card-box.is-learned .seat-box-word {
+        color: #a7f3d0;
+      }
+
+      .seat-box-status-badge {
+        position: absolute;
+        top: 3px;
+        right: 4px;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.55rem;
+        font-weight: 900;
+        background: rgba(15, 23, 42, 0.55);
+        color: rgba(148, 163, 184, 0.5);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+      }
+      .seat-card-box.is-learned .seat-box-status-badge {
+        background: #10b981;
+        color: #052e16;
+        border-color: #34d399;
+      }
+
+      .section-grid-footer {
+        padding: 10px 14px;
+        background: rgba(15, 23, 42, 0.92);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        font-size: 0.74rem;
+        font-weight: 700;
+        color: #cbd5e1;
+        flex-shrink: 0;
+      }
+      .section-grid-footer-hint {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: #94a3b8;
+      }
+      .section-grid-footer-hint strong {
+        color: #e2e8f0;
+      }
+
+      @media (max-width: 480px) {
+        .section-grid-body {
+          grid-template-columns: repeat(auto-fill, minmax(54px, 1fr));
+          gap: 6px;
+          padding: 10px;
+        }
+        .seat-card-box {
+          height: 48px;
+          border-radius: 9px;
+        }
+        .section-grid-header {
+          padding: 12px 12px 10px;
+        }
+        .section-grid-toolbar {
+          padding: 8px 12px;
+        }
+      }
+
     </style>
   </head>
   <body class="home-view-active">
@@ -9221,12 +9589,20 @@
                 <span class="counter-divider">/</span>
                 <span class="total-num" id="card-counter-total">200</span>
               </div>
-              <span class="top-category-pill" id="current-category" title="Learned cards in active deck">
+              <span class="top-category-pill" id="current-category" title="Tap to open Section Seat Grid (Learned / Learning)" style="cursor: pointer;">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
                 <span style="color: #34d399; font-weight: 800;"><strong id="flashcard-learned-3k-val">0</strong>/<span id="flashcard-deck-total-val">200</span></span>
               </span>
+              <button type="button" class="top-section-grid-btn" id="btn-top-section-grid" title="Section Box Grid (Tap boxes to mark Learned · Hold box to jump to card)" aria-label="Open Section Box Grid">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="7" height="7" rx="1.5"/>
+                  <rect x="14" y="3" width="7" height="7" rx="1.5"/>
+                  <rect x="14" y="14" width="7" height="7" rx="1.5"/>
+                  <rect x="3" y="14" width="7" height="7" rx="1.5"/>
+                </svg>
+              </button>
             </div>
 
             <!-- Right Actions: Compact Icon Buttons -->
@@ -9541,6 +9917,61 @@
             </svg>
           </button>
         </footer>
+      </div>
+    </div>
+
+    <!-- ========================================================== -->
+    <!-- THEATER SEAT-BOOKING SECTION BOX GRID MODAL                -->
+    <!-- ========================================================== -->
+    <div class="section-grid-modal-backdrop" id="section-grid-modal" role="dialog" aria-modal="true" aria-labelledby="section-grid-title">
+      <div class="section-grid-modal-sheet">
+        <div class="section-grid-header">
+          <div class="section-grid-title-wrap">
+            <div class="section-grid-title" id="section-grid-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
+                <rect x="3" y="3" width="7" height="7" rx="1.5"/>
+                <rect x="14" y="3" width="7" height="7" rx="1.5"/>
+                <rect x="14" y="14" width="7" height="7" rx="1.5"/>
+                <rect x="3" y="14" width="7" height="7" rx="1.5"/>
+              </svg>
+              <span id="section-grid-title-text">Section Box Grid</span>
+            </div>
+            <div class="section-grid-subtitle" id="section-grid-subtitle">0 Learned · 0 Learning · 0 Total</div>
+          </div>
+
+          <div class="section-grid-header-actions">
+            <button type="button" class="btn-grid-mark-all" id="btn-grid-mark-all" title="Mark or Unmark all cards in this section as Learned">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
+                <path d="M18 6 7 17l-5-5"/>
+                <path d="m22 10-7.5 7.5L13 16"/>
+              </svg>
+              <span id="btn-grid-mark-all-label">Mark All</span>
+            </button>
+            <button type="button" class="btn-grid-close" id="btn-close-section-grid" aria-label="Close Section Grid" title="Close">✕</button>
+          </div>
+        </div>
+
+        <div class="section-grid-toolbar">
+          <div class="section-grid-filter-group" role="tablist" aria-label="Filter section cards">
+            <button type="button" class="section-grid-filter-btn active" data-grid-filter="all" id="grid-filter-all">All</button>
+            <button type="button" class="section-grid-filter-btn" data-grid-filter="learning" id="grid-filter-learning">Learning</button>
+            <button type="button" class="section-grid-filter-btn" data-grid-filter="learned" id="grid-filter-learned">Learned ✓</button>
+          </div>
+
+          <div class="section-grid-legend">
+            <span class="legend-item"><span class="legend-box learning"></span>Learning</span>
+            <span class="legend-item"><span class="legend-box learned"></span>Learned ✓</span>
+            <span class="legend-item"><span class="legend-box current"></span>Current</span>
+          </div>
+        </div>
+
+        <div class="section-grid-body" id="section-grid-boxes"></div>
+
+        <div class="section-grid-footer">
+          <div class="section-grid-footer-hint">
+            <span>💡 <strong>Tap</strong> boxes to toggle Learned (✓) · <strong>Long-press</strong> any box to go to that card</span>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -12717,18 +13148,385 @@ var tier800DeckCards = initialDeckCards;
         }, { passive: false });
       }
 
-      // Tap card counter pill (e.g. 15 / 200) to open horizontal sliding card reel
+      // =========================================================================
+      // THEATER SEAT-BOOKING SECTION BOX GRID CONTROLLER
+      // - Tap any box: Toggle Learned (✓) / Learning in-place (multi-click ready)
+      // - Long-press any box (~380ms): Jump directly to that flashcard
+      // - Mark All / Unmark All button: Bulk mark/unmark all cards in section
+      // =========================================================================
+      const sectionGridModalEl = document.getElementById("section-grid-modal");
+      const btnTopSectionGrid = document.getElementById("btn-top-section-grid");
+      const btnCloseSectionGrid = document.getElementById("btn-close-section-grid");
+      const btnGridMarkAll = document.getElementById("btn-grid-mark-all");
+      const btnGridMarkAllLabel = document.getElementById("btn-grid-mark-all-label");
+      const sectionGridTitleText = document.getElementById("section-grid-title-text");
+      const sectionGridSubtitle = document.getElementById("section-grid-subtitle");
+      const sectionGridBoxesEl = document.getElementById("section-grid-boxes");
+      let activeSectionGridFilter = "all"; // "all" | "learning" | "learned"
+
+      function updateSectionGridHeaderStats() {
+        if (!Array.isArray(cards)) return;
+        const total = cards.length;
+        let learnedCount = 0;
+        cards.forEach((c) => {
+          if (isCardLearned(c, currentDeckId)) learnedCount++;
+        });
+        const learningCount = Math.max(0, total - learnedCount);
+
+        let deckLabel = "Current Section";
+        if (typeof getDeckMeta === "function") {
+          const meta = getDeckMeta(currentDeckId);
+          if (meta && (meta.badge || meta.name)) {
+            deckLabel = meta.badge || meta.name;
+          }
+        }
+        if (sectionGridTitleText) {
+          sectionGridTitleText.textContent = `${deckLabel} · Box Grid`;
+        }
+        if (sectionGridSubtitle) {
+          sectionGridSubtitle.textContent = `${learnedCount} Learned ✓ · ${learningCount} Learning · ${total} Total`;
+        }
+
+        const filterAllBtn = document.getElementById("grid-filter-all");
+        const filterLearningBtn = document.getElementById("grid-filter-learning");
+        const filterLearnedBtn = document.getElementById("grid-filter-learned");
+        if (filterAllBtn) filterAllBtn.textContent = `All (${total})`;
+        if (filterLearningBtn) filterLearningBtn.textContent = `Learning (${learningCount})`;
+        if (filterLearnedBtn) filterLearnedBtn.textContent = `Learned ✓ (${learnedCount})`;
+
+        const allMarked = total > 0 && learnedCount === total;
+        if (btnGridMarkAll) {
+          btnGridMarkAll.classList.toggle("all-marked", allMarked);
+        }
+        if (btnGridMarkAllLabel) {
+          btnGridMarkAllLabel.textContent = allMarked ? "Unmark All" : "Mark All";
+        }
+      }
+
+      function toggleSingleCardFromGrid(cardIndex, boxEl) {
+        const card = cards[cardIndex];
+        if (!card) return;
+        const key = getCardLearnedKey(card, currentDeckId);
+        if (key === null || key === undefined) return;
+
+        const currentlyLearned = isCardLearned(card, currentDeckId);
+        if (currentlyLearned) {
+          learnedCardsSet.delete(key);
+          learnedCardsSet.delete(String(key));
+          learnedCardsSet.delete(Number(key));
+          if (typeof playHapticTick === "function") playHapticTick(380, "sine", 0.03);
+        } else {
+          learnedCardsSet.add(key);
+          if (typeof playHapticTick === "function") playHapticTick(680, "triangle", 0.05);
+        }
+
+        const nowLearned = !currentlyLearned;
+        if (boxEl) {
+          boxEl.classList.toggle("is-learned", nowLearned);
+          boxEl.setAttribute("aria-pressed", nowLearned ? "true" : "false");
+          const badge = boxEl.querySelector(".seat-box-status-badge");
+          if (badge) badge.textContent = nowLearned ? "✓" : "";
+          if (
+            (activeSectionGridFilter === "learning" && nowLearned) ||
+            (activeSectionGridFilter === "learned" && !nowLearned)
+          ) {
+            setTimeout(() => {
+              renderSectionGridBoxes();
+            }, 140);
+          }
+        }
+
+        saveLearnedCards();
+        if (cards[currentIndex]) {
+          updateCardLearnedUI(cards[currentIndex]);
+        }
+        updateSectionLearnedCounter();
+        updateSectionGridHeaderStats();
+      }
+
+      function renderSectionGridBoxes() {
+        if (!sectionGridBoxesEl || !Array.isArray(cards)) return;
+        updateSectionGridHeaderStats();
+        sectionGridBoxesEl.innerHTML = "";
+
+        const frag = document.createDocumentFragment();
+        let visibleCount = 0;
+
+        cards.forEach((card, idx) => {
+          const learned = isCardLearned(card, currentDeckId);
+          if (activeSectionGridFilter === "learning" && learned) return;
+          if (activeSectionGridFilter === "learned" && !learned) return;
+          visibleCount++;
+
+          const dispNum = card.displayNum || card.num || (idx + 1);
+          const isCurrent = idx === currentIndex;
+          const box = document.createElement("div");
+          box.className =
+            "seat-card-box" +
+            (learned ? " is-learned" : "") +
+            (isCurrent ? " is-current" : "");
+          box.dataset.cardIndex = String(idx);
+          box.setAttribute("role", "button");
+          box.setAttribute("tabindex", "0");
+          box.setAttribute("aria-pressed", learned ? "true" : "false");
+          box.title = `#${dispNum} ${card.word || ""} — Tap to toggle Learned · Long-press to go to card`;
+
+          box.innerHTML = `
+            <span class="seat-box-status-badge">${learned ? "✓" : ""}</span>
+            <span class="seat-box-num">#${dispNum}</span>
+            <span class="seat-box-word">${(card.word || "").replace(/</g, "&lt;")}</span>
+          `;
+
+          // Touch & Mouse interaction:
+          // - Short tap/click (< 360ms): toggle Learned / Learning in-place (allows clicking many boxes in a row)
+          // - Long-press (>= 380ms): jump directly to that flashcard and close modal
+          let boxHoldTimer = null;
+          let boxLongPressTriggered = false;
+          let pointerStartX = 0;
+          let pointerStartY = 0;
+          let pointerMoved = false;
+          let ignoreNextClickUntil = 0;
+
+          const triggerLongPressJump = () => {
+            boxLongPressTriggered = true;
+            box.classList.remove("pressing");
+            if (typeof playHapticTick === "function") playHapticTick(760, "triangle", 0.07);
+            closeSectionGridModal();
+            jumpToIndex(idx);
+            if (typeof showToast === "function") {
+              showToast(`Jumped to #${dispNum} ${card.word || ""}`);
+            }
+          };
+
+          box.addEventListener("touchstart", (ev) => {
+            if (!ev.touches || !ev.touches[0]) return;
+            boxLongPressTriggered = false;
+            pointerMoved = false;
+            pointerStartX = ev.touches[0].clientX;
+            pointerStartY = ev.touches[0].clientY;
+            box.classList.add("pressing");
+            clearTimeout(boxHoldTimer);
+            boxHoldTimer = setTimeout(() => {
+              if (!pointerMoved) {
+                triggerLongPressJump();
+              }
+            }, 380);
+          }, { passive: true });
+
+          box.addEventListener("touchmove", (ev) => {
+            if (!ev.touches || !ev.touches[0]) return;
+            const dx = Math.abs(ev.touches[0].clientX - pointerStartX);
+            const dy = Math.abs(ev.touches[0].clientY - pointerStartY);
+            if (dx > 10 || dy > 10) {
+              pointerMoved = true;
+              box.classList.remove("pressing");
+              clearTimeout(boxHoldTimer);
+            }
+          }, { passive: true });
+
+          box.addEventListener("touchend", (ev) => {
+            clearTimeout(boxHoldTimer);
+            box.classList.remove("pressing");
+            if (boxLongPressTriggered) {
+              ignoreNextClickUntil = Date.now() + 500;
+              return;
+            }
+            if (!pointerMoved) {
+              ignoreNextClickUntil = Date.now() + 450;
+              toggleSingleCardFromGrid(idx, box);
+            }
+          });
+
+          box.addEventListener("touchcancel", () => {
+            clearTimeout(boxHoldTimer);
+            box.classList.remove("pressing");
+          });
+
+          box.addEventListener("mousedown", (ev) => {
+            if (ev.button !== 0) return;
+            if (Date.now() < ignoreNextClickUntil) return;
+            boxLongPressTriggered = false;
+            pointerMoved = false;
+            pointerStartX = ev.clientX;
+            pointerStartY = ev.clientY;
+            box.classList.add("pressing");
+            clearTimeout(boxHoldTimer);
+            boxHoldTimer = setTimeout(() => {
+              if (!pointerMoved) {
+                triggerLongPressJump();
+              }
+            }, 380);
+          });
+
+          box.addEventListener("mousemove", (ev) => {
+            if (!boxHoldTimer) return;
+            const dx = Math.abs(ev.clientX - pointerStartX);
+            const dy = Math.abs(ev.clientY - pointerStartY);
+            if (dx > 8 || dy > 8) {
+              pointerMoved = true;
+              box.classList.remove("pressing");
+              clearTimeout(boxHoldTimer);
+            }
+          });
+
+          box.addEventListener("mouseup", () => {
+            clearTimeout(boxHoldTimer);
+            box.classList.remove("pressing");
+          });
+
+          box.addEventListener("mouseleave", () => {
+            clearTimeout(boxHoldTimer);
+            box.classList.remove("pressing");
+          });
+
+          box.addEventListener("click", (ev) => {
+            ev.stopPropagation();
+            if (Date.now() < ignoreNextClickUntil) return;
+            if (boxLongPressTriggered || pointerMoved) {
+              boxLongPressTriggered = false;
+              return;
+            }
+            toggleSingleCardFromGrid(idx, box);
+          });
+
+          box.addEventListener("contextmenu", (ev) => {
+            ev.preventDefault();
+          });
+
+          frag.appendChild(box);
+        });
+
+        if (visibleCount === 0) {
+          const emptyMsg = document.createElement("div");
+          emptyMsg.style.cssText = "grid-column: 1 / -1; text-align: center; padding: 32px 12px; color: #94a3b8; font-size: 0.85rem; font-weight: 700;";
+          emptyMsg.textContent =
+            activeSectionGridFilter === "learned"
+              ? "No cards marked Learned in this section yet. Tap boxes in 'All' or 'Learning' to mark them!"
+              : "All cards in this section are marked Learned! 🎉";
+          frag.appendChild(emptyMsg);
+        }
+
+        sectionGridBoxesEl.appendChild(frag);
+      }
+
+      function openSectionGridModal() {
+        if (!sectionGridModalEl) return;
+        if (isDeckReelOpen) closeDeckReel(currentIndex);
+        hideCardInlineConfirmBars();
+        renderSectionGridBoxes();
+        sectionGridModalEl.classList.add("open");
+        if (typeof playHapticTick === "function") playHapticTick(540, "sine", 0.04);
+
+        // Scroll current card box into view smoothly
+        requestAnimationFrame(() => {
+          if (!sectionGridBoxesEl) return;
+          const currentBox = sectionGridBoxesEl.querySelector(".seat-card-box.is-current");
+          if (currentBox && typeof currentBox.scrollIntoView === "function") {
+            currentBox.scrollIntoView({ block: "center", behavior: "smooth" });
+          }
+        });
+      }
+
+      function closeSectionGridModal() {
+        if (!sectionGridModalEl) return;
+        sectionGridModalEl.classList.remove("open");
+      }
+
+      if (btnTopSectionGrid) {
+        btnTopSectionGrid.addEventListener("click", (e) => {
+          e.stopPropagation();
+          openSectionGridModal();
+        });
+      }
+
+      const topCategoryPillEl = document.getElementById("current-category");
+      if (topCategoryPillEl) {
+        topCategoryPillEl.addEventListener("click", (e) => {
+          e.stopPropagation();
+          openSectionGridModal();
+        });
+      }
+
+      if (btnCloseSectionGrid) {
+        btnCloseSectionGrid.addEventListener("click", (e) => {
+          e.stopPropagation();
+          closeSectionGridModal();
+        });
+      }
+
+      if (sectionGridModalEl) {
+        sectionGridModalEl.addEventListener("click", (e) => {
+          if (e.target === sectionGridModalEl) {
+            closeSectionGridModal();
+          }
+        });
+      }
+
+      // Filter buttons (All / Learning / Learned)
+      document.querySelectorAll("[data-grid-filter]").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          activeSectionGridFilter = btn.getAttribute("data-grid-filter") || "all";
+          document.querySelectorAll("[data-grid-filter]").forEach((b) => {
+            b.classList.toggle("active", b === btn);
+          });
+          renderSectionGridBoxes();
+          if (typeof playHapticTick === "function") playHapticTick(460, "sine", 0.03);
+        });
+      });
+
+      // Mark All / Unmark All button inside Section Grid Modal
+      if (btnGridMarkAll) {
+        btnGridMarkAll.addEventListener("click", (e) => {
+          e.stopPropagation();
+          if (!Array.isArray(cards) || cards.length === 0) return;
+          const allCurrentlyLearned = cards.every((c) => isCardLearned(c, currentDeckId));
+
+          if (allCurrentlyLearned) {
+            // Unmark all cards in current section
+            cards.forEach((c) => {
+              const key = getCardLearnedKey(c, currentDeckId);
+              if (key !== null && key !== undefined) {
+                learnedCardsSet.delete(key);
+                learnedCardsSet.delete(String(key));
+                learnedCardsSet.delete(Number(key));
+              }
+            });
+            if (typeof showToast === "function") {
+              showToast(`Unmarked all ${cards.length} cards in this section`);
+            }
+            if (typeof playHapticTick === "function") playHapticTick(380, "sine", 0.05);
+          } else {
+            // Mark all cards in current section as Learned
+            cards.forEach((c) => {
+              const key = getCardLearnedKey(c, currentDeckId);
+              if (key !== null && key !== undefined) {
+                learnedCardsSet.add(key);
+              }
+            });
+            if (typeof showToast === "function") {
+              showToast(`Marked all ${cards.length} cards in section as Learned! 🌟`);
+            }
+            if (typeof playHapticTick === "function") playHapticTick(740, "triangle", 0.06);
+          }
+
+          saveLearnedCards();
+          if (cards[currentIndex]) {
+            updateCardLearnedUI(cards[currentIndex]);
+          }
+          updateSectionLearnedCounter();
+          renderSectionGridBoxes();
+        });
+      }
+
+      // Tap card counter pill (e.g. 1 / 169) also opens the Section Box Grid Modal
       const counterDisplayEl = document.querySelector("#screen-flashcard .counter-display");
       if (counterDisplayEl) {
         counterDisplayEl.style.cursor = "pointer";
-        counterDisplayEl.title = "Tap to slide through cards";
+        counterDisplayEl.title = "Tap to open Section Box Grid";
         counterDisplayEl.addEventListener("click", (e) => {
           e.stopPropagation();
-          if (isDeckReelOpen) {
-            closeDeckReel(currentIndex);
-          } else {
-            openDeckReel();
-          }
+          openSectionGridModal();
         });
       }
 
@@ -12806,7 +13604,7 @@ var tier800DeckCards = initialDeckCards;
       }
 
       // =========================================================================
-      // NATURAL SMOOTH SWIPE & SCROLL (1 CARD SEQUENTIAL, FRONT & BACK SUPPORT)
+      // NATURAL SMOOTH SWIPE & SCROLL (1 CARD SEQUENTIAL, 100% FREE SWIPING)
       // =========================================================================
       isSwiping = false;
       isDragging = false;
@@ -12903,7 +13701,7 @@ var tier800DeckCards = initialDeckCards;
         });
       }
 
-      // --- ULTRA-RESPONSIVE PHYSICAL TOUCH, LONG-PRESS REEL & DOUBLE-TAP FLIP SYSTEM ---
+      // --- ULTRA-RESPONSIVE PHYSICAL TOUCH & DOUBLE-TAP FLIP SYSTEM (NO INTRUSIVE HOLD OVERLAY) ---
       let touchPressStartTime = 0;
       let longPressTimer = null;
       let touchHasMoved = false;
@@ -12935,27 +13733,11 @@ var tier800DeckCards = initialDeckCards;
         velocitySamples = [{ x: touch.clientX, y: touch.clientY, time: performance.now() }];
         cardWrapper.classList.add("is-dragging");
         cardWrapper.style.transition = "none";
-        longPressTimer = setTimeout(() => {
-          if (!touchHasMoved && !isSwiping && !isCardAnimating) {
-            isDragging = false;
-            cardWrapper.classList.remove("is-dragging");
-            cardWrapper.style.transition = "transform 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
-            cardWrapper.style.transform = isFlipped ? "rotateY(180deg)" : "rotateY(0deg)";
-            openDeckReel(touchStartX);
-          }
-        }, 460);
       }, { passive: true });
 
       cardWrapper.addEventListener("touchmove", (e) => {
         const touch = e.touches[0];
         if (!touch) return;
-
-        // If long-press already opened the deck reel during this touch, allow continuous horizontal sliding!
-        if (isDeckReelOpen && isHoldReelScrubbing && deckReelScroller) {
-          const deltaX = touch.clientX - holdReelStartX;
-          deckReelScroller.scrollLeft = holdReelInitialScrollLeft - deltaX * 1.45;
-          return;
-        }
 
         if (!isDragging || isDeckReelOpen) return;
         const diffX = touch.clientX - touchStartX;
@@ -12968,7 +13750,6 @@ var tier800DeckCards = initialDeckCards;
 
         if (absX > 7 || absY > 7) {
           touchHasMoved = true;
-          clearTimeout(longPressTimer);
         }
 
         // 1:1 real-time horizontal drag tracking (works on both front and back faces)
@@ -13025,7 +13806,7 @@ var tier800DeckCards = initialDeckCards;
         if ((isSwiping && (Math.abs(diffX) > 16 || Math.abs(vX) > 0.16)) || (Math.abs(diffX) > 26 && Math.abs(diffX) > Math.abs(diffY))) {
           suppressSyntheticClickUntil = Date.now() + 420;
           executeKineticSwipe(diffX, vX);
-        } else if (dist < 18 && touchDuration < 460) {
+        } else if (dist < 18 && touchDuration < 600) {
           // Stationary tap: if user tapped a Spanish/Hindi audio tile on the back face, let its click handler speak without flipping
           if (!isCardInteractiveBtn(e.target) && !isCardAudioOrInfoSurface(e.target)) {
             suppressSyntheticClickUntil = Date.now() + 500;
@@ -13057,7 +13838,7 @@ var tier800DeckCards = initialDeckCards;
       cardWrapper.addEventListener("touchend", (e) => handleTouchEndOrCancel(e, false));
       cardWrapper.addEventListener("touchcancel", (e) => handleTouchEndOrCancel(e, true));
 
-      // --- DESKTOP MOUSE DRAG, LONG-PRESS REEL & DOUBLE-CLICK FLIP ---
+      // --- DESKTOP MOUSE DRAG & DOUBLE-CLICK FLIP (100% FREE SWIPE) ---
       let isMouseDown = false;
       let mouseStartX = 0;
       let mouseStartY = 0;
@@ -13085,17 +13866,6 @@ var tier800DeckCards = initialDeckCards;
         mouseSamples = [{ x: e.clientX, y: e.clientY, time: performance.now() }];
         cardWrapper.classList.add("is-dragging");
         cardWrapper.style.transition = "none";
-
-        longPressTimer = setTimeout(() => {
-          if (isMouseDown && !mouseHasMoved && !isCardAnimating) {
-            isMouseDown = false;
-            cardWrapper.classList.remove("is-dragging");
-            cardWrapper.style.transition = "transform 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
-            cardWrapper.style.transform = isFlipped ? "rotateY(180deg)" : "rotateY(0deg)";
-            suppressSyntheticClickUntil = Date.now() + 450;
-            openDeckReel(mouseStartX);
-          }
-        }, 460);
       });
 
       window.addEventListener("mousemove", (e) => {
