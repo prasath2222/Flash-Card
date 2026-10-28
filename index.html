@@ -11546,6 +11546,7 @@ var tier2501DeckCards = [{"id":"t2501_2501","originalNum":2501,"num":2501,"displ
 
       var cards = [];
       var isShuffled = false;
+      var currentVocabRangeFilter = localStorage.getItem("vocab_3k_range_filter_v1") || "all";
       var shuffledOrderMap = {};
       var preShuffleCardMap = {};
       function reindexAndBuildCards(preserveShuffle = true) {
@@ -19177,10 +19178,10 @@ var tier2501DeckCards = [{"id":"t2501_2501","originalNum":2501,"num":2501,"displ
         updateSubsectionsMoveButtonsState();
       }
 
-      let currentVocabRangeFilter = localStorage.getItem("vocab_3k_range_filter_v1") || "all";
+      var currentVocabRangeFilter = localStorage.getItem("vocab_3k_range_filter_v1") || "all";
 
       function applyVocabRangeFilter(rangeVal) {
-        currentVocabRangeFilter = rangeVal || "all";
+        currentVocabRangeFilter = rangeVal || currentVocabRangeFilter || localStorage.getItem("vocab_3k_range_filter_v1") || "all";
         try { localStorage.setItem("vocab_3k_range_filter_v1", currentVocabRangeFilter); } catch(e) {}
         const tabContainer = document.getElementById("vocab-3k-range-tabs");
         if (tabContainer) {
