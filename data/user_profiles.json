@@ -19,10 +19,10 @@
     "updatedAt": "2026-03-01T00:00:00.000Z"
   },
   "73801410b67c7ba66a922cc3105f74f279ec21460127d1f8645136a22bffcee3": {
-    "syncRevision": 2283,
-    "updatedAt": "2026-10-27T16:55:00.865Z",
+    "syncRevision": 2486,
+    "updatedAt": "2026-10-28T17:03:29.014Z",
     "payload": {
-      "syncRevision": 2283,
+      "syncRevision": 2486,
       "isExplicitUserAction": true,
       "learnedCardNums": [
         801,
@@ -249,7 +249,30 @@
         655,
         401,
         402,
-        403
+        403,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2015,
+        2014,
+        2017,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
       ],
       "learnedCards": [
         801,
@@ -476,7 +499,30 @@
         655,
         401,
         402,
-        403
+        403,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2015,
+        2014,
+        2017,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
       ],
       "deletedCardNums": [
         807,
@@ -544,7 +590,9 @@
         611,
         "t601_611",
         619,
-        "t601_619"
+        "t601_619",
+        2016,
+        "t2001_2016"
       ],
       "deletedCards": [
         807,
@@ -612,61 +660,63 @@
         611,
         "t601_611",
         619,
-        "t601_619"
+        "t601_619",
+        2016,
+        "t2001_2016"
       ],
-      "activeDeckId": "deck-401-600",
-      "lastActiveCardNum": 600,
-      "lastCard": 600,
-      "streakCount": 3,
-      "streak": 3,
+      "activeDeckId": "deck-2001-2500",
+      "lastActiveCardNum": 2066,
+      "lastCard": 2066,
+      "streakCount": 1,
+      "streak": 1,
       "customShortcuts": {
-        "t800_919": {
-          "word": "ZIPPER",
-          "shortcutHi": "<strong>Chain / Zip</strong> → Pull up your jacket's metal <em>Chain (Zipper)</em> when the cold wind blows!",
-          "es": "cierre",
-          "hi": "zip",
-          "category": "Garment Details",
-          "shortcutEs": "<strong>Cremallera (Kreh-mah-yeh-rah)</strong> → Glides up and down your jacket as smooth as <em>Cream (Crema)</em> = <em>Zipper</em>!",
-          "tamil": "பல்பூட்டு"
-        },
         "t800_965": {
-          "category": "Road & Streets",
-          "word": "PATH",
-          "hi": "raasta",
-          "shortcutEs": "<strong>Camino (Kah-mee-noh)</strong> ≈ Sounds like <strong>\"Come-In-Now\"</strong> → Follow the walking <em>Path (Camino)</em>!",
-          "shortcutHi": "<strong>Raasta (रास्ता)</strong> ≈ <strong>Spoken Tamil ரஸ்தா (Rasthaa - road/path!)</strong> → 100% same word! Spoken Tamil <em>Rasthaa (ரஸ்தா)</em> = Hindi <em>Raasta</em> (Path)!",
           "es": "camino/acera",
-          "tamil": "ஒற்றையடிப் பாதை"
+          "hi": "raasta",
+          "word": "PATH",
+          "shortcutEs": "<strong>Camino (Kah-mee-noh)</strong> ≈ Sounds like <strong>\"Come-In-Now\"</strong> → Follow the walking <em>Path (Camino)</em>!",
+          "category": "Road & Streets",
+          "tamil": "ஒற்றையடிப் பாதை",
+          "shortcutHi": "<strong>Raasta (रास्ता)</strong> ≈ <strong>Spoken Tamil ரஸ்தா (Rasthaa - road/path!)</strong> → 100% same word! Spoken Tamil <em>Rasthaa (ரஸ்தா)</em> = Hindi <em>Raasta</em> (Path)!"
+        },
+        "t800_919": {
+          "shortcutHi": "<strong>Chain / Zip</strong> → Pull up your jacket's metal <em>Chain (Zipper)</em> when the cold wind blows!",
+          "category": "Garment Details",
+          "word": "ZIPPER",
+          "tamil": "பல்பூட்டு",
+          "shortcutEs": "<strong>Cremallera (Kreh-mah-yeh-rah)</strong> → Glides up and down your jacket as smooth as <em>Cream (Crema)</em> = <em>Zipper</em>!",
+          "es": "cierre",
+          "hi": "zip"
         },
         "t800_850": {
-          "es": "armario/ropero",
-          "category": "Furniture & Storage",
-          "shortcutHi": "<strong>Almaari</strong> → Traditional heavy Godrej steel <em>Almaari</em> full of neatly folded clothes!",
-          "hi": "almari",
-          "tamil": "ஆடை அலமாரி",
           "shortcutEs": "<strong>Armario</strong> → Sounds like <em>Armory</em> / Wardrobe closet where all shirts and outfits are stored!",
-          "word": "CLOSET"
+          "hi": "almari",
+          "es": "armario/ropero",
+          "tamil": "ஆடை அலமாரி",
+          "word": "CLOSET",
+          "category": "Furniture & Storage",
+          "shortcutHi": "<strong>Almaari</strong> → Traditional heavy Godrej steel <em>Almaari</em> full of neatly folded clothes!"
         }
       },
       "customDecks": {},
       "customSections": [],
       "audioPrefs": {
-        "bgmMode": "lofi",
-        "voiceRate": 0.8,
-        "voicePitch": 1,
-        "sfxStyle": "mute",
         "autoPronounceFlip": false,
+        "sfxStyle": "mute",
         "autoPronounceNext": false,
-        "transcribeContinuous": true,
+        "transcribeSilenceDelay": 1500,
+        "voiceVolume": 1,
         "repeatDelay": 1000,
         "bgmEnabled": true,
-        "repeatCount": 1,
-        "bgmVolume": 1,
-        "transcribeSilenceDelay": 1500,
+        "bgmMode": "lofi",
         "sfxVolume": 1,
-        "voiceVolume": 1
+        "voiceRate": 0.8,
+        "bgmVolume": 1,
+        "repeatCount": 1,
+        "voicePitch": 1,
+        "transcribeContinuous": true
       },
-      "updatedAt": "2026-10-27T16:55:00.865Z"
+      "updatedAt": "2026-10-28T17:03:29.014Z"
     }
   }
 }
