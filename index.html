@@ -10427,7 +10427,7 @@
 
             <!-- Center Counter & Learned Status (Dynamically updates when any card is deleted) -->
             <div class="top-nav-center-group">
-              <div class="stat-badge-duo stat-badge-streak" id="flashcard-streak-badge" title="Daily Session Streak" style="display: inline-flex !important;">
+              <div class="stat-badge-duo stat-badge-streak" id="flashcard-streak-badge" title="Daily Session Streak" style="display: none !important;">
                 <span class="streak-flame-icon">🔥</span>
                 <span><strong id="flashcard-streak-count">1</strong></span>
               </div>
@@ -13447,11 +13447,6 @@ var tier2501DeckCards = [{"id": "t2501_2501", "originalNum": 2501, "num": 2501, 
         if (currentIndex >= cards.length) {
           currentIndex = Math.max(0, cards.length - 1);
         }
-        isFlipped = false;
-        if (cardWrapper) {
-          cardWrapper.classList.remove("flipped", "spring-animating", "is-dragging");
-          cardWrapper.style.setProperty("transform", "rotateY(0deg)", "important");
-        }
         const card = cards[currentIndex];
         if (!card) return;
 
@@ -13490,7 +13485,10 @@ var tier2501DeckCards = [{"id": "t2501_2501", "originalNum": 2501, "num": 2501, 
         function buildDynamicCardSvgUri(c) {
           const esc = (s) => String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
           const em = esc(c.emoji || "📌");
-          const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450"><defs><radialGradient id="bgGlow" cx="50%" cy="45%" r="65%"><stop offset="0%" stop-color="#1e293b"/><stop offset="60%" stop-color="#0f172a"/><stop offset="100%" stop-color="#060910"/></radialGradient><radialGradient id="orbGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#38bdf8" stop-opacity="0.28"/><stop offset="60%" stop-color="#0284c7" stop-opacity="0.08"/><stop offset="100%" stop-color="#0284c7" stop-opacity="0"/></radialGradient><linearGradient id="orbBorder" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#38bdf8" stop-opacity="0.6"/><stop offset="100%" stop-color="#1e40af" stop-opacity="0.3"/></linearGradient></defs><rect width="600" height="450" fill="url(#bgGlow)"/><circle cx="300" cy="225" r="170" fill="url(#orbGlow)"/><circle cx="300" cy="225" r="115" fill="rgba(15,23,42,0.85)" stroke="url(#orbBorder)" stroke-width="3"/><circle cx="300" cy="225" r="132" fill="none" stroke="rgba(56,189,248,0.22)" stroke-width="1.5" stroke-dasharray="6 8"/><text x="300" y="260" font-family="Apple Color Emoji, Segoe UI Emoji, system-ui, sans-serif" font-size="96" text-anchor="middle">${em}</text></svg>`;
+          const wd = esc(c.word || "");
+          const ta = esc(c.tamil || "");
+          const esHi = esc(((c.trans && c.trans.es) ? c.trans.es : "") + " · " + ((c.trans && c.trans.hi) ? c.trans.hi : ""));
+          const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450"><defs><linearGradient id="bgDyn" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0f172a"/><stop offset="100%" stop-color="#070b14"/></linearGradient></defs><rect width="600" height="450" fill="url(#bgDyn)"/><rect x="45" y="28" width="510" height="325" rx="30" fill="rgba(30,41,59,0.75)" stroke="rgba(56,189,248,0.35)" stroke-width="3"/><circle cx="300" cy="145" r="68" fill="rgba(56,189,248,0.14)" stroke="rgba(56,189,248,0.4)" stroke-width="3"/><text x="300" y="172" font-family="system-ui,sans-serif" font-size="74" text-anchor="middle">${em}</text><text x="300" y="268" font-family="system-ui,sans-serif" font-size="${wd.length > 16 ? 26 : 34}" font-weight="900" fill="#f8fafc" text-anchor="middle" letter-spacing="1">${wd}</text><text x="300" y="318" font-family="system-ui,sans-serif" font-size="23" font-weight="800" fill="#fbbf24" text-anchor="middle">${ta}</text><text x="300" y="405" font-family="system-ui,sans-serif" font-size="22" font-weight="800" fill="#38bdf8" text-anchor="middle">${esHi}</text></svg>`;
           return "data:image/svg+xml;utf8," + encodeURIComponent(svg);
         }
         const primaryImgUrl = card.imageUrl || ((typeof cardAccurateImages !== "undefined" && cardAccurateImages[lookupId]) 
@@ -13608,27 +13606,47 @@ var tier2501DeckCards = [{"id": "t2501_2501", "originalNum": 2501, "num": 2501, 
         isAnimating = false;
         isCardAnimating = false;
         const now = Date.now();
-        if (now - lastFlipTimestamp < 150) return;
+        if (now - lastFlipTimestamp < 180) return;
         lastFlipTimestamp = now;
+
         isFlipped = !isFlipped;
         if (typeof cardAudio !== "undefined" && cardAudio.playCardFlip) {
           cardAudio.playCardFlip(!isFlipped);
         }
-        if (cardWrapper) {
-          cardWrapper.classList.remove("spring-animating", "is-dragging");
-          cardWrapper.style.transition = "transform 0.44s cubic-bezier(0.18, 0.89, 0.32, 1.22)";
+
+        // Tactile Spring-Physics Rotation with bouncy overshoot and scale lift
+        if (window.cardSpring && typeof window.cardSpring.flip === "function") {
+          window.cardSpring.flip(cardWrapper, isFlipped, {
+            stiffness: 310,
+            damping: 19,
+            mass: 0.78,
+            bounce: 0.28,
+            velocity: options.velocity || 0,
+            tiltX: options.tiltX || 0,
+            onMidpoint: () => {
+              if (isFlipped) {
+                cardWrapper.classList.add("flipped");
+              } else {
+                cardWrapper.classList.remove("flipped");
+              }
+            },
+            onComplete: () => {
+              if (isFlipped) {
+                cardWrapper.classList.add("flipped");
+              } else {
+                cardWrapper.classList.remove("flipped");
+              }
+            }
+          });
+        } else {
           if (isFlipped) {
             cardWrapper.classList.add("flipped");
-            cardWrapper.style.setProperty("transform", "rotateY(180deg)", "important");
           } else {
             cardWrapper.classList.remove("flipped");
-            cardWrapper.style.setProperty("transform", "rotateY(0deg)", "important");
           }
         }
-        if (typeof playHapticTick === "function") playHapticTick(620, "triangle", 0.04);
-        if (typeof checkAndAdvanceDailyStreak === "function") {
-          checkAndAdvanceDailyStreak();
-        }
+
+        // Auto-Pronounce on Flip (Speaks native Spanish/Hindi when turned to back)
         if (isFlipped && typeof audioPrefs !== "undefined" && audioPrefs.autoPronounceFlip) {
           setTimeout(() => {
             if (isFlipped) {
@@ -14509,7 +14527,7 @@ var tier2501DeckCards = [{"id": "t2501_2501", "originalNum": 2501, "num": 2501, 
       function setCardTransform(val) {
         if (!cardWrapper) return;
         if (!val) {
-          cardWrapper.style.setProperty("transform", isFlipped ? "rotateY(180deg)" : "rotateY(0deg)", "important");
+          cardWrapper.style.removeProperty("transform");
         } else {
           cardWrapper.style.setProperty("transform", val, "important");
         }
@@ -14517,24 +14535,23 @@ var tier2501DeckCards = [{"id": "t2501_2501", "originalNum": 2501, "num": 2501, 
 
       function resetCardToCurrentFace(withBounce = false) {
         if (!cardWrapper) return;
+        if (window.cardSpring && typeof window.cardSpring.cancel === "function") {
+          window.cardSpring.cancel(cardWrapper);
+        }
         if (withBounce) {
-          cardWrapper.style.transition = "transform 0.22s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
+          cardWrapper.style.transition = "transform 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
+          setCardTransform(isFlipped ? "rotateY(180deg)" : "rotateY(0deg)");
+          clearTimeout(window._bounceCleanTimer);
+          window._bounceCleanTimer = setTimeout(() => {
+            if (!isDragging && !isCardAnimating) {
+              cardWrapper.style.transition = "";
+              setCardTransform("");
+            }
+          }, 190);
         } else {
           cardWrapper.style.transition = "none";
+          setCardTransform("");
         }
-        if (isFlipped) {
-          cardWrapper.classList.add("flipped");
-          cardWrapper.style.setProperty("transform", "rotateY(180deg)", "important");
-        } else {
-          cardWrapper.classList.remove("flipped");
-          cardWrapper.style.setProperty("transform", "rotateY(0deg)", "important");
-        }
-        clearTimeout(window._bounceCleanTimer);
-        window._bounceCleanTimer = setTimeout(() => {
-          if (!cardWrapper) return;
-          cardWrapper.style.transition = "";
-          cardWrapper.classList.remove("spring-animating", "is-dragging");
-        }, withBounce ? 220 : 60);
       }
 
       function executeKineticSwipe(diffX, velocityX) {
@@ -14753,12 +14770,24 @@ var tier2501DeckCards = [{"id": "t2501_2501", "originalNum": 2501, "num": 2501, 
         if ((isSwiping && (Math.abs(diffX) > 14 || Math.abs(vX) > 0.14)) || (Math.abs(diffX) > 22 && Math.abs(diffX) > Math.abs(diffY) * 0.85)) {
           suppressSyntheticClickUntil = Date.now() + 420;
           executeKineticSwipe(diffX, vX);
-        } else if (dist < 25 && touchDuration < 600) {
+        } else if (dist < 18 && touchDuration < 520) {
           if (!isCardInteractiveBtn(e.target) && !isCardAudioOrInfoSurface(e.target)) {
-            suppressSyntheticClickUntil = Date.now() + 400;
-            flipCard();
+            suppressSyntheticClickUntil = Date.now() + 500;
+            const now = Date.now();
+            const timeSinceLastTap = now - lastTapTimestamp;
+            const tapDist = Math.hypot(touch.clientX - lastTapCoords.x, touch.clientY - lastTapCoords.y);
+
+            if (timeSinceLastTap > 30 && timeSinceLastTap < 420 && tapDist < 55) {
+              lastTapTimestamp = 0;
+              flipCard();
+              if (typeof playHapticTick === "function") playHapticTick(620, "triangle", 0.04);
+            } else {
+              lastTapTimestamp = now;
+              lastTapCoords = { x: touch.clientX, y: touch.clientY };
+              resetCardToCurrentFace(true);
+            }
           } else {
-            resetCardToCurrentFace(false);
+            resetCardToCurrentFace(true);
           }
         } else {
           resetCardToCurrentFace(true);
@@ -14887,7 +14916,19 @@ var tier2501DeckCards = [{"id": "t2501_2501", "originalNum": 2501, "num": 2501, 
         if (isDeckReelOpen) return;
         if (isCardInteractiveBtn(e.target) || isCardAudioOrInfoSurface(e.target)) return;
         if (e.button !== undefined && e.button !== 0) return;
-        flipCard();
+
+        const now = Date.now();
+        const timeSinceLastClick = now - lastMouseClickTime;
+        const clickDist = Math.hypot(e.clientX - lastMouseCoords.x, e.clientY - lastMouseCoords.y);
+
+        if (timeSinceLastClick > 30 && timeSinceLastClick < 420 && clickDist < 55) {
+          lastMouseClickTime = 0;
+          flipCard();
+          if (typeof playHapticTick === "function") playHapticTick(620, "triangle", 0.04);
+        } else {
+          lastMouseClickTime = now;
+          lastMouseCoords = { x: e.clientX, y: e.clientY };
+        }
       });
 
       // Desktop native double-click (browser dblclick event fallback, throttled to prevent double flips)
@@ -15618,17 +15659,10 @@ var tier2501DeckCards = [{"id": "t2501_2501", "originalNum": 2501, "num": 2501, 
         nextCard();
       });
 
-      if (btnFlip) {
-        btnFlip.addEventListener("click", (e) => {
-          e.stopPropagation();
-          flipCard();
-        });
-        btnFlip.addEventListener("touchend", (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          flipCard();
-        }, { passive: false });
-      }
+      if (btnFlip) btnFlip.addEventListener("click", (e) => {
+        e.stopPropagation();
+        flipCard();
+      });
 
       // Jump Modal Listeners
       
@@ -17318,7 +17352,7 @@ var tier2501DeckCards = [{"id": "t2501_2501", "originalNum": 2501, "num": 2501, 
           deletedCardNums: Array.isArray(deletedCardNums) ? [...deletedCardNums] : [],
           activeDeckId: currentDeckId || "deck-800-1000",
           lastActiveCardNum: activeCardNum,
-          streakCount: (typeof getStoredStreak === "function" ? getStoredStreak() : (parseInt(localStorage.getItem("stellar_daily_streak_count") || "1", 10) || 1)),
+          streakCount: parseInt(document.getElementById("flashcard-streak-count")?.textContent || "1", 10) || 1,
           customShortcuts: JSON.parse(localStorage.getItem(STORAGE_KEY_EDITS) || "{}"),
           customDecks: customDecksCatalog || {},
           customSections: Array.isArray(currentSections) ? currentSections : [],
@@ -17963,15 +17997,14 @@ var tier2501DeckCards = [{"id": "t2501_2501", "originalNum": 2501, "num": 2501, 
 
           // 3. Streak
           const inStreak = typeof payload.streakCount === "number" ? payload.streakCount : payload.streak;
-          const curStreak = typeof getStoredStreak === "function" ? getStoredStreak() : (parseInt(localStorage.getItem("stellar_daily_streak_count") || "1", 10) || 1);
-          const maxStreak = Math.max(curStreak, typeof inStreak === "number" ? inStreak : 1);
-          if (typeof setStoredStreak === "function") {
-            setStoredStreak(maxStreak);
-          } else {
-            try {
-              localStorage.setItem("stellar_daily_streak_count", String(maxStreak));
-              localStorage.setItem("study_streak_count", String(maxStreak));
-            } catch (e) {}
+          const curStreak = parseInt(localStorage.getItem("study_streak_count") || "0", 10) || 0;
+          const maxStreak = replaceAccountData
+            ? (typeof inStreak === "number" && inStreak > 0 ? inStreak : 1)
+            : Math.max(curStreak, typeof inStreak === "number" ? inStreak : 0);
+          if (maxStreak > 0) {
+            const streakEl = document.getElementById("flashcard-streak-count");
+            if (streakEl) streakEl.textContent = maxStreak;
+            try { localStorage.setItem("study_streak_count", String(maxStreak)); } catch (e) {}
             if (typeof updateStreakDisplays === "function") updateStreakDisplays(maxStreak);
           }
 
@@ -18929,81 +18962,20 @@ var tier2501DeckCards = [{"id": "t2501_2501", "originalNum": 2501, "num": 2501, 
 
       function getStoredStreak() {
         try {
-          const v1 = parseInt(localStorage.getItem(STREAK_KEY) || "0", 10) || 0;
-          const v2 = parseInt(localStorage.getItem("study_streak_count") || "0", 10) || 0;
-          const val = Math.max(v1, v2);
-          return val > 0 ? val : 1;
+          const val = localStorage.getItem(STREAK_KEY);
+          return val ? parseInt(val, 10) : 1;
         } catch (e) {
           return 1;
         }
       }
 
-      function setStoredStreak(val, dateStr = null) {
-        const count = Math.max(1, parseInt(val, 10) || 1);
-        try {
-          localStorage.setItem(STREAK_KEY, String(count));
-          localStorage.setItem("study_streak_count", String(count));
-          if (dateStr) {
-            localStorage.setItem(LAST_DATE_KEY, dateStr);
-            localStorage.setItem("study_last_active_date", dateStr);
-          }
-        } catch (e) {}
-        updateStreakDisplays(count);
-        return count;
-      }
-
       function updateStreakDisplays(count) {
-        const safeCount = Math.max(1, parseInt(count, 10) || 1);
         const dCount = document.getElementById("desktop-streak-count");
-        if (dCount) dCount.textContent = safeCount;
+        if (dCount) dCount.textContent = count;
         const mCount = document.getElementById("mobile-streak-count");
-        if (mCount) mCount.textContent = safeCount;
+        if (mCount) mCount.textContent = count;
         const fCount = document.getElementById("flashcard-streak-count");
-        if (fCount) fCount.textContent = safeCount;
-        const fBadge = document.getElementById("flashcard-streak-badge");
-        if (fBadge) fBadge.style.display = "inline-flex";
-      }
-
-      function checkAndAdvanceDailyStreak(forceCelebration = false) {
-        let streak = getStoredStreak();
-        const today = new Date().toISOString().slice(0, 10);
-        let lastDate = "";
-        try {
-          lastDate = localStorage.getItem(LAST_DATE_KEY) || localStorage.getItem("study_last_active_date") || "";
-        } catch (e) {}
-
-        if (!lastDate) {
-          setStoredStreak(streak, today);
-          return streak;
-        }
-
-        if (lastDate === today) {
-          return streak;
-        }
-
-        const lastTime = new Date(lastDate).getTime();
-        const todayTime = new Date(today).getTime();
-        const diffDays = Math.round((todayTime - lastTime) / (1000 * 60 * 60 * 24));
-
-        if (diffDays === 1 || forceCelebration) {
-          streak += 1;
-          setStoredStreak(streak, today);
-          triggerDailyStreakCelebration(false, streak);
-          if (typeof showToast === "function") {
-            showToast(`🔥 Daily Streak +1! You're on a ${streak}-day streak!`);
-          }
-        } else if (diffDays === 2) {
-          streak += 1;
-          setStoredStreak(streak, today);
-          triggerDailyStreakCelebration(false, streak);
-          if (typeof showToast === "function") {
-            showToast(`🛡️ Streak Shield saved your streak! Now ${streak} days!`);
-          }
-        } else if (diffDays > 2) {
-          streak = 1;
-          setStoredStreak(1, today);
-        }
-        return streak;
+        if (fCount) fCount.textContent = count;
       }
 
       function createGoldParticles(badgeEl) {
@@ -19034,40 +19006,57 @@ var tier2501DeckCards = [{"id": "t2501_2501", "originalNum": 2501, "num": 2501, 
           if (!AudioContext) return;
           const ctx = new AudioContext();
           if (ctx.state === "suspended") ctx.resume();
+
+          // Arpeggiated Golden Harmonic Chord: C5, E5, G5, B5, C6 (warm celestial bells)
           const notes = [523.25, 659.25, 783.99, 987.77, 1046.50];
           const now = ctx.currentTime;
+
           notes.forEach((freq, idx) => {
             const osc = ctx.createOscillator();
             const gain = ctx.createGain();
             const noteStart = now + idx * 0.08;
+
             osc.type = "sine";
             osc.frequency.setValueAtTime(freq, noteStart);
+
             gain.gain.setValueAtTime(0.001, noteStart);
-            gain.gain.exponentialRampToValueAtTime(0.22, noteStart + 0.04);
-            gain.gain.exponentialRampToValueAtTime(0.0001, noteStart + 0.65);
+            gain.gain.exponentialRampToValueAtTime(0.22, noteStart + 0.03);
+            gain.gain.exponentialRampToValueAtTime(0.0001, noteStart + 1.2);
+
             osc.connect(gain);
             gain.connect(ctx.destination);
+
             osc.start(noteStart);
-            osc.stop(noteStart + 0.7);
+            osc.stop(noteStart + 1.25);
           });
-        } catch (e) {}
+        } catch (e) {
+          // Audio fallback gracefully handled
+        }
       }
 
-      function triggerDailyStreakCelebration(forceCelebration = false, customCount = null) {
-        let streak = customCount !== null ? customCount : getStoredStreak();
+      // Main Trigger for Daily Session Completion with Gold Glow Pulse
+      function triggerDailyStreakCelebration(forceCelebration = false) {
+        let streak = getStoredStreak();
         const today = new Date().toISOString().slice(0, 10);
         let lastDate = "";
         try {
           lastDate = localStorage.getItem(LAST_DATE_KEY) || "";
         } catch (e) {}
 
-        if (forceCelebration && lastDate !== today) {
-          streak += 1;
-          setStoredStreak(streak, today);
+        let isNewDay = lastDate !== today;
+        if (isNewDay || forceCelebration) {
+          if (isNewDay && !forceCelebration) {
+            streak += 1;
+            try {
+              localStorage.setItem(STREAK_KEY, streak.toString());
+              localStorage.setItem(LAST_DATE_KEY, today);
+            } catch (e) {}
+          }
         }
 
         updateStreakDisplays(streak);
 
+        // Find all streak badges and apply the pulsating gold glow effect
         const streakBadges = [
           document.getElementById("desktop-streak-badge"),
           document.getElementById("mobile-streak-badge"),
@@ -19076,7 +19065,7 @@ var tier2501DeckCards = [{"id": "t2501_2501", "originalNum": 2501, "num": 2501, 
 
         streakBadges.forEach(badge => {
           badge.classList.remove("streak-pulsing");
-          void badge.offsetWidth;
+          void badge.offsetWidth; // Force CSS reflow to replay animation cleanly
           badge.classList.add("streak-pulsing");
           createGoldParticles(badge);
           setTimeout(() => {
@@ -19084,21 +19073,28 @@ var tier2501DeckCards = [{"id": "t2501_2501", "originalNum": 2501, "num": 2501, 
           }, 1500);
         });
 
+        // Melodic golden audio feedback
         playGoldenHarmonicChime();
+
+        // Celebratory haptic pulse
         if (typeof playHapticTick === "function") {
           playHapticTick(750, "triangle", 0.08);
           setTimeout(() => playHapticTick(900, "sine", 0.1), 160);
         }
+
+        // Motivational toast
+        if (typeof showToast === "function") {
+          showToast(`🔥 Daily Session Completed! ${streak} Day Streak!`);
+        }
       }
 
+      // Expose globally
       window.triggerDailyStreakCelebration = triggerDailyStreakCelebration;
-      window.checkAndAdvanceDailyStreak = checkAndAdvanceDailyStreak;
-      window.getStoredStreak = getStoredStreak;
-      window.setStoredStreak = setStoredStreak;
 
       // Initialize displays on load
       updateStreakDisplays(getStoredStreak());
 
+      // Wire click interactions to streak badges for tactile feedback
       [
         document.getElementById("desktop-streak-badge"),
         document.getElementById("mobile-streak-badge"),
@@ -19108,8 +19104,6 @@ var tier2501DeckCards = [{"id": "t2501_2501", "originalNum": 2501, "num": 2501, 
           badge.addEventListener("click", () => {
             triggerDailyStreakCelebration(true);
           });
-        }
-      });
         }
       });
 
