@@ -19,10 +19,10 @@
     "updatedAt": "2026-03-01T00:00:00.000Z"
   },
   "73801410b67c7ba66a922cc3105f74f279ec21460127d1f8645136a22bffcee3": {
-    "syncRevision": 2494,
-    "updatedAt": "2026-10-28T18:50:31.320Z",
+    "syncRevision": 2509,
+    "updatedAt": "2026-10-28T19:01:35.823Z",
     "payload": {
-      "syncRevision": 2494,
+      "syncRevision": 2509,
       "isExplicitUserAction": true,
       "learnedCardNums": [
         801,
@@ -665,58 +665,58 @@
         "t2001_2016"
       ],
       "activeDeckId": "deck-2001-2500",
-      "lastActiveCardNum": 2001,
-      "lastCard": 2001,
+      "lastActiveCardNum": 2053,
+      "lastCard": 2053,
       "streakCount": 1,
       "streak": 1,
       "customShortcuts": {
-        "t800_850": {
-          "es": "armario/ropero",
-          "shortcutHi": "<strong>Almaari</strong> → Traditional heavy Godrej steel <em>Almaari</em> full of neatly folded clothes!",
-          "shortcutEs": "<strong>Armario</strong> → Sounds like <em>Armory</em> / Wardrobe closet where all shirts and outfits are stored!",
-          "tamil": "ஆடை அலமாரி",
-          "category": "Furniture & Storage",
-          "hi": "almari",
-          "word": "CLOSET"
+        "t800_965": {
+          "shortcutEs": "<strong>Camino (Kah-mee-noh)</strong> ≈ Sounds like <strong>\"Come-In-Now\"</strong> → Follow the walking <em>Path (Camino)</em>!",
+          "category": "Road & Streets",
+          "shortcutHi": "<strong>Raasta (रास्ता)</strong> ≈ <strong>Spoken Tamil ரஸ்தா (Rasthaa - road/path!)</strong> → 100% same word! Spoken Tamil <em>Rasthaa (ரஸ்தா)</em> = Hindi <em>Raasta</em> (Path)!",
+          "word": "PATH",
+          "tamil": "ஒற்றையடிப் பாதை",
+          "hi": "raasta",
+          "es": "camino/acera"
         },
         "t800_919": {
-          "word": "ZIPPER",
           "tamil": "பல்பூட்டு",
           "category": "Garment Details",
           "es": "cierre",
-          "hi": "zip",
           "shortcutEs": "<strong>Cremallera (Kreh-mah-yeh-rah)</strong> → Glides up and down your jacket as smooth as <em>Cream (Crema)</em> = <em>Zipper</em>!",
+          "hi": "zip",
+          "word": "ZIPPER",
           "shortcutHi": "<strong>Chain / Zip</strong> → Pull up your jacket's metal <em>Chain (Zipper)</em> when the cold wind blows!"
         },
-        "t800_965": {
-          "tamil": "ஒற்றையடிப் பாதை",
-          "es": "camino/acera",
-          "category": "Road & Streets",
-          "word": "PATH",
-          "shortcutHi": "<strong>Raasta (रास्ता)</strong> ≈ <strong>Spoken Tamil ரஸ்தா (Rasthaa - road/path!)</strong> → 100% same word! Spoken Tamil <em>Rasthaa (ரஸ்தா)</em> = Hindi <em>Raasta</em> (Path)!",
-          "shortcutEs": "<strong>Camino (Kah-mee-noh)</strong> ≈ Sounds like <strong>\"Come-In-Now\"</strong> → Follow the walking <em>Path (Camino)</em>!",
-          "hi": "raasta"
+        "t800_850": {
+          "hi": "almari",
+          "es": "armario/ropero",
+          "category": "Furniture & Storage",
+          "shortcutHi": "<strong>Almaari</strong> → Traditional heavy Godrej steel <em>Almaari</em> full of neatly folded clothes!",
+          "tamil": "ஆடை அலமாரி",
+          "word": "CLOSET",
+          "shortcutEs": "<strong>Armario</strong> → Sounds like <em>Armory</em> / Wardrobe closet where all shirts and outfits are stored!"
         }
       },
       "customDecks": {},
       "customSections": [],
       "audioPrefs": {
-        "repeatDelay": 1000,
-        "bgmMode": "lofi",
-        "transcribeSilenceDelay": 1500,
-        "repeatCount": 1,
-        "voiceVolume": 1,
-        "voiceRate": 0.8,
-        "bgmEnabled": true,
-        "autoPronounceNext": false,
-        "bgmVolume": 1,
         "voicePitch": 1,
+        "bgmVolume": 0.25,
         "autoPronounceFlip": false,
-        "sfxStyle": "mute",
+        "autoPronounceNext": false,
+        "bgmMode": "lofi",
+        "sfxStyle": "snap",
+        "sfxVolume": 1,
+        "transcribeSilenceDelay": 1500,
+        "voiceVolume": 1,
         "transcribeContinuous": true,
-        "sfxVolume": 1
+        "repeatCount": 1,
+        "repeatDelay": 1000,
+        "bgmEnabled": false,
+        "voiceRate": 0.8
       },
-      "updatedAt": "2026-10-28T18:50:31.320Z"
+      "updatedAt": "2026-10-28T19:01:35.823Z"
     }
   }
 }
