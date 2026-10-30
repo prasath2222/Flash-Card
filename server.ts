@@ -54,8 +54,8 @@ async function startServer() {
   const runtimeImageCache: Record<string, string> = {};
 
   async function resolveRealWorldPhoto(word: string, num?: string): Promise<string | null> {
-    if (num && accurateImages[num]) return accurateImages[num];
-    if (num && wikiThumbs[num]) return wikiThumbs[num];
+    if (num && accurateImages[num] && !accurateImages[num].startsWith("data:image/svg")) return accurateImages[num];
+    if (num && wikiThumbs[num] && !wikiThumbs[num].startsWith("data:image/svg")) return wikiThumbs[num];
 
     const cleanWord = String(word || "")
       .replace(/[^\p{L}\p{N}\s-]/gu, "")
@@ -787,8 +787,14 @@ async function startServer() {
     const activeDeckId = inner.activeDeckId || "deck-800-1000";
     const lastActiveCardNum = Number(inner.lastActiveCardNum ?? inner.lastCard ?? 800);
     const streakCount = Number(inner.streakCount ?? inner.streak ?? 1);
-    const customShortcuts =
+    const rawCustomShortcuts =
       inner.customShortcuts && typeof inner.customShortcuts === "object" ? inner.customShortcuts : {};
+    const customShortcuts: Record<string, any> = {};
+    for (const [k, v] of Object.entries(rawCustomShortcuts)) {
+      if (v && typeof v === "object" && (v as any).schemaVer === 5) {
+        customShortcuts[k] = v;
+      }
+    }
     const customDecks =
       inner.customDecks && typeof inner.customDecks === "object" ? inner.customDecks : {};
     const customSections = Array.isArray(inner.customSections) ? inner.customSections : [];
