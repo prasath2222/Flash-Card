@@ -175,6 +175,479 @@ async function startServer() {
 
   const ttsAudioCache = new Map<string, Buffer>();
 
+  function romanHindiToDevanagari(input: string): string {
+    if (!input) return "";
+    // If already contains Devanagari, return as-is
+    if (/[\u0900-\u097F]/.test(input)) return input;
+    const clean = input
+      .toLowerCase()
+      .replace(/\([^)]*\)/g, " ")
+      .replace(/[^a-z\s]/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+    if (!clean) return input;
+
+    const wordDict: Record<string, string> = {
+      vaataavaran: "वातावरण",
+      jagah: "जगह",
+      sthaan: "स्थान",
+      antariksh: "अंतरिक्ष",
+      aakaash: "आकाश",
+      keechad: "कीचड़",
+      pahaadi: "पहाड़ी",
+      pahaad: "पहाड़",
+      maidaan: "मैदान",
+      suraj: "सूरज",
+      chaand: "चाँद",
+      taara: "तारा",
+      aasman: "आसमान",
+      baadal: "बादल",
+      baarish: "बारिश",
+      barf: "बर्फ़",
+      hawa: "हवा",
+      toofaan: "तूफ़ान",
+      bijli: "बिजली",
+      dhundh: "धुंध",
+      kohra: "कोहरा",
+      ret: "रेत",
+      mitti: "मिट्टी",
+      patthar: "पत्थर",
+      chattaan: "चट्टान",
+      ghaaTi: "घाटी",
+      ghaati: "घाटी",
+      dweep: "द्वीप",
+      taapu: "टापू",
+      samundar: "समुद्र",
+      saagar: "सागर",
+      nadi: "नदी",
+      jheel: "झील",
+      taalaab: "तालाब",
+      jharna: "झरना",
+      paani: "पानी",
+      aag: "आग",
+      dhuaan: "धुआँ",
+      raakh: "राख",
+      ped: "पेड़",
+      paudha: "पौधा",
+      patti: "पत्ती",
+      phool: "फ़ूल",
+      phal: "फल",
+      ghaas: "घास",
+      jangal: "जंगल",
+      khet: "खेत",
+      fasal: "फ़सल",
+      beej: "बीज",
+      jad: "जड़",
+      daali: "डाली",
+      kisaan: "किसान",
+      gaon: "गाँव",
+      shahar: "शहर",
+      desh: "देश",
+      duniya: "दुनिया",
+      sansaar: "संसार",
+      zameen: "ज़मीन",
+      dharti: "धरती",
+      prithvi: "पृथ्वी",
+      prakriti: "प्रकृति",
+      udhaar: "उधार",
+      karz: "क़र्ज़",
+      bimaari: "बीमारी",
+      dawaai: "दवाई",
+      ilaaj: "इलाज",
+      sehat: "सेहत",
+      swasthya: "स्वास्थ्य",
+      tandurust: "तंदुरुस्त",
+      kamzor: "कमज़ोर",
+      takleef: "तकलीफ़",
+      dard: "दर्द",
+      chot: "चोट",
+      khoon: "ख़ून",
+      dil: "दिल",
+      dimaag: "दिमाग़",
+      aankh: "आँख",
+      kaan: "कान",
+      naak: "नाक",
+      munh: "मुँह",
+      daant: "दाँत",
+      jeebh: "जीभ",
+      gala: "गला",
+      kandha: "कंधा",
+      haath: "हाथ",
+      ungli: "उँगली",
+      pair: "पैर",
+      ghutna: "घुटना",
+      peeth: "पीठ",
+      pet: "पेट",
+      chhaati: "छाती",
+      haddi: "हड्डी",
+      chamdi: "चमड़ी",
+      baal: "बाल",
+      chehra: "चेहरा",
+      muskaan: "मुस्कान",
+      aansu: "आँसू",
+      paseena: "पसीना",
+      saans: "साँस",
+      aawaaz: "आवाज़",
+      neend: "नींद",
+      sapna: "सपना",
+      bhookh: "भूख",
+      pyaas: "प्यास",
+      khaana: "खाना",
+      bhojan: "भोजन",
+      naashta: "नाश्ता",
+      roti: "रोटी",
+      chaawal: "चावल",
+      daal: "दाल",
+      sabzi: "सब्ज़ी",
+      doodh: "दूध",
+      dahi: "दही",
+      makkhan: "मक्खन",
+      paneer: "पनीर",
+      anda: "अंडा",
+      maans: "मांस",
+      machhli: "मछली",
+      namak: "नमक",
+      cheeni: "चीनी",
+      shakkar: "शक्कर",
+      mirch: "मिर्च",
+      masaala: "मसाला",
+      tel: "तेल",
+      ghee: "घी",
+      mithaai: "मिठाई",
+      chai: "चाय",
+      sharbat: "शरबत",
+      ghar: "घर",
+      makaan: "मकान",
+      kamra: "कमरा",
+      darwaaza: "दरवाज़ा",
+      khidki: "खिड़की",
+      deewaar: "दीवार",
+      chhat: "छत",
+      farsh: "फ़र्श",
+      seedhi: "सीढ़ी",
+      rasoi: "रसोई",
+      bistar: "बिस्तर",
+      takiya: "तकिया",
+      kambal: "कंबल",
+      kursi: "कुर्सी",
+      mez: "मेज़",
+      almaari: "अलमारी",
+      aaina: "आईना",
+      sheesha: "शीशा",
+      ghadi: "घड़ी",
+      taala: "ताला",
+      chaabi: "चाबी",
+      batti: "बत्ती",
+      pankha: "पंखा",
+      kapda: "कपड़ा",
+      kamiiz: "क़मीज़",
+      kurta: "कुर्ता",
+      pajama: "पायजामा",
+      saadi: "साड़ी",
+      joota: "जूता",
+      chappal: "चप्पल",
+      moza: "मोज़ा",
+      topi: "टोपी",
+      chashma: "चश्मा",
+      angoothi: "अँगूठी",
+      gachha: "गच्छा",
+      thaila: "थैला",
+      basta: "बस्ता",
+      chhaata: "छाता",
+      bartan: "बर्तन",
+      thaali: "थाली",
+      katori: "कटोरी",
+      gilaas: "गिलास",
+      chammach: "चम्मच",
+      chaaku: "चाकू",
+      chhuri: "छुरी",
+      kainchi: "कैंची",
+      sui: "सुई",
+      dhaaga: "धागा",
+      rassi: "रस्सी",
+      saabun: "साबुन",
+      tauliya: "तौलिया",
+      kanghi: "कंघी",
+      jhaadu: "झाड़ू",
+      kachra: "कचरा",
+      kitaab: "किताब",
+      pustak: "पुस्तक",
+      kaagaz: "काग़ज़",
+      kalam: "क़लम",
+      khat: "ख़त",
+      patra: "पत्र",
+      akhbaar: "अख़बार",
+      kahaani: "कहानी",
+      kavita: "कविता",
+      bhaasha: "भाषा",
+      shabd: "शब्द",
+      vaakya: "वाक्य",
+      sawaal: "सवाल",
+      prashn: "प्रश्न",
+      jawaab: "जवाब",
+      uttar: "उत्तर",
+      pariksha: "परीक्षा",
+      imtiahan: "इम्तिहान",
+      shiksha: "शिक्षा",
+      padhaai: "पढ़ाई",
+      vidyaalaya: "विद्यालय",
+      kaksha: "कक्षा",
+      shikshak: "शिक्षक",
+      adhyaapak: "अध्यापक",
+      chhaatra: "छात्र",
+      vidyaarthi: "विद्यार्थी",
+      gyaan: "ज्ञान",
+      vigyaan: "विज्ञान",
+      ganit: "गणित",
+      itihaas: "इतिहास",
+      bhoogol: "भूगोल",
+      kala: "कला",
+      sangeet: "संगीत",
+      geet: "गीत",
+      gaana: "गाना",
+      naach: "नाच",
+      khel: "खेल",
+      khilaadi: "खिलाड़ी",
+      jeet: "जीत",
+      haar: "हार",
+      inaam: "इनाम",
+      kaam: "काम",
+      naukri: "नौकरी",
+      vyapaar: "व्यापार",
+      dukaan: "दुकान",
+      baazaar: "बाज़ार",
+      paisa: "पैसा",
+      rupaya: "रुपया",
+      keemat: "क़ीमत",
+      daam: "दाम",
+      kharch: "ख़र्च",
+      bachat: "बचत",
+      kamyabi: "कामयाबी",
+      safalta: "सफलता",
+      mehnat: "मेहनत",
+      koshish: "कोशिश",
+      madad: "मदद",
+      sahaayata: "सहायता",
+      zaroorat: "ज़रूरत",
+      aavashyakta: "आवश्यकता",
+      faisla: "फ़ैसला",
+      nirnay: "निर्णय",
+      vichaar: "विचार",
+      soch: "सोच",
+      yaad: "याद",
+      aadat: "आदत",
+      niyam: "नियम",
+      kanoon: "क़ानून",
+      adhikaar: "अधिकार",
+      azaadi: "आज़ादी",
+      shanti: "शांति",
+      yuddh: "युद्ध",
+      ladaai: "लड़ाई",
+      dost: "दोस्त",
+      mitra: "मित्र",
+      dushman: "दुश्मन",
+      shatru: "शत्रु",
+      parivaar: "परिवार",
+      maa: "माँ",
+      pita: "पिता",
+      baap: "बाप",
+      bhai: "भाई",
+      behan: "बहन",
+      beta: "बेटा",
+      beti: "बेटी",
+      bachcha: "बच्चा",
+      पति: "पति",
+      pati: "पति",
+      patni: "पत्नी",
+      aurat: "औरत",
+      mahila: "महिला",
+      aadmi: "आदमी",
+      purush: "पुरुष",
+      ladka: "लड़का",
+      ladki: "लड़की",
+      padosi: "पड़ोसी",
+      mehmaan: "महमान",
+      rishtedaar: "रिश्तेदार",
+      pyaar: "प्यार",
+      mohabbat: "मोहब्बत",
+      prem: "प्रेम",
+      khushi: "ख़ुशी",
+      aanand: "आनंद",
+      dukh: "दुख",
+      gam: "ग़म",
+      gussa: "ग़ुस्सा",
+      krodh: "क्रोध",
+      dar: "डर",
+      bhay: "भय",
+      sharm: "शर्म",
+      bharosa: "भरोसा",
+      vishwaas: "विश्वास",
+      umeed: "उम्मीद",
+      aasha: "आशा",
+      sach: "सच",
+      satya: "सत्य",
+      jhooth: "झूठ",
+      galti: "ग़लती",
+      maafi: "माफ़ी",
+      shukriya: "शुक्रिया",
+      dhanyavaad: "धन्यवाद",
+      namaste: "नमस्ते",
+      waqt: "वक़्त",
+      samay: "समय",
+      subah: "सुबह",
+      dopahar: "दोपहर",
+      shaam: "शाम",
+      raat: "रात",
+      aaj: "आज",
+      kal: "कल",
+      hafta: "हफ़्ता",
+      mahina: "महीना",
+      saal: "साल",
+      varsh: "वर्ष",
+      karna: "करना",
+      hona: "होना",
+      jaana: "जाना",
+      aana: "आना",
+      dena: "देना",
+      lena: "लेना",
+      bolna: "बोलना",
+      kehna: "कहना",
+      sunna: "सुनना",
+      dekhna: "देखना",
+      padhna: "पढ़ना",
+      likhna: "लिखना",
+      samajhna: "समझना",
+      seekhna: "सीखना",
+      sikhaana: "सिखाना",
+      khelna: "खेलना",
+      daudna: "दौड़ना",
+      chalna: "चलना",
+      rukna: "रुकना",
+      baithna: "बैठना",
+      uthna: "उठना",
+      sona: "सोना",
+      jaagna: "जागना",
+      hasna: "हँसना",
+      rona: "रोना",
+      kholna: "खोलना",
+      band: "बंद",
+      shuru: "शुरू",
+      khatam: "ख़त्म",
+      achha: "अच्छा",
+      bura: "बुरा",
+      bada: "बड़ा",
+      chhota: "छोटा",
+      lamba: "लंबा",
+      ooncha: "ऊँचा",
+      neecha: "नीचा",
+      mota: "मोटा",
+      patla: "पतला",
+      naya: "नया",
+      puraana: "पुराना",
+      garam: "गरम",
+      thanda: "ठंडा",
+      meetha: "मीठा",
+      kadwa: "कड़वा",
+      khatta: "खट्टा",
+      teekha: "तीखा",
+      saaf: "साफ़",
+      ganda: "गंदा",
+      aasaan: "आसान",
+      mushkil: "मुश्किल",
+      kathin: "कठिन",
+      sasta: "सस्ता",
+      mehanga: "महँगा",
+      ameer: "अमीर",
+      gareeb: "ग़रीब",
+      tez: "तेज़",
+      dheema: "धीमा",
+      bhaari: "भारी",
+      halka: "हल्का",
+      khula: "खुला",
+      sahi: "सही",
+      galat: "ग़लत",
+      zaroori: "ज़रूरी",
+      khaas: "ख़ास",
+      aam: "आम",
+      sundar: "सुंदर",
+      khoobsurat: "ख़ूबसूरत"
+    };
+
+    const transliterateToken = (w: string): string => {
+      if (wordDict[w]) return wordDict[w];
+      const consonants: Array<[string, string]> = [
+        ["ksh", "क्ष"], ["gya", "ज्ञ"], ["shr", "श्र"],
+        ["chh", "छ"], ["ch", "च"],
+        ["kh", "ख"], ["gh", "घ"],
+        ["th", "थ"], ["dh", "ध"],
+        ["ph", "फ"], ["bh", "भ"],
+        ["sh", "श"], ["zh", "झ"],
+        ["tr", "त्र"],
+        ["k", "क"], ["g", "ग"], ["j", "ज"],
+        ["t", "त"], ["d", "द"], ["n", "न"],
+        ["p", "प"], ["b", "ब"], ["m", "म"],
+        ["y", "य"], ["r", "र"], ["l", "ल"],
+        ["v", "व"], ["w", "व"], ["s", "स"],
+        ["h", "ह"], ["z", "ज़"], ["f", "फ़"], ["q", "क़"]
+      ];
+      const indepVowels: Array<[string, string]> = [
+        ["aa", "आ"], ["ee", "ई"], ["oo", "ऊ"],
+        ["ai", "ऐ"], ["au", "औ"], ["ou", "औ"],
+        ["a", "अ"], ["i", "इ"], ["u", "उ"],
+        ["e", "ए"], ["o", "ओ"]
+      ];
+      const matras: Array<[string, string]> = [
+        ["aa", "ा"], ["ee", "ी"], ["oo", "ू"],
+        ["ai", "ै"], ["au", "ौ"], ["ou", "ौ"],
+        ["a", ""], ["i", "ि"], ["u", "ु"],
+        ["e", "े"], ["o", "ो"]
+      ];
+      let out = "";
+      let i = 0;
+      while (i < w.length) {
+        let matchedC = false;
+        for (const [romC, devC] of consonants) {
+          if (w.startsWith(romC, i)) {
+            i += romC.length;
+            matchedC = true;
+            // Check following vowel
+            let matchedV = false;
+            for (const [romV, matra] of matras) {
+              if (w.startsWith(romV, i)) {
+                i += romV.length;
+                out += devC + matra;
+                matchedV = true;
+                break;
+              }
+            }
+            if (!matchedV) {
+              // Half-consonant if followed by another consonant, else inherent schwa at end
+              out += i < w.length ? devC + "्" : devC;
+            }
+            break;
+          }
+        }
+        if (!matchedC) {
+          let matchedIV = false;
+          for (const [romV, devV] of indepVowels) {
+            if (w.startsWith(romV, i)) {
+              i += romV.length;
+              out += devV;
+              matchedIV = true;
+              break;
+            }
+          }
+          if (!matchedIV) {
+            i++;
+          }
+        }
+      }
+      return out || w;
+    };
+
+    return clean.split(" ").map(transliterateToken).join(" ");
+  }
+
   app.get("/api/tts", async (req, res) => {
     try {
       const text = String(req.query.text || req.query.q || "").trim().slice(0, 200);
@@ -189,7 +662,8 @@ async function startServer() {
         ? "hi"
         : "en";
 
-      const cacheKey = `${tl}:${text}`;
+      const spokenQuery = tl === "hi" ? romanHindiToDevanagari(text) : text;
+      const cacheKey = `${tl}:${spokenQuery}`;
       if (ttsAudioCache.has(cacheKey)) {
         const cached = ttsAudioCache.get(cacheKey)!;
         res.setHeader("Content-Type", "audio/mpeg");
@@ -197,7 +671,7 @@ async function startServer() {
         return res.status(200).send(cached);
       }
 
-      const ttsUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=${encodeURIComponent(tl)}&client=tw-ob&q=${encodeURIComponent(text)}`;
+      const ttsUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=${encodeURIComponent(tl)}&client=tw-ob&q=${encodeURIComponent(spokenQuery)}`;
       const upstream = await fetch(ttsUrl, {
         headers: {
           "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
@@ -791,7 +1265,7 @@ async function startServer() {
       inner.customShortcuts && typeof inner.customShortcuts === "object" ? inner.customShortcuts : {};
     const customShortcuts: Record<string, any> = {};
     for (const [k, v] of Object.entries(rawCustomShortcuts)) {
-      if (v && typeof v === "object" && (v as any).schemaVer === 5) {
+      if (v && typeof v === "object" && (v as any).schemaVer === 8) {
         customShortcuts[k] = v;
       }
     }
