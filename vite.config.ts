@@ -1,11 +1,9 @@
-import tailwindcss from '@tailwindcss/vite';
-import react from '@vitejs/plugin-react';
 import path from 'path';
 import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    plugins: [react(), tailwindcss()],
+    plugins: [],
     resolve: {
       alias: {
         '@': path.resolve(process.cwd(), '.'),
@@ -15,7 +13,8 @@ export default defineConfig(() => {
       // HMR is disabled in preview environments to prevent websocket errors in iframes.
       hmr: false,
       ws: false as const,
-      watch: process.env.DISABLE_HMR === 'true' ? null : {},
+      watch: null,
     },
   };
 });
+

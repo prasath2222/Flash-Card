@@ -1265,7 +1265,7 @@ async function startServer() {
       inner.customShortcuts && typeof inner.customShortcuts === "object" ? inner.customShortcuts : {};
     const customShortcuts: Record<string, any> = {};
     for (const [k, v] of Object.entries(rawCustomShortcuts)) {
-      if (v && typeof v === "object" && (v as any).schemaVer === 8) {
+      if (v && typeof v === "object" && (v as any).schemaVer === 9) {
         customShortcuts[k] = v;
       }
     }
@@ -1723,11 +1723,10 @@ async function startServer() {
     res.json({ ok: true, syncId: result.email, exists: result.exists, payload: result.payload });
   });
 
-  // Pre-cached gzip helper for index.html so mobile connections load 6x faster (280KB vs 1.7MB) without initialization timeouts
+  // Pre-cached gzip helper for index.html so mobile connections load fast without initialization timeouts
   let indexHtmlCache: { mtimeMs: number; raw: Buffer; gzipped: Buffer } | null = null;
-  let viteServerInstance: any = null;
 
-  async function getIndexHtmlBuffers(): Promise<{ raw: Buffer; gzipped: Buffer }> {
+  function getIndexHtmlBuffers(): { raw: Buffer; gzipped: Buffer } {
     const indexPath =
       process.env.NODE_ENV === "production"
         ? path.join(process.cwd(), "dist", "index.html")
@@ -1736,21 +1735,15 @@ async function startServer() {
     if (indexHtmlCache && indexHtmlCache.mtimeMs === stat.mtimeMs) {
       return indexHtmlCache;
     }
-    let htmlStr = fs.readFileSync(indexPath, "utf8");
-    if (viteServerInstance && process.env.NODE_ENV !== "production") {
-      try {
-        htmlStr = await viteServerInstance.transformIndexHtml("/", htmlStr);
-      } catch (e) {}
-    }
-    const raw = Buffer.from(htmlStr, "utf8");
+    const raw = fs.readFileSync(indexPath);
     const gzipped = zlib.gzipSync(raw, { level: 6 });
     indexHtmlCache = { mtimeMs: stat.mtimeMs, raw, gzipped };
     return indexHtmlCache;
   }
 
-  app.get(["/", "/index.html"], async (req, res, next) => {
+  app.get(["/", "/index.html"], (req, res, next) => {
     try {
-      const { raw, gzipped } = await getIndexHtmlBuffers();
+      const { raw, gzipped } = getIndexHtmlBuffers();
       res.setHeader("Content-Type", "text/html; charset=utf-8");
       res.setHeader("Cache-Control", "no-cache");
       res.setHeader("Vary", "Accept-Encoding");
@@ -1784,13 +1777,9 @@ async function startServer() {
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({
       server: { middlewareMode: true },
-      appType: "spa"
+      appType: "custom"
     });
-    viteServerInstance = vite;
     viteMiddleware = vite.middlewares;
-    // Pre-warm index.html gzip cache in background
-    indexHtmlCache = null;
-    getIndexHtmlBuffers().catch(() => {});
   } else {
     const distPath = path.join(process.cwd(), "dist");
     app.use(express.static(distPath));
