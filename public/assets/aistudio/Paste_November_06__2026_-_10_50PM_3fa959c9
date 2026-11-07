@@ -1,0 +1,1062 @@
+2001. TEACHER
+
+2001. TEACHER (Only Concept: School Educator)
+• Target Labels: Hindi: Teacher / Shikshak | Spanish: Profesor / Maestro
+• Anchor: Standing in front of a class holding a marker, explaining a topic to
+seated students.
+• Trigger: Daily school environments, classroom scenes in movies, and
+parent-teacher meetings.
+
+2002. PROFESSOR
+
+2002. PROFESSOR (Only Concept: College / University Lecturer)
+• Target Labels: Hindi: Professor | Spanish: Profesor / Catedrático
+• Anchor: An academic delivering a lecture in a large university hall behind a
+podium.
+• Trigger: College campus dramas, higher-education web series, and academic
+news.
+
+2003. TUTOR
+
+2003. TUTOR (Only Concept: Private Home Teacher)
+• Target Labels: Hindi: Tutor / Home tutor | Spanish: Tutor / Profesor
+particular
+• Anchor: Sitting beside a student at a dining table at home, helping with
+evening exam prep.
+• Trigger: Daily household routines, hiring ads for after-school help, and
+family dramas.
+
+2004. PRINCIPAL
+
+2004. PRINCIPAL (Split Concept 1: School Head)
+• Target Labels: Hindi: Principal | Spanish: Director / Directora
+• Anchor: The stern administrative head sitting in the central corner office of
+a school building.
+• Trigger: School discipline scenes in movies, morning assembly speeches, and
+official school circulars.
+
+2004. PRINCIPAL (Split Concept 2: Main / Primary)
+• Target Labels: Hindi: Mukhya / Khas | Spanish: Principal
+• Anchor: The single most critical reason or piece at the center of an argument.
+• Trigger: News debates, daily discussions ("The principal issue is..."), and
+documentary narration.
+
+2004. PRINCIPAL (Split Concept 3: Financial Capital)
+• Action: ❌ SKIP — Advanced banking/loan accounting term; not used in casual
+conversation or pop media.
+
+2005. INSTRUCTOR
+
+2005. INSTRUCTOR (Only Concept: Practical Skill / Fitness Trainer)
+• Target Labels: Hindi: Instructor / Trainer | Spanish: Instructor / Monitor
+• Anchor: A coach sitting in the passenger seat of a learner car or guiding form
+at a gym.
+• Trigger: Driving lessons, gym classes, yoga studio vlogs, and sports training
+scenes.
+
+2006. CLASSMATE
+
+2006. CLASSMATE (Only Concept: Peer in the Same Class)
+• Target Labels: Hindi: Classmate / Saath padhne wala | Spanish: Compañero de
+clase
+• Anchor: The student sitting at the desk right next to you sharing notes before
+a test.
+• Trigger: Teen movies, college vlogs, and casual conversations about school
+memories.
+
+2007. CLASSROOM
+
+2007. CLASSROOM (Only Concept: School Learning Hall)
+• Target Labels: Hindi: Classroom / Class | Spanish: Aula / Salón de clases
+• Anchor: A room filled with rows of desks, chairs, and a board on the front
+wall.
+• Trigger: Daily school/college life, coming-of-age films, and educational
+videos.
+
+2008. BLACKBOARD
+
+2008. BLACKBOARD (Only Concept: Dark Writing Slate Board)
+• Target Labels: Hindi: Blackboard | Spanish: Pizarra / Pizarrón
+• Anchor: A dark slate panel on a wall covered in dusty white chalk writing.
+• Trigger: Classroom movie scenes, vintage school memories, and village school
+vlogs.
+
+2009. WHITEBOARD
+
+2009. WHITEBOARD (Only Concept: Glossy Marker Board)
+• Target Labels: Hindi: Whiteboard | Spanish: Pizarra blanca
+• Anchor: A slick, white wall board covered in erasable blue and red marker ink.
+• Trigger: Modern corporate office meetings, tech startup videos, and tuition
+coaching centers.
+
+2010. CHALK
+
+2010. CHALK (Only Concept: White Writing Stick)
+• Target Labels: Hindi: Chalk | Spanish: Tiza
+• Anchor: A brittle white stick that leaves powdery dust on your fingers as you
+write on slate.
+• Trigger: School classroom routines, hopscotch street games, and art tutorials.
+
+2011. MARKER
+
+2011. MARKER (Split Concept 1: Writing Tool)
+• Target Labels: Hindi: Marker | Spanish: Marcador / Rotulador
+• Anchor: Popping off a plastic cap and drawing bold black lines on a glossy
+white surface.
+• Trigger: Office whiteboard brainstorms, school projects, and packaging boxes.
+
+2011. MARKER (Split Concept 2: Visual Indicator / Physical Sign)
+• Target Labels: Hindi: Nishaan / Sanket | Spanish: Marcador / Indicador
+• Anchor: A bright cone, flag, or painted mark on a road showing where a
+boundary begins.
+• Trigger: Crime investigation movies, sports field analysis, and hiking/trail
+videos.
+
+2012. ERASER
+
+2012. ERASER (Only Concept: Pencil Rubber / Board Duster)
+• Target Labels: Hindi: Rubber / Eraser | Spanish: Goma de borrar / Borrador
+• Anchor: Rubbing a flexible rubber block over a paper mistake until the pencil
+graphite vanishes.
+• Trigger: School pencil-box routines, art sketch tutorials, and casual study
+sessions.
+
+2013. TEXTBOOK
+
+2013. TEXTBOOK (Only Concept: Official Subject Coursebook)
+• Target Labels: Hindi: Book / Kitaab | Spanish: Libro de texto
+• Anchor: A heavy bound book printed with numbered academic chapters and review
+questions.
+• Trigger: School syllabus shopping, exam cramming scenes, and university
+library vlogs.
+
+2014. NOTEBOOK
+
+2014. NOTEBOOK (Only Concept: Lined Writing Copy)
+• Target Labels: Hindi: Copy / Notebook | Spanish: Cuaderno / Libreta
+• Anchor: Flipping open lined paper pages to scribble down class notes with a
+ballpoint pen.
+• Trigger: Daily school routines, stationery shopping videos, and journaling
+discussions.
+
+2015. WORKBOOK
+
+2015. WORKBOOK (Only Concept: Exercise & Practice Book)
+• Target Labels: Hindi: Workbook / Practice book | Spanish: Cuaderno de
+ejercicios
+• Anchor: Filling in the blanks and completing fill-in diagrams inside a student
+exercise book.
+• Trigger: Language learning courses, test-prep coaching classes, and homework
+checkups.
+
+2016. BINDER
+
+2016. BINDER (Only Concept: Ring-Bound Document Holder)
+• Target Labels: Hindi: Binder / File | Spanish: Archivador / Carpeta de anillas
+• Anchor: Clicking open metal spring rings to snap loose punched sheets into a
+hard folder.
+• Trigger: College project organization, corporate document reviews, and
+stationery vlogs.
+
+2017. FOLDER
+
+2017. FOLDER (Split Concept 1: Physical Paper Jacket)
+• Target Labels: Hindi: Folder / File | Spanish: Carpeta
+• Anchor: A cardboard or plastic sleeve holding printed certificates and
+contracts securely.
+• Trigger: Job interviews, government office visits, and school document
+submissions.
+
+2017. FOLDER (Split Concept 2: Computer Directory)
+• Target Labels: Hindi: Folder | Spanish: Carpeta
+• Anchor: Double-clicking a yellow icon on a laptop screen to reveal stored
+digital files.
+• Trigger: Daily computer work, desktop screen-recordings, and tech tutorials.
+
+2018. FILE
+
+2018. FILE (Split Concept 1: Physical Document Record)
+• Target Labels: Hindi: File | Spanish: Archivo / Expediente
+• Anchor: Tying up a thick stack of government papers inside a cardboard cover
+with ribbon.
+• Trigger: Bureaucratic office scenes in movies, police investigations, and
+legal dramas.
+
+2018. FILE (Split Concept 2: Digital Document / Media Item)
+• Target Labels: Hindi: File | Spanish: Archivo
+• Anchor: Dragging a downloaded PDF or video from an email attachment into a
+drive.
+• Trigger: Daily phone and computer usage, office communications, and gaming
+mods.
+
+2018. FILE (Split Concept 3: Smoothing Hand Tool)
+• Target Labels: Hindi: Nail filer / Reti | Spanish: Lima
+• Anchor: Rubbing a rough metal strip against the rough edge of a fingernail or
+metal pipe.
+• Trigger: Nail salon vlogs, home cosmetic routines, and mechanical workshop
+videos.
+
+2019. DOCUMENT
+
+2019. DOCUMENT (Only Concept: Official Paper / Written Record)
+• Target Labels: Hindi: Document / Kagaz | Spanish: Documento
+• Anchor: Stamping and signing a formal contract or passport application across
+the bottom line.
+• Trigger: Visa applications, legal thrillers, property purchases, and business
+news.
+
+2020. PEN
+
+2020. PEN (Only Concept: Ink Writing Instrument)
+• Target Labels: Hindi: Pen / Kalam | Spanish: Bolígrafo / Pluma
+• Anchor: Clicking down a top button and signing your name in smooth blue ink on
+a check.
+• Trigger: Daily office routines, bank counters, exam halls, and asking someone
+to borrow a pen.
+
+2021. PENCIL
+
+2021. PENCIL (Only Concept: Wooden Graphite Tool)
+• Target Labels: Hindi: Pencil | Spanish: Lápiz
+• Anchor: Twisting a wooden stick inside a sharpener to get a sharp grey point
+for drawing.
+• Trigger: Elementary school memories, sketching tutorials, and multiple-choice
+bubble tests.
+
+2022. RULER
+
+2022. RULER (Split Concept 1: Measuring Straightedge)
+• Target Labels: Hindi: Scale / Futa | Spanish: Regla
+• Anchor: Pressing a clear plastic 15 cm strip flat on paper to draw a perfectly
+straight line.
+• Trigger: School geometry class, carpentry measuring, and technical drawing.
+
+2022. RULER (Split Concept 2: Sovereign Monarch / Political Master)
+• Target Labels: Hindi: Shaasak / Raja | Spanish: Gobernante / Rey
+• Anchor: A crowned monarch sitting on a throne commanding an ancient empire.
+• Trigger: Historical movies, period dramas, and international political history
+discussions.
+
+2023. COMPASS
+
+2023. COMPASS (Split Concept 1: Direction-Finding Needle)
+• Target Labels: Hindi: Compass / Disha-suchak | Spanish: Brújula
+• Anchor: Holding a palm-sized round dial where a red magnetized needle always
+points North.
+• Trigger: Hiking wilderness movies, treasure hunts, sailing films, and survival
+vlogs.
+
+2023. COMPASS (Split Concept 2: Geometry Circle Tool)
+• Target Labels: Hindi: Compass / Parakar | Spanish: Compás
+• Anchor: Inserting a small pencil into a two-legged metal hinge to draw a
+perfect round circle.
+• Trigger: Middle-school geometry exams and technical drafting classes.
+
+2024. LESSON
+
+2024. LESSON (Split Concept 1: Classroom Period / Chapter)
+• Target Labels: Hindi: Chapter / Paath | Spanish: Lección / Clase
+• Anchor: Turning to page 45 to begin the day's unit with the teacher.
+• Trigger: Daily school schedules, foreign language learning apps, and
+instructional courses.
+
+2024. LESSON (Split Concept 2: Life Moral / Bitter Experience)
+• Target Labels: Hindi: Sabaq / Seekh | Spanish: Lección / Escarmiento
+• Anchor: Realizing a hard truth after losing money to a friend's fake business
+scheme.
+• Trigger: Dramatic movie moments ("This taught me a lesson"), self-help
+podcasts, and family talks.
+
+2025. LECTURE
+
+2025. LECTURE (Split Concept 1: University Class Presentation)
+• Target Labels: Hindi: Lecture | Spanish: Clase / Conferencia
+• Anchor: Sitting in an amphitheater hall taking notes while a professor speaks
+for an hour.
+• Trigger: College vlogs, university attendance talk, and academic seminars.
+
+2025. LECTURE (Split Concept 2: Scolding / Moral Rant)
+• Target Labels: Hindi: Bhashan / Daant | Spanish: Sermón / Bronca
+• Anchor: Crossing your arms while a parent or boss gives you a 20-minute
+lecture on discipline.
+• Trigger: Coming home late scenes in family dramas and workplace conflict
+venting.
+
+2026. SEMINAR
+
+2026. SEMINAR (Only Concept: Academic / Professional Conference)
+• Target Labels: Hindi: Seminar | Spanish: Seminario
+• Anchor: Wearing business-casual clothes with a lanyard badge at a hotel
+conference presentation.
+• Trigger: Corporate career vlogs, university event flyers, and professional
+webinars.
+
+2027. HOMEWORK
+
+2027. HOMEWORK (Only Concept: School Work Done at Home)
+• Target Labels: Hindi: Homework | Spanish: Tarea / Deberes
+• Anchor: Sitting at a bedroom desk at 9 PM rushing to finish math worksheets
+before morning.
+• Trigger: Everyday childhood complaints, family dinner banter, and teen
+sitcoms.
+
+2028. ASSIGNMENT
+
+2028. ASSIGNMENT (Only Concept: Graded Project / Allocated Task)
+• Target Labels: Hindi: Assignment | Spanish: Asignación / Tarea
+• Anchor: Typing out a 10-page case study paper to submit onto a student online
+portal before midnight.
+• Trigger: College life conversations, university project stress, and deadline
+chats.
+
+2029. ESSAY
+
+2029. ESSAY (Only Concept: Structured Writing Piece)
+• Target Labels: Hindi: Essay / Nibandh | Spanish: Ensayo
+• Anchor: Writing a five-paragraph introduction, body, and conclusion about
+climate change.
+• Trigger: English exams, college application preparation, and literature
+classes.
+
+2030. QUIZ
+
+2030. QUIZ (Only Concept: Short Informal Test / Trivia)
+• Target Labels: Hindi: Quiz / Chhota test | Spanish: Cuestionario / Examen
+corto / Prueba
+• Anchor: Circling answers on a quick 5-question pop sheet handed out at the
+start of class.
+• Trigger: Weekly classroom checkpoints, pub trivia games, and interactive
+social media quizzes.
+
+2031. EXAM
+
+2031. EXAM (Only Concept: Formal Graded Examination)
+• Target Labels: Hindi: Exam / Pariksha | Spanish: Examen
+• Anchor: Sitting in complete silence inside a hall with an ID card and pens on
+the table.
+• Trigger: End-of-year school stress, competitive exam news, and dramatic movie
+study montages.
+
+2032. GRADE
+
+2032. GRADE (Split Concept 1: Academic Mark / Score)
+• Target Labels: Hindi: Grade / Marks / Number | Spanish: Nota / Calificación
+• Anchor: Looking at a report card showing a big bold "A" or "90%" stamped next
+to your name.
+• Trigger: Report card reactions in movies, university GPA discussions, and
+student gossip.
+
+2032. GRADE (Split Concept 2: School Year / Class Level)
+• Target Labels: Hindi: Class / Kaksha | Spanish: Grado / Curso
+• Anchor: Walking into a room labeled "5th Grade" on the first day of the school
+year.
+• Trigger: Introducing kids, back-to-school ads, and family updates.
+
+2033. SCORE
+
+2033. SCORE (Split Concept 1: Sports Match Points)
+• Target Labels: Hindi: Score / Run / Goal | Spanish: Marcador / Puntuación
+• Anchor: Glancing up at the giant digital stadium board showing "2 - 1" in
+the 90th minute.
+• Trigger: Live sports commentary, watching games at a cafe, and sports news
+recaps.
+
+2033. SCORE (Split Concept 2: Test Marks Total)
+• Target Labels: Hindi: Marks / Score | Spanish: Calificación / Puntuación
+• Anchor: Refreshing an online results portal to see your overall 720/800 result
+on a test.
+• Trigger: Entrance exam results day, academic vlogs, and college admissions
+chat.
+
+2033. SCORE (Split Concept 3: Film Soundtrack Music)
+• Action: ❌ SKIP — Specific film-industry music jargon; everyday speakers just
+say "background music" (BGM).
+
+2034. SEMESTER
+
+2034. SEMESTER (Only Concept: Half-Year Academic Term)
+• Target Labels: Hindi: Semester | Spanish: Semestre
+• Anchor: Checking your new course schedule that runs from January through May.
+• Trigger: College student planning, university fee deadlines, and semester-end
+parties.
+
+2035. TERM
+
+2035. TERM (Split Concept 1: School / University Trimester Period)
+• Target Labels: Hindi: Term | Spanish: Trimestre / Período
+• Anchor: Reviewing exams scheduled at the end of the winter study period.
+• Trigger: School report cards, academic calendars, and tuition deadlines.
+
+2035. TERM (Split Concept 2: Specific Word / Technical Phrase)
+• Target Labels: Hindi: Term / Shabd | Spanish: Término / Palabra
+• Anchor: Pausing during a lecture to clarify what a strange scientific phrase
+actually means.
+• Trigger: Technical tutorials, language lessons, and classroom discussions.
+
+2035. TERM (Split Concept 3: Contract Stipulations / Terms & Conditions)
+• Target Labels: Hindi: Shartein / Conditions | Spanish: Términos / Condiciones
+• Anchor: Scrolling quickly past legal fine-print to check the box saying "I
+agree".
+• Trigger: Signing an apartment lease, installing software apps, and contract
+negotiations.
+
+2036. SYLLABUS
+
+2036. SYLLABUS (Only Concept: Course Topic List)
+• Target Labels: Hindi: Syllabus | Spanish: Temario / Programa de estudio
+• Anchor: A teacher handing out a two-page roadmap listing all the chapters
+covered before the final exam.
+• Trigger: First week of class, exam revision strategies, and student study vlog
+schedules.
+
+2037. CURRICULUM
+
+2037. CURRICULUM (Only Concept: Overall Educational Program)
+• Target Labels: Hindi: Curriculum / Syllabus | Spanish: Plan de estudios /
+Currículo
+• Anchor: School board officials redesigning all the grade-level subjects and
+books for the year.
+• Trigger: Education policy news, school selection discussions by parents, and
+teacher trainings.
+
+2038. SCHOLARSHIP
+
+2038. SCHOLARSHIP (Only Concept: Merit Tuition Grant)
+• Target Labels: Hindi: Scholarship | Spanish: Beca
+• Anchor: Opening an acceptance letter confirming the university has waived your
+full tuition fee.
+• Trigger: College admission movies, student loan debates, and academic award
+announcements.
+
+2039. TUITION
+
+2039. TUITION (Split Concept 1: Private After-School Coaching)
+• Target Labels: Hindi: Tuition / Coaching | Spanish: Clases particulares
+• Anchor: Riding a bicycle at 5 PM straight to a neighborhood tutor's house for
+extra math help.
+• Trigger: Neighborhood daily life, childhood routines, and parental study
+pressure talk.
+
+2039. TUITION (Split Concept 2: University Semester Fees)
+• Target Labels: Hindi: Tuition fees | Spanish: Matrícula / Colegiatura
+• Anchor: Logging into a student finance account to pay the $5,000 college
+semester charge.
+• Trigger: Student debt documentaries, college planning, and news reports on
+college costs.
+
+2040. DIPLOMA
+
+2040. DIPLOMA (Only Concept: Academic Certificate / Vocational Course)
+• Target Labels: Hindi: Diploma | Spanish: Diploma
+• Anchor: Holding a rolled parchment tied with a ribbon after completing
+a 2-year technical program.
+• Trigger: Job applications, vocational institute ads, and trade school
+graduations.
+
+2041. DEGREE
+
+2041. DEGREE (Split Concept 1: University Qualification)
+• Target Labels: Hindi: Degree | Spanish: Título universitario / Grado
+• Anchor: Walking across a stage in a black gown to receive your bachelor's
+certificate.
+• Trigger: Job requirements, family matchmaking biodatas, and college graduation
+movies.
+
+2041. DEGREE (Split Concept 2: Temperature / Angle Measure)
+• Target Labels: Hindi: Degree | Spanish: Grado
+• Anchor: Looking at your phone weather widget displaying "42°" on a blistering
+hot afternoon.
+• Trigger: Daily weather forecasts, air conditioner remote adjustments, and
+baking recipes.
+
+2041. DEGREE (Split Concept 3: Extent / Level)
+• Target Labels: Hindi: Hadh / Level | Spanish: Grado / Nivel
+• Anchor: Answering "I agree to some degree" during a serious debate when only
+partly convinced.
+• Trigger: Casual debates, interview questions, and legal arguments.
+
+2042. CERTIFICATE
+
+2042. CERTIFICATE (Only Concept: Official Paper Proof / Course Completion)
+• Target Labels: Hindi: Certificate | Spanish: Certificado
+• Anchor: Framing a glossy document with a gold seal verifying you finished a
+training program.
+• Trigger: Resume building, online course achievements (LinkedIn), and medical
+fitness verification.
+
+2043. GRADUATION
+
+2043. GRADUATION (Only Concept: College Completion Ceremony)
+• Target Labels: Hindi: Graduation | Spanish: Graduación
+• Anchor: Tossing a black square cap into the air alongside hundreds of
+classmates in gowns.
+• Trigger: Movie ending celebrations, family milestone parties, and summer
+social media posts.
+
+2044. CAMPUS
+
+2044. CAMPUS (Only Concept: University Grounds & Buildings)
+• Target Labels: Hindi: Campus | Spanish: Campus
+• Anchor: Walking across sprawling green lawns flanked by old brick university
+libraries and labs.
+• Trigger: College tour vlogs, university protest news, and teen romance series.
+
+2045. DORMITORY
+
+2045. DORMITORY (Only Concept: Student Residence Hall)
+• Target Labels: Hindi: Hostel / Dorm | Spanish: Residencia estudiantil /
+Dormitorio
+• Anchor: Unpacking a suitcase into a shared room with bunk beds, mini-fridges,
+and a roommate.
+• Trigger: College dorm tour vlogs, roommate horror story videos, and
+moving-away-from-home scenes.
+
+2046. AUDITORIUM
+
+2046. AUDITORIUM (Only Concept: Large Presentation Hall)
+• Target Labels: Hindi: Auditorium | Spanish: Auditorio
+• Anchor: Sitting in plush tiered theater seats looking down at a large
+spotlighted stage.
+• Trigger: School annual day functions, guest speaker events, and college
+orientations.
+
+2047. THESIS
+
+2047. THESIS (Only Concept: Graduate Research Dissertation)
+• Target Labels: Hindi: Thesis | Spanish: Tesis
+• Anchor: Printing and hard-binding a 150-page original research paper to defend
+before a committee.
+• Trigger: Master's and PhD defense stories, academic stress memes, and
+university documentaries.
+
+2048. FORGETFUL
+
+2048. FORGETFUL (Only Concept: Absentminded Habit)
+• Target Labels: Hindi: Bhulakkad | Spanish: Olvidadizo
+• Anchor: Patting your empty pockets in panic because you left your house keys
+inside again.
+• Trigger: Family teasing over misplaced objects, romantic comedy tropes, and
+daily self-deprecating humor.
+
+2049. RESEARCH
+
+2049. RESEARCH (Only Concept: Systematic Investigation / Market Fact-Checking)
+• Target Labels: Hindi: Research / Chhaanbeen | Spanish: Investigación
+• Anchor: Opening twenty browser tabs late at night to read scientific papers
+and consumer reviews.
+• Trigger: Buying a new phone ("I did my research"), news investigations, and
+university lab work.
+
+2050. RESEARCHER
+
+2050. RESEARCHER (Only Concept: Investigative Scholar / Lab Scientist)
+• Target Labels: Hindi: Researcher | Spanish: Investigador
+• Anchor: A specialist wearing a lab coat analyzing survey statistics on a
+dual-monitor setup.
+• Trigger: Science news interviews, documentary expert soundbites, and corporate
+R&D profiles.
+
+2051. SCIENCE
+
+2051. SCIENCE (Only Concept: Empirical Study of the Natural World)
+• Target Labels: Hindi: Science / Vigyan | Spanish: Ciencia
+• Anchor: Watching a beaker bubble over with smoke during a chemical reaction
+demonstration.
+• Trigger: School subject streams, space exploration news, and sci-fi
+documentary series.
+
+2052. SCHOLAR
+
+2052. SCHOLAR (Only Concept: Deeply Learned Academic)
+• Target Labels: Hindi: Vidwan / Gyani | Spanish: Erudito / Académico
+• Anchor: An elderly historian sitting in a private library surrounded by
+floor-to-ceiling antique manuscripts.
+• Trigger: Historical documentaries, academic panel discussions, and
+religious/philosophical debates.
+
+2053. HISTORY
+
+2053. HISTORY (Only Concept: Past Events / Subject)
+• Target Labels: Hindi: Itihaas / Purani baat | Spanish: Historia
+• Anchor: Looking at a museum display of rusty medieval swords and ancient stone
+tablets.
+• Trigger: School history classes, war documentaries, and dismissing past
+grudges ("That's history now").
+
+2054. TALKATIVE
+
+2054. TALKATIVE (Only Concept: Chatty / Speaking Nonstop)
+• Target Labels: Hindi: Baatuni | Spanish: Hablador / Charlatán
+• Anchor: A passenger on a long train ride who talks continuously about their
+life without a break.
+• Trigger: Describing expressive friends, character introductions in movies, and
+parent descriptions of toddlers.
+
+2055. GEOGRAPHY
+
+2055. GEOGRAPHY (Only Concept: Earth Maps, Landscapes, and Countries)
+• Target Labels: Hindi: Bhugol / Geography | Spanish: Geografía
+• Anchor: Spinning a colorful desktop globe and pointing out mountain ranges and
+ocean borders.
+• Trigger: School map quizzes, travel game shows, and world trivia challenges.
+
+2056. MATHEMATICS
+
+2056. MATHEMATICS (Only Concept: Formal Study of Numbers & Equations)
+• Target Labels: Hindi: Maths / Ganit | Spanish: Matemáticas
+• Anchor: A chalkboard covered from edge to edge in complex calculus formulas
+and proofs.
+• Trigger: Formal academic discussions, engineering university requirements, and
+education news.
+
+2057. MATH
+
+2057. MATH (Only Concept: Casual Word for Numbers / Arithmetic)
+• Target Labels: Hindi: Maths | Spanish: Mates / Matemáticas
+• Anchor: Splitting a dinner restaurant bill four ways quickly in your head.
+• Trigger: Everyday conversations ("Do the math!"), homework help, and cash
+register calculations.
+
+2058. ALGEBRA
+
+2058. ALGEBRA (Only Concept: Math with Variables x and y)
+• Target Labels: Hindi: Algebra | Spanish: Álgebra
+• Anchor: Staring at "2x + 5 = 15" on lined paper trying to isolate the unknown
+letter.
+• Trigger: Middle school homework frustration, math meme jokes, and tutoring
+sessions.
+
+2059. GEOMETRY
+
+2059. GEOMETRY (Only Concept: Math of Shapes, Angles, and Triangles)
+• Target Labels: Hindi: Geometry | Spanish: Geometría
+• Anchor: Using a plastic protractor to measure a 90-degree right angle on a
+triangle drawing.
+• Trigger: High school math classes, architecture vlogs, and 3D modeling design
+videos.
+
+2060. RANK
+
+2060. RANK (Split Concept 1: Position on a Leaderboard / Hierarchy)
+• Target Labels: Hindi: Rank / Position | Spanish: Puesto / Posición / Rango
+• Anchor: Scrolling down a published competitive exam list to see if your name
+is in the top 50.
+• Trigger: Exam result day, online multiplayer video games (ranked matches), and
+corporate ladders.
+
+2060. RANK (Split Concept 2: Foul Stagnant Smell)
+• Action: ❌ SKIP — Niche sensory adjective; daily speakers simply say "rotten"
+or "bad smell".
+
+2061. PHYSICS
+
+2061. PHYSICS (Only Concept: Science of Matter, Energy, and Mechanics)
+• Target Labels: Hindi: Physics | Spanish: Física
+• Anchor: Watching a high-speed video of a bowling ball colliding with pins to
+explain momentum.
+• Trigger: Science student conversations, engineering entrance exam prep, and
+space tech videos.
+
+2062. ASTRONOMY
+
+2062. ASTRONOMY (Only Concept: Study of Outer Space & Stars)
+• Target Labels: Hindi: Space science / Khagol vigyan | Spanish: Astronomía
+• Anchor: Peering through a telescope lens to see the illuminated rings of
+Saturn against the night sky.
+• Trigger: Space telescope news (James Webb), planetarium visits, and stargazing
+vlogs.
+
+2063. CHEMISTRY
+
+2063. CHEMISTRY (Split Concept 1: Science of Chemicals & Elements)
+• Target Labels: Hindi: Chemistry | Spanish: Química
+• Anchor: Wearing safety goggles while mixing clear liquids into a beaker over a
+blue burner flame.
+• Trigger: School lab practicals, pharmacy manufacturing news, and exam study
+schedules.
+
+2063. CHEMISTRY (Split Concept 2: Interpersonal / Romantic Spark)
+• Target Labels: Hindi: Chemistry / Connection | Spanish: Química
+• Anchor: Two movie leads exchanging witty, effortless glances that make their
+attraction undeniable.
+• Trigger: Movie reviews, dating advice podcasts, and friends discussing new
+couples.
+
+2064. OUTGOING
+
+2064. OUTGOING (Split Concept 1: Friendly / Extroverted Personality)
+• Target Labels: Hindi: Milansaar / Friendly | Spanish: Extrovertido / Sociable
+• Anchor: Someone walking into a crowded room of strangers and chatting
+effortlessly with everyone.
+• Trigger: Personality tests, introducing friends, and job interview
+self-descriptions.
+
+2064. OUTGOING (Split Concept 2: Leaving Office / Stepping Down)
+• Target Labels: Hindi: Jaane wala | Spanish: Saliente
+• Anchor: A company CEO shaking hands on their final day before the new
+president steps in.
+• Trigger: Political election transition news, corporate retirement press
+releases, and handover ceremonies.
+
+2065. BIOLOGY
+
+2065. BIOLOGY (Only Concept: Science of Living Organisms)
+• Target Labels: Hindi: Biology | Spanish: Biología
+• Anchor: Inspecting a cross-section of a green plant leaf under a light
+microscope.
+• Trigger: Medical school prep, high school dissections, and nature science
+documentaries.
+
+2066. EASYGOING
+
+2066. EASYGOING (Only Concept: Relaxed / Unbothered Persona)
+• Target Labels: Hindi: Chill / Bindass / Shaant | Spanish: Tranquilo / Relajado
+• Anchor: A friend shrugging off a canceled restaurant booking with a smile and
+suggesting street tacos instead.
+• Trigger: Roommate searches, dating profile descriptions, and casual
+conversations about calm coworkers.
+
+2067. LITERATURE
+
+2067. LITERATURE (Only Concept: High-Value Written Books & Poetry)
+• Target Labels: Hindi: Sahitya / Literature | Spanish: Literatura
+• Anchor: Analyzing a centuries-old Shakespeare play or classic novel in a quiet
+seminar room.
+• Trigger: Humanities university classes, book festival panel discussions, and
+literary prize news.
+
+2068. PHILOSOPHY
+
+2068. PHILOSOPHY (Split Concept 1: Academic Study of Thought and Existence)
+• Target Labels: Hindi: Philosophy / Darshan-shastra | Spanish: Filosofía
+• Anchor: Discussing ancient texts on ethics, free will, and consciousness with
+a professor.
+• Trigger: College humanities courses, intellectual podcasts, and deep thought
+debates.
+
+2068. PHILOSOPHY (Split Concept 2: Personal Outlook on Life / Mindset)
+• Target Labels: Hindi: Soch / Nazariya / Philosophy | Spanish: Filosofía de
+vida
+• Anchor: Explaining your golden rule: "My philosophy is to never go to bed
+angry."
+• Trigger: Personal conversations over coffee, mentor talks, and
+autobiographies.
+
+2069. ETHICS
+
+2069. ETHICS (Only Concept: Moral Principles of Right and Wrong)
+• Target Labels: Hindi: Naitikta / Usul | Spanish: Ética / Principios
+• Anchor: Debating whether it is acceptable for an AI company to harvest private
+photos without consent.
+• Trigger: Corporate compliance meetings, medical decision panels, and tech
+policy news.
+
+2070. PSYCHOLOGY
+
+2070. PSYCHOLOGY (Only Concept: Study of Mind & Human Behavior)
+• Target Labels: Hindi: Psychology | Spanish: Psicología
+• Anchor: Sitting in an armchair in a quiet room listening to a therapist
+analyze recurring anxiety habits.
+• Trigger: Mental health vlogs, self-help books, therapy sessions, and crime
+profiling thrillers.
+
+2071. BEHAVIOR
+
+2071. BEHAVIOR (Only Concept: Personal Conduct / Way of Acting)
+• Target Labels: Hindi: Vyavhaar / Bartav | Spanish: Comportamiento / Conducta
+• Anchor: Watching a poorly trained dog bark at dinner guests or an unruly
+customer yell at a cashier.
+• Trigger: School report cards, relationship advice, and workplace harassment
+seminars.
+
+2072. SOCIOLOGY
+
+2072. SOCIOLOGY (Only Concept: Study of Human Society & Institutions)
+• Target Labels: Hindi: Samajshastra / Sociology | Spanish: Sociología
+• Anchor: Reviewing a data graph tracing how rural populations migrate toward
+metropolitan hubs.
+• Trigger: University degree discussions, social issue documentaries, and census
+policy analysis.
+
+2073. ECONOMICS
+
+2073. ECONOMICS (Only Concept: Science of Markets, Wealth, and Inflation)
+• Target Labels: Hindi: Economics | Spanish: Economía
+• Anchor: Analyzing a chart on television showing rising grocery inflation
+alongside central bank interest rates.
+• Trigger: Financial news broadcasts, national budget presentations, and
+business talk shows.
+
+2074. PICKY
+
+2074. PICKY (Only Concept: Hard to Please / Choosy)
+• Target Labels: Hindi: Nakhrebaaz / Choosy | Spanish: Exigente / Tiquismiquis
+• Anchor: Picking every single onion and tomato fleck out of a pasta dish before
+taking a bite.
+• Trigger: Ordering food with friends, shopping for clothes, and relationship
+complaints.
+
+2075. LANGUAGE
+
+2075. LANGUAGE (Only Concept: Spoken / Written Tongue)
+• Target Labels: Hindi: Bhasha / Zabaan | Spanish: Idioma / Lengua
+• Anchor: Listening to a traveler switch seamlessly between Italian and Spanish
+at an airport gate.
+• Trigger: Language app practice, international travel vlogs, and subtitle
+selection on streaming apps.
+
+2076. GRAMMAR
+
+2076. GRAMMAR (Only Concept: Rules of Sentence Structure)
+• Target Labels: Hindi: Grammar | Spanish: Gramática
+• Anchor: Correcting a misspelled verb tense on an email before clicking send.
+• Trigger: Language classes, editing essays, and internet comment section
+debates.
+
+2077. VOCABULARY
+
+2077. VOCABULARY (Only Concept: Repertoire of Known Words)
+• Target Labels: Hindi: Vocabulary / Words | Spanish: Vocabulario
+• Anchor: Flipping flashcards to memorize twenty new daily conversational
+expressions.
+• Trigger: Language learning sessions, test prep (GRE/IELTS), and reading
+challenging books.
+
+2078. LABORATORY
+
+2078. LABORATORY (Only Concept: Formal Scientific Facility)
+• Target Labels: Hindi: Lab | Spanish: Laboratorio
+• Anchor: Stepping through airlock doors into a sanitized room full of
+centrifuges and pipettes.
+• Trigger: Medical discovery news, pharmaceutical announcements, and sci-fi
+movie sets.
+
+2079. LAB
+
+2079. LAB (Only Concept: Casual Word for Testing Facility / Class)
+• Target Labels: Hindi: Lab | Spanish: Lab / Laboratorio
+• Anchor: Walking in for morning blood tests and rolling up your sleeve at the
+pathology counter.
+• Trigger: Routine medical checks, college computer lab sessions, and student
+talk.
+
+2080. EXPERIMENT
+
+2080. EXPERIMENT (Only Concept: Scientific Test / Trying a New Idea)
+• Target Labels: Hindi: Experiment | Spanish: Experimento
+• Anchor: Tossing unexpected spices into a stew to see if the flavor profile
+improves.
+• Trigger: Cooking videos, tech beta tests, science fairs, and trying out a new
+hairstyle.
+
+2081. HYPOTHESIS
+
+2081. HYPOTHESIS (Only Concept: Educated Guess / Preliminary Theory)
+• Target Labels: Hindi: Andaza / Kacha idea | Spanish: Hipótesis
+• Anchor: Saying "My hypothesis is that the Wi-Fi cuts out whenever the
+microwave runs."
+• Trigger: Crime detective deductions in movies, science projects, and workplace
+problem-solving.
+
+2082. THEORY
+
+2082. THEORY (Only Concept: System of Ideas / Unproven Speculation)
+• Target Labels: Hindi: Theory | Spanish: Teoría
+• Anchor: Friends debating a wild speculative explanation about who the real
+villain in a movie finale is.
+• Trigger: Fan forums for TV shows, scientific debates, and casual philosophy
+discussions.
+
+2083. PRINCIPLE
+
+2083. PRINCIPLE (Split Concept 1: Fundamental Law / Natural Mechanism)
+• Target Labels: Hindi: Niyam / Siddhant | Spanish: Principio
+• Anchor: Demonstrating how an airplane wing shape creates lift according to
+fluid dynamics.
+• Trigger: Engineering lectures, science documentaries, and technical mechanics
+reviews.
+
+2083. PRINCIPLE (Split Concept 2: Personal Moral Code / Standards)
+• Target Labels: Hindi: Usul / Asool | Spanish: Principios / Valores
+• Anchor: Refusing a shady cash bribe on the spot because it violates your
+personal standards.
+• Trigger: Crime/legal thrillers, ethical business discussions, and moral
+debates in movies.
+
+2084. METHOD
+
+2084. METHOD (Only Concept: Systematic Way of Doing Something)
+• Target Labels: Hindi: Tareeka / Method | Spanish: Método / Modo
+• Anchor: Following step-by-step instructions showing the fastest way to fold a
+dress shirt.
+• Trigger: YouTube instructional tutorials, fitness workout regimes, and recipe
+blogs.
+
+2085. FUSSY
+
+2085. FUSSY (Only Concept: Excessively Hard to Please / Easily Irritated)
+• Target Labels: Hindi: Nakhreli / Chidchida | Spanish: Quisquilloso / Exigente
+• Anchor: A crying baby refusing their bottle unless the milk is at an exact
+warmth.
+• Trigger: Parenting vlogs, complaints about difficult clients, and describing
+irritable pets.
+
+2086. DISCOVERY
+
+2086. DISCOVERY (Only Concept: Finding Something Hidden or Brand New)
+• Target Labels: Hindi: Khoj / Nayi cheez milna | Spanish: Descubrimiento
+• Anchor: Unearthing an ancient Roman mosaic buried underneath a modern city
+street.
+• Trigger: Archaeological news, medical breakthroughs, and finding a hidden gem
+cafe in an alley.
+
+2087. INVENTION
+
+2087. INVENTION (Only Concept: Newly Created Device or Technology)
+• Target Labels: Hindi: Avishkar / Nayi cheez banana | Spanish: Invento /
+Invención
+• Anchor: Holding up the very first functional prototype of a solar-powered
+smartphone case.
+• Trigger: Tech startup pitches, history of technology documentaries, and patent
+disputes.
+
+2088. PROTOTYPE
+
+2088. PROTOTYPE (Only Concept: Preliminary Working Model)
+• Target Labels: Hindi: Prototype / Sample model | Spanish: Prototipo
+• Anchor: Testing an unpainted, 3D-printed plastic version of a new ergonomic
+mouse.
+• Trigger: Industrial design videos, gadget leak reports, and auto show reveals.
+
+2089. PATENT
+
+2089. PATENT (Only Concept: Legal Monopoly on an Invention)
+• Target Labels: Hindi: Patent | Spanish: Patente
+• Anchor: Receiving an official government certificate preventing rivals from
+copying your battery design.
+• Trigger: Business lawsuit headlines (Apple vs. Samsung), venture capital
+pitches, and tech vlogs.
+
+2090. INNOVATION
+
+2090. INNOVATION (Only Concept: Revolutionary Improvement / Breakthrough Idea)
+• Target Labels: Hindi: Nayi soch / Naya aavishkar | Spanish: Innovación
+• Anchor: A keynote speaker unveiling a screen that bends completely in half
+without breaking.
+• Trigger: Tech keynote presentations, corporate mission statements, and
+business news.
+
+2091. ANALYSIS
+
+2091. ANALYSIS (Only Concept: Detailed Examination of Data or Situation)
+• Target Labels: Hindi: Analysis / Jaanch | Spanish: Análisis
+• Anchor: Looking through charts and line graphs to figure out why company sales
+dropped in July.
+• Trigger: Post-game sports wrap-ups, medical blood reports, and stock market
+shows.
+
+2092. DATA
+
+2092. DATA (Only Concept: Digital Information / Raw Numbers)
+• Target Labels: Hindi: Data | Spanish: Datos
+• Anchor: Receiving a text message alert warning that you have used 90% of your
+monthly mobile plan.
+• Trigger: Phone subscription alerts, spreadsheet work, and tech security
+reports.
+
+2093. DATABASE
+
+2093. DATABASE (Only Concept: Organized Digital Storage System)
+• Target Labels: Hindi: Database | Spanish: Base de datos
+• Anchor: Querying a system to pull up the customer records of everyone who
+bought shoes today.
+• Trigger: Office IT systems, software engineering tutorials, and cybersecurity
+breach news.
+
+2094. STATISTICS
+
+2094. STATISTICS (Only Concept: Numerical Trends & Probability / Stats)
+• Target Labels: Hindi: Stats / Aankde | Spanish: Estadísticas
+• Anchor: Looking at an infographic showing that 68% of local commuters take the
+subway.
+• Trigger: Election poll broadcasts, sports player profiles, and public health
+reports.
+
+2095. FINDING
+
+2095. FINDING (Only Concept: Result Uncovered by an Inquiry / Study)
+• Target Labels: Hindi: Nateeja / Result | Spanish: Hallazgo / Conclusión
+• Anchor: A doctor presenting a new study showing that 8 hours of sleep cuts
+heart attack risks.
+• Trigger: Scientific study announcements, police inquiry press releases, and
+audit results.
+
+2096. OBSERVATION
+
+2096. OBSERVATION (Split Concept 1: Watching Closely)
+• Target Labels: Hindi: Dhyan se dekhna / Nireekshan | Spanish: Observación
+• Anchor: A wildlife biologist quietly noting down bird nesting habits through
+binoculars.
+• Trigger: Science field trips, medical hospital rounds, and security
+surveillance.
+
+2096. OBSERVATION (Split Concept 2: Remark / Insightful Comment)
+• Target Labels: Hindi: Comment / Ray | Spanish: Observación / Comentario
+• Anchor: A coworker chiming in during a meeting to note: "Just an observation,
+our customers prefer dark mode."
+• Trigger: Professional boardroom brainstorming and casual dinner conversations.
+
+2097. MEASUREMENT
+
+2097. MEASUREMENT (Only Concept: Size, Length, or Dimension Check)
+• Target Labels: Hindi: Naap / Maap | Spanish: Medición / Medida
+• Anchor: Pulling a flexible yellow tape measure across a wall to check if a
+sofa will fit.
+• Trigger: Tailoring clothes, buying furniture, and home carpentry tutorials.
+
+2098. FORMULA
+
+2098. FORMULA (Split Concept 1: Math / Chemical Symbolic Rule)
+• Target Labels: Hindi: Formula | Spanish: Fórmula
+• Anchor: Writing out E = mc^2 or calculating the area of a circle using
+\pi r^2.
+• Trigger: High school math tests, physics classrooms, and chemistry tutorials.
+
+2098. FORMULA (Split Concept 2: Secret Strategy for Success)
+• Target Labels: Hindi: Nuskha / Tareeka | Spanish: Fórmula / Receta
+• Anchor: A podcast host asking a billionaire: "What is your secret formula for
+building wealth?"
+• Trigger: Business self-help interviews, movie reviews analyzing clichéd plots,
+and marketing advice.
+
+2099. EQUATION
+
+2099. EQUATION (Split Concept 1: Mathematical Balanced Expression)
+• Target Labels: Hindi: Equation | Spanish: Ecuación
+• Anchor: Balancing chemical compounds on both sides of an equals sign in a
+notebook.
+• Trigger: Algebra class, chemistry homework, and scientific research.
+
+2099. EQUATION (Split Concept 2: Relationship Dynamic Between People)
+• Target Labels: Hindi: Rishta / Equation | Spanish: Dinámica / Ecuación
+• Anchor: Explaining: "Ever since that big fight, the equation between those two
+brothers changed completely."
+• Trigger: Drama movies, interpersonal relationship gossip, and workplace office
+dynamics.
+
+2100. SAMPLE
+
+2100. SAMPLE (Split Concept 1: Medical / Scientific Specimen)
+• Target Labels: Hindi: Sample | Spanish: Muestra
+• Anchor: Handing over a small sealed vial of blood to the technician at a
+pathology counter.
+• Trigger: Medical clinic visits, doping control tests in sports, and forensic
+crime thrillers.
+
+2100. SAMPLE (Split Concept 2: Free Taste / Product Demo)
+• Target Labels: Hindi: Sample / Chhakhne ke liye | Spanish: Muestra gratis /
+Degustación
+• Anchor: A supermarket clerk handing you a tiny paper cup with a cube of cheese
+to taste for free.
+• Trigger: Mall promotions, ice cream shop flavor tasting, and cosmetics
+counters.

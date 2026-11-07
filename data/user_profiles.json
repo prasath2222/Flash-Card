@@ -19,10 +19,10 @@
     "updatedAt": "2026-03-01T00:00:00.000Z"
   },
   "73801410b67c7ba66a922cc3105f74f279ec21460127d1f8645136a22bffcee3": {
-    "syncRevision": 3795,
-    "updatedAt": "2026-11-05T17:38:00.014Z",
+    "syncRevision": 3903,
+    "updatedAt": "2026-11-06T17:24:29.864Z",
     "payload": {
-      "syncRevision": 3795,
+      "syncRevision": 3903,
       "isExplicitUserAction": true,
       "learnedCardNums": [
         801,
@@ -936,366 +936,56 @@
       "streakCount": 3,
       "streak": 3,
       "customShortcuts": {
-        "t2001_2037": {
-          "es": "currículo escolar/Plan de estudios",
-          "tamil": "கல்வித் திட்டம்",
-          "shortcutEs": "<strong>Currículo escolar</strong> ≈ Sounds right like English <strong>\"Curriculum\"</strong> (same Latin root &amp; sound) → <em>Curriculum (Currículo escolar)</em>!",
-          "category": "Category 72: Higher Education, Credentials & Foundations",
-          "hi": "paathyakram",
-          "shortcutHi": "<strong>Paathyakram</strong> ≈ Sounds like <strong>\"Park\"</strong> → Link \"Park\" to <em>Curriculum (Paathyakram)</em>!",
-          "schemaVer": 8,
-          "word": "CURRICULUM"
-        },
-        "t2001_2012": {
-          "schemaVer": 8,
-          "hi": "rubber / eraser",
-          "shortcutHi": "<strong>Rabad</strong> ≈ <strong>Spoken Tamil ரப்பர் (Rubber = Eraser!)</strong> → 100% same everyday word in Tamil & Hindi = <em>Eraser / Rubber (Rabad)</em>!",
-          "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations",
-          "es": "goma / borrador",
-          "tamil": "அழிப்பான் (ரப்பர்)",
-          "word": "ERASER",
-          "shortcutEs": "<strong>Borrador</strong> ≈ <strong>Tamil போறது (Porathu = going/wiping away!)</strong> + <strong>\"Borrow-Door\"</strong> → Rub with the <em>Eraser (Borrador)</em> and the mistake is <em>Porathu (gone)</em>!"
-        },
         "t2001_2017": {
-          "shortcutHi": "<strong>Patra-dhaarak</strong> ≈ Sounds like <strong>\"Park\"</strong> → Link \"Park\" to <em>Folder (Patra-dhaarak)</em>!",
-          "es": "carpeta",
+          "schemaVer": 9,
+          "shortcutEs": "<strong>1. (Paper Holder) Carpeta</strong> ≈ Sounds like <strong>\"Carpet-File\"</strong> → Cardboard file <em>Folder (Carpeta)</em> on your desk!<br><strong>2. (Computer Directory) Carpeta</strong> ≈ Sounds like <strong>\"Carpet-File\"</strong> → Cardboard file <em>Folder (Carpeta)</em> on your desk!",
+          "es": "Paper Holder: Carpeta",
+          "hi": "Paper Holder: Folder / File",
           "word": "FOLDER",
-          "hi": "folder",
-          "shortcutEs": "<strong>Carpeta</strong> ≈ Sounds like <strong>\"Carpet-File\"</strong> → Cardboard file <em>Folder (Carpeta)</em> on your desk!",
-          "schemaVer": 8,
-          "tamil": "கோப்புறை (ஃபோல்டர்)",
-          "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations"
-        },
-        "t2001_2004": {
-          "shortcutEs": "<strong>Director escolar</strong> ≈ Sounds like <strong>\"Deep\"</strong> → Picture \"Deep\" to remember <em>Principal (Director escolar)</em>!",
-          "schemaVer": 8,
           "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations",
-          "shortcutHi": "<strong>Pradhaanaachaarya</strong> ≈ <strong>Pradhaan</strong> (Tamil <strong>பிரதான = Chief/Head!</strong>) + <strong>Aachaarya</strong> (Master/Teacher) → School <em>Principal (Pradhaanaachaarya)</em>!",
-          "hi": "principal",
-          "tamil": "முதல்வர் (பிரின்சிபால்)",
-          "word": "PRINCIPAL",
-          "es": "director(a)"
-        },
-        "t2001_2023": {
-          "schemaVer": 8,
-          "shortcutHi": "<strong>1. Compass (Direction)</strong> ≈ Same as English <strong>\"Compass\"</strong>.<br><strong>2. Parkaar</strong> ≈ Sounds like <strong>\"Park\"</strong> → Link \"Park\" to <em>Geometry (Parkaar)</em>!",
-          "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations",
-          "tamil": "1. திசைகாட்டி (Direction finder) / 2. கவராயம் (Geometry tool)",
-          "word": "COMPASS",
-          "hi": "1. Direction: compass| 2. Geometry: parkaar",
-          "es": "1. Direction: brújula | 2. Geometry: compás",
-          "shortcutEs": "<strong>1. Brújula</strong> ≈ Sounds like <strong>\"Bright\"</strong> → Picture \"Bright\" to remember <em>Direction (Brújula)</em>!<br><strong>2. Compás (Geometry)</strong> ≈ Direct match with English <strong>\"Compass\"</strong>."
-        },
-        "t2001_2018": {
-          "tamil": "1. கோப்பு (ஃபைல் - Office/Computer file) / 2. அரம் (Metal smoothing tool)",
-          "es": "1. Doc: archivo | 2. Tool: lima",
-          "schemaVer": 8,
-          "shortcutEs": "<strong>1. Archivo (Doc)</strong> ≈ Sibling of English <strong>\"Archive\"</strong> (office or computer file).<br><strong>2. Lima</strong> ≈ Sounds like <strong>\"Light\"</strong> → Picture \"Light\" to remember <em>Tool (Lima)</em>!",
-          "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations",
-          "hi": "file",
-          "word": "FILE",
-          "shortcutHi": "<strong>1. File (Doc)</strong> ≈ 100% identical in spoken Tamil, Hindi & English.<br><strong>2. Reti (Tool)</strong> ≈ From <em>Ret</em> (sand) — rough tool that grinds metal smooth!"
-        },
-        "t2001_2026": {
-          "tamil": "கருத்தரங்கம் (செமினார்)",
-          "shortcutHi": "<strong>Sangoshthi</strong> ≈ Sounds like <strong>\"Same\"</strong> → Link \"Same\" to <em>Seminar (Sangoshthi)</em>!",
-          "es": "seminario",
-          "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations",
-          "hi": "seminar",
-          "word": "SEMINAR",
-          "shortcutEs": "<strong>Seminario</strong> ≈ Sounds right like English <strong>\"Seminar\"</strong> (same Latin root &amp; sound) → <em>Seminar (Seminario)</em>!",
-          "schemaVer": 8
-        },
-        "t2001_2010": {
-          "schemaVer": 8,
-          "shortcutEs": "<strong>Tiza</strong> ≈ <strong>Tamil தீட்டு (Theettu = write/draw!)</strong> + Sounds like <strong>\"Tease-a\"</strong> → Use white <em>Chalk (Tiza)</em> to <em>Theettu (write)</em> on the board!",
-          "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations",
-          "shortcutHi": "<strong>Khadiya</strong> ≈ White limestone stick used to write on a slate = <em>Chalk (Khadiya / Chaak)</em>!",
-          "hi": "chalk / chaak",
-          "tamil": "சுண்ணாம்புக் கட்டி (சாக்பீஸ்)",
-          "word": "CHALK",
-          "es": "tiza / gis"
-        },
-        "t2001_2006": {
-          "shortcutHi": "<strong>Sahpaathi</strong> ≈ <strong>Sah</strong> (Together) + <strong>Paath</strong> (Tamil <strong>பாடம் = Lesson!</strong>) → Studying lessons together = <em>Classmate (Sahpaathi)</em>!",
-          "tamil": "வகுப்புத் தோழர்",
-          "es": "compañero(a) de clase",
-          "word": "CLASSMATE",
-          "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations",
-          "shortcutEs": "<strong>Compañero de clase</strong> ≈ Sounds right like English <strong>\"Classmate\"</strong> (same Latin root &amp; sound) → <em>Classmate (Compañero de clase)</em>!",
-          "hi": "classmate",
-          "schemaVer": 8
-        },
-        "t2001_2033": {
-          "es": "Puntuación",
-          "tamil": "மதிப்பெண் (ஸ்கோர்)",
-          "shortcutEs": "<strong>Puntuación</strong> ≈ Contains English <strong>\"Point\" (Punto)</strong> → Total points scored = <em>Score (Puntuación)</em>!",
-          "category": "Category 72: Higher Education, Credentials & Foundations",
-          "hi": "ank",
-          "shortcutHi": "<strong>Praaptaank</strong> ≈ Sounds like <strong>\"Prime\"</strong> → Link \"Prime\" to <em>Score (Praaptaank)</em>!",
-          "schemaVer": 8,
-          "word": "SCORE"
-        },
-        "t2001_2027": {
-          "shortcutHi": "<strong>Grihakarya</strong> ≈ <strong>Griha</strong> (Tamil <strong>கிரகம் = Home!</strong>) + <strong>Karya</strong> (Tamil <strong>காரியம் = Work!</strong>) → <em>Homework (Grihakarya)</em>!",
-          "word": "HOMEWORK",
-          "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations",
-          "hi": "homework",
-          "shortcutEs": "<strong>Tarea</strong> ≈ Sounds like <strong>\"Target-Area\"</strong> → Daily assignment or homework <em>Task (Tarea)</em>!",
-          "schemaVer": 8,
-          "tamil": "வீட்டுப்பாடம் (ஹோம்வொர்க்)",
-          "es": "deberes / tarea"
-        },
-        "t2001_2015": {
-          "hi": "workbook / practice book",
-          "es": "cuadernillo / cuaderno de ejercicios",
-          "shortcutEs": "<strong>Cuaderno de ejercicios</strong> ≈ <strong>Cuaderno</strong> (Sounds like <strong>\"Quarter-Note\"</strong> (<em>Cuadro</em> = 4 corners)) → <em>Workbook (Cuaderno de ejercicios)</em>!",
-          "schemaVer": 8,
-          "tamil": "பயிற்சிப் புத்தகம்",
-          "word": "WORKBOOK",
-          "shortcutHi": "<strong>Abhyas-pustika</strong> ≈ Sounds like <strong>\"Up\"</strong> → Link \"Up\" to <em>Workbook (Abhyas-pustika)</em>!",
-          "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations"
-        },
-        "t2001_2021": {
-          "shortcutEs": "<strong>Lápiz</strong> ≈ Sounds like <strong>\"Lap-Piece\"</strong> → Keep a piece of <em>Pencil (Lápiz)</em> on your lap to sketch!",
-          "word": "PENCIL",
-          "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations",
-          "shortcutHi": "<strong>Kachchi-kalam</strong> ≈ Sounds like <strong>\"Car\"</strong> → Link \"Car\" to <em>Pencil (Kachchi-kalam)</em>!",
-          "hi": "pencil",
-          "tamil": "பென்சில்",
-          "es": "lápiz",
-          "schemaVer": 8
-        },
-        "t2001_2028": {
-          "shortcutEs": "<strong>Tarea asignada</strong> ≈ <strong>Tarea</strong> (Sounds like <strong>\"Target-Area\"</strong>) → <em>Assignment (Tarea asignada)</em>!",
-          "word": "ASSIGNMENT",
-          "schemaVer": 8,
-          "es": "trabajo / tarea",
-          "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations",
-          "tamil": "ஒப்படைப்பு (அசைன்மென்ட்)",
-          "shortcutHi": "<strong>Saunpa-karya</strong> ≈ Sounds like <strong>\"Same\"</strong> → Link \"Same\" to <em>Assignment (Saunpa-karya)</em>!",
-          "hi": "assignment"
+          "tamil": "1. காகிதக் கோப்புறை (ஃபோல்டர் - Paper Holder) / 2. கணினி கோப்புறை (Computer Directory)",
+          "shortcutHi": "<strong>1. (Paper Holder) Folder / File</strong> ≈ 100% identical to English & spoken Tamil <strong>\"Folder / File\"</strong>!<br><strong>2. (Computer Directory) Folder</strong> ≈ 100% identical to English <strong>\"Folder\"</strong> &amp; spoken Tamil <strong>கணினி கோப்புறை</strong> → Same everyday word in Hindi &amp; English!"
         },
         "t2001_2024": {
-          "word": "LESSON",
-          "shortcutHi": "<strong>Paath</strong> ≈ Same as Tamil <strong>பாடம் (Paadam = Lesson!)</strong> → Chapter or <em>Lesson (Paath / Sabak)</em>!",
-          "es": "clase / lección",
-          "hi": "lesson / chapter",
-          "shortcutEs": "<strong>Lección</strong> ≈ Direct sibling of English <strong>\"Lesson / Lecture\" (Lección ≈ Lesson)</strong> → Classroom chapter = <em>Lesson (Lección)</em>!",
+          "hi": "1. Class Study: Chapter | 2. Life Moral: Sabaq / Seekh",
+          "es": "1. Class Study: Lección / Clase | 2. Life Moral: Escarmiento",
+          "shortcutEs": "<strong>1. (Class Study) Lección</strong> ≈ Direct sibling of English <strong>\"Lesson / Lecture\" (Lección ≈ Lesson)</strong> → Classroom chapter = <em>Lesson (Lección)</em>!<br><strong>2. (Life Moral) Lección</strong> ≈ Direct sibling of English <strong>\"Lesson / Lecture\" (Lección ≈ Lesson)</strong> → Classroom chapter = <em>Lesson (Lección)</em>!",
+          "schemaVer": 9,
+          "tamil": "1. பாடம் (வகுப்புப் பாடம் - Class Study) / 2. வாழ்க்கைப் பாடம் (படிப்பினை - Life Moral)",
           "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations",
-          "tamil": "பாடம்",
-          "schemaVer": 8
+          "shortcutHi": "<strong>1. (Class Study) Paath / Chapter</strong> ≈ <strong>Paath</strong> is 100% identical to <strong>Tamil பாடம் (Paadam = Lesson!)</strong> + English <strong>\"Chapter\"</strong>!<br><strong>2. (Life Moral) Sabaq / Seekh</strong> ≈ <strong>Sabaq</strong> (Life moral) + <strong>Seekh</strong> (from <em>Seekhna</em> = To learn) = Life <em>Lesson (Seekh)</em>!",
+          "word": "LESSON"
         },
-        "t2001_2029": {
-          "tamil": "கட்டுரை",
-          "shortcutEs": "<strong>Ensayo</strong> ≈ Direct sibling of English <strong>\"Essay\" (En-say-o ≈ Essay)</strong> → Written school <em>Essay</em> or stage <em>Rehearsal (Ensayo)</em>!",
-          "schemaVer": 8,
-          "es": "ensayo / redacción",
-          "hi": "essay / nibandh",
-          "word": "ESSAY",
-          "shortcutHi": "<strong>Nibandh</strong> ≈ Sounds like <strong>\"Nib-And-Pen\"</strong> → Writing a long school <em>Essay (Nibandh)</em> with a pen nib!",
-          "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations"
-        },
-        "t2001_2041": {
-          "word": "DEGREE",
-          "category": "Category 72: Higher Education, Credentials & Foundations",
-          "shortcutEs": "<strong>1. Título</strong> ≈ Sounds like <strong>\"Ticket\"</strong> → Picture \"Ticket\" to remember <em>Academic (Título)</em>!<br><strong>2. Grado (Temp/Angle)</strong> ≈ Sibling of English <strong>\"Grade / Gradual\"</strong> (90° or 37°C).",
-          "hi": "1. Academic: upadhi | 2. Temp/Angle: degree|3.Level / extent:star",
-          "tamil": "1. பட்டம் (டிகிரி - College degree) / 2. பாகை (Temperature / Angle)",
-          "es": "1. Academic:Título universitario | 2. Temp/Angle: grado |3.Level / extent:Grado / Nivel",
-          "shortcutHi": "<strong>1. Degree (Academic)</strong> ≈ Spoken Tamil & Hindi use <strong>\"College degree\"</strong> (formal: <em>Upadhi</em>).<br><strong>2. Ansh</strong> ≈ Sounds like <strong>\"Inner\"</strong> → Link \"Inner\" to <em>Temp/Angle (Ansh)</em>!",
-          "schemaVer": 8
-        },
-        "t2001_2032": {
-          "shortcutEs": "<strong>1. Calificación</strong> ≈ Direct match with English <strong>\"Qualification\"</strong> → Exam score or school <em>Grade (Calificación)</em>!<br><strong>2. Grado (Level)</strong> ≈ Direct match with English <strong>\"Grade\"</strong>!",
-          "hi": "1. Score: ank | 2. Level: kaksha",
-          "es": "1. Score: calificación (nota) | 2. Level: grado",
-          "word": "GRADE",
-          "tamil": "1. மதிப்பெண் தரம் (கிரேடு - Exam score) / 2. வகுப்பு (School level)",
-          "category": "Category 72: Higher Education, Credentials & Foundations",
-          "shortcutHi": "<strong>1. Shreni</strong> ≈ Sounds like <strong>\"Shine\"</strong> → Link \"Shine\" to <em>Score (Shreni)</em>!<br><strong>2. Class / Shreni (Level)</strong> ≈ School grade level (Tamil <em>சிரேணி</em>).",
-          "schemaVer": 8
-        },
-        "t2001_2036": {
-          "word": "SYLLABUS",
-          "hi": "paathyakram",
-          "category": "Category 72: Higher Education, Credentials & Foundations",
-          "tamil": "பாடத்திட்டம் (சிலபஸ்)",
-          "shortcutEs": "<strong>Plan de estudios</strong> ≈ Sounds like <strong>\"Plaza\"</strong> → Picture \"Plaza\" to remember <em>Syllabus (Plan de estudios)</em>!",
-          "es": "plan de estudios",
-          "shortcutHi": "<strong>Paathyakram-rooprekha</strong> ≈ Sounds like <strong>\"Park\"</strong> → Link \"Park\" to <em>Syllabus (Paathyakram-rooprekha)</em>!",
-          "schemaVer": 8
-        },
-        "t2001_2025": {
-          "shortcutEs": "<strong>Conferencia</strong> ≈ Direct match with English <strong>\"Conference\"</strong> → University hall <em>Lecture / Conference (Conferencia)</em>!",
-          "hi": "lecture / class",
-          "es": "clase / conferencia",
-          "tamil": "விரிவுரை",
-          "shortcutHi": "<strong>Vyakhyan</strong> ≈ From <strong>Vyakhya</strong> ( Tamil <strong>வியாக்கியானம் = Detailed explanation!</strong>) → College <em>Lecture (Vyakhyan)</em>!",
-          "word": "LECTURE",
+        "t2001_2022": {
+          "shortcutEs": "<strong>1. (Measuring Tool) Regla</strong> ≈ Direct sibling of English <strong>\"Regulate / Regular\"</strong> → Measuring <em>Ruler</em> or law <em>Rule (Regla)</em>!<br><strong>2. (Leader / Monarch) Gobernante</strong> ≈ Direct sibling of English <strong>\"Governor / Govern\"</strong> → Monarch or country <em>Ruler (Gobernante)</em>!",
+          "schemaVer": 9,
           "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations",
-          "schemaVer": 8
-        },
-        "t2001_2039": {
-          "shortcutEs": "<strong>1. Matrícula</strong> ≈ Direct match with English <strong>\"Matriculation\"</strong> → University enrollment & <em>Tuition (Matrícula)</em>!<br><strong>2. Clases particulares</strong> ≈ Sounds like <strong>\"Clear\"</strong> → Picture \"Clear\" to remember <em>Coaching (Clases particulares)</em>!",
-          "category": "Category 72: Higher Education, Credentials & Foundations",
-          "word": "TUITION",
-          "shortcutHi": "<strong>1. Shiksha-shulk</strong> ≈ <strong>Shiksha</strong> (<strong>Tamil சிக்ஷா / கல்வி (Shikshaa = Education!)</strong>) → <em>Fee (Shiksha-shulk)</em>!<br><strong>2. Tuition class (Coaching)</strong> ≈ 100% identical in Tamil, Hindi & English!",
-          "hi": "1. Fee: Tuition fees | 2. Coaching: Tuition",
-          "schemaVer": 8,
-          "es": "1. Fee: matrícula | 2. Coaching: clases particulares",
-          "tamil": "1. கல்விக் கட்டணம் (College fee) / 2. டியூஷன் வகுப்பு (Extra coaching)"
-        },
-        "t2001_2011": {
-          "shortcutHi": "<strong>Mota-kalam</strong> ≈ <strong>Mota</strong> (<strong>Spoken Tamil மொத்தமான (Motthamaana = thick!)</strong>) → <em>Marker (Mota-kalam)</em>!",
-          "schemaVer": 8,
-          "tamil": "மார்க்கர் பேனா",
-          "shortcutEs": "<strong>Marcador</strong> ≈ Contains English <strong>\"Marker\" (Marca-dor)</strong> → Page saver or score board = <em>Bookmark / Marker (Marcador)</em>!",
-          "hi": "marker",
-          "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations",
-          "es": "marcador",
-          "word": "MARKER"
-        },
-        "t2001_2014": {
-          "word": "NOTEBOOK",
-          "hi": "copy / notebook",
-          "tamil": "நோட்டுப் புத்தகம்",
-          "shortcutEs": "<strong>Cuaderno</strong> ≈ Sounds like <strong>\"Quarter-Note\"</strong> (<em>Cuadro</em> = 4 corners) → Write class notes inside a 4-cornered <em>Notebook (Cuaderno)</em>!",
-          "schemaVer": 8,
-          "es": "cuaderno / libreta",
-          "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations",
-          "shortcutHi": "<strong>Likhne ki kaapi</strong> ≈ Sounds like <strong>\"Line\"</strong> → Link \"Line\" to <em>Notebook (Likhne ki kaapi)</em>!"
-        },
-        "t2001_2035": {
-          "category": "Category 72: Higher Education, Credentials & Foundations",
-          "shortcutHi": "<strong>1. Satr</strong> ≈ <strong>Tamil சத்திரம் / பருவம் (Session period)</strong> → School academic <em>Term (Satr)</em>!<br><strong>2. Shabd (Word)</strong> ≈ Same root as Tamil <strong>சப்தம் (Sabtham = sound/word)</strong>.",
-          "schemaVer": 8,
-          "word": "TERM",
-          "shortcutEs": "<strong>1. Período / Trimestre (Period)</strong> ≈ <em>Tri</em> (3) + <em>Mes</em> (months) = 3-month school term (short/long-term = <em>plazo</em>).<br><strong>2. Término</strong> ≈ Sounds like <strong>\"Tent\"</strong> → Picture \"Tent\" to remember <em>Word (Término)</em>!",
-          "es": "1. Period: período / trimestre | 2. Word: término",
-          "tamil": "1. பருவம் (கால அளவு - Time period) / 2. சொல் (கலைச்சொல் - Word)",
-          "hi": "1. Period: avadhi | 2. Word: shabd"
-        },
-        "t2001_2038": {
-          "tamil": "கல்வி உதவித்தொகை (ஸ்காலர்ஷிப்)",
-          "hi": "Scholarship / Chhatravritti",
-          "shortcutEs": "<strong>Beca</strong> ≈ Sounds like <strong>\"Back-A-Student\"</strong> → Financial grant that backs a student = <em>Scholarship (Beca)</em>!",
-          "schemaVer": 8,
-          "es": "beca",
-          "category": "Category 72: Higher Education, Credentials & Foundations",
-          "word": "SCHOLARSHIP",
-          "shortcutHi": "<strong>Chhatravritti</strong> ≈ <strong>Chhaatra</strong> (Student) + <strong>Vritti</strong> (Stipend/Support) → Student <em>Scholarship (Chhatravritti)</em>!"
-        },
-        "t2001_2034": {
-          "tamil": "பருவத் தேர்வு (செமஸ்டர்)",
-          "shortcutHi": "<strong>Chhah-maahi satr</strong> ≈ <strong>Satr</strong> (<strong>Tamil சத்திரம் / பருவம் (Session period)</strong>) → <em>Semester (Chhah-maahi satr)</em>!",
-          "category": "Category 72: Higher Education, Credentials & Foundations",
-          "shortcutEs": "<strong>Semestre</strong> ≈ Sounds right like English <strong>\"Semester\"</strong> (same Latin root &amp; sound) → <em>Semester (Semestre)</em>!",
-          "hi": "Semester",
-          "schemaVer": 8,
-          "word": "SEMESTER",
-          "es": "semestre"
-        },
-        "t2001_2008": {
-          "tamil": "கரும்பலகை",
-          "es": "pizarra / pizarrón",
-          "shortcutHi": "<strong>Shyaampatt</strong> ≈ <strong>Shyaam</strong> (Dark/Black, like Lord Shyam!) + <strong>Patt</strong> (Board) → <em>Blackboard (Shyaampatt)</em>!",
-          "hi": "blackboard / board",
-          "word": "BLACKBOARD",
-          "shortcutEs": "<strong>Pizarra</strong> ≈ Sounds like <strong>\"Pizza-Raw\"</strong> + <strong>Tamil பீட்சா (Pizza)</strong> → Imagine the teacher drawing a giant <em>Pizza</em> on the <em>Blackboard (Pizarra)</em>!",
-          "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations",
-          "schemaVer": 8
-        },
-        "t2001_2020": {
-          "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations",
-          "word": "PEN",
-          "shortcutEs": "<strong>Bolígrafo</strong> ≈ <strong>Boli (\"Ball\") + Grafo (\"Graph/Write\")</strong> → Literally a <em>\"Ball-point writer\" = Pen (Bolígrafo)</em>!",
-          "schemaVer": 8,
-          "hi": "pen / kalam",
-          "shortcutHi": "<strong>Kalam</strong> ≈ Sounds like <strong>\"Car\"</strong> → Link \"Car\" to <em>Pen (Kalam)</em>!",
-          "es": "boli / pluma",
-          "tamil": "பேனா"
-        },
-        "t2001_2001": {
-          "word": "TEACHER",
-          "tamil": "ஆசிரியர்",
-          "shortcutHi": "<strong>Shikshak</strong> ≈ From <strong>Shiksha</strong> (Tamil <strong>சிக்ஷை / கல்வி = Education!</strong>) → School <em>Teacher (Shikshak / Adhyapak)</em>!",
-          "es": "profesor(a) / profe",
-          "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations",
-          "schemaVer": 8,
-          "shortcutEs": "<strong>Profesor</strong> ≈ Direct match with English <strong>\"Professor\"</strong> → Classroom educator = <em>Teacher / Professor (Profesor)</em>!",
-          "hi": "shikshak / adhyapak (or teacher)"
-        },
-        "t2001_2013": {
-          "schemaVer": 8,
-          "tamil": "பாடப்புத்தகம்",
-          "shortcutEs": "<strong>Libro de texto</strong> ≈ Sounds right like English <strong>\"Textbook\"</strong> (same Latin root &amp; sound) → <em>Textbook (Libro de texto)</em>!",
-          "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations",
-          "hi": "kitaab / textbook",
-          "shortcutHi": "<strong>Kitaab</strong> ≈ <strong>Spoken Tamil கிதாப் / புத்தகம் (Kithaab)</strong> → Printed book or <em>Textbook (Kitaab)</em>!",
-          "word": "TEXTBOOK",
-          "es": "libro / libro de texto"
-        },
-        "t2001_2019": {
-          "word": "DOCUMENT",
-          "hi": "document / kaagaz",
-          "es": "documento",
-          "schemaVer": 8,
-          "shortcutHi": "<strong>Dastaavez</strong> ≈ Sounds like <strong>\"Dart\"</strong> → Link \"Dart\" to <em>Document (Dastaavez)</em>!",
-          "tamil": "ஆவணம் (டாக்குமெண்ட்)",
-          "shortcutEs": "<strong>documento</strong> → Direct Latin/Spanish cognate of English <strong>\"DOCUMENT\"</strong> = <em>DOCUMENT</em>!",
-          "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations"
-        },
-        "t2001_2030": {
-          "shortcutEs": "<strong>Prueba corta</strong> ≈ Sounds like <strong>\"Prime\"</strong> → Picture \"Prime\" to remember <em>Quiz (Prueba corta)</em>!",
-          "word": "QUIZ",
-          "shortcutHi": "<strong>Prashnottari</strong> ≈ <strong>Prashna</strong> (Tamil <strong>பிரச்சனை / வினா = Question</strong>) + <strong>Uttar</strong> (Tamil <strong>உத்தரவு / பதில் = Answer</strong>) → Q&amp;A <em>Quiz (Prashnottari)</em>!",
-          "es": "prueba corta (or quiz)",
-          "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations",
-          "hi": "quiz / test",
-          "tamil": "வினாடி வினா (குவிஸ்)",
-          "schemaVer": 8
-        },
-        "t2001_2031": {
-          "shortcutEs": "<strong>Examen</strong> → Direct cognate of <strong>\"Exam / Examination\"</strong> = <em>EXAM</em>!",
-          "word": "EXAM",
-          "tamil": "தேர்வு",
-          "shortcutHi": "<strong>Pariksha</strong> ≈ Exact same word as Tamil <strong>பரீட்சை (Pareetchai = Exam!)</strong> → School <em>Exam (Pariksha)</em>!",
-          "hi": "exam",
-          "category": "Category 72: Higher Education, Credentials & Foundations",
-          "es": "examen",
-          "schemaVer": 8
-        },
-        "t2001_2007": {
-          "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations",
-          "schemaVer": 8,
-          "word": "CLASSROOM",
-          "tamil": "வகுப்பறை",
-          "shortcutEs": "<strong>Aula</strong> ≈ Sounds like <strong>\"All-Learn-Hall\"</strong> (Latin <em>Aula</em> = hall) → School room where all learn = <em>Classroom (Aula)</em>!",
-          "hi": "classroom / class",
-          "shortcutHi": "<strong>Kaksha</strong> ≈ Sounds like <strong>\"Class-Sha\"</strong> → School <em>Classroom / Grade (Kaksha)</em>!",
-          "es": "aula / salón"
+          "tamil": "1. அளவுகோல் (ஸ்கேல் - Measuring Tool) / 2. ஆட்சியாளர் (அரசன் - Leader / Monarch)",
+          "hi": "1. Measuring Tool: Scale | 2. Leader / Monarch: Shaasak / Raja",
+          "es": "1. Measuring Tool: Regla | 2. Leader / Monarch: Gobernante",
+          "word": "RULER",
+          "shortcutHi": "<strong>1. (Measuring Tool) Scale / Futa</strong> ≈ <strong>Tamil ஸ்கேல் (Scale = Ruler!)</strong> & English <strong>\"Scale\"</strong> → Measuring <em>Ruler (Scale)</em>!<br><strong>2. (Leader / Monarch) Shaasak / Raja</strong> ≈ <strong>Shaasak</strong> (from <strong>Tamil சாசனம் = Rule/Decree!</strong>) + <strong>Raja</strong> (<strong>Tamil ராஜா = King!</strong>) = Monarch / <em>Ruler</em>!"
         }
       },
       "customDecks": {},
       "customSections": [],
       "audioPrefs": {
+        "voiceRate": 0.8,
         "repeatDelay": 1000,
-        "autoPronounceFlip": false,
-        "bgmMode": "lofi",
         "transcribeContinuous": true,
-        "sfxStyle": "mute",
+        "repeatCount": 1,
         "sfxVolume": 1,
-        "autoPronounceNext": false,
+        "bgmMode": "lofi",
+        "sfxStyle": "mute",
         "voiceVolume": 1,
         "transcribeSilenceDelay": 1500,
         "voicePitch": 1,
-        "repeatCount": 1,
-        "voiceRate": 0.8,
-        "bgmEnabled": true,
-        "bgmVolume": 1
+        "autoPronounceFlip": false,
+        "bgmVolume": 1,
+        "autoPronounceNext": false,
+        "bgmEnabled": true
       },
-      "updatedAt": "2026-11-05T17:38:00.014Z"
+      "updatedAt": "2026-11-06T17:24:29.864Z"
     }
   }
 }

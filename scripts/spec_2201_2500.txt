@@ -1,0 +1,1102 @@
+2201. CANVAS
+
+1.  Painting Surface: Hindi: Canvas | Spanish: Lienzo
+2.  Heavy Fabric: Hindi: Canvas / Tirpal | Spanish: Lona
+
+2202. FIBER
+
+1.  Dietary: Hindi: Fiber / Resha | Spanish: Fibra
+2.  Textile Thread: Hindi: Resha / Fiber | Spanish: Fibra
+
+2203. VELVET
+Hindi: Velvet / Makhmal | Spanish: Terciopelo
+
+2204. DENIM
+Hindi: Denim / Jeans ka kapda | Spanish: Mezclilla / Denim / Vaquero
+
+2205. NYLON
+Hindi: Nylon | Spanish: Nailon
+
+2206. POLYESTER
+Hindi: Polyester | Spanish: Poliéster
+
+2207. SUNBURN
+Hindi: Sunburn / Dhoop se twacha jalna | Spanish: Quemadura solar
+
+2208. BRUISE
+Hindi: Neela padna / Chot ka nishaan | Spanish: Moretón / Hematoma
+
+2209. ADHESIVE
+Hindi: Glue / Gondh / Fevicol | Spanish: Adhesivo / Pegamento
+
+2210. WAX
+
+1.  Material: Hindi: Mom / Wax | Spanish: Cera
+2.  Hair Removal: Hindi: Wax / Waxing | Spanish: Cera / Depilación
+
+2211. ART
+Hindi: Kala / Art | Spanish: Arte
+
+2212. ARTWORK
+Hindi: Artwork / Kala-kriti | Spanish: Obra de arte
+
+2213. SKETCH
+
+1.  Drawing: Hindi: Sketch / Kacha chitra | Spanish: Boceto / Dibujo
+2.  Comedy Scene: Hindi: Comedy sketch | Spanish: Sketch cómico
+
+2214. PORTRAIT
+
+1.  Face Painting/Photo: Hindi: Portrait / Tasveer | Spanish: Retrato
+2.  Vertical Orientation: Hindi: Portrait | Spanish: Vertical / Retrato
+
+2215. LANDSCAPE
+
+1.  Scenery: Hindi: Nazara / Kudrati drishya | Spanish: Paisaje
+2.  Horizontal Orientation: Hindi: Landscape | Spanish: Horizontal
+
+2216. SCULPTURE
+Hindi: Murti / Shilpkala | Spanish: Escultura
+
+2217. STATUE
+Hindi: Murti / Putla / Statue | Spanish: Estatua
+
+2218. MONUMENT
+Hindi: Smarak / Aitihasik imarat | Spanish: Monumento
+
+2219. GALLERY
+
+1.  Art Exhibition: Hindi: Art gallery | Spanish: Galería de arte
+2.  Phone Photos: Hindi: Photo gallery | Spanish: Galería de fotos
+
+2220. EXHIBITION
+Hindi: Exhibition / Pradarshani | Spanish: Exposición / Muestra
+
+2221. EXHIBIT
+
+1.  Display Item: Hindi: Exhibit / Numayish ki cheez | Spanish: Pieza de exhibición
+2.  Court Evidence: Hindi: Saboot / Dastavez | Spanish: Prueba / Evidencia
+
+2222. MASTERPIECE
+Hindi: Masterpiece / Shahkaar | Spanish: Obra maestra
+
+2223. STAGE
+
+1.  Performance Platform: Hindi: Stage / Manch | Spanish: Escenario
+2.  Phase / Step: Hindi: Stage / Phase / Charan | Spanish: Etapa / Fase
+
+2224. DRAMA
+
+1.  Theater Play: Hindi: Natak / Drama | Spanish: Drama / Obra teatral
+2.  Overreaction / Scene: Hindi: Drama / Nautanki / Tamasha | Spanish: Drama / Escándalo
+
+2225. THEATRICAL
+
+1.  Theater Related: Hindi: Natakiya / Theatre wala | Spanish: Teatral
+2.  Overdramatic: Hindi: Nautankibaaz / Filmy | Spanish: Teatral / Exagerado
+
+2226. COMEDY
+Hindi: Comedy / Hasya | Spanish: Comedia
+
+2227. TRAGEDY
+
+1.  Tragic Incident: Hindi: Haadsa / Bada dukhant | Spanish: Tragedia
+2.  Story Genre: Hindi: Tragedy | Spanish: Tragedia
+
+2228. MUSICAL
+
+1.  Music Movie/Play: Hindi: Musical | Spanish: Musical
+2.  Melodious: Hindi: Sureela / Sangeetamay | Spanish: Musical
+
+2229. PERFORMANCE
+
+1.  Stage Act: Hindi: Performance | Spanish: Actuación / Presentación
+2.  Work Efficiency: Hindi: Performance / Kaam ka nateeja | Spanish: Rendimiento / Desempeño
+
+2230. PERFORMER
+Hindi: Kalakaar / Performer | Spanish: Artista / Intérprete
+
+2231. REHEARSAL
+Hindi: Rehearsal / Riyaz / Practice | Spanish: Ensayo
+
+2232. COSTUME
+Hindi: Costume / Dress | Spanish: Disfraz / Traje / Vestuario
+
+2233. SCENE
+
+1.  Movie Part: Hindi: Scene | Spanish: Escena
+2.  Crime/Incident Spot: Hindi: Mauka-e-wardat / Ghatna sthal | Spanish: Lugar de los hechos
+3.  Public Argument: Hindi: Tamasha / Scene | Spanish: Escándalo / Escena
+
+2234. SCENERY
+Hindi: Nazara / Kudrati sundarta | Spanish: Paisaje / Vistas
+
+2235. BACKDROP
+
+1.  Stage Background: Hindi: Backdrop / Parda | Spanish: Telón de fondo
+2.  Setting/Context: Hindi: Mahaul / Peethbhoomi | Spanish: Trasfondo / Contexto
+
+2236. PROP
+
+1.  Stage Object: Hindi: Prop | Spanish: Objeto de utilería / Atrezo
+2.  Physical Support: Hindi: Sahara dena / Tikana | Spanish: Apoyar / Sostener
+
+2237. MASK
+
+1.  Face Cover: Hindi: Mask | Spanish: Mascarilla / Máscara / Cubrebocas
+2.  Conceal / Disguise: Hindi: Chhupana / Parda daalna | Spanish: Enmascarar / Disimular
+
+2238. SPRAIN
+Hindi: Moch aana | Spanish: Esguince / Torcedura
+
+2239. CAST
+
+1.  Movie Actors: Hindi: Cast | Spanish: Reparto / Elenco
+2.  Bone Plaster: Hindi: Plaster | Spanish: Yeso / Escayola
+3.  Cast a Vote: Hindi: Vote daalna | Spanish: Emitir un voto
+
+2240. SCRIPT
+
+1.  Movie/Drama Text: Hindi: Script | Spanish: Guion
+2.  Writing System: Hindi: Lipi | Spanish: Alfabeto / Escritura
+
+2241. MUSIC
+Hindi: Music / Sangeet / Gaane | Spanish: Música
+
+2242. SONG
+Hindi: Gaana / Geet | Spanish: Canción / Tema
+
+2243. MELODY
+Hindi: Dhun / Sureeli aawaz | Spanish: Melodía
+
+2244. RHYTHM
+Hindi: Rhythm / Taal / Laya | Spanish: Ritmo
+
+2245. TUNE
+
+1.  Musical Air: Hindi: Dhun / Sur | Spanish: Sintonía / Melodía
+2.  Adjust Instrument: Hindi: Sur milana / Tune karna | Spanish: Afinar
+
+2246. LYRICS
+Hindi: Lyrics / Gaane ke bol | Spanish: Letra de la canción
+
+2247. CHORD
+Hindi: Chord | Spanish: Acorde
+
+2248. HARMONY
+
+1.  Musical Blend: Hindi: Suron ka mel | Spanish: Armonía
+2.  Peaceful Accord: Hindi: Bhaichara / Shanti | Spanish: Armonía / Concordia
+
+2249. SCALE
+
+1.  Weight Machine: Hindi: Weighing machine / Tarazu | Spanish: Báscula / Balanza
+2.  Musical Notes: Hindi: Sargam / Sur | Spanish: Escala musical
+3.  Fish Skin: Hindi: Chhilka | Spanish: Escama
+4.  Extent / Magnitude: Hindi: Scale / Satar | Spanish: Escala / Nivel
+
+2250. NOTE
+
+1.  Music Sound: Hindi: Sur / Note | Spanish: Nota musical
+2.  Currency Bill: Hindi: Note / Rupaye | Spanish: Billete
+3.  Short Message: Hindi: Note / Parchi | Spanish: Nota / Apunte
+4.  Observe: Hindi: Dhyan dena / Note karna | Spanish: Fijarse / Notar
+
+2251. PITCH
+
+1.  Sports Field: Hindi: Pitch | Spanish: Cancha / Campo
+2.  Voice Tone: Hindi: Pitch / Awaaz ki ucchta | Spanish: Tono de voz
+3.  Business Proposal: Hindi: Sales pitch | Spanish: Propuesta comercial
+
+2252. TEMPO
+Hindi: Tempo / Raftaar | Spanish: Tempo / Ritmo
+
+2253. BEAT
+
+1.  Music Rhythm: Hindi: Beat / Taal | Spanish: Ritmo / Golpe
+2.  Hit / Strike: Hindi: Maarna / Peetna | Spanish: Golpear / Pegar
+3.  Defeat / Win: Hindi: Harana / Beat karna | Spanish: Ganar a / Vencer
+4.  Heart Pulse: Hindi: Dhadkan | Spanish: Latido
+
+2254. SOUND
+
+1.  Audio: Hindi: Awaaz | Spanish: Sonido
+2.  Sensible / Solid: Hindi: Sahi / Mazboot / Thik | Spanish: Sensato / Firme / Sólido
+
+2255. NOISE
+Hindi: Shor / Halla / Awaaz | Spanish: Ruido
+
+2256. TONE
+
+1.  Voice Manner: Hindi: Lehza / Baat karne ka dhang | Spanish: Tono de voz
+2.  Musical Pitch: Hindi: Sur / Tone | Spanish: Tono
+3.  Muscle Firmness: Hindi: Body tone | Spanish: Tono muscular
+
+2257. ECHO
+Hindi: Goonj | Spanish: Eco
+
+2258. SILENCE
+Hindi: Shaanti / Khamoshi / Sannata | Spanish: Silencio
+
+2259. OINTMENT
+Hindi: Marham / Malham / Cream | Spanish: Pomada / Ungüento
+
+2260. ORCHESTRA
+Hindi: Orchestra | Spanish: Orquesta
+
+2261. SYMPHONY
+Hindi: Symphony | Spanish: Sinfonía
+
+2262. BAND
+
+1.  Music Group: Hindi: Band | Spanish: Banda / Grupo musical
+2.  Strap / Strip: Hindi: Patti / Rubber band / Fitah | Spanish: Banda / Cinta / Tira
+
+2263. CHOIR
+Hindi: Choir / Gaayakon ka samooh | Spanish: Coro
+
+2264. CHORUS
+
+1.  Main Hook: Hindi: Chorus / Gaane ka mukhda | Spanish: Estribillo / Coro
+2.  Backup Singers: Hindi: Chorus | Spanish: Coro
+
+2265. INSTRUMENT
+
+1.  Musical Tool: Hindi: Saaz / Instrument | Spanish: Instrumento musical
+2.  Technical Tool: Hindi: Auzaar / Yantra | Spanish: Instrumento / Herramienta
+
+2266. GUITAR
+Hindi: Guitar | Spanish: Guitarra
+
+2267. PIANO
+Hindi: Piano | Spanish: Piano
+
+2268. VIOLIN
+Hindi: Violin | Spanish: Violín
+
+2269. DRUM
+
+1.  Musical: Hindi: Drum / Dholak | Spanish: Batería / Tambor
+2.  Barrel: Hindi: Drum / Pipaa | Spanish: Bidón / Barril
+
+2270. FLUTE
+Hindi: Baansuri | Spanish: Flauta
+
+2271. TRUMPET
+Hindi: Trumpet / Turhi | Spanish: Trompeta
+
+2272. HORN
+
+1.  Vehicle: Hindi: Horn | Spanish: Claxon / Bocina
+2.  Animal: Hindi: Seeng | Spanish: Cuerno
+
+2273. CAPSULE
+Hindi: Capsule / Goli | Spanish: Cápsula
+
+2274. SYRUP
+
+1.  Medicine: Hindi: Syrup / Dawa | Spanish: Jarabe
+2.  Sweet Sauce: Hindi: Syrup / Meetha sheera | Spanish: Sirope / Almíbar
+
+2275. ALBUM
+
+1.  Music: Hindi: Music album | Spanish: Álbum
+2.  Photos: Hindi: Photo album | Spanish: Álbum de fotos
+
+2276. SOUNDTRACK
+Hindi: Soundtrack / BGM / Gaane | Spanish: Banda sonora
+
+2277. RECORD
+
+1.  Best Achievement: Hindi: Record | Spanish: Récord
+2.  Official Data: Hindi: Record / Dastavez | Spanish: Registro / Historial
+3.  Vinyl Disc: Hindi: Vinyl record | Spanish: Disco de vinilo
+
+2278. RECORDING
+Hindi: Recording | Spanish: Grabación
+
+2279. CONCERT
+Hindi: Concert / Live show | Spanish: Concierto
+
+2280. AMPLIFIER
+Hindi: Amp / Amplifier | Spanish: Amplificador
+
+2281. SPORT
+Hindi: Khel / Sport | Spanish: Deporte
+
+2282. ATHLETE
+Hindi: Khiladi / Athlete | Spanish: Atleta / Deportista
+
+2283. STADIUM
+Hindi: Stadium / Maidan | Spanish: Estadio
+
+2284. FOOTBALL
+
+1.  The Game: Hindi: Football | Spanish: Fútbol americano / Fútbol
+2.  The Ball: Hindi: Football | Spanish: Balón
+
+2285. SOCCER
+Hindi: Football / Soccer | Spanish: Fútbol
+
+2286. BASKETBALL
+Hindi: Basketball | Spanish: Baloncesto / Básquetbol
+
+2287. BASEBALL
+Hindi: Baseball | Spanish: Béisbol
+
+2288. TENNIS
+Hindi: Tennis | Spanish: Tenis
+
+2289. VOLLEYBALL
+Hindi: Volleyball | Spanish: Voleibol
+
+2290. RUGBY
+Hindi: Rugby | Spanish: Rugby
+
+2291. HOCKEY
+Hindi: Hockey | Spanish: Hockey
+
+2292. GOLF
+Hindi: Golf | Spanish: Golf
+
+2293. BOXING
+Hindi: Boxing / Mukke-baazi | Spanish: Boxeo
+
+2294. WRESTLING
+Hindi: Kushti / Wrestling / Dangal | Spanish: Lucha libre / Lucha
+
+2295. CRICKET
+
+1.  Sport: Hindi: Cricket | Spanish: Críquet
+2.  Insect: Hindi: Jhingur | Spanish: Grillo
+
+2296. BADMINTON
+Hindi: Badminton | Spanish: Bádminton
+
+2297. GYMNASTICS
+Hindi: Gymnastics | Spanish: Gimnasia
+
+2298. MARATHON
+Hindi: Marathon / Lambi daud | Spanish: Maratón
+
+2299. SPRINT
+Hindi: Sprint / Tez daud | Spanish: Carrera corta / Esprint
+
+2300. SKATEBOARDING
+Hindi: Skateboarding | Spanish: Monopatín / Skateboarding
+
+2301. SKIING
+Hindi: Skiing / Baraf par fisalna | Spanish: Esquí
+
+2302. SNOWBOARDING
+Hindi: Snowboarding | Spanish: Snowboard / Snowboarding
+
+2303. SKATING
+Hindi: Skating | Spanish: Patinaje
+
+2304. SURFING
+
+1.  Ocean Sport: Hindi: Surfing | Spanish: Surf
+2.  Internet Browsing: Hindi: Net surfing / Net chalana | Spanish: Navegar por internet
+
+2305. SAILING
+Hindi: Naav chalana / Sailing | Spanish: Vela / Navegación
+
+2306. ROWING
+Hindi: Chappu chalana / Naav khena | Spanish: Remo
+
+2307. HIKING
+Hindi: Hiking / Pahad chadhna | Spanish: Senderismo / Caminata
+
+2308. CAMPING
+Hindi: Camping / Tambu lagana | Spanish: Acampar / Camping
+
+2309. ARCHERY
+Hindi: Teerandazi | Spanish: Tiro con arco
+
+2310. BOWLING
+Hindi: Bowling | Spanish: Bolos / Bowling
+
+2311. CHESS
+Hindi: Shatranj / Chess | Spanish: Ajedrez
+
+2312. CARDS
+
+1.  Playing Cards: Hindi: Taash / Patte | Spanish: Cartas / Baraja / Naipes
+2.  Bank / ID Card: Hindi: Card | Spanish: Tarjeta
+
+2313. DICE
+Hindi: Paasa / Dice | Spanish: Dado
+
+2314. PUZZLE
+
+1.  Game / Jigsaw: Hindi: Paheli / Puzzle | Spanish: Rompecabezas / Puzle
+2.  Confusing Problem: Hindi: Uljhan / Paheli | Spanish: Enigma / Dilema
+
+2315. GAME
+
+1.  Sport / Match: Hindi: Khel / Match | Spanish: Juego / Partido
+2.  Video Game: Hindi: Video game | Spanish: Videojuego
+
+2316. RACE
+
+1.  Speed Contest: Hindi: Race / Daud | Spanish: Carrera
+2.  Ethnicity / Heritage: Hindi: Nasl / Jaati | Spanish: Raza / Etnia
+
+2317. TOURNAMENT
+Hindi: Tournament / Pratiyogita | Spanish: Torneo
+
+2318. FINALS
+
+1.  Sports Championship: Hindi: Finals / Final match | Spanish: La final / Finales
+2.  Exam Period: Hindi: Finals / Aakhiri exam | Spanish: Exámenes finales
+
+2319. LEAGUE
+Hindi: League | Spanish: Liga
+
+2320. TROPHY
+Hindi: Trophy / Cup | Spanish: Trofeo / Copa
+
+2321. MEDAL
+Hindi: Medal / Padak | Spanish: Medalla
+
+2322. CHAMPION
+Hindi: Champion / Vijeta | Spanish: Campeón
+
+2323. COACH
+
+1.  Sports Trainer: Hindi: Coach / Trainer | Spanish: Entrenador
+2.  Train Carriage / Bus: Hindi: Train ka dabba / Bus | Spanish: Vagón / Autobús
+
+2324. REFEREE
+Hindi: Referee / Umpire | Spanish: Árbitro
+
+2325. CHECKUP
+Hindi: Medical checkup / Jaanch | Spanish: Chequeo médico / Revisión
+
+2326. CONTESTANT
+Hindi: Contestant / Pratiyogi | Spanish: Concursante / Participante
+
+2327. TEAMMATE
+Hindi: Teammate / Saathi khiladi | Spanish: Compañero de equipo
+
+2328. FITNESS
+Hindi: Fitness / Tandurusti | Spanish: Estado físico / Buena forma
+
+2329. ENVIRONMENT
+
+1.  Nature / Ecology: Hindi: Paryavaran / Kudrat | Spanish: Medio ambiente
+2.  Atmosphere: Hindi: Mahaul / Aas-paas | Spanish: Entorno / Ambiente
+
+2330. ECOLOGY
+Hindi: Ecology / Paryavaran vigyan | Spanish: Ecología
+
+2331. ECOSYSTEM
+Hindi: Ecosystem | Spanish: Ecosistema
+
+2332. HABITAT
+Hindi: Rehne ki jagah / Kudrati aavaas | Spanish: Hábitat
+
+2333. BIODIVERSITY
+Hindi: Biodiversity / Jaiv-vividhta | Spanish: Biodiversidad
+
+2334. CONSERVATION
+Hindi: Sanrakshan / Bachav | Spanish: Conservación
+
+2335. SUSTAINABILITY
+Hindi: Sustainability / Tikaupan | Spanish: Sostenibilidad
+
+2336. XRAY
+Hindi: X-ray | Spanish: Radiografía / Rayos X
+
+2337. RENEWABLE
+Hindi: Renewable / Dobara istemaal hone yogya | Spanish: Renovable
+
+2338. WARD
+
+1.  Hospital Section: Hindi: Hospital ward | Spanish: Sala de hospital / Pabellón
+2.  City District: Hindi: Ward / Mohalla | Spanish: Distrito / Barrio
+
+2339. TURBINE
+Hindi: Turbine | Spanish: Turbina
+
+2340. PHARMACOLOGY
+Hindi: Dawa vigyan / Pharmacology | Spanish: Farmacología
+
+2341. WORKSHOP
+
+1.  Training Session: Hindi: Workshop | Spanish: Taller / Seminario
+2.  Repair Garage: Hindi: Garage / Workshop | Spanish: Taller mecánico
+
+2342. FOSSIL
+Hindi: Fossil / Jivaashm | Spanish: Fósil
+
+2343. COAL
+Hindi: Koylā | Spanish: Carbón
+
+2344. INTERNSHIP
+Hindi: Internship | Spanish: Prácticas / Pasantía
+
+2345. PETROLEUM
+Hindi: Petroleum / Kachha tel | Spanish: Petróleo
+
+2346. CARBON
+Hindi: Carbon | Spanish: Carbono
+
+2347. EMISSION
+Hindi: Dhuan nikalna / Emission | Spanish: Emisión
+
+2348. GREENHOUSE
+Hindi: Greenhouse | Spanish: Invernadero
+
+2349. WARMING
+Hindi: Garmi badhna / Warming | Spanish: Calentamiento
+
+2350. OZONE
+Hindi: Ozone | Spanish: Ozono
+
+2351. LAYER
+Hindi: Layer / Parat | Spanish: Capa
+
+2352. POLLUTION
+Hindi: Pollution / Pradushan | Spanish: Contaminación / Polución
+
+2353. CONTAMINATION
+Hindi: Milaawat / Gandagi failna | Spanish: Contaminación
+
+2354. WASTE
+
+1.  Garbage / Trash: Hindi: Kachra / Kooda / Waste | Spanish: Basura / Residuo
+2.  Misuse / Squander: Hindi: Barbaadi / Waste karna | Spanish: Desperdicio / Malgasto
+
+2355. TOXIC
+
+1.  Poisonous Chemical: Hindi: Zehreela / Toxic | Spanish: Tóxico / Venenoso
+2.  Harmful Persona: Hindi: Toxic / Zehreela insaan | Spanish: Tóxico
+
+2356. HAZARDOUS
+Hindi: Khatarnak / Jokhim bhara | Spanish: Peligroso
+
+2357. SEWAGE
+Hindi: Ganda paani / Nali ka kachra / Sewage | Spanish: Aguas residuales / Aguas negras
+
+2358. RECYCLE
+Hindi: Recycle karna | Spanish: Reciclar
+
+2359. COMPOST
+Hindi: Jaivik khaad / Compost | Spanish: Abono orgánico / Compost
+
+2360. LANDFILL
+Hindi: Dumping ground / Kachre ka dher | Spanish: Vertedero / Basurero
+
+2361. DISPOSAL
+Hindi: Niptaara / Fainkna | Spanish: Eliminación / Desecho
+
+2362. DEFORESTATION
+Hindi: Jungle kaatna / Pedon ki kataai | Spanish: Deforestación / Tala
+
+2363. REFORESTATION
+Hindi: Ped lagana / Jungle banana | Spanish: Reforestación
+
+2364. EROSION
+Hindi: Mitti ka katav / Erosion | Spanish: Erosión
+
+2365. INTERN
+Hindi: Intern / Trainee | Spanish: Pasante / Becario
+
+2366. DROUGHT
+Hindi: Sookha padna / Akaal | Spanish: Sequía
+
+2367. FLOOD
+Hindi: Baadh | Spanish: Inundación
+
+2368. FREELANCER
+Hindi: Freelancer / Azaad peshewar | Spanish: Profesional independiente / Autónomo
+
+2369. RESERVE
+
+1.  Wildlife Area: Hindi: Wildlife reserve | Spanish: Reserva natural
+2.  Book Ahead: Hindi: Book karna / Reserve karna | Spanish: Reservar / Guardar
+3.  Shy Persona: Hindi: Kam bolne wala / Shaant | Spanish: Reservado
+
+2370. WILDLIFE
+Hindi: Wildlife / Jungli jeev | Spanish: Vida silvestre / Fauna salvaje
+
+2371. EXTINCTION
+Hindi: Vilupti / Hamesha ke liye khatam hona | Spanish: Extinción
+
+2372. PRESERVATION
+Hindi: Bachav / Surakshit rakhna | Spanish: Preservación / Conservación
+
+2373. WILDERNESS
+Hindi: Jangal / Veeran kudrati ilaka | Spanish: Naturaleza virgen / Zona silvestre
+
+2374. REMOTE
+
+1.  TV Device: Hindi: Remote | Spanish: Mando a distancia / Control remoto
+2.  Faraway Place: Hindi: Door-daraaz ka ilaka | Spanish: Remoto / Lejano
+
+2375. COWORKER
+Hindi: Colleague / Saath kaam karne wala | Spanish: Compañero de trabajo / Colega
+
+2376. AGRICULTURE
+Hindi: Kheti-baadi / Krishi | Spanish: Agricultura
+
+2377. FARMING
+Hindi: Kheti / Kisaani | Spanish: Cultivo / Agricultura
+
+2378. RANCH
+Hindi: Bada pashu farm / Ranch | Spanish: Rancho
+
+2379. TEAMWORK
+Hindi: Teamwork / Milkar kaam karna | Spanish: Trabajo en equipo
+
+2380. FARMHOUSE
+Hindi: Farmhouse / Khet wala ghar | Spanish: Casa de campo
+
+2381. BARN
+Hindi: Kothar / Khet ka godown | Spanish: Granero
+
+2382. STABLE
+
+1.  Horse Shed: Hindi: Astabal / Ghodaghar | Spanish: Establo / Caballeriza
+2.  Balanced / Steady: Hindi: Stable / Sthir / Mazboot | Spanish: Estable
+
+2383. SHED
+
+1.  Small Outbuilding: Hindi: Shed / Chhappar / Kothri | Spanish: Cobertizo / Caseta
+2.  Drop / Lose: Hindi: Bahana / Girana / Kam karna | Spanish: Derramar / Soltar / Perder
+
+2384. FEEDBACK
+Hindi: Feedback / Rai | Spanish: Comentarios / Retroalimentación
+
+2385. TRACTOR
+Hindi: Tractor | Spanish: Tractor
+
+2386. BRAINSTORM
+Hindi: Naye ideas sochna / Brainstorm karna | Spanish: Lluvia de ideas
+
+2387. AGENDA
+
+1.  Meeting Topics: Hindi: Agenda / Mudda | Spanish: Orden del día / Agenda
+2.  Hidden Plan: Hindi: Chhupa iraada / Maksad | Spanish: Intención oculta
+
+2388. CROP
+
+1.  Agricultural Harvest: Hindi: Fasal | Spanish: Cultivo / Cosecha
+2.  Cut / Trim: Hindi: Kaatna / Crop karna | Spanish: Recortar
+
+2389. GRAIN
+
+1.  Food Cereal: Hindi: Anaaj / Daana | Spanish: Grano / Cereal
+2.  Surface Texture: Hindi: Daanedaarapan / Resha | Spanish: Veta / Grano
+
+2390. SLIDESHOW
+Hindi: Slideshow / PPT | Spanish: Presentación de diapositivas
+
+2391. SPREADSHEET
+Hindi: Excel sheet / Spreadsheet | Spanish: Hoja de cálculo
+
+2392. OAT
+Hindi: Oats / Jai | Spanish: Avena
+
+2393. CHECKLIST
+Hindi: Checklist / Kaamo ki list | Spanish: Lista de tareas / Lista de verificación
+
+2394. CORNFIELD
+Hindi: Makke ka khet / Bhutte ka khet | Spanish: Maizal / Campo de maíz
+
+2395. ORCHARD
+Hindi: Phalon ka bagicha / Baag | Spanish: Huerto frutal / Frutal
+
+2396. VINEYARD
+Hindi: Angoor ka bagicha | Spanish: Viñedo / Viña
+
+2397. PLANTATION
+Hindi: Bagan / Kheti | Spanish: Plantación
+
+2398. PASTURE
+Hindi: Charagah / Ghaas ka maidan | Spanish: Pastizal / Prado
+
+2399. GRAZE
+
+1.  Animals Feeding: Hindi: Charna / Ghaas khana | Spanish: Pastar
+2.  Skin Scratch: Hindi: Halki kharoch / Ragad | Spanish: Rozón / Rasguño
+
+2400. LIVESTOCK
+Hindi: Maweshi / Kheti ke paaltu janwar | Spanish: Ganado
+
+2401. HERD
+Hindi: Jhund / Galla | Spanish: Manada / Rebaño
+
+2402. FLOCK
+Hindi: Jhund / Parindon ka galla | Spanish: Bandada / Rebaño
+
+2403. CATTLE
+Hindi: Gaay-bhains / Maweshi | Spanish: Ganado vacuno
+
+2404. POULTRY
+Hindi: Murgi-paalan / Kukkut | Spanish: Aves de corral / Pollería
+
+2405. FERTILIZER
+Hindi: Khaad / Fertilizer | Spanish: Fertilizante / Abono
+
+2406. PAYSLIP
+Hindi: Salary slip / Payslip | Spanish: Nómina / Recibo de sueldo
+
+2407. PESTICIDE
+Hindi: Keetnashak dawa / Pesticide | Spanish: Pesticida / Plaguicida
+
+2408. CASHBACK
+Hindi: Cashback / Paise wapas | Spanish: Reembolso / Cashback
+
+2409. IRRIGATION
+Hindi: Sinchai / Khet me paani dena | Spanish: Riego / Irrigación
+
+2410. HAY
+Hindi: Sookhi ghaas / Bhuusa | Spanish: Heno
+
+2411. STRAW
+
+1.  Drinking Pipe: Hindi: Straw / Pipe | Spanish: Pajita / Popote / Pitillo
+2.  Crop Residue: Hindi: Puaal / Bhuusa | Spanish: Paja
+
+2412. RUSTY
+
+1.  Corroded Metal: Hindi: Zang laga hua | Spanish: Oxidado
+2.  Out of Practice: Hindi: Practice chhoot gayi / Rusty | Spanish: Oxidado / Falto de práctica
+
+2413. DUSTY
+Hindi: Dhool bhara / Gard wala | Spanish: Polvoriento
+
+2414. MUDDY
+Hindi: Keechad bhara / Keechad wala | Spanish: Embarrado / Lodoso
+
+2415. SANDY
+Hindi: Retila / Balua | Spanish: Arenoso
+
+2416. ROCKY
+
+1.  Stony Terrain: Hindi: Pathreela | Spanish: Rocoso
+2.  Unstable Relationship: Hindi: Utaar-chadhav bhara / Dawaadol | Spanish: Inestable / Tormentoso
+
+2417. FLUFFY
+Hindi: Mulayam / Fluffy / Gulgula | Spanish: Esponjoso / Suave
+
+2418. SILKY
+Hindi: Reshmi / Chikna | Spanish: Sedoso
+
+2419. GRAINY
+
+1.  Food Texture: Hindi: Daanedaar | Spanish: Granuloso
+2.  Low-Res Media: Hindi: Phati hui / Grainy | Spanish: Pixelado / Granuloso
+
+2420. STIFF
+
+1.  Muscle Tension: Hindi: Akda hua / Jakda hua | Spanish: Rígido / Agarrotado
+2.  Inflexible Material: Hindi: Sakht / Karda | Spanish: Tiesas / Rígido
+
+2421. RIGID
+
+1.  Inflexible Material: Hindi: Kator / Sakht | Spanish: Rígido
+2.  Strict Rules / Attitude: Hindi: Sakht / Ziddi | Spanish: Rígido / Estricto
+
+2422. FLEXIBLE
+
+1.  Bendable Object: Hindi: Lachila / Flexible | Spanish: Flexible
+2.  Adaptable Person / Plan: Hindi: Flexible / Adjust karne wala | Spanish: Flexible / Adaptable
+
+2423. ELASTIC
+Hindi: Khinchne wala / Rubber jaisa / Elastic | Spanish: Elástico
+
+2424. FRAGILE
+Hindi: Naazuk / Aasani se tootne wala | Spanish: Frágil
+
+2425. DELICATE
+
+1.  Soft / Fragile: Hindi: Naazuk / Komal | Spanish: Delicado
+2.  Sensitive Issue: Hindi: Sanvedansheel mamla | Spanish: Asunto delicado
+
+2426. STURDY
+Hindi: Mazboot / Tikau | Spanish: Robusto / Resistente
+
+2427. DURABLE
+Hindi: Tikau / Lamba chalne wala | Spanish: Duradero / Resistente
+
+2428. SOAKED
+Hindi: Tar-batar / Poora bheega hua | Spanish: Empapado / Mojado
+
+2429. SCORCHING
+Hindi: Jhulsa dene wali dhoop / Tez garmi | Spanish: Abrasador / Sofocante
+
+2430. FREEZING
+
+1.  Cold Temperature: Hindi: Jama dene wali thand / Baraf jaisa | Spanish: Helado / Congelado
+2.  Screen Hang: Hindi: Hang hona / Freeze hona | Spanish: Colgado / Trabado
+
+2431. LUKEWARM
+
+1.  Temperature: Hindi: Gunguna / Halka garm | Spanish: Tibio
+2.  Attitude: Hindi: Thanda response / Be-man se | Spanish: Tibio / Poco entusiasta
+
+2432. BOILING
+
+1.  Liquid: Hindi: Ubalta hua | Spanish: Hirviendo
+2.  Extreme Heat / Rage: Hindi: Bahut garam / Gusse me laal | Spanish: Hirviendo / Que echa humo
+
+2433. VOUCHER
+Hindi: Coupon / Voucher / Parchi | Spanish: Vale / Cupón / Bono
+
+2434. AIRTIGHT
+
+1.  Container: Hindi: Airtight dabba / Hawa-band | Spanish: Hermético
+2.  Plan / Alibi: Hindi: Pukhta / Bina galti ka | Spanish: Sin fisuras / Irrefutable
+
+2435. WATERPROOF
+Hindi: Waterproof / Paani-rodhi | Spanish: Impermeable / Resistente al agua
+
+2436. FLAMMABLE
+Hindi: Aag pakadne wala / Jwalansheel | Spanish: Inflamable
+
+2437. POISONOUS
+Hindi: Zehreela | Spanish: Venenoso
+
+2438. BRITTLE
+Hindi: Bhurbhura / Aasani se tootne wala / Kurkura | Spanish: Quebradizo / Frágil
+
+2439. DIM
+
+1.  Weak Light: Hindi: Madham roshni / Dhundhla | Spanish: Tenue / Apagado
+2.  Slow-Witted: Hindi: Mand-buddhi / Dheema dimaag | Spanish: Corto / Lento
+
+2440. FAINT
+
+1.  Pass Out: Hindi: Behosh hona / Chakkar aana | Spanish: Desmayarse
+2.  Barely Visible / Audible: Hindi: Halka sa / Madham | Spanish: Tenue / Débil
+
+2441. COARSE
+
+1.  Rough Surface: Hindi: Khurdura / Mota | Spanish: Áspero / Rugoso
+2.  Vulgar Language: Hindi: Asabhya / Bhaada | Spanish: Grosero / Tosco
+
+2442. CHEWY
+Hindi: Chabaane wala / Chewy | Spanish: Correoso / Gomoso
+
+2443. CREAMY
+Hindi: Malai-daar / Makhan jaisa | Spanish: Cremoso
+
+2444. JUICY
+
+1.  Food: Hindi: Rasedaar / Juicy | Spanish: Jugoso
+2.  Gossip: Hindi: Chatpati khabar | Spanish: Jugoso / Picante
+
+2445. MOLDY
+Hindi: Fafundi laga hua / Ullee laga | Spanish: Mohoso
+
+2446. FLAVOR
+Hindi: Swaad / Flavor / Zaiqa | Spanish: Sabor
+
+2447. SEASONING
+Hindi: Masala / Tadka | Spanish: Condimento / Sazón
+
+2448. AROMA
+Hindi: Khushboo / Mehak | Spanish: Aroma / Olor agradable
+
+2449. FRAGRANCE
+Hindi: Sugandh / Khushboo / Itr ki mehak | Spanish: Fragancia / Perfume
+
+2450. SMOKY
+
+1.  Filled With Smoke: Hindi: Dhuan-bhara | Spanish: Humeante / Lleno de humo
+2.  Food Taste: Hindi: Dhuandaar swaad / Smoky | Spanish: Ahumado
+
+2451. SAVORY
+Hindi: Namkeen / Chatpata | Spanish: Salado / Sabroso
+
+2452. MILD
+
+1.  Spice Level: Hindi: Kam teekha / Sadhaaran | Spanish: Suave / Poco picante
+2.  Weather / Illness: Hindi: Halka / Mamooli | Spanish: Leve / Suave
+
+2453. SUBSCRIPTION
+Hindi: Subscription | Spanish: Suscripción
+
+2454. TASTY
+Hindi: Swadisht / Lazeez / Mazedaar | Spanish: Rico / Sabroso
+
+2455. YUMMY
+Hindi: Yummy / Bahut swadisht | Spanish: Delicioso / Riquísimo
+
+2456. BLAND
+Hindi: Pheeka / Bina swaad ka | Spanish: Soso / Desabrido
+
+2457. TASTELESS
+
+1.  Food: Hindi: Bebaad / Pheeka | Spanish: Insípido / Sin sabor
+2.  Bad Taste / Crude: Hindi: Bedaul / Fohad | Spanish: De mal gusto
+
+2458. PUNGENT
+Hindi: Tez gandh wala / Teekhi khushboo | Spanish: Punzante / Fuerte / Penetrante
+
+2459. ACIDIC
+Hindi: Khatta / Acidic | Spanish: Ácido
+
+2460. SUGARY
+Hindi: Bahut meetha / Chini se bhara | Spanish: Azucarado / Dulzón
+
+2461. RECIPE
+Hindi: Recipe / Banane ki vidhi | Spanish: Receta
+
+2462. INGREDIENT
+Hindi: Saamagri / Masala-saamaan / Ingredient | Spanish: Ingrediente
+
+2463. CUISINE
+Hindi: Khana / Pakwan ki shaili / Cuisine | Spanish: Cocina / Gastronomía
+
+2464. CULINARY
+Hindi: Khana banane se juda / Rasoi kala | Spanish: Culinario
+
+2465. GOURMET
+Hindi: Premium khana / Aala darje ka bhojan | Spanish: Gourmet / De alta cocina
+
+2466. APPETIZER
+Hindi: Starter / Bhookh badhane wala snack | Spanish: Aperitivo / Entrada
+
+2467. STARTER
+
+1.  Meal Course: Hindi: Starter / Shuruati khana | Spanish: Entrante / Primer plato
+2.  Engine Part: Hindi: Starter motor | Spanish: Motor de arranque
+
+2468. ENTRÉE
+Hindi: Main course / Mukhya bhojan | Spanish: Plato fuerte / Plato principal
+
+2469. COURSE
+
+1.  Meal Stage: Hindi: Khane ka daur / Course | Spanish: Plato / Tiempo
+2.  Academic Study: Hindi: Course / Padhai | Spanish: Curso
+3.  Route: Hindi: Rasta / Disha | Spanish: Rumbo / Trayectoria
+
+2470. DELICACY
+
+1.  Fine Food: Hindi: Khas pakwan / Lazeez cheez | Spanish: Manjar / Delicia
+2.  Fragility: Hindi: Nazakat | Spanish: Delicadeza
+
+2471. BUFFET
+Hindi: Buffet / Khula khana | Spanish: Bufé / Buffet
+
+2472. BANQUET
+Hindi: Daawat / Banquet | Spanish: Banquete
+
+2473. FEAST
+Hindi: Badi daawat / Jashn ka khana | Spanish: Festín / Banquete
+
+2474. CATERING
+Hindi: Catering / Khana-peena prabandh | Spanish: Catering / Servicio de banquetes
+
+2475. PORTION
+
+1.  Food Serving: Hindi: Khurak / Portion / Hissa | Spanish: Ración / Porción
+2.  Share / Fraction: Hindi: Hissa / Bhaag | Spanish: Porción / Parte
+
+2476. TAKEOUT
+Hindi: Takeaway / Pack khana | Spanish: Comida para llevar
+
+2477. MARINADE
+Hindi: Masale ka ghol / Marinade | Spanish: Marinado / Adobo
+
+2478. GARNISH
+Hindi: Sajawat (dhaniya/dry fruits se) | Spanish: Decorar / Guarnición
+
+2479. DRESSING
+
+1.  Salad Sauce: Hindi: Salad dressing / Sauce | Spanish: Aderezo / Aliño
+2.  Wound Bandage: Hindi: Patti karna / Dressing | Spanish: Cura / Vendaje
+3.  Putting Clothes On: Hindi: Kapde pehanna | Spanish: Vestirse
+
+2480. BROTH
+Hindi: Shorba / Yakhni / Sabzi-gosht ka paani | Spanish: Caldo
+
+2481. STEW
+Hindi: Stew / Rasili sabzi ya meat | Spanish: Estofado / Guiso
+
+2482. GRAVY
+Hindi: Tari / Rassa / Gravy | Spanish: Salsa / Salsa de carne
+
+2483. PUREE
+Hindi: Paste / Puree | Spanish: Puré
+
+2484. CRUST
+
+1.  Bread / Pizza Edge: Hindi: Crust / Sakht kinara | Spanish: Borde de la pizza / Corteza
+2.  Earth Surface: Hindi: Zameen ki satah / Bhoo-parpati | Spanish: Corteza terrestre
+
+2485. CRUMB
+Hindi: Choora / Tukda | Spanish: Migaja / Miga
+
+2486. RENEWAL
+Hindi: Renewal / Dobara chalu karana | Spanish: Renovación
+
+2487. LATHER
+Hindi: Jhaag | Spanish: Espuma
+
+2488. SCRAPE
+
+1.  Clean by Scratching: Hindi: Khurachna | Spanish: Raspar
+2.  Skin Graze: Hindi: Chhilna / Kharoch lagna | Spanish: Raspón / Rozón
+
+2489. TRIM
+
+1.  Hair / Beard / Plants: Hindi: Trim karna / Kanta-chhanti | Spanish: Recortar / Arreglar
+2.  Lean Physique: Hindi: Fit / Patla-dubla | Spanish: En forma / Delgado
+
+2490. CLIP
+
+1.  Fastener / Pin: Hindi: Clip / Chimti | Spanish: Clip / Pinza / Horquilla
+2.  Video Snippet: Hindi: Video clip | Spanish: Vídeo corto / Clip
+3.  Snip / Cut: Hindi: Kaatna / Katarna | Spanish: Recortar / Cortar
+
+2491. SCRUB
+
+1.  Clean Firmly: Hindi: Ragad kar dhona / Ghisna | Spanish: Frotar / Fregar
+2.  Medical Uniform: Hindi: Doctor ke kapde / Scrubs | Spanish: Ropa quirúrgica / Pijama médico
+3.  Cancel / Abort: Hindi: Radd karna / Cancel karna | Spanish: Cancelar / Descartar
+
+2492. PASSBOOK
+Hindi: Bank passbook | Spanish: Cartilla bancaria / Libreta de ahorros
+
+2493. POLISH
+
+1.  Shine Object: Hindi: Polish karna / Chamkana | Spanish: Lustrar / Pulir
+2.  Refine Skill: Hindi: Nikharna / Behtar banana | Spanish: Pulir / Perfeccionar
+
+2494. TIDY
+Hindi: Saaf-suthra / Sameta hua | Spanish: Ordenado / Limpio
+
+2495. SOAK
+
+1.  Immerse in Liquid: Hindi: Bhighona / Dubokar rakhna | Spanish: Poner en remojo / Remojar
+2.  Absorb: Hindi: Sookhna | Spanish: Absorber
+
+2496. VACUUM
+
+1.  Cleaning Machine: Hindi: Vacuum cleaner | Spanish: Aspiradora
+2.  Emptiness in Physics: Hindi: Shoonya / Khali jagah | Spanish: Vacío
+
+2497. FLUSH
+
+1.  Toilet Flush: Hindi: Flush karna / Bahana | Spanish: Tirar de la cadena / Descargar el inodoro
+2.  Face Blush: Hindi: Chehra laal hona | Spanish: Sonrojarse
+3.  Level Surface: Hindi: Ek baraabar / Samtal | Spanish: Al ras
+
+2498. INSERT
+Hindi: Daalna / Ghusana / Insert karna | Spanish: Insertar / Introducir
+
+2499. EXTRACT
+
+1.  Pull Out (Tooth/Substance): Hindi: Nikalna / Kheench kar nikalna | Spanish: Extraer / Sacar
+2.  Short Excerpt: Hindi: Chhota hissa / Ansh | Spanish: Fragmento / Extracto
+
+2500. BUNDLE
+
+1.  Tied Package: Hindi: Potli / Gathri / Bundle | Spanish: Paquete / Fardo / Bulto
+2.  Combo Offer / Plan: Hindi: Combo pack / Package | Spanish: Paquete combinado / Lote

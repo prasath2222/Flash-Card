@@ -53,9 +53,11 @@ async function startServer() {
 
   const runtimeImageCache: Record<string, string> = {};
 
-  async function resolveRealWorldPhoto(word: string, num?: string): Promise<string | null> {
-    if (num && accurateImages[num] && !accurateImages[num].startsWith("data:image/svg")) return accurateImages[num];
-    if (num && wikiThumbs[num] && !wikiThumbs[num].startsWith("data:image/svg")) return wikiThumbs[num];
+  async function resolveRealWorldPhoto(word: string, num?: string, skipStatic?: boolean): Promise<string | null> {
+    if (!skipStatic) {
+      if (num && accurateImages[num] && !accurateImages[num].startsWith("data:image/svg")) return accurateImages[num];
+      if (num && wikiThumbs[num] && !wikiThumbs[num].startsWith("data:image/svg")) return wikiThumbs[num];
+    }
 
     const cleanWord = String(word || "")
       .replace(/[^\p{L}\p{N}\s-]/gu, "")
@@ -66,7 +68,7 @@ async function startServer() {
     if (runtimeImageCache[cleanWord]) return runtimeImageCache[cleanWord];
 
     const headers = {
-      "User-Agent": "Mozilla/5.0 (SequentialMultilingualFlashcards/2.0; Educational App)"
+      "User-Agent": "VocabStudyApp/2.0 (https://vocabstudy.example.org; support@vocabstudy.example.org)"
     };
 
     try {
@@ -132,8 +134,9 @@ async function startServer() {
     try {
       const num = String(req.query.num || "").trim();
       const q = String(req.query.q || "").trim();
+      const skipStatic = String(req.query.fallback || "") === "1";
 
-      const resolvedUrl = await resolveRealWorldPhoto(q, num);
+      const resolvedUrl = await resolveRealWorldPhoto(q, num, skipStatic);
       if (resolvedUrl) {
         res.setHeader("Cache-Control", "public, max-age=86400");
         return res.redirect(302, resolvedUrl);
