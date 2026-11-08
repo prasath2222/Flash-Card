@@ -54,9 +54,17 @@ async function startServer() {
   const runtimeImageCache: Record<string, string> = {};
 
   async function resolveRealWorldPhoto(word: string, num?: string, skipStatic?: boolean): Promise<string | null> {
+    const upperWord = String(word || "").trim().toUpperCase();
     if (!skipStatic) {
-      if (num && accurateImages[num] && !accurateImages[num].startsWith("data:image/svg")) return accurateImages[num];
-      if (num && wikiThumbs[num] && !wikiThumbs[num].startsWith("data:image/svg")) return wikiThumbs[num];
+      if (num && accurateImages[num] && !accurateImages[num].startsWith("data:image/svg")) {
+        return accurateImages[num].replace("https://thumb.wikimedia.org", "https://upload.wikimedia.org");
+      }
+      if (upperWord && accurateImages[upperWord] && !accurateImages[upperWord].startsWith("data:image/svg")) {
+        return accurateImages[upperWord].replace("https://thumb.wikimedia.org", "https://upload.wikimedia.org");
+      }
+      if (num && wikiThumbs[num] && !wikiThumbs[num].startsWith("data:image/svg")) {
+        return wikiThumbs[num].replace("https://thumb.wikimedia.org", "https://upload.wikimedia.org");
+      }
     }
 
     const cleanWord = String(word || "")
@@ -68,7 +76,7 @@ async function startServer() {
     if (runtimeImageCache[cleanWord]) return runtimeImageCache[cleanWord];
 
     const headers = {
-      "User-Agent": "VocabStudyApp/2.0 (https://vocabstudy.example.org; support@vocabstudy.example.org)"
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
     };
 
     try {
@@ -81,8 +89,9 @@ async function startServer() {
         const data: any = await summaryRes.json();
         const imgUrl = data?.thumbnail?.source || data?.originalimage?.source;
         if (imgUrl && !imgUrl.endsWith(".svg") && !imgUrl.includes("Commons-logo")) {
-          runtimeImageCache[cleanWord] = imgUrl;
-          return imgUrl;
+          const canonical = imgUrl.replace("https://thumb.wikimedia.org", "https://upload.wikimedia.org");
+          runtimeImageCache[cleanWord] = canonical;
+          return canonical;
         }
       }
     } catch (e) {}
@@ -99,8 +108,9 @@ async function startServer() {
           for (const p of Object.values(pages) as any[]) {
             const thumb = p?.thumbnail?.source;
             if (thumb && !thumb.endsWith(".svg") && !thumb.includes("Commons-logo")) {
-              runtimeImageCache[cleanWord] = thumb;
-              return thumb;
+              const canonical = thumb.replace("https://thumb.wikimedia.org", "https://upload.wikimedia.org");
+              runtimeImageCache[cleanWord] = canonical;
+              return canonical;
             }
           }
         }
@@ -119,8 +129,9 @@ async function startServer() {
           for (const p of Object.values(pages) as any[]) {
             const thumb = p?.imageinfo?.[0]?.thumburl || p?.imageinfo?.[0]?.url;
             if (thumb && !thumb.endsWith(".svg")) {
-              runtimeImageCache[cleanWord] = thumb;
-              return thumb;
+              const canonical = thumb.replace("https://thumb.wikimedia.org", "https://upload.wikimedia.org");
+              runtimeImageCache[cleanWord] = canonical;
+              return canonical;
             }
           }
         }
@@ -130,6 +141,56 @@ async function startServer() {
     return null;
   }
 
+  async function streamImageBuffer(imageUrl: string, res: any): Promise<boolean> {
+    try {
+      const canonical = imageUrl.replace("https://thumb.wikimedia.org", "https://upload.wikimedia.org");
+      const resp = await fetch(canonical, {
+        headers: {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+          "Accept": "image/avif,image/webp,image/apng,image/*,*/*;q=0.8"
+        }
+      });
+      if (resp.ok) {
+        const buf = Buffer.from(await resp.arrayBuffer());
+        res.setHeader("Content-Type", resp.headers.get("content-type") || "image/jpeg");
+        res.setHeader("Cache-Control", "public, max-age=604800, immutable");
+        res.send(buf);
+        return true;
+      }
+    } catch (e) {}
+    return false;
+  }
+
+  app.get("/api/proxy-image", async (req, res) => {
+    try {
+      const rawUrl = String(req.query.url || "").trim();
+      const num = String(req.query.num || "").trim();
+      const q = String(req.query.q || "").trim();
+      let targetUrl = rawUrl;
+
+      if (!targetUrl || targetUrl.startsWith("data:image/svg")) {
+        const resolved = await resolveRealWorldPhoto(q, num, false);
+        if (resolved) targetUrl = resolved;
+      }
+
+      if (targetUrl && !targetUrl.startsWith("data:image/svg")) {
+        const streamed = await streamImageBuffer(targetUrl, res);
+        if (streamed) return;
+      }
+
+      // If specific URL failed, try resolving by word or number
+      const fallbackUrl = await resolveRealWorldPhoto(q, num, false);
+      if (fallbackUrl && fallbackUrl !== targetUrl) {
+        const streamed = await streamImageBuffer(fallbackUrl, res);
+        if (streamed) return;
+      }
+
+      res.status(404).end();
+    } catch (err) {
+      res.status(500).end();
+    }
+  });
+
   app.get("/api/image", async (req, res) => {
     try {
       const num = String(req.query.num || "").trim();
@@ -137,7 +198,9 @@ async function startServer() {
       const skipStatic = String(req.query.fallback || "") === "1";
 
       const resolvedUrl = await resolveRealWorldPhoto(q, num, skipStatic);
-      if (resolvedUrl) {
+      if (resolvedUrl && !resolvedUrl.startsWith("data:image/svg")) {
+        const streamed = await streamImageBuffer(resolvedUrl, res);
+        if (streamed) return;
         res.setHeader("Cache-Control", "public, max-age=86400");
         return res.redirect(302, resolvedUrl);
       }

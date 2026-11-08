@@ -1,0 +1,560 @@
+Part 2 • Split 6 (Words 1,501–2,000)
+
+Filtered strictly according to your 7 rules (redundant duplicate professions,
+twins, and legal overlaps pruned; multiple spoken meanings atomically split;
+original numbers preserved).
+
+1501. DISTURB — Hindi: Pareshaan karna / Rokna | Spanish: Molestar / Interrumpir
+1502. DISTRACT — Hindi: Dhyaan bhatkaana | Spanish: Distraer
+1503. TRICK — Hindi: Dhokha dena / Chaal chalna | Spanish: Engañar / Truco
+1504. CONFIRM — Hindi: Confirm karna / Pakka karna | Spanish: Confirmar
+1505. DOUBT — Hindi: Shaq karna / Bharosa na hona | Spanish: Dudar
+1506. SUSPECT — Hindi: Shaq hona / Sandigdh | Spanish: Sospechar / Sospechoso
+1507. HOODIE — Hindi: Hoodie / Topi wali sweatshirt | Spanish: Sudadera con
+      capucha / Hoodie
+1508. BLAME — Hindi: Dosh dena / Ilzaam lagana | Spanish: Culpar
+1509. ACCUSE — Hindi: Arop lagana | Spanish: Acusar
+1510. COMPLAIN — Hindi: Shikaayat karna | Spanish: Quejarse
+1511. ADMIT — Hindi: Maan lena / Galti sweekaar karna | Spanish: Admitir /
+      Confesar
+1512. DENY — Hindi: Inkaar karna / Saaf mana karna | Spanish: Negar
+1513. CONVINCE — Hindi: Yakeen dilaana / Manana | Spanish: Convencer
+1514. INTERRUPT — Hindi: Beech mein tokna / Rokna | Spanish: Interrumpir
+1515. ENCOURAGE — Hindi: Hosla badhana / Himmat dena | Spanish: Animar / Alentar
+1516. SUPPORT — Hindi: Saath dena / Support karna | Spanish: Apoyar
+1517. DECLARE — Hindi: Ghoshna karna / Ailaan karna | Spanish: Declarar
+1518. STATE — 1. Say Formally: Hindi: Bayaan karna | Spanish: Declarar / Afirmar
+      | 2. Territory/Province: Hindi: Rajya | Spanish: Estado
+1519. ANNOUNCE — Hindi: Ghoshna karna / Sunaana | Spanish: Anunciar
+1520. INFORM — Hindi: Khabar dena / Soochit karna | Spanish: Informar / Avisar
+1521. MENTION — Hindi: Zikr karna / Batana | Spanish: Mencionar
+1522. CARDIGAN — Hindi: Cardigan / Button wala sweater | Spanish: Cárdigan
+1523. EMPHASIZE — Hindi: Zor dena / Khas dhyan dilaana | Spanish: Enfatizar /
+      Destacar
+1524. CLARIFY — Hindi: Saaf karna / Spasht karna | Spanish: Aclarar
+1525. SUMMARIZE — Hindi: Chhote mein batana / Nichod nikaalna | Spanish: Resumir
+1526. QUOTE — Hindi: Quote karna / Doosre ke bol dohraana | Spanish: Citar
+1527. CONTRADICT — Hindi: Vipareet baat kehna / Ulta bolna | Spanish:
+      Contradecir
+1528. CHALLENGE — Hindi: Chunauti dena | Spanish: Desafiar / Retar
+1529. CONCEDE — Hindi: Haar maan lena / Sweekaar karna | Spanish: Conceder /
+      Admitir derrota
+1530. JOB — Hindi: Naukri / Job | Spanish: Trabajo / Empleo
+1531. CAREER — Hindi: Career | Spanish: Carrera profesional / Carrera
+1532. PROFESSION — Hindi: Pesha / Kaam-dhandha | Spanish: Profesión
+1533. LABORER — Hindi: Mazdoor | Spanish: Obrero / Trabajador
+1534. EMPLOYEE — Hindi: Karmachaari / Employee | Spanish: Empleado / Trabajador
+1535. EMPLOYER — Hindi: Maalik / Naukri dene wala | Spanish: Empleador / Patrón
+1536. BOSS — Hindi: Boss / Maalik | Spanish: Jefe / Patrón
+1537. MANAGER — Hindi: Manager | Spanish: Gerente / Manager
+1538. SUPERVISOR — Hindi: Supervisor | Spanish: Supervisor
+1539. EXECUTIVE — Hindi: Executive / Afsar | Spanish: Ejecutivo
+1540. DIRECTOR — Hindi: Director | Spanish: Director / Directora
+1541. ASSISTANT — Hindi: Assistant / Sahayak | Spanish: Asistente / Ayudante
+1542. SECRETARY — Hindi: Secretary | Spanish: Secretario / Secretaria
+1543. CLERK — Hindi: Clerk / Baboo | Spanish: Oficinista / Empleado
+1544. ACCOUNTANT — Hindi: Accountant / Munshi | Spanish: Contador / Contable
+1545. LAWYER — Hindi: Vakeel | Spanish: Abogado / Abogada
+1546. OFFICER — Hindi: Officer / Afsar | Spanish: Oficial / Agente
+1547. ENGINEER — Hindi: Engineer | Spanish: Ingeniero / Ingeniera
+1548. ARCHITECT — Hindi: Architect / Naksha banane wala | Spanish: Arquitecto /
+      Arquitecta
+1549. CONTRACTOR — Hindi: Thekedaar | Spanish: Contratista
+1550. CARPENTER — Hindi: Badhai / Lakdi ka mistri | Spanish: Carpintero
+1551. PLUMBER — Hindi: Plumber / Nal mistri | Spanish: Fontanero / Plomero
+1552. ELECTRICIAN — Hindi: Electrician / Bijli mistri | Spanish: Electricista
+1553. MECHANIC — Hindi: Mechanic | Spanish: Mecánico
+1554. OPERATOR — Hindi: Operator / Chalane wala | Spanish: Operador
+1555. PILOT — Hindi: Pilot | Spanish: Piloto
+1556. CAPTAIN — Hindi: Captain | Spanish: Capitán
+1557. SAILOR — Hindi: Naavik / Jahaazi | Spanish: Marinero
+1558. SOLDIER — Hindi: Sainik / Fauji | Spanish: Soldado
+1559. FARMER — Hindi: Kisaan | Spanish: Agricultor / Granjero
+1560. GARDENER — Hindi: Maali | Spanish: Jardinero
+1561. JANITOR — Hindi: Safaai karmachaari | Spanish: Conserje / Limpiador
+1562. TECHNICIAN — Hindi: Technician | Spanish: Técnico
+1563. WAITER — Hindi: Waiter | Spanish: Camarero / Mesero
+1564. WAITRESS — Hindi: Waitress | Spanish: Camarera / Mesera
+1565. CHEF — Hindi: Chef / Rasoiya | Spanish: Cocinero / Chef
+1566. BUTCHER — Hindi: Butcher / Kasaai | Spanish: Carnicero
+1567. TAILOR — Hindi: Darzi | Spanish: Sastre
+1568. AUTHOR — Hindi: Lekhak / Author | Spanish: Autor / Escritor
+1569. POET — Hindi: Kavi / Shaayar | Spanish: Poeta
+1570. SCULPTOR — Hindi: Moortikaar | Spanish: Escultor
+1571. ARTIST — Hindi: Artist / Kalakaar | Spanish: Artista
+1572. ACTOR — Hindi: Actor | Spanish: Actor
+1573. ACTRESS — Hindi: Actress / Heroine | Spanish: Actriz
+1574. MUSICIAN — Hindi: Musician / Sangeetkaar | Spanish: Músico
+1575. VOCALIST — Hindi: Gaayak / Singer | Spanish: Vocalista / Cantante
+1576. COMPOSER — Hindi: Sangeetkaar / Dhun banane wala | Spanish: Compositor
+1577. CONDUCTOR — 1. Orchestra: Hindi: Conductor | Spanish: Director de orquesta
+      | 2. Transit: Hindi: Bus conductor | Spanish: Revisor / Cobrador
+1578. PHOTOGRAPHER — Hindi: Photographer | Spanish: Fotógrafo
+1579. FILMMAKER — Hindi: Filmmaker / Film banane wala | Spanish: Cineasta /
+      Director de cine
+1580. JOURNALIST — Hindi: Patrakaar / Journalist | Spanish: Periodista
+1581. CORRESPONDENT — Hindi: Samvaad-daata / Correspondent | Spanish:
+      Corresponsal
+1582. EDITOR — Hindi: Editor | Spanish: Editor
+1583. COLUMNIST — Hindi: Columnist / Lekh likhne wala | Spanish: Columnista
+1584. ANCHOR — Hindi: News anchor | Spanish: Presentador de noticias
+1585. PRESENTER — Hindi: Presenter / Show chalane wala | Spanish: Presentador
+1586. MAGISTRATE — Hindi: Magistrate / Chhota judge | Spanish: Magistrado / Juez
+1587. DETECTIVE — Hindi: Detective / Jasoos | Spanish: Detective
+1588. INVESTIGATOR — Hindi: Jaanch afsar | Spanish: Investigador
+1589. POLICE — Hindi: Police | Spanish: Policía
+1590. FIREFIGHTER — Hindi: Aag bujhane wala / Firefighter | Spanish: Bombero
+1591. WARDEN — Hindi: Warden / Jailer | Spanish: Guardián / Alcaide
+1592. PARAMEDIC — Hindi: Paramedic / Ambulance doctor | Spanish: Paramédico
+1593. RESUME — Hindi: Resume / CV | Spanish: Currículum
+1594. INTERVIEW — Hindi: Interview | Spanish: Entrevista
+1595. VACANCY — Hindi: Khaali jagah / Vacancy | Spanish: Vacante / Puesto libre
+1596. HIRING — Hindi: Bharti / Hiring | Spanish: Contratación
+1597. RECRUITMENT — Hindi: Recruitment / Bharti abhiyan | Spanish: Reclutamiento
+1598. SALARY — Hindi: Salary / Tankhwah | Spanish: Salario / Sueldo
+1599. WAGE — Hindi: Dehaadi / Rozana tankhwah | Spanish: Salario / Jornal
+1600. INCOME — Hindi: Aamdani / Income | Spanish: Ingresos
+1601. EARNINGS — Hindi: Kamai | Spanish: Ganancias
+1602. BONUS — Hindi: Bonus | Spanish: Bono / Bonificación
+1603. COMMISSION — Hindi: Commission | Spanish: Comisión
+1604. PROMOTION — Hindi: Promotion / Tarakki | Spanish: Ascenso / Promoción
+1605. DEMOTION — Hindi: Demotion / Pad kam hona | Spanish: Descenso de puesto
+1606. RESIGNATION — Hindi: Isteefa / Resign | Spanish: Renuncia / Dimisión
+1607. DISMISSAL — Hindi: Naukri se nikaalna / Dismissal | Spanish: Despido
+1608. RETIREMENT — Hindi: Retirement | Spanish: Jubilación
+1609. PENSION — Hindi: Pension | Spanish: Pensión
+1610. CONTRACT — Hindi: Contract / Samjhauta | Spanish: Contrato
+1611. RAINCOAT — Hindi: Barsati / Raincoat | Spanish: Chubasquero / Impermeable
+1612. TASK — Hindi: Kaam / Task | Spanish: Tarea / Labor
+1613. DUTY — Hindi: Farz / Duty | Spanish: Deber / Obligación
+1614. OBLIGATION — Hindi: Zimmedaari / Farz | Spanish: Obligación
+1615. PROJECT — Hindi: Project | Spanish: Proyecto
+1616. DEADLINE — Hindi: Aakhri taareekh / Deadline | Spanish: Fecha límite
+1617. SCHEDULE — Hindi: Schedule / Samay-saarani | Spanish: Horario / Calendario
+1618. SESSION — Hindi: Session / Baithak | Spanish: Sesión
+1619. APPOINTMENT — Hindi: Appointment / Milne ka waqt | Spanish: Cita
+1620. SHIFT — 1. Work Shift: Hindi: Shift / Baari | Spanish: Turno | 2. Move:
+      Hindi: Shift karna / Hatana | Spanish: Mover / Cambiar
+1621. OVERTIME — Hindi: Overtime / Zyada ghante kaam | Spanish: Horas extras
+1622. SPECTACLES — Hindi: Chashma | Spanish: Gafas / Lentes
+1623. VACATION — Hindi: Chhuttiyan / Chhutti | Spanish: Vacaciones
+1624. WORKLOAD — Hindi: Kaam ka bojh | Spanish: Carga de trabajo
+1625. STAFF — Hindi: Staff / Karmachaari | Spanish: Personal / Empleados
+1626. COLLEAGUE — Hindi: Saath kaam karne wala / Colleague | Spanish: Colega /
+      Compañero de trabajo
+1627. BUSINESS — Hindi: Business / Dhandha | Spanish: Negocio
+1628. COMPANY — Hindi: Company | Spanish: Empresa / Compañía
+1629. FIRM — 1. Company: Hindi: Firm / Company | Spanish: Firma / Empresa | 2.
+      Solid: Hindi: Mazboot / Thos | Spanish: Firme
+1630. ENTERPRISE — Hindi: Udyog / Naya business | Spanish: Empresa /
+      Emprendimiento
+1631. CORPORATION — Hindi: Badi company / Corporation | Spanish: Corporación
+1632. INDUSTRY — Hindi: Udyog / Industry | Spanish: Industria
+1633. TRADE — Hindi: Vyapaar / Khareed-farokht | Spanish: Comercio
+1634. COMMERCE — Hindi: Vanijya / Vyapaar | Spanish: Comercio
+1635. FACTORY — Hindi: Factory / Kaarkhaana | Spanish: Fábrica
+1636. WORKPLACE — Hindi: Kaam ki jagah | Spanish: Lugar de trabajo
+1637. CUSTOMER — Hindi: Grahak / Customer | Spanish: Cliente / Comprador
+1638. CLIENT — Hindi: Client | Spanish: Cliente
+1639. CONSUMER — Hindi: Upbhokta / Istemal karne wala | Spanish: Consumidor
+1640. VENDOR — Hindi: Dukandar / Vendor | Spanish: Vendedor / Proveedor
+1641. SUPPLIER — Hindi: Supplier / Maal dene wala | Spanish: Proveedor
+1642. ASSOCIATE — Hindi: Saathi / Business partner | Spanish: Socio / Asociado
+1643. COMPETITOR — Hindi: Pratidwandi / Competitor | Spanish: Competidor
+1644. PRODUCT — Hindi: Product / Samaan | Spanish: Producto
+1645. SERVICE — Hindi: Service / Seva | Spanish: Servicio
+1646. BRAND — Hindi: Brand | Spanish: Marca
+1647. PRICE — Hindi: Daam / Keemat | Spanish: Precio
+1648. COST — Hindi: Kharcha / Laagat | Spanish: Coste / Costo
+1649. FEE — Hindi: Fees | Spanish: Tarifa / Cuota
+1650. CHARGE — 1. Fee: Hindi: Charge karna / Lena | Spanish: Cobrar / Cargo | 2.
+      Battery: Hindi: Charge karna | Spanish: Cargar
+1651. BILL — 1. Invoice: Hindi: Bill | Spanish: Factura / Cuenta | 2. Proposed
+      Law: Hindi: Vidheyak | Spanish: Proyecto de ley
+1652. INVOICE — Hindi: Invoice / Parchi | Spanish: Factura
+1653. RECEIPT — Hindi: Raseed | Spanish: Recibo / Ticket
+1654. DISCOUNT — Hindi: Discount / Chhoot | Spanish: Descuento / Rebaja
+1655. REFUND — Hindi: Paise wapas / Refund | Spanish: Reembolso
+1656. EXCHANGE — Hindi: Samaan badalna / Exchange | Spanish: Cambio / Cambiar
+1657. SALE — Hindi: Sale / Bikri | Spanish: Venta / Rebajas
+1658. DEAL — Hindi: Sauda / Deal | Spanish: Trato / Acuerdo
+1659. BARGAIN — Hindi: Sasta sauda / Mol-bhaav | Spanish: Ganga / Regateo
+1660. WRISTWATCH — Hindi: Haath ki ghadi | Spanish: Reloj de pulsera
+1661. COUPON — Hindi: Coupon | Spanish: Cupón
+1662. CASH — Hindi: Cash / Rokda | Spanish: Dinero en efectivo / Efectivo
+1663. COIN — Hindi: Sikka | Spanish: Moneda
+1664. BANKNOTE — Hindi: Note / Kagaz ka rupaya | Spanish: Billete
+1665. CURRENCY — Hindi: Currency / Mudra | Spanish: Moneda / Divisa
+1666. MONEY — Hindi: Paisa / Rupaye | Spanish: Dinero
+1667. WEALTH — Hindi: Daulat / Dhan | Spanish: Riqueza
+1668. POVERTY — Hindi: Gareebi | Spanish: Pobreza
+1669. FUND — Hindi: Fund / Paisa jama | Spanish: Fondo
+1670. CAPITAL — 1. Financial: Hindi: Poonji / Capital | Spanish: Capital | 2.
+      Main City: Hindi: Rajdhani | Spanish: Capital
+1671. BUDGET — Hindi: Budget | Spanish: Presupuesto
+1672. TAX — Hindi: Tax | Spanish: Impuesto
+1673. REVENUE — Hindi: Kul kamai / Revenue | Spanish: Ingresos / Recaudación
+1674. EXPENSE — Hindi: Kharcha | Spanish: Gasto
+1675. EXPENDITURE — Hindi: Kul kharch | Spanish: Gasto / Desembolso
+1676. INSTALLMENT — Hindi: Kisht / EMI | Spanish: Cuota / Plazo
+1677. DEPOSIT — Hindi: Jama karna / Deposit | Spanish: Depositar / Ingresar
+1678. WITHDRAWAL — Hindi: Nikaasi / Paise nikaalna | Spanish: Retirada de
+      efectivo / Retiro
+1679. TRANSFER — Hindi: Transfer karna / Bhejna | Spanish: Transferir /
+      Transferencia
+1680. BALANCE — 1. Account Funds: Hindi: Bank balance | Spanish: Saldo | 2.
+      Stability: Hindi: Santulan | Spanish: Equilibrio
+1681. ACCOUNT — Hindi: Khaata / Account | Spanish: Cuenta
+1682. CREDIT — Hindi: Credit / Udhaar | Spanish: Crédito
+1683. DEBIT — Hindi: Debit / Khate se katna | Spanish: Débito
+1684. DEBT — Hindi: Karz | Spanish: Deuda
+1685. LOAN — Hindi: Loan / Udhaar | Spanish: Préstamo
+1686. PROFIT — Hindi: Munaafa / Faayda | Spanish: Ganancia / Beneficio
+1687. HANDBAG — Hindi: Handbag / Ladies bag | Spanish: Bolso de mano
+1688. SAVINGS — Hindi: Bachat | Spanish: Ahorros
+1689. BANKRUPTCY — Hindi: Diwalia hona | Spanish: Bancarrota / Quiebra
+1690. AUDIT — Hindi: Jaanch / Audit | Spanish: Auditoría
+1691. TRANSACTION — Hindi: Len-den / Transaction | Spanish: Transacción
+1692. DONATION — Hindi: Daan / Donation | Spanish: Donación
+1693. CHARITY — Hindi: Charity / Bhalaai ka kaam | Spanish: Caridad /
+      Beneficencia
+1694. FORTUNE — Hindi: Badi daulat / Kismat | Spanish: Fortuna
+1695. FINE — 1. Penalty: Hindi: Jurmana | Spanish: Multa | 2. Good/Well: Hindi:
+      Theek / Achha | Spanish: Bien
+1696. PENALTY — Hindi: Dand / Jurmana | Spanish: Penalización / Sanción
+1697. ECONOMY — Hindi: Arthavyavastha / Economy | Spanish: Economía
+1698. FINANCIAL — Hindi: Paise se juda / Vittiya | Spanish: Financiero
+1699. ASSET — Hindi: Sampatti / Asset | Spanish: Activo / Bien
+1700. LIABILITY — Hindi: Karz / Dayitva | Spanish: Pasivo / Deuda
+1701. INTEREST — 1. Finance: Hindi: Byaaj | Spanish: Interés | 2. Curiosity:
+      Hindi: Ruchi / Shauq | Spanish: Interés
+1702. RATE — Hindi: Dar / Bhaav / Rate | Spanish: Tasa / Tarifa / Tipo
+1703. STOCK — 1. Shares: Hindi: Share / Stock | Spanish: Acciones | 2.
+      Inventory: Hindi: Maal / Stock | Spanish: Existencias / Stock
+1704. EQUITY — Hindi: Equity / Hissedaari | Spanish: Capital propio / Acciones
+1705. BOND — 1. Financial: Hindi: Bond | Spanish: Bono | 2. Emotional: Hindi:
+      Rishta / Gehra mel | Spanish: Vínculo
+1706. INVESTMENT — Hindi: Nivesh / Investment | Spanish: Inversión
+1707. VENTURE — Hindi: Naya business / Venture | Spanish: Empresa arriesgada /
+      Proyecto
+1708. RISK — Hindi: Jokhim / Risk | Spanish: Riesgo
+1709. INSURANCE — Hindi: Bima / Insurance | Spanish: Seguro
+1710. MORTGAGE — Hindi: Home loan / Girvi | Spanish: Hipoteca
+1711. INFLATION — Hindi: Mehengaai | Spanish: Inflación
+1712. RECESSION — Hindi: Mandi / Kaam-dhandha manda | Spanish: Recesión
+1713. DOWNTURN — Hindi: Giraavat | Spanish: Desaceleración / Caída
+1714. DIVIDEND — Hindi: Munaafe ka hissa / Dividend | Spanish: Dividendo
+1715. YIELD — Hindi: Paidawaar / Munafa | Spanish: Rendimiento
+1716. SURPLUS — Hindi: Bachat / Faltu maal | Spanish: Superávit / Excedente
+1717. DEFICIT — Hindi: Ghaata / Kami | Spanish: Déficit
+1718. VALUATION — Hindi: Keemat ka aaklan | Spanish: Valoración / Tasación
+1719. SNEAKERS — Hindi: Sports shoes / Sneakers | Spanish: Zapatillas de deporte
+1720. COMMODITY — Hindi: Maal / Kacchi cheez | Spanish: Materia prima / Producto
+1721. MONOPOLY — Hindi: Ek-chhatra raaj / Monopoly | Spanish: Monopolio
+1722. LAUNDROMAT — Hindi: Dhobi-ghar / Laundromat | Spanish: Lavandería
+      automática
+1723. BARBERSHOP — Hindi: Naai ki dukaan / Salon | Spanish: Barbería
+1724. HAIRCUT — Hindi: Baal kataai / Haircut | Spanish: Corte de pelo
+1725. LAW — Hindi: Kanoon | Spanish: Ley
+1726. LEGAL — Hindi: Kanooni / Jaayaz | Spanish: Legal
+1727. ILLEGAL — Hindi: Gair-kanooni / Na-jaayaz | Spanish: Ilegal
+1728. JUSTICE — Hindi: Nyaay / Insaaf | Spanish: Justicia
+1729. INJUSTICE — Hindi: Anyaay / Na-insaafi | Spanish: Injusticia
+1730. COURT — 1. Law: Hindi: Adaalat / Court | Spanish: Tribunal / Juzgado | 2.
+      Sports: Hindi: Court | Spanish: Pista / Cancha
+1731. COURTROOM — Hindi: Adaalat ka kamra | Spanish: Sala de audiencias / Sala
+      del juzgado
+1732. PHARMACY — Hindi: Medical store / Pharmacy | Spanish: Farmacia
+1733. CLAUSE — Hindi: Shart / Niyam | Spanish: Cláusula
+1734. JURY — Hindi: Jury / Faisla karne wale | Spanish: Jurado
+1735. PHARMACIST — Hindi: Dawa bechne wala / Chemist | Spanish: Farmacéutico /
+      Farmacéutica
+1736. TRIAL — Hindi: Adaalati sunwayi / Trial | Spanish: Juicio
+1737. VERDICT — Hindi: Faisla | Spanish: Veredicto
+1738. SENTENCE — 1. Punishment: Hindi: Saza | Spanish: Sentencia / Condena | 2.
+      Grammar: Hindi: Vaakya | Spanish: Oración / Frase
+1739. HEARING — Hindi: Sunwayi | Spanish: Audiencia
+1740. LAWSUIT — Hindi: Mukadma / Case | Spanish: Demanda / Pleito
+1741. DENTIST — Hindi: Daant ka doctor / Dentist | Spanish: Dentista
+1742. WITNESS — Hindi: Gawaah | Spanish: Testigo
+1743. TESTIMONY — Hindi: Gawaahi | Spanish: Testimonio
+1744. EVIDENCE — Hindi: Saboot | Spanish: Evidencia / Prueba
+1745. OPTICIAN — Hindi: Chashme wala | Spanish: Óptico
+1746. CONFESSION — Hindi: Iqraar / Jurm maanna | Spanish: Confesión
+1747. OATH — Hindi: Kasam / Saugandh | Spanish: Juramento
+1748. APPEAL — Hindi: Appeal / Naye faisle ki maang | Spanish: Apelación /
+      Recurso
+1749. SETTLEMENT — Hindi: Aapsi samjhauta / Faisla | Spanish: Acuerdo / Arreglo
+1750. BAIL — Hindi: Zamaanat / Bail | Spanish: Fianza
+1751. CUSTODY — Hindi: Hiraasat | Spanish: Custodia
+1752. ARREST — Hindi: Giraftaar karna | Spanish: Arrestar / Detener
+1753. FLORIST — Hindi: Phool bechne wala | Spanish: Florista
+1754. CONVICTION — Hindi: Doshi thehrana / Saza | Spanish: Condena
+1755. BOUQUET — Hindi: Guldasta | Spanish: Ramo de flores
+1756. PROSECUTOR — Hindi: Sarkari vakeel | Spanish: Fiscal
+1757. COUNSEL — Hindi: Kanooni salaahkaar / Vakeel | Spanish: Asesor legal /
+      Abogado
+1758. DEFENDANT — Hindi: Aropi / Jis par case ho | Spanish: Acusado / Acusada
+1759. PLAINTIFF — Hindi: Case karne wala / Vaadi | Spanish: Demandante
+1760. BOOKSTORE — Hindi: Kitaabon ki dukaan | Spanish: Librería
+1761. VICTIM — Hindi: Peedhit / Shikaar | Spanish: Víctima
+1762. CRIME — Hindi: Jurm / Apradh | Spanish: Crimen / Delito
+1763. CRIMINAL — Hindi: Apradhi / Mujrim | Spanish: Criminal / Delincuente
+1764. OFFENSE — Hindi: Jurm / Galti | Spanish: Infracción / Delito
+1765. STATIONERY — Hindi: Padhne-likhne ka saamaan | Spanish: Papelería
+1766. STAPLE — 1. Paper Clip: Hindi: Stapler ki pin | Spanish: Grapa | 2.
+      Essential Food: Hindi: Mukhya aahaar | Spanish: Alimento básico
+1767. THEFT — Hindi: Chori | Spanish: Robo / Hurto
+1768. ROBBERY — Hindi: Dacoity / Loot | Spanish: Atraco / Robo a mano armada
+1769. BURGLARY — Hindi: Ghar mein chori / Sendhmaari | Spanish: Allanamiento /
+      Robo con fuerza
+1770. FRAUD — Hindi: Dhokhadhadi / Fraud | Spanish: Fraude / Estafa
+1771. FORGERY — Hindi: Nakli sign / Jaalsaazi | Spanish: Falsificación
+1772. BRIBERY — Hindi: Rishwat / Ghoos | Spanish: Soborno
+1773. CORRUPTION — Hindi: Bhrashtachaar | Spanish: Corrupción
+1774. BLACKMAIL — Hindi: Blackmail karna | Spanish: Chantaje / Chantajear
+1775. STAPLER — Hindi: Stapler | Spanish: Grapadora
+1776. KIDNAPPING — Hindi: Apaharan / Kidnapping | Spanish: Secuestro
+1777. HOSTAGE — Hindi: Bandhak | Spanish: Rehén
+1778. MURDER — Hindi: Hatya / Khoon karna | Spanish: Asesinato
+1779. PAPERCLIP — Hindi: Paper clip | Spanish: Clip
+1780. ASSAULT — Hindi: Hamla / Maar-peet | Spanish: Agresión / Ataque
+1781. BATTERY — 1. Legal: Hindi: Sharirik maar-peet | Spanish: Agresión física
+      | 2. Electric: Hindi: Battery | Spanish: Batería / Pila
+1782. VIOLENCE — Hindi: Hinsa / Maar-dhaad | Spanish: Violencia
+1783. WEAPON — Hindi: Hathiyaar | Spanish: Arma
+1784. GUN — Hindi: Bandook | Spanish: Arma de fuego / Pistola
+1785. PISTOL — Hindi: Pistol / Tamancha | Spanish: Pistola
+1786. RIFLE — Hindi: Rifle | Spanish: Rifle / Fusil
+1787. BULLET — Hindi: Goli | Spanish: Bala
+1788. BOMB — Hindi: Bomb | Spanish: Bomba
+1789. EXPLOSION — Hindi: Dhamaka | Spanish: Explosión
+1790. HANDCUFFS — Hindi: Hathkadi | Spanish: Esposas
+1791. SIREN — Hindi: Siren | Spanish: Sirena
+1792. PATROL — Hindi: Ghasht lagana / Patrol | Spanish: Patrullar / Patrulla
+1793. THIEF — Hindi: Chor | Spanish: Ladrón
+1794. HIGHLIGHTER — Hindi: Highlighter pen | Spanish: Marcador fluorescente /
+      Subrayador
+1795. STICKY NOTE — Hindi: Sticky note | Spanish: Nota adhesiva / Pósit
+1796. MOTIVE — Hindi: Maqsad / Kaaran | Spanish: Motivo
+1797. CLUE — Hindi: Suraagh / Ishaara | Spanish: Pista
+1798. FINGERPRINT — Hindi: Ungliyon ke nishaan | Spanish: Huella dactilar
+1799. SURVEILLANCE — Hindi: Kadi nazar / Nigraani | Spanish: Vigilancia
+1800. INTERROGATION — Hindi: Kadi pooch-taach | Spanish: Interrogatorio
+1801. RAID — Hindi: Chhaapa maarna / Raid | Spanish: Redada
+1802. PRISON — Hindi: Jail / Qaad-khana | Spanish: Prisión / Cárcel
+1803. CELL — 1. Detention Room: Hindi: Jail ki kothri | Spanish: Celda | 2.
+      Biology: Hindi: Koshika / Cell | Spanish: Célula
+1804. PLANNER — Hindi: Diary / Planner | Spanish: Agenda / Planificador
+1805. PRISONER — Hindi: Qaidi | Spanish: Prisionero / Recluso
+1806. PUNISHMENT — Hindi: Saza | Spanish: Castigo
+1807. WARRANT — Hindi: Warrant / Sarkari aadesh | Spanish: Orden judicial /
+      Mandato
+1808. CLIPBOARD — Hindi: Exam board / Clipboard | Spanish: Portapapeles
+1809. ENVELOPE — Hindi: Lifaafa | Spanish: Sobre
+1810. REHABILITATION — Hindi: Sudhaar kendra / Naya jeevan | Spanish:
+      Rehabilitación
+1811. POSTCARD — Hindi: Postcard | Spanish: Tarjeta postal
+1812. MAILBOX — Hindi: Letter box / Daak dabba | Spanish: Buzón
+1813. ZIPCODE — Hindi: Pin code / Postal code | Spanish: Código postal
+1814. CONVICT — Hindi: Saza-yafta mujrim | Spanish: Convicto / Condenado
+1815. EXECUTION — Hindi: Phansi / Maut ki saza | Spanish: Ejecución
+1816. CULPRIT — Hindi: Asli doshi / Gunahgaar | Spanish: Culpable
+1817. LANDMARK — Hindi: Mashhoor jagah / Nishaan | Spanish: Punto de referencia
+1818. GOVERNMENT — Hindi: Sarkaar | Spanish: Gobierno
+1819. SHORTCUT — Hindi: Chhota raasta / Shortcut | Spanish: Atajo
+1820. NATION — Hindi: Desh / Rashtra | Spanish: Nación / País
+1821. REPUBLIC — Hindi: Ganatantra | Spanish: República
+1822. SIDEWALK — Hindi: Footpath | Spanish: Acera
+1823. KINGDOM — Hindi: Raajya / Saltanat | Spanish: Reino
+1824. EMPIRE — Hindi: Saamrajya | Spanish: Imperio
+1825. DEMOCRACY — Hindi: Loktantra | Spanish: Democracia
+1826. UNDERPASS — Hindi: Zameendari pul / Underpass | Spanish: Paso subterráneo
+1827. OVERPASS — Hindi: Flyover / Oopar ka pul | Spanish: Paso elevado
+1828. CONSTITUTION — Hindi: Samvidhaan | Spanish: Constitución
+1829. CARPARK — Hindi: Parking | Spanish: Aparcamiento
+1830. PARLIAMENT — Hindi: Sansad | Spanish: Parlamento
+1831. CONGRESS — Hindi: Sansad / Congress | Spanish: Congreso
+1832. SENATE — Hindi: Senate | Spanish: Senado
+1833. ASSEMBLY — Hindi: Sabha / Vidhan sabha | Spanish: Asamblea
+1834. COUNCIL — Hindi: Parishad / Council | Spanish: Consejo
+1835. DRIVEWAY — Hindi: Ghar ke aage ki sadak | Spanish: Entrada de coches
+1836. LEGISLATION — Hindi: Kanoon | Spanish: Legislación
+1837. POLICY — Hindi: Niyam / Policy | Spanish: Política
+1838. POLITICIAN — Hindi: Neta | Spanish: Político
+1839. PRESIDENT — Hindi: Rashtrapati / President | Spanish: Presidente
+1840. MINISTER — Hindi: Mantri | Spanish: Ministro
+1841. MINISTRY — Hindi: Mantraalaya | Spanish: Ministerio
+1842. SENATOR — Hindi: Senator | Spanish: Senador
+1843. GOVERNOR — Hindi: Rajyapaal / Governor | Spanish: Gobernador
+1844. MAYOR — Hindi: Mayor | Spanish: Alcalde / Alcaldesa
+1845. CITIZEN — Hindi: Naagrik | Spanish: Ciudadano / Ciudadana
+1846. NATIONALITY — Hindi: Desh ki naagrikta | Spanish: Nacionalidad
+1847. COZY — Hindi: Aaraamdayak / Sukoon bhara | Spanish: Acogedor / Cómodo
+1848. OPPOSITION — Hindi: Vipaksh / Virodhi dal | Spanish: Oposición
+1849. COALITION — Hindi: Gathbandhan | Spanish: Coalición
+1850. MAJORITY — Hindi: Bahumat / Zyadatar | Spanish: Mayoría
+1851. MINORITY — Hindi: Alpsankhyak / Kam ginti | Spanish: Minoría
+1852. AUTHORITY — Hindi: Adhikaari / Sarkari vibhag | Spanish: Autoridad
+1853. POWER — Hindi: Taaqat / Shaktishali adhikaar | Spanish: Poder
+1854. RULE — 1. Regulation: Hindi: Niyam | Spanish: Regla | 2. Govern: Hindi:
+      Raaj karna / Shasan | Spanish: Gobernar
+1855. GOVERNANCE — Hindi: Shasan pranali | Spanish: Gobernanza
+1856. REIGN — Hindi: Shasankaal / Raaj | Spanish: Reinado
+1857. OFFICIAL — Hindi: Sarkari afsar | Spanish: Funcionario / Oficial
+1858. ELECTION — Hindi: Chunaav | Spanish: Elecciones
+1859. VOTE — Hindi: Vote dena | Spanish: Votar / Voto
+1860. TURNOUT — Hindi: Matdaan pratishat / Bheed | Spanish: Participación
+1861. BALLOT — Hindi: Matpatra / Vote parchi | Spanish: Papeleta de votación
+1862. POLL — Hindi: Survey / Matdaan | Spanish: Encuesta / Sondeo
+1863. CAMPAIGN — Hindi: Prachaar abhiyan | Spanish: Campaña
+1864. CANDIDATE — Hindi: Umeedwaar / Candidate | Spanish: Candidato / Candidata
+1865. NOMINEE — Hindi: Chuna gaya umeedwaar | Spanish: Nominado / Candidato
+1866. PRIMARY — 1. Elections: Hindi: Shuruati chunaav | Spanish: Elección
+      primaria | 2. Main: Hindi: Mukhya | Spanish: Primario / Principal
+1867. REFORM — Hindi: Sudhaar laana | Spanish: Reforma / Reformar
+1868. SPACIOUS — Hindi: Khula-khula / Badi jagah wala | Spanish: Espacioso /
+      Amplio
+1869. CIVIL — Hindi: Naagrik / Aam janta se juda | Spanish: Civil
+1870. RIGHT — 1. Legal Entitlement: Hindi: Adhikaar | Spanish: Derecho | 2.
+      Direction: Hindi: Daayein | Spanish: Derecha
+1871. LIBERTY — Hindi: Azaadi / Swatantrata | Spanish: Libertad
+1872. PROTEST — Hindi: Virodh karna | Spanish: Protestar / Protesta
+1873. CRAMPED — Hindi: Tang / Kam jagah wala | Spanish: Apretado / Estrecho
+1874. DEMONSTRATION — Hindi: Pradarshan / Rally | Spanish: Manifestación
+1875. RALLY — Hindi: Badi bheed / Rally | Spanish: Mitin / Manifestación
+1876. MARCH — 1. Protest Walk: Hindi: March / Paidal morcha | Spanish: Marcha
+      | 2. Calendar Month: Hindi: March | Spanish: Marzo
+1877. BOYCOTT — Hindi: Bahishkaar karna | Spanish: Boicotear
+1878. PETITION — Hindi: Aavedan-patra | Spanish: Petición / Solicitud
+1879. RIOT — Hindi: Danga / Bawaal | Spanish: Disturbio / Revuelta
+1880. REVOLUTION — Hindi: Kraanti | Spanish: Revolución
+1881. MOVEMENT — Hindi: Andolan | Spanish: Movimiento
+1882. ACTIVIST — Hindi: Karyakarta / Activist | Spanish: Activista
+1883. ADVOCACY — Hindi: Samarthan karna | Spanish: Defensa / Apoyo
+1884. VOLUNTEER — Hindi: Apni marzi se madad karne wala | Spanish: Voluntario /
+      Voluntaria
+1885. EQUALITY — Hindi: Baraabari | Spanish: Igualdad
+1886. FAIRNESS — Hindi: Nishpakshata / Sahi vyavhaar | Spanish: Imparcialidad /
+      Justicia
+1887. DISCRIMINATION — Hindi: Bhedbhav | Spanish: Discriminación
+1888. PREJUDICE — Hindi: Galat pehle se sochi raay | Spanish: Prejuicio
+1889. BIAS — Hindi: Pakshpaat | Spanish: Sesgo
+1890. DIVERSITY — Hindi: Vividhta / Alag-alag tarah ke log | Spanish: Diversidad
+1891. SOCIETY — Hindi: Samaaj | Spanish: Sociedad
+1892. PUBLIC — Hindi: Aam janta / Public | Spanish: Público / Gente
+1893. COMMUNITY — Hindi: Bhaichara / Community | Spanish: Comunidad
+1894. CIVIC — Hindi: Shahar aur naagrik se juda | Spanish: Cívico
+1895. SOCIAL — Hindi: Saamaajik / Milansaar | Spanish: Social
+1896. SOLIDARITY — Hindi: Ekta / Saath khade hona | Spanish: Solidaridad
+1897. WELFARE — Hindi: Bhalaai / Kalyan | Spanish: Bienestar
+1898. SHELTER — Hindi: Aashraya / Chhat | Spanish: Refugio / Albergue
+1899. REFUGEE — Hindi: Sharanaarthi | Spanish: Refugiado / Refugiada
+1900. SPOTLESS — Hindi: Bilkul saaf / Bina daag ka | Spanish: Impecable / Sin
+      mancha
+1901. IMMIGRANT — Hindi: Doosre desh se aane wala | Spanish: Inmigrante
+1902. MIGRATION — Hindi: Desh badalna / Pravasan | Spanish: Migración
+1903. CROWDED — Hindi: Bheed-bhaad wala | Spanish: Concurrido / Abarrotado
+1904. INTEGRATION — Hindi: Ghulna-milna / Samaan hona | Spanish: Integración
+1905. HANDY — Hindi: Kaam aane wala / Aasan | Spanish: Práctico / Útil
+1906. INTERNATIONAL — Hindi: Antarrashtriya | Spanish: Internacional
+1907. GLOBAL — Hindi: Poori duniya ka / Global | Spanish: Global / Mundial
+1908. FOREIGN — Hindi: Videshi / Gair | Spanish: Extranjero / Extranjera
+1909. OVERSEAS — Hindi: Videsh mein / Samundar paar | Spanish: En el extranjero
+1910. DIPLOMACY — Hindi: Kootneeti | Spanish: Diplomacia
+1911. DIPLOMAT — Hindi: Kootneetigya / Raajdoot | Spanish: Diplomático
+1912. EMBASSY — Hindi: Dootavaas | Spanish: Embajada
+1913. CONVENIENT — Hindi: Suvidhadajak / Aasaan | Spanish: Conveniente / Cómodo
+1914. AMBASSADOR — Hindi: Raajdoot | Spanish: Embajador / Embajadora
+1915. TREATY — Hindi: Shanti samjhauta / Sandhi | Spanish: Tratado
+1916. INCONVENIENT — Hindi: Takleef-deh / Pareshani wala | Spanish: Incómodo /
+      Inconveniente
+1917. URGENT — Hindi: Zaroori / Turant | Spanish: Urgente
+1918. ALLIANCE — Hindi: Gathbandhan | Spanish: Alianza
+1919. ALLY — Hindi: Saathi desh | Spanish: Aliado
+1920. SANCTION — Hindi: Aarthik pratibandh | Spanish: Sanción
+1921. OPTIONAL — Hindi: Marzi par / Optional | Spanish: Opcional
+1922. BORDER — Hindi: Border / Seema | Spanish: Frontera
+1923. BOUNDARY — Hindi: Hadd / Boundary | Spanish: Límite / Límite fronterizo
+1924. MANDATORY — Hindi: Zaroori / Compulsory | Spanish: Obligatorio
+1925. TERRITORY — Hindi: Ilaaka / Kshetr | Spanish: Territorio
+1926. DISPUTE — Hindi: Vivaad / Jhagda | Spanish: Disputa / Conflicto
+1927. CONFLICT — Hindi: Ladaai / Tanaav | Spanish: Conflicto
+1928. TENSION — Hindi: Tanaav | Spanish: Tensión
+1929. CRISIS — Hindi: Bada sankat | Spanish: Crisis
+1930. WAR — Hindi: Yuddh / Jung | Spanish: Guerra
+1931. PUNCTUAL — Hindi: Samay ka paaband | Spanish: Puntual
+1932. COMBAT — Hindi: Aamne-saamne ki ladaai | Spanish: Combate
+1933. MILITARY — Hindi: Sena / Military | Spanish: Militar / Ejército
+1934. ARMY — Hindi: Fauj / Thalsena | Spanish: Ejército
+1935. NAVY — Hindi: Samundari sena / Nausena | Spanish: Armada / Marina
+1936. OVERDUE — Hindi: Deri ho chuki / Time nikal gaya | Spanish: Vencido /
+      Atrasado
+1937. COMMANDER — Hindi: Commander / Afsar | Spanish: Comandante
+1938. GENERAL — 1. High Military Officer: Hindi: General | Spanish: General | 2.
+      Common: Hindi: Aam / Sadhaaran | Spanish: General / Común
+1939. INVASION — Hindi: Hamla / Dusre desh mein ghusna | Spanish: Invasión
+1940. DEFEAT — Hindi: Haar / Shikaast | Spanish: Derrota
+1941. VICTORY — Hindi: Jeet | Spanish: Victoria
+1942. SURRENDER — Hindi: Hathiyaar daalna / Haar maanna | Spanish: Rendirse
+1943. CEASEFIRE — Hindi: Ladaai rokna / Yuddhaviraam | Spanish: Alto el fuego
+1944. AFFORDABLE — Hindi: Budget mein / Kifayati | Spanish: Asequible /
+      Económico
+1945. PEACE — Hindi: Shanti / Aman | Spanish: Paz
+1946. NEWS — Hindi: Khabar / Samachar | Spanish: Noticias
+1947. MEDIA — Hindi: Media | Spanish: Medios de comunicación / Medios
+1948. PRESS — 1. News/Journalism: Hindi: Press / Akhbaar wale | Spanish: Prensa
+      | 2. Push/Compress: Hindi: Dabana / Press karna | Spanish: Presionar /
+      Apretar
+1949. JOURNALISM — Hindi: Patrakaarita | Spanish: Periodismo
+1950. BROADCASTER — Hindi: Radio ya TV par bolne wala | Spanish: Locutor /
+      Emisor
+1951. REPORTER — Hindi: Reporter / Khabri | Spanish: Reportero / Periodista
+1952. PRICY — Hindi: Mehenga | Spanish: Caro / Costoso
+1953. WORTHWHILE — Hindi: Faaydemand / Waqt dene laayak | Spanish: Que vale la
+      pena
+1954. EDITORIAL — Hindi: Sampadakiya lekh | Spanish: Editorial
+1955. USELESS — Hindi: Bekaar / Kisi kaam ka nahi | Spanish: Inútil
+1956. HELPFUL — Hindi: Madadgaar | Spanish: Útil / Atento
+1957. BROADCAST — Hindi: Telecast karna / Prasaaran | Spanish: Transmitir /
+      Emitir
+1958. STUDIO — Hindi: Studio | Spanish: Estudio
+1959. HEADLINE — Hindi: Mukhya khabar / Headline | Spanish: Titular
+1960. ARTICLE — Hindi: Lekh / Article | Spanish: Artículo
+1961. DISPATCH — Hindi: Bhejna / Sandesh | Spanish: Despacho / Envío
+1962. COVERAGE — Hindi: Coverage / Khabar dikhana | Spanish: Cobertura
+1963. SCOOP — Hindi: Taaza badi khabar | Spanish: Primicia
+1964. EXCLUSIVE — Hindi: Khas / Sirf unke paas | Spanish: Exclusivo
+1965. SOURCE — Hindi: Zariya / Source | Spanish: Fuente
+1966. LEAK — Hindi: Khabar baahar aana / Leak | Spanish: Filtración / Gotera
+1967. TABLOID — Hindi: Masaledaar akhbaar | Spanish: Tabloide / Prensa
+      sensacionalista
+1968. NEWSPAPER — Hindi: Akhbaar | Spanish: Periódico / Diario
+1969. MAGAZINE — Hindi: Magazine / Patrika | Spanish: Revista
+1970. JOURNAL — Hindi: Research patrika | Spanish: Revista académica / Diario
+1971. PUBLICATION — Hindi: Kitaab ya lekh chhapna | Spanish: Publicación
+1972. THOUGHTFUL — Hindi: Dhyan rakhne wala / Samajhdaar | Spanish: Considerado
+      / Atento
+1973. CENSORSHIP — Hindi: Rok lagana / Censorship | Spanish: Censura
+1974. PROPAGANDA — Hindi: Jhootha prachaar | Spanish: Propaganda
+1975. RUMOR — Hindi: Afwaah | Spanish: Rumor
+1976. SCANDAL — Hindi: Ghotaala / Badnaami | Spanish: Escándalo
+1977. EXPOSURE — Hindi: Raaz khulna / Khulasa | Spanish: Revelación
+1978. TRANSMISSION — Hindi: Signal bhejna | Spanish: Transmisión
+1979. CIRCULATION — Hindi: Kitni copies bikti hain | Spanish: Tirada /
+      Circulación
+1980. STATEMENT — Hindi: Bayaan | Spanish: Declaración
+1981. RELEASE — Hindi: Jaari karna / Release | Spanish: Comunicado / Lanzamiento
+1982. BULLETIN — Hindi: Chhota samachar / Alert | Spanish: Boletín
+1983. AUDIENCE — Hindi: Darshak / Sunne wale | Spanish: Audiencia / Público
+1984. VIEWER — Hindi: TV dekhne wala | Spanish: Espectador
+1985. LISTENER — Hindi: Sunne wala | Spanish: Oyente
+1986. EDUCATION — Hindi: Padhai / Shiksha | Spanish: Educación
+1987. ACADEMIC — Hindi: Padhai se juda | Spanish: Académico
+1988. ACADEMY — Hindi: Sanstha / Academy | Spanish: Academia
+1989. STUDENT — Hindi: Chhaatra / Student | Spanish: Estudiante / Alumno
+1990. PUPIL — Hindi: Chhota student / Shishya | Spanish: Alumno / Escolar
+
+Part 2 is now completely finished (Words 1,001–2,000).
+Whenever you are ready to begin Part 3, say "next" to process Split 7
+(Words 2,001–2,500).
