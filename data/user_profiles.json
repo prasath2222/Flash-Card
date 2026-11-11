@@ -19,10 +19,10 @@
     "updatedAt": "2026-03-01T00:00:00.000Z"
   },
   "73801410b67c7ba66a922cc3105f74f279ec21460127d1f8645136a22bffcee3": {
-    "syncRevision": 3999,
-    "updatedAt": "2026-11-08T12:37:15.694Z",
+    "syncRevision": 4026,
+    "updatedAt": "2026-11-08T14:22:43.286Z",
     "payload": {
-      "syncRevision": 3999,
+      "syncRevision": 4026,
       "isExplicitUserAction": true,
       "learnedCardNums": [
         801,
@@ -1764,40 +1764,40 @@
         1810,
         "t1801_1810"
       ],
-      "activeDeckId": "deck-2001-2500",
-      "lastActiveCardNum": 2057,
-      "lastCard": 2057,
-      "streakCount": 3,
-      "streak": 3,
+      "activeDeckId": "deck-2501-3000",
+      "lastActiveCardNum": 3000,
+      "lastCard": 3000,
+      "streakCount": 4,
+      "streak": 4,
       "customShortcuts": {
-        "t2001_2022": {
-          "word": "RULER",
-          "hi": "1. Measuring Tool: Scale | 2. Leader / Monarch: Shaasak / Raja",
-          "schemaVer": 9,
-          "shortcutHi": "<strong>1. (Measuring Tool) Scale / Futa</strong> ≈ <strong>Tamil ஸ்கேல் (Scale = Ruler!)</strong> & English <strong>\"Scale\"</strong> → Measuring <em>Ruler (Scale)</em>!<br><strong>2. (Leader / Monarch) Shaasak / Raja</strong> ≈ <strong>Shaasak</strong> (from <strong>Tamil சாசனம் = Rule/Decree!</strong>) + <strong>Raja</strong> (<strong>Tamil ராஜா = King!</strong>) = Monarch / <em>Ruler</em>!",
-          "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations",
-          "tamil": "1. அளவுகோல் (ஸ்கேல் - Measuring Tool) / 2. ஆட்சியாளர் (அரசன் - Leader / Monarch)",
-          "shortcutEs": "<strong>1. (Measuring Tool) Regla</strong> ≈ Direct sibling of English <strong>\"Regulate / Regular\"</strong> → Measuring <em>Ruler</em> or law <em>Rule (Regla)</em>!<br><strong>2. (Leader / Monarch) Gobernante</strong> ≈ Direct sibling of English <strong>\"Governor / Govern\"</strong> → Monarch or country <em>Ruler (Gobernante)</em>!",
-          "es": "1. Measuring Tool: Regla | 2. Leader / Monarch: Gobernante"
-        },
         "t2001_2024": {
           "es": "1. Class Study: Lección / Clase | 2. Life Moral: Escarmiento",
-          "schemaVer": 9,
-          "tamil": "1. பாடம் (வகுப்புப் பாடம் - Class Study) / 2. வாழ்க்கைப் பாடம் (படிப்பினை - Life Moral)",
-          "shortcutHi": "<strong>1. (Class Study) Paath / Chapter</strong> ≈ <strong>Paath</strong> is 100% identical to <strong>Tamil பாடம் (Paadam = Lesson!)</strong> + English <strong>\"Chapter\"</strong>!<br><strong>2. (Life Moral) Sabaq / Seekh</strong> ≈ <strong>Sabaq</strong> (Life moral) + <strong>Seekh</strong> (from <em>Seekhna</em> = To learn) = Life <em>Lesson (Seekh)</em>!",
-          "word": "LESSON",
-          "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations",
           "hi": "1. Class Study: Chapter | 2. Life Moral: Sabaq / Seekh",
-          "shortcutEs": "<strong>1. (Class Study) Lección</strong> ≈ Direct sibling of English <strong>\"Lesson / Lecture\" (Lección ≈ Lesson)</strong> → Classroom chapter = <em>Lesson (Lección)</em>!<br><strong>2. (Life Moral) Lección</strong> ≈ Direct sibling of English <strong>\"Lesson / Lecture\" (Lección ≈ Lesson)</strong> → Classroom chapter = <em>Lesson (Lección)</em>!"
+          "word": "LESSON",
+          "tamil": "1. பாடம் (வகுப்புப் பாடம் - Class Study) / 2. வாழ்க்கைப் பாடம் (படிப்பினை - Life Moral)",
+          "schemaVer": 9,
+          "shortcutHi": "<strong>1. (Class Study) Paath / Chapter</strong> ≈ <strong>Paath</strong> is 100% identical to <strong>Tamil பாடம் (Paadam = Lesson!)</strong> + English <strong>\"Chapter\"</strong>!<br><strong>2. (Life Moral) Sabaq / Seekh</strong> ≈ <strong>Sabaq</strong> (Life moral) + <strong>Seekh</strong> (from <em>Seekhna</em> = To learn) = Life <em>Lesson (Seekh)</em>!",
+          "shortcutEs": "<strong>1. (Class Study) Lección</strong> ≈ Direct sibling of English <strong>\"Lesson / Lecture\" (Lección ≈ Lesson)</strong> → Classroom chapter = <em>Lesson (Lección)</em>!<br><strong>2. (Life Moral) Lección</strong> ≈ Direct sibling of English <strong>\"Lesson / Lecture\" (Lección ≈ Lesson)</strong> → Classroom chapter = <em>Lesson (Lección)</em>!",
+          "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations"
         },
         "t2001_2017": {
-          "tamil": "1. காகிதக் கோப்புறை (ஃபோல்டர் - Paper Holder) / 2. கணினி கோப்புறை (Computer Directory)",
-          "hi": "Paper Holder: Folder / File",
-          "word": "FOLDER",
-          "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations",
           "shortcutHi": "<strong>1. (Paper Holder) Folder / File</strong> ≈ 100% identical to English & spoken Tamil <strong>\"Folder / File\"</strong>!<br><strong>2. (Computer Directory) Folder</strong> ≈ 100% identical to English <strong>\"Folder\"</strong> &amp; spoken Tamil <strong>கணினி கோப்புறை</strong> → Same everyday word in Hindi &amp; English!",
+          "schemaVer": 9,
+          "tamil": "1. காகிதக் கோப்புறை (ஃபோல்டர் - Paper Holder) / 2. கணினி கோப்புறை (Computer Directory)",
+          "word": "FOLDER",
           "shortcutEs": "<strong>1. (Paper Holder) Carpeta</strong> ≈ Sounds like <strong>\"Carpet-File\"</strong> → Cardboard file <em>Folder (Carpeta)</em> on your desk!<br><strong>2. (Computer Directory) Carpeta</strong> ≈ Sounds like <strong>\"Carpet-File\"</strong> → Cardboard file <em>Folder (Carpeta)</em> on your desk!",
+          "hi": "Paper Holder: Folder / File",
           "es": "Paper Holder: Carpeta",
+          "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations"
+        },
+        "t2001_2022": {
+          "tamil": "1. அளவுகோல் (ஸ்கேல் - Measuring Tool) / 2. ஆட்சியாளர் (அரசன் - Leader / Monarch)",
+          "es": "1. Measuring Tool: Regla | 2. Leader / Monarch: Gobernante",
+          "shortcutHi": "<strong>1. (Measuring Tool) Scale / Futa</strong> ≈ <strong>Tamil ஸ்கேல் (Scale = Ruler!)</strong> & English <strong>\"Scale\"</strong> → Measuring <em>Ruler (Scale)</em>!<br><strong>2. (Leader / Monarch) Shaasak / Raja</strong> ≈ <strong>Shaasak</strong> (from <strong>Tamil சாசனம் = Rule/Decree!</strong>) + <strong>Raja</strong> (<strong>Tamil ராஜா = King!</strong>) = Monarch / <em>Ruler</em>!",
+          "hi": "1. Measuring Tool: Scale | 2. Leader / Monarch: Shaasak / Raja",
+          "shortcutEs": "<strong>1. (Measuring Tool) Regla</strong> ≈ Direct sibling of English <strong>\"Regulate / Regular\"</strong> → Measuring <em>Ruler</em> or law <em>Rule (Regla)</em>!<br><strong>2. (Leader / Monarch) Gobernante</strong> ≈ Direct sibling of English <strong>\"Governor / Govern\"</strong> → Monarch or country <em>Ruler (Gobernante)</em>!",
+          "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations",
+          "word": "RULER",
           "schemaVer": 9
         }
       },
@@ -1819,7 +1819,7 @@
         "repeatDelay": 1000,
         "autoPronounceNext": false
       },
-      "updatedAt": "2026-11-08T12:37:15.694Z"
+      "updatedAt": "2026-11-08T14:22:43.286Z"
     }
   }
 }

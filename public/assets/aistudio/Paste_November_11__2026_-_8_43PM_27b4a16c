@@ -1,0 +1,811 @@
+Part 2 (Words 1,001–2,000) — Split 5: Words 1,001–1,500
+
+822. SKY — Sp: cielo | Hn: aasmaan / aakash
+823. SUN — Sp: sol | Hn: sooraj
+824. MOON — Sp: luna | Hn: chaand
+825. STAR — 1. (Celestial body): Sp: estrella | Hn: taara / sitaara; 2.
+     (Celebrity): Sp: estrella / famoso | Hn: star / sitaara
+826. CLOUD — Sp: nube | Hn: baadal
+827. RAIN — 1. (Noun): Sp: lluvia | Hn: baarish / barsaat; 2. (Verb): Sp: llover
+     | Hn: baarish hona / barasna
+828. SNOW — 1. (Noun): Sp: nieve | Hn: baraf (aasmaani); 2. (Verb): Sp: nevar |
+     Hn: baraf padna
+829. ICE — Sp: hielo | Hn: baraf
+830. WIND / STORM [Merged Weather Forces] — 1. (Breeze/wind): Sp: viento / aire
+     | Hn: hawa; 2. (Storm/tempest): Sp: tormenta / temporal | Hn: toofan /
+     aandhi
+831. FOG / MIST [Merged Duplicate] — Sp: niebla / neblina | Hn: kohra / dhund
+832. THUNDER / LIGHTNING [Merged Storm Pair] — 1. (Sound rumble): Sp: trueno |
+     Hn: garjan / baadal ki garaj; 2. (Light flash): Sp: relámpago / rayo | Hn:
+     bijli (chamakne wali)
+833. WEATHER / CLIMATE [Merged Duplicate] — Sp: tiempo / clima | Hn: mausam
+834. TEMPERATURE — Sp: temperatura | Hn: taapmaan / temperature
+835. SHADOW / SHADE [Merged Optical Pair] — 1. (Silhouette of object): Sp:
+     sombra | Hn: parchhayi; 2. (Cool area out of sun): Sp: sombra | Hn: chhaon
+     / chhaya
+836. AIR — Sp: aire | Hn: hawa
+837. SPACE — 1. (Outer cosmos): Sp: espacio (exterior) | Hn: antariksh /
+     space; 2. (Empty room/gap): Sp: espacio / lugar | Hn: jagah / faasla
+838. NATURE — Sp: naturaleza | Hn: prakriti / qudrat
+839. EARTH / WORLD [Merged Planetary Pair] — 1. (Planet ground): Sp: tierra |
+     Hn: dharti / prithvi; 2. (Global sphere): Sp: mundo | Hn: duniya / jagat
+840. LAND / GROUND [Merged Surface Pair] — Sp: tierra / suelo / terreno | Hn:
+     zameen / bhoomi
+841. DIRT / SOIL [Merged Earth Pair] — Sp: tierra / suelo / polvo | Hn: mitti
+842. MUD — Sp: barro / lodo / fango | Hn: keechad
+843. SAND — Sp: arena | Hn: ret / baalu
+844. DUST — Sp: polvo | Hn: dhool / gard
+845. ROCK / STONE [Merged Duplicate] — Sp: piedra / roca | Hn: patthar /
+     chattaan
+846. MOUNTAIN / HILL [Merged Elevation Pair] — 1. (High peak): Sp: montaña | Hn:
+     pahaad / parvat; 2. (Lower elevation): Sp: colina / cerro | Hn: pahadi /
+     teela
+847. VALLEY — Sp: valle | Hn: ghaati / valley
+848. CAVE — Sp: cueva / caverna | Hn: gufa
+849. FIELD — 1. (Farmland/meadow): Sp: campo / prado | Hn: khet / maidaan; 2.
+     (Domain/profession): Sp: área / campo | Hn: kshetra / field
+850. DESERT — 1. (Arid wasteland): Sp: desierto | Hn: registan / marusthal; 2.
+     (Verb: abandon): Sp: abandonar / dejar tirado | Hn: chhor dena
+851. FOREST / JUNGLE [Merged Duplicate] — Sp: bosque / selva | Hn: jangal / van
+852. RIVER / STREAM [Merged Flowing Water Pair] — 1. (Large river): Sp: río |
+     Hn: nadi; 2. (Small brook): Sp: arroyo / riachuelo | Hn: jharna / chhota
+     nala
+853. LAKE / POND [Merged Still Water Pair] — 1. (Large lake): Sp: lago | Hn:
+     jheel; 2. (Small pool): Sp: estanque / charca | Hn: talaab / pokhar
+854. SEA / OCEAN [Merged Marine Pair] — Sp: mar / océano | Hn: samandar / saagar
+855. BEACH / SHORE / COAST [Merged Coastal Cluster] — 1. (Sandy shore): Sp:
+     playa | Hn: beach / samundar ka kinaara; 2. (Coastline): Sp: costa / orilla
+     | Hn: tat / kinaara
+856. ISLAND — Sp: isla | Hn: taapu / dweep
+857. TREE — Sp: árbol | Hn: ped / vriksh
+858. ANIMAL — Sp: animal / bicho | Hn: jaanwar / pashu
+859. BIRD — Sp: pájaro / ave | Hn: chidiya / pakshi
+860. DOG / PUPPY [Merged Canine Pair] — 1. (Adult dog): Sp: perro | Hn:
+     kutta; 2. (Young pup): Sp: cachorro | Hn: pilla / puppy
+861. CAT / KITTEN [Merged Feline Pair] — 1. (Adult cat): Sp: gato | Hn:
+     billi; 2. (Young kitten): Sp: gatito | Hn: billauta / kitten
+862. COW / BULL [Merged Bovine Pair] — 1. (Female cow): Sp: vaca | Hn: gaay; 2.
+     (Male bull): Sp: toro | Hn: bail / saand
+863. SHEEP / GOAT [Merged Small Livestock Pair] — 1. (Wool sheep): Sp: oveja |
+     Hn: bhed; 2. (Horned goat): Sp: cabra / chivo | Hn: bakri / bakra
+864. HORSE / DONKEY [Merged Equine Pair] — 1. (Horse): Sp: caballo | Hn:
+     ghoda; 2. (Donkey): Sp: burro / asno | Hn: gadha
+865. PIG — Sp: cerdo / puerco / chancho | Hn: suar
+866. CAMEL — Sp: camello | Hn: oont
+867. ELEPHANT — Sp: elefante | Hn: haathi
+868. LION / TIGER [Merged Apex Predator Pair] — 1. (Lion): Sp: león | Hn: sher /
+     sinh; 2. (Striped tiger): Sp: tigre | Hn: baagh / sher
+869. BEAR — 1. (Animal): Sp: oso | Hn: bhaloo; 2. (Verb: endure/withstand): Sp:
+     aguantar / soportar | Hn: sehna / bardasht karna
+870. WOLF / FOX [Merged Wild Canine Pair] — 1. (Wolf): Sp: lobo | Hn:
+     bhediya; 2. (Fox): Sp: zorro | Hn: lomdi
+871. DEER — Sp: ciervo / venado | Hn: hiran
+872. RABBIT — Sp: conejo | Hn: khargosh
+873. MOUSE / RAT [Merged Rodent Pair] — Sp: ratón / rata | Hn: chuha
+874. MONKEY — Sp: mono | Hn: bandar
+875. SNAKE — Sp: serpiente / víbora / culebra | Hn: saanp
+876. FROG — Sp: rana / sapo | Hn: mendhak
+877. TURTLE — Sp: tortuga | Hn: kachhua
+878. CROCODILE — Sp: cocodrilo / caimán | Hn: magarmachh
+879. DUCK — Sp: pato | Hn: battakh
+880. PIGEON / CROW [Merged Urban Bird Pair] — 1. (Dove/pigeon): Sp: paloma | Hn:
+     kabootar; 2. (Black crow): Sp: cuervo | Hn: kauwa
+881. BAT — 1. (Animal): Sp: murciélago | Hn: chamgadar; 2. (Sports stick): Sp:
+     bate | Hn: balla / bat
+882. SHARK — Sp: tiburón | Hn: shark machhli
+883. INSECT / BUG [Merged Duplicate] — Sp: insecto / bicho | Hn: keeda / makoda
+884. MOSQUITO — Sp: mosquito / zancudo | Hn: machhar
+885. BEE — Sp: abeja | Hn: madhumakkhi
+886. ANT — Sp: hormiga | Hn: cheenti
+887. SPIDER — Sp: araña | Hn: makdi
+888. BUTTERFLY — Sp: mariposa | Hn: titli
+889. HUMAN — Sp: humano / ser humano | Hn: insaan / manushya
+890. TEENAGER / YOUTH [Merged Young Stage] — Sp: adolescente / joven | Hn:
+     kishore / naujawan / teenager
+891. ELDER / SENIOR [Merged Senior Stage] — Sp: anciano / mayor / persona de
+     edad | Hn: buzurg / bada-boodha
+892. SIBLING — Sp: hermano / hermana | Hn: bhai-behen
+893. GRANDCHILD — Sp: nieto / nieta | Hn: pota / poti / nawasa / nawasi
+894. SPOUSE / PARTNER [Merged Life Partner Pair] — Sp: pareja / cónyuge /
+     esposo(a) | Hn: jeevansathi / partner
+895. MEMBER — Sp: miembro / socio | Hn: sadasya / member
+896. CROWD — Sp: multitud / muchedumbre / gente | Hn: bheed / janta
+897. COMPANION / PEER [Merged Social Fellow Pair] — Sp: compañero / colega | Hn:
+     saathi / sangi
+898. ENEMY / RIVAL [Merged Opponent Pair] — Sp: enemigo / rival / adversario |
+     Hn: dushman / virodhi
+899. RELATIONSHIP — Sp: relación / vínculo | Hn: rishta / talluq / sambandh
+900. FRIENDSHIP — Sp: amistad | Hn: dosti / yaari
+901. MARRIAGE / WEDDING [Merged Matrimony Pair] — 1. (Marital state): Sp:
+     matrimonio / casamiento | Hn: shaadi / vivaah; 2. (Ceremony event): Sp:
+     boda / casamiento | Hn: shaadi ka jalsa / vivaah samaroh
+902. BRIDE / GROOM [Merged Nuptial Couple] — 1. (Bride): Sp: novia | Hn:
+     dulhan; 2. (Groom): Sp: novio | Hn: dulha
+903. COUPLE — 1. (Romantic pair): Sp: pareja | Hn: joda / jodi; 2. (A few
+     items): Sp: un par / unos pocos | Hn: do-chaar / do ek
+904. NEIGHBORHOOD — Sp: barrio / vecindario / colonia | Hn: mohalla / pados /
+     ilaqa
+905. ALARM / REMINDER [Merged Alert Pair] — 1. (Clock buzzer/siren): Sp: alarma
+     | Hn: alarm / ghanti; 2. (Prompt note): Sp: recordatorio | Hn: yaad-dihani
+     / reminder
+906. FLASHLIGHT / TORCH [Merged Portable Light Pair] — Sp: linterna | Hn: torch
+     / flashlight
+907. EARPHONES / HEADPHONES [Merged Audio Gear Pair] — Sp: audífonos /
+     auriculares / cascos | Hn: earphones / headphones
+908. CHARGER / ADAPTER [Merged Power Accessory Pair] — Sp: cargador / adaptador
+     | Hn: charger / adapter
+909. SMOOTH — Sp: liso / suave | Hn: chikna / sapaat
+910. ROUGH — 1. (Coarse surface): Sp: áspero / rugoso | Hn: khurdura; 2.
+     (Harsh/approximate): Sp: duro / brusco / aproximado | Hn: sakht / rough /
+     mota-moti
+911. SHARP — 1. (Edged blade/point): Sp: afilado / filoso / puntiagudo | Hn: tez
+     / dhaar-daar; 2. (Intellectually keen): Sp: agudo / avispado | Hn: tez
+     dimaag / teekha
+912. BLUNT — Sp: desafilado / romo / sin filo | Hn: bina dhaar ka / motha
+913. FLAT — 1. (Level plain surface): Sp: plano / llano / chato | Hn: samtal /
+     chipta; 2. (Apartment residence): Sp: piso / departamento | Hn: flat /
+     apartment
+914. STRAIGHT — 1. (Direct unbent line): Sp: recto / derecho | Hn: seedha; 2.
+     (Frank/candid): Sp: directo / sincero | Hn: saaf-saaf / khara
+915. CURVED — Sp: curvo / curvado | Hn: ghumaavdaar / muda hua
+916. SOLID / HOLLOW [Merged Volume State Pair] — 1. (Dense/firm): Sp: sólido /
+     firme | Hn: thos; 2. (Empty interior cavity): Sp: hueco / vacío | Hn:
+     khokhla / andar se khaali
+917. TIGHT — Sp: apretado / ajustado | Hn: tight / tang / kassa hua
+918. LOOSE — 1. (Not tight/fitting): Sp: flojo / suelto / holgado | Hn:
+     dheela; 2. (Unfastened/free): Sp: suelto / libre | Hn: khula hua / azaad
+919. ROUND — Sp: redondo / esférico | Hn: gol / golaakaar
+920. CUSHION / PILLOWCASE [Merged Soft Bedding Pair] — 1. (Sofa pad): Sp: cojín
+     / almohadón | Hn: cushion / gaddi; 2. (Slipcover): Sp: funda de almohada |
+     Hn: takiye ka cover / khol
+921. HANGER — Sp: percha / gancho / colgador | Hn: hanger / khunti
+922. LAUNDRY — Sp: ropa sucia / colada / lavado | Hn: dhule-dhulne wale kapde /
+     laundry
+923. COMB — 1. (Hair groomer): Sp: peine | Hn: kanghi; 2. (Verb: groom hair):
+     Sp: peinar / peinarse | Hn: baal banana / kanghi karna
+924. TISSUE — 1. (Paper handkerchief): Sp: pañuelo de papel / clínex | Hn:
+     tissue paper / napkin; 2. (Biological cellular mass): Sp: tejido | Hn:
+     maanspeshi / tissue
+925. RAW — 1. (Uncooked food): Sp: crudo | Hn: kachha (bina paka); 2.
+     (Unprocessed material): Sp: en bruto / virgen | Hn: kachha maal
+926. RIPE — Sp: maduro | Hn: paka hua (phal/sabzi)
+927. ROTTEN — Sp: podrido / echado a perder | Hn: sada hua / kharab
+928. STALE — Sp: rancio / duro / viejo | Hn: baasi / sookha
+929. GROCERIES — Sp: provisiones / comestibles / compras | Hn: rashan / kiraane
+     ka saamaan
+930. DAMP / MOIST [Merged Duplicate] — Sp: húmedo / mojado | Hn: halka geela /
+     nami wala
+931. STICKY — Sp: pegajoso | Hn: chipchipa
+932. SLIPPERY — Sp: resbaladizo / resbaloso | Hn: fisalnewala / chikna
+933. CRISPY / CRUNCHY [Merged Duplicate] — Sp: crujiente / tostado | Hn: kurkura
+     / karara
+934. TENDER / TOUGH [Merged Texture Contrast Pair] — 1. (Soft to chew/feel): Sp:
+     tierno / suave | Hn: naram / nazaakat wala; 2. (Hard/rubbery): Sp: duro /
+     correoso | Hn: sakht / chabaane mein kathin
+935. OILY / GREASY [Merged Duplicate] — Sp: grasoso / aceitoso | Hn: teliya /
+     chikna / greasy
+936. CASHIER — Sp: cajero / cajera | Hn: cashier / bill counter
+937. PRICETAG / PRICE [Merged Retail Tag Pair] — Sp: precio / etiqueta de precio
+     | Hn: daam / rate / keemat tag
+938. USEFUL / HELPFUL [Merged Positive Utility Pair] — Sp: útil / servicial / de
+     ayuda | Hn: kaam ka / faaydemand / madadgaar
+939. USELESS — Sp: inútil / inservible | Hn: bekaar / kisi kaam ka nahi
+940. WARRANTY / GUARANTEE [Merged Protection Pair] — Sp: garantía | Hn: warranty
+     / guarantee
+941. DELIVERY / COURIER [Merged Logistics Pair] — Sp: entrega / envío /
+     mensajería | Hn: delivery / courier
+942. SAFE — 1. (Secure/free from danger): Sp: seguro / a salvo | Hn: surakshit /
+     safe; 2. (Lockbox container): Sp: caja fuerte | Hn: tijori
+943. DANGEROUS — Sp: peligroso | Hn: khatarnak
+944. CHEAP — Sp: barato / económico | Hn: sasta
+945. EXPENSIVE — Sp: caro / costoso | Hn: mehanga
+946. RICH — 1. (Wealthy): Sp: rico / adinerado | Hn: ameer / daulatmand; 2.
+     (Rich flavor/dense food): Sp: rico / sustancioso | Hn: swadisht / bhaari
+947. POOR — 1. (Impoverished): Sp: pobre | Hn: gareeb; 2.
+     (Pitiable/unfortunate): Sp: pobre / pobrecito | Hn: bechara / badqismat
+948. PARCEL / PACKAGE [Merged Shipment Pair] — Sp: paquete / bulto / encomienda
+     | Hn: parcel / packet / dabba
+949. PURE — Sp: puro / auténtico | Hn: shuddh / asli / saaf
+950. TRUE / REAL [Merged Factuality Pair] — Sp: verdadero / real / de verdad |
+     Hn: sachha / sach / asli
+951. FALSE / FAKE [Merged Untruth Pair] — Sp: falso / postizo / imitación | Hn:
+     jhootha / nakli / fake
+952. CORRECT / RIGHT [Merged Accuracy Pair] — Sp: correcto / acertado / bien |
+     Hn: sahi / theek
+953. WRONG — Sp: incorrecto / equivocado / mal | Hn: galat
+954. EXACT — Sp: exacto / preciso / justo | Hn: bilkul sahi / theek-theek /
+     exact
+955. TRACKING — Sp: seguimiento / rastreo | Hn: tracking / location trace
+956. NORMAL / COMMON [Merged Ordinary State Pair] — Sp: normal / común /
+     corriente | Hn: aam / sadharan / normal
+957. STRANGE / RARE [Merged Unusual State Pair] — 1. (Odd/bizarre): Sp: raro /
+     extraño | Hn: ajeeb / anokha; 2. (Scarce occurrence): Sp: raro / poco común
+     | Hn: durlabh / bohot kam dikhne wala
+958. PERFECT — Sp: perfecto / impecable | Hn: bilkul theek / perfect / laajawaab
+959. READY — Sp: listo / preparado | Hn: taiyaar
+960. MAD — 1. (Angry): Sp: enojado / furioso | Hn: gussa / naraaz; 2.
+     (Insane/crazy): Sp: loco | Hn: paagal
+961. NERVOUS — Sp: nervioso | Hn: ghabraya hua / nervous
+962. BORED — Sp: aburrido | Hn: bore / pak gaya
+963. WORRIED — Sp: preocupado | Hn: chintit / pareshan
+964. SURPRISED — Sp: sorprendido | Hn: hairaan / chaunka hua
+965. RELIEF — Sp: alivio | Hn: raahat / sukoon / chain
+966. ASHAMED / GUILTY [Merged Conscience Pair] — 1. (Feeling shame): Sp:
+     avergonzado | Hn: sharminda; 2. (Culpable of fault): Sp: culpable | Hn:
+     doshi / gunaahgaar
+967. LONELY — Sp: solitario / solo | Hn: akela / tanhaa
+968. JEALOUS / ENVIOUS [Merged Envy Pair] — Sp: celoso / envidioso | Hn: jalan /
+     hasad / jealous
+969. GRATEFUL — Sp: agradecido | Hn: shukrguzaar / aabhari
+970. HOPEFUL / OPTIMISTIC [Merged Outlook Pair] — Sp: esperanzado / optimista |
+     Hn: umeedmand / aashawaadi
+971. DESPERATE — Sp: desesperado | Hn: bechain / majboor / desperate
+972. CONFUSED — Sp: confundido | Hn: uljha hua / confuse
+973. FRUSTRATED — Sp: frustrado | Hn: pareshan / chidchida / frustrated
+974. DISAPPOINTED — Sp: decepcionado / desilusionado | Hn: niraash / maayoos
+975. SATISFIED — Sp: satisfecho / contento | Hn: santusht / mutmain
+976. EMOTION / MOOD [Merged Affective State Pair] — 1. (Deep feeling): Sp:
+     emoción / sentimiento | Hn: bhavna / jazbaat; 2. (Temporary state of mind):
+     Sp: estado de ánimo / humor | Hn: mood / mizaaj
+977. JOY / DELIGHT [Merged Gladness Pair] — Sp: alegría / gozo | Hn: khushi /
+     aanand
+978. SORROW / GRIEF [Merged Mourning Pair] — Sp: dolor / pena / luto | Hn: dukh
+     / gham / sog
+979. RAGE — Sp: furia / rabia / cólera | Hn: ghussa / aakrosh / taish
+980. TERROR / PANIC [Merged Severe Fear Pair] — Sp: pánico / terror | Hn: aatank
+     / behad khauf / ghabraahat
+981. ANXIETY / STRESS [Merged Tension Pair] — Sp: ansiedad / estrés | Hn: tanaav
+     / chinta / tension
+982. PRIDE — 1. (Self-respect/honor): Sp: orgullo | Hn: garv / fakhr; 2.
+     (Arrogance): Sp: soberbia / orgullo | Hn: ghamand / guroor
+983. AFFECTION / PASSION [Merged Emotional Drive Pair] — 1. (Warm fondness): Sp:
+     cariño / afecto | Hn: lagav / pyaar; 2. (Intense fervor): Sp: pasión | Hn:
+     josh / deewanapan
+984. DISGUST — Sp: asco / repugnancia | Hn: ghin / nafrat / chidh
+985. DEPRESSION — Sp: depresión / bajón | Hn: udaasi / depression
+986. ENTHUSIASM — Sp: entusiasmo / ganas | Hn: utsaah / josh
+987. PATIENCE — Sp: paciencia | Hn: sabr / dheeraj
+988. COURAGE — Sp: coraje / valentía | Hn: himmat / saahas
+989. SHOCK — 1. (Emotional jolt): Sp: conmoción / susto / shock | Hn: sadma /
+     jhatka; 2. (Electrical): Sp: descarga eléctrica / choque | Hn: current /
+     bijli ka jhatka
+990. NICE / FRIENDLY [Merged Cordial Pair] — Sp: simpático / amable / agradable
+     | Hn: milansaar / achha / pyaara
+991. RUDE — Sp: grosero / maleducado | Hn: badtameez / ukhar
+992. STUPID / FOOLISH [Merged Silliness Pair] — Sp: tonto / estúpido / bobo |
+     Hn: bewaqoof / moorkh / pagal
+993. HARDWORKING — Sp: trabajador / aplicado | Hn: mehanti
+994. DISHONEST — Sp: deshonesto / tramposo | Hn: be-imaan / jhootha
+995. HUMBLE / MODEST [Merged Modesty Pair] — Sp: humilde / modesto | Hn:
+     seedha-saadha / vinamra
+996. COWARDLY — Sp: cobarde | Hn: darpok / buzdil
+997. GENEROUS — Sp: generoso / dadivoso | Hn: dilwala / sakhi / daani
+998. GREEDY / SELFISH [Merged Self-Interest Pair] — 1. (Avaricious for
+     money/food): Sp: codicioso / avaro | Hn: laalchi; 2. (Self-centered): Sp:
+     egoísta | Hn: khudgarz
+999. STUBBORN — Sp: terco / testarudo / tozudo | Hn: ziddi / adiyal
+1000. CREATIVE — Sp: creativo | Hn: creative / rachnatmak
+1001. CLUMSY — Sp: torpe | Hn: phuhad / anadi / bedhab
+1002. RELIABLE / RESPONSIBLE [Merged Trustworthiness Pair] — Sp: confiable /
+      responsable | Hn: bharosemand / zimmedaar
+1003. MATURE / IMMATURE [Merged Developmental Pair] — 1. (Grown-up mindset): Sp:
+      maduro | Hn: samajhdaar / mature; 2. (Childish): Sp: inmaduro | Hn:
+      bachkana / na-samajh
+1004. STRICT — Sp: estricto / severo | Hn: sakht / kaddak
+1005. SENSITIVE — Sp: sensible | Hn: naazuk / jazbaati / sensitive
+1006. GENTLE — Sp: suave / tierno / delicado | Hn: naram / meetha / komal
+1007. WILD — 1. (Undomesticated animal/nature): Sp: salvaje / silvestre | Hn:
+      jangli; 2. (Uncontrolled behavior): Sp: loco / descontrolado | Hn: bekaboo
+      / mast
+1008. CONFIDENT — Sp: seguro (de sí mismo) / confiado | Hn: aatmavishwaasi /
+      confident
+1009. LOYAL / SINCERE [Merged Faithful Character Pair] — Sp: leal / fiel /
+      sincero | Hn: wafadaar / sachha / mukhlis
+1010. CRUEL — Sp: cruel / despiadado | Hn: zaalim / beraham
+1011. ARROGANT — Sp: arrogante / creído / prepotente | Hn: ghamandi / magroor
+1012. PEACEFUL — Sp: pacífico / tranquilo | Hn: shaanti-priya / pur-sukoon
+1013. CHEERFUL — Sp: alegre / animado / risueño | Hn: khush-mizaaj / zindadil
+1014. GLOOMY — Sp: sombrío / apagado / decaído | Hn: udaas / bujha-bujha
+1015. ENERGETIC — Sp: enérgico / activo / lleno de energía | Hn: chust /
+      energetic / phurteela
+1016. CAUTIOUS — Sp: precavido / cauteloso | Hn: savdhaan / chaukanna
+1017. BOLD — Sp: audaz / atrevido / valiente | Hn: bebaak / nidar / diler
+1018. INNOCENT — 1. (Free from guilt): Sp: inocente | Hn: be-kasoor /
+      nirdosh; 2. (Naive/pure): Sp: ingenuo / inocente | Hn: masoom / bhola
+1019. CHARMING — Sp: encantador / seductor | Hn: aakarshak / dilkash / charming
+1020. CHUCKLE / GIGGLE [Merged Subdued Laugh Pair] — Sp: reírse entre dientes /
+      soltar una risita | Hn: dabi hasi hansna / khilkhilana
+1021. WEEP — Sp: llorar (a lágrima viva) | Hn: phoot-phoot kar rona / bilakhna
+1022. FROWN / SCOWL [Merged Displeasure Face Pair] — Sp: fruncir el ceño / poner
+      mala cara | Hn: tewari chadhana / moonh banana
+1023. NOD — Sp: asentir con la cabeza | Hn: haan mein sarr hilana
+1024. SHRUG — Sp: encogerse de hombros | Hn: kandhe uchkana
+1025. WAVE — 1. (Hand gesture): Sp: saludar con la mano / agitar | Hn: haath
+      hilana; 2. (Water swell): Sp: ola / onda | Hn: lehar / tarang
+1026. STARE / GAZE [Merged Fixed Look Pair] — Sp: mirar fijamente / clavar la
+      vista | Hn: ghoorna / taakna / nigaah jamana
+1027. GLANCE — Sp: echar un vistazo / mirar de reojo | Hn: jhalak dekhna /
+      sarsari nazar daalna
+1028. BLINK / WINK [Merged Eye Movement Pair] — 1. (Involuntary eye close): Sp:
+      parpadear | Hn: palkein jhapkana; 2. (One-eye signal): Sp: guiñar el ojo |
+      Hn: aankh maarna
+1029. SIGH — Sp: suspirar / suspiro | Hn: aah bharna / thandi saans lena
+1030. GASP — Sp: jadear / quedarse sin aliento | Hn: achanak saans kheenchana /
+      haanpna
+1031. GROAN — Sp: gemir / quejarse | Hn: karahana / dard bhari aawaaz nikalna
+1032. SNORE — Sp: roncar / ronquido | Hn: kharraate lena
+1033. SHIVER / TREMBLE [Merged Shaking Pair] — Sp: temblar / tiritar | Hn:
+      kaampna / thartharana
+1034. BLUSH — Sp: sonrojarse / ponerse rojo | Hn: sharma kar laal hona
+1035. CHOKE — Sp: atragantarse / asfixiarse | Hn: gala ghutna / phanda lagna
+1036. KNEEL — Sp: arrodillarse / hincarse | Hn: ghutne tekna
+1037. BOW — 1. (Bend body in respect): Sp: inclinarse / hacer una reverencia |
+      Hn: jhuk kar salaam karna; 2. (Ribbon loop): Sp: lazo / moño | Hn: bow /
+      ribbon ka phool; 3. (Archery weapon): Sp: arco | Hn: dhanush
+1038. LEAN — 1. (Rest against): Sp: apoyarse / recargarse | Hn: sahara lena /
+      tek lagana; 2. (Slant/incline): Sp: inclinarse | Hn: jhukna
+1039. SLAP — Sp: abofetear / dar una cachetada | Hn: thappad maarna / chaanta
+      maarna
+1040. PUNCH — 1. (Fist strike): Sp: dar un puñetazo / trompada | Hn: ghoosa
+      maarna; 2. (Hole maker): Sp: perforar / ponchar | Hn: chhed karna
+1041. TICKLE — Sp: hacer cosquillas | Hn: gudgudi karna
+1042. FLIRT — Sp: coquetear / ligar / tontear | Hn: flirt karna / line maarna
+1043. HUG — Sp: abrazar / abrazo | Hn: gale lagana / jhappi paana
+1044. KISS — Sp: besar / beso | Hn: choomna / kiss karna
+1045. INTRODUCE — Sp: presentar (a alguien) | Hn: jaan-pehchan karwana /
+      introduce karna
+1046. GREET — Sp: saludar / dar la bienvenida | Hn: salaam karna / namaste karna
+      / greet karna
+1047. MARRY — Sp: casarse con | Hn: shaadi karna / byah karna
+1048. DIVORCE — Sp: divorciarse de / divorcio | Hn: talaq lena / divorce hona
+1049. ATTEND — Sp: asistir a / acudir | Hn: shaamil hona / hazir hona
+1050. GATHER / COLLECT [Merged Amass Pair] — Sp: juntar / reunir / recoger | Hn:
+      ikattha karna / jama karna
+1051. ATTACH / DETACH [Merged Fasten/Unfasten Pair] — 1. (Join/append): Sp:
+      adjuntar / unir / pegar | Hn: jodna / attach karna; 2.
+      (Separate/unfasten): Sp: separar / despegar / soltar | Hn: alag karna /
+      hatana
+1052. INSULT — Sp: insultar / ofensa | Hn: be-izzati karna / gaali dena / zaleel
+      karna
+1053. TEASE — Sp: burlarse / molestar de broma | Hn: chhedna / chidhana / satana
+1054. FLATTER — Sp: adular / halagar | Hn: makkhan lagana / chaploosi karna
+1055. GOSSIP — Sp: chismear / cotillear / chisme | Hn: chugli karna /
+      idhar-udhar ki baatein karna
+1056. COMFORT — 1. (Console person): Sp: consolar / reconfortar | Hn: tasalli
+      dena / dilasa dena; 2. (Physical ease): Sp: comodidad / confort | Hn:
+      aaram / aasaaish
+1057. CHEER / APPLAUD [Merged Acclaim Pair] — Sp: aplaudir / vitorear / animar |
+      Hn: taaliyan bajana / hausla badhana
+1058. PRAISE — Sp: alabar / elogiar | Hn: tareef karna / prashansa karna
+1059. CRITICIZE — Sp: criticar | Hn: aalochana karna / burai nikalna
+1060. MOCK — Sp: burlarse de / mofarse | Hn: mazaak udana / khilli udana
+1061. BOAST — Sp: presumir / alardear | Hn: deeng maarna / fekna
+1062. APOLOGIZE — Sp: disculparse / pedir perdón | Hn: maafi maangna
+1063. COOPERATE — Sp: cooperar / colaborar | Hn: saath milkar kaam karna /
+      sahyog dena
+1064. BETRAY — Sp: traicionar | Hn: dhokha dena / gaddari karna
+1065. CHEAT / DECEIVE [Merged Dishonesty Pair] — Sp: engañar / estafar / hacer
+      trampa | Hn: dhokha dena / cheat karna / ullu banana
+1066. BATTLE — Sp: batalla / combate / lucha | Hn: ladai / jung / sangharsh
+1067. IMAGINE — Sp: imaginar / imaginarse | Hn: sochna / tasavvur karna /
+      kalpana karna
+1068. GUESS / SUPPOSE / ASSUME [Merged Conjecture Cluster] — Sp: adivinar /
+      suponer / asumir | Hn: andaaza lagana / maan lena
+1069. NOTICE — 1. (Verb: perceive): Sp: notar / darse cuenta de | Hn: dhyan
+      jaana / notice karna; 2. (Noun: written warning): Sp: aviso / cartel | Hn:
+      suchna / notice
+1070. OBSERVE — Sp: observar / mirar con atención | Hn: ghaur se dekhna /
+      observe karna
+1071. RECOGNIZE — Sp: reconocer | Hn: pehchanna
+1072. IDENTIFY — Sp: identificar | Hn: pehchan karna / identify karna
+1073. JUDGE / EVALUATE [Merged Assessment Pair] — 1. (Evaluate merits): Sp:
+      evaluar / juzgar | Hn: aakna / parakhna; 2. (Court magistrate): Sp: juez |
+      Hn: judge / nyaayadhish
+1074. DIRECT / GUIDE [Merged Leading Pair] — 1. (Guide path): Sp: dirigir /
+      guiar | Hn: raasta dikhana / margdarshan karna; 2. (Straightforward
+      adjective): Sp: directo / recto | Hn: seedha
+1075. HANDLE / COPE [Merged Manage Stress Pair] — Sp: manejar / lidiar con /
+      sobrellevar | Hn: sambhalna / handle karna / jhelna
+1076. SURVIVE — Sp: sobrevivir | Hn: zinda bachna / guzaara karna
+1077. AVOID / PREVENT [Merged Prevention Pair] — 1. (Steer clear): Sp: evitar /
+      esquivar | Hn: bachna / taalna; 2. (Stop from happening): Sp: prevenir /
+      impedir | Hn: rokna / bachav karna
+1078. PERMIT / FORBID [Merged Authority Pair] — 1. (Allow): Sp: permitir /
+      autorizar | Hn: ijaazat dena / permission dena; 2. (Prohibit): Sp:
+      prohibir | Hn: mana karna / rok lagana
+1079. INSIST — Sp: insistir / empeñarse | Hn: zidd karna / zorr dena
+1080. DEPEND / RELY [Merged Reliance Pair] — Sp: depender de / confiar en | Hn:
+      nirbhar hona / bharosa karna
+1081. BOTHER / DISTURB [Merged Nuisance Pair] — Sp: molestar / fastidiar /
+      perturbar | Hn: pareshan karna / tang karna
+1082. PICKLE / CHUTNEY [Merged Condiment Pair] — 1. (Preserved pickle): Sp:
+      encurtido / pepinillo | Hn: achaar; 2. (Piquant dip): Sp: salsa / aderezo
+      | Hn: chutney
+1083. CURRY / LENTIL [Merged Stew & Pulse Pair] — 1. (Gravy stew): Sp: curry /
+      estofado con especias | Hn: curry / saalan; 2. (Pulse grain): Sp: lenteja
+      | Hn: daal
+1084. CHICKPEA — Sp: garbanzo | Hn: chana / chhole
+1085. ALMOND — Sp: almendra | Hn: badaam
+1086. CASHEW — Sp: anacardo / castaña de cajú | Hn: kaaju
+1087. WALNUT — Sp: nuez | Hn: akhrot
+1088. PEANUT — Sp: cacahuate / maní | Hn: moongphali
+1089. RAISIN — Sp: pasa / uva pasa | Hn: kishmish
+1090. CINNAMON — Sp: canela | Hn: dalcheeni
+1091. TURMERIC — Sp: cúrcuma | Hn: haldi
+1092. CORIANDER — Sp: cilantro / coriandro | Hn: dhaniya
+1093. MINT — 1. (Aromatic herb): Sp: menta / hierbabuena | Hn: pudeena; 2. (Coin
+      manufacturing plant): Sp: casa de moneda | Hn: taksaal (jahan sikke bante
+      hain)
+
+Part 2 (Words 1,001–2,000) — Split 6: Words 1,501–2,000
+
+1094. BLAME / ACCUSE [Merged Allegation Pair] — Sp: culpar / acusar | Hn: ilzaam
+      lagana / dosh dena
+1095. COMPLAIN — Sp: quejarse / reclamar | Hn: shiqayat karna / gila karna
+1096. ADMIT / DENY [Merged Confession Pair] — 1. (Acknowledge truth): Sp:
+      admitir / confesar | Hn: manna / qabool karna; 2. (Refuse truth): Sp:
+      negar / desmentir | Hn: inkaar karna / mukarna
+1097. CONVINCE / PERSUADE [Merged Duplicate] — Sp: convencer / persuadir | Hn:
+      raazi karna / manana / convince karna
+1098. INTERRUPT — Sp: interrumpir | Hn: beech mein bolna / tokna / rokn-tokna
+1099. ENCOURAGE / SUPPORT [Merged Uplift Pair] — Sp: animar / apoyar / alentar |
+      Hn: hausla badhana / support karna / sahara dena
+1100. DECLARE / ANNOUNCE [Merged Public Statement Pair] — Sp: declarar /
+      anunciar / proclamar | Hn: elaan karna / ghoshna karna
+1101. INFORM / MENTION [Merged Notification Pair] — 1. (Notify facts): Sp:
+      informar / avisar | Hn: batana / suchit karna; 2. (Briefly refer to): Sp:
+      mencionar / nombrar | Hn: zikr karna / charcha karna
+1102. CLARIFY — Sp: aclarar / clarificar | Hn: saaf karna / baat wazeh karna
+1103. SUMMARIZE — Sp: resumir | Hn: short mein batana / nichod nikalna
+1104. QUOTE — 1. (Repeat exact words): Sp: citar | Hn: kisi ki baat dohrana /
+      quote karna; 2. (Estimated price): Sp: cotización / presupuesto | Hn: rate
+      batana / estimate
+1105. CONTRADICT / CHALLENGE [Merged Dispute Pair] — 1. (Oppose words): Sp:
+      contradecir | Hn: ulta bolna / kaatna; 2. (Dare/confront): Sp: desafiar /
+      retar | Hn: chunauti dena / challenge karna
+1106. JOB / CAREER / PROFESSION [Merged Vocation Cluster] — Sp: trabajo / empleo
+      / carrera / profesión | Hn: naukri / job / kaam / pesha
+1107. EMPLOYEE / WORKER [Merged Laborer Pair] — Sp: empleado / trabajador /
+      obrero | Hn: karmchari / worker / kaam karne wala
+1108. EMPLOYER / BOSS / MANAGER [Merged Supervisory Cluster] — Sp: jefe / patrón
+      / gerente | Hn: boss / maalik / manager
+1109. ASSISTANT / SECRETARY [Merged Office Support Pair] — Sp: asistente /
+      secretario | Hn: assistant / sachiv / madadgaar
+1110. CLERK / ACCOUNTANT [Merged Records Staff Pair] — 1. (General clerk): Sp:
+      oficinista / empleado | Hn: clerk / babu; 2. (Financial books): Sp:
+      contador / contable | Hn: accountant / munshi
+1111. LAWYER / ATTORNEY [Merged Legal Counsel Duplicate] — Sp: abogado / letrado
+      | Hn: vakeel
+1112. OFFICER — 1. (Military/police rank): Sp: oficial | Hn: afsar / officer; 2.
+      (Corporate agent): Sp: funcionario / directivo | Hn: adhikari
+1113. ENGINEER — Sp: ingeniero | Hn: engineer
+1114. ARCHITECT / CONTRACTOR [Merged Construction Lead Pair] — 1. (Building
+      designer): Sp: arquitecto | Hn: architect / naksha-navees; 2. (Builder
+      head): Sp: contratista | Hn: thekedaar
+1115. CARPENTER — Sp: carpintero | Hn: badhai / carpenter
+1116. PLUMBER — Sp: plomero / fontanero | Hn: plumber / nal theek karne wala
+1117. ELECTRICIAN — Sp: electricista | Hn: electrician / bijli wala
+1118. MECHANIC — Sp: mecánico | Hn: mechanic / mistri
+1119. PILOT / CAPTAIN [Merged Vessel Master Pair] — 1. (Flight aviator): Sp:
+      piloto | Hn: pilot; 2. (Ship/team leader): Sp: capitán | Hn: kaptaan /
+      captain
+1120. SAILOR — Sp: marinero / navegante | Hn: naavik / mallaah
+1121. SOLDIER / MILITARY [Merged Armed Forces Member Pair] — Sp: soldado /
+      militar | Hn: sena ka jawan / fauji
+1122. FARMER — Sp: agricultor / campesino / granjero | Hn: kisaan
+1123. GARDENER — Sp: jardinero | Hn: maali
+1124. CLEANER / JANITOR [Merged Custodial Pair] — Sp: limpiador / conserje | Hn:
+      safai wala / sweeper
+1125. WAITER / WAITRESS [Merged Hospitality Server Pair] — Sp: mesero / camarero
+      | Hn: waiter
+1126. CHEF / COOK [Merged Kitchen Leader Duplicate] — Sp: cocinero / chef | Hn:
+      bawarchi / cook / chef
+1127. BUTCHER — Sp: carnicero | Hn: qasaai / butcher
+1128. TAILOR — Sp: sastre | Hn: darzi / tailor
+1129. AUTHOR / POET [Merged Literary Creator Pair] — 1. (Book writer): Sp: autor
+      / escritor | Hn: lekhak / author; 2. (Verse maker): Sp: poeta | Hn: shayar
+      / kavi
+1130. ARTIST / SCULPTOR [Merged Fine Arts Pair] — Sp: artista / escultor | Hn:
+      kalakaar / moortikaar
+1131. ACTOR / ACTRESS [Merged Performer Pair] — Sp: actor / actriz | Hn:
+      kalakaar / actor / abhinetri
+1132. MUSICIAN / VOCALIST [Merged Musical Artist Pair] — Sp: músico / cantante /
+      vocalista | Hn: sangeetkaar / gaayak / singer
+1133. PHOTOGRAPHER / FILMMAKER [Merged Visual Arts Pair] — Sp: fotógrafo /
+      cineasta | Hn: photographer / filmmaker
+1134. JOURNALIST / REPORTER [Merged Media Newsman Duplicate] — Sp: periodista /
+      reportero | Hn: patrakaar / reporter
+1135. DETECTIVE / INVESTIGATOR [Merged Inquiry Pair] — Sp: detective /
+      investigador | Hn: jasoos / detective / jaanchkarta
+1136. POLICE — Sp: policía | Hn: police / thulla
+1137. FIREFIGHTER — Sp: bombero | Hn: aag bujhane wala / firefighter
+1138. PARAMEDIC — Sp: paramédico / enfermero de ambulancia | Hn: paramedic /
+      emergency medical staff
+1139. RESUME / CV [Merged Credentials Sheet] — Sp: currículum / hoja de vida |
+      Hn: resume / bio-data
+1140. INTERVIEW — 1. (Job evaluation): Sp: entrevista (de trabajo) | Hn:
+      interview; 2. (Media Q&A): Sp: entrevista | Hn: saakshaatkaar / interview
+1141. VACANCY / HIRING [Merged Open Position Pair] — Sp: vacante / contratación
+      / oferta de empleo | Hn: jagah khaali / bharti / vacancy
+1142. SALARY / WAGE / INCOME [Merged Earning Terms Cluster] — Sp: salario /
+      sueldo / ingresos | Hn: tankhwah / salary / aamdani
+1143. BONUS — Sp: bono / prima / gratificación | Hn: bonus / inaam
+1144. PROMOTION / DEMOTION [Merged Career Move Pair] — 1. (Rank elevation): Sp:
+      ascenso / promoción | Hn: tarakki / promotion; 2. (Rank degradation): Sp:
+      descenso / degradación | Hn: demotion / rank girna
+1145. RESIGNATION / DISMISSAL [Merged Separation Pair] — 1. (Voluntary quit):
+      Sp: renuncia / dimisión | Hn: isteefa / resignation; 2. (Fired from work):
+      Sp: despido | Hn: naukri se nikalna / fire karna
+1146. RETIREMENT / PENSION [Merged Superannuation Pair] — 1. (Work exit age):
+      Sp: jubilación / retiro | Hn: retirement; 2. (Post-work monthly
+      allowance): Sp: pensión | Hn: pension
+1147. CONTRACT — Sp: contrato | Hn: contract / samjhauta / tehrir
+1148. TASK / DUTY / OBLIGATION [Merged Assignment Cluster] — Sp: tarea / deber /
+      obligación | Hn: kaam / farz / duty / zimmedari
+1149. PROJECT — 1. (Coordinated endeavor): Sp: proyecto | Hn: project /
+      yojna; 2. (Verb: cast image/predict): Sp: proyectar | Hn: parde par
+      dikhana / aage ka sochna
+1150. DEADLINE — Sp: fecha límite / plazo de entrega | Hn: aakhri taareekh /
+      deadline
+1151. SCHEDULE / APPOINTMENT [Merged Calendar Timing Pair] — 1. (Timetable): Sp:
+      horario / calendario | Hn: schedule / time-table; 2. (Booked meeting): Sp:
+      cita / reunión programada | Hn: appointment / mulaqat ka waqt
+1152. SHIFT / OVERTIME [Merged Working Hours Pair] — 1. (Work shift block): Sp:
+      turno (de trabajo) | Hn: shift (kaam ki); 2. (Extra hours): Sp: horas
+      extra | Hn: overtime
+1153. VACATION / HOLIDAY [Merged Time-Off Duplicate] — Sp: vacaciones / día
+      feriado | Hn: chhuttiyan / holiday
+1154. WORKLOAD / STAFF [Merged Team & Burden Pair] — 1. (Amount of work
+      assigned): Sp: carga de trabajo | Hn: kaam ka bojh / workload; 2.
+      (Personnel workforce): Sp: personal / plantilla | Hn: staff / karmchari
+1155. COLLEAGUE / COWORKER [Merged Peer Duplicate] — Sp: colega / compañero de
+      trabajo | Hn: saath kaam karne wala / colleague
+1156. BUSINESS / COMPANY / FIRM [Merged Enterprise Duplicate] — Sp: negocio /
+      empresa / compañía | Hn: business / company / dhandha
+1157. INDUSTRY / FACTORY [Merged Manufacturing Pair] — 1. (Economic sector): Sp:
+      industria | Hn: udyog / industry; 2. (Physical mill): Sp: fábrica / planta
+      | Hn: karkhana / factory
+1158. WORKPLACE — Sp: lugar de trabajo | Hn: kaam karne ki jagah / workplace
+1159. CUSTOMER / CLIENT [Merged Buyer Duplicate] — Sp: cliente / comprador | Hn:
+      graahak / customer / client
+1160. SUPPLIER / VENDOR [Merged Goods Merchant Pair] — Sp: proveedor /
+      suministrador / vendedor | Hn: supplier / saamaan bechne wala
+1161. PRODUCT / SERVICE [Merged Commercial Offering Pair] — 1. (Physical
+      manufactured good): Sp: producto / artículo | Hn: maal / product /
+      saamaan; 2. (Work/assistance supplied): Sp: servicio | Hn: seva / service
+1162. BRAND — 1. (Commercial label): Sp: marca | Hn: brand; 2. (Verb: scorch
+      mark): Sp: marcar a fuego | Hn: daagna / thappa lagana
+1163. PRICE / COST [Merged Valuation Duplicate] — Sp: precio / costo / coste |
+      Hn: keemat / daam / rate
+1164. FEE / CHARGE [Merged Service Cost Pair] — Sp: tarifa / cuota / cargo | Hn:
+      fees / charge / shulk
+1165. BILL / INVOICE [Merged Tab Duplicate] — Sp: cuenta / factura | Hn: bill /
+      hisaab / invoice
+1166. RECEIPT — Sp: recibo / comprobante (de pago) | Hn: raseed / receipt
+1167. DISCOUNT / REFUND [Merged Money Back Pair] — 1. (Reduced cost): Sp:
+      descuento / rebaja | Hn: chhoot / discount; 2. (Reimbursed money): Sp:
+      reembolso / devolución | Hn: paise wapas milna / refund
+1168. SALE / DEAL / BARGAIN [Merged Discount Transaction Cluster] — 1.
+      (Discounted pricing window): Sp: rebajas / liquidación | Hn: sale; 2.
+      (Favorable transaction): Sp: ganga / buen trato | Hn: sasta sauda /
+      badhiya deal
+1169. CASH / MONEY [Merged Currency Resource Pair] — Sp: dinero en efectivo /
+      plata | Hn: nagad paise / cash / rokda
+1170. COIN / BANKNOTE [Merged Physical Money Pair] — 1. (Metal currency): Sp:
+      moneda | Hn: sikka; 2. (Paper money bill): Sp: billete | Hn: note (kaghazi
+      rupaya)
+1171. CURRENCY — Sp: moneda / divisa | Hn: currency / mudra
+1172. WEALTH / POVERTY [Merged Financial Status Pair] — 1. (Rich abundance): Sp:
+      riqueza / fortuna | Hn: amiri / daulat; 2. (Destitution): Sp: pobreza /
+      escasez | Hn: gareebi / tangdasti
+1173. BUDGET — Sp: presupuesto | Hn: budget
+1174. TAX — Sp: impuesto / tributo | Hn: tax / lagaan
+1175. EXPENSE / EXPENDITURE [Merged Outlay Duplicate] — Sp: gasto / egreso | Hn:
+      kharcha / lagat
+1176. DEPOSIT / WITHDRAWAL [Merged Banking Actions Pair] — 1. (Put money in):
+      Sp: depositar / ingreso | Hn: paise jama karna / deposit; 2. (Take money
+      out): Sp: retirar / retiro | Hn: paise nikalna / withdrawal
+1177. TRANSFER — Sp: transferir / transferencia | Hn: transfer karna / paise
+      bhejna
+1178. BALANCE / ACCOUNT [Merged Financial Ledger Pair] — 1. (Bank ledger): Sp:
+      cuenta bancaria | Hn: khata / bank account; 2. (Remaining funds): Sp:
+      saldo / balance | Hn: bacha hua paisa / balance
+1179. DEBT / LOAN [Merged Borrowed Money Pair] — 1. (Owed liability): Sp: deuda
+      | Hn: karza / udhaar; 2. (Credit advance from bank): Sp: préstamo /
+      crédito | Hn: loan / karz
+1180. PROFIT / LOSS [Merged Net Balance Pair] — 1. (Financial gain): Sp:
+      ganancia / beneficio / lucro | Hn: munaafa / faayda; 2. (Financial
+      deficit): Sp: pérdida | Hn: nuksaan / ghata
+1181. SAVINGS — Sp: ahorros | Hn: bachat / jama-punji
+1182. BANKRUPTCY — Sp: bancarrota / quiebra | Hn: diwala nikalna / kangali
+1183. AUDIT / TRANSACTION [Merged Accounting Pair] — 1. (Book inspection): Sp:
+      auditoría / revisión contable | Hn: hisaab ki jaanch / audit; 2. (Exchange
+      operation): Sp: transacción / operación | Hn: len-den / transaction
+1184. DONATION / CHARITY [Merged Philanthropy Pair] — Sp: donación / caridad /
+      beneficencia | Hn: daan / khairaat / charity
+1185. FINE / PENALTY [Merged Official Punishment Cost Pair] — Sp: multa /
+      sanción / penalización | Hn: jurmana / challan / fine
+1186. ECONOMY / FINANCIAL [Merged Fiscal Pair] — 1. (National trade system): Sp:
+      economía | Hn: arthavyavastha / economy; 2. (Money-related adj): Sp:
+      financiero | Hn: aarthik / maali
+1187. INTEREST / RATE [Merged Lending Yield Pair] — Sp: tasa de interés /
+      interés | Hn: byaaj ki dar / byaaj rate
+1188. INVESTMENT / RISK [Merged Venture Pair] — 1. (Allocated capital): Sp:
+      inversión | Hn: nivesh / investment; 2. (Hazardous peril): Sp: riesgo /
+      peligro | Hn: risk / khatra
+1189. INSURANCE — Sp: seguro | Hn: bima / insurance
+1190. MORTGAGE — Sp: hipoteca | Hn: mortgage / ghar par liya gaya karz
+1191. INFLATION / RECESSION [Merged Macro Trends Pair] — 1. (Price surge): Sp:
+      inflación | Hn: mehangai / inflation; 2. (Economic slump): Sp: recesión /
+      crisis económica | Hn: aarthik mandi / recession
+1192. LAW / LEGAL [Merged Statutory Base Pair] — Sp: ley / legal | Hn: kanoon /
+      kanooni
+1193. ILLEGAL / UNLAWFUL [Merged Illicit Duplicate] — Sp: ilegal / ilícito | Hn:
+      gair-kanooni / illegal
+1194. JUSTICE / INJUSTICE [Merged Fairness State Pair] — 1. (Equity/fair trial):
+      Sp: justicia | Hn: insaaf / nyaay; 2. (Unfair treatment): Sp: injusticia |
+      Hn: na-insaafi / anyaay
+1195. COURT / COURTROOM [Merged Judiciary Forum Duplicate] — Sp: tribunal /
+      corte / sala del juzgado | Hn: adalat / court / kachehri
+1196. TRIAL / HEARING [Merged Case Adjudication Pair] — Sp: juicio / audiencia |
+      Hn: sunwai / mukadma / peshi
+1197. VERDICT / SENTENCE [Merged Judicial Ruling Pair] — 1. (Guilt
+      determination): Sp: veredicto / fallo | Hn: faisla; 2. (Punishment order):
+      Sp: condena / sentencia | Hn: saza / dandaadesh
+1198. LAWSUIT — Sp: demanda / litigio / pleito | Hn: mukadma / court case
+1199. WITNESS / TESTIMONY [Merged Deposition Pair] — 1. (Eyewitness person): Sp:
+      testigo | Hn: gawah; 2. (Sworn statement): Sp: testimonio / declaración |
+      Hn: gawahi / bayaan
+1200. EVIDENCE / PROOF [Merged Evidentiary Duplicate] — Sp: prueba / evidencia |
+      Hn: saboot / pramaan
+1201. CONFESSION / OATH [Merged Sworn Statement Pair] — 1. (Guilt admission):
+      Sp: confesión | Hn: jurm ka ikraar / confession; 2. (Solemn pledge): Sp:
+      juramento | Hn: kasam / shapath
+1202. BAIL / CUSTODY [Merged Detention Stage Pair] — 1. (Release money deposit):
+      Sp: fianza | Hn: zamanat / bail; 2. (Police confinement): Sp: custodia /
+      detención | Hn: hirasat / police custody
+1203. ARREST — Sp: arrestar / detener / arresto | Hn: giraftaar karna / pakadna
+1204. VICTIM — Sp: víctima / perjudicado | Hn: shikaar / peedith / mazloom
+1205. CRIME / CRIMINAL [Merged Offense Pair] — 1. (Unlawful act): Sp: delito /
+      crimen | Hn: jurm / apraadh; 2. (Felon person): Sp: delincuente / criminal
+      | Hn: mujrim / apradhi
+1206. THEFT / ROBBERY [Merged Stealing Duplicate] — Sp: robo / asalto / hurto |
+      Hn: chori / dacoity
+1207. FRAUD / FORGERY [Merged Deceit Crime Pair] — Sp: fraude / estafa /
+      falsificación | Hn: dhokhadhadi / jaal-saazi / fraud
+1208. BRIBERY / CORRUPTION [Merged Graft Pair] — Sp: soborno / cohecho /
+      corrupción | Hn: rishwat / bhrashtachar
+1209. BLACKMAIL — Sp: chantaje / chantajear | Hn: blackmail karna / dhamki dekar
+      vasooli
+1210. KIDNAPPING / HOSTAGE [Merged Abduction Pair] — 1. (Abducting person): Sp:
+      secuestro | Hn: apharan / kidnap; 2. (Held captive): Sp: rehén | Hn:
+      bandhak / hostage
+1211. MURDER — Sp: asesinato / homicidio / asesinar | Hn: qatl / hatya / jaan se
+      maarna
+1212. VIOLENCE / ASSAULT [Merged Physical Attack Pair] — Sp: violencia /
+      agresión / asalto | Hn: hinsa / maar-peet / hamla
+1213. WEAPON / GUN [Merged Firearm Pair] — 1. (General armament): Sp: arma | Hn:
+      hathiyaar; 2. (Firearm): Sp: pistola / revólver / rifle | Hn: bandook /
+      pistol
+1214. BULLET — Sp: bala / proyectil | Hn: goli / karrtoos
+1215. BOMB / EXPLOSION [Merged Blast Pair] — 1. (Explosive device): Sp: bomba |
+      Hn: bomb / gola; 2. (Detonation blast): Sp: explosión / estallido | Hn:
+      dhamaka / visphot
+1216. HANDCUFFS — Sp: esposas / grilletes | Hn: hathkadi
+1217. SIREN / PATROL [Merged Police Alert Pair] — 1. (Warning hooter): Sp:
+      sirena | Hn: siren / hooters; 2. (Surveillance round): Sp: patrulla /
+      patrullaje | Hn: gasht / patrol
+1218. THIEF — Sp: ladrón / ratero | Hn: chor / uchakka
+1219. CLUE / FINGERPRINT [Merged Investigation Lead Pair] — 1. (Investigative
+      lead): Sp: pista / indicio | Hn: suraag / clue; 2. (Dactyl mark): Sp:
+      huella digital / dactilar | Hn: ungliyon ke nishaan / fingerprint
+1220. SURVEILLANCE / INTERROGATION [Merged Police Inquiry Pair] — 1.
+      (Observation watch): Sp: vigilancia / seguimiento | Hn: nigrani / nazar
+      rakhna; 2. (Formal questioning): Sp: interrogatorio | Hn: pooch-taachh /
+      sawaal-jawaab
+1221. RAID — Sp: redada / allanamiento | Hn: chhapemaari / raid
+1222. PRISON / JAIL / CELL [Merged Confinement Cluster] — 1. (Penitentiary
+      building): Sp: prisión / cárcel | Hn: jail / kaidkhana; 2. (Individual
+      lockup room): Sp: celda | Hn: kothri / cell
+1223. PRISONER / CONVICT [Merged Inmate Pair] — Sp: preso / prisionero /
+      convicto | Hn: kaidi / bandi
+1224. PUNISHMENT — Sp: castigo / pena / sanción | Hn: saza / dand
+1225. WARRANT — Sp: orden judicial / orden de arresto | Hn: warrant / giraftari
+      ka aadesh
+1226. GOVERNMENT — Sp: gobierno | Hn: sarkar
+1227. NATION / REPUBLIC [Merged Sovereign State Pair] — 1. (Country/people): Sp:
+      nación / país | Hn: rashtra / desh / quom; 2. (Representative democracy):
+      Sp: república | Hn: ganatantra / republic
+1228. DEMOCRACY / CONSTITUTION [Merged Civic Framework Pair] — 1. (Elected
+      governance): Sp: democracia | Hn: loktantra / jamhooriat; 2. (Supreme
+      legal charter): Sp: constitución | Hn: samvidhan / aaeen
+1229. PARLIAMENT / CONGRESS [Merged Legislative Assembly Pair] — Sp: parlamento
+      / congreso / asamblea | Hn: sansad / parliament
+1230. POLICY / LEGISLATION [Merged Statutory Measure Pair] — 1. (Guiding
+      principle/scheme): Sp: política / directriz | Hn: neeti / policy; 2.
+      (Enacted statute): Sp: legislación / ley | Hn: kanoon / niyamavali
+1231. POLITICIAN — Sp: político | Hn: neta / rajneetigya
+1232. PRESIDENT / PRIME MINISTER [Merged Head of State Pair] — 1. (President):
+      Sp: presidente | Hn: rashtrapati; 2. (Prime minister): Sp: primer ministro
+      / presidente del gobierno | Hn: pradhan mantri / wazir-e-azam
+1233. MINISTER / MINISTRY [Merged Government Department Pair] — 1. (Cabinet
+      leader): Sp: ministro | Hn: mantri / wazir; 2. (Executive department): Sp:
+      ministerio / secretaría | Hn: mantralaya / ministry
+1234. MAYOR / GOVERNOR [Merged Local Executive Pair] — 1. (City head): Sp:
+      alcalde / presidente municipal | Hn: mayor / nagar adhyaksh; 2.
+      (State/provincial head): Sp: gobernador | Hn: rajyapaal / governor
+1235. CITIZEN / NATIONALITY [Merged Civic Identity Pair] — 1. (National member):
+      Sp: ciudadano | Hn: naagrik / shehri; 2. (Country citizenship): Sp:
+      nacionalidad / ciudadanía | Hn: naagrikta / qaumiyat
+1236. OPPOSITION / COALITION [Merged Parliamentary Alignment Pair] — 1. (Rival
+      party block): Sp: oposición | Hn: vipaksh / opposition; 2. (Alliance
+      block): Sp: coalición / alianza política | Hn: gathbandhan / alliance
+1237. MAJORITY / MINORITY [Merged Numerical Balance Pair] — 1. (Greater part):
+      Sp: mayoría | Hn: bahumat / aksariyat; 2. (Lesser part): Sp: minoría | Hn:
+      alpasankhyak / aqalliyat
+1238. AUTHORITY / POWER / RULE [Merged Command Cluster] — 1. (Legal right to
+      command): Sp: autoridad | Hn: adhikaar / power; 2. (Dominant
+      control/reign): Sp: poder / mando / gobierno | Hn: taakat / shashan / raaj
+1239. ELECTION / VOTE [Merged Franchise Pair] — 1. (Polling process): Sp:
+      elecciones / comicios | Hn: chunaav / election; 2. (Ballot choice / cast
+      ballot): Sp: voto / votar | Hn: vote / matdaan / vote dena
+1240. CAMPAIGN / CANDIDATE [Merged Electoral Race Pair] — 1. (Public drive): Sp:
+      campaña | Hn: chunaavi prachaar / campaign; 2. (Nominee running): Sp:
+      candidato / aspirante | Hn: umeedwaar / pratyashi
+1241. REFORM — Sp: reforma / cambio estructural | Hn: sudhaar / badlaav / reform
+1242. RIGHT / FREEDOM / LIBERTY [Merged Civil Entitlement Cluster] — 1. (Legal
+      entitlement): Sp: derecho | Hn: haq / adhikaar; 2. (State of
+      emancipation): Sp: libertad | Hn: azaadi / swatantrata
+1243. PROTEST / DEMONSTRATION / RALLY [Merged Public Dissent Cluster] — Sp:
+      protesta / manifestación / marcha | Hn: virodh / dharna / pradarshan /
+      rally
+1244. STRIKE / BOYCOTT [Merged Civil Action Pair] — 1. (Labor walkout): Sp:
+      huelga / paro | Hn: hartal / strike; 2. (Commercial shun): Sp: boicot /
+      boicotear | Hn: boycott / bahishkaar karna
+1245. REVOLUTION / MOVEMENT [Merged Societal Upheaval Pair] — 1. (Regime
+      overthrow): Sp: revolución | Hn: kraanti / inqilaab; 2. (Organized
+      campaign): Sp: movimiento | Hn: andolan / tehreek
+1246. ACTIVIST / VOLUNTEER [Merged Social Action Pair] — 1. (Cause campaigner):
+      Sp: activista / militante | Hn: karyakarta / activist; 2. (Unpaid helper):
+      Sp: voluntario | Hn: swayamsevak / volunteer
+1247. EQUALITY / FAIRNESS [Merged Parity Pair] — Sp: igualdad / equidad /
+      justicia | Hn: barabari / insaaf / nishpakshata
+1248. DISCRIMINATION / PREJUDICE [Merged Bias Pair] — Sp: discriminación /
+      prejuicio | Hn: bhedbhav / pakshpaat / ta-assub
+1249. SOCIETY / COMMUNITY [Merged Collective Body Pair] — 1. (General public
+      body): Sp: sociedad | Hn: samaaj / society; 2. (Local group): Sp:
+      comunidad | Hn: samuday / basti / community
+1250. PUBLIC / CIVIC [Merged Public Domain Pair] — Sp: público / cívico /
+      ciudadano | Hn: aam janta / sarkari / sarvajanik
+1251. REFUGEE / IMMIGRANT [Merged Displaced Persons Pair] — 1. (Asylum escapee):
+      Sp: refugiado | Hn: sharanaarthi / refugee; 2. (Relocated migrant): Sp:
+      inmigrante | Hn: pardesi / aane wala prawasi
+1252. INTERNATIONAL / FOREIGN [Merged External Affairs Pair] — 1.
+      (Multinational): Sp: internacional / global | Hn: antarrashtriya /
+      international; 2. (From abroad): Sp: extranjero / foráneo | Hn: videshi /
+      gair-mulki
+1253. DIPLOMACY / EMBASSY [Merged Envoy Affairs Pair] — 1. (Foreign statecraft):
+      Sp: diplomacia | Hn: kootneeti / rajnay; 2. (Foreign legation office): Sp:
+      embajada | Hn: dootavas / embassy
+1254. BORDER / BOUNDARY [Merged Territorial Limit Pair] — Sp: frontera / límite
+      / raya divisoria | Hn: border / seema / sarhad
+1255. DISPUTE / CONFLICT / CRISIS [Merged Friction Cluster] — 1. (Argumentative
+      row): Sp: disputa / riña / controversia | Hn: vivaad / jhagda; 2. (Armed
+      clash): Sp: conflicto / choque | Hn: takraav / ladai; 3. (Emergency
+      tipping point): Sp: crisis | Hn: sankat / buhran
+1256. WAR / COMBAT [Merged Warfare Pair] — Sp: guerra / combate / lucha armada |
+      Hn: jung / yuddh / ladai
+1257. MILITARY / ARMY / NAVY [Merged Armed Forces Cluster] — 1. (Total military
+      forces): Sp: fuerzas armadas / ejército | Hn: fauj / sena / military; 2.
+      (Sea fleet service): Sp: marina / armada | Hn: nau-sena / navy
+1258. COMMANDER / GENERAL [Merged Military Brass Pair] — Sp: comandante /
+      general | Hn: commander / senapati / general
+1259. INVASION / ATTACK [Merged Military Assault Pair] — Sp: invasión / ataque /
+      agresión | Hn: hamla / aakraman / fauji chadai
+1260. VICTORY / DEFEAT [Merged Battle Outcome Pair] — 1. (Triumph): Sp: victoria
+      / triunfo | Hn: jeet / fateh; 2. (Loss): Sp: derrota / revés | Hn: haar /
+      shikast
+1261. SURRENDER / CEASEFIRE [Merged Truce Pair] — 1. (Capitulate): Sp: rendirse
+      / rendición | Hn: hathiyaar daalna / surrender karna; 2. (Halt fighting):
+      Sp: alto el fuego / tregua | Hn: yuddh-viraam / ceasefire
+1262. PEACE — Sp: paz / tranquilidad | Hn: shaanti / aman / sukoon
