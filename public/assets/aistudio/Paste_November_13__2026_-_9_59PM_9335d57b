@@ -1,0 +1,544 @@
+Part 1 (Words 1–1,000) — Split 3 & 4: Words 501–1,000
+
+440. GOOD — Sp: bueno / buena / buen | Hn: achha / achhi / achhe
+441. BAD — Sp: malo / mala / mal | Hn: bura / buri / bure
+442. GREAT —
+     1.  (Excellent): Sp: genial / estupendo | Hn: bohot badhiya / zabardast
+     2.  (Prominent/large): Sp: gran / grande | Hn: mahan / bada
+443. BEST — Sp: el mejor / la mejor | Hn: sabse achha / sabse badhiya
+444. WORST — Sp: el peor / la peor | Hn: sabse bura / sabse bekar
+445. BIG / LARGE [Merged Duplicate] — Sp: grande / grandes | Hn: bada / badi /
+     bade
+446. SMALL / TINY [Merged Duplicate] — Sp: pequeño / pequeña / diminuto | Hn:
+     chhota / chhoti / chhote
+447. HUGE — Sp: enorme / gigante | Hn: bohot bada
+448. TALL — Sp: alto / alta | Hn: lamba / lambi (unchai mein)
+449. SHORT —
+     1.  (Height): Sp: bajo / baja | Hn: chhota / kam lambai ka
+     2.  (Length/duration): Sp: corto / corta | Hn: chhota / chhoti / kam samay
+450. LONG — Sp: largo / larga | Hn: lamba / lambi
+451. WIDE — Sp: ancho / ancha / amplio | Hn: chauda / chaudi
+452. NARROW — Sp: estrecho / estrecha / angosto | Hn: patla / tang
+453. HIGH — Sp: alto / alta / elevado | Hn: uncha / unchi
+454. LOW — Sp: bajo / baja | Hn: neecha / neechi / kam
+455. DEEP — Sp: profundo / profunda / hondo | Hn: gehra / gehri
+456. SHALLOW — Sp: poco profundo / superficial | Hn: kam gehra
+457. THICK — Sp: grueso / gruesa / gordo | Hn: mota / moti / gaadha
+458. THIN —
+     1.  (Person/slender): Sp: flaco / flaca / delgado | Hn: patla / patli
+     2.  (Object/fine): Sp: fino / fina / delgado | Hn: bareek / patla
+459. HEAVY — Sp: pesado / pesada | Hn: bhaari
+460. LIGHT (WEIGHT) — Sp: ligero / ligera / liviano | Hn: halka / halki
+461. STRONG — Sp: fuerte | Hn: mazboot / taakatvar
+462. WEAK — Sp: débil / flojo | Hn: kamzor
+463. HARD —
+     1.  (Solid/firm): Sp: duro / dura | Hn: sakht / kadak
+     2.  (Difficult): Sp: difícil / complicado | Hn: mushkil
+464. SOFT — Sp: suave / blando / blanda | Hn: naram / mulayam
+465. FAST / QUICK [Merged Duplicate] — Sp: rápido / rápida / veloz | Hn: tez /
+     jaldi
+466. SLOW — Sp: lento / lenta / despacio | Hn: dheema / dheemi
+467. HOT —
+     1.  (Temperature): Sp: caliente | Hn: garam
+     2.  (Spicy): Sp: picante | Hn: teekha / teekhi
+468. COLD —
+     1.  (Temperature): Sp: frío / fría | Hn: thanda / thandi
+     2.  (Sickness): Sp: resfriado / catarro | Hn: sardi / zukaam
+469. WARM — Sp: tibio / tibia / cálido | Hn: gunguna / halka garam
+470. COOL —
+     1.  (Slightly cold): Sp: fresco / fresca | Hn: thanda / halka thanda
+     2.  (Awesome): Sp: genial / guay | Hn: badhiya / mast
+471. WET — Sp: mojado / mojada / húmedo | Hn: geela / geeli
+472. DRY — Sp: seco / seca | Hn: sookha / sookhi
+473. DIRTY — Sp: sucio / sucia | Hn: ganda / gandi / maila
+474. CLEAN — Sp: limpio / limpia | Hn: saaf
+475. NEAT / MESSY [Merged Antonym Pair] —
+     1.  (Tidy/neat): Sp: ordenado / ordenada | Hn: saaf-suthra
+     2.  (Disordered/messy): Sp: desordenado / desordenada | Hn: bikhra hua /
+         ganda
+476. NEW — Sp: nuevo / nueva | Hn: naya / nayi / naye
+477. OLD —
+     1.  (Objects): Sp: viejo / vieja / antiguo | Hn: purana / purani
+     2.  (People): Sp: viejo / anciano / mayor | Hn: boodha / buzurg
+478. YOUNG — Sp: joven | Hn: jawan / chhota
+479. FRESH — Sp: fresco / fresca | Hn: taaza / taazi
+480. FULL — Sp: lleno / llena | Hn: bhara hua / bhari hui
+481. EMPTY — Sp: vacío / vacía | Hn: khaali
+482. CLOSED — Sp: cerrado / cerrada | Hn: band
+483. EASY — Sp: fácil / sencillo | Hn: aasaan
+484. DIFFICULT — Sp: difícil / complicado | Hn: mushkil
+485. SIMPLE — Sp: simple / sencillo | Hn: seedha / aasaan
+486. CLEAR —
+     1.  (Understandable): Sp: claro / evidente | Hn: saaf
+     2.  (Transparent/sunny): Sp: despejado / claro | Hn: saaf
+487. DARK — Sp: oscuro / oscura | Hn: andhera / kaala
+488. BRIGHT / SHINY [Merged Duplicate] — Sp: brillante / luminoso | Hn: chamkila
+     / chamkili / roshan
+489. LOUD / NOISY [Merged Duplicate] — Sp: ruidoso / ruidosa / fuerte | Hn: shor
+     wala / tez awaaz
+490. QUIET / SILENT [Merged Duplicate] — Sp: silencioso / callado / tranquilo |
+     Hn: shaant / chupchap
+491. SWEET —
+     1.  (Taste): Sp: dulce | Hn: meetha / meethi
+     2.  (Kind personality): Sp: tierno / dulce | Hn: pyaara / pyaari
+492. SOUR — Sp: agrio / agria / ácido | Hn: khatta / khatti
+493. BITTER — Sp: amargo / amarga | Hn: kadva / kadvi
+494. SALTY — Sp: salado / salada | Hn: namkeen
+495. SPICY — Sp: picante / picoso | Hn: teekha / teekhi / masaaledaar
+496. DELICIOUS — Sp: delicioso / rico / sabroso | Hn: swadisht / mazedaar
+497. BEAUTIFUL / PRETTY [Merged Duplicate] — Sp: hermoso / hermosa / bonito /
+     linda | Hn: sundar / khoobsurat
+498. HANDSOME — Sp: guapo / atractivo | Hn: khoobsurat / smart
+499. UGLY — Sp: feo / fea | Hn: badsoorat / ganda dikhne wala
+500. CUTE — Sp: tierno / tierna / lindo / linda | Hn: pyaara / pyaari
+501. HAPPY — Sp: feliz / alegre / contento | Hn: khush
+502. SAD — Sp: triste | Hn: udaas / dukhi
+503. ANGRY — Sp: enojado / enfadado | Hn: gussa / naraaz
+504. CALM — Sp: tranquilo / calmado | Hn: shaant / sukoon se
+505. EXCITED — Sp: emocionado / emocionada | Hn: khush / excited
+506. TIRED — Sp: cansado / cansada / agotado | Hn: thaka hua / thaki hui
+507. SLEEPY — Sp: somnoliento / con sueño | Hn: neend mein / neend aana
+508. HUNGRY — Sp: hambriento / tener hambre | Hn: bhookha / bhookh lagna
+509. THIRSTY — Sp: sediento / tener sed | Hn: pyaasa / pyaas lagna
+510. SICK — Sp: enfermo / enferma / malo | Hn: beemar
+511. HEALTHY — Sp: sano / sana / saludable | Hn: tandurust / sehatmand
+512. BRAVE — Sp: valiente | Hn: bahadur / himmati
+513. AFRAID / SCARED [Merged Duplicate] — Sp: asustado / tener miedo | Hn: dara
+     hua / darr lagna
+514. PROUD — Sp: orgulloso / orgullosa | Hn: garv hona / fakr hona
+515. SHY — Sp: tímido / tímida / vergonzoso | Hn: sharmeela / jhijhakne wala
+516. KIND / POLITE [Merged Duplicate] — Sp: amable / educado / cortés | Hn:
+     achha / shareef / tameezdaar
+517. HONEST — Sp: honesto / sincero / honrado | Hn: imaandaar / sachha
+518. SMART / CLEVER [Merged Duplicate] — Sp: listo / inteligente / astuto | Hn:
+     hoshiyaar / chalaak
+519. FUNNY —
+     1.  (Humorous): Sp: gracioso / chistoso / cómico | Hn: mazedaar / hasi aane
+         wala
+     2.  (Strange): Sp: raro / extraño | Hn: ajeeb
+520. SERIOUS — Sp: serio / seria / grave | Hn: serious / sanjeeda
+521. CAREFUL — Sp: cuidadoso / cuidadosa | Hn: dhyaan se / khayaal rakhne wala
+522. CARELESS — Sp: descuidado / descuidada | Hn: laparwah
+523. LAZY — Sp: perezoso / perezosa / vago | Hn: aalsi / kaamchor
+524. BUSY — Sp: ocupado / ocupada | Hn: kaam mein laga / busy
+525. COLOR — Sp: color | Hn: rang
+526. RED — Sp: rojo / roja | Hn: laal
+527. BLUE — Sp: azul | Hn: neela / neeli
+528. GREEN — Sp: verde | Hn: hara / hari
+529. YELLOW — Sp: amarillo / amarilla | Hn: peela / peeli
+530. BLACK — Sp: negro / negra | Hn: kaala / kaali
+531. WHITE — Sp: blanco / blanca | Hn: safed
+532. PURPLE — Sp: morado / púrpura | Hn: baingani
+533. PINK — Sp: rosa / rosado / rosada | Hn: gulaabi
+534. BROWN — Sp: marrón / café | Hn: bhoora / bhoori
+535. GRAY — Sp: gris | Hn: grey
+536. GOLD — Sp: oro / dorado | Hn: sona / sunehra
+537. SILVER — Sp: plata / plateado | Hn: chaandi / chaandi jaisa
+538. SHAPE — Sp: forma / figura | Hn: shape / roop
+539. CIRCLE — Sp: círculo / redondel | Hn: gola
+540. SQUARE —
+     1.  (Shape): Sp: cuadrado | Hn: chaukona
+     2.  (Town plaza): Sp: plaza | Hn: chowk
+541. TRIANGLE — Sp: triángulo | Hn: tikona
+542. LINE —
+     1.  (Drawn stripe): Sp: línea / raya | Hn: lakeer
+     2.  (Queue): Sp: fila / cola | Hn: kataar
+543. POINT —
+     1.  (Dot/score): Sp: punto | Hn: point / nishaan
+     2.  (Gesture/indicate): Sp: señalar / apuntar | Hn: ishara karna / dikhana
+544. PERSON / PEOPLE [Merged Group] —
+     1.  (Singular): Sp: persona | Hn: aadmi / insaan
+     2.  (Plural): Sp: personas / gente | Hn: log
+545. MAN — Sp: hombre | Hn: aadmi / mard
+546. WOMAN — Sp: mujer | Hn: aurat / mahila
+547. BOY — Sp: chico / niño / muchacho | Hn: ladka
+548. GIRL — Sp: chica / niña / muchacha | Hn: ladki
+549. CHILD — Sp: niño / niña / hijo | Hn: bachha / bachhi
+550. BABY — Sp: bebé / nene | Hn: chhota bachha
+551. ADULT — Sp: adulto / adulta | Hn: bada / jawaan
+552. FAMILY — Sp: familia | Hn: parivaar
+553. PARENT — Sp: padre / madre / progenitores | Hn: maa-baap
+554. FATHER — Sp: padre / papá | Hn: pita / papa / abba
+555. MOTHER — Sp: madre / mamá | Hn: maa / mummy / ammi
+556. SON — Sp: hijo | Hn: beta
+557. DAUGHTER — Sp: hija | Hn: beti
+558. BROTHER — Sp: hermano | Hn: bhai
+559. SISTER — Sp: hermana | Hn: behen
+560. HUSBAND — Sp: esposo / marido | Hn: pati / shohar
+561. WIFE — Sp: esposa / mujer | Hn: patni / biwi
+562. GRANDFATHER — Sp: abuelo | Hn: dada / nana
+563. GRANDMOTHER — Sp: abuela | Hn: dadi / nani
+564. UNCLE — Sp: tío | Hn: chacha / mama / fufa / mausa
+565. AUNT — Sp: tía | Hn: chachi / mami / bua / mausi
+566. COUSIN — Sp: primo / prima | Hn: chachera-mamera bhai-behen
+567. NEPHEW — Sp: sobrino | Hn: bhatija / bhanja
+568. NIECE — Sp: sobrina | Hn: bhatiji / bhanji
+569. RELATIVE — Sp: pariente / familiar | Hn: rishtedaar
+570. FRIEND — Sp: amigo / amiga | Hn: dost / yaar
+571. NEIGHBOR — Sp: vecino / vecina | Hn: padosi
+572. GUEST — Sp: invitado / invitada / huésped | Hn: mehmaan
+573. HOST — Sp: anfitrión / anfitriona | Hn: mezbaan
+574. STRANGER — Sp: desconocido / extraño | Hn: anjaan / ajnabi
+575. KING / QUEEN [Merged Pair] —
+     1.  (King): Sp: rey | Hn: raja / badshah
+     2.  (Queen): Sp: reina | Hn: rani
+576. LEADER — Sp: líder / dirigente / jefe | Hn: neta / leader
+577. BODY — Sp: cuerpo | Hn: shareer / badan / jism
+578. HEAD —
+     1.  (Anatomy): Sp: cabeza | Hn: sir
+     2.  (Chief/leader): Sp: jefe / líder | Hn: mukhiya / boss
+579. HAIR — Sp: pelo / cabello | Hn: baal
+580. FACE — Sp: cara / rostro | Hn: chehra / moonh
+581. FOREHEAD — Sp: frente | Hn: maatha
+582. EYE — Sp: ojo | Hn: aankh
+583. EAR — Sp: oreja / oído | Hn: kaan
+584. NOSE — Sp: nariz | Hn: naak
+585. CHEEK — Sp: mejilla / cachete | Hn: gaal
+586. MOUTH — Sp: boca | Hn: moonh
+587. LIP — Sp: labio | Hn: honth
+588. TOOTH — Sp: diente / muela | Hn: daant
+589. TONGUE —
+     1.  (Anatomy): Sp: lengua | Hn: jeebh
+     2.  (Language): Sp: lengua / idioma | Hn: bhasha / zabaan
+590. CHIN — Sp: barbilla / mentón | Hn: thodi
+591. NECK — Sp: cuello | Hn: gardan
+592. THROAT — Sp: garganta | Hn: gala
+593. SHOULDER — Sp: hombro | Hn: kandha
+594. CHEST —
+     1.  (Anatomy): Sp: pecho | Hn: chhati / seena
+     2.  (Box/trunk): Sp: baúl / caja | Hn: sandook / baksa
+595. BACK (BODY) — Sp: espalda | Hn: peeth
+596. WAIST — Sp: cintura | Hn: kamar
+597. STOMACH — Sp: estómago / barriga | Hn: pet
+598. ARM — Sp: brazo | Hn: baanh / baazu
+599. ELBOW — Sp: codo | Hn: kohni
+600. WRIST — Sp: muñeca | Hn: kalai
+601. HAND — Sp: mano | Hn: haath
+602. FINGER — Sp: dedo (de la mano) | Hn: ungli
+603. THUMB — Sp: pulgar / dedo gordo | Hn: angootha
+604. NAIL —
+     1.  (Fingernail): Sp: uña | Hn: nakhun
+     2.  (Metal hardware): Sp: clavo | Hn: keel
+605. LEG — Sp: pierna | Hn: taang
+606. THIGH — Sp: muslo | Hn: jaangh
+607. KNEE — Sp: rodilla | Hn: ghutna
+608. ANKLE — Sp: tobillo | Hn: takhna
+609. FOOT —
+     1.  (Anatomy): Sp: pie | Hn: pair / paanv
+     2.  (Measurement): Sp: pie | Hn: fit [universal loanword]
+610. TOE — Sp: dedo del pie | Hn: pair ki ungli / pair ka angootha
+611. SKIN — Sp: piel | Hn: chamdi / skin
+612. BONE — Sp: hueso | Hn: haddi
+613. MUSCLE — Sp: músculo | Hn: muscle / patthe
+614. BLOOD — Sp: sangre | Hn: khoon
+615. BLEED — Sp: sangrar | Hn: khoon behna / khoon nikalna
+616. HEART —
+     1.  (Organ): Sp: corazón | Hn: dil
+     2.  (Core/center): Sp: centro / corazón | Hn: beech / dil
+617. LUNG — Sp: pulmón | Hn: fefda
+618. BRAIN — Sp: cerebro / sesos | Hn: dimaag
+619. VOICE — Sp: voz | Hn: awaaz
+620. TEAR —
+     1.  (From eye): Sp: lágrima | Hn: aansu
+     2.  (Rip/shred): Sp: romper / rasgar | Hn: faadna
+621. SWEAT —
+     1.  (Noun): Sp: sudor | Hn: paseena
+     2.  (Verb): Sp: sudar | Hn: paseena aana / bahana
+622. BREATH — Sp: respiración / aliento | Hn: saans
+623. HEALTH — Sp: salud | Hn: sehat
+624. ILLNESS / DISEASE [Merged Duplicate] — Sp: enfermedad / mal | Hn: beemari /
+     marz
+625. PAIN — Sp: dolor | Hn: dard / takleef
+626. FEVER — Sp: fiebre / calentura | Hn: bukhaar
+627. COUGH —
+     1.  (Noun): Sp: tos | Hn: khaansi
+     2.  (Verb): Sp: toser | Hn: khaansna
+628. FLU — Sp: gripe / influenza | Hn: sardi-zukaam
+629. HEADACHE — Sp: dolor de cabeza | Hn: sir dard
+630. WOUND —
+     1.  (Noun): Sp: herida | Hn: ghaav / chot
+     2.  (Verb): Sp: herir / lastimar | Hn: ghaayal karna / chot lagana
+631. MEDICINE — Sp: medicina / medicamento / remedio | Hn: dawai
+632. PILL — Sp: pastilla / píldora / tableta | Hn: goli
+633. BANDAGE — Sp: venda / curita | Hn: patti
+634. DOCTOR — Sp: médico / doctor | Hn: doctor
+635. NURSE — Sp: enfermero / enfermera | Hn: nurse
+636. PATIENT —
+     1.  (Medical person): Sp: paciente / enfermo | Hn: mareez
+     2.  (Calm/enduring): Sp: paciente | Hn: sabr wala
+637. HOSPITAL / CLINIC [Merged Duplicate] — Sp: hospital / clínica | Hn: aspatal
+     / clinic
+638. FOOD — Sp: comida / alimento | Hn: khaana
+639. MEAL — Sp: comida / plato | Hn: waqt ka khaana
+640. BREAKFAST — Sp: desayuno | Hn: nashta
+641. LUNCH — Sp: almuerzo / comida | Hn: dopahar ka khaana
+642. DINNER — Sp: cena | Hn: raat ka khaana
+643. SNACK — Sp: merienda / botana | Hn: halka-fulka nashta
+644. WATER — Sp: agua | Hn: paani
+645. MILK — Sp: leche | Hn: doodh
+646. TEA — Sp: té | Hn: chai
+647. COFFEE — Sp: café | Hn: coffee
+648. JUICE — Sp: jugo / zumo | Hn: ras / juice
+649. SOUP — Sp: sopa / caldo | Hn: shorba / soup
+650. BREAD — Sp: pan | Hn: roti / pav / bread
+651. RICE — Sp: arroz | Hn: chawal
+652. WHEAT / FLOUR [Merged Pair] —
+     1.  (Grain): Sp: trigo | Hn: gehoon
+     2.  (Ground powder): Sp: harina | Hn: aata / maida
+653. EGG — Sp: huevo | Hn: anda
+654. MEAT — Sp: carne | Hn: gosht / meat
+655. CHICKEN —
+     1.  (Meat): Sp: pollo | Hn: chicken / murga
+     2.  (Bird): Sp: gallina / pollo | Hn: murga / murgi
+656. FISH —
+     1.  (Food): Sp: pescado | Hn: machhli
+     2.  (Live animal): Sp: pez | Hn: machhli
+657. CHEESE — Sp: queso | Hn: paneer / cheese
+658. BUTTER — Sp: mantequilla / manteca | Hn: makkhan
+659. YOGURT — Sp: yogur | Hn: dahi
+660. OIL —
+     1.  (Cooking): Sp: aceite | Hn: tel
+     2.  (Petroleum): Sp: petróleo / crudo | Hn: kachha tel
+661. SALT — Sp: sal | Hn: namak
+662. SUGAR — Sp: azúcar | Hn: cheeni / shakkar
+663. PEPPER —
+     1.  (Black spice): Sp: pimienta | Hn: kaali mirch
+     2.  (Bell pepper): Sp: pimiento / morrón | Hn: shimla mirch
+664. SPICE — Sp: especia / condimento | Hn: masala
+665. HONEY — Sp: miel | Hn: shehad
+666. SAUCE — Sp: salsa | Hn: chutney / sauce
+667. SALAD — Sp: ensalada | Hn: kachumber / salaad
+668. FRUIT — Sp: fruta | Hn: phal
+669. APPLE — Sp: manzana | Hn: seb
+670. BANANA — Sp: plátano / banana | Hn: kela
+671. ORANGE —
+     1.  (Fruit): Sp: naranja | Hn: santra
+     2.  (Color): Sp: naranja / anaranjado | Hn: naarangi
+672. MANGO — Sp: mango | Hn: aam
+673. GRAPE — Sp: uva | Hn: angoor
+674. LEMON — Sp: limón | Hn: neembu
+675. WATERMELON — Sp: sandía | Hn: tarbooz
+676. VEGETABLE — Sp: verdura / vegetal | Hn: sabzi
+677. POTATO — Sp: papa / patata | Hn: aalu
+678. TOMATO — Sp: tomate / jitomate | Hn: tamatar
+679. ONION — Sp: cebolla | Hn: pyaaz
+680. GARLIC — Sp: ajo | Hn: lehsun
+681. GINGER — Sp: jengibre | Hn: adrak
+682. CARROT — Sp: zanahoria | Hn: gajar
+683. CHILI — Sp: chile / ají | Hn: mirch / hari mirch
+684. BEANS / PEAS [Merged Legume Pair] —
+     1.  (Beans): Sp: frijoles / alubias | Hn: rajma / faliyan
+     2.  (Peas): Sp: guisantes / arvejas | Hn: matar
+685. CORN — Sp: maíz / choclo | Hn: makka / bhutta
+686. CUCUMBER — Sp: pepino | Hn: kheera
+687. SPINACH / CABBAGE [Merged Greens Pair] —
+     1.  (Spinach): Sp: espinaca | Hn: paalak
+     2.  (Cabbage): Sp: repollo / col | Hn: patta gobhi
+688. NUT —
+     1.  (Seed/food): Sp: fruto seco / nuez | Hn: mewa / akhrot
+     2.  (Hardware): Sp: tuerca | Hn: dhibri
+689. PLATE — Sp: plato | Hn: thali / plate
+690. BOWL — Sp: tazón / cuenco | Hn: katori / bowl
+691. CUP / MUG [Merged Pair] — Sp: taza / pocillo | Hn: cup / pyala
+692. GLASS —
+     1.  (Drinking tumbler): Sp: vaso | Hn: gilaas
+     2.  (Material): Sp: vidrio / cristal | Hn: kaanch
+693. BOTTLE — Sp: botella | Hn: botal
+694. SPOON — Sp: cuchara | Hn: chammach
+695. FORK — Sp: tenedor | Hn: kaanta
+696. KNIFE — Sp: cuchillo | Hn: chaaku
+697. NAPKIN — Sp: servilleta | Hn: rumaal / haath ponchhne ka kapda
+698. POT — Sp: olla / cacerola | Hn: patila / bartan
+699. PAN — Sp: sartén | Hn: tawa / kadhai
+700. REFRIGERATOR — Sp: refrigerador / nevera | Hn: fridge
+701. STOVE / OVEN [Merged Cooking Unit] —
+     1.  (Cooktop/burner): Sp: estufa / cocina | Hn: chulha
+     2.  (Baking chamber): Sp: horno | Hn: tandoor / oven
+702. SINK / TAP [Merged Washing Station] —
+     1.  (Basin): Sp: fregadero / lavabo | Hn: sink / haath dhone ki jagah
+     2.  (Faucet): Sp: grifo / llave | Hn: nal / toti
+703. HOUSE / HOME [Merged Pair] — Sp: casa / hogar | Hn: ghar / makaan
+704. ROOM — Sp: cuarto / habitación | Hn: kamra
+705. BEDROOM — Sp: dormitorio / recámara | Hn: sone ka kamra / bedroom
+706. BATHROOM — Sp: baño | Hn: bathroom / nahaane ki jagah
+707. LIVING ROOM — Sp: sala / salón | Hn: baithak / living room
+708. KITCHEN — Sp: cocina | Hn: rasoi
+709. ROOF / CEILING [Merged Structure Pair] —
+     1.  (Exterior top): Sp: tejado / techo | Hn: chhat (upar ki)
+     2.  (Interior ceiling): Sp: techo / cielo raso | Hn: chhat (andar ki)
+710. WALL — Sp: pared / muro | Hn: deewaar
+711. FLOOR —
+     1.  (Ground surface): Sp: piso / suelo | Hn: farsh
+     2.  (Building storey): Sp: piso / planta | Hn: manzil
+712. DOOR — Sp: puerta | Hn: darwaza
+713. WINDOW — Sp: ventana | Hn: khidki
+714. STAIRS — Sp: escaleras | Hn: seedhiyan
+715. BALCONY / TERRACE [Merged Pair] — Sp: balcón / terraza | Hn: balcony /
+     chhat
+716. GARDEN / YARD [Merged Pair] — Sp: jardín / patio | Hn: bageecha / garden
+717. GATE / FENCE [Merged Barrier Pair] —
+     1.  (Barrier fence): Sp: cerca / valla | Hn: deewaar / boundary
+     2.  (Access gate): Sp: portón / reja | Hn: gate / phatak
+718. TABLE — Sp: mesa | Hn: mez / table
+719. CHAIR — Sp: silla | Hn: kursi
+720. SOFA / COUCH [Merged Pair] — Sp: sofá / sillón | Hn: sofa
+721. BED — Sp: cama | Hn: bistar / palang
+722. MATTRESS — Sp: colchón | Hn: gadda
+723. PILLOW — Sp: almohada | Hn: takiya
+724. BLANKET — Sp: cobija / manta | Hn: kambal
+725. SHEET —
+     1.  (Bed cover): Sp: sábana | Hn: chaadar
+     2.  (Paper piece): Sp: hoja (de papel) | Hn: panna
+726. CURTAIN — Sp: cortina | Hn: parda
+727. CARPET / RUG [Merged Pair] — Sp: alfombra / tapete | Hn: kaaleen
+728. MIRROR — Sp: espejo | Hn: aayina / sheesha
+729. CLOSET / WARDROBE [Merged Pair] — Sp: armario / ropero | Hn: almaari
+730. SHELF / CABINET [Merged Storage Pair] —
+     1.  (Ledge): Sp: estante / repisa | Hn: shelf / almaari
+     2.  (Storage box): Sp: gabinete / alacena | Hn: almaari
+731. DESK — Sp: escritorio | Hn: table / desk
+732. LAMP / BULB [Merged Light Pair] —
+     1.  (Fixture): Sp: lámpara | Hn: batti / diya
+     2.  (Glass bulb): Sp: bombilla / foco | Hn: bulb
+733. SWITCH —
+     1.  (Electrical device): Sp: interruptor / apagador | Hn: switch / button
+     2.  (Verb: change/swap): Sp: cambiar / intercambiar | Hn: badalna
+734. PLUG / SOCKET [Merged Outlet Pair] —
+     1.  (Male prong): Sp: enchufe / clavija | Hn: plug
+     2.  (Wall outlet): Sp: tomacorriente | Hn: socket / board
+735. WIRE — Sp: cable / alambre | Hn: taar / wire
+736. CLOCK — Sp: reloj (de pared) | Hn: deewaar ghadi
+737. BELL — Sp: campana / timbre | Hn: ghanti
+738. KEY —
+     1.  (Door lock tool): Sp: llave | Hn: chaabi
+     2.  (Crucial factor): Sp: clave / fundamental | Hn: mukhya
+739. LOCK / PADLOCK [Merged Lock Pair] — Sp: candado / cerradura | Hn: taala /
+     lock
+740. BROOM / MOP [Merged Cleaning Tools] —
+     1.  (Sweeping brush): Sp: escoba | Hn: jhaadu
+     2.  (Wet wipe tool): Sp: trapeador / fregona | Hn: pocha
+741. BUCKET — Sp: cubo / balde | Hn: balti
+742. TRASH / BIN [Merged Refuse Pair] —
+     1.  (Waste matter): Sp: basura | Hn: kachra / kooda
+     2.  (Receptacle): Sp: basurero / cubo | Hn: koodadan
+743. SOAP — Sp: jabón | Hn: saabun
+744. TOWEL — Sp: toalla | Hn: tauliya
+745. TOOTHBRUSH / TOOTHPASTE [Merged Dental Pair] —
+     1.  (Brush): Sp: cepillo de dientes | Hn: toothbrush
+     2.  (Paste): Sp: pasta de dientes | Hn: toothpaste
+746. SCISSORS — Sp: tijeras | Hn: kainchi
+747. HAMMER — Sp: martillo | Hn: hathoda
+748. SCREW / SCREWDRIVER [Merged Fastener Pair] —
+     1.  (Threaded spike): Sp: tornillo | Hn: pech / screw
+     2.  (Driver tool): Sp: destornillador | Hn: pechkas
+749. ROPE / STRING [Merged Cordage Pair] — Sp: cuerda / soga / hilo | Hn: rassi
+     / dhaaga
+750. CLOTHES / CLOTHING [Merged Duplicate] — Sp: ropa / prendas | Hn: kapde
+751. SHIRT — Sp: camisa / playera | Hn: kameez / shirt
+752. PANTS — Sp: pantalones | Hn: pant / patloon
+753. JEANS — Sp: jeans / vaqueros | Hn: jeans
+754. SHORTS — Sp: pantalones cortos / bermudas | Hn: shorts / nikkar
+755. DRESS / SKIRT [Merged Pair] —
+     1.  (One-piece garment): Sp: vestido | Hn: frock / dress
+     2.  (Lower garment): Sp: falda | Hn: ghagra / skirt
+756. SUIT —
+     1.  (Formal outfit): Sp: traje | Hn: suit / coat-pant
+     2.  (Verb: fit/match): Sp: quedar bien / convenir | Hn: jachna / theek
+         baithna
+757. JACKET / COAT [Merged Outerwear Pair] — Sp: chaqueta / abrigo | Hn: jacket
+     / coat
+758. SWEATER — Sp: suéter / jersey | Hn: sweater
+759. UNIFORM — Sp: uniforme | Hn: vardi / uniform
+760. UNDERWEAR — Sp: ropa interior | Hn: kachha / underwear
+761. SOCK — Sp: calcetín / media | Hn: moja / jurab
+762. SHOE — Sp: zapato | Hn: joota
+763. BOOT — Sp: bota | Hn: boot / bada joota
+764. SANDAL / SLIPPER [Merged Footwear Pair] — Sp: sandalia / chancla | Hn:
+     chappal / sandal
+765. HAT / CAP [Merged Headwear Pair] — Sp: sombrero / gorra | Hn: topi / cap
+766. BELT — Sp: cinturón / cinto | Hn: belt
+767. SCARF — Sp: bufanda / pañuelo | Hn: dupatta / scarf
+768. GLOVE — Sp: guante | Hn: dastana / gloves
+769. POCKET — Sp: bolsillo / bolsa | Hn: jeb / pocket
+770. BUTTON —
+     1.  (Clothing fastener): Sp: botón | Hn: button (kapde ka)
+     2.  (Push device): Sp: botón / pulsador | Hn: button
+771. ZIPPER — Sp: cremallera / cierre | Hn: zip / chain
+772. BAG — Sp: bolsa / saco | Hn: thela / bag
+773. PURSE / WALLET [Merged Money Carrier Pair] —
+     1.  (Wallet for cash/cards): Sp: billetera / cartera | Hn: batua / wallet
+     2.  (Handbag): Sp: bolso / cartera de mano | Hn: purse / theli
+774. BACKPACK — Sp: mochila | Hn: bag / backpack
+775. SUITCASE — Sp: maleta / valija | Hn: suitcase / peti / baksa
+776. UMBRELLA — Sp: paraguas / sombrilla | Hn: chhaata
+777. GLASSES / SUNGLASSES [Merged Eyewear Pair] — Sp: lentes / gafas | Hn:
+     chashma / dhoop ka chashma
+778. RING —
+     1.  (Finger jewelry): Sp: anillo | Hn: angoothi
+     2.  (Sound chime/call): Sp: timbrar / sonar | Hn: ghanti bajna / phone aana
+779. NECKLACE / JEWELRY [Merged Ornament Pair] —
+     1.  (Neck chain): Sp: collar / cadena | Hn: haar / chain
+     2.  (General ornaments): Sp: joyas / joyería | Hn: gehne / zewar
+780. TRANSPORT / VEHICLE [Merged Transit Pair] — Sp: transporte / vehículo | Hn:
+     gaadi / vaahan / transport
+781. CAR — Sp: coche / carro / auto | Hn: car / gaadi
+782. BICYCLE / BIKE [Merged Duplicate] — Sp: bicicleta / bici | Hn: cycle
+783. MOTORCYCLE / SCOOTER [Merged Two-Wheeler Pair] — Sp: moto / motocicleta |
+     Hn: bike / scooter / motorcycle
+784. BUS — Sp: autobús / bus | Hn: bus
+785. TRAIN —
+     1.  (Rail vehicle): Sp: tren | Hn: railgaadi / train
+     2.  (Verb: coach/practice): Sp: entrenar / capacitar | Hn: sikhana / sikhna
+786. TRUCK — Sp: camión | Hn: truck
+787. TAXI — Sp: taxi | Hn: taxi / cab
+788. AIRPLANE — Sp: avión | Hn: hawai jahaaz / plane
+789. BOAT / SHIP [Merged Watercraft Pair] — Sp: barco / bote | Hn: naav / paani
+     ka jahaaz
+790. ENGINE — Sp: motor | Hn: engine / motor
+791. WHEEL — Sp: rueda | Hn: pahiya
+792. TIRE —
+     1.  (Rubber wheel cover): Sp: llanta / neumático | Hn: tyre
+     2.  (Verb: fatigue): Sp: cansar / fatigarse | Hn: thakna / thakana
+793. BRAKE — Sp: freno | Hn: brake
+794. SEAT — Sp: asiento | Hn: seat / baithne ki jagah
+795. SEATBELT — Sp: cinturón de seguridad | Hn: seatbelt
+796. FUEL / PETROL [Merged Fuel Pair] — Sp: combustible / gasolina | Hn: petrol
+     / diesel
+797. TRAFFIC — Sp: tráfico / tránsito | Hn: traffic / jaam
+798. STREET / ROAD [Merged Thoroughfare Pair] — Sp: calle / camino | Hn: sadak /
+     raasta
+799. HIGHWAY — Sp: autopista / carretera | Hn: highway / badi sadak
+800. PATH / SIDEWALK [Merged Pedestrian Path Pair] —
+     1.  (Footpath): Sp: sendero / camino | Hn: pagdandi / raasta
+     2.  (Paved walkway): Sp: acera / banqueta | Hn: footpath / patri
+801. BRIDGE — Sp: puente | Hn: pul / bridge
+802. TUNNEL — Sp: túnel | Hn: surang
+803. CORNER — Sp: esquina / rincón | Hn: kona
+804. STATION — Sp: estación | Hn: station
+805. AIRPORT — Sp: aeropuerto | Hn: airport / hawai adda
+806. PARKING — Sp: estacionamiento / parqueo | Hn: parking
+807. TICKET — Sp: boleto / billete | Hn: ticket
+808. PASSPORT — Sp: pasaporte | Hn: passport
+809. CITY / TOWN [Merged Urban Pair] —
+     1.  (Large metropolis): Sp: ciudad | Hn: sheher
+     2.  (Smaller town): Sp: pueblo / localidad | Hn: kasba / chhota sheher
+810. VILLAGE — Sp: pueblo / aldea | Hn: gaon / dehaat
+811. COUNTRY —
+     1.  (Nation): Sp: país / nación | Hn: desh / mulk
+     2.  (Rural countryside): Sp: campo | Hn: dehaat / kheton ka ilaqa
+812. CENTER — Sp: centro | Hn: center / beech
+813. BUILDING — Sp: edificio / construcción | Hn: building / imaarat
+814. SCHOOL — Sp: escuela / colegio | Hn: school
+815. COLLEGE / UNIVERSITY [Merged Higher Ed Pair] — Sp: universidad / facultad |
+     Hn: college / university
+816. LIBRARY — Sp: biblioteca | Hn: library
+817. CINEMA / THEATER [Merged Showplace Pair] — Sp: cine / teatro | Hn: cinema /
+     theatre
+818. STORE / SHOP [Merged Duplicate] — Sp: tienda / negocio | Hn: dukaan / store
+819. MARKET / SUPERMARKET [Merged Retail Pair] — Sp: mercado / supermercado |
+     Hn: bazaar / market / mandi
+820. RESTAURANT / CAFE [Merged Dining Pair] — Sp: restaurante / cafetería | Hn:
+     restaurant / hotel / dhaba
+821. BANK —
+     1.  (Financial institution): Sp: banco | Hn: bank
+     2.  (River edge): Sp: orilla / ribera | Hn: kinaara

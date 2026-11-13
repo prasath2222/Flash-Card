@@ -1,0 +1,778 @@
+Part 1 (Words 1–1,000) — Split 1 & 2: Words 1–500
+
+1.  I — Sp: yo | Hn: main
+2.  YOU —
+    1.  (Informal/casual): Sp: tú / vos | Hn: tum
+    2.  (Polite/formal): Sp: usted | Hn: aap
+    3.  (Plural/you all): Sp: ustedes (vosotros in Spain) | Hn: tum log / aap
+        log
+3.  HE — Sp: él | Hn: woh
+4.  SHE — Sp: ella | Hn: woh [shares Hn with 3. HE]
+5.  IT — Sp: eso / esto [usually dropped as subject] | Hn: yeh / woh
+6.  WE — Sp: nosotros / nosotras | Hn: hum / hum log
+7.  THEY — Sp: ellos / ellas | Hn: woh / woh log
+8.  ME — Sp: me | Hn: mujhe / mujhko
+9.  HIM — Sp: lo / le | Hn: use / usko [shares Hn with HER/IT]
+10. HER —
+    1.  (Object): Sp: la / le | Hn: use / usko
+    2.  (Possessive): Sp: su / sus | Hn: uska / uski / uske
+11. US — Sp: nos | Hn: humein / humko
+12. THEM — Sp: los / las / les | Hn: unhe / unko
+13. MYSELF — Sp: yo mismo / yo misma | Hn: main khud
+14. YOURSELF —
+    1.  (Informal): Sp: tú mismo / tú misma | Hn: tum khud
+    2.  (Formal): Sp: usted mismo / usted misma | Hn: aap khud
+15. HIMSELF — Sp: él mismo | Hn: woh khud
+16. HERSELF — Sp: ella misma | Hn: woh khud
+17. ITSELF — Sp: solo / por sí solo | Hn: apne aap / khud
+18. OURSELVES — Sp: nosotros mismos / nosotras mismas | Hn: hum khud
+19. YOURSELVES — Sp: ustedes mismos / ustedes mismas (vosotros mismos) | Hn: tum
+    log khud / aap log khud
+20. THEMSELVES — Sp: ellos mismos / ellas mismas | Hn: woh log khud
+21. MY — Sp: mi / mis | Hn: mera / meri / mere
+22. YOUR —
+    1.  (Informal): Sp: tu / tus | Hn: tumhara / tumhari / tumhare
+    2.  (Formal): Sp: su / sus | Hn: aapka / aapki / aapke
+23. HIS — Sp: su / sus | Hn: uska / uski / uske
+24. OUR — Sp: nuestro / nuestra / nuestros / nuestras | Hn: hamara / hamari /
+    hamare
+25. THEIR — Sp: su / sus | Hn: unka / unki / unke
+26. ITS — Sp: su / sus | Hn: iska / iski / iske
+27. MINE — Sp: mío / mía / míos / mías | Hn: mera / meri / mere
+28. YOURS —
+    1.  (Informal): Sp: tuyo / tuya / tuyos / tuyas | Hn: tumhara / tumhari /
+        tumhare
+    2.  (Formal): Sp: suyo / suya / suyos / suyas | Hn: aapka / aapki / aapke
+29. HERS — Sp: suyo / suya / suyos / suyas | Hn: uska / uski / uske
+30. OURS — Sp: el nuestro / la nuestra / los nuestros / las nuestras | Hn:
+    hamara / hamari / hamare
+31. THEIRS — Sp: el suyo / la suya / los suyos / las suyas | Hn: unka / unki /
+    unke
+32. WHOSE — Sp: de quién | Hn: kiska / kiski / kiske
+33. THIS — Sp: este / esta / esto | Hn: yeh / is
+34. THAT — Sp: ese / esa / eso / aquel / aquella | Hn: woh / us
+35. THESE — Sp: estos / estas | Hn: yeh / in
+36. THOSE — Sp: esos / esas / aquellos / aquellas | Hn: woh / un
+37. SOMEONE / SOMEBODY [Merged Duplicate] — Sp: alguien | Hn: koi
+38. ANY —
+    1.  (Questions/quantity): Sp: algún / alguna | Hn: koi / kuch
+    2.  (Whichever): Sp: cualquier / cualquiera | Hn: koi bhi
+39. SOMETHING — Sp: algo | Hn: kuch / koi cheez
+40. SOMEWHERE — Sp: en algún lugar / en alguna parte | Hn: kahin / kisi jagah
+41. ANYONE / ANYBODY [Merged Duplicate] — Sp: cualquiera / alguien | Hn: koi bhi
+42. ANYTHING — Sp: cualquier cosa / algo | Hn: kuch bhi
+43. ANYWHERE — Sp: en cualquier lugar / en cualquier parte | Hn: kahin bhi
+44. EVERYONE / EVERYBODY [Merged Duplicate] — Sp: todos / todo el mundo | Hn:
+    sab / har koi
+45. EVERYTHING — Sp: todo | Hn: sab kuch
+46. EVERYWHERE — Sp: en todas partes / por todos lados | Hn: har jagah
+47. NO ONE / NOBODY [Merged Duplicate] — Sp: nadie | Hn: koi nahi
+48. NOTHING — Sp: nada | Hn: kuch nahi
+49. NOWHERE — Sp: en ningún lugar / en ninguna parte | Hn: kahin nahi
+50. A / AN [Merged Duplicate] — Sp: un / una | Hn: ek [dropped unless
+    emphasizing one]
+51. THE — Sp: el / la / los / las | Hn: [No direct word — dropped in Hindi]
+52. ALL — Sp: todo / toda / todos / todas | Hn: sab / saara
+53. EVERY / EACH [Merged Duplicate] — Sp: cada / todos los | Hn: har / har ek
+54. BOTH — Sp: ambos / ambas / los dos / las dos | Hn: dono
+55. EITHER —
+    1.  (One of two): Sp: cualquiera de los dos | Hn: dono mein se koi ek
+    2.  (Also not): Sp: tampoco | Hn: bhi nahi
+56. NEITHER — Sp: ninguno de los dos / ni | Hn: dono mein se koi nahi / na hi
+57. SOME — Sp: algunos / algunas / un poco de | Hn: kuch / thoda
+58. ENOUGH — Sp: suficiente / bastante | Hn: kaafi / bas
+59. NONE — Sp: ninguno / ninguna / nada | Hn: koi nahi / kuch nahi
+60. SELF — Sp: uno mismo | Hn: khud
+61. OTHER — Sp: otro / otra / otros / otras / demás | Hn: doosra / doosri /
+    doosre
+62. ANOTHER — Sp: otro / otra (más) | Hn: ek aur / doosra
+63. SUCH — Sp: tal | Hn: aisa / aisi / aise
+64. SAME — Sp: mismo / misma / mismos / mismas / igual | Hn: vahi / ek jaisa
+65. DIFFERENT — Sp: diferente / distinto | Hn: alag
+66. SEVERAL — Sp: varios / varias | Hn: kayi / kayi saare
+67. MANY — Sp: muchos / muchas | Hn: bohot saare / kayi [countable]
+68. MUCH — Sp: mucho / mucha | Hn: bohot / zyaada [uncountable]
+69. FEW — Sp: pocos / pocas | Hn: kuch / thode se
+70. LITTLE —
+    1.  (Quantity): Sp: poco / un poco | Hn: thoda sa
+    2.  (Size): Sp: pequeño / pequeña | Hn: chhota / chhoti
+71. WHAT — Sp: qué | Hn: kya
+72. WHERE — Sp: dónde | Hn: kahan
+73. WHEN —
+    1.  (Question): Sp: cuándo | Hn: kab
+    2.  (Relative): Sp: cuando | Hn: jab
+74. WHY — Sp: por qué | Hn: kyun
+75. WHO / WHOM [Merged Duplicate] — Sp: quién / a quién | Hn: kaun / kisse /
+    kisko
+76. WHICH — Sp: cuál / qué | Hn: kaunsa / kaunsi
+77. HOW — Sp: cómo | Hn: kaise
+78. HOW MUCH — Sp: cuánto / cuánta | Hn: kitna / kitni
+79. HOW MANY — Sp: cuántos / cuántas | Hn: kitne / kitni
+80. HOW LONG — Sp: cuánto tiempo | Hn: kitni der / kab tak
+81. HOW FAR — Sp: qué tan lejos | Hn: kitni door
+82. HOW OFTEN — Sp: con qué frecuencia / cada cuánto | Hn: kitni baar
+83. WHAT KIND — Sp: qué tipo / qué clase | Hn: kis tarah ka
+84. WHICH ONE — Sp: cuál | Hn: kaun sa / kaun si
+85. BE —
+    1.  (Permanent identity/nature): Sp: ser | Hn: hona
+    2.  (Temporary state/location): Sp: estar | Hn: hona / rehna
+86. HAVE —
+    1.  (Possession): Sp: tener | Hn: paas hona
+    2.  (Auxiliary perfect): Sp: haber | Hn: chuka hona
+87. DO — Sp: hacer | Hn: karna
+88. CAN —
+    1.  (Ability/permission): Sp: poder | Hn: sakna / paana
+    2.  (Metal container): Sp: lata | Hn: dibba
+89. COULD —
+    1.  (Past ability): Sp: pudo / podía | Hn: paaya / sakta tha
+    2.  (Polite possibility): Sp: podría | Hn: sakta hai
+90. WILL — Sp: -rá / -ré (future suffix) | Hn: ga / ge / gi
+91. WOULD — Sp: -ría (conditional suffix) | Hn: ta / te / ti (jaise karta,
+    jaata)
+92. SHOULD — Sp: debería / tendría que | Hn: chahiye
+93. MUST — Sp: tener que / deber | Hn: zaroor ... chahiye / padna (jaise karna
+    padega)
+94. MAY / MIGHT [Merged Duplicate] — Sp: poder / puede que / tal vez | Hn:
+    shayad / sakna
+95. NEED —
+    1.  (Verb: require): Sp: necesitar | Hn: zaroorat hona
+    2.  (Noun: requirement): Sp: necesidad | Hn: zaroorat
+96. USED TO — Sp: solía / antes hacía | Hn: kiya karta tha / aadat thi
+97. WHATEVER — Sp: lo que sea / cualquier cosa | Hn: jo bhi / kuch bhi
+98. WHENEVER — Sp: cuando sea / cada vez que | Hn: jab bhi
+99. IN — Sp: en / dentro de | Hn: mein / ke andar
+100. ON —
+     1.  (Surface contact): Sp: sobre / en / encima de | Hn: par / upar
+     2.  (Active/working): Sp: encendido / prendido | Hn: chalu
+101. AT —
+     1.  (Specific place): Sp: en | Hn: par / mein
+     2.  (Specific time): Sp: a la / a las | Hn: baje / par
+102. TO —
+     1.  (Direction/goal): Sp: a / hacia | Hn: ko / ki taraf
+     2.  (In order to): Sp: para | Hn: ke liye
+103. FROM — Sp: de / desde | Hn: se
+104. FOR —
+     1.  (Recipient/purpose): Sp: para | Hn: ke liye
+     2.  (Reason/duration): Sp: por | Hn: ki wajah se / tak
+105. OF — Sp: de | Hn: ka / ki / ke
+106. WITH — Sp: con | Hn: ke saath
+107. WITHOUT — Sp: sin | Hn: ke bina
+108. BY —
+     1.  (Beside/near): Sp: junto a / al lado de | Hn: ke paas
+     2.  (Agent/means): Sp: por / en | Hn: se
+     3.  (Deadline): Sp: para | Hn: tak
+109. ABOUT —
+     1.  (Regarding): Sp: sobre / de | Hn: ke baare mein
+     2.  (Approximate): Sp: alrededor de / como | Hn: lagbhag / kareeb
+110. INTO — Sp: dentro de / hacia adentro | Hn: ke andar / mein
+111. OUT OF — Sp: fuera de / de | Hn: se bahar / mein se
+112. UP — Sp: arriba / hacia arriba | Hn: upar
+113. DOWN — Sp: abajo / hacia abajo | Hn: neeche
+114. OVER —
+     1.  (Above/across): Sp: encima de / por encima | Hn: ke upar se
+     2.  (Finished): Sp: terminado / acabado | Hn: khatam
+115. UNDER / BELOW [Merged Duplicate] — Sp: debajo de / bajo | Hn: ke neeche
+116. ABOVE — Sp: encima de | Hn: ke upar / upar
+117. BETWEEN — Sp: entre (dos) | Hn: ke beech mein (do ke beech)
+118. AMONG — Sp: entre (tres o más) | Hn: sabke beech / ke beech mein
+119. THROUGH — Sp: a través de / por | Hn: ke aar-paar / mein se
+120. ACROSS — Sp: al otro lado de / a través de | Hn: ke paar / us paar
+121. ALONG — Sp: a lo largo de / por | Hn: ke saath-saath / kinaare-kinaare
+122. AROUND — Sp: alrededor de / por ahí | Hn: aas-paas / ke chaaron or
+123. BEHIND — Sp: detrás de / atrás | Hn: ke peeche
+124. IN FRONT OF — Sp: delante de / frente a | Hn: ke saamne / ke aage
+125. BESIDE / NEXT TO [Merged Duplicate] — Sp: al lado de / junto a | Hn: ke
+     bagal mein / theek paas
+126. NEAR — Sp: cerca de | Hn: ke paas / nazdeek
+127. FAR — Sp: lejos | Hn: door
+128. INSIDE — Sp: dentro / adentro | Hn: andar / ke andar
+129. OUTSIDE — Sp: fuera / afuera | Hn: bahar
+130. WITHIN — Sp: dentro de (límite/tiempo) | Hn: ke andar-andar
+131. BEYOND — Sp: más allá de | Hn: ke paar / se aage
+132. TOWARD — Sp: hacia / en dirección a | Hn: ki taraf
+133. AGAINST — Sp: contra / en contra de | Hn: ke khilaaf
+134. BEFORE —
+     1.  (Time): Sp: antes de | Hn: pehle / se pehle
+     2.  (Position): Sp: delante de | Hn: ke saamne
+135. AFTER — Sp: después de | Hn: ke baad
+136. DURING — Sp: durante / a lo largo de | Hn: ke dauran
+137. SINCE —
+     1.  (Time point): Sp: desde | Hn: tab se / se
+     2.  (Because/as): Sp: ya que / como | Hn: kyunki / chunki
+138. UNTIL — Sp: hasta | Hn: tak
+139. AGO — Sp: hace (tiempo atrás) | Hn: pehle (jaise: do din pehle)
+140. DESPITE — Sp: a pesar de | Hn: ke bawajood
+141. EXCEPT — Sp: excepto / menos | Hn: ke alawa / chhor kar
+142. INSTEAD OF — Sp: en vez de / en lugar de | Hn: ki jagah / ke bajaye
+143. ACCORDING TO — Sp: según / de acuerdo con | Hn: ke hisaab se / ke mutabiq
+144. BECAUSE OF — Sp: por culpa de / debido a | Hn: ki wajah se
+145. AND — Sp: y | Hn: aur
+146. OR — Sp: o | Hn: ya / ya fir
+147. BUT — Sp: pero / sino | Hn: lekin / par / magar
+148. SO —
+     1.  (Therefore): Sp: así que / por eso | Hn: toh / isliye
+     2.  (Degree): Sp: tan / tanto | Hn: itna
+149. BECAUSE — Sp: porque | Hn: kyunki
+150. IF — Sp: si | Hn: agar
+151. UNLESS — Sp: a menos que | Hn: agar ... nahi / jab tak ... nahi
+152. ALTHOUGH / THOUGH / EVEN THOUGH [Merged Duplicate] — Sp: aunque / a pesar
+     de que | Hn: halanki / bhale hi / chahe
+153. WHILE / WHEREAS [Merged Duplicate] —
+     1.  (Concurrent time): Sp: mientras | Hn: jab / ...te waqt (jaise khaate
+         waqt)
+     2.  (Contrast): Sp: mientras que | Hn: jabki
+154. WHETHER — Sp: si / ya sea que | Hn: chahe... ya / ki
+155. AS —
+     1.  (Comparison): Sp: como / tan | Hn: jaise / jitna
+     2.  (Reason/time): Sp: como / mientras | Hn: kyunki / jaise hi
+156. THAN — Sp: que (comparativo) | Hn: se
+157. HOWEVER — Sp: sin embargo / pero | Hn: halanki / lekin
+158. THEREFORE — Sp: por lo tanto / por eso | Hn: isliye / is tarah
+159. MOREOVER / BESIDES [Merged Duplicate] — Sp: además / aparte de | Hn: iske
+     alawa
+160. OTHERWISE — Sp: si no / de lo contrario | Hn: varna / nahi toh
+161. MEANWHILE — Sp: mientras tanto | Hn: is dauran / is beech
+162. INSTEAD — Sp: en cambio / en su lugar | Hn: ke bajaye / balki
+163. FOR EXAMPLE — Sp: por ejemplo | Hn: jaise ki / jaise
+164. IN FACT — Sp: de hecho / en realidad | Hn: asal mein / sach toh yeh hai
+165. ALWAYS — Sp: siempre | Hn: hamesha
+166. USUALLY / NORMALLY [Merged Duplicate] — Sp: normalmente / por lo general |
+     Hn: aamtaur par / aksar
+167. OFTEN — Sp: a menudo / seguido | Hn: aksar
+168. SOMETIMES — Sp: a veces / de vez en cuando | Hn: kabhi-kabhi
+169. OCCASIONALLY — Sp: de vez en cuando / ocasionalmente | Hn: kabhi-kabhaar
+170. RARELY — Sp: rara vez / casi nunca | Hn: bohot kam / shayad hi kabhi
+171. NEVER — Sp: nunca / jamás | Hn: kabhi nahi
+172. EVER — Sp: alguna vez | Hn: kabhi bhi / kabhi
+173. NOW — Sp: ahora / ya | Hn: ab / abhi
+174. THEN —
+     1.  (At that time): Sp: entonces / en ese momento | Hn: tab / us waqt
+     2.  (Next/after that): Sp: luego / después | Hn: fir / uske baad
+175. TODAY — Sp: hoy | Hn: aaj
+176. TOMORROW — Sp: mañana | Hn: kal (aane wala kal)
+177. YESTERDAY — Sp: ayer | Hn: kal (beeta hua kal)
+178. TONIGHT — Sp: esta noche | Hn: aaj raat
+179. SOON — Sp: pronto / dentro de poco | Hn: jaldi / jald hi
+180. ALREADY — Sp: ya | Hn: pehle se hi / pehle hi
+181. STILL —
+     1.  (Continuing state): Sp: todavía / aún | Hn: abhi bhi
+     2.  (Motionless): Sp: quieto / inmóvil | Hn: shaant / bina hile
+182. EARLY — Sp: temprano | Hn: jaldi / waqt se pehle
+183. LATE — Sp: tarde | Hn: der se
+184. SUDDENLY — Sp: de repente / de golpe | Hn: achanak / ekdum se
+185. RECENTLY / LATELY [Merged Duplicate] — Sp: recientemente / últimamente /
+     hace poco | Hn: haal hi mein / pichhle kuch dino mein
+186. IMMEDIATELY — Sp: inmediatamente / enseguida | Hn: turant / fauran
+187. FINALLY — Sp: finalmente / por fin | Hn: aakhirkaar / aakhir mein
+188. EVENTUALLY — Sp: con el tiempo / al final | Hn: aakhirkaar / aage chalkar
+189. AGAIN — Sp: otra vez / de nuevo | Hn: fir se / dobara
+190. DAILY — Sp: a diario / todos los días | Hn: roz / rozana
+191. WEEKLY — Sp: semanalmente / cada semana | Hn: har hafte
+192. MONTHLY — Sp: mensualmente / cada mes | Hn: har mahine
+193. YEARLY — Sp: anualmente / cada año | Hn: har saal
+194. HERE — Sp: aquí / acá | Hn: yahan / idhar
+195. THERE — Sp: ahí / allí / allá | Hn: wahan / udhar
+196. AHEAD / FORWARD [Merged Duplicate] — Sp: adelante / hacia adelante | Hn:
+     aage / aage ki taraf
+197. BACKWARD — Sp: hacia atrás | Hn: peeche ki taraf / ulta
+198. UPSTAIRS — Sp: arriba | Hn: upar
+199. DOWNSTAIRS — Sp: abajo | Hn: neeche
+200. MORE — Sp: más | Hn: aur / zyaada
+201. MOST — Sp: la mayoría / el más / lo más | Hn: sabse zyaada / zyadatar
+202. LESS — Sp: menos | Hn: kam
+203. LEAST — Sp: el menos / lo mínimo | Hn: sabse kam
+204. ONLY — Sp: solo / solamente / único | Hn: sirf / akela
+205. ALMOST / NEARLY [Merged Duplicate] — Sp: casi / por poco | Hn: lagbhag /
+     kareeb-kareeb
+206. QUITE — Sp: bastante / totalmente | Hn: kaafi / bilkul
+207. RATHER —
+     1.  (Somewhat): Sp: bastante / un poco | Hn: thoda sa / kaafi hadd tak
+     2.  (Preference/instead): Sp: más bien | Hn: balki / bajaye
+208. VERY — Sp: muy | Hn: bohot
+209. TOO —
+     1.  (Excess): Sp: demasiado | Hn: bohot zyaada / hadd se zyaada
+     2.  (Also): Sp: también | Hn: bhi
+210. EXTREMELY — Sp: extremadamente / súper | Hn: behad / bohot hi zyaada
+211. REALLY —
+     1.  (Truly): Sp: de verdad / en serio | Hn: sach mein / waqai
+     2.  (Very): Sp: muy / súper | Hn: bohot
+212. ESPECIALLY / PARTICULARLY [Merged Duplicate] — Sp: especialmente / en
+     particular | Hn: khaaskar
+213. JUST —
+     1.  (Only): Sp: solo / nada más | Hn: sirf / bas
+     2.  (Recently happened): Sp: acabar de | Hn: abhi-abhi
+     3.  (Fair): Sp: justo | Hn: sahi / jayaz
+214. EVEN — Sp: incluso / hasta | Hn: bhi / yahan tak ki
+215. ALSO / AS WELL [Merged Duplicate] — Sp: también / además | Hn: bhi / saath
+     hi
+216. YES — Sp: sí | Hn: haan
+217. NO / NOT [Consolidated Polarity] —
+     1.  (Negative answer/determiner): Sp: no / ningún | Hn: nahi / na / koi
+         nahi
+     2.  (Adverbial negation): Sp: no | Hn: nahi / mat
+218. MAYBE / PERHAPS [Merged Duplicate] — Sp: tal vez / quizás | Hn: shayad
+219. PROBABLY — Sp: probablemente / seguro | Hn: lagbhag pakka / mumkin hai
+220. DEFINITELY / CERTAINLY [Merged Duplicate] — Sp: definitivamente /
+     ciertamente / sin duda | Hn: pakka / bilkul
+221. ACTUALLY — Sp: en realidad / de hecho | Hn: asal mein / sach mein
+222. TRULY — Sp: verdaderamente / de verdad | Hn: sach mein / dil se
+223. ZERO — Sp: cero | Hn: shunya
+224. ONE — Sp: uno / una | Hn: ek
+225. TWO — Sp: dos | Hn: do
+226. THREE — Sp: tres | Hn: teen
+227. FOUR — Sp: cuatro | Hn: chaar
+228. FIVE — Sp: cinco | Hn: paanch
+229. SIX — Sp: seis | Hn: chhe
+230. SEVEN — Sp: siete | Hn: saat
+231. EIGHT — Sp: ocho | Hn: aath
+232. NINE — Sp: nueve | Hn: nau
+233. TEN — Sp: diez | Hn: das
+234. HUNDRED — Sp: cien / ciento | Hn: sau
+235. THOUSAND — Sp: mil | Hn: hazaar
+236. MILLION / BILLION [Consolidated Large Numerals] — Sp: millón / mil millones
+     (billón) | Hn: das laakh / ek arab
+237. FIRST — Sp: primero / primera | Hn: pehla / pehli
+238. SECOND —
+     1.  (Rank/order): Sp: segundo / segunda | Hn: doosra / doosri
+     2.  (Unit of time): Sp: segundo | Hn: pal
+239. THIRD — Sp: tercero / tercera | Hn: teesra / teesri
+240. HALF — Sp: mitad / medio / media | Hn: aadha / aadhi / aadhe
+241. QUARTER —
+     1.  (One fourth): Sp: cuarto / la cuarta parte | Hn: chauthai
+     2.  (15 minutes): Sp: cuarto de hora | Hn: pandrah minute
+242. DOUBLE — Sp: doble | Hn: doguna
+243. TOTAL — Sp: total | Hn: kul
+244. TIME —
+     1.  (Clock/hours): Sp: tiempo / hora | Hn: samay / waqt
+     2.  (Instance/occasion): Sp: vez | Hn: baar / dafa
+245. MOMENT — Sp: momento / instante | Hn: pal / lamha
+246. MINUTE — Sp: minuto | Hn: minute
+247. HOUR — Sp: hora | Hn: ghanta
+248. DAY — Sp: día | Hn: din / roz
+249. MORNING — Sp: mañana | Hn: subah
+250. NOON / MIDNIGHT [Consolidated 12-Hour Extremes] —
+     1.  (Midday): Sp: mediodía | Hn: dopahar (theek 12 baje)
+     2.  (Night middle): Sp: medianoche | Hn: aadhi raat (theek 12 baje)
+251. AFTERNOON — Sp: tarde | Hn: dopahar
+252. EVENING — Sp: tarde / noche (temprano) | Hn: shaam
+253. NIGHT — Sp: noche | Hn: raat
+254. WEEK / WEEKEND [Consolidated Pair] —
+     1.  (Seven days): Sp: semana | Hn: hafta
+     2.  (End of week): Sp: fin de semana | Hn: hafte ka aakhir
+255. MONTH — Sp: mes | Hn: mahina
+256. YEAR — Sp: año | Hn: saal
+257. DECADE / CENTURY [Consolidated Long Eras] —
+     1.  (10 years): Sp: década | Hn: das saal
+     2.  (100 years): Sp: siglo | Hn: sadi / sau saal
+258. SEASON — Sp: estación (del año) / temporada | Hn: mausam
+259. SPRING —
+     1.  (Season): Sp: primavera | Hn: basant
+     2.  (Coil): Sp: resorte / muelle | Hn: spring
+260. SUMMER — Sp: verano | Hn: garmi / garmi ka mausam
+261. AUTUMN — Sp: otoño | Hn: patjhad
+262. WINTER — Sp: invierno | Hn: sardi / sardi ka mausam
+263. DAYS OF THE WEEK [Consolidated Master] — Sp: lunes, martes, miércoles,
+     jueves, viernes, sábado, domingo | Hn: somvaar, mangalvaar, budhvaar,
+     veervaar, shukravaar, shanivaar, ravivaar
+264. CALENDAR — Sp: calendario | Hn: calendar
+265. GO — Sp: ir / irse | Hn: jaana
+266. COME — Sp: venir / llegar | Hn: aana
+267. SAY — Sp: decir | Hn: kehna / bolna
+268. MAKE —
+     1.  (Construct/prepare): Sp: hacer / fabricar | Hn: banana
+     2.  (Compel/force): Sp: hacer | Hn: karwana / majboor karna
+269. KNOW —
+     1.  (Facts/info): Sp: saber | Hn: pata hona / jaanna
+     2.  (Person/place): Sp: conocer | Hn: jaanna / pehchanna
+270. THINK —
+     1.  (Ponder/reflect): Sp: pensar | Hn: sochna
+     2.  (Opinion/belief): Sp: creer / opinar | Hn: lagna / manna
+271. TAKE —
+     1.  (Accept/grab): Sp: tomar / agarrar | Hn: lena / pakadna
+     2.  (Carry/transport): Sp: llevar | Hn: le jaana
+272. SEE —
+     1.  (Vision): Sp: ver | Hn: dekhna
+     2.  (Understand): Sp: entender / ver | Hn: samajhna
+273. LOOK —
+     1.  (Direct vision): Sp: mirar | Hn: dekhna
+     2.  (Appear/seem): Sp: parecer / verse | Hn: dikhna / lagna
+274. USE — Sp: usar / utilizar | Hn: istemaal karna
+275. FIND — Sp: encontrar / hallar | Hn: milna / dhoondh nikalna
+276. GIVE — Sp: dar / entregar | Hn: dena
+277. TELL — Sp: decir / contar | Hn: batana / sunana
+278. WORK —
+     1.  (Job/labor): Sp: trabajar | Hn: kaam karna
+     2.  (Function): Sp: funcionar | Hn: chalna / kaam karna
+279. CALL —
+     1.  (Phone): Sp: llamar / telefonear | Hn: phone karna
+     2.  (Summon/name): Sp: llamar | Hn: bulana / pukarna
+280. TRY —
+     1.  (Attempt): Sp: intentar / tratar de | Hn: koshish karna
+     2.  (Sample/test): Sp: probar | Hn: aazmana / jaanchna
+281. ASK —
+     1.  (Inquire): Sp: preguntar | Hn: poochna
+     2.  (Request): Sp: pedir | Hn: maangna / kehna
+282. FEEL —
+     1.  (Emotion/sensation): Sp: sentir / sentirse | Hn: mehsoos karna / lagna
+     2.  (Touch): Sp: tocar / palpar | Hn: chhoo kar dekhna
+283. LEAVE —
+     1.  (Depart/exit): Sp: irse / salir / marcharse | Hn: nikalna / jaana
+     2.  (Abandon/forget behind): Sp: dejar | Hn: chhorna / bhool aana
+284. PUT — Sp: poner / colocar | Hn: rakhna / daalna
+285. MEAN —
+     1.  (Signify): Sp: significar / querer decir | Hn: matlab hona
+     2.  (Intend): Sp: pretender / tener intención | Hn: iraada hona
+     3.  (Unkind): Sp: malo / antipático | Hn: badtameez / khadoos
+286. KEEP —
+     1.  (Store/retain): Sp: guardar / quedarse con | Hn: rakhna
+     2.  (Continue action): Sp: seguir / continuar | Hn: jaari rakhna / rehna
+         (jaise chalte rehna)
+287. LET / ALLOW [Merged Duplicate] — Sp: dejar / permitir | Hn: dena (jaise
+     jaane dena) / ijaazat dena
+288. START / BEGIN [Merged Duplicate] — Sp: empezar / comenzar / iniciar | Hn:
+     shuru karna / shuru hona
+289. HELP — Sp: ayudar / dar una mano | Hn: madad karna
+290. SPEAK / TALK [Merged Duplicate] — Sp: hablar / charlar | Hn: bolna / baat
+     karna
+291. TURN —
+     1.  (Rotate/pivot): Sp: girar / doblar | Hn: ghumna / mudna (intransitive)
+         vs ghumana / modna (transitive)
+     2.  (Change state): Sp: volverse / ponerse | Hn: ban jaana / badalna
+     3.  (One's turn/order): Sp: turno | Hn: baari
+292. SHOW —
+     1.  (Display/demonstrate): Sp: mostrar / enseñar | Hn: dikhana
+     2.  (Performance): Sp: espectáculo / programa | Hn: naatak
+293. HEAR — Sp: oír / escuchar | Hn: sunna / sunai dena
+294. PLAY —
+     1.  (Game/sport): Sp: jugar | Hn: khelna
+     2.  (Instrument): Sp: tocar | Hn: bajana
+     3.  (Theatre): Sp: obra de teatro | Hn: naatak
+295. RUN —
+     1.  (Sprint/jog): Sp: correr | Hn: daudna / bhaagna
+     2.  (Manage/operate): Sp: manejar / administrar / operar | Hn: chalana /
+         sambhalna
+296. MOVE —
+     1.  (Motion): Sp: mover / moverse | Hn: hilna / hilana
+     2.  (Relocate residence): Sp: mudarse | Hn: ghar badalna
+297. LIKE —
+     1.  (Enjoy): Sp: gustar | Hn: pasand karna / achha lagna
+     2.  (Similar to): Sp: como | Hn: jaise / ki tarah
+298. LIVE —
+     1.  (Reside): Sp: vivir | Hn: rehna
+     2.  (Be alive): Sp: vivir | Hn: jeena / zinda hona
+299. BELIEVE —
+     1.  (Faith/trust): Sp: creer | Hn: vishwas karna / bharosa karna
+     2.  (Opinion): Sp: creer / opinar | Hn: lagna / manna
+300. HOLD —
+     1.  (Grip/carry): Sp: sostener / agarrar | Hn: pakadna / thaamna
+     2.  (Host event): Sp: celebrar / organizar | Hn: rakhna / karwana
+301. BRING — Sp: traer | Hn: laana / le aana
+302. HAPPEN — Sp: pasar / suceder / ocurrir | Hn: hona / ghatna
+303. WRITE — Sp: escribir | Hn: likhna
+304. PROVIDE — Sp: proveer / proporcionar / dar | Hn: dena / dilaana
+305. SIT — Sp: sentarse | Hn: baithna
+306. STAND —
+     1.  (Upright on feet): Sp: estar de pie / pararse | Hn: khade hona
+     2.  (Tolerate/endure): Sp: aguantar / soportar | Hn: bardasht karna /
+         jhelna
+307. LOSE —
+     1.  (Misplace item): Sp: perder | Hn: khona / kho dena
+     2.  (Be defeated): Sp: perder | Hn: haarna
+308. PAY — Sp: pagar | Hn: chukana / paise dena
+309. MEET —
+     1.  (Encounter): Sp: encontrarse con / reunirse con | Hn: milna / mulaqat
+         karna
+     2.  (Get acquainted): Sp: conocer | Hn: pehli baar milna / jaan-pehchan
+         hona
+310. INCLUDE — Sp: incluir | Hn: shaamil karna / jodna
+311. CONTINUE — Sp: continuar / seguir | Hn: jaari rakhna (transitive) / jaari
+     rehna (intransitive)
+312. SET —
+     1.  (Adjust/place): Sp: poner / ajustar | Hn: lagana / theek karna
+     2.  (Group/collection): Sp: juego / conjunto | Hn: jodi / samooh
+313. LEARN — Sp: aprender | Hn: seekhna
+314. CHANGE —
+     1.  (Alter): Sp: cambiar | Hn: badalna
+     2.  (Coins/spare money): Sp: cambio / suelto | Hn: khulle paise
+315. LEAD —
+     1.  (Guide/command): Sp: guiar / liderar / encabezar | Hn: raasta dikhana /
+         aage rehna
+     2.  (Heavy metal): Sp: plomo | Hn: seesa
+316. UNDERSTAND — Sp: entender / comprender | Hn: samajhna
+317. WATCH —
+     1.  (Look attentively): Sp: mirar / ver | Hn: dekhna / nazar rakhna
+     2.  (Wristwatch): Sp: reloj de pulsera | Hn: ghadi
+318. FOLLOW —
+     1.  (Go after): Sp: seguir / ir detrás | Hn: peeche jaana / peechha karna
+     2.  (Obey rules): Sp: cumplir / obedecer | Hn: manna
+319. STOP —
+     1.  (Halt motion): Sp: parar / detenerse | Hn: rukna (intransitive) vs
+         rokna (transitive)
+     2.  (Quit an action): Sp: dejar de / parar de | Hn: band karna / chhorna
+320. CREATE — Sp: crear / producir | Hn: banana / paida karna
+321. READ — Sp: leer | Hn: padhna
+322. ADD —
+     1.  (Combine/insert): Sp: añadir / agregar | Hn: jodna / milana
+     2.  (Math sum): Sp: sumar | Hn: jodna
+323. SPEND —
+     1.  (Money): Sp: gastar | Hn: kharch karna
+     2.  (Time): Sp: pasar (tiempo) | Hn: bitana / guzaarna
+324. GROW —
+     1.  (Enlarge/mature): Sp: crecer / aumentar | Hn: badhna / bada hona
+     2.  (Cultivate plants): Sp: cultivar / sembrar | Hn: ugaana
+325. OPEN —
+     1.  (Verb): Sp: abrir | Hn: kholna
+     2.  (Adjective): Sp: abierto / abierta / abiertos / abiertas | Hn: khula /
+         khuli / khule
+326. WALK — Sp: caminar / andar | Hn: chalna / tehelna
+327. WIN — Sp: ganar | Hn: jeetna
+328. OFFER —
+     1.  (Verb: propose/give): Sp: ofrecer / brindar | Hn: pesh karna / dena
+     2.  (Noun: deal/discount): Sp: oferta | Hn: chhoot
+329. REMEMBER — Sp: recordar / acordarse de | Hn: yaad rakhna / yaad aana
+330. LOVE —
+     1.  (Affection): Sp: amar / querer | Hn: pyaar karna / mohabbat karna
+     2.  (Noun): Sp: amor | Hn: pyaar
+331. CONSIDER — Sp: considerar / tener en cuenta | Hn: sochna / dhyaan mein
+     rakhna
+332. APPEAR —
+     1.  (Become visible): Sp: aparecer | Hn: samne aana / dikhna
+     2.  (Seem): Sp: parecer | Hn: lagna / dikhna
+333. BUY — Sp: comprar | Hn: khareedna
+334. WAIT — Sp: esperar | Hn: intezaar karna / rukna
+335. SERVE —
+     1.  (Food/hospitality): Sp: servir / atender | Hn: parosna
+     2.  (Fulfill duty): Sp: servir | Hn: seva karna / kaam aana
+336. DIE — Sp: morir / fallecer | Hn: marna / guzar jaana
+337. SEND — Sp: enviar / mandar | Hn: bhejna
+338. EXPECT — Sp: esperar / suponer | Hn: umeed karna / aasha karna
+339. BUILD — Sp: construir / edificar | Hn: banana
+340. FALL —
+     1.  (Descend/trip): Sp: caer / caerse | Hn: girna
+     2.  (Season): Sp: otoño | Hn: patjhad
+341. CUT —
+     1.  (Slice/sever): Sp: cortar | Hn: kaatna
+     2.  (Wound): Sp: herida / corte | Hn: ghaav / chot
+342. REACH —
+     1.  (Arrive at): Sp: llegar a / alcanzar | Hn: pahunchna
+     2.  (Extend arm): Sp: alcanzar | Hn: haath badhana / pakadna
+343. STAY / REMAIN [Merged Duplicate] — Sp: quedarse / permanecer / hospedarse |
+     Hn: rukna / theharna / rehna / bane rehna
+344. DECIDE — Sp: decidir / resolver | Hn: faisla karna / tay karna
+345. CHOOSE / PICK [Merged Duplicate] —
+     1.  (Select): Sp: elegir / escoger | Hn: chunna
+     2.  (Harvest/pluck): Sp: recoger / arrancar | Hn: todna / uthana
+346. PASS —
+     1.  (Exam): Sp: aprobar / pasar | Hn: safal hona / pass hona
+     2.  (Hand over): Sp: pasar | Hn: aage badhana / dena
+     3.  (Move past): Sp: pasar de largo / adelantar | Hn: aage nikalna /
+         guzarna
+347. SELL — Sp: vender | Hn: bechna
+348. PULL — Sp: jalar / tirar de | Hn: kheenchna
+349. PUSH — Sp: empujar | Hn: dhakka dena / dabana
+350. BREAK —
+     1.  (Damage/fracture): Sp: romper / quebrar | Hn: tootna (intransitive) vs
+         todna (transitive)
+     2.  (Pause/intermission): Sp: descanso / pausa | Hn: aaram / chhutti
+351. FIX —
+     1.  (Repair): Sp: arreglar / reparar | Hn: theek karna / sudhaarna
+     2.  (Fasten/secure): Sp: fijar / asegurar | Hn: pakka karna / lagana
+352. WEAR — Sp: llevar puesto / ponerse / vestir | Hn: pehanna
+353. CARRY — Sp: llevar / cargar / transportar | Hn: uthana / le jaana
+354. CATCH —
+     1.  (Seize object): Sp: atrapar / agarrar | Hn: pakadna
+     2.  (Catch transport): Sp: tomar / alcanzar | Hn: pakadna
+     3.  (Catch illness): Sp: contagiarse / pescar | Hn: lag jaana
+355. THROW — Sp: lanzar / tirar / arrojar | Hn: phenkna
+356. DROP —
+     1.  (Let fall): Sp: dejar caer / tirar | Hn: girana / chhorna
+     2.  (Liquid bead): Sp: gota | Hn: boond
+357. HIT —
+     1.  (Strike): Sp: golpear / pegar | Hn: maarna / thokna
+     2.  (Success): Sp: éxito / hit | Hn: safalta / kaamyaabi
+358. FIGHT —
+     1.  (Verb: brawl/combat): Sp: pelear / luchar | Hn: ladna / ladai karna
+     2.  (Noun): Sp: pelea / lucha | Hn: ladai / jhagda
+359. PROTECT — Sp: proteger / cuidar | Hn: bachana / khayaal rakhna
+360. SAVE —
+     1.  (Rescue): Sp: salvar / rescatar | Hn: bachana
+     2.  (Conserve money/data): Sp: ahorrar / guardar | Hn: bachana / jama karna
+361. SHARE — Sp: compartir | Hn: baantna
+362. JOIN —
+     1.  (Become member): Sp: unirse a / afiliarse | Hn: shaamil hona / judna
+     2.  (Connect parts): Sp: unir / juntar | Hn: jodna
+363. CONNECT — Sp: conectar / enlazar / enchufar | Hn: jodna / milaana
+364. DRIVE — Sp: manejar / conducir | Hn: gaadi chalana
+365. RIDE —
+     1.  (Cycle/horseback): Sp: montar / andar en | Hn: chalana / sawaari karna
+     2.  (Passenger trip): Sp: viaje / aventón | Hn: sawaari
+366. FLY —
+     1.  (Move in air): Sp: volar | Hn: udna (intransitive) vs udana
+         (transitive)
+     2.  (Insect): Sp: mosca | Hn: makkhi
+367. SWIM — Sp: nadar | Hn: tairna
+368. JUMP — Sp: saltar / brincar | Hn: koodna / chhalang lagana
+369. CLIMB — Sp: escalar / subir / trepar | Hn: chadhna
+370. DANCE —
+     1.  (Verb): Sp: bailar | Hn: naachna
+     2.  (Noun): Sp: baile / danza | Hn: naach
+371. SING — Sp: cantar | Hn: gaana / geet gaana
+372. LAUGH — Sp: reírse | Hn: hansna
+373. SMILE —
+     1.  (Verb): Sp: sonreír | Hn: muskurana
+     2.  (Noun): Sp: sonrisa | Hn: muskaan
+374. CRY —
+     1.  (Weep tears): Sp: llorar | Hn: rona
+     2.  (Call out/shout): Sp: gritar / clamar | Hn: chillana
+375. SHOUT — Sp: gritar | Hn: chillana / cheekhna
+376. LISTEN — Sp: escuchar | Hn: sunna / dhyaan se sunna
+377. TOUCH —
+     1.  (Physical contact): Sp: tocar | Hn: chhoona / haath lagana
+     2.  (Emotional impact): Sp: conmover | Hn: dil chhoo lena
+378. SMELL —
+     1.  (Detect scent): Sp: oler | Hn: soonghna
+     2.  (Emit scent): Sp: oler a | Hn: mehekna / badboo aana
+     3.  (Noun: scent): Sp: olor | Hn: khushboo / badboo
+379. TASTE —
+     1.  (Sample food): Sp: probar / saborear | Hn: chakhna
+     2.  (Have flavor): Sp: saber a | Hn: swaad aana
+     3.  (Noun: flavor): Sp: sabor / gusto | Hn: swaad
+380. EAT — Sp: comer | Hn: khaana
+381. DRINK —
+     1.  (Consume liquid): Sp: beber / tomar | Hn: peena
+     2.  (Alcohol): Sp: trago / copa | Hn: sharaab / jaam
+382. COOK —
+     1.  (Verb): Sp: cocinar | Hn: pakana / khana banana
+     2.  (Person): Sp: cocinero / cocinera | Hn: rasoiya / bawarchi
+383. BAKE — Sp: hornear / cocer al horno | Hn: sekna / oven mein pakana
+384. BOIL — Sp: hervir | Hn: ubalna (intransitive) vs ubaalna (transitive)
+385. FRY — Sp: freír | Hn: talna
+386. WASH — Sp: lavar / lavarse | Hn: dhona / saaf karna
+387. CLEAN —
+     1.  (Verb): Sp: limpiar | Hn: saaf karna
+     2.  (Adjective: not dirty): Sp: limpio | Hn: saaf
+388. SWEEP — Sp: barrer | Hn: jhaadu lagana
+389. WIPE — Sp: limpiar / pasar un trapo / secar | Hn: ponchhna / pocha lagana
+390. SLEEP —
+     1.  (Verb): Sp: dormir | Hn: sona
+     2.  (Noun): Sp: sueño | Hn: neend
+391. WAKE UP — Sp: despertarse | Hn: jaagna / uthna / neend khulna
+392. REST —
+     1.  (Relaxation): Sp: descansar / descanso | Hn: aaram karna / aaram
+     2.  (Remainder): Sp: el resto / lo demás | Hn: baaki / bacha hua
+393. DREAM —
+     1.  (Sleeping dream): Sp: soñar / sueño | Hn: sapna dekhna / sapna
+     2.  (Aspiration/goal): Sp: sueño / ilusión | Hn: sapna
+394. TEACH — Sp: enseñar / dar clases | Hn: padhana / sikhana
+395. STUDY —
+     1.  (Academic learning): Sp: estudiar | Hn: padhai karna / padhna
+     2.  (Noun: research/room): Sp: estudio | Hn: padhai / kamra
+396. EXPLAIN — Sp: explicar / aclarar | Hn: samjhana
+397. ANSWER —
+     1.  (Reply to query): Sp: responder / contestar / respuesta | Hn: jawaab
+         dena
+     2.  (Phone/door): Sp: atender / contestar | Hn: phone uthana / darwaza
+         kholna
+398. QUESTION —
+     1.  (Inquiry): Sp: pregunta | Hn: sawaal
+     2.  (Doubt/challenge): Sp: cuestionar / interrogar | Hn: sawaal uthana /
+         shakk karna
+399. CHECK —
+     1.  (Inspect/verify): Sp: revisar / comprobar | Hn: jaanch karna / dekhna
+     2.  (Restaurant bill): Sp: la cuenta | Hn: hisaab / parchi
+400. TEST —
+     1.  (Exam): Sp: examen / prueba | Hn: pariksha / imtihaan
+     2.  (Trial/experiment): Sp: probar / poner a prueba | Hn: aazmana /
+         parakhna
+401. PLAN —
+     1.  (Strategy): Sp: plan / proyecto | Hn: plan / yojna
+     2.  (Prepare ahead): Sp: planear / planificar | Hn: plan banana / taiyari
+         karna
+402. PREPARE — Sp: preparar | Hn: taiyaar karna / taiyaari karna
+403. ORGANIZE — Sp: organizar | Hn: vyavasthit karna / theek se rakhna / sajana
+404. MANAGE —
+     1.  (Supervise/direct): Sp: gestionar / administrar / dirigir | Hn:
+         sambhalna
+     2.  (Cope successfully): Sp: arreglárselas / lograr | Hn: jugad lagana /
+         kar paana
+405. CONTROL —
+     1.  (Regulate/dominate): Sp: controlar / dominar | Hn: kaabu mein rakhna
+     2.  (Device/remote): Sp: control / mando | Hn: kaabu / remote
+406. AGREE — Sp: estar de acuerdo / coincidir | Hn: sehmat hona / raazi hona
+407. DISAGREE — Sp: no estar de acuerdo / discrepar | Hn: sehmat na hona
+408. ACCEPT — Sp: aceptar / admitir | Hn: manna / qubool karna
+409. REFUSE — Sp: negarse / rechazar | Hn: mana karna / inkaar karna
+410. PROMISE —
+     1.  (Verb): Sp: prometer | Hn: vaada karna
+     2.  (Noun): Sp: promesa | Hn: vaada / kasam
+411. HOPE —
+     1.  (Verb): Sp: esperar / tener esperanza | Hn: umeed karna / aasha rakhna
+     2.  (Noun): Sp: esperanza | Hn: umeed / aasha
+412. WISH —
+     1.  (Desire): Sp: desear | Hn: chahna
+     2.  (Noun): Sp: deseo | Hn: ichha / khwaahish
+413. PREFER — Sp: preferir / gustar más | Hn: zyada pasand karna
+414. ENJOY — Sp: disfrutar / pasarlo bien | Hn: mazaa karna / mazaa aana
+415. HATE —
+     1.  (Verb): Sp: odiar / detestar | Hn: nafrat karna
+     2.  (Noun): Sp: odio | Hn: nafrat
+416. FEAR —
+     1.  (Verb): Sp: temer / tener miedo | Hn: darna
+     2.  (Noun): Sp: miedo / temor | Hn: darr
+417. WORRY —
+     1.  (Verb): Sp: preocuparse | Hn: chinta karna / fikar karna
+     2.  (Noun): Sp: preocupación | Hn: chinta / fikar
+418. CARE —
+     1.  (Matter/concern): Sp: importar / preocuparse | Hn: parwah karna / farak
+         padna
+     2.  (Look after): Sp: cuidar / atender | Hn: khayal rakhna / dekhbhaal
+         karna
+419. TRUST —
+     1.  (Verb): Sp: confiar / fiarse de | Hn: bharosa karna / vishwas karna
+     2.  (Noun): Sp: confianza | Hn: bharosa / vishwas
+420. FORGET — Sp: olvidar / olvidarse | Hn: bhoolna / bhool jaana
+421. FORGIVE — Sp: perdonar / disculpar | Hn: maaf karna
+422. THANK — Sp: agradecer / dar las gracias | Hn: shukriya kehna / dhanyavaad
+     dena
+423. WELCOME —
+     1.  (Verb: greet arrival): Sp: dar la bienvenida | Hn: swaagat karna
+     2.  (Reply to thanks): Sp: de nada | Hn: koi baat nahi
+424. INVITE — Sp: invitar | Hn: bulana / nyota dena
+425. VISIT —
+     1.  (Verb): Sp: visitar / ir a ver | Hn: milne jaana / ghoomne jaana
+     2.  (Noun): Sp: visita | Hn: mulaqat
+426. TRAVEL —
+     1.  (Verb): Sp: viajar | Hn: safar karna
+     2.  (Noun): Sp: viaje | Hn: safar / yatra
+427. ARRIVE — Sp: llegar | Hn: pahunchna / aana
+428. RETURN —
+     1.  (Come back): Sp: volver / regresar | Hn: lautna / wapas aana
+     2.  (Give back item): Sp: devolver | Hn: lauta dena / wapas dena
+429. ENTER — Sp: entrar / ingresar | Hn: andar aana / andar jaana
+430. EXIT —
+     1.  (Verb): Sp: salir / marcharse | Hn: bahar nikalna
+     2.  (Noun: doorway/route): Sp: salida | Hn: bahar jaane ka raasta
+431. CROSS —
+     1.  (Verb: traverse): Sp: cruzar / atravesar | Hn: paar karna
+     2.  (Noun: symbol): Sp: cruz | Hn: nishaan
+432. HURRY —
+     1.  (Verb: rush): Sp: darse prisa / apurarse | Hn: jaldi karna
+     2.  (Noun): Sp: prisa / apuro | Hn: jaldi / hadbadi
+433. FINISH / COMPLETE [Merged Duplicate] —
+     1.  (Verb: terminate/conclude): Sp: terminar / acabar / completar | Hn:
+         khatam karna / poora karna
+     2.  (Adjective: entire): Sp: completo / entero | Hn: poora / saara
+434. SUCCEED —
+     1.  (Achieve victory/prosperity): Sp: tener éxito / triunfar | Hn: kamyaab
+         hona / safal hona
+     2.  (Take over role/office): Sp: suceder | Hn: pad sambhalna / jagah lena
+435. FAIL —
+     1.  (Not succeed/flunk): Sp: fracasar / reprobar / suspender | Hn: fail
+         hona
+     2.  (Malfunction): Sp: fallar | Hn: kharab hona / kaam na karna
+436. IMPROVE — Sp: mejorar / superarse | Hn: sudharna / behtar banana
+437. PRACTICE —
+     1.  (Verb: train/rehearse): Sp: practicar / entrenar | Hn: abhyaas karna
+     2.  (Noun: custom/routine): Sp: práctica / costumbre | Hn: riwaaj / aadat
+438. REPEAT — Sp: repetir / volver a decir | Hn: dohrana / fir se kehna
+439. COMPARE — Sp: comparar / contrastar | Hn: tulna karna / barabari karna
