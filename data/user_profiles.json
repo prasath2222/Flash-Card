@@ -19,10 +19,10 @@
     "updatedAt": "2026-03-01T00:00:00.000Z"
   },
   "73801410b67c7ba66a922cc3105f74f279ec21460127d1f8645136a22bffcee3": {
-    "syncRevision": 4211,
-    "updatedAt": "2026-11-13T16:45:57.642Z",
+    "syncRevision": 4271,
+    "updatedAt": "2026-11-13T17:25:04.816Z",
     "payload": {
-      "syncRevision": 4211,
+      "syncRevision": 4271,
       "isExplicitUserAction": true,
       "learnedCardNums": [
         801,
@@ -799,7 +799,8 @@
         2500,
         1363,
         1364,
-        439
+        439,
+        1446
       ],
       "learnedCards": [
         801,
@@ -1576,7 +1577,8 @@
         2500,
         1363,
         1364,
-        439
+        439,
+        1446
       ],
       "deletedCardNums": [
         807,
@@ -1770,92 +1772,31 @@
         1810,
         "t1801_1810"
       ],
-      "activeDeckId": "deck-501-1000",
-      "lastActiveCardNum": 440,
-      "lastCard": 440,
+      "activeDeckId": "deck-2501-3000",
+      "lastActiveCardNum": 1365,
+      "lastCard": 1365,
       "streakCount": 5,
       "streak": 5,
-      "customShortcuts": {
-        "t2001_2024": {
-          "shortcutHi": "<strong>1. (Class Study) Paath / Chapter</strong> ≈ <strong>Paath</strong> is 100% identical to <strong>Tamil பாடம் (Paadam = Lesson!)</strong> + English <strong>\"Chapter\"</strong>!<br><strong>2. (Life Moral) Sabaq / Seekh</strong> ≈ <strong>Sabaq</strong> (Life moral) + <strong>Seekh</strong> (from <em>Seekhna</em> = To learn) = Life <em>Lesson (Seekh)</em>!",
-          "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations",
-          "word": "LESSON",
-          "es": "1. Class Study: Lección / Clase | 2. Life Moral: Escarmiento",
-          "schemaVer": 9,
-          "hi": "1. Class Study: Chapter | 2. Life Moral: Sabaq / Seekh",
-          "tamil": "1. பாடம் (வகுப்புப் பாடம் - Class Study) / 2. வாழ்க்கைப் பாடம் (படிப்பினை - Life Moral)",
-          "shortcutEs": "<strong>1. (Class Study) Lección</strong> ≈ Direct sibling of English <strong>\"Lesson / Lecture\" (Lección ≈ Lesson)</strong> → Classroom chapter = <em>Lesson (Lección)</em>!<br><strong>2. (Life Moral) Lección</strong> ≈ Direct sibling of English <strong>\"Lesson / Lecture\" (Lección ≈ Lesson)</strong> → Classroom chapter = <em>Lesson (Lección)</em>!"
-        },
-        "t2501_1365": {
-          "shortcutHi": "<strong>1. Trash:</strong> Spoken Tamil <strong>கச்சடா (Kachada)</strong> → <em>Kachra</em>, dustbin → <em>Kooda</em>! | <strong>2. Squander:</strong> <strong>வீணடித்தல்</strong> → Wasting time/money = <em>Barbaad karna (Barbadi)</em>!",
-          "hi": "Kachra / kooda / fuzool cheez",
-          "word": "WASTE / GARBAGE",
-          "tamil": "1. குப்பைக் கழிவு (Trash / Debris) / 2. வீணடித்தல் (Misuse / Squander)",
-          "category": "Category 82: Energy Resources, Climate & Conservation",
-          "schemaVer": 9,
-          "shortcutEs": "<strong>1. Trash:</strong> English <strong>Residue</strong> → <em>Residuos</em>, thrown out (<strong>Des-echar</strong>) → <em>Desechos</em>, garbage → <em>Basura</em>! | <strong>2. Squander:</strong> Wasting money/time → <em>Desperdicio / malgastar</em>!",
-          "es": "Residuos / desechos / basura"
-        },
-        "t2001_2022": {
-          "word": "RULER",
-          "shortcutEs": "<strong>1. (Measuring Tool) Regla</strong> ≈ Direct sibling of English <strong>\"Regulate / Regular\"</strong> → Measuring <em>Ruler</em> or law <em>Rule (Regla)</em>!<br><strong>2. (Leader / Monarch) Gobernante</strong> ≈ Direct sibling of English <strong>\"Governor / Govern\"</strong> → Monarch or country <em>Ruler (Gobernante)</em>!",
-          "es": "1. Measuring Tool: Regla | 2. Leader / Monarch: Gobernante",
-          "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations",
-          "shortcutHi": "<strong>1. (Measuring Tool) Scale / Futa</strong> ≈ <strong>Tamil ஸ்கேல் (Scale = Ruler!)</strong> & English <strong>\"Scale\"</strong> → Measuring <em>Ruler (Scale)</em>!<br><strong>2. (Leader / Monarch) Shaasak / Raja</strong> ≈ <strong>Shaasak</strong> (from <strong>Tamil சாசனம் = Rule/Decree!</strong>) + <strong>Raja</strong> (<strong>Tamil ராஜா = King!</strong>) = Monarch / <em>Ruler</em>!",
-          "hi": "1. Measuring Tool: Scale | 2. Leader / Monarch: Shaasak / Raja",
-          "schemaVer": 9,
-          "tamil": "1. அளவுகோல் (ஸ்கேல் - Measuring Tool) / 2. ஆட்சியாளர் (அரசன் - Leader / Monarch)"
-        },
-        "t2501_1364": {
-          "word": "POLLUTION / CONTAMINATION",
-          "shortcutHi": "<strong>Pradushan / gandagi / aaloodgi</strong> ≈ <strong>Produce + Dust</strong> → <em>Pradushan (Pollution)</em>! Rotten <strong>Aaloo</strong> → <em>Aaloodgi</em>! From <strong>Ganda (Dirty)</strong> → <em>Gandagi (Contamination)</em>!",
-          "category": "Category 82: Energy Resources, Climate & Conservation",
-          "hi": "Pradushan / gandagi / aaloodgi",
-          "tamil": "மாசுபாடு / கலப்படம் / மாசு",
-          "schemaVer": 9,
-          "es": "Contaminación / polución",
-          "shortcutEs": "<strong>Contaminación</strong> ≈ Direct match with English <strong>\"Contamination\"</strong> → Dirtying air or water = <em>Pollution (Contaminación)</em>!"
-        },
-        "t2001_2017": {
-          "hi": "Paper Holder: Folder / File",
-          "shortcutHi": "<strong>1. (Paper Holder) Folder / File</strong> ≈ 100% identical to English & spoken Tamil <strong>\"Folder / File\"</strong>!<br><strong>2. (Computer Directory) Folder</strong> ≈ 100% identical to English <strong>\"Folder\"</strong> &amp; spoken Tamil <strong>கணினி கோப்புறை</strong> → Same everyday word in Hindi &amp; English!",
-          "word": "FOLDER",
-          "tamil": "1. காகிதக் கோப்புறை (ஃபோல்டர் - Paper Holder) / 2. கணினி கோப்புறை (Computer Directory)",
-          "category": "Category 70: Publishing Industry, Media Ethics & Academic Foundations",
-          "es": "Paper Holder: Carpeta",
-          "schemaVer": 9,
-          "shortcutEs": "<strong>1. (Paper Holder) Carpeta</strong> ≈ Sounds like <strong>\"Carpet-File\"</strong> → Cardboard file <em>Folder (Carpeta)</em> on your desk!<br><strong>2. (Computer Directory) Carpeta</strong> ≈ Sounds like <strong>\"Carpet-File\"</strong> → Cardboard file <em>Folder (Carpeta)</em> on your desk!"
-        },
-        "t2501_1363": {
-          "tamil": "1. இயற்கைச் சுற்றுச்சூழல் (Nature / Ecology) / 2. சுற்றியுள்ள சூழ்நிலை (Atmosphere / Surroundings) / இயற்கை",
-          "shortcutEs": "<strong>Medio ambiente / entorno</strong> ≈ English <strong>\"Ambient\"</strong> (surrounding air) → <em>Medio ambiente</em>! Root <strong>\"Turn\"</strong> (everything when you <em>turn</em> around) → <em>Entorno</em> (Surroundings)!",
-          "schemaVer": 9,
-          "es": "Medio ambiente / entorno",
-          "category": "Category 81: Games, Athletics & Environmental Ecology",
-          "word": "ENVIRONMENT / NATURE",
-          "shortcutHi": "<strong>Paryavaran / mahaul / vatavaran</strong> ≈ <strong>Perimeter cover (Pari + Aavaran)</strong> → <em>Paryavaran</em>! <strong>Air cover (Vaat + Aavaran)</strong> → <em>Vatavaran</em>! Good <strong>Mahasul (மகசூல்/Crop)</strong> needs a good <strong>Mahaul</strong> (Atmosphere)!",
-          "hi": "Paryavaran / mahaul / vatavaran"
-        }
-      },
+      "customShortcuts": {},
       "customDecks": {},
       "customSections": [],
       "audioPrefs": {
         "sfxVolume": 1,
-        "bgmEnabled": true,
-        "bgmMode": "lofi",
-        "sfxStyle": "mute",
-        "bgmVolume": 1,
         "transcribeSilenceDelay": 1500,
+        "bgmVolume": 1,
         "voiceRate": 0.8,
-        "autoPronounceFlip": false,
-        "transcribeContinuous": true,
-        "voicePitch": 1,
-        "repeatCount": 1,
+        "sfxStyle": "mute",
+        "bgmEnabled": true,
         "autoPronounceNext": false,
+        "bgmMode": "lofi",
+        "repeatDelay": 1000,
+        "autoPronounceFlip": false,
+        "voicePitch": 1,
         "voiceVolume": 1,
-        "repeatDelay": 1000
+        "repeatCount": 1,
+        "transcribeContinuous": true
       },
-      "updatedAt": "2026-11-13T16:45:57.642Z"
+      "updatedAt": "2026-11-13T17:25:04.816Z"
     }
   }
 }

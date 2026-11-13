@@ -1331,7 +1331,7 @@ async function startServer() {
       inner.customShortcuts && typeof inner.customShortcuts === "object" ? inner.customShortcuts : {};
     const customShortcuts: Record<string, any> = {};
     for (const [k, v] of Object.entries(rawCustomShortcuts)) {
-      if (v && typeof v === "object" && (v as any).schemaVer === 9) {
+      if (v && typeof v === "object" && (v as any).schemaVer === 10) {
         customShortcuts[k] = v;
       }
     }
