@@ -1327,6 +1327,8 @@ async function startServer() {
     const activeDeckId = inner.activeDeckId || "deck-800-1000";
     const lastActiveCardNum = Number(inner.lastActiveCardNum ?? inner.lastCard ?? 800);
     const streakCount = Number(inner.streakCount ?? inner.streak ?? 1);
+    const lastStudyDate = typeof inner.lastStudyDate === "string" ? inner.lastStudyDate : "";
+    const dailyStats = inner.dailyStats && typeof inner.dailyStats === "object" ? inner.dailyStats : null;
     const rawCustomShortcuts =
       inner.customShortcuts && typeof inner.customShortcuts === "object" ? inner.customShortcuts : {};
     const customShortcuts: Record<string, any> = {};
@@ -1356,6 +1358,8 @@ async function startServer() {
       lastCard: lastActiveCardNum,
       streakCount,
       streak: streakCount,
+      lastStudyDate,
+      dailyStats,
       customShortcuts,
       customDecks,
       customSections,
@@ -1412,6 +1416,9 @@ async function startServer() {
         : 0;
     const sectionsCount = Array.isArray(p.customSections) ? p.customSections.length : 0;
     const activeDeck = p.activeDeckId && p.activeDeckId !== "deck-800-1000";
+    const streakCount = Number(p.streakCount ?? p.streak ?? 0);
+    const dailyReviewed = Number(p.dailyStats?.reviewedCount || 0);
+    const dailyLearned = Number(p.dailyStats?.learnedCount || 0);
     const rev = Number(p.syncRevision || 0);
     return Boolean(
       learned.length > 0 ||
@@ -1421,6 +1428,10 @@ async function startServer() {
       decksCount > 0 ||
       sectionsCount > 0 ||
       activeDeck ||
+      streakCount > 1 ||
+      Boolean(p.lastStudyDate) ||
+      dailyReviewed > 0 ||
+      dailyLearned > 0 ||
       rev > 0
     );
   }
@@ -1527,6 +1538,14 @@ async function startServer() {
     const streakCount = Number(
       incoming.streakCount ?? incoming.streak ?? existingNorm.streakCount ?? 1
     );
+    const lastStudyDate =
+      typeof incoming.lastStudyDate === "string" && incoming.lastStudyDate.trim()
+        ? incoming.lastStudyDate.trim()
+        : (existingNorm.lastStudyDate || "");
+    const dailyStats =
+      incoming.dailyStats && typeof incoming.dailyStats === "object"
+        ? incoming.dailyStats
+        : (existingNorm.dailyStats || null);
     const existingRev = Number(existingNorm.syncRevision || 0);
     const incomingRev = Number(incoming.syncRevision ?? incomingBody?.syncRevision ?? 0);
     const syncRevision = incomingRev > existingRev ? incomingRev : existingRev + 1;
@@ -1547,6 +1566,8 @@ async function startServer() {
       lastCard: lastActiveCardNum,
       streakCount,
       streak: streakCount,
+      lastStudyDate,
+      dailyStats,
       customShortcuts,
       customDecks,
       customSections,
@@ -1607,6 +1628,8 @@ async function startServer() {
           customSections: savedPayload.customSections || [],
           audioPrefs: savedPayload.audioPrefs || {},
           streakCount: savedPayload.streakCount || 1,
+          lastStudyDate: savedPayload.lastStudyDate || "",
+          dailyStats: savedPayload.dailyStats || null,
           isExplicitUserAction,
           lastStudied: updatedAt,
           updatedAt

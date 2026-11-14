@@ -296,6 +296,9 @@ function isPayloadNonEmptyProgress(p: any): boolean {
   const decksCount = p.customDecks && typeof p.customDecks === 'object' ? Object.keys(p.customDecks).length : 0;
   const sectionsCount = Array.isArray(p.customSections) ? p.customSections.length : 0;
   const activeDeck = p.activeDeckId && p.activeDeckId !== 'deck-800-1000';
+  const streakCount = Number(p.streakCount ?? p.streak ?? 0);
+  const dailyReviewed = Number(p.dailyStats?.reviewedCount || 0);
+  const dailyLearned = Number(p.dailyStats?.learnedCount || 0);
   const rev = Number(p.syncRevision || 0);
   return Boolean(
     learned.length > 0 ||
@@ -305,6 +308,10 @@ function isPayloadNonEmptyProgress(p: any): boolean {
     decksCount > 0 ||
     sectionsCount > 0 ||
     activeDeck ||
+    streakCount > 1 ||
+    Boolean(p.lastStudyDate) ||
+    dailyReviewed > 0 ||
+    dailyLearned > 0 ||
     rev > 0
   );
 }
@@ -386,7 +393,9 @@ async function attachStudyStateListener(email: string) {
           customShortcuts: raw.customShortcuts,
           customDecks: raw.customDecks,
           customSections: raw.customSections,
-          streakCount: typeof raw.streakCount === 'number' ? raw.streakCount : 0,
+          streakCount: typeof raw.streakCount === 'number' ? raw.streakCount : 1,
+          lastStudyDate: typeof raw.lastStudyDate === 'string' ? raw.lastStudyDate : '',
+          dailyStats: raw.dailyStats && typeof raw.dailyStats === 'object' ? raw.dailyStats : null,
           updatedAt: raw.lastStudied || raw.updatedAt || new Date().toISOString()
         };
 
@@ -546,6 +555,8 @@ export async function saveAccountStateToFirestore(
       customSections: sanitizedPayload.customSections || [],
       audioPrefs: sanitizedPayload.audioPrefs || {},
       streakCount: typeof sanitizedPayload.streakCount === 'number' ? sanitizedPayload.streakCount : 1,
+      lastStudyDate: typeof sanitizedPayload.lastStudyDate === 'string' ? sanitizedPayload.lastStudyDate : '',
+      dailyStats: sanitizedPayload.dailyStats && typeof sanitizedPayload.dailyStats === 'object' ? sanitizedPayload.dailyStats : null,
       isExplicitUserAction: explicitFlag,
       lastStudied: updatedAt,
       updatedAt
@@ -638,6 +649,8 @@ export async function loadAccountStateFromFirestore(
             customSections: d.customSections || [],
             audioPrefs: d.audioPrefs || {},
             streakCount: d.streakCount || 1,
+            lastStudyDate: typeof d.lastStudyDate === 'string' ? d.lastStudyDate : '',
+            dailyStats: d.dailyStats && typeof d.dailyStats === 'object' ? d.dailyStats : null,
             updatedAt: d.lastStudied || d.updatedAt || ''
           };
         } else {
@@ -718,6 +731,12 @@ export async function pushStudyStateToCloud(partialState: {
     }
     if (typeof partialState.streakCount === 'number') {
       progressPatch.streakCount = partialState.streakCount;
+    }
+    if (typeof partialState.lastStudyDate === 'string') {
+      progressPatch.lastStudyDate = partialState.lastStudyDate;
+    }
+    if ((partialState as any).dailyStats && typeof (partialState as any).dailyStats === 'object') {
+      progressPatch.dailyStats = (partialState as any).dailyStats;
     }
 
     await Promise.all([

@@ -1,0 +1,33 @@
+{
+  "id": "/",
+  "name": "Stellar Sequential Flashcards",
+  "short_name": "Stellar",
+  "description": "Mobile-first sequential multilingual flashcard reader featuring English, Spanish, Hindi, and Tamil script.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["standalone", "fullscreen", "minimal-ui"],
+  "orientation": "portrait-primary",
+  "theme_color": "#070a13",
+  "background_color": "#070a13",
+  "icons": [
+    {
+      "src": "/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -30,6 +30,15 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
     />
+    <meta name="theme-color" content="#070a13" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Stellar" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/pwa-192x192.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <title>Remix Remix Sequential Multilingual Flashcards</title>
     <meta
       name="description"
@@ -7254,14 +7263,16 @@
       .app-main-viewport {
         margin-left: 0 !important;
         width: 100% !important;
+        max-width: 100vw !important;
         height: auto !important;
         min-height: 100vh !important;
-        padding-bottom: 74px !important;
+        padding-bottom: calc(98px + env(safe-area-inset-bottom, 12px)) !important;
         overflow-y: visible !important;
       }
 
-      #screen-home {
-        padding: 12px 14px 18px !important;
+      #screen-home,
+      #screen-subsections {
+        padding: 12px 14px calc(98px + env(safe-area-inset-bottom, 12px)) !important;
         gap: 12px !important;
       }
       .card-3k-featured {
@@ -7284,35 +7295,51 @@
         flex-wrap: nowrap !important;
         align-items: center !important;
         justify-content: space-between !important;
-        padding: 0 14px !important;
-        height: 54px !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+        box-sizing: border-box !important;
+        padding: max(0px, env(safe-area-inset-top, 0px)) 10px 0 !important;
+        min-height: 54px !important;
+        height: auto !important;
+        gap: 6px !important;
         background: #0b1120 !important;
         border-bottom: 1.5px solid rgba(255, 255, 255, 0.08) !important;
         position: sticky !important;
         top: 0 !important;
         z-index: 50 !important;
+        overflow: hidden !important;
       }
       .mobile-left-cluster {
         display: flex !important;
         align-items: center !important;
-        gap: 10px !important;
+        gap: 8px !important;
+        min-width: 0 !important;
+        flex: 1 1 auto !important;
+        overflow: hidden !important;
       }
       .mobile-hamburger-btn {
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        width: 38px !important;
-        height: 38px !important;
+        width: 36px !important;
+        height: 36px !important;
+        min-width: 36px !important;
+        min-height: 36px !important;
         border-radius: 11px !important;
         background: rgba(255, 255, 255, 0.08) !important;
         border: 1px solid rgba(255, 255, 255, 0.15) !important;
         color: #ffffff !important;
+        flex-shrink: 0 !important;
       }
       .mobile-brand-title {
         font-family: 'Fredoka', 'Nunito', -apple-system, sans-serif !important;
-        font-size: 1.55rem !important;
+        font-size: clamp(0.96rem, 4vw, 1.35rem) !important;
         font-weight: 700 !important;
         color: #a855f7 !important;
+        min-width: 0 !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
       }
 
       .mobile-bottom-nav {
@@ -7321,15 +7348,15 @@
         left: 0 !important;
         right: 0 !important;
         width: 100% !important;
-        height: 60px !important;
-        background: rgba(11, 17, 32, 0.95) !important;
+        height: calc(60px + env(safe-area-inset-bottom, 0px)) !important;
+        background: rgba(11, 17, 32, 0.96) !important;
         backdrop-filter: blur(24px) saturate(180%) !important;
         -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
         border-top: 1.5px solid rgba(255, 255, 255, 0.09) !important;
         display: grid !important;
         grid-template-columns: repeat(4, 1fr) !important;
         align-items: center !important;
-        padding: 3px 6px env(safe-area-inset-bottom, 4px) !important;
+        padding: 3px 6px max(4px, env(safe-area-inset-bottom, 4px)) !important;
         z-index: 100 !important;
       }
     }
@@ -7606,49 +7633,82 @@
       display: none !important;
     }
 
-    /* Mobile header title sizing & anti-truncation (Never show ste... or ellipsis) */
+    /* Mobile header title sizing & anti-clipping (Guaranteed fit on 360px phones without right-edge overflow) */
     .mobile-left-cluster {
       display: flex !important;
       align-items: center !important;
-      gap: 8px !important;
+      gap: 6px !important;
       min-width: 0 !important;
-      flex: 0 0 auto !important;
-      flex-shrink: 0 !important;
+      flex: 1 1 auto !important;
+      overflow: hidden !important;
     }
     .mobile-left-cluster .mobile-brand-title,
     .mobile-brand-title {
       white-space: nowrap !important;
-      overflow: visible !important;
-      text-overflow: clip !important;
-      font-size: 1.25rem !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      font-size: clamp(0.95rem, 3.6vw, 1.18rem) !important;
       font-weight: 800 !important;
       color: #a855f7 !important;
-      letter-spacing: -0.01em !important;
-      line-height: 1 !important;
-      flex-shrink: 0 !important;
+      letter-spacing: -0.02em !important;
+      line-height: 1.15 !important;
+      flex: 0 1 auto !important;
+      min-width: 0 !important;
       display: inline-block !important;
     }
     .mobile-right-cluster {
       display: flex !important;
       align-items: center !important;
-      gap: 5px !important;
+      gap: 4px !important;
       flex-shrink: 0 !important;
       margin-left: auto !important;
     }
     .mobile-right-cluster .stat-badge-duo {
       padding: 4px 7px !important;
-      font-size: 0.75rem !important;
+      font-size: 0.74rem !important;
       flex-shrink: 0 !important;
+      white-space: nowrap !important;
     }
     @media (max-width: 480px) {
+      .mobile-top-bar {
+        padding: max(0px, env(safe-area-inset-top, 0px)) 8px 0 !important;
+        gap: 5px !important;
+      }
+      .mobile-hamburger-btn,
+      .mobile-back-btn {
+        width: 34px !important;
+        height: 34px !important;
+        min-width: 34px !important;
+        min-height: 34px !important;
+        border-radius: 10px !important;
+      }
       #mobile-cloud-label {
         display: none !important;
       }
       #mobile-cloud-sync-btn {
-        padding: 4px 7px !important;
+        padding: 4px 6px !important;
+        min-width: 28px !important;
+        height: 28px !important;
+        border-radius: 9px !important;
+        gap: 3px !important;
+      }
+      #mobile-search-btn {
+        padding: 4px 6px !important;
+        min-width: 28px !important;
+        height: 28px !important;
+        border-radius: 9px !important;
+      }
+      .mobile-right-cluster {
+        gap: 4px !important;
+      }
+      .mobile-right-cluster .stat-badge-duo {
+        padding: 3px 6px !important;
+        font-size: 0.71rem !important;
+        gap: 3px !important;
+        border-radius: 9px !important;
       }
       .mobile-left-cluster .mobile-brand-title {
-        font-size: 1.2rem !important;
+        font-size: clamp(0.92rem, 3.8vw, 1.12rem) !important;
       }
     }
 
@@ -9674,10 +9734,18 @@
             <span class="mobile-drawer-icon">☁️</span>
             <span class="mobile-drawer-label">Cloud Sync & Login</span>
           </button>
+          <button type="button" class="mobile-drawer-btn" id="mob-drawer-fullscreen">
+            <span class="mobile-drawer-icon">⛶</span>
+            <span class="mobile-drawer-label" id="mob-drawer-fullscreen-label">Fullscreen Mode</span>
+          </button>
+          <button type="button" class="mobile-drawer-btn" id="mob-drawer-install-app" style="display: none;">
+            <span class="mobile-drawer-icon">📲</span>
+            <span class="mobile-drawer-label">Install App (No URL Bar)</span>
+          </button>
         </nav>
         <div class="mobile-nav-drawer-footer">
-          <div style="font-size: 0.82rem; font-weight: 750; color: #f1f5f9;">Mastery Track</div>
-          <div style="font-size: 0.74rem; color: #a855f7; font-weight: 700;">3,000 Words · 800–1000 Active</div>
+          <div id="drawer-daily-status-text" style="font-size: 0.78rem; font-weight: 800; color: #fbbf24;">🔥 1 Day Streak · Today: 0 studied</div>
+          <div style="font-size: 0.74rem; color: #a855f7; font-weight: 700;">3,000 Words · 6 Mastery Splits</div>
         </div>
       </aside>
 
@@ -9846,8 +9914,8 @@
                       <div class="progress-track-3k">
                         <div class="progress-fill-3k" id="progress-fill-3k-total" style="width: 0%;"></div>
                       </div>
-                      <div class="progress-tier-hint" style="display: flex; justify-content: space-between; font-size: 0.8rem; color: #94a3b8; margin-top: 4px;">
-                        <span style="display: flex; align-items: center; gap: 6px; font-weight: 700; color: #f1f5f9;"><span style="color: #10b981; font-size: 1.1rem; font-weight: 900; line-height: 1;">✓</span> <span>Learned Progress</span></span>
+                      <div class="progress-tier-hint" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; font-size: 0.8rem; color: #94a3b8; margin-top: 4px;">
+                        <span id="home-daily-status-text" style="display: flex; align-items: center; gap: 6px; font-weight: 700; color: #fbbf24;"><span>🔥</span> <span>Today: 0 learned · 0 studied</span></span>
                         <span id="tier-800-learned-stat" style="font-weight: 800; color: #34d399; background: rgba(16, 185, 129, 0.16); border: 1px solid rgba(16, 185, 129, 0.4); padding: 2px 10px; border-radius: 9999px;">0 / 200 Learned</span>
                       </div>
                     </div>
@@ -11134,6 +11202,25 @@
                 </button>
               </div>
             </div>
+
+            <div class="settings-row-divider"></div>
+
+            <div class="settings-row-block">
+              <div class="settings-card-header">
+                <div>
+                  <h3 class="settings-card-title">App Display &amp; Install</h3>
+                  <p class="settings-card-sub" id="pwa-display-status-sub">Hide browser bar with Fullscreen or Install App</p>
+                </div>
+                <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                  <button type="button" class="settings-action-btn settings-action-btn-primary" id="btn-settings-fullscreen" style="width: auto !important; padding: 6px 12px !important;">
+                    <span id="btn-settings-fullscreen-label">⛶ Fullscreen</span>
+                  </button>
+                  <button type="button" class="settings-action-btn settings-action-btn-success" id="btn-settings-install-app" style="display: none; width: auto !important; padding: 6px 12px !important;">
+                    <span>📲 Install App</span>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -11915,14 +12002,25 @@ var tier2501DeckCards = split8DeckCards;
         if (typeof updateSubsectionsUI === "function") updateSubsectionsUI();
       }
 
-      function updateGlobalLearnedDisplays() {
-        const totalLearned = learnedCardsSet ? learnedCardsSet.size : 0;
+      function computeAuthoritativeLearnedCount() {
+        let totalLearned = 0;
         let totalWords = 1446;
         if (typeof BUILT_IN_DECKS_META === "object") {
           const uniqueDecks = Array.from(new Set(Object.values(BUILT_IN_DECKS_META)));
           const computedTotal = uniqueDecks.reduce((sum, meta) => sum + getRemainingDeckCards(meta.cards || []).length, 0);
           if (computedTotal > 0) totalWords = computedTotal;
+          totalLearned = uniqueDecks.reduce((sum, meta) => {
+            const rem = getRemainingDeckCards(meta.cards || []);
+            return sum + getSectionLearnedCount(rem, meta.id);
+          }, 0);
+        } else if (learnedCardsSet) {
+          totalLearned = learnedCardsSet.size;
         }
+        return { totalLearned, totalWords };
+      }
+
+      function updateGlobalLearnedDisplays() {
+        const { totalLearned, totalWords } = computeAuthoritativeLearnedCount();
         const totalPct = Math.min(100, ((totalLearned / Math.max(1, totalWords)) * 100)).toFixed(1);
 
         const desktopStatusEl = document.getElementById("desktop-status-count");
@@ -11937,6 +12035,9 @@ var tier2501DeckCards = split8DeckCards;
 
         const card3kTotalWordsEl = document.getElementById("card-3k-total-words-count");
         if (card3kTotalWordsEl) card3kTotalWordsEl.textContent = totalWords.toLocaleString();
+
+        const commonLearnedBadge = document.getElementById("common-cloud-learned-badge");
+        if (commonLearnedBadge) commonLearnedBadge.textContent = `${totalLearned.toLocaleString()} Learned`;
 
         const activeDeckLearned = getSectionLearnedCount(cards, currentDeckId);
         const activeDeckTotal = cards ? cards.length : 200;
@@ -11991,7 +12092,8 @@ var tier2501DeckCards = split8DeckCards;
         const key = getCardLearnedKey(currentCard, currentDeckId);
         if (key === null || key === undefined) return;
 
-        if (isCardLearned(currentCard, currentDeckId)) {
+        const wasLearned = isCardLearned(currentCard, currentDeckId);
+        if (wasLearned) {
           learnedCardsSet.delete(key);
           learnedCardsSet.delete(String(key));
           learnedCardsSet.delete(Number(key));
@@ -11999,6 +12101,9 @@ var tier2501DeckCards = split8DeckCards;
         } else {
           learnedCardsSet.add(key);
           if (typeof playHapticTick === "function") playHapticTick(720, "triangle", 0.06);
+        }
+        if (typeof window.recordDailyStudyActivity === "function") {
+          window.recordDailyStudyActivity(wasLearned ? "unlearn" : "learn", key);
         }
         saveLearnedCards();
         updateCardLearnedUI(currentCard);
@@ -13771,6 +13876,12 @@ var tier2501DeckCards = split8DeckCards;
         isFlipped = !isFlipped;
         if (isFlipped && cards && cards[currentIndex]) {
           adjustBackContentSpace(cards[currentIndex]);
+          if (typeof window.recordDailyStudyActivity === "function") {
+            const flipKey = typeof getCardLearnedKey === "function"
+              ? getCardLearnedKey(cards[currentIndex], currentDeckId)
+              : (cards[currentIndex].originalNum || cards[currentIndex].num);
+            window.recordDailyStudyActivity("flip", flipKey);
+          }
         }
         if (typeof cardAudio !== "undefined" && cardAudio.playCardFlip) {
           cardAudio.playCardFlip(!isFlipped);
@@ -13849,6 +13960,12 @@ var tier2501DeckCards = split8DeckCards;
           if (cards[currentIndex] && !isShuffled) {
             setLastCardNumber(cards[currentIndex].originalNum || cards[currentIndex].num, true);
           }
+          if (cards[currentIndex] && typeof window.recordDailyStudyActivity === "function") {
+            const navKey = typeof getCardLearnedKey === "function"
+              ? getCardLearnedKey(cards[currentIndex], currentDeckId)
+              : (cards[currentIndex].originalNum || cards[currentIndex].num);
+            window.recordDailyStudyActivity("review", navKey);
+          }
           if (cardWrapper) cardWrapper.classList.add("slide-in-right");
 
           // Auto-Pronounce English on Card Change
@@ -13895,6 +14012,12 @@ var tier2501DeckCards = split8DeckCards;
           renderCurrentCard();
           if (cards[currentIndex] && !isShuffled) {
             setLastCardNumber(cards[currentIndex].originalNum || cards[currentIndex].num, true);
+          }
+          if (cards[currentIndex] && typeof window.recordDailyStudyActivity === "function") {
+            const navKey = typeof getCardLearnedKey === "function"
+              ? getCardLearnedKey(cards[currentIndex], currentDeckId)
+              : (cards[currentIndex].originalNum || cards[currentIndex].num);
+            window.recordDailyStudyActivity("review", navKey);
           }
           if (cardWrapper) cardWrapper.classList.add("slide-in-left");
 
@@ -14307,6 +14430,9 @@ var tier2501DeckCards = split8DeckCards;
         }
 
         saveLearnedCards();
+        if (typeof window.recordDailyStudyActivity === "function") {
+          window.recordDailyStudyActivity(nowLearned ? "learn" : "unlearn", key);
+        }
         if (cards[currentIndex]) {
           updateCardLearnedUI(cards[currentIndex]);
         }
@@ -14581,6 +14707,12 @@ var tier2501DeckCards = split8DeckCards;
           }
 
           saveLearnedCards();
+          if (typeof window.recordDailyStudyActivity === "function") {
+            const batchKeys = cards
+              .map((c) => getCardLearnedKey(c, currentDeckId))
+              .filter((k) => k !== null && k !== undefined);
+            window.recordDailyStudyActivity(allCurrentlyLearned ? "unlearn" : "learn", batchKeys);
+          }
           if (cards[currentIndex]) {
             updateCardLearnedUI(cards[currentIndex]);
           }
@@ -14760,6 +14892,12 @@ var tier2501DeckCards = split8DeckCards;
           renderCurrentCard();
           if (cards[currentIndex] && !isShuffled) {
             setLastCardNumber(cards[currentIndex].originalNum || cards[currentIndex].num, true);
+          }
+          if (cards[currentIndex] && typeof window.recordDailyStudyActivity === "function") {
+            const swipeKey = typeof getCardLearnedKey === "function"
+              ? getCardLearnedKey(cards[currentIndex], currentDeckId)
+              : (cards[currentIndex].originalNum || cards[currentIndex].num);
+            window.recordDailyStudyActivity("review", swipeKey);
           }
 
           const enterX = (goingNext ? 1 : -1) * 45;
@@ -16567,7 +16705,28 @@ var tier2501DeckCards = split8DeckCards;
       /* ==========================================================
          SCREEN NAVIGATION & RESPONSIVE LAYOUT CONTROLLER
          ========================================================== */
-      function switchScreen(screenId) {
+      function scrollActiveScreenTop(forceReset = false) {
+        try {
+          const isMobile = window.innerWidth < 1024;
+          const viewportEl = document.querySelector(".app-main-viewport");
+          if (viewportEl && viewportEl.scrollTop > 0) {
+            viewportEl.scrollTop = 0;
+          }
+          if (!isMobile) {
+            if (window.scrollY > 4) window.scrollTo({ top: 0, behavior: "smooth" });
+          } else if (forceReset || window.scrollY > 48) {
+            // Keep scroll position at 1px on mobile when jumping down a long list so Chrome doesn't force-snap its address bar down unnecessarily
+            window.scrollTo({ top: 1, behavior: "auto" });
+          }
+        } catch (e) {}
+      }
+      window.scrollActiveScreenTop = scrollActiveScreenTop;
+
+      function switchScreen(screenId, navOptions = {}) {
+        const prevScreenEl = document.querySelector(".app-screen.active-screen");
+        const prevScreenId = prevScreenEl ? prevScreenEl.id : "screen-home";
+        const isForwardChange = !navOptions.fromHistory && prevScreenId !== screenId;
+
         if (screenId === "screen-flashcard") {
           document.body.classList.add("in-flashcard-mode");
           if (document.documentElement) document.documentElement.classList.add("in-flashcard-mode");
@@ -16618,7 +16777,7 @@ var tier2501DeckCards = split8DeckCards;
           if (desktopBackBtn) desktopBackBtn.style.setProperty("display", "inline-flex", "important");
           if (mobileBackBtn) mobileBackBtn.style.setProperty("display", "flex", "important");
           if (mobileHamBtn) mobileHamBtn.style.setProperty("display", "none", "important");
-          if (mobileTitle) mobileTitle.textContent = "3k Vocabulary";
+          if (mobileTitle) mobileTitle.textContent = window.innerWidth < 480 ? "3k Vocab" : "3k Vocabulary";
           const btn = document.getElementById("nav-btn-subsections");
           if (btn) btn.classList.add("active");
           const mob = document.getElementById("mob-tab-3k");
@@ -16635,14 +16794,26 @@ var tier2501DeckCards = split8DeckCards;
           if (breadcrumbEl) breadcrumbEl.textContent = `Flashcard Session · ${getActiveDeckInfo().title}`;
         }
 
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        if (screenId !== "screen-flashcard") {
+          scrollActiveScreenTop();
+        }
         closeMenuDrawer();
+
+        if (isForwardChange && screenId !== "screen-home" && window.__stellarNav && typeof window.__stellarNav.onScreenEntered === "function") {
+          window.__stellarNav.onScreenEntered(screenId);
+        }
       }
 
       // Breadcrumb / Screen Back Buttons
       const btnBreadcrumbBack = document.getElementById("btn-breadcrumb-back");
       if (btnBreadcrumbBack) {
-        btnBreadcrumbBack.addEventListener("click", () => switchScreen("screen-subsections"));
+        btnBreadcrumbBack.addEventListener("click", () => {
+          if (window.__stellarNav && typeof window.__stellarNav.stepBack === "function") {
+            window.__stellarNav.stepBack();
+          } else {
+            switchScreen("screen-subsections");
+          }
+        });
       }
 
       const btnBackToHome = document.getElementById("btn-back-to-home");
@@ -17793,6 +17964,20 @@ var tier2501DeckCards = split8DeckCards;
         const activeCardNum = (cards[currentIndex]?.originalNum || cards[currentIndex]?.num || savedLastCard || 800);
         const syncRevision = syncRevOverride !== null ? syncRevOverride : getLocalSyncRevision();
         const updatedAt = new Date().toISOString();
+        const resolvedStreak = typeof getStoredStreak === "function"
+          ? getStoredStreak()
+          : (parseInt(localStorage.getItem("stellar_daily_streak_count") || localStorage.getItem("study_streak_count") || "1", 10) || 1);
+        const resolvedLastDate = String(localStorage.getItem("stellar_last_completed_date") || "");
+        const resolvedDailyStats = typeof loadDailyStats === "function"
+          ? loadDailyStats()
+          : (() => {
+              try {
+                const raw = localStorage.getItem("stellar_daily_stats_v1");
+                return raw ? JSON.parse(raw) : null;
+              } catch (e) {
+                return null;
+              }
+            })();
         return {
           email: targetEmail,
           syncRevision,
@@ -17801,7 +17986,9 @@ var tier2501DeckCards = split8DeckCards;
           deletedCardNums: Array.isArray(deletedCardNums) ? [...deletedCardNums] : [],
           activeDeckId: currentDeckId || "deck-800-1000",
           lastActiveCardNum: activeCardNum,
-          streakCount: parseInt(document.getElementById("flashcard-streak-count")?.textContent || "1", 10) || 1,
+          streakCount: resolvedStreak,
+          lastStudyDate: resolvedLastDate,
+          dailyStats: resolvedDailyStats,
           customShortcuts: JSON.parse(localStorage.getItem(STORAGE_KEY_EDITS) || "{}"),
           customDecks: customDecksCatalog || {},
           customSections: Array.isArray(currentSections) ? currentSections : [],
@@ -17843,6 +18030,24 @@ var tier2501DeckCards = split8DeckCards;
             if (Array.isArray(snap.deletedCardNums)) {
               deletedCardNums = [...new Set(snap.deletedCardNums)];
               localStorage.setItem(DELETED_CARDS_STORAGE_KEY, JSON.stringify(deletedCardNums));
+            }
+            if (typeof snap.streakCount === "number" && snap.streakCount > 0) {
+              const curS = Math.max(
+                parseInt(localStorage.getItem("stellar_daily_streak_count") || "0", 10) || 0,
+                parseInt(localStorage.getItem("study_streak_count") || "0", 10) || 0,
+                snap.streakCount
+              );
+              localStorage.setItem("stellar_daily_streak_count", String(curS));
+              localStorage.setItem("study_streak_count", String(curS));
+            }
+            if (typeof snap.lastStudyDate === "string" && /^\d{4}-\d{2}-\d{2}$/.test(snap.lastStudyDate)) {
+              const curD = localStorage.getItem("stellar_last_completed_date") || "";
+              if (!curD || snap.lastStudyDate > curD) {
+                localStorage.setItem("stellar_last_completed_date", snap.lastStudyDate);
+              }
+            }
+            if (snap.dailyStats && typeof snap.dailyStats === "object") {
+              localStorage.setItem("stellar_daily_stats_v1", JSON.stringify(snap.dailyStats));
             }
             if (snap.customShortcuts && typeof snap.customShortcuts === "object") {
               const filteredShortcuts = {};
@@ -17932,7 +18137,10 @@ var tier2501DeckCards = split8DeckCards;
 
         const commonLearnedBadge = document.getElementById("common-cloud-learned-badge");
         if (commonLearnedBadge) {
-          commonLearnedBadge.textContent = `${learnedCardsSet ? learnedCardsSet.size : 0} Learned`;
+          const authCounts = typeof computeAuthoritativeLearnedCount === "function"
+            ? computeAuthoritativeLearnedCount()
+            : { totalLearned: learnedCardsSet ? learnedCardsSet.size : 0 };
+          commonLearnedBadge.textContent = `${authCounts.totalLearned.toLocaleString()} Learned`;
         }
 
         const currentEmailEl = document.getElementById("cloud-sync-user-title");
@@ -18079,7 +18287,10 @@ var tier2501DeckCards = split8DeckCards;
         const commonLearnedBadge = document.getElementById("common-cloud-learned-badge");
 
         if (commonLearnedBadge) {
-          commonLearnedBadge.textContent = `${learnedCardsSet ? learnedCardsSet.size : 0} Learned`;
+          const authCounts = typeof computeAuthoritativeLearnedCount === "function"
+            ? computeAuthoritativeLearnedCount()
+            : { totalLearned: learnedCardsSet ? learnedCardsSet.size : 0 };
+          commonLearnedBadge.textContent = `${authCounts.totalLearned.toLocaleString()} Learned`;
         }
         if (desktopDot) {
           desktopDot.style.boxShadow = "0 0 12px #34d399, 0 0 4px #10b981";
@@ -18448,17 +18659,78 @@ var tier2501DeckCards = split8DeckCards;
             } catch (e) {}
           }
 
-          // 3. Streak
+          // 3. Streak & Daily Study Status Reconciliation
           const inStreak = typeof payload.streakCount === "number" ? payload.streakCount : payload.streak;
-          const curStreak = parseInt(localStorage.getItem("study_streak_count") || "0", 10) || 0;
-          const maxStreak = replaceAccountData
+          const localStreak = Math.max(
+            parseInt(localStorage.getItem("study_streak_count") || "0", 10) || 0,
+            parseInt(localStorage.getItem("stellar_daily_streak_count") || "0", 10) || 0
+          );
+          const localLastDate = String(localStorage.getItem("stellar_last_completed_date") || "");
+          const remoteLastDate = typeof payload.lastStudyDate === "string" && /^\d{4}-\d{2}-\d{2}$/.test(payload.lastStudyDate)
+            ? payload.lastStudyDate
+            : "";
+          const todayLocalKey = typeof getLocalDateKey === "function" ? getLocalDateKey() : new Date().toISOString().slice(0, 10);
+
+          let mergedLastDate = localLastDate;
+          if (remoteLastDate && (!mergedLastDate || remoteLastDate > mergedLastDate)) {
+            mergedLastDate = remoteLastDate;
+          }
+
+          let reconciledStreak = replaceAccountData
             ? (typeof inStreak === "number" && inStreak > 0 ? inStreak : 1)
-            : Math.max(curStreak, typeof inStreak === "number" ? inStreak : 0);
-          if (maxStreak > 0) {
+            : Math.max(localStreak, typeof inStreak === "number" ? inStreak : 0, 1);
+
+          if (!replaceAccountData && remoteLastDate && localLastDate && remoteLastDate !== localLastDate) {
+            reconciledStreak = remoteLastDate > localLastDate
+              ? Math.max(typeof inStreak === "number" ? inStreak : 1, localStreak)
+              : Math.max(localStreak, typeof inStreak === "number" ? inStreak : 1);
+          }
+
+          if (payload.dailyStats && typeof payload.dailyStats === "object" && payload.dailyStats.date === todayLocalKey) {
+            const curDaily = typeof loadDailyStats === "function" ? loadDailyStats() : null;
+            const localLearnedK = Array.isArray(curDaily?.learnedKeys) && curDaily.date === todayLocalKey ? curDaily.learnedKeys : [];
+            const localReviewedK = Array.isArray(curDaily?.reviewedKeys) && curDaily.date === todayLocalKey ? curDaily.reviewedKeys : [];
+            const remoteLearnedK = Array.isArray(payload.dailyStats.learnedKeys) ? payload.dailyStats.learnedKeys : [];
+            const remoteReviewedK = Array.isArray(payload.dailyStats.reviewedKeys) ? payload.dailyStats.reviewedKeys : [];
+            const mergedLearnedK = replaceAccountData
+              ? Array.from(new Set(remoteLearnedK.map(String)))
+              : Array.from(new Set([...localLearnedK.map(String), ...remoteLearnedK.map(String)]));
+            const mergedReviewedK = replaceAccountData
+              ? Array.from(new Set(remoteReviewedK.map(String)))
+              : Array.from(new Set([...localReviewedK.map(String), ...remoteReviewedK.map(String), ...mergedLearnedK]));
+            const mergedStats = {
+              date: todayLocalKey,
+              learnedKeys: mergedLearnedK.slice(-2000),
+              reviewedKeys: mergedReviewedK.slice(-2000),
+              learnedToday: Math.max(
+                mergedLearnedK.length,
+                replaceAccountData ? (Number(payload.dailyStats.learnedToday) || 0) : Math.max(Number(curDaily?.learnedToday) || 0, Number(payload.dailyStats.learnedToday) || 0)
+              ),
+              reviewedToday: Math.max(
+                mergedReviewedK.length,
+                replaceAccountData ? (Number(payload.dailyStats.reviewedToday) || 0) : Math.max(Number(curDaily?.reviewedToday) || 0, Number(payload.dailyStats.reviewedToday) || 0)
+              ),
+              updatedAt: new Date().toISOString()
+            };
+            try {
+              localStorage.setItem("stellar_daily_stats_v1", JSON.stringify(mergedStats));
+            } catch (e) {}
+            if (!mergedLastDate || todayLocalKey > mergedLastDate) {
+              mergedLastDate = todayLocalKey;
+            }
+          }
+
+          try {
+            if (mergedLastDate) localStorage.setItem("stellar_last_completed_date", mergedLastDate);
+            localStorage.setItem("study_streak_count", String(reconciledStreak));
+            localStorage.setItem("stellar_daily_streak_count", String(reconciledStreak));
+          } catch (e) {}
+
+          if (typeof updateStreakDisplays === "function") {
+            updateStreakDisplays(reconciledStreak);
+          } else {
             const streakEl = document.getElementById("flashcard-streak-count");
-            if (streakEl) streakEl.textContent = maxStreak;
-            try { localStorage.setItem("study_streak_count", String(maxStreak)); } catch (e) {}
-            if (typeof updateStreakDisplays === "function") updateStreakDisplays(maxStreak);
+            if (streakEl) streakEl.textContent = reconciledStreak;
           }
 
           // 4. Custom shortcuts & card edits
@@ -19411,32 +19683,188 @@ var tier2501DeckCards = split8DeckCards;
 
 
       // =========================================================================
-      // DAILY STREAK ENGINE & GOLD GLOW PULSE CELEBRATION
+      // DAILY STREAK & DAILY STATUS ENGINE (Local Calendar Date + Cloud Sync)
       // =========================================================================
-      const STREAK_KEY = "stellar_daily_streak_count";
-      const LAST_DATE_KEY = "stellar_last_completed_date";
+      var STREAK_KEY = "stellar_daily_streak_count";
+      var LAST_DATE_KEY = "stellar_last_completed_date";
+      var DAILY_STATS_KEY = "stellar_daily_stats_v1";
+
+      function getLocalDateKey(dateObj = new Date()) {
+        const y = dateObj.getFullYear();
+        const m = String(dateObj.getMonth() + 1).padStart(2, "0");
+        const d = String(dateObj.getDate()).padStart(2, "0");
+        return `${y}-${m}-${d}`;
+      }
+
+      function getPreviousLocalDateKey(dateObj = new Date()) {
+        return getLocalDateKey(new Date(dateObj.getFullYear(), dateObj.getMonth(), dateObj.getDate() - 1));
+      }
 
       function getStoredStreak() {
         try {
-          const val = localStorage.getItem(STREAK_KEY);
-          return val ? parseInt(val, 10) : 1;
+          const valA = parseInt(localStorage.getItem(STREAK_KEY) || "0", 10) || 0;
+          const valB = parseInt(localStorage.getItem("study_streak_count") || "0", 10) || 0;
+          const combined = Math.max(valA, valB, 1);
+          const lastDate = localStorage.getItem(LAST_DATE_KEY) || "";
+          const today = getLocalDateKey();
+          const yesterday = getPreviousLocalDateKey();
+          if (lastDate && lastDate !== today && lastDate !== yesterday) {
+            return 1;
+          }
+          return combined;
         } catch (e) {
           return 1;
         }
       }
 
-      function updateStreakDisplays(count) {
-        const dCount = document.getElementById("desktop-streak-count");
-        if (dCount) dCount.textContent = count;
-        const mCount = document.getElementById("mobile-streak-count");
-        if (mCount) mCount.textContent = count;
-        const fCount = document.getElementById("flashcard-streak-count");
-        if (fCount) fCount.textContent = count;
+      function loadDailyStats() {
+        const today = getLocalDateKey();
+        try {
+          const raw = localStorage.getItem(DAILY_STATS_KEY);
+          if (raw) {
+            const parsed = JSON.parse(raw);
+            if (parsed && parsed.date === today) {
+              return {
+                date: today,
+                learnedKeys: Array.isArray(parsed.learnedKeys) ? parsed.learnedKeys.map(String) : [],
+                reviewedKeys: Array.isArray(parsed.reviewedKeys) ? parsed.reviewedKeys.map(String) : [],
+                learnedToday: Number(parsed.learnedToday) || (Array.isArray(parsed.learnedKeys) ? parsed.learnedKeys.length : 0),
+                reviewedToday: Number(parsed.reviewedToday) || (Array.isArray(parsed.reviewedKeys) ? parsed.reviewedKeys.length : 0),
+                updatedAt: parsed.updatedAt || new Date().toISOString()
+              };
+            }
+          }
+        } catch (e) {}
+        return {
+          date: today,
+          learnedKeys: [],
+          reviewedKeys: [],
+          learnedToday: 0,
+          reviewedToday: 0,
+          updatedAt: new Date().toISOString()
+        };
       }
+
+      function saveDailyStats(statsObj) {
+        try {
+          localStorage.setItem(DAILY_STATS_KEY, JSON.stringify(statsObj));
+        } catch (e) {}
+      }
+
+      function updateStreakDisplays(count) {
+        const resolved = Math.max(1, parseInt(count || getStoredStreak() || "1", 10) || 1);
+        const dCount = document.getElementById("desktop-streak-count");
+        if (dCount) dCount.textContent = resolved;
+        const mCount = document.getElementById("mobile-streak-count");
+        if (mCount) mCount.textContent = resolved;
+        const fCount = document.getElementById("flashcard-streak-count");
+        if (fCount) fCount.textContent = resolved;
+
+        const stats = loadDailyStats();
+        const learnedToday = Math.max(stats.learnedKeys.length, stats.learnedToday || 0);
+        const reviewedToday = Math.max(stats.reviewedKeys.length, stats.reviewedToday || 0);
+
+        const homeDailyEl = document.getElementById("home-daily-status-text");
+        if (homeDailyEl) {
+          if (learnedToday > 0 || reviewedToday > 0) {
+            homeDailyEl.textContent = `🔥 Today: ${learnedToday} learned · ${reviewedToday} studied`;
+          } else {
+            homeDailyEl.textContent = `🔥 ${resolved}-day streak · Study 1 card to log today`;
+          }
+        }
+        const drawerDailyEl = document.getElementById("drawer-daily-status-text");
+        if (drawerDailyEl) {
+          drawerDailyEl.textContent = `🔥 ${resolved}d streak · Today: ${learnedToday} learned / ${reviewedToday} studied`;
+        }
+      }
+
+      let _dailyActivitySyncTimer = null;
+      function recordDailyStudyActivity(action = "review", keyOrKeys = null) {
+        const today = getLocalDateKey();
+        const yesterday = getPreviousLocalDateKey();
+        const stats = loadDailyStats();
+        const learnedSet = new Set(stats.learnedKeys.map(String));
+        const reviewedSet = new Set(stats.reviewedKeys.map(String));
+
+        const keysList = Array.isArray(keyOrKeys)
+          ? keyOrKeys.filter((k) => k !== null && k !== undefined && k !== "").map(String)
+          : (keyOrKeys !== null && keyOrKeys !== undefined && keyOrKeys !== "" ? [String(keyOrKeys)] : []);
+
+        if (action === "learn") {
+          keysList.forEach((k) => {
+            learnedSet.add(k);
+            reviewedSet.add(k);
+          });
+        } else if (action === "unlearn") {
+          keysList.forEach((k) => learnedSet.delete(k));
+        } else {
+          keysList.forEach((k) => reviewedSet.add(k));
+        }
+
+        stats.date = today;
+        stats.learnedKeys = [...learnedSet].slice(-2000);
+        stats.reviewedKeys = [...reviewedSet].slice(-2000);
+        stats.learnedToday = stats.learnedKeys.length;
+        stats.reviewedToday = stats.reviewedKeys.length;
+        stats.updatedAt = new Date().toISOString();
+        saveDailyStats(stats);
+
+        let lastDate = "";
+        let curStreak = Math.max(
+          parseInt(localStorage.getItem(STREAK_KEY) || "0", 10) || 0,
+          parseInt(localStorage.getItem("study_streak_count") || "0", 10) || 0
+        );
+        try {
+          lastDate = localStorage.getItem(LAST_DATE_KEY) || "";
+        } catch (e) {}
+
+        let streakAdvanced = false;
+        if (action !== "unlearn") {
+          if (!lastDate) {
+            curStreak = Math.max(1, curStreak);
+            streakAdvanced = true;
+          } else if (lastDate === yesterday) {
+            curStreak = Math.max(1, curStreak) + 1;
+            streakAdvanced = true;
+          } else if (lastDate !== today) {
+            curStreak = 1;
+          } else {
+            curStreak = Math.max(1, curStreak);
+          }
+
+          try {
+            localStorage.setItem(STREAK_KEY, String(curStreak));
+            localStorage.setItem("study_streak_count", String(curStreak));
+            localStorage.setItem(LAST_DATE_KEY, today);
+          } catch (e) {}
+        }
+
+        updateStreakDisplays(Math.max(1, curStreak));
+
+        if (streakAdvanced && lastDate === yesterday) {
+          triggerDailyStreakCelebration(false, true);
+        }
+
+        if (action === "flip" || action === "review") {
+          if (typeof recordLocalMutationRevisionOnly === "function") {
+            recordLocalMutationRevisionOnly();
+          }
+          clearTimeout(_dailyActivitySyncTimer);
+          _dailyActivitySyncTimer = setTimeout(() => {
+            if (typeof syncCurrentStateToDeviceCloud === "function") {
+              syncCurrentStateToDeviceCloud(false, "", false);
+            }
+          }, 900);
+        }
+      }
+      window.getLocalDateKey = getLocalDateKey;
+      window.getStoredStreak = getStoredStreak;
+      window.loadDailyStats = loadDailyStats;
+      window.updateStreakDisplays = updateStreakDisplays;
+      window.recordDailyStudyActivity = recordDailyStudyActivity;
 
       function createGoldParticles(badgeEl) {
         if (!badgeEl) return;
-        const rect = badgeEl.getBoundingClientRect();
         const count = 12;
         for (let i = 0; i < count; i++) {
           const spark = document.createElement("div");
@@ -19491,26 +19919,30 @@ var tier2501DeckCards = split8DeckCards;
       }
 
       // Main Trigger for Daily Session Completion with Gold Glow Pulse
-      function triggerDailyStreakCelebration(forceCelebration = false) {
+      function triggerDailyStreakCelebration(forceCelebration = false, skipIncrement = false) {
         let streak = getStoredStreak();
-        const today = new Date().toISOString().slice(0, 10);
+        const today = getLocalDateKey();
+        const yesterday = getPreviousLocalDateKey();
         let lastDate = "";
         try {
           lastDate = localStorage.getItem(LAST_DATE_KEY) || "";
         } catch (e) {}
 
-        let isNewDay = lastDate !== today;
-        if (isNewDay || forceCelebration) {
-          if (isNewDay && !forceCelebration) {
-            streak += 1;
-            try {
-              localStorage.setItem(STREAK_KEY, streak.toString());
-              localStorage.setItem(LAST_DATE_KEY, today);
-            } catch (e) {}
+        const isNewDay = lastDate !== today;
+        if (!skipIncrement && isNewDay && !forceCelebration) {
+          streak = lastDate === yesterday ? streak + 1 : Math.max(1, streak);
+          try {
+            localStorage.setItem(STREAK_KEY, streak.toString());
+            localStorage.setItem("study_streak_count", streak.toString());
+            localStorage.setItem(LAST_DATE_KEY, today);
+          } catch (e) {}
+          if (typeof commitLocalStateImmediately === "function") {
+            commitLocalStateImmediately(false);
           }
         }
 
         updateStreakDisplays(streak);
+        const stats = loadDailyStats();
 
         // Find all streak badges and apply the pulsating gold glow effect
         const streakBadges = [
@@ -19538,9 +19970,13 @@ var tier2501DeckCards = split8DeckCards;
           setTimeout(() => playHapticTick(900, "sine", 0.1), 160);
         }
 
-        // Motivational toast
+        // Motivational toast with live today counts
         if (typeof showToast === "function") {
-          showToast(`🔥 Daily Session Completed! ${streak} Day Streak!`);
+          if (forceCelebration) {
+            showToast(`🔥 ${streak} Day Streak · Today: ${stats.learnedToday} learned · ${stats.reviewedToday} studied`);
+          } else {
+            showToast(`🔥 Daily Streak Updated! ${streak} Day Streak!`);
+          }
         }
       }
 
@@ -19550,7 +19986,7 @@ var tier2501DeckCards = split8DeckCards;
       // Initialize displays on load
       updateStreakDisplays(getStoredStreak());
 
-      // Wire click interactions to streak badges for tactile feedback
+      // Wire click interactions to streak badges for tactile feedback & daily status summary
       [
         document.getElementById("desktop-streak-badge"),
         document.getElementById("mobile-streak-badge"),
@@ -19565,7 +20001,7 @@ var tier2501DeckCards = split8DeckCards;
 
 
       // =========================================================================
-      // UNIFIED SINGLE-HEADER ROUTING (NO DUPLICATE HEADERS)
+      // UNIFIED SINGLE-HEADER ROUTING & STEP-BY-STEP BACK NAVIGATION ENGINE
       // =========================================================================
       (function() {
         const desktopBackBtn = document.getElementById("desktop-back-btn");
@@ -19581,51 +20017,325 @@ var tier2501DeckCards = split8DeckCards;
             if (desktopBackBtn) desktopBackBtn.style.setProperty("display", "inline-flex", "important");
             if (mobileBackBtn) mobileBackBtn.style.setProperty("display", "flex", "important");
             if (mobileHamBtn) mobileHamBtn.style.setProperty("display", "none", "important");
-            if (mobileTitle) mobileTitle.textContent = "3k Vocabulary";
+            if (mobileTitle) mobileTitle.textContent = window.innerWidth < 480 ? "3k Vocab" : "3k Vocabulary";
             if (breadcrumbEl) breadcrumbEl.textContent = "3k Vocabulary";
-          } else {
+          } else if (screenId === "screen-home") {
             document.body.classList.add("home-view-active");
             document.body.classList.remove("subsections-active");
             if (desktopBackBtn) desktopBackBtn.style.setProperty("display", "none", "important");
             if (mobileBackBtn) mobileBackBtn.style.setProperty("display", "none", "important");
             if (mobileHamBtn) mobileHamBtn.style.setProperty("display", "flex", "important");
             if (mobileTitle) mobileTitle.textContent = "stellar";
-            if (breadcrumbEl && screenId === "screen-home") {
+            if (breadcrumbEl) {
               breadcrumbEl.textContent = "Dashboard · Choose Your Learning Path";
             }
           }
         }
 
+        window.addEventListener("resize", () => {
+          const subScreen = document.getElementById("screen-subsections");
+          if (subScreen && subScreen.classList.contains("active-screen") && mobileTitle) {
+            mobileTitle.textContent = window.innerWidth < 480 ? "3k Vocab" : "3k Vocabulary";
+          }
+        });
+
+        function getActiveScreenId() {
+          const el = document.querySelector(".app-screen.active-screen");
+          return el ? el.id : "screen-home";
+        }
+
+        function isElemOpen(el) {
+          if (!el) return false;
+          if (el.classList.contains("open") || el.classList.contains("active")) return true;
+          return el.style && el.style.display === "flex";
+        }
+
+        function closeTopOverlayIfAny() {
+          // 1. Inline flashcard confirmation bars
+          const delBar = document.getElementById("card-delete-confirm-bar");
+          const rstBar = document.getElementById("card-section-reset-bar");
+          if (
+            (delBar && delBar.style.display !== "none" && delBar.style.display !== "") ||
+            (rstBar && rstBar.style.display !== "none" && rstBar.style.display !== "")
+          ) {
+            if (typeof hideCardInlineConfirmBars === "function") hideCardInlineConfirmBars();
+            return "inline-confirm";
+          }
+
+          // 2. Global search modal
+          const searchModal = document.getElementById("global-search-modal");
+          if (searchModal && searchModal.style.display === "flex") {
+            const closeBtn = document.getElementById("global-search-close-btn");
+            if (closeBtn) closeBtn.click();
+            else searchModal.style.display = "none";
+            return "global-search-modal";
+          }
+
+          // 3. Long-press deck reel overlay
+          const reelEl = document.getElementById("deck-reel-overlay");
+          if ((typeof isDeckReelOpen !== "undefined" && isDeckReelOpen) || isElemOpen(reelEl)) {
+            if (typeof closeDeckReel === "function") closeDeckReel(null);
+            else if (reelEl) {
+              reelEl.classList.remove("active");
+              reelEl.style.display = "none";
+            }
+            return "deck-reel-overlay";
+          }
+
+          // 4. Section grid modal
+          const gridModal = document.getElementById("section-grid-modal");
+          if (isElemOpen(gridModal)) {
+            if (typeof closeSectionGridModal === "function") closeSectionGridModal();
+            else gridModal.classList.remove("open");
+            return "section-grid-modal";
+          }
+
+          // 5. Edit card modal
+          const editModalEl = document.getElementById("edit-modal");
+          if (isElemOpen(editModalEl)) {
+            if (typeof closeEditModal === "function") closeEditModal();
+            else editModalEl.classList.remove("open");
+            return "edit-modal";
+          }
+
+          // 6. Edit / Add section / Upload deck modals
+          const editSecEl = document.getElementById("modal-edit-section");
+          if (isElemOpen(editSecEl)) {
+            if (typeof closeEditSectionModal === "function") closeEditSectionModal();
+            else { editSecEl.classList.remove("open", "active"); editSecEl.style.display = "none"; }
+            return "modal-edit-section";
+          }
+          const addSecEl = document.getElementById("modal-add-section");
+          if (isElemOpen(addSecEl)) {
+            if (typeof closeAddSectionModal === "function") closeAddSectionModal();
+            else { addSecEl.classList.remove("open", "active"); addSecEl.style.display = "none"; }
+            return "modal-add-section";
+          }
+          const uploadEl = document.getElementById("modal-upload-deck");
+          if (isElemOpen(uploadEl)) {
+            const closeUpload = document.getElementById("btn-close-upload-modal");
+            if (closeUpload) closeUpload.click();
+            else { uploadEl.classList.remove("open", "active"); uploadEl.style.display = "none"; }
+            return "modal-upload-deck";
+          }
+
+          // 7. Cloud sync login modal
+          const cloudModalEl = document.getElementById("modal-cloud-sync-login");
+          if (isElemOpen(cloudModalEl)) {
+            if (typeof closeCloudSyncModal === "function") closeCloudSyncModal();
+            else { cloudModalEl.classList.remove("open", "active"); cloudModalEl.style.display = "none"; }
+            return "modal-cloud-sync-login";
+          }
+
+          // 8. Drawers (Settings & Mobile nav)
+          const settingsDrawer = document.getElementById("app-menu-drawer");
+          if (isElemOpen(settingsDrawer)) {
+            if (typeof closeMenuDrawer === "function") closeMenuDrawer();
+            else settingsDrawer.classList.remove("open");
+            return "app-menu-drawer";
+          }
+          const mobDrawer = document.getElementById("mobile-nav-drawer");
+          if (isElemOpen(mobDrawer)) {
+            if (typeof closeMobileNavDrawer === "function") closeMobileNavDrawer();
+            else mobDrawer.classList.remove("open");
+            return "mobile-nav-drawer";
+          }
+
+          return null;
+        }
+
+        function computeUiDepth() {
+          let depth = 0;
+          const active = getActiveScreenId();
+          if (active === "screen-subsections") {
+            depth = (typeof currentVocabRangeFilter === "string" && currentVocabRangeFilter !== "hub") ? 2 : 1;
+          } else if (active === "screen-flashcard") {
+            depth = 3;
+          }
+          return depth;
+        }
+
+        let isRestoringFromHistory = false;
+        let guardArmed = false;
+        let exitConfirmUntil = 0;
+
+        function pushStep(tag) {
+          if (isRestoringFromHistory || !window.history || typeof window.history.pushState !== "function") return;
+          try {
+            window.history.pushState(
+              { __stellarNav: true, tag, screen: getActiveScreenId(), range: typeof currentVocabRangeFilter === "string" ? currentVocabRangeFilter : "hub", ts: Date.now() },
+              ""
+            );
+            guardArmed = true;
+          } catch (e) {}
+        }
+
+        function armHistoryGuard() {
+          if (guardArmed || !window.history || typeof window.history.pushState !== "function") return;
+          try {
+            window.history.replaceState({ __stellarBase: true }, "");
+            window.history.pushState({ __stellarNav: true, tag: "root-guard", screen: getActiveScreenId(), range: "hub", ts: Date.now() }, "");
+            guardArmed = true;
+          } catch (e) {}
+        }
+
+        function stepBackOneLevel(fromPopstate = false) {
+          isRestoringFromHistory = true;
+          try {
+            const closedOverlay = closeTopOverlayIfAny();
+            if (closedOverlay) {
+              if (fromPopstate && (!window.history.state || window.history.state.__stellarBase)) {
+                try {
+                  window.history.pushState({ __stellarNav: true, tag: "rearm-after-overlay", screen: getActiveScreenId() }, "");
+                } catch (e) {}
+              }
+              return true;
+            }
+
+            const activeScreen = getActiveScreenId();
+            if (activeScreen === "screen-flashcard") {
+              if (typeof window.switchScreen === "function") {
+                window.switchScreen("screen-subsections", { fromHistory: true });
+              }
+              if (typeof updateSubsectionsUI === "function") updateSubsectionsUI();
+              if (fromPopstate && (!window.history.state || window.history.state.__stellarBase)) {
+                try {
+                  window.history.pushState({ __stellarNav: true, tag: "rearm-subsections", screen: "screen-subsections" }, "");
+                } catch (e) {}
+              }
+              return true;
+            }
+
+            if (activeScreen === "screen-subsections") {
+              if (typeof currentVocabRangeFilter === "string" && currentVocabRangeFilter !== "hub") {
+                applyVocabRangeFilter("hub");
+                if (typeof updateSubsectionsUI === "function") updateSubsectionsUI();
+                if (typeof scrollActiveScreenTop === "function") scrollActiveScreenTop();
+                if (fromPopstate && (!window.history.state || window.history.state.__stellarBase)) {
+                  try {
+                    window.history.pushState({ __stellarNav: true, tag: "rearm-hub", screen: "screen-subsections", range: "hub" }, "");
+                  } catch (e) {}
+                }
+                return true;
+              }
+              if (typeof window.switchScreen === "function") {
+                window.switchScreen("screen-home", { fromHistory: true });
+              }
+              if (fromPopstate && (!window.history.state || window.history.state.__stellarBase)) {
+                try {
+                  window.history.pushState({ __stellarNav: true, tag: "rearm-home", screen: "screen-home" }, "");
+                } catch (e) {}
+              }
+              return true;
+            }
+
+            // Already at Home with no overlays open: arm double-back confirmation guard
+            if (fromPopstate) {
+              const now = Date.now();
+              if (now > exitConfirmUntil) {
+                exitConfirmUntil = now + 2200;
+                try {
+                  window.history.pushState({ __stellarNav: true, tag: "exit-guard", screen: "screen-home" }, "");
+                } catch (e) {}
+                if (typeof showToast === "function") {
+                  showToast("Press Back again to exit app");
+                }
+                return true;
+              }
+            }
+            return false;
+          } finally {
+            setTimeout(() => { isRestoringFromHistory = false; }, 0);
+          }
+        }
+
+        // Watch all overlays/drawers so ANY trigger (click, shortcut, programmatic) pushes a 1-step history entry
+        const watchedOverlayIds = [
+          "mobile-nav-drawer",
+          "app-menu-drawer",
+          "global-search-modal",
+          "section-grid-modal",
+          "deck-reel-overlay",
+          "edit-modal",
+          "modal-upload-deck",
+          "modal-add-section",
+          "modal-edit-section",
+          "modal-cloud-sync-login"
+        ];
+        const overlayOpenState = {};
+        if (typeof MutationObserver !== "undefined") {
+          const obs = new MutationObserver((mutations) => {
+            if (isRestoringFromHistory) return;
+            for (const m of mutations) {
+              const el = m.target;
+              if (!el || !el.id) continue;
+              const wasOpen = Boolean(overlayOpenState[el.id]);
+              const nowOpen = isElemOpen(el);
+              if (nowOpen !== wasOpen) {
+                overlayOpenState[el.id] = nowOpen;
+                if (nowOpen) {
+                  armHistoryGuard();
+                  pushStep(`overlay:${el.id}`);
+                }
+              }
+            }
+          });
+          watchedOverlayIds.forEach((id) => {
+            const el = document.getElementById(id);
+            if (el) {
+              overlayOpenState[id] = isElemOpen(el);
+              obs.observe(el, { attributes: true, attributeFilter: ["class", "style"] });
+            }
+          });
+        }
+
+        try {
+          if (window.history && !window.history.state) {
+            window.history.replaceState({ __stellarBase: true }, "");
+          }
+        } catch (e) {}
+
+        window.addEventListener("pointerdown", () => armHistoryGuard(), { once: true, passive: true });
+        window.addEventListener("keydown", () => armHistoryGuard(), { once: true });
+
+        window.addEventListener("popstate", () => {
+          stepBackOneLevel(true);
+        });
+
+        window.__stellarNav = {
+          armGuard: armHistoryGuard,
+          pushStep,
+          onScreenEntered(screenId) {
+            armHistoryGuard();
+            pushStep(`screen:${screenId}`);
+          },
+          onRangeEntered(rangeVal) {
+            if (rangeVal && rangeVal !== "hub") {
+              armHistoryGuard();
+              pushStep(`range:${rangeVal}`);
+            }
+          },
+          stepBack() {
+            return stepBackOneLevel(false);
+          }
+        };
+
         if (desktopBackBtn) {
           desktopBackBtn.addEventListener("click", () => {
-            const subScreen = document.getElementById("screen-subsections");
-            if (subScreen && subScreen.classList.contains("active-screen") && typeof currentVocabRangeFilter === "string" && currentVocabRangeFilter !== "hub") {
-              applyVocabRangeFilter("hub");
-              updateSubsectionsUI();
-              window.scrollTo({ top: 0, behavior: "smooth" });
-              return;
-            }
-            if (typeof switchScreen === "function") switchScreen("screen-home");
+            stepBackOneLevel(false);
           });
         }
         if (mobileBackBtn) {
           mobileBackBtn.addEventListener("click", () => {
-            const subScreen = document.getElementById("screen-subsections");
-            if (subScreen && subScreen.classList.contains("active-screen") && typeof currentVocabRangeFilter === "string" && currentVocabRangeFilter !== "hub") {
-              applyVocabRangeFilter("hub");
-              updateSubsectionsUI();
-              window.scrollTo({ top: 0, behavior: "smooth" });
-              return;
-            }
-            if (typeof switchScreen === "function") switchScreen("screen-home");
+            stepBackOneLevel(false);
           });
         }
 
-        // Intercept switchScreen calls to update the unified header
+        // Intercept switchScreen calls to update the unified header & push history cleanly
         const originalSwitchScreen = window.switchScreen;
-        window.switchScreen = function(screenId) {
+        window.switchScreen = function(screenId, navOptions = {}) {
           if (typeof originalSwitchScreen === "function") {
-            originalSwitchScreen(screenId);
+            originalSwitchScreen(screenId, navOptions);
           }
           handleScreenHeaderUpdate(screenId);
         };
@@ -20190,9 +20900,13 @@ var tier2501DeckCards = split8DeckCards;
           rangeTabsContainer.querySelectorAll(".vocab-range-tab").forEach(tab => {
             tab.addEventListener("click", () => {
               const r = tab.getAttribute("data-range-filter") || "1-1000";
+              const wasHub = typeof currentVocabRangeFilter === "string" && currentVocabRangeFilter === "hub";
               applyVocabRangeFilter(r);
               updateSubsectionsUI();
-              window.scrollTo({ top: 0, behavior: "smooth" });
+              if (wasHub && r !== "hub" && window.__stellarNav && typeof window.__stellarNav.onRangeEntered === "function") {
+                window.__stellarNav.onRangeEntered(r);
+              }
+              if (typeof scrollActiveScreenTop === "function") scrollActiveScreenTop();
               if (typeof playHapticTick === "function") playHapticTick(520, "sine", 0.03);
             });
           });
@@ -20204,7 +20918,10 @@ var tier2501DeckCards = split8DeckCards;
               const rng = card.getAttribute("data-open-range") || "1-1000";
               applyVocabRangeFilter(rng);
               updateSubsectionsUI();
-              window.scrollTo({ top: 0, behavior: "smooth" });
+              if (window.__stellarNav && typeof window.__stellarNav.onRangeEntered === "function") {
+                window.__stellarNav.onRangeEntered(rng);
+              }
+              if (typeof scrollActiveScreenTop === "function") scrollActiveScreenTop();
               if (typeof playHapticTick === "function") playHapticTick(560, "sine", 0.035);
             });
           });
@@ -20214,7 +20931,7 @@ var tier2501DeckCards = split8DeckCards;
           btnBackTo3kHub.addEventListener("click", () => {
             applyVocabRangeFilter("hub");
             updateSubsectionsUI();
-            window.scrollTo({ top: 0, behavior: "smooth" });
+            if (typeof scrollActiveScreenTop === "function") scrollActiveScreenTop();
             if (typeof playHapticTick === "function") playHapticTick(480, "sine", 0.03);
           });
         }
@@ -20881,6 +21598,130 @@ var tier2501DeckCards = split8DeckCards;
           }
         });
       }
+
+      // =========================================================================
+      // PWA SERVICE WORKER, APP INSTALL PROMPT & FULLSCREEN DISPLAY CONTROLLER
+      // =========================================================================
+      (function initPwaAndFullscreenController() {
+        let deferredInstallPrompt = null;
+        const isStandalone = Boolean(
+          (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches) ||
+          window.navigator.standalone === true
+        );
+        const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent || "") && !window.MSStream;
+
+        if ("serviceWorker" in navigator) {
+          window.addEventListener("load", () => {
+            navigator.serviceWorker.register("/sw.js").catch(() => {});
+          });
+        }
+
+        const mobInstallBtn = document.getElementById("mob-drawer-install-app");
+        const settingsInstallBtn = document.getElementById("btn-settings-install-app");
+        const mobFsBtn = document.getElementById("mob-drawer-fullscreen");
+        const mobFsLabel = document.getElementById("mob-drawer-fullscreen-label");
+        const settingsFsBtn = document.getElementById("btn-settings-fullscreen");
+        const settingsFsLabel = document.getElementById("btn-settings-fullscreen-label");
+        const displayStatusSub = document.getElementById("pwa-display-status-sub");
+
+        function updateDisplayAndInstallUI() {
+          const inFullscreen = Boolean(document.fullscreenElement || document.webkitFullscreenElement);
+          if (mobFsLabel) mobFsLabel.textContent = inFullscreen ? "Exit Fullscreen" : "Fullscreen Mode";
+          if (settingsFsLabel) settingsFsLabel.textContent = inFullscreen ? "⛶ Exit Fullscreen" : "⛶ Fullscreen";
+          if (displayStatusSub) {
+            if (isStandalone) {
+              displayStatusSub.textContent = "Running as installed app (no URL bar)";
+            } else if (inFullscreen) {
+              displayStatusSub.textContent = "Fullscreen active (browser URL bar hidden)";
+            } else {
+              displayStatusSub.textContent = "Hide browser bar with Fullscreen or Install App";
+            }
+          }
+
+          if (isStandalone) {
+            if (mobInstallBtn) mobInstallBtn.style.display = "none";
+            if (settingsInstallBtn) settingsInstallBtn.style.display = "none";
+          } else if (deferredInstallPrompt || isIos) {
+            if (mobInstallBtn) mobInstallBtn.style.display = "flex";
+            if (settingsInstallBtn) settingsInstallBtn.style.display = "inline-flex";
+          }
+        }
+
+        async function triggerInstallApp() {
+          if (typeof closeMobileNavDrawer === "function") closeMobileNavDrawer();
+          if (typeof closeMenuDrawer === "function") closeMenuDrawer();
+
+          if (deferredInstallPrompt) {
+            try {
+              deferredInstallPrompt.prompt();
+              const choice = await deferredInstallPrompt.userChoice;
+              deferredInstallPrompt = null;
+              updateDisplayAndInstallUI();
+              if (choice && choice.outcome === "accepted" && typeof showToast === "function") {
+                showToast("App installed! Launch from home screen for full-screen view.");
+              }
+            } catch (e) {}
+          } else if (isIos) {
+            if (typeof showToast === "function") {
+              showToast("Tap Safari Share button ↑ then 'Add to Home Screen' to hide URL bar.");
+            }
+          } else if (typeof showToast === "function") {
+            showToast("Use browser menu (⋮) → 'Install app' or 'Add to Home screen'.");
+          }
+        }
+
+        async function toggleAppFullscreen() {
+          if (typeof closeMobileNavDrawer === "function") closeMobileNavDrawer();
+          if (typeof closeMenuDrawer === "function") closeMenuDrawer();
+          try {
+            const fsEl = document.fullscreenElement || document.webkitFullscreenElement;
+            if (!fsEl) {
+              const root = document.documentElement;
+              if (root.requestFullscreen) {
+                await root.requestFullscreen({ navigationUI: "hide" }).catch(() => root.requestFullscreen());
+              } else if (root.webkitRequestFullscreen) {
+                root.webkitRequestFullscreen();
+              } else {
+                if (typeof showToast === "function") {
+                  showToast("Install App (Add to Home Screen) to remove URL bar cleanly.");
+                }
+                return;
+              }
+            } else {
+              if (document.exitFullscreen) await document.exitFullscreen();
+              else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+            }
+          } catch (err) {
+            if (typeof showToast === "function") {
+              showToast("Tap 'Install App' or Add to Home Screen to remove the browser bar.");
+            }
+          } finally {
+            updateDisplayAndInstallUI();
+          }
+        }
+
+        window.addEventListener("beforeinstallprompt", (e) => {
+          e.preventDefault();
+          deferredInstallPrompt = e;
+          updateDisplayAndInstallUI();
+        });
+
+        window.addEventListener("appinstalled", () => {
+          deferredInstallPrompt = null;
+          if (typeof showToast === "function") showToast("Stellar installed! Open from Home Screen.");
+          updateDisplayAndInstallUI();
+        });
+
+        document.addEventListener("fullscreenchange", updateDisplayAndInstallUI);
+        document.addEventListener("webkitfullscreenchange", updateDisplayAndInstallUI);
+
+        if (mobInstallBtn) mobInstallBtn.addEventListener("click", triggerInstallApp);
+        if (settingsInstallBtn) settingsInstallBtn.addEventListener("click", triggerInstallApp);
+        if (mobFsBtn) mobFsBtn.addEventListener("click", toggleAppFullscreen);
+        if (settingsFsBtn) settingsFsBtn.addEventListener("click", toggleAppFullscreen);
+
+        updateDisplayAndInstallUI();
+      })();
 
       if (document.readyState === "loading") {
         document.addEventListener("DOMContentLoaded", () => {

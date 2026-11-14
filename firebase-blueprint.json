@@ -31,6 +31,10 @@
           "type": "string",
           "maxLength": 64
         },
+        "dailyStats": {
+          "type": "object",
+          "description": "Daily study status including date, learnedToday, and reviewedToday counts"
+        },
         "learnedCardNums": {
           "type": "array",
           "description": "List of learned card numbers"
