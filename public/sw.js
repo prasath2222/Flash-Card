@@ -1,4 +1,4 @@
-const CACHE_NAME = 'stellar-flashcards-v1';
+const CACHE_NAME = 'stellar-flashcards-v3';
 
 self.addEventListener('install', (event) => {
   self.skipWaiting();

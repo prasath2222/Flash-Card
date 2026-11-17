@@ -19,10 +19,10 @@
     "updatedAt": "2026-03-01T00:00:00.000Z"
   },
   "73801410b67c7ba66a922cc3105f74f279ec21460127d1f8645136a22bffcee3": {
-    "syncRevision": 4493,
-    "updatedAt": "2026-11-15T16:58:25.854Z",
+    "syncRevision": 4614,
+    "updatedAt": "2026-11-16T18:33:40.033Z",
     "payload": {
-      "syncRevision": 4493,
+      "syncRevision": 4614,
       "isExplicitUserAction": true,
       "learnedCardNums": [
         801,
@@ -805,7 +805,10 @@
         1366,
         1367,
         1368,
-        1370
+        1370,
+        1365,
+        1094,
+        1095
       ],
       "learnedCards": [
         801,
@@ -1588,7 +1591,10 @@
         1366,
         1367,
         1368,
-        1370
+        1370,
+        1365,
+        1094,
+        1095
       ],
       "deletedCardNums": [
         807,
@@ -1782,46 +1788,43 @@
         1810,
         "t1801_1810"
       ],
-      "activeDeckId": "deck-1001-1500",
-      "lastActiveCardNum": 822,
-      "lastCard": 822,
-      "streakCount": 1,
-      "streak": 1,
-      "lastStudyDate": "2026-11-15",
+      "activeDeckId": "deck-1501-2000",
+      "lastActiveCardNum": 1096,
+      "lastCard": 1096,
+      "streakCount": 3,
+      "streak": 3,
+      "lastStudyDate": "2026-11-17",
       "dailyStats": {
-        "date": "2026-11-15",
-        "learnedKeys": [],
-        "reviewedKeys": [
-          "1363",
-          "1263",
-          "1264",
-          "1364",
-          "1365"
-        ],
         "learnedToday": 0,
-        "reviewedToday": 5,
-        "updatedAt": "2026-11-15T16:57:08.730Z"
+        "learnedKeys": [],
+        "reviewedToday": 2,
+        "date": "2026-11-17",
+        "reviewedKeys": [
+          "1095",
+          "1096"
+        ],
+        "updatedAt": "2026-11-16T18:33:07.432Z"
       },
       "customShortcuts": {},
       "customDecks": {},
       "customSections": [],
       "audioPrefs": {
+        "bgmVolume": 0.25,
         "transcribeSilenceDelay": 1500,
-        "bgmMode": "lofi",
-        "repeatCount": 1,
-        "autoPronounceFlip": false,
-        "bgmVolume": 1,
         "voicePitch": 1,
-        "sfxVolume": 1,
+        "sfxStyle": "snap",
+        "voiceRate": 0.8,
+        "autoPronounceNext": false,
+        "bgmEnabled": false,
+        "autoPronounceFlip": false,
+        "transcribeContinuous": true,
         "voiceVolume": 1,
         "repeatDelay": 1000,
-        "autoPronounceNext": false,
-        "bgmEnabled": true,
-        "voiceRate": 0.8,
-        "sfxStyle": "mute",
-        "transcribeContinuous": true
+        "repeatCount": 1,
+        "sfxVolume": 1,
+        "bgmMode": "lofi"
       },
-      "updatedAt": "2026-11-15T16:58:25.854Z"
+      "updatedAt": "2026-11-16T18:33:40.033Z"
     }
   },
   "d35d4d4b85f6d4564904fd6193f6fcd0b68dc077bc6b71ff1c6eb03177edabaa": {
